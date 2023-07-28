@@ -1,0 +1,40 @@
+/******************************************************************************\
+|                                                                              |
+|                              dark-item-pages.less                            |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+body:not(.binary).dark {
+	.pages {
+	
+		.main-carousel {
+
+			//
+			// dark selected items
+			//
+
+			.item.selected {
+
+				.icon {
+					background-color: @dark-icon-selected-background-color;
+					border-color: @dark-icon-selected-border-color;
+				}
+
+				.details {
+					background-color: @dark-select-color;
+				}
+			}
+		}
+	}
+}

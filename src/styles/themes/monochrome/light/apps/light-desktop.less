@@ -1,0 +1,52 @@
+/******************************************************************************\
+|                                                                              |
+|                             light-desktop.less                               |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// light desktop colors
+//
+
+@light-desktop-footer-bar-color: white;
+@light-run-menu-color: @light-grey;
+@light-run-menu-text-color: white;
+
+//
+// light desktop styles
+//
+
+body:not(.binary).monochrome {
+
+	#desktop.light {
+		.desktop.app > .footer-bar {
+			
+			//
+			// light desktop run menus
+			//
+
+			.run-menu .menu-bar {
+				.dropdown-toggle {
+					color: @light-run-menu-text-color;
+					background-color: @light-run-menu-color;
+					border-color: @light-run-menu-color;
+
+					i {
+						color: @light-run-menu-text-color;
+					}
+				}
+			}
+		}
+	}
+}

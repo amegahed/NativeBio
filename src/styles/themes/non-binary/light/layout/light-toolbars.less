@@ -1,0 +1,100 @@
+/******************************************************************************\
+|                                                                              |
+|                              light-toolbars.less                             |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the SVG DOM element styles for this application.         |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// light toolbar colors
+//
+
+@light-toolbar-color: @light-grey;
+@light-toolbar-background-color: @light-app-background-color;
+@light-toolbar-border-color: @light-app-border-color;
+
+// light toolbar handle images
+//
+@light-grip-horizontal-image: url('../../../../images/splitters/light-horizontal-grip.png');
+@light-grip-vertical-image: url('../../../../images/splitters/light-vertical-grip.png');
+
+//
+// light toolbar styles
+//
+
+body:not(.binary).light {
+	.toolbar {
+		background-color: @light-toolbar-background-color;
+		border-color: @light-toolbar-border-color !important;
+
+		//
+		// toolbar handles
+		//
+
+		.handle {
+			background-color: @light-toolbar-background-color;;
+		}
+
+		//
+		// toolbar controls
+		//
+
+		.controls, .tools {
+			background-color: @light-toolbar-background-color;
+			border-color: @light-toolbar-border-color;
+		}
+
+		.controls, .tools, .button {
+			i {
+				color: @light-toolbar-color;
+			}
+
+			svg {
+				fill: @light-toolbar-color;
+			}
+		}
+
+		//
+		// toolbar button groups
+		//
+
+		.tool-group {
+			.tools {
+				background-color: @light-toolbar-background-color;
+				border-color: @light-toolbar-border-color;
+
+				> div {
+					&:first-child {
+						border-color: @light-app-border-color;
+					}
+				}
+			}
+		}
+
+		//
+		// handles
+		//
+
+		&.horizontal {
+			.handle {
+				background-image: @light-grip-horizontal-image;
+			}
+		}
+
+		&.vertical {
+			.handle {
+				background-image: @light-grip-vertical-image;
+			}
+		}
+	}
+}

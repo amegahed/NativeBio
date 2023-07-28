@@ -1,0 +1,82 @@
+/******************************************************************************\
+|                                                                              |
+|                             light-menu-bars.less                             |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the SVG DOM element styles for this application.         |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+@light-transparent-menu-bar-item-color: fade(@medium-grey, 25%);
+
+//
+// light menu bar styles
+//
+
+body:not(.binary).light {
+	.menu-bar {
+	
+		> ul.nav-menus {
+
+			> li {
+				> a {
+					color: @light-menu-text-color;
+					background: none;
+
+					> i {
+						color: @light-menu-icon-color;
+					}
+				}
+			}
+
+			//
+			// disabled menu bar items
+			//
+
+			> li.disabled {
+				a {
+					color: @light-menu-disabled-text-color;
+					background: none;
+
+					> i {
+						color: @light-menu-disabled-text-color;
+					}
+				}
+			}
+		}
+	}
+
+	//
+	// light transparent desktop menu bar items
+	//
+
+	&.transparent, &.translucent {
+		&.menu-margins {
+			&.light #desktop,
+			#desktop.light {
+				.header-bar {
+					.menu-bar {
+						> ul.nav-menus {
+
+							> li.open {
+								> a, > a:focus, > a:hover, > a:active {
+									color: @dark-text-color;
+									background: @light-transparent-menu-bar-item-color;
+									border-color: @light-transparent-menu-bar-item-color;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

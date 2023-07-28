@@ -1,0 +1,134 @@
+/******************************************************************************\
+|                                                                              |
+|                             accented-tables.less                             |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// table colors
+//
+
+// table head colors
+//
+@table-head-color: white;
+@table-head-icon-color: white;
+@table-head-fill-color: @accent-color;
+@table-head-sort-fill-color: darken(@table-head-fill-color, 10%);
+@table-head-outline-color: @table-head-fill-color;
+
+// table side head colors
+//
+@table-side-head-color: white;
+@table-side-head-icon-color: white;
+@table-side-head-fill-color: @accent-color;
+@table-side-head-sort-fill-color: darken(@table-side-head-fill-color, 10%);
+@table-side-head-outline-color: @table-side-head-fill-color;
+
+// table body colors
+//
+@table-body-fill-color: fade(white, 25%);
+
+//
+// table styles
+//
+
+body:not(.binary).colored.magenta-accented {
+	&:not(.dark) {
+		table {
+
+			//
+			// table headers
+			//
+			
+			thead {	
+				th {
+					color: @table-head-color;
+					border-color: @table-head-fill-color;
+					background-color: @table-head-fill-color;
+					outline: none;
+
+					i {
+						color: @table-head-icon-color;
+					}
+				}
+			}
+
+			tbody {
+				th {
+					color: @table-side-head-color;
+					border-color: @table-side-head-fill-color;
+					background-color: @table-side-head-fill-color;
+					outline: none;
+
+					i {
+						color: @table-side-head-icon-color;
+					}
+				}	
+			}
+
+			th.tablesorter-headerDesc, th.tablesorter-headerAsc {
+				background-color: @table-head-sort-fill-color;
+			}
+
+			//
+			// table borders
+			//
+
+			&:not(.outlined) {
+				th, td {
+					border: none;
+				}
+			}
+
+			&.outlined {
+				thead {
+					th {
+						border-color: @table-head-fill-color;
+					}
+				}
+
+				tbody {
+					th {
+						border-color: @table-side-head-fill-color;
+					}		
+				}
+			}
+			
+			//
+			// table head outlines
+			//
+
+			thead {
+
+				// middle
+				//
+				th {
+					box-shadow: 0 -@table-head-border-width 0 @table-head-outline-color inset,
+						0 @table-head-border-width 0 @table-head-outline-color inset;
+				}
+
+				// left
+				//
+				th:first-child {
+					box-shadow: 0 -@table-head-border-width 0 @table-head-outline-color inset,
+						0 @table-head-border-width 0 @table-head-outline-color inset,
+						@table-head-border-width 0 0 @table-head-outline-color inset;
+				}
+
+				// right
+				//
+				th:last-child {
+					box-shadow: 0 -@table-head-border-width 0 @table-head-outline-color inset,
+						0 @table-head-border-width 0 @table-head-outline-color inset,
+						-@table-head-border-width 0 0 @table-head-outline-color inset;
+				}
+			}
+		}
+	}
+}

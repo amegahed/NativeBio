@@ -1,0 +1,108 @@
+/******************************************************************************\
+|                                                                              |
+|                                 dark-tabs.less                               |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// dark tab colors
+//
+
+@dark-tab-color: @very-very-dark-grey;
+@dark-tab-icon-color: @light-grey;
+@dark-tab-text-color: @light-text-color;
+
+@dark-tab-hover-color: lighten(@dark-tab-color, 10%);
+@dark-tab-hover-icon-color: @dark-tab-text-color;
+@dark-tab-hover-text-color: @dark-tab-text-color;
+
+// dark tab backgrounds
+//
+@dark-tabs-background-color: darken(@dark-app-background-color, 10%);
+@dark-tabs-border-color: @very-dark-grey;
+
+//
+// dark tab styles
+//
+
+body:not(.binary).dark {
+	ul.nav-tabs {
+
+		//
+		// dark inactive tabs
+		//
+
+		> li:not(.active) {
+			> a,
+			> a:focus {
+				color: @dark-tab-text-color;
+				background-color: @dark-tab-color;
+				border-color: @dark-tab-color;
+
+				i {
+					color: @dark-tab-icon-color;
+				}
+
+				svg {
+					fill: @dark-tab-icon-color;
+				}
+
+				label {
+					color: @dark-tab-text-color;
+				}
+			}
+
+			> a:hover {
+				color: @dark-tab-hover-text-color;
+				background-color: @dark-tab-hover-color;
+				border-color: @dark-tab-hover-color;
+
+				i {
+					color: @dark-tab-hover-icon-color;
+				}
+
+				svg {
+					fill: @dark-tab-hover-icon-color;
+				}
+
+				label {
+					color: @dark-tab-hover-text-color;
+				}
+			}
+
+			> a:hover,  > a:active {
+				i {
+					.glowing(white);
+				}
+
+				svg {
+					overflow: visible;
+
+					path, polygon {
+						filter: url(#glowing);
+					}
+				}
+			}
+		}
+	}
+
+	//
+	// dark tabbed content
+	//
+
+	.nav-tabs.flush {
+		background-color: @dark-tabs-background-color;
+		border-color: @dark-tabs-border-color !important;
+	}
+}

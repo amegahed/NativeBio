@@ -1,0 +1,81 @@
+/******************************************************************************\
+|                                                                              |
+|                             medium-run-menus.less                            |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// run menu colors
+//
+
+@run-menu-color: white;
+@run-menu-background-color: black;
+
+//
+// run menu styles
+//
+
+body.binary {
+	.footer-bar .run-menu {
+	
+		//
+		// run menu toggle
+		//
+
+		.dropup {
+			.dropdown-toggle {
+				color: @run-menu-color;
+				background-color: @run-menu-background-color;
+				border-color: black;
+
+				> i {
+					color: @run-menu-color;
+				}
+			}
+
+			&.open {
+				.dropdown-toggle {
+					color: @run-menu-background-color;
+					background-color: @run-menu-color;
+
+					> i {
+						color: @run-menu-background-color;
+					}
+				}
+			}
+		}
+
+		//
+		// run menu
+		//
+
+		.icon-grid {
+			.light-grey();
+			border-color: black;
+		}
+
+		.dropdown-menu {
+
+			li > a {
+				.icon {
+					box-shadow: none;
+				}
+			}
+
+			.divider {
+				.grey();
+			}
+		}
+	}
+}

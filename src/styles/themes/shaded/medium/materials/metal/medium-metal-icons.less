@@ -1,0 +1,42 @@
+/******************************************************************************\
+|                                                                              |
+|                            medium-metal-icons.less                           |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+body:not(.binary).monochrome {
+	&.metal-icons,
+	&.metal.auto-icons {
+		&.icon-backgrounds {
+
+			//
+			// metal icon materials
+			//
+
+			.colored.icon,
+			.icon .colored {
+				.metal(@light-grey, outset);
+			}
+
+			//
+			// selected metal icon materials
+			//
+
+			.selected .colored.icon,
+			.selected .icon .colored {
+				.metal(@medium-grey, outset);
+			}
+		}
+	}
+}

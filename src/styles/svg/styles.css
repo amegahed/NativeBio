@@ -1,0 +1,337 @@
+/******************************************************************************\
+|                                                                              |
+|                                   styles.less                                |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                              annotation.less                                 |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+svg.viewport .annotation text,
+svg.viewport .dimensioning text {
+  font-size: 13px;
+  font-weight: bold;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  opacity: 1;
+  stroke: none;
+  fill: initial;
+}
+svg.viewport .line,
+svg.viewport .arc,
+svg.viewport .arrow {
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+  fill: none;
+}
+svg.viewport .line path,
+svg.viewport .arc path,
+svg.viewport .arrow path {
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+  fill: none;
+}
+svg.viewport path.line {
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+  fill: none;
+}
+svg.viewport .dimensioning {
+  stroke-dasharray: 5;
+}
+svg.viewport .arc {
+  fill: none;
+}
+svg.viewport .dotted {
+  stroke-dasharray: 2,2;
+}
+/******************************************************************************\
+|                                                                              |
+|                                arrows.less                                   |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+svg.viewport .arrow {
+  marker-end: url(#arrow-end);
+}
+svg.viewport .arrow.reverse {
+  marker-start: url(#arrow-start);
+  marker-end: none;
+}
+svg.viewport .arrow.double {
+  marker-start: url(#arrow-start);
+}
+svg.viewport .arrow .background {
+  stroke-width: 1em;
+  marker-start: none;
+  marker-end: none;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: none;
+}
+svg.viewport #arrow-start.filled,
+svg.viewport #arrow-end.filled {
+  fill: black;
+  stroke: none;
+}
+svg.viewport #arrow-start.stroked,
+svg.viewport #arrow-end.stroked {
+  fill: none;
+  stroke: black;
+  stroke-width: 2;
+}
+svg.viewport.light #arrow-start.filled,
+svg.viewport.light #arrow-end.filled {
+  fill: white;
+  stroke: none;
+}
+svg.viewport.light #arrow-start.stroked,
+svg.viewport.light #arrow-end.stroked {
+  fill: none;
+  stroke: white;
+}
+/******************************************************************************\
+|                                                                              |
+|                                     axes.less                                |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the SVG CSS element styles for this application.         |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2015-2018, Megahed Labs LLC, www.optipedia.org          |
+\******************************************************************************/
+svg.viewport .axis {
+  stroke-width: 1;
+  opacity: 0.5;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 5,5;
+}
+svg.viewport .optical.axis {
+  stroke-dasharray: 15,5,1,5;
+}
+/******************************************************************************\
+|                                                                              |
+|                                    filters.less                              |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the SVG CSS element styles for this application.         |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2015-2018, Megahed Labs LLC, www.optipedia.org          |
+\******************************************************************************/
+body:not(.binary) svg.viewport .shadow {
+  stroke: none;
+  fill: none;
+  pointer-events: none;
+  opacity: 0.35;
+}
+body:not(.binary) svg.viewport.unshadowed .shadow {
+  display: none !important;
+}
+body:not(.binary) svg.viewport .shadow {
+  filter: url(#colored-shadow);
+}
+body:not(.binary) svg.viewport .softish.shadow {
+  filter: url(#colored-softish-shadow);
+}
+body:not(.binary) svg.viewport .soft.shadow {
+  filter: url(#colored-soft-shadow);
+}
+body:not(.binary) svg.viewport .softer.shadow {
+  filter: url(#colored-softer-shadow);
+}
+body:not(.binary) svg.viewport .colored.shadow {
+  filter: url(#colored-shadow);
+}
+body:not(.binary) svg.viewport .colored.softish.shadow {
+  filter: url(#colored-softish-shadow);
+}
+body:not(.binary) svg.viewport .colored.soft.shadow {
+  filter: url(#colored-soft-shadow);
+}
+body:not(.binary) svg.viewport .colored.softer.shadow {
+  filter: url(#colored-softer-shadow);
+}
+body:not(.binary) svg.viewport .drop-shadowed {
+  filter: url(#drop-shadowed);
+}
+body:not(.binary) svg.viewport .glowing {
+  filter: url(#glowing);
+}
+body:not(.binary) svg.viewport .lightly.glowing {
+  filter: url(#lightly-glowing);
+}
+body:not(.binary) svg.viewport .strongly.glowing {
+  filter: url(#strongly-glowing);
+}
+body:not(.binary) svg.viewport .bright {
+  filter: brightness(2);
+}
+body:not(.binary) svg.viewport .normal {
+  filter: url(#normal);
+}
+body:not(.binary) svg.viewport .multiply {
+  filter: url(#multiply);
+}
+body:not(.binary) svg.viewport .screen {
+  filter: url(#screen);
+}
+body:not(.binary) svg.viewport .darken {
+  filter: url(#darken);
+}
+body:not(.binary) svg.viewport .lighten {
+  filter: url(#lighten);
+}
+body:not(.binary) .viewport.dark .shadow,
+body:not(.binary).dark .viewport.auto .shadow {
+  filter: url(#shadow);
+}
+body:not(.binary) .viewport.dark .soft.shadow,
+body:not(.binary).dark .viewport.auto .soft.shadow {
+  filter: url(#soft-shadow);
+}
+body:not(.binary) .viewport.dark .fixed.shadow,
+body:not(.binary).dark .viewport.auto .fixed.shadow {
+  filter: url(#fixed-shadow);
+}
+body:not(.binary) .viewport.dark .fixed.soft.shadow,
+body:not(.binary).dark .viewport.auto .fixed.soft.shadow {
+  filter: url(#fixed-soft-shadow);
+}
+body:not(.binary) .viewport.dark .detailed.colored.shadow,
+body:not(.binary).dark .viewport.auto .detailed.colored.shadow {
+  filter: url(#detailed-shadow);
+}
+body:not(.binary) .viewport.dark .detailed.soft.shadow,
+body:not(.binary).dark .viewport.auto .detailed.soft.shadow {
+  filter: url(#detailed-soft-shadow);
+}
+body:not(.binary) .viewport.dark .detailed.fixed.colored.shadow,
+body:not(.binary).dark .viewport.auto .detailed.fixed.colored.shadow {
+  filter: url(#detailed-fixed-shadow);
+}
+body:not(.binary) .viewport.dark .detailed.fixed.soft.shadow,
+body:not(.binary).dark .viewport.auto .detailed.fixed.soft.shadow {
+  filter: url(#detailed-fixed-soft-shadow);
+}
+@-moz-document url-prefix() {
+  svg .colored.shadow {
+    opacity: 0.25;
+  }
+}
+/******************************************************************************\
+|                                                                              |
+|                                   grids.less                                 |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the SVG CSS element styles for this application.         |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2015-2018, Megahed Labs LLC, www.optipedia.org          |
+\******************************************************************************/
+svg pattern svg path {
+  opacity: 0.5;
+  fill: none;
+}
+/******************************************************************************\
+|                                                                              |
+|                                    markers.less                              |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the SVG CSS element styles for this application.         |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2015-2018, Megahed Labs LLC, www.optipedia.org          |
+\******************************************************************************/
+svg.viewport svg.marker {
+  overflow: visible;
+  pointer-events: auto;
+}
+svg.viewport svg.marker.outlined {
+  stroke-width: 1.5px;
+}
+svg.viewport svg.marker.outlined svg {
+  overflow: visible;
+}
+svg.viewport svg.marker.transparent.outlined:not(:hover):not(.selected) {
+  fill-opacity: 0.5;
+}
+svg.viewport svg.marker.unhighlightable {
+  pointer-events: none;
+}
+svg.viewport svg.marker.draggable {
+  cursor: move;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/******************************************************************************\
+|                                                                              |
+|                                   svg.less                                   |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+svg.defs {
+  position: fixed;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+svg rect.selection {
+  pointer-events: none;
+  vector-effect: non-scaling-stroke;
+  fill-opacity: 0.25;
+}

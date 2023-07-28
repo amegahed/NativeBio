@@ -1,0 +1,124 @@
+/******************************************************************************\
+|                                                                              |
+|                              plastic-sliders.less                            |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// plastic slider thumbs
+//
+
+.plastic-slider-thumb(@color, @hover-color) {
+
+	//
+	// plastic slider thumbs
+	//
+
+	&::-webkit-slider-thumb:not(:active) {
+		.round-plastic(@color);
+
+		&:hover {
+			.round-plastic(@hover-color);
+		}
+	}
+
+	//
+	// Firefox slider thumbs
+	//
+
+	&::-moz-range-thumb:not(:active) {
+		.round-plastic(@color);
+
+		&:hover {
+			.round-plastic(@hover-color);
+		}
+	}
+
+	//
+	// IE slider thumbs
+	//
+
+	&::-ms-thumb:not(:active) {
+		.round-plastic(@color);
+
+		&:hover {
+			.round-plastic(@hover-color);
+		}
+	}
+}
+
+.plastic-slider-active-thumb(@color, @hover-color) {
+
+	//
+	// plastic slider thumbs
+	//
+
+	&::-webkit-slider-thumb {
+		.round-plastic(@color);
+
+		&:hover {
+			.round-plastic(@hover-color);
+		}
+
+		&:active {
+			.round-plastic(@hover-color);
+		}
+	}
+
+	//
+	// Firefox slider thumbs
+	//
+
+	&::-moz-range-thumb {
+		.round-plastic(@color);
+
+		&:hover {
+			.round-plastic(@hover-color);
+		}
+
+		&:active {
+			.round-plastic(@hover-color);
+		}
+	}
+
+	//
+	// IE slider thumbs
+	//
+
+	&::-ms-thumb {
+		.round-plastic(@color);
+
+		&:hover {
+			.round-plastic(@hover-color);
+		}
+
+		&:active {
+			.round-plastic(@hover-color);
+		}
+	}
+}
+
+//
+// plastic slider tracks
+//
+
+.plastic-slider-track(@color) {
+	&::-webkit-slider-runnable-track {
+		.long-round-plastic(@color, bottom, outset, @slider-track-width);
+	}
+
+	&::-moz-range-track {
+		.long-round-plastic(@color, bottom, outset, @slider-track-width);
+	}
+}

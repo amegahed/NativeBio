@@ -1,0 +1,54 @@
+/******************************************************************************\
+|                                                                              |
+|                             light-selection.less                             |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// light selection colors
+//
+
+@light-select-color: @brand-light;
+@light-highlight-color: @brand-dark;
+@light-disabled-color: fade(@very-light-grey, 50%);
+@light-edit-highlight-color: fade(@light-select-color, 50%);
+
+//
+// light selection box colors
+//
+
+@light-select-box-color: @brand-light;
+@light-select-box-border-color: lighten(@brand-light, 10%);
+@light-select-box-opacity: @select-box-opacity;
+
+//
+// light selection boxes
+//
+
+body:not(.binary).light {
+
+	.drag-image {
+		border-color: @light-select-box-border-color;
+	}
+
+	.selection {
+		background-color: fade(@light-select-box-color, @light-select-box-opacity);
+		border-color: @light-select-box-border-color;
+	}
+
+	svg .selection {
+		fill: fade(@light-select-box-color, @light-select-box-opacity);
+		stroke: @light-select-box-border-color;
+	}
+}

@@ -1,0 +1,81 @@
+/******************************************************************************\
+|                                                                              |
+|                            light-breadcrumbs.less                            |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// light breadcrumb colors
+//
+
+@light-breadcrumb-color: @dark-text-color;
+@light-breadcrumb-icon-color: @light-grey;
+@light-breadcrumb-slash-color: @very-light-grey;
+@light-breadcrumb-background-color: lighten(@very-very-light-grey, 5%);
+
+//
+// light breadcrumb styles
+//
+
+body:not(.binary).light {
+
+	//
+	// light page breadcrumbs
+	//
+
+	.page .breadcrumb {
+		color: @light-breadcrumb-color;
+		background-color: @light-breadcrumb-background-color;
+		
+		//
+		// light page breadcrumb slashes
+		//
+
+		> li + li:before {
+			color: @light-breadcrumb-slash-color;
+		}
+	}
+
+	//
+	// light address breadcrumbs
+	//
+
+	.address-bar .breadcrumb {
+		color: @light-breadcrumb-color;
+
+		//
+		// light address breadcrumb icons
+		//
+
+		i {
+			color: @light-breadcrumb-icon-color;
+		}
+
+		//
+		// light address breadcrumb links
+		//
+
+		a {
+			color: @light-breadcrumb-color;
+		}
+
+		//
+		// light address breadcrumb slashes
+		//
+
+		> li + li:before {
+			color: @light-breadcrumb-slash-color;
+		}
+	}
+}

@@ -1,0 +1,124 @@
+/******************************************************************************\
+|                                                                              |
+|                               glass-sliders.less                             |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// glass slider thumbs
+//
+
+.glass-slider-thumb(@color, @hover-color) {
+
+	//
+	// glass slider thumbs
+	//
+
+	&::-webkit-slider-thumb:not(:active) {
+		.round-glass(@color);
+
+		&:hover {
+			.round-glass(@hover-color);
+		}
+	}
+
+	//
+	// Firefox slider thumbs
+	//
+
+	&::-moz-range-thumb:not(:active) {
+		.round-glass(@color);
+
+		&:hover {
+			.round-glass(@hover-color);
+		}
+	}
+
+	//
+	// IE slider thumbs
+	//
+
+	&::-ms-thumb:not(:active) {
+		.round-glass(@color);
+
+		&:hover {
+			.round-glass(@hover-color);
+		}
+	}
+}
+
+.glass-slider-active-thumb(@color, @hover-color) {
+
+	//
+	// glass slider thumbs
+	//
+
+	&::-webkit-slider-thumb {
+		.round-glass(@color);
+
+		&:hover {
+			.round-glass(@hover-color);
+		}
+
+		&:active {
+			.round-glass(@hover-color);
+		}
+	}
+
+	//
+	// Firefox slider thumbs
+	//
+
+	&::-moz-range-thumb {
+		.round-glass(@color);
+
+		&:hover {
+			.round-glass(@hover-color);
+		}
+
+		&:active {
+			.round-glass(@hover-color);
+		}
+	}
+
+	//
+	// IE slider thumbs
+	//
+
+	&::-ms-thumb {
+		.round-glass(@color);
+
+		&:hover {
+			.round-glass(@hover-color);
+		}
+
+		&:active {
+			.round-glass(@hover-color);
+		}
+	}
+}
+
+//
+// glass slider tracks
+//
+
+.glass-slider-track(@color) {
+	&::-webkit-slider-runnable-track {
+		.long-round-glass(@color, bottom, outset, @slider-track-width);
+	}
+
+	&::-moz-range-track {
+		.long-round-glass(@color, bottom, outset, @slider-track-width);
+	}
+}

@@ -1,0 +1,85 @@
+/******************************************************************************\
+|                                                                              |
+|                            medium-scrollbars.less                            |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+body.binary {
+
+	//
+	// desktop scrollbars
+	//
+
+	@media (min-width: @screen-xs-min) {
+
+		//
+		// scrollbar thumb
+		//
+
+		::-webkit-scrollbar-thumb {
+			background-color: white;
+			border-color: transparentz;
+
+			&:hover {
+				.grey();
+			}
+
+			&:active {
+				background-color: black;
+			}
+		}
+
+		&.thick-scrollbars {
+
+			::-webkit-scrollbar-thumb {
+				border-width: 1px;
+				border-color: black;
+			}
+		
+			//
+			// remove scrollbar border where flush with edge
+			//
+
+			.sidebar, .mainbar {
+				> ::-webkit-scrollbar-thumb {
+
+					&:vertical {
+						border-right: none;
+					}
+
+					&:horizontal {
+						border-bottom: none;
+					}
+				}
+			}
+		}
+
+		//
+		// scrollbar track
+		//
+
+		::-webkit-scrollbar-track {
+			// background: white;
+			.light-grey();
+		}
+
+		::-webkit-scrollbar-track:vertical {
+			border-left: 1px solid black;
+		}
+
+		::-webkit-scrollbar-track:horizontal {
+			border-top: 1px solid black;
+		}
+	}
+}

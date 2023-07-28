@@ -1,0 +1,125 @@
+/******************************************************************************\
+|                                                                              |
+|                                scrollbars.less                               |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// scrollbar attributes
+//
+
+@scrollbar-width: 12px;
+@scrollbar-thumb-border-width: 2px;
+@thin-scrollbar-thumb-border-width: 3px;
+@thick-scrollbar-thumb-border-width: 0;
+@round-scrollbar-radius: 10px;
+@rounded-scrollbar-radius: 5px;
+
+//
+// scrollbar styles
+//
+
+@media (min-width: @screen-xs-min) {
+
+	::-webkit-scrollbar {
+		-webkit-appearance: none;
+		width: @scrollbar-width;
+		height: @scrollbar-width;
+	}
+
+	//
+	// scrollbar thumb
+	//
+
+	::-webkit-scrollbar-thumb {
+		border-width: @scrollbar-thumb-border-width;
+		border-style: solid;
+		border-color: transparent;
+		background-clip: content-box;
+	}
+
+	//
+	// scrollbar thumb corners
+	//
+
+	.round-scrollbars ::-webkit-scrollbar-thumb,
+	.round.auto-corner-scrollbars ::-webkit-scrollbar-thumb {
+		-webkit-border-radius: @round-scrollbar-radius;
+	}
+
+	.rounded-scrollbars ::-webkit-scrollbar-thumb,
+	.rounded.auto-corner-scrollbars ::-webkit-scrollbar-thumb {
+		-webkit-border-radius: @rounded-scrollbar-radius;
+	}
+
+	.square-scrollbars ::-webkit-scrollbar-thumb,
+	.square.auto-corner-scrollbars ::-webkit-scrollbar-thumb {
+		-webkit-border-radius: 0;
+	}
+
+	//
+	// scrollbar thumb thickness
+	//
+
+	.thin-scrollbars {
+		::-webkit-scrollbar-thumb {
+			border-width: @thin-scrollbar-thumb-border-width;
+		}
+	}
+
+	.thick-scrollbars {
+		::-webkit-scrollbar-thumb {
+			border-width: @thick-scrollbar-thumb-border-width;
+		}
+	}
+
+	//
+	// scrollbar track
+	//
+
+	::-webkit-scrollbar-track {
+		background: white;
+	}
+
+	::-webkit-scrollbar-track:vertical {
+		-webkit-border-radius: 0;
+		margin: 0;
+	}
+
+	::-webkit-scrollbar-track:horizontal {
+		-webkit-border-radius: 0;
+		margin: 0;
+	}
+
+	//
+	// scrollbar track corners
+	//
+
+	/*
+	.round-scrollbars ::-webkit-scrollbar-track,
+	.round.auto-corner-scrollbars ::-webkit-scrollbar-track {
+		-webkit-border-radius: @round-scrollbar-radius;
+	}
+
+	.rounded-scrollbars ::-webkit-scrollbar-track,
+	.rounded.auto-corner-scrollbars ::-webkit-scrollbar-track {
+		-webkit-border-radius: @rounded-scrollbar-radius;
+	}
+
+	.square-scrollbars ::-webkit-scrollbar-track,
+	.square.auto-corner-scrollbars ::-webkit-scrollbar-track {
+		-webkit-border-radius: 0;
+	}
+	*/
+}

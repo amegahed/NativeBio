@@ -1,0 +1,55 @@
+/******************************************************************************\
+|                                                                              |
+|                               medium-headings.less                           |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the SVG DOM element styles for this application.         |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// heading colors
+//
+
+@heading-color: unset;
+@heading-icon-color: @highlight-color;
+@heading-border-color: @highlight-color;
+@sub-heading-icon-color: @highlight-color;
+
+//
+// heading styles
+//
+
+body:not(.binary).colored.blue {
+
+	h1 {
+		color: @heading-color;
+		border-color: @heading-border-color;
+
+		i {
+			color: @heading-icon-color;
+		}
+	}
+
+	h2, h3 {
+		i {
+			color: @sub-heading-icon-color;
+		}
+	}
+
+	//
+	// rulings
+	//
+
+	hr {
+		background-color: @heading-border-color;
+	}
+}

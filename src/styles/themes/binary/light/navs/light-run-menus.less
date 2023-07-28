@@ -1,0 +1,67 @@
+/******************************************************************************\
+|                                                                              |
+|                             light-run-menus.less                             |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the SVG DOM element styles for this application.         |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// light run menu colors
+//
+
+@light-run-menu-color: black;
+@light-run-menu-background-color: white;
+
+//
+// light run menu styles
+//
+
+body.binary.light {
+	.footer-bar .run-menu {
+
+		//
+		// run menu toggle
+		//
+
+		.dropup {
+			.dropdown-toggle {
+				color: @light-run-menu-color;
+				background-color: @light-run-menu-background-color;
+				border-color: black;
+
+				> i {
+					color: @light-run-menu-color;
+				}
+			}
+
+			&.open {
+				.dropdown-toggle {
+					color: @light-run-menu-background-color;
+					background-color: @light-run-menu-color;
+
+					> i {
+						color: @light-run-menu-background-color;
+					}
+				}
+			}
+		}
+
+		//
+		// run menu
+		//
+
+		.icon-grid {
+			.white();
+		}
+	}
+}

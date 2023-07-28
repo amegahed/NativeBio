@@ -1,0 +1,154 @@
+/******************************************************************************\
+|                                                                              |
+|                                 typography.less                              |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the SVG DOM element styles for this application.         |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// typography attributes
+//
+
+@fineprint-font-size: 80%;
+
+//
+// outline properties
+//
+
+@white-outline: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white, -1px 0 white, 1px 0 white, 0 1px white, 0 -1px white;
+@black-outline: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black, -1px 0 black, 1px 0 black, 0 1px black, 0 -1px black;
+
+@white-bold-outline: -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white, 2px 2px 0 white, -2px 0 white, 2px 0 white, 0 2px white, 0 -2px white;
+@black-bold-outline: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black, -2px 0 black, 2px 0 black, 0 2px black, 0 -2px black;
+
+@white-extra-bold-outline: -3px -3px 0 white, 3px -3px 0 white, -3px 3px 0 white, 3px 3px 0 white, -3px 0 white, 3px 0 white, 0 3px white, 0 -3px white;
+@black-extra-bold-outline: -3px -3px 0 black, 3px -3px 0 black, -3px 3px 0 black, 3px 3px 0 black, -3px 0 black, 3px 0 black, 0 3px black, 0 -3px black;
+
+@white-ultra-bold-outline: -4px -4px 0 white, 4px -4px 0 white, -4px 4px 0 white, 4px 4px 0 white, -4px 0 white, 4px 0 white, 0 4px white, 0 -4px white;
+@black-ultra-bold-outline: -4px -4px 0 black, 4px -4px 0 black, -4px 4px 0 black, 4px 4px 0 black, -4px 0 black, 4px 0 black, 0 4px black, 0 -4px black;
+
+//
+// outline styles
+//
+
+.white-outlined {
+	text-shadow: @white-outline;
+}
+
+.black-outlined {
+	text-shadow: @black-outline;
+}
+
+.white-bold-outlined {
+	text-shadow: @white-bold-outline;
+}
+
+.black-bold-outlined {
+	text-shadow: @black-bold-outline;
+}
+
+.white-extra-bold-outlined {
+	text-shadow: @white-extra-bold-outline;
+}
+
+.black-extra-bold-outlined {
+	text-shadow: @black-extra-bold-outline;
+}
+
+.white-ultra-bold-outlined {
+	text-shadow: @white-ultra-bold-outline;
+}
+
+.black-ultra-bold-outlined {
+	text-shadow: @black-ultra-bold-outline;
+}
+
+//
+// default font style
+//
+
+body {
+	font-family: 'Open Sans';
+	font-size: 16px;
+}
+
+//
+// brand fonts
+//
+
+.tagline {
+	font-variant: normal;
+}
+
+//
+// fonts
+//
+
+.caption {
+	font-style: italic;
+	line-height: 1.25em;
+}
+
+.title {
+	font-weight: bold;
+}
+
+.fineprint {
+	font-size: @fineprint-font-size;
+
+	i {
+		font-size: 100%;
+	}
+}
+
+.emphasis {
+	font-weight: bold;
+	font-size: 125%;
+	font-style: italic;
+	text-align: center;
+}
+
+//
+// special fonts
+//
+
+.code {
+	font-family: monospace;
+	font-size: 14px;
+	line-height: 1.5em;
+	white-space: pre;
+	overflow: auto;
+	tab-size: 2em;
+
+	&.well {
+		padding: 0;
+	}
+}
+
+.math:not(span) {
+	font-style: italic;
+}
+
+.key {
+	word-break: break-all;
+}
+
+//
+// mobile typography - high DPI displays allow reduced font size
+//
+
+body[device="phone"] {
+	#header, #main, .modals {
+		font-size: 90%;
+	}
+}

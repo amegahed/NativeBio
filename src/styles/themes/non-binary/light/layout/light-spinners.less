@@ -1,0 +1,32 @@
+/******************************************************************************\
+|                                                                              |
+|                             light-spinners.less                              |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// light spinner colors
+//
+
+@light-spinner-color: @brand-light;
+
+//
+// light spinner styles
+//
+
+body:not(.binary).light {
+	.spinner {
+		border-top-color: @light-spinner-color;
+	}
+}

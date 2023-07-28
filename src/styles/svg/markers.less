@@ -1,0 +1,88 @@
+/******************************************************************************\
+|                                                                              |
+|                                    markers.less                              |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the SVG CSS element styles for this application.         |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2015-2018, Megahed Labs LLC, www.optipedia.org          |
+\******************************************************************************/
+
+svg.viewport {
+
+	svg.marker {
+		overflow: visible;
+		pointer-events: auto;
+
+		svg {
+			overflow: visible;
+		}
+
+		.stroked {
+			stroke: black;
+			stroke-width: 2;
+			vector-effect: non-scaling-stroke;
+		}
+
+		//
+		// outlined marhers
+		//
+
+		&.outlined {
+			stroke-width: 1.5px;
+
+			svg {
+				overflow: visible;
+			}
+		}
+
+		&.transparent.outlined:not(:hover):not(.selected) {
+			fill-opacity: 0.5;
+		}
+
+		//
+		// non interactive markers
+		//
+
+		&.unhighlightable {
+			pointer-events: none;
+		}
+
+		//
+		// marker behaviors
+		//
+
+		&.draggable {
+			cursor: move;
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+
+			&.vertically {
+				cursor: ns-resize;
+			}
+
+			&.horizontally {
+				cursor: ew-resize;
+			}
+		}
+	}
+}
+
+//
+// dark viewports
+//
+
+.viewport.dark,
+&.dark .viewport.auto {
+
+	svg.marker {
+		.stroked {
+			stroke: white;
+		}
+	}
+}

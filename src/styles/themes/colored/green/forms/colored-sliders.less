@@ -1,0 +1,64 @@
+/******************************************************************************\
+|                                                                              |
+|                             colored-sliders.less                             |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// slider thumb colors
+//
+
+@slider-thumb-active-color: @highlight-color;
+
+//
+// slider thumb styles
+//
+
+body:not(.binary).colored.green {
+	input[type="range"] {
+
+		//
+		// slider thumbs
+		//
+
+		&::-webkit-slider-thumb {
+			&:active {
+				background-color: @slider-thumb-active-color;
+				border-color: @slider-thumb-active-color;
+			}
+		}
+
+		//
+		// Firefox slider thumbs
+		//
+
+		&::-moz-range-thumb {
+			&:active {
+				background-color: @slider-thumb-active-color;
+				border-color: @slider-thumb-active-color;
+			}
+		}
+
+		//
+		// IE slider thumbs
+		//
+
+		&::-ms-thumb {
+			&:active {
+				background-color: @slider-thumb-active-color;
+				border-color: @slider-thumb-active-color;
+			}
+		}
+	}
+}

@@ -1,0 +1,72 @@
+/******************************************************************************\
+|                                                                              |
+|                             medium-splitters.less                            |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// splitter gutter colors
+//
+
+@gutter-background-color: @app-background-color;
+@gutter-border-color: @app-border-color;
+@gutter-unfocused-background-color: @app-unfocused-background-color;
+@gutter-unfocused-border-color: @app-unfocused-border-color;
+
+// splitter handle images
+//
+@grip-image: url('../../../../images/splitters/grip.png');
+@grip-horizontal-image: url('../../../../images/splitters/horizontal-grip.png');
+@grip-vertical-image: url('../../../../images/splitters/vertical-grip.png');
+
+//
+// splitter styles
+//
+
+body:not(.binary) {
+	.split-view {
+		.gutter {
+			background-color: @app-background-color;
+			border-color: @gutter-border-color;
+
+			.handle {
+				background-image: @grip-image;
+				image-rendering: pixelated;
+			}
+
+			&.gutter-horizontal {
+				.handle {
+					background-image: @grip-horizontal-image;
+				}
+			}
+
+			&.gutter-vertical {
+				.handle {
+					background-image: @grip-vertical-image;
+				}
+			}
+		}
+	}
+
+	//
+	// unfocucused splitters
+	//
+
+	.modal:not(.focused) .modal-dialog .split-view {
+		.gutter {
+			background-color: @gutter-unfocused-background-color;
+			border-color: @gutter-unfocused-border-color;
+		}
+	}
+}

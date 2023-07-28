@@ -1,0 +1,37 @@
+/******************************************************************************\
+|                                                                              |
+|                            medium-annotations.less                           |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the SVG CSS element styles for this application.         |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2015-2018, Megahed Labs LLC, www.optipedia.org          |
+\******************************************************************************/
+
+body:not(.binary) {
+
+	.annotation {
+		fill: @dark-text-color;
+	}
+
+	//
+	// line annotations
+	//
+
+	.line, .arc, .arrow {
+		stroke: @medium-grey;
+	}
+
+	//
+	// dark viewports
+	//
+
+	.viewport.dark,
+	&.dark .viewport.auto {
+		.annotation {
+			fill: white;
+		}
+	}
+}

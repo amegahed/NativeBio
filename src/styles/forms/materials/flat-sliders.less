@@ -1,0 +1,124 @@
+/******************************************************************************\
+|                                                                              |
+|                                flat-sliders.less                             |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// flat slider thumbs
+//
+
+.flat-slider-thumb(@color, @hover-color) {
+
+	//
+	// flat slider thumbs
+	//
+
+	&::-webkit-slider-thumb:not(:active) {
+		.flat(@color);
+
+		&:hover {
+			.flat(@hover-color);
+		}
+	}
+
+	//
+	// Firefox slider thumbs
+	//
+
+	&::-moz-range-thumb:not(:active) {
+		.flat(@color);
+
+		&:hover {
+			.flat(@hover-color);
+		}
+	}
+
+	//
+	// IE slider thumbs
+	//
+
+	&::-ms-thumb:not(:active) {
+		.flat(@color);
+
+		&:hover {
+			.flat(@hover-color);
+		}
+	}
+}
+
+.flat-slider-active-thumb(@color, @hover-color) {
+
+	//
+	// flat slider thumbs
+	//
+
+	&::-webkit-slider-thumb {
+		.flat(@color);
+
+		&:hover {
+			.flat(@hover-color);
+		}
+
+		&:active {
+			.flat(@hover-color);
+		}
+	}
+
+	//
+	// Firefox slider thumbs
+	//
+
+	&::-moz-range-thumb {
+		.flat(@color);
+
+		&:hover {
+			.flat(@hover-color);
+		}
+
+		&:active {
+			.flat(@hover-color);
+		}
+	}
+
+	//
+	// IE slider thumbs
+	//
+
+	&::-ms-thumb {
+		.flat(@color);
+
+		&:hover {
+			.flat(@hover-color);
+		}
+
+		&:active {
+			.flat(@hover-color);
+		}
+	}
+}
+
+//
+// flat slider tracks
+//
+
+.flat-slider-track(@color) {
+	&::-webkit-slider-runnable-track {
+		.flat(@color);
+	}
+
+	&::-moz-range-track {
+		.flat(@color);
+	}
+}

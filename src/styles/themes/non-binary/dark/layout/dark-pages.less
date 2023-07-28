@@ -1,0 +1,84 @@
+/******************************************************************************\
+|                                                                              |
+|                                dark-pages.less                               |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// dark page colors
+//
+
+@dark-page-background-color: @very-very-very-dark-grey;
+// @dark-page-background-color: black;
+@dark-page-attention-color: white;
+@dark-page-attention-background-color: @brand-dark;
+@dark-page-odd-section-background-color: @very-very-dark-grey;
+@dark-page-iframe-border-color: @dark-grey;
+@dark-footer-info-background-color: @very-very-dark-grey;
+
+//
+// dark page styles
+//
+
+body:not(.binary).dark {
+
+	.page {
+		background-color: @dark-page-background-color;
+
+		.contents {
+
+			//
+			// dark attention regions
+			//
+
+			.attention {
+				color: @dark-page-attention-color;
+				
+				&:not(.colored) {
+					background-color: @dark-page-attention-background-color;
+				}
+
+				i {
+					color: @dark-page-attention-color;
+				}
+			}
+
+			//
+			// dark page sections
+			//
+
+			.section {
+				&:not(.colored):nth-child(odd) {
+					background: @dark-page-odd-section-background-color;
+
+					.well {
+						background: @dark-page-background-color;
+					}
+				}
+			}
+
+			//
+			// dark iframes
+			//
+
+			iframe {
+				border-color: @dark-page-iframe-border-color;
+			}
+		}
+
+		.footer .content.info {
+			background: @dark-footer-info-background-color;
+		}
+	}
+}

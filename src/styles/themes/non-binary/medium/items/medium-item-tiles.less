@@ -1,0 +1,334 @@
+/******************************************************************************\
+|                                                                              |
+|                             medium-item-tiles.less                           |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// medium tile grid colors
+//
+
+@tile-background: fade(@very-light-grey, 25%);
+@tile-grid-color: white;
+@tile-grid-background-color: @ultra-dark-grey;
+@tile-name-color: @dark-text-color;
+@tile-name-background-color: fade(white, 50%);
+@tile-highlighted-border-color: @very-light-grey;
+@tile-selected-border-color: @very-light-grey;
+
+// tile materials
+//
+@tile-highlight-angle: 150deg;
+@page-thumbnail-shadow: 5px 5px 20px fade(black, 25%);
+
+//
+// medium tile grids
+//
+
+body:not(.binary) {
+	.tile-grid {
+
+		//
+		// items
+		//
+
+		.item {
+
+			> .tile {
+				background-color: @tile-background;
+
+				> .icon {
+					> canvas {
+						box-shadow: @page-thumbnail-shadow;
+					}
+				}
+
+				.name {
+					color: @tile-name-color;
+					background-color: @tile-name-background-color;
+					.frosted(5px);
+
+					//
+					// editable names
+					//
+
+					&[contenteditable="true"] {
+						color: @dark-text-color;
+						background-color: white;
+						outline-color: @edit-highlight-color;
+					}
+				}
+			}
+
+			> .specifics {
+				.details {
+					background-color: @item-details-background-color;
+				}
+			}
+		}
+
+		//
+		// highlighted items
+		//
+
+		.item.highlighted {
+
+			.tile {
+				border-color: @tile-highlighted-border-color;
+
+				.icon::after {
+					border-color: @tile-highlighted-border-color;
+				}
+
+				.name {
+
+					//
+					// uneditable names
+					//
+
+					&:not([contenteditable="true"]) {
+						color: white;
+						background-color: @highlight-color;
+					}
+
+					//
+					// editable names
+					//
+
+					&[contenteditable="true"] {
+						border-top-color: @highlight-color;
+					}
+				}
+			}
+		}
+		
+		//
+		// selected items
+		//
+
+		.item.selected {
+
+			.tile {
+				border-color: @tile-selected-border-color;
+
+				.icon::after {
+					border-color: @tile-selected-border-color;
+				}
+
+				.name {
+
+					//
+					// uneditable names
+					//
+
+					&:not([contenteditable="true"]) {
+						color: white;
+					}
+
+					//
+					// editable names
+					//
+
+					&[contenteditable="true"] {
+						border-top-color: @select-color;
+					}
+				}
+			}
+
+			.details {
+				color: white;
+				background-color: @select-color;
+			}
+		}
+	}
+
+	//
+	// unfocused items
+	//
+
+	.modal:not(.focused) .modal-dialog,
+	.desktop.app:not(.focused) > .body {
+		.tile-grid {
+
+			.item.selected {
+
+				.tile {
+					border-color: @highlight-color;
+
+					.icon::after {
+						border-color: @highlight-color;
+					}
+
+					.name {
+
+						//
+						// uneditable names
+						//
+
+						&:not([contenteditable="true"]) {
+							color: white;
+							background-color: @highlight-color;
+						}
+
+						//
+						// editable names
+						//
+
+						&[contenteditable="true"] {
+							color: @dark-text-color;
+							background-color: white;
+							outline-color: @edit-highlight-color;
+						}
+					}
+				}
+
+				.details {
+					color: white;
+					background-color: @highlight-color;
+				}
+			}
+		}
+	}
+
+	//
+	// desktop tiles
+	//
+
+	/*
+	&.transparent, &.translucent {
+		.desktop.app .mainbar .tile-grid {
+
+			.item.highlighted {
+				> .tile {
+					.plate-glass(@highlight-color, 25%, 50%);
+				}
+			}
+
+			.item.selected {
+				> .tile {
+					.plate-glass(@select-color, 25%, 50%);
+				}
+			}
+			
+			.item:not(.highlighted):not(.selected) {
+				> .tile {
+					.plate-glass(@panel-color, 25%, 50%);
+				}
+			}
+		}
+	}
+	*/
+
+	//
+	// tile materials
+	//
+
+	/*
+	&.chalk .tile-grid {
+		.item {
+			> .tile {
+
+				// default background
+				//
+				background: 
+
+					// highlight
+					//
+					linear-gradient(@tile-highlight-angle,
+						fade(white, 33%) 0%,
+						fade(white, 0%) 50%),
+
+					// diffuse
+					//
+					@tile-background;
+
+				background-repeat: no-repeat;
+			}
+		}
+	}
+
+	&.plastic .tile-grid {
+		.item {
+			> .tile {
+
+				// default background
+				//
+				background: 
+
+					// highlight
+					//
+					linear-gradient(@tile-highlight-angle,
+						fade(white, 75%) 0%,
+						fade(white, 25%) 25%,
+						fade(white, 0%) 50%),
+
+					// diffuse
+					//
+					@tile-background;
+
+				background-repeat: no-repeat;
+			}
+		}
+	}
+
+	&.glass .tile-grid {
+		.item {
+			> .tile {
+			
+				// default background
+				//
+				background: 
+
+					// highlight
+					//
+					linear-gradient(@tile-highlight-angle,
+						fade(white, 100%) 0%,
+						fade(white, 25%) 12.5%,
+						fade(white, 0%) 25%),
+
+					// diffuse
+					//
+					@tile-background;
+
+				background-repeat: no-repeat;
+			}
+		}
+	}
+
+	&.metal .tile-grid {
+		.item {
+			> .tile {
+			
+				// default background
+				//
+				background: 
+
+					// highlight
+					//
+					linear-gradient(@tile-highlight-angle,
+						fade(white, 50%) 0%,
+						fade(black, 33%) 50%,
+						fade(white, 0%) 100%),
+
+					// diffuse
+					//
+					@tile-background;
+
+				background-blend-mode: hard-light;
+				background-repeat: no-repeat;
+			}
+		}
+	}
+	*/
+}

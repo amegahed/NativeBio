@@ -1,0 +1,70 @@
+/******************************************************************************\
+|                                                                              |
+|                           colored-glass-buttons.less                         |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+body:not(.binary).colored.magenta {
+	&.glass-buttons,
+	&.glass.auto-buttons {
+
+		//
+		// glass styled buttons
+		//
+
+		.btn {
+
+			//
+			// glass primary buttons
+			//
+
+			&.btn-primary {
+				.glass-btn(@button-primary-color);
+
+				&:disabled {
+					.glass-disabled-btn(@button-primary-color);
+				}
+			}
+		}
+
+		//
+		// glass mobile buttons
+		//
+
+		&[device="phone"], &[device="tablet"] {
+
+			//
+			// button groups
+			//
+
+			.buttons {		
+
+				//
+				// glass styled buttons
+				//
+
+				.btn:not(.btn-sm), .btn:not(.btn-sm):focus {
+
+					//
+					// glass primary buttons
+					//
+
+					&.btn-primary {
+						.glass-mobile-btn(@button-primary-color);
+					}	
+				}
+			}
+		}
+	}
+}

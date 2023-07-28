@@ -1,0 +1,53 @@
+/******************************************************************************\
+|                                                                              |
+|                            light-form-groups.less                            |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// light form group colors
+//
+
+@light-form-group-color: @medium-grey;
+@light-form-group-label-color: white;
+
+//
+// light form group styles
+//
+
+body:not(.binary).light {
+	.form-group {
+
+		//
+		// form labels
+		//
+		
+		.form-label, .control-label {
+			color: @light-form-group-color;
+		}
+	}
+
+	.selected form {
+		.form-group {
+
+			//
+			// form labels
+			//
+			
+			.form-label, .control-label {
+				color: @light-form-group-label-color;
+			}
+		}
+	}
+}

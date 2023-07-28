@@ -1,0 +1,127 @@
+/******************************************************************************\
+|                                                                              |
+|                             chalk-buttons.less                               |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// chalk buttons
+//
+
+.chalk-button (@button-color: lightgrey) {
+
+	&.selected {
+		.round-chalk(@button-color);
+	}
+
+	&:hover {
+		.round-chalk(@button-color);
+	}
+	
+	&:active {
+		.round-chalk(darken(@button-color, 10%));
+	}
+}
+
+.dark-chalk-button (@button-color: lightgrey) {
+
+	&.selected {
+		.round-chalk(@button-color);
+	}
+
+	&:hover {
+		.round-chalk(@button-color);
+	}
+	
+	&:active {
+		.round-chalk(lighten(@button-color, 10%));
+	}
+}
+
+//
+// chalk styled buttons
+//
+
+.chalk-btn (@button-color: lightgrey) {
+	.round-chalk(@button-color);
+
+	&:hover {
+		.round-chalk(darken(@button-color, 5%));
+	}
+
+	&:active {
+		.round-chalk(darken(@button-color, 10%));
+	}
+}
+
+.dark-chalk-btn (@button-color: lightgrey) {
+	.round-chalk(@button-color);
+
+	&:hover {
+		.round-chalk(lighten(@button-color, 5%));
+	}
+
+	&:active {
+		.round-chalk(lighten(@button-color, 10%));
+	}
+}
+
+//
+// chalk disabled buttons
+//
+
+.chalk-disabled-btn (@button-color: lightgrey) {
+	.round-chalk(@button-color);
+	opacity: 50%;
+
+	&:hover {
+		.round-chalk(@button-color);
+	}
+
+	&:active {
+		.round-chalk(@button-color);
+	}
+}
+
+//
+// chalk mobile buttons
+//
+
+.chalk-mobile-btn (@button-color: lightgrey) {
+	.round-chalk(@button-color);
+
+	&:hover {
+		.round-chalk(darken(@button-color, 5%));
+	}
+
+	&:active {
+		.round-chalk(darken(@button-color, 10%));
+	}
+}
+
+//
+// chalk disabled mobile buttons
+//
+
+.chalk-disabled-mobile-btn (@button-color: lightgrey) {
+	.round-chalk(@button-color);
+
+	&:hover {
+		.round-chalk(@button-color);
+	}
+
+	&:active {
+		.round-chalk(@button-color);
+	}
+}

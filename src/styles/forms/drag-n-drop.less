@@ -1,0 +1,150 @@
+/******************************************************************************\
+|                                                                              |
+|                               drag-n-drop.less                               |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+.dropzone {
+	position: relative;
+	
+	&::after {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+
+		// message
+		//
+		display: flex;
+		text-align: center;
+		align-items: center;
+		justify-content: center;
+		content: "Drop Items Here";
+		font-weight: normal;
+		font-size: 200%;
+		line-height: 1em;
+
+		// border
+		//
+		border-width: 2px;
+		border-style: dotted;
+		border-radius: 10px;
+
+		// events
+		//
+		pointer-events: none;
+	}
+}
+
+//
+// highlighting
+//
+
+div.highlighted:not(.item),
+form.highlighted {
+	// position: relative;
+	
+	&::after {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		content: "";
+
+		// border
+		//
+		border-width: 2px;
+		border-style: solid;
+
+		// events
+		//
+		pointer-events: none;
+	}	
+}
+
+form.highlighted {
+	&::after {
+
+		// border
+		//
+		border-radius: 10px;
+
+		// message
+		//
+		display: flex;
+		text-align:center;
+		align-items: center;
+		justify-content: center;
+		content: "Drop Items Here";
+		font-weight: normal;
+		font-size: 200%;
+		line-height: 1em;
+	}
+}
+
+.panel form.highlighted {
+	&::after {
+		margin: -10px;
+	}
+}
+
+.panel .dropzone {
+	&::after {
+		margin: -10px;
+	}
+}
+
+//
+// drag images
+//
+
+.drag-image {
+	position: absolute;
+	border-color: unset;
+	
+	// align count badges to the left
+	//
+	text-align: left;
+
+	// border
+	//
+	&.multiple {
+		border-width: 2px;
+		border-style: dashed;
+		border-radius: 5px;
+		box-sizing: content-box;
+		margin: -2px;
+
+		// count badge
+		//
+		> .count.badge {
+			position: absolute;
+		}
+	}
+}
+
+//
+// Chrome compatibility
+//
+
+body[browser="chrome"] {
+	.drag-image {
+
+		// fix for Chrome rendering bug
+		//
+		.accelerate();
+	}
+}

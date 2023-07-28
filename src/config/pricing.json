@@ -1,0 +1,129 @@
+{
+	"columns": {
+		"name": "Account Type"
+	},
+
+	"rows": {
+		"Storage": {
+			"icon": "fa-database"
+		},
+		"Cost": {
+			"icon": "fa-money"
+		},
+		"Cost / GB": {
+			"icon": "fa-money"
+		},
+		"Users": {
+			"icon": "fa-user"
+		},
+		"Cost / User": {
+			"icon": "fa-money"
+		},
+		"Sign Up": {
+			"icon": "fa-pencil"
+		}
+	},
+
+	"Account Type": {
+
+		"Personal": {
+			"icon": "fa fa-user",
+			"class": "success",
+			"Storage": {
+				"amount": 5,
+				"units": "GB"
+			},
+			"Cost": {
+				"amount": "FREE",
+				"units": null
+			},
+			"Cost / GB": {
+				"amount": "FREE",
+				"units": null
+			},
+			"Users": 1,
+			"Cost / User": {
+				"amount": "FREE",
+				"units": null
+			},
+			"Sign Up": {
+				"url": "#sign-up"
+			}
+		},
+
+		"Plus": {
+			"icon": "fa fa-plus",
+			"class": "caution",
+			"Storage": {
+				"amount": 100,
+				"units": "GB"
+			},
+			"Cost": {
+				"amount": "$2.99",
+				"units": "/ month"
+			},
+			"Cost / GB": {
+				"amount": "$0.03",
+				"units": "/ GB / month"
+			},
+			"Users": 1,
+			"Cost / User": {
+				"amount": "$2.99",
+				"units": "/ user / month"
+			},
+			"Sign Up": {
+				"url": "undefined"
+			}
+		},
+
+		"Pro": {
+			"icon": "fa fa-briefcase",
+			"class": "warning",
+			"Storage": {
+				"amount": 1,
+				"units": "TB"
+			},
+			"Cost": {
+				"amount": "$9.99",
+				"units": "/ month"
+			},
+			"Cost / GB": {
+				"amount": "$0.01",
+				"units": "/ GB / month"
+			},
+			"Users": 1,
+			"Cost / User": {
+				"amount": "$9.99",
+				"units": "/ user / month"
+			},
+			"Sign Up": {
+				"url": "undefined"
+			}
+		},
+
+		"Enterprise": {
+			"icon": "fa fa-building",
+			"class": "info",
+			"Storage": {
+				"amount": 1,
+				"units": "TB"
+			},
+			"Cost": {
+				"amount": "$49.99",
+				"units": "/ month"
+			},
+			"Cost / GB": {
+				"amount": "$0.005",
+				"units": "/ GB / month"
+			},
+			"Users": 10,
+			"Cost / User": {
+				"amount": "$4.99",
+				"units": "/ user / month"
+			},
+			"Sign Up": {
+				"url": "undefined"
+			}
+		}
+	}
+}

@@ -1,0 +1,114 @@
+/******************************************************************************\
+|                                                                              |
+|                                dark-apps.less                                |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+body.binary.dark {
+
+	.app {
+		.dark-grey();
+
+		//
+		// standard apps
+		//
+
+		> .header-bar {
+			.light-grey();
+			.outline-text();
+			background: black;
+
+			.menu-bar li:hover,
+			.dropdown-menu, .tooltip, .button:hover {
+				.unoutline-text();
+			}
+
+			//
+			// app body
+			//
+
+			& + .body {
+				.light-grey();
+
+				> .contents {
+					.dark-grey();
+				}
+
+				//
+				// app footer bars
+				//
+
+				& + .footer-bar {
+					.light-grey();
+					.outline-text();
+				}
+			}
+		}
+
+		//
+		// map grids
+		//
+		
+		.map pattern svg path {
+			stroke: white;
+		}
+
+		//
+		// selection boxes
+		//
+
+		.selection {
+			color: white;
+			.lighten-less();
+		}
+	}
+
+	//
+	// dark modal / non-desktop apps
+	//
+
+	//
+	// modal / non-desktop apps
+	//
+
+	.modals {
+		.app {
+			> .body {				
+				> .contents {
+					.mainbar {
+						> .items, 
+						.tab-pane > .items,
+						.tab-pane .tab-pane form {
+							.grey();
+						}
+					}
+				}
+			}
+		}
+	}
+
+	//
+	// desktop styles
+	//
+
+	&[device="desktop"] .modals {
+		.modal-dialog {
+			.app {
+				.body:not(.last) {
+					border-color: transparent;
+				}
+			}
+		}
+	}
+}

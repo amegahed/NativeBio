@@ -1,0 +1,64 @@
+/******************************************************************************\
+|                                                                              |
+|                         medium-comment-replies.less                          |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// comment reply colors
+//
+
+@reply-color: black;
+@reply-background-color: white;
+@reply-border-color: black;
+@reply-arrow-color: black;
+
+//
+// comment reply styles
+//
+
+body.binary {
+	.replies-list {
+
+		//
+		// unselected comment replies
+		//
+
+		> .reply:not(.selected) > .info > .comment-bubble {
+
+			> .comment-inner {
+				color: @reply-color;
+				background-color: @reply-background-color;
+				border-color: @reply-border-color;
+			}
+
+			//
+			// unselected comment reply arrows
+			//
+
+			&.top > .comment-arrow {
+				border-top-color: @reply-arrow-color;
+			}
+			&.right > .comment-arrow {
+				border-right-color: @reply-arrow-color;
+			}
+			&.left > .comment-arrow {
+				border-left-color: @reply-arrow-color;
+			}
+			&.bottom > .comment-arrow {
+				border-bottom-color: @reply-arrow-color;
+			}
+		}
+	}
+}

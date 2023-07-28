@@ -1,0 +1,53 @@
+/******************************************************************************\
+|                                                                              |
+|                             dark-code-editor.less                            |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+body.binary.dark {
+	.code-editor.app {
+		.body > .contents {
+		
+			.mainbar {
+				.tabbed-content {
+
+					.tabs {
+						.dark-grey();
+					}
+
+					.tab-content {
+
+						.ace_editor {
+							.black();
+						}
+						
+						.code {
+							background-color: black;
+							
+							pre {
+								.ace_gutter {
+									background-color: black;
+
+									.ace_gutter-active-line {
+										background-color: white;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

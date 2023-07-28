@@ -1,0 +1,63 @@
+/******************************************************************************\
+|                                                                              |
+|                               light-pages.less                               |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// page colors
+//
+
+// @light-page-background-color: @very-very-very-light-grey;
+@light-page-background-color: white;
+@light-page-footer-info-color: @brand-light;
+@light-page-footer-background-color: @brand-light;
+@light-page-footer-info-background-color: lighten(@very-very-light-grey, 5%);
+@light-attention-color: white;
+@light-attention-background-color: @brand-light;
+
+//
+// page styles
+//
+
+body:not(.binary).light {
+
+	.page {
+		background-color: @light-page-background-color;
+
+		.contents {
+			.attention {
+				color: @light-attention-color;
+				background-color: @light-attention-background-color;
+
+				i {
+					color: @light-attention-color;
+				}
+			}
+		}
+		
+		.footer {
+
+			.info.content {
+				color: @light-page-footer-info-color;
+				background-color: @light-page-footer-info-background-color;
+			}
+
+			.branding.content {
+				color: white;
+				background-color: @light-page-footer-background-color;		
+			}
+		}
+	}
+}

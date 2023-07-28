@@ -1,0 +1,196 @@
+/******************************************************************************\
+|                                                                              |
+|                              medium-apps.less                                |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// app colors
+//
+
+@app-background-color: @very-very-very-light-grey;
+@app-message-color: @medium-grey;
+@app-border-color: darken(@app-background-color, 10%);
+
+// app sidebar colors
+//
+@app-sidebar-color: @app-background-color;
+@app-sidebar-panel-color: white;
+@app-sidebar-header-background-color: transparent;
+@app-colored-sidebar-color: lighten(@brand-light, 10%);
+
+// app sidebars
+//
+@app-sidebar-panel-blur: 10px;
+@app-sidebar-panel-opacity: 25%;
+
+// app spinners
+//
+@app-spinner-color: @brand-light;
+@app-spinner-background-color: fade(@light-grey, 25%);
+
+//
+// app styles
+//
+
+body:not(.binary) {
+	.app {
+	 	
+		.header-bar, .footer-bar {
+			color: @dark-text-color;
+
+			.app-bar, .info-bar, .address-bar, .toolbar {
+				border-color: @app-border-color;
+
+				i {
+					color: @medium-grey;
+				}
+
+				.button.selected, .input-group-addon.btn {
+					i {
+						color: inherit;
+					}
+				}
+
+				.button:hover {
+					i {
+						color: inherit;
+					}
+				}
+			}
+
+			//
+			// breadcrumb links
+			//
+
+			.address-bar {
+				.breadcrumb a {
+					color: @dark-text-color;
+				}
+			}
+
+			//
+			// item separators
+			//
+
+			> div {
+				border-color: @app-border-color;
+			}
+		}
+
+		.body, .body-region {
+			border-color: @app-background-color;
+
+			> .contents {
+				border-color: @app-border-color;
+
+				> .split {
+					border-color: @app-border-color;
+
+					&.sidebar {
+						background-color: @app-sidebar-color;
+
+						.header {
+							background-color: @app-sidebar-header-background-color;
+						}
+					}
+				}
+			}
+
+			//
+			// app help messages
+			//
+
+			.help.message {
+				color: @app-message-color;
+
+				i {
+					color: @app-message-color;
+				}
+			}
+		}
+
+		//
+		// loading spinners
+		//
+
+		.spinner {
+			border-color: @app-spinner-background-color;
+			border-top-color: @app-spinner-color;
+		}
+
+		//
+		// panels following apps
+		//
+
+		& + .panel {
+			border-color: @app-border-color;
+		}
+	}
+
+	//
+	// opaque app sidebars
+	//
+
+	&.opaque {
+		.app {
+			.body, .body-region {
+				.contents {
+					> .sidebar {
+						background-color: @app-sidebar-color;
+					}
+				}
+			}
+		}
+	}
+
+	//
+	// transparent app sidebars
+	//
+
+	&.transparent, &.translucent {
+		.app {
+			.body, .body-region {
+				.contents {
+					> .sidebar {
+						background-color: fade(@app-sidebar-color, 50%);
+					}
+				}
+			}
+		}
+	}
+
+	//
+	// app sidebar panels
+	//
+
+	&.sidebar-panels {
+		.app {
+			.body, .body-region {
+				.contents {
+					> .sidebar {
+
+						.header {
+							background-color: transparent;
+						}
+
+						.panel {
+							background-color: @app-sidebar-panel-color;
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,28 @@
+/******************************************************************************\
+|                                                                              |
+|                         colored-chalk-page-dots.less                         |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+body:not(.binary).colored.green {
+	&.chalk {
+		.flickity-page-dots {
+			.dot {
+				&.is-selected {
+					.round-chalk(@selected-page-dot-color);
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,98 @@
+/******************************************************************************\
+|                                                                              |
+|                          colorful-glass-dialogs.less                         |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+body:not(.binary).colorful.grey {
+	& .glass.modals,
+	&.glass .auto-material.modals {
+
+		//
+		// focused dialogs
+		//
+
+		.modal.focused .modal-dialog {
+			.modal-header {
+				.glass(@modal-header-color);
+			}
+		}
+
+		//
+		// unfocused dialogs
+		//
+
+		.modal:not(.focused) .modal-dialog {
+			.modal-header {
+				.glass(@modal-unfocused-header-color);
+			}
+		}
+	}
+
+	//
+	// transparent dialogs
+	//
+
+	&.transparent .glass.modals,
+	&.transparent.glass .auto-material.modals {
+
+		//
+		// transparent focused dialogs
+		//
+
+		.modal.focused .modal-dialog {
+			.modal-header {
+				.glass(@modal-header-color);
+			}
+		}
+
+		//
+		// transparent unfocused dialogs
+		//
+
+		.modal:not(.focused) .modal-dialog {
+			.modal-header {
+				.glass(@modal-unfocused-header-color);
+			}
+		}
+	}
+
+	//
+	// translucent dialogs
+	//
+
+	&.translucent .glass.modals,
+	&.translucent.glass .auto-material.modals {
+
+		//
+		// translucent focused dialogs
+		//
+
+		.modal.focused .modal-dialog {
+			.modal-header {
+				.frosted-glass(@modal-header-color);
+			}
+		}
+
+		//
+		// translucent unfocused dialogs
+		//
+
+		.modal:not(.focused) .modal-dialog {
+			.modal-header {
+				.frosted-glass(@modal-unfocused-header-color);
+			}
+		}
+	}
+}

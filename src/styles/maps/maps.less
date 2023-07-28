@@ -1,0 +1,165 @@
+/******************************************************************************\
+|                                                                              |
+|                                    maps.less                                 |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+.map {
+
+	//
+	// smoothing
+	//
+
+	&.pixelated {
+		image-rendering: pixelated;
+	}
+	&.smoothed {
+		image-rendering: auto;
+	}
+
+	//
+	// map tiles
+	//
+
+	image {
+		pointer-events: none;
+	}
+
+	//
+	// line annotations
+	//
+
+	.dimensioning path {
+		stroke: @medium-cyan;
+		stroke-width: 2;
+		vector-effect: non-scaling-stroke;
+	}
+
+	//
+	// selection rectangles
+	//
+
+	.selection {
+		fill: @very-light-grey !important;
+		stroke: @medium-cyan !important;
+	}
+
+	//
+	// dimensioning arrows
+	//
+
+	marker#arrow-start.filled, 
+	marker#arrow-end.filled {
+		path {
+			stroke: none;
+		}
+	}
+
+	marker#arrow-start:not(.filled), 
+	marker#arrow-end:not(.filled) {
+		path {
+			stroke-width: 2px;
+			fill: none;
+		}
+	}
+
+	.dimensioning.arrow {
+		text {
+			filter: url(#white-background);
+		}
+	}
+
+	//
+	// map ortho overlays
+	//
+
+	.ortho {
+		pointer-events: auto;
+
+		image {
+			opacity: 0.5;
+			pointer-events: none;
+
+			&:not(.pixelated) {
+				filter: blur(10px);
+			}
+		}
+
+		path.line {
+			stroke-width: 3;
+			pointer-events: auto;
+		}
+
+		&.selected {
+			image {
+				opacity: 1;
+			}
+		}
+	}
+
+	//
+	// photographic maps
+	//
+
+	&.aerial, &.satellite, &.hybrid {
+
+		marker#arrow-start:not(.filled), 
+		marker#arrow-end:not(.filled) {
+			path {
+				stroke: white;
+			}
+		}
+
+		marker#arrow-start.filled, 
+		marker#arrow-end.filled {
+			path {
+				fill: white;
+			}
+		}
+
+		//
+		// selection rectangles
+		//
+
+		rect.selection {
+			fill: @very-light-grey !important;
+			stroke: @medium-cyan !important;
+		}
+
+		//
+		// map ortho overlays
+		//
+
+		.ortho {
+			image {
+				mix-blend-mode: lighten;
+			}
+		}
+	}
+}
+
+//
+// Firefox compatibility
+//
+
+body[browser="firefox"] {
+	.map {
+
+		// smoothing
+		//
+		&.pixelated {
+			image-rendering: -moz-crisp-edges;
+		}
+	}
+}

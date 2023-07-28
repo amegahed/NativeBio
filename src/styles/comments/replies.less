@@ -1,0 +1,68 @@
+/******************************************************************************\
+|                                                                              |
+|                                  replies.less                                |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// replies lists
+//
+
+.comment {
+
+	.replies {
+		margin-left: 35px; 
+	}
+
+	.reply {
+		padding: 0;
+
+		&:not(.selected) {
+			> .info > .comment-bubble {
+				cursor: pointer;
+			}
+		}
+
+		.info {
+			margin-left: @small-tile-size + 10px;
+		}
+	}
+
+	//
+	// new reply forms
+	//
+
+	.new-reply {
+		margin: 10px 0;
+		margin-left: 35px;
+		
+		> form .tile + .info {
+			margin-left: @medium-tile-size;
+
+			// placeholder text
+			//
+			.comment-bubble .comment-inner:empty::after {
+				content: "Your reply?";
+			}
+		}
+
+		.spacer {
+			width: 35px;
+		}
+
+		&:empty {
+			display: none;
+		}
+	}
+}

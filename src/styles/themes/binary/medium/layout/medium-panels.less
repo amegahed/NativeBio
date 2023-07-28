@@ -1,0 +1,66 @@
+/******************************************************************************\
+|                                                                              |
+|                              medium-panels.less                              |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+body.binary {
+	.panel {
+		.light-grey();
+		.outline-text();
+
+		.heading {
+			.badge {
+				text-shadow: none;
+			}
+		}
+		
+		.content {
+			background: white;
+		}
+
+		//
+		// nested panels
+		//
+
+		.panel {
+			background: white;
+		}
+
+		&.empty {
+			.outline-text();
+		}
+
+		//
+		// selected panels
+		//
+
+		&.selected {
+			.dark-grey();
+		}
+	}
+
+	.tab-content {
+		.panels {
+			> li {
+				> form {
+					background: white;
+					border-color: black;
+					border-width: 1px;
+					border-style: solid;
+				}
+			}
+		}
+	}
+}

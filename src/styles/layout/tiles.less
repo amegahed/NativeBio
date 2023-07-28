@@ -1,0 +1,154 @@
+/******************************************************************************\
+|                                                                              |
+|                                   tiles.less                                 |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// tile attributes
+//
+
+@small-tile-size: 25px;
+@medium-tile-size: 50px;
+@round-tile-border-radius: 10px;
+@rounded-tile-border-radius: 7px;
+@small-round-tile-border-radius: 7px;
+@small-rounded-tile-border-radius: 5px;
+@tile-icon-shadow: drop-shadow(3px 3px 5px fade(black, 33%));
+
+//
+// tile styles
+//
+
+.tile {
+	display: inline-block;
+	width: @medium-tile-size;
+	height: @medium-tile-size;
+	text-align: center;
+	position: relative;
+
+	img {
+		pointer-events: none;
+	}
+
+	//
+	// links
+	//
+
+	a {
+		width: @medium-tile-size;
+		height: @medium-tile-size;
+	}
+	
+	a:hover {
+		background: none !important;
+		box-shadow: none !important;
+	}
+
+	.thumbnail {
+		width: 100%;
+		height: 100%;
+		background-size: cover;
+
+		> i {
+			font-size: @medium-tile-size;
+			padding: 0;
+		}
+	}
+}
+
+//
+// tile thumbnails
+//
+
+.round {
+	.tile {
+		.thumbnail {
+			border-radius: @round-tile-border-radius;
+
+			&::after {
+				border-radius: @round-tile-border-radius;
+			}
+		}
+
+		&.small {
+			.thumbnail {
+				border-radius: @small-round-tile-border-radius;
+
+				&::after {
+					border-radius: @small-round-tile-border-radius;
+				}
+			}
+		}
+	}
+}
+
+.rounded {
+	.tile {
+		.thumbnail {
+			border-radius: @rounded-tile-border-radius;
+
+			&::after {
+				border-radius: @rounded-tile-border-radius;
+			}
+		}
+
+		&.small {
+			.thumbnail {
+				border-radius: @small-rounded-tile-border-radius;
+
+				&::after {
+					border-radius: @small-rounded-tile-border-radius;
+				}
+			}
+		}
+	}
+}
+
+.square {
+	.tile {
+		.thumbnail {
+			border-radius: 0;
+
+			&::after {
+				border-radius: 0;
+			}
+		}
+	}
+}
+
+//
+// tile sizes
+//
+
+.small.tile {
+	width: @small-tile-size;
+	height: @small-tile-size;
+	font-size: @small-tile-size;
+
+	//
+	// icons
+	//
+
+	.thumbnail {
+		width: @small-tile-size;
+		height: @small-tile-size;
+
+		> i {
+			font-size: 20px !important;
+			padding: 0 !important;
+			margin: 2px !important;
+		}
+	}
+}

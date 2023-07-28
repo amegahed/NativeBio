@@ -1,0 +1,110 @@
+/******************************************************************************\
+|                                                                              |
+|                          medium-comment-bubbles.less                         |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+// selected comment colors
+//
+@selected-comment-bubble-color: white;
+@selected-comment-bubble-background-color: @select-color;
+@selected-comment-bubble-border-color: @select-color;
+@selected-comment-bubble-arrow-color: @select-color;
+@selected-comment-bubble-title-color: white;
+@selected-comment-bubble-link-color: @light-text-color;
+
+//
+// comment bubble styles
+//
+
+body:not(.binary).colored.cyan {
+	.comment-bubble {
+
+		//
+		// focused comment arrows
+		//
+
+		&.top > .comment-inner:focus:not([contenteditable="true"]) + .comment-arrow {
+			border-top-color: @selected-comment-bubble-border-color;
+		}
+		&.right > .comment-inner:focus:not([contenteditable="true"]) + .comment-arrow {
+			border-right-color: @selected-comment-bubble-border-color;
+		}
+		&.left > .comment-inner:focus:not([contenteditable="true"]) + .comment-arrow {
+			border-left-color: @selected-comment-bubble-border-color;
+		}
+		&.bottom > .comment-inner:focus:not([contenteditable="true"]) + .comment-arrow {
+			border-bottom-color: @selected-comment-bubble-border-color;
+		}
+
+		//
+		// focused editable comment arrows
+		//
+
+		&.top > .comment-inner[contenteditable="true"]:focus + .comment-arrow {
+			border-top-color: @selected-comment-bubble-border-color;
+		}
+		&.right > .comment-inner[contenteditable="true"]:focus + .comment-arrow {
+			border-right-color: @selected-comment-bubble-border-color;
+		}
+		&.left > .comment-inner[contenteditable="true"]:focus + .comment-arrow {
+			border-left-color: @selected-comment-bubble-border-color;
+		}
+		&.bottom > .comment-inner[contenteditable="true"]:focus + .comment-arrow {
+			border-bottom-color: @selected-comment-bubble-border-color;
+		}
+	}
+
+	//
+	// selected comments
+	//
+
+	.selected > .comment-bubble,
+	.selected > .info > .comment-bubble {
+		> .comment-inner {
+			color: @selected-comment-bubble-color;
+			background-color: @selected-comment-bubble-background-color;
+			border-color: @selected-comment-bubble-border-color;
+
+			.title, .title a {
+				color: @selected-comment-bubble-title-color;
+			}
+
+			a {
+				color: @selected-comment-bubble-link-color;
+
+				&:hover {
+					color: @selected-comment-bubble-color;
+				}
+			}
+		}
+
+		//
+		// selected comment arrows
+		//
+
+		&.top > .comment-arrow {
+			border-top-color: @selected-comment-bubble-arrow-color;
+		}
+		&.right > .comment-arrow {
+			border-right-color: @selected-comment-bubble-arrow-color;
+		}
+		&.left > .comment-arrow {
+			border-left-color: @selected-comment-bubble-arrow-color;
+		}
+		&.bottom > .comment-arrow {
+			border-bottom-color: @selected-comment-bubble-arrow-color;
+		}
+	}
+}

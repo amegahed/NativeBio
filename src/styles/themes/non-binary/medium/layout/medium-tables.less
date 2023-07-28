@@ -1,0 +1,339 @@
+/******************************************************************************\
+|                                                                              |
+|                              medium-tables.less                              |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// table colors
+//
+
+// table head colors
+//
+@table-head-color: white;
+@table-head-fill-color: @very-light-grey;
+@table-head-sort-fill-color: darken(@table-head-fill-color, 10%);
+@table-head-outline-color: @table-head-fill-color;
+
+// table side head colors
+//
+@table-side-head-color: @dark-text-color;
+@table-side-head-fill-color: lighten(@table-head-fill-color, 5%);
+@table-side-head-sort-fill-color: darken(@table-side-head-fill-color, 10%);
+@table-side-head-outline-color: @table-side-head-fill-color;
+
+// table body colors
+//
+@table-body-color: @dark-text-color;
+@table-body-fill-color: fade(white, 25%);
+
+// table row colors
+//
+@table-row-border-color: darken(@very-very-very-light-grey, 5%);
+@table-row-odd-fill-color: @very-very-very-light-grey;
+@table-row-even-fill-color: @ultra-light-grey;
+@table-row-selected-fill-color: fade(@brand-light, 33%);
+@table-row-selected-stroke-color: @brand-light;
+
+// table cell colors
+//
+@table-cell-highlighted-color: white;
+@table-cell-highlighted-background-color: @brand-light;
+@table-cell-selected-outline-color: @brand-light;
+@table-cell-border-color: @table-row-border-color;
+
+//
+// table styles
+//
+
+body:not(.binary) {
+	table {
+		color: @table-body-color;
+
+		//
+		// table headers
+		//
+		
+		thead {	
+			th {
+				color: @table-head-color;
+				border-color: @table-head-fill-color;
+				background-color: @table-head-fill-color;
+				outline: none;
+			}
+		}
+
+		tbody {
+			th {
+				color: @table-side-head-color;
+				border-color: @table-side-head-fill-color;
+				background-color: @table-side-head-fill-color;
+				outline: none;
+			}	
+		}
+
+		th.tablesorter-headerDesc, th.tablesorter-headerAsc {
+			background-color: @table-head-sort-fill-color;
+		}
+
+		//
+		// table borders
+		//
+
+		&:not(.outlined) {
+			th, td {
+				border: none;
+			}
+		}
+
+		&.outlined {
+			thead {
+				th {
+					border-color: @table-head-fill-color;
+				}
+			}
+
+			tbody {
+				th {
+					border-color: @table-side-head-fill-color;
+				}		
+			}
+
+			td {
+				border-color: @table-cell-border-color;
+			}
+		}
+		
+		//
+		// table head outlines
+		//
+
+		thead {
+
+			// middle
+			//
+			th {
+				box-shadow: 0 -@table-head-border-width 0 @table-head-outline-color inset,
+					0 @table-head-border-width 0 @table-head-outline-color inset;
+			}
+
+			// left
+			//
+			th:first-child {
+				box-shadow: 0 -@table-head-border-width 0 @table-head-outline-color inset,
+					0 @table-head-border-width 0 @table-head-outline-color inset,
+					@table-head-border-width 0 0 @table-head-outline-color inset;
+			}
+
+			// right
+			//
+			th:last-child {
+				box-shadow: 0 -@table-head-border-width 0 @table-head-outline-color inset,
+					0 @table-head-border-width 0 @table-head-outline-color inset,
+					-@table-head-border-width 0 0 @table-head-outline-color inset;
+			}
+		}
+
+		/*
+		tbody {
+
+			// middle
+			//
+			th {
+				box-shadow: 0 -@table-border-width 0 @table-side-head-outline-color inset,
+					0 @table-border-width 0 @table-side-head-outline-color inset;
+			}
+
+			// left
+			//
+			th:first-child {
+				box-shadow: 0 -@table-border-width 0 @table-side-head-outline-color inset,
+					0 @table-border-width 0 @table-side-head-outline-color inset,
+					@table-border-width 0 0 @table-side-head-outline-color inset;
+			}
+
+			// right
+			//
+			th:last-child {
+				box-shadow: 0 -@table-border-width 0 @table-side-head-outline-color inset,
+					0 @table-border-width 0 @table-side-head-outline-color inset,
+					-@table-border-width 0 0 @table-head-outline-color inset;
+			}		
+		}
+		*/
+
+		//
+		// table rows
+		//
+
+		tbody {
+			background-color: @table-body-fill-color;
+
+			//
+			// zebra striping
+			//
+
+			tr:nth-of-type(odd), tr.odd {
+				border-color: @table-row-odd-fill-color;
+				background-color: @table-row-odd-fill-color;
+			}
+
+			tr:nth-of-type(even), tr.even {
+				border-color: @table-row-even-fill-color;
+				background-color: @table-row-even-fill-color;
+			}
+
+			//
+			// borders
+			//
+
+			/*
+			tr:nth-of-type(odd), tr.odd {
+
+				// left
+				//
+				td:not(.append):first-child {
+					box-shadow: 0 0 0 @table-row-border-color inset,
+						0 0 0 @table-row-border-color inset,
+						@table-border-width 0 0 @table-row-border-color inset;
+				}
+
+				// right
+				//
+				td:not(.append):last-child {
+					box-shadow: 0 0 0 @table-row-border-color inset,
+						0 0 0 @table-row-border-color inset,
+						-@table-border-width 0 0 @table-row-border-color inset;
+				}
+			}
+
+			tr:nth-of-type(even), tr.even {
+
+				// left
+				//
+				td:not(.append):first-child {
+					box-shadow: 0 0 0 @table-row-border-color inset,
+						0 0 0 @table-row-border-color inset,
+						@table-border-width 0 0 @table-row-border-color inset;
+				}
+
+				// right
+				//
+				td:not(.append):last-child {
+					box-shadow: 0 0 0 @table-row-border-color inset,
+						0 0 0 @table-row-border-color inset,
+						-@table-border-width 0 0 @table-row-border-color inset;
+				}
+			}
+
+			tr:last-child:not(.selected) {
+
+				// left
+				//
+				td:not(.append):first-child {
+					box-shadow: 0 -@table-border-width 0 @table-row-border-color inset,
+						0 0 0 @table-row-border-color inset,
+						@table-border-width 0 0 @table-row-border-color inset;
+				}
+
+				// right
+				//
+				td:not(.append):last-child {
+					box-shadow: 0 -@table-border-width 0 @table-row-border-color inset,
+						0 0 0 @table-row-border-color inset,
+						-@table-border-width 0 0 @table-row-border-color inset;
+				}
+
+				// bottom
+				//
+				td:not(.append) {
+					box-shadow: 0 -@table-border-width 0 @table-row-border-color inset,
+						0 0 0 @table-row-border-color inset;
+				}
+			}
+			*/
+			
+			//
+			// inset row selection
+			//
+			
+			tr.selected {
+				color: unset;
+				background-color: unset;
+
+				td:not(.append) {
+					background-color: @table-row-selected-fill-color;
+				}
+				
+				// middle
+				//
+				td:not(.append) {
+					box-shadow: 0 -2px 0 @table-row-selected-stroke-color inset,
+						0 2px 0 @table-row-selected-stroke-color inset;
+				}
+
+				// left
+				//
+				td:not(.append):first-child {
+					box-shadow: 0 -2px 0 @table-row-selected-stroke-color inset,
+						0 2px 0 @table-row-selected-stroke-color inset,
+						2px 0 0 @table-row-selected-stroke-color inset;
+				}
+
+				// right
+				//
+				td:not(.append):last-child {
+					box-shadow: 0 -2px 0 @table-row-selected-stroke-color inset,
+						0 2px 0 @table-row-selected-stroke-color inset,
+						-2px 0 0 @table-row-selected-stroke-color inset;
+				}	
+			}
+
+			tr.selected + tr.selected {
+
+				// middle
+				//
+				td:not(.append) {
+					box-shadow: 0 -2px 0 @table-row-selected-stroke-color inset;
+				}
+
+				// left
+				//
+				td:not(.append):first-child {
+					box-shadow: 0 -2px 0 @table-row-selected-stroke-color inset,
+						2px 0 0 @table-row-selected-stroke-color inset;
+				}
+
+				// right
+				//
+				td:not(.append):last-child {
+					box-shadow: 0 -2px 0 @table-row-selected-stroke-color inset,
+						-2px 0 0 @table-row-selected-stroke-color inset;
+				}
+			}
+
+			//
+			// cell shading
+			//
+
+			tr {
+				td:not(.append) {
+					&.highlighted {
+						color: @table-cell-highlighted-color;
+						background-color: @table-cell-highlighted-background-color;
+					}
+
+					&.selected {
+						outline-color: @table-cell-selected-outline-color;
+					}
+				}
+			}
+		}
+	}
+}

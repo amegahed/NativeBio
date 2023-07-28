@@ -1,0 +1,54 @@
+/******************************************************************************\
+|                                                                              |
+|                              dark-selection.less                             |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// dark selection colors
+//
+
+@dark-select-color: @medium-grey;
+@dark-highlight-color: @medium-grey;
+@dark-disabled-color: fade(@very-light-grey, 50%);
+@dark-edit-highlight-color: fade(@dark-select-color, 50%);
+
+//
+// dark selection box colors
+//
+
+@dark-select-box-color: @brand-light;
+@dark-select-box-border-color: @brand-light;
+@dark-select-box-opacity: @select-box-opacity;
+
+//
+// dark selection boxes
+//
+
+body:not(.binary).dark {
+
+	.drag-image {
+		border-color: @dark-select-box-border-color;
+	}
+
+	.selection {
+		background-color: fade(@dark-select-box-color, @dark-select-box-opacity);
+		border-color: @dark-select-box-border-color;
+	}
+
+	svg .selection {
+		fill: fade(@dark-select-box-color, @dark-select-box-opacity);
+		stroke: @dark-select-box-border-color;
+	}
+}

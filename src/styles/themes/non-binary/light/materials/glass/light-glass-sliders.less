@@ -1,0 +1,42 @@
+/******************************************************************************\
+|                                                                              |
+|                           light-glass-sliders.less                           |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+body:not(.binary) {
+	&.light.glass-sliders,
+	&.light.glass.auto-sliders {
+
+		//
+		// light glass slider thumbs
+		//
+
+		&:not(.colored) {
+			input[type="range"] {
+				&:not(.colored) {
+					.glass-slider-thumb(@light-slider-thumb-color, @light-slider-thumb-hover-color);
+				}
+			}
+		}
+
+		//
+		// light glass slider tracks
+		//
+
+		input[type="range"] {
+			// .glass-slider-track(@light-slider-track-color);
+		}
+	}
+}

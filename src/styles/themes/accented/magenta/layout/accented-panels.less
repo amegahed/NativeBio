@@ -1,0 +1,56 @@
+/******************************************************************************\
+|                                                                              |
+|                              accented-panels.less                            |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// panel colors
+//
+
+@panel-title-color: @accent-color;
+@panel-label-color: @accent-color;
+
+//
+// panel styles
+//
+
+body:not(.binary).colored.magenta-accented {
+	&:not(.dark) {
+		.panel, ul.panels > li {
+
+			//
+			// panel labels
+			//
+
+			.header label, .heading label, .control-label {
+				i:not(.fa-star) {
+					color: @panel-label-color !important;
+				}
+			}
+			
+			//
+			// panel content
+			//
+
+			.content {			
+				.title {
+					i {
+						color: @panel-title-color !important;
+					}
+				}
+			}
+		}
+	}
+}

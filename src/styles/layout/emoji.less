@@ -1,0 +1,57 @@
+/******************************************************************************\
+|                                                                              |
+|                                   emoji.less                                 |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+.emoji.selector {
+	max-width: 320px;
+	margin-right: -10px;
+	cursor: default;
+
+	.tab-content {
+		max-height: 250px;
+		font-size: 20px;
+		overflow: auto;
+		padding: 0 5px;
+
+		.emoji {
+			display: inline-block;
+			width: 32px;
+			height: 32px;
+			padding: 2px;
+			text-align: center;
+			text-decoration: none;
+			border-radius: 5px;
+			cursor: default;
+
+			&:hover {
+				background: fade(@light-grey, 25%);
+				cursor: pointer;			
+			}
+		}
+	}
+}
+
+//
+// mobile styles
+//
+
+body[device="phone"], body[device="tablet"] {
+	.emoji.selector {		
+		.nav-tabs {
+			font-size: 20px;
+		}
+	}
+}

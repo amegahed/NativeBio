@@ -1,0 +1,81 @@
+/******************************************************************************\
+|                                                                              |
+|                            dark-breadcrumbs.less                             |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// dark breadcrumb colors
+//
+
+@dark-breadcrumb-color: @light-text-color;
+@dark-breadcrumb-icon-color: @light-grey;
+@dark-breadcrumb-slash-color: @very-light-grey;
+@dark-breadcrumb-background-color: @very-very-dark-grey;
+
+//
+// dark breadcrumb styles
+//
+
+body:not(.binary).dark {
+
+	//
+	// dark page breadcrumbs
+	//
+
+	.page .breadcrumb {
+		color: @dark-breadcrumb-color;
+		background-color: @dark-breadcrumb-background-color;
+		
+		//
+		// dark page breadcrumb slashes
+		//
+
+		> li + li:before {
+			color: @dark-breadcrumb-slash-color;
+		}
+	}
+
+	//
+	// dark address breadcrumbs
+	//
+
+	.address-bar .breadcrumb {
+		color: @dark-breadcrumb-color;
+
+		//
+		// dark address breadcrumb icons
+		//
+
+		i {
+			color: @dark-breadcrumb-icon-color;
+		}
+
+		//
+		// dark address breadcrumb links
+		//
+
+		a {
+			color: @dark-breadcrumb-color;
+		}
+
+		//
+		// dark address breadcrumb slashes
+		//
+
+		> li + li:before {
+			color: @dark-breadcrumb-slash-color;
+		}
+	}
+}

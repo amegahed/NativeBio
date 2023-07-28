@@ -1,0 +1,54 @@
+/******************************************************************************\
+|                                                                              |
+|                               dark-layout.less                               |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// dark layout colors
+//
+
+@dark-content-text-color: @light-text-color;
+@dark-content-background-color: @very-very-very-dark-grey;
+
+@dark-well-background-color: @very-dark-grey;
+@dark-well-border-color: lighten(@dark-well-background-color, 10%);
+
+//
+// dark layout styles
+//
+
+body:not(.binary).dark {
+	color: @dark-content-text-color;
+	background: @dark-content-background-color;
+
+	//
+	// dark content
+	//
+
+	.content {
+		color: @dark-content-text-color;
+		// background-color: @dark-content-background-color;
+	}
+
+	//
+	// dark wells
+	//
+
+	.well {
+		color: @light-text-color;
+		background-color: @dark-well-background-color;
+		border-color: @dark-well-border-color;
+	}
+}

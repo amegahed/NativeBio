@@ -1,0 +1,61 @@
+/******************************************************************************\
+|                                                                              |
+|                          medium-comment-bubbles.less                         |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// comment bubble colors
+//
+
+@comment-bubble-color: @dark-text-color;
+@comment-bubble-background-color: white;
+@comment-bubble-border-color: @comment-bubble-background-color;
+@comment-bubble-arrow-color: @comment-bubble-border-color;
+@comment-bubble-title-color: @brand-light;
+
+//
+// comment bubble styles
+//
+
+body:not(.binary) {
+	.comment-bubble {
+		> .comment-inner {
+			color: @comment-bubble-color;
+			background-color: @comment-bubble-background-color;
+			border-color: @comment-bubble-border-color;
+
+			.title {
+				color: @comment-bubble-title-color;
+			}
+		}
+
+		//
+		// comment arrows
+		//
+
+		&.top > .comment-arrow {
+			border-top-color: @comment-bubble-arrow-color;
+		}
+		&.right > .comment-arrow {
+			border-right-color: @comment-bubble-arrow-color;
+		}
+		&.left > .comment-arrow {
+			border-left-color: @comment-bubble-arrow-color;
+		}
+		&.bottom > .comment-arrow {
+			border-bottom-color: @comment-bubble-arrow-color;
+		}
+	}
+}

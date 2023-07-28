@@ -1,0 +1,53 @@
+/******************************************************************************\
+|                                                                              |
+|                           dark-colored-badges.less                           |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// dark badge colors
+//
+
+@dark-badge-color: @medium-blue;
+@dark-success-badge-color: @success-color;
+@dark-caution-badge-color: @caution-color;
+@dark-warning-badge-color: @warning-color;
+
+//
+// dark badge styles
+//
+
+body:not(.binary).colored {
+	&.dark {
+		.badge {
+			background-color: @badge-color;
+
+			//
+			// special badges
+			//
+
+			&.success {
+				background-color: @dark-success-badge-color;
+			}
+
+			&.caution {
+				background-color: @dark-caution-badge-color;
+			}
+
+			&.warning {
+				background-color: @dark-warning-badge-color;
+			}
+		}
+	}
+}

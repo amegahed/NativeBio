@@ -1,0 +1,273 @@
+/******************************************************************************\
+|                                                                              |
+|                            medium-item-lists.less                            |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// item list attributes
+//
+
+@list-item-background-opacity: 25%;
+
+//
+// item list colors
+//
+
+@even-list-item-background-color: fade(white, @list-item-background-opacity);
+@odd-list-item-background-color: fade(@light-grey, @list-item-background-opacity);
+@list-item-info-color: @medium-grey;
+
+//
+// item list styles
+//
+
+body:not(.binary) {
+	.item-list:not(.dropdown-menu) {
+
+		//
+		// items
+		//
+
+		.item {
+			> .info {
+
+				.name {
+
+					//
+					// editable names
+					//
+
+					&[contenteditable="true"] {
+						color: @dark-text-color;
+						background-color: white;
+						outline-color: @edit-highlight-color;
+					}
+				}
+
+				//
+				// list item specifics
+				//
+
+				> .specifics {
+					.details {
+						background-color: @item-details-background-color;
+
+						i.fa-info-circle {
+							color: @list-item-info-color;
+						}
+
+						.dark &, .desktop .content & {
+							color: white;
+						}
+					}
+				}
+			}
+		}
+
+		//
+		// zebra striping
+		//
+
+		&:not(.inline) {
+
+			/*
+			.item:nth-child(even) {
+				> div.info {
+					background-color: @even-list-item-background-color;
+				}
+			}
+			*/
+
+			.item:nth-child(odd):not(.selected):not(.highlighted) {
+				> div.info {
+					background-color: @odd-list-item-background-color;
+				}
+			}
+		}
+
+		//
+		// highlighted items
+		//
+
+		.item.highlighted {
+			> .info {
+				background-color: @highlight-color;
+
+				.icon {
+					i {
+						color: white;
+					}
+
+					/*
+					.thumbnail {
+						&::after {
+							background: fade(@highlight-color; 50%);
+						}
+					}
+					*/
+				}
+
+				.name {
+
+					//
+					// uneditable names
+					//
+
+					&:not([contenteditable="true"]) {
+						color: white;
+						background-color: @highlight-color;
+					}
+
+					//
+					// editable names
+					//
+
+					&[contenteditable="true"] {
+						color: @dark-text-color;
+						background-color: white;
+					}
+				}
+
+				.details {
+					color: white;
+					background-color: @highlight-color;
+				}
+			}
+		}
+
+		//
+		// selected items
+		//
+
+		.item.selected {
+			> .info {
+				background-color: @select-color;
+
+				.icon {
+
+					i {
+						color: @select-color;
+					}
+
+					/*
+					.thumbnail {
+						&::after {
+							background: fade(@select-color; 50%);
+						}
+					}
+					*/
+				}
+
+				.name {
+
+					//
+					// uneditable names
+					//
+
+					&:not([contenteditable="true"]) {
+						color: white;
+						background-color: @select-color;
+					}
+				}
+
+				.specifics > .details {
+					color: white;
+					background-color: @select-color;
+
+					i, i.fa-info-circle {
+						color: white;
+					}
+				}
+			}
+
+			/*
+			&.pdf, &.svg {
+				.icon {
+					&::after {
+						background: fade(@select-color; 50%);
+					}
+				}
+			}
+			*/
+		}
+
+		//
+		// dragged file and directory styles
+		//
+
+		.drag-image {
+
+			//
+			// no zebra striping
+			//
+
+			.item:nth-child(odd):not(.selected):not(.highlighted) {
+				> .info {
+					background: none;
+				}
+			}
+		}
+	}
+
+	//
+	// unfocused items
+	//
+
+	.modal:not(.focused) .modal-dialog,
+	.desktop.app:not(.focused) > .body {
+		.item-list {
+
+			//
+			// selected items
+			//
+
+			.item.selected {
+				> .info {
+					background-color: @highlight-color;
+
+					.icon {
+						i {
+							color: white;
+						}
+
+						/*
+						.thumbnail {
+							&::after {
+								background: fade(@highlight-color; 50%);
+							}
+						}
+						*/
+					}
+
+					.name {
+
+						//
+						// uneditable names
+						//
+
+						&:not([contenteditable="true"]) {
+							color: white;
+							background-color: @highlight-color;
+						}
+					}
+
+					.details {
+						background-color: @highlight-color;
+					}
+				}
+			}
+		}
+	}
+}

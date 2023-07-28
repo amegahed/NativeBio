@@ -1,0 +1,47 @@
+/******************************************************************************\
+|                                                                              |
+|                             accented-pages.less                              |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// page colors
+//
+
+@page-attention-color: white;
+@page-attention-background-color: @accent-color;
+
+//
+// page styles
+//
+
+body:not(.binary).colored.green-accented {
+	.page {
+		.contents {
+
+			//
+			// attention regions
+			//
+
+			.attention {
+				color: @page-attention-color;
+				background-color: @page-attention-background-color;
+
+				i {
+					color: @page-attention-color;
+				}
+			}
+		}
+	}
+}

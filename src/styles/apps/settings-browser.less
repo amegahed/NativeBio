@@ -1,0 +1,126 @@
+/******************************************************************************\
+|                                                                              |
+|                            settings-browser.less                             |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+.settings-browser.app {
+
+	.body {
+		> .contents {
+			.panels {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				overflow: auto;
+				padding: 10px;
+
+				> .settings, > .preferences {
+					.panel {
+						overflow: auto;
+
+						.items {
+							height: auto;
+							text-align: center;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.settings.icon-grid,
+.settings .icon-grid {
+	.item {
+		.name {
+			font-weight: bold;
+		}
+	}
+}
+
+//
+// non-small styles
+//
+
+@media (min-width: @screen-xs-min) {
+	.settings-browser.app {
+
+		.body {
+			> .contents {
+				.panels {
+					display: flex;
+					height: 100%;
+
+					> .settings, > .preferences {
+						height: 100%;
+						overflow: hidden;
+
+						.panel {
+							height: 100%;
+							overflow: auto;
+						}
+					}
+
+					> .settings {
+						width: 35%;
+						// width: calc(~"33% - 10px");
+						margin-right: 10px;
+					}
+
+					> .preferences {
+						width: 65%;
+						// width: calc(~"66% - 10px");
+					}
+				}
+			}
+		}
+	}
+}
+
+//
+// extra small styles
+//
+
+@media (max-width: @screen-xs-min) {
+	.settings-browser.app {
+
+		.body {
+			> .contents {
+				.preferences {
+					margin-top: 10px;
+				}
+			}
+		}
+	}
+}
+
+//
+// binary styles
+//
+
+body.binary {
+	.settings-browser.app {
+
+		.icon-grid {
+			.item:not(.selected):not(.highlighted) {
+				> .row:first-child {
+					.icon {
+						background: white !important;
+					}
+				}
+			}
+		}
+	}
+}

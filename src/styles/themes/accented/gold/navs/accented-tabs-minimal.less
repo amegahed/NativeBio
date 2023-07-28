@@ -1,0 +1,62 @@
+/******************************************************************************\
+|                                                                              |
+|                          accented-tabs-minimal.less                          |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// tab colors
+//
+
+@minimal-tab-icon-color: @accent-color;
+@minimal-tab-icon-hover-color: darken(@accent-color, 10%);
+
+//
+// tab styles
+//
+
+body:not(.binary).colored.gold-accented {
+	&:not(.dark).tabs-minimal {
+		ul.nav-tabs {
+
+			//
+			// inactive tabs
+			//
+
+			> li:not(.active) {
+				> a {
+
+					i {
+						color: @minimal-tab-icon-color;
+					}
+
+					svg {
+						fill: @minimal-tab-icon-color;
+					}
+				}
+
+				> a:hover {
+
+					i {
+						color: @minimal-tab-icon-hover-color;
+					}
+
+					svg {
+						fill: @minimal-tab-icon-hover-color;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,53 @@
+/******************************************************************************\
+|                                                                              |
+|                        colorful-metal-task-bars.less                         |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+body:not(.binary).colorful.teal {
+	&.metal {
+
+		//
+		// metal unminimized task bars
+		//
+
+		#desktop:not(.task-bar-minimized):not(.colorful) .task-bar {
+			.task-list {
+				li {
+					.round-metal(@task-bar-item-color);
+				}
+			}
+		}
+
+		#desktop.coloful:not(.task-bar-minimized) .task-bar {
+			.task-list {
+				li:not(.colored) {
+					.round-metal(@task-bar-item-color);
+				}
+			}
+		}
+
+		//
+		// metal minimized task bars
+		//
+
+		#desktop.task-bar-minimized:not(.colorful) .task-bar {
+			.task-list {
+				li:not(.colored) {
+					.round-metal(@task-bar-item-color);
+				}
+			}
+		}
+	}
+}

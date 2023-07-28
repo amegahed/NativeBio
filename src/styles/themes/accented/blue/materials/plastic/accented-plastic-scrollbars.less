@@ -1,0 +1,64 @@
+/******************************************************************************\
+|                                                                              |
+|                       accented-plastic-scrollbars.less                       |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+body:not(.binary).colored.blue-accented {
+	&:not(.dark).plastic-scrollbars,
+	&:not(.dark).plastic.auto-scrollbars {
+
+		&.square, &.rounded {
+
+			// vertical scrollbars
+			//
+			::-webkit-scrollbar-thumb:not(:active):vertical {
+				.long-round-plastic(@scrollbar-color, right, @rounded-scrollbar-radius);
+			}
+			::-webkit-scrollbar-thumb:not(:active):vertical:hover {
+				.long-round-plastic(@scrollbar-hover-color, right, @rounded-scrollbar-radius);
+			}
+
+			// horizontal scrollbars
+			//
+			::-webkit-scrollbar-thumb:not(:active):horizontal {
+				.long-round-plastic(@scrollbar-color, bottom, @rounded-scrollbar-radius);
+			}
+			::-webkit-scrollbar-thumb:not(:active):horizontal:hover {
+				.long-round-plastic(@scrollbar-hover-color, bottom, @rounded-scrollbar-radius);
+			}
+		}
+
+		&.round {
+
+			// vertical scrollbars
+			//
+			::-webkit-scrollbar-thumb:not(:active):vertical {
+				.long-round-plastic(@scrollbar-color, right, @round-scrollbar-radius);
+			}
+			::-webkit-scrollbar-thumb:not(:active):vertical:hover {
+				.long-round-plastic(@scrollbar-hover-color, right, @round-scrollbar-radius);
+			}
+
+			// horizontal scrollbars
+			//
+			::-webkit-scrollbar-thumb:not(:active):horizontal {
+				.long-round-plastic(@scrollbar-color, bottom, @round-scrollbar-radius);
+			}
+			::-webkit-scrollbar-thumb:not(:active):horizontal:hover {
+				.long-round-plastic(@scrollbar-hover-color, bottom, @round-scrollbar-radius);
+			}
+		}
+	}
+}

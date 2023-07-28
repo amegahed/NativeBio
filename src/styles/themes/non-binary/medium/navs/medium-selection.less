@@ -1,0 +1,54 @@
+/******************************************************************************\
+|                                                                              |
+|                             medium-selection.less                            |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// selection colors
+//
+
+@select-color: @brand-light;
+@highlight-color: @brand-light;
+@disabled-color: fade(@very-light-grey, 50%);
+@edit-highlight-color: fade(@select-color, 50%);
+
+//
+// selection box colors
+//
+
+@select-box-color: @select-color;
+@select-box-border-color: lighten(@select-color, 10%);
+@select-box-opacity: 25%;
+
+//
+// selection boxes
+//
+
+body:not(.binary) {
+
+	.drag-image {
+		border-color: @select-box-border-color;
+	}
+
+	.selection {
+		background-color: fade(@select-box-color, @select-box-opacity);
+		border-color: @select-box-border-color;
+	}
+
+	svg .selection {
+		fill: white;
+		stroke: white;
+	}
+}

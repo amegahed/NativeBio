@@ -1,0 +1,340 @@
+/******************************************************************************\
+|                                                                              |
+|                                  styles.less                                 |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                                  styles.less                                 |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                                  styles.less                                 |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                         dark-flat-colored-badges.less                        |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body:not(.binary).colored.dark.flat .badge {
+  background: hsl(220, 75%, 50%);
+  border-color: hsl(220, 75%, 50%);
+}
+body:not(.binary).colored.dark.flat .badge.success {
+  background: hsl(135, 53%, 60%);
+  border-color: hsl(135, 53%, 60%);
+}
+body:not(.binary).colored.dark.flat .badge.caution {
+  background: #f5af3d;
+  border-color: #f5af3d;
+}
+body:not(.binary).colored.dark.flat .badge.warning {
+  background: #f56e3d;
+  border-color: #f56e3d;
+}
+/******************************************************************************\
+|                                                                              |
+|                                  styles.less                                 |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                        dark-chalk-colored-badges.less                        |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body:not(.binary).colored.dark.chalk .badge {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, hsl(220, 75%, 60%) 0%, hsl(220, 75%, 50%) 50%, hsl(220, 75%, 40%) 100%) no-repeat;
+  border-color: hsl(220, 75%, 40%);
+}
+body:not(.binary).colored.dark.chalk .badge.success {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, hsl(135, 53%, 70%) 0%, hsl(135, 53%, 60%) 50%, hsl(135, 53%, 50%) 100%) no-repeat;
+  border-color: hsl(135, 53%, 50%);
+}
+body:not(.binary).colored.dark.chalk .badge.caution {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #f8c36d 0%, #f5af3d 50%, #f39b0c 100%) no-repeat;
+  border-color: #f39b0c;
+}
+body:not(.binary).colored.dark.chalk .badge.warning {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #f8926d 0%, #f56e3d 50%, #f3490c 100%) no-repeat;
+  border-color: #f3490c;
+}
+/******************************************************************************\
+|                                                                              |
+|                                  styles.less                                 |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                       dark-plastic-colored-badges.less                       |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body:not(.binary).colored.dark.plastic .badge {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, hsl(220, 75%, 60%) 0%, hsl(220, 75%, 50%) 50%, hsl(220, 75%, 40%) 100%) no-repeat;
+  border-color: hsl(220, 75%, 40%);
+}
+body:not(.binary).colored.dark.plastic .badge.success {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, hsl(135, 53%, 70%) 0%, hsl(135, 53%, 60%) 50%, hsl(135, 53%, 50%) 100%) no-repeat;
+  border-color: hsl(135, 53%, 50%);
+}
+body:not(.binary).colored.dark.plastic .badge.caution {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #f8c36d 0%, #f5af3d 50%, #f39b0c 100%) no-repeat;
+  border-color: #f39b0c;
+}
+body:not(.binary).colored.dark.plastic .badge.warning {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #f8926d 0%, #f56e3d 50%, #f3490c 100%) no-repeat;
+  border-color: #f3490c;
+}
+/******************************************************************************\
+|                                                                              |
+|                                  styles.less                                 |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                        dark-glass-colored-badges.less                        |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body:not(.binary).colored.dark.glass .badge {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, hsl(220, 75%, 80%) 0%, hsl(220, 75%, 50%) 50%, hsla(220, 75%, 50%, 0) 100%) no-repeat, linear-gradient(to bottom, hsla(220, 75%, 50%, 0) 33%, hsla(220, 75%, 50%, 0.5) 100%) no-repeat, hsl(220, 75%, 30%);
+  border-color: hsl(220, 75%, 30%);
+}
+body:not(.binary).colored.dark.glass .badge.success {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, hsl(135, 53%, 90%) 0%, hsl(135, 53%, 60%) 50%, hsla(135, 53%, 60%, 0) 100%) no-repeat, linear-gradient(to bottom, hsla(135, 53%, 60%, 0) 33%, hsla(135, 53%, 60%, 0.5) 100%) no-repeat, hsl(135, 53%, 40%);
+  border-color: hsl(135, 53%, 40%);
+}
+body:not(.binary).colored.dark.glass .badge.caution {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #fdebce 0%, #f5af3d 50%, rgba(245, 175, 61, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(245, 175, 61, 0) 33%, rgba(245, 175, 61, 0.5) 100%) no-repeat, #c27c0a;
+  border-color: #c27c0a;
+}
+body:not(.binary).colored.dark.glass .badge.warning {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #fddbce 0%, #f56e3d 50%, rgba(245, 110, 61, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(245, 110, 61, 0) 33%, rgba(245, 110, 61, 0.5) 100%) no-repeat, #c23b0a;
+  border-color: #c23b0a;
+}
+/******************************************************************************\
+|                                                                              |
+|                                  styles.less                                 |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                        dark-metal-colored-badges.less                        |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body:not(.binary).colored.dark.metal .badge {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, hsl(220, 75%, 80%) 0%, hsl(220, 75%, 70%) 25%, hsla(220, 75%, 50%, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, hsla(220, 75%, 50%, 0.75) 0%, hsla(220, 75%, 50%, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, hsla(220, 75%, 50%, 0) 33%, hsla(220, 75%, 50%, 0.5) 66%, hsl(220, 75%, 60%)) no-repeat, hsl(220, 75%, 20%);
+  border-color: hsl(220, 75%, 30%);
+}
+body:not(.binary).colored.dark.metal .badge.success {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, hsl(135, 53%, 90%) 0%, hsl(135, 53%, 80%) 25%, hsla(135, 53%, 60%, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, hsla(135, 53%, 60%, 0.75) 0%, hsla(135, 53%, 60%, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, hsla(135, 53%, 60%, 0) 33%, hsla(135, 53%, 60%, 0.5) 66%, hsl(135, 53%, 70%)) no-repeat, hsl(135, 53%, 30%);
+  border-color: hsl(135, 53%, 40%);
+}
+body:not(.binary).colored.dark.metal .badge.caution {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #fdebce 0%, #fad79e 25%, rgba(245, 175, 61, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(245, 175, 61, 0.75) 0%, rgba(245, 175, 61, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(245, 175, 61, 0) 33%, rgba(245, 175, 61, 0.5) 66%, #f8c36d) no-repeat, #925d07;
+  border-color: #c27c0a;
+}
+body:not(.binary).colored.dark.metal .badge.warning {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #fddbce 0%, #fab69e 25%, rgba(245, 110, 61, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(245, 110, 61, 0.75) 0%, rgba(245, 110, 61, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(245, 110, 61, 0) 33%, rgba(245, 110, 61, 0.5) 66%, #f8926d) no-repeat, #922c07;
+  border-color: #c23b0a;
+}
+/******************************************************************************\
+|                                                                              |
+|                                  styles.less                                 |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                           dark-colored-badges.less                           |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body:not(.binary).colored.dark .badge {
+  background-color: #fff;
+}
+body:not(.binary).colored.dark .badge.success {
+  background-color: hsl(135, 53%, 60%);
+}
+body:not(.binary).colored.dark .badge.caution {
+  background-color: #f5af3d;
+}
+body:not(.binary).colored.dark .badge.warning {
+  background-color: #f56e3d;
+}

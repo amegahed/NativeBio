@@ -1,0 +1,51 @@
+/******************************************************************************\
+|                                                                              |
+|                             dark-task-bars.less                              |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// dark task bar colors
+//
+
+@dark-task-bar-item-color: @dark-modal-header-color;
+@dark-task-bar-icon-color: @dark-title-icon-color;
+@dark-task-bar-text-color: @dark-title-color;
+
+//
+// dark task bar styles
+//
+
+body:not(.binary).dark {
+
+	//
+	// dark unminimized task bars
+	//
+
+	#desktop:not(.task-bar-minimized) .task-bar {
+		.task-list {
+			li {
+				.flat(@dark-task-bar-item-color);
+
+				i {
+					color: @dark-task-bar-icon-color;
+				}
+
+				.title {
+					color: @dark-task-bar-text-color;
+				}
+			}
+		}
+	}
+}

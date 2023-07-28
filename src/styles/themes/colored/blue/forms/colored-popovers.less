@@ -1,0 +1,66 @@
+/******************************************************************************\
+|                                                                              |
+|                              colored-popovers.less                           |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the SVG DOM element styles for this application.         |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// popover colors
+//
+
+@popover-title-background-color: @highlight-color;
+@popover-title-color: @highlight-color;
+@popover-border-color: @highlight-color;
+
+//
+// popover styles
+//
+
+body:not(.binary).colored.colored {
+	&.colorful.blue {
+		.popover {
+			border-color: @popover-border-color;
+
+			.popover-title {
+				background-color: @popover-title-background-color;
+			}
+
+			.popover-content {
+				.title {
+					color: @popover-title-color;
+				}
+			}
+
+			//
+			// popover arrows
+			//
+
+			&.right > .arrow {
+				border-right-color: @popover-border-color;
+			}
+
+			&.left > .arrow {
+				border-left-color: @popover-border-color;
+			}
+
+			&.top > .arrow {
+				border-top-color: @popover-border-color;
+			}
+
+			&.bottom > .arrow {
+				border-bottom-color: @popover-border-color;
+			}
+		}
+	}
+}

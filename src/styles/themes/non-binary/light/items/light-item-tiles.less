@@ -1,0 +1,188 @@
+/******************************************************************************\
+|                                                                              |
+|                             light-item-tiles.less                            |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+@light-tile-background: fade(@very-light-grey, 25%);
+@light-tile-grid-color: white;
+@light-tile-grid-background-color: @ultra-dark-grey;
+@light-tile-name-color: @dark-text-color;
+@light-tile-name-background-color: fade(@very-very-light-grey, 50%);
+@light-tile-details-background-color: fade(@very-light-grey, 50%);
+@light-tile-highlighted-border-color: @light-highlight-color;
+@light-tile-selected-border-color: @very-light-grey;
+
+//
+// light tile grid styles
+//
+
+body:not(.binary).light {
+	.tile-grid {
+
+		//
+		// items
+		//
+
+		.item {
+
+			> .tile {
+				background-color: @light-tile-background;
+
+				.name {
+					color: @light-tile-name-color;
+					background-color: @light-tile-name-background-color;
+
+					//
+					// editable names
+					//
+
+					&[contenteditable="true"] {
+						color: @dark-text-color;
+						background-color: white;
+						outline-color: @edit-highlight-color;
+					}
+				}
+			}
+
+			> .specifics {
+				.details {
+					background-color: @light-tile-details-background-color;
+				}
+			}
+		}
+
+		//
+		// highlighted items
+		//
+
+		.item.highlighted {
+
+			.tile {
+				border-color: @light-tile-highlighted-border-color;
+
+				.thumbnail::after {
+					border-color: @light-tile-highlighted-border-color;
+				}
+
+				.name {
+
+					//
+					// uneditable names
+					//
+
+					&:not([contenteditable="true"]) {
+						color: white;
+						background-color: @highlight-color;
+					}
+
+					//
+					// editable names
+					//
+
+					&[contenteditable="true"] {
+						border-top-color: @highlight-color;
+					}
+				}
+			}
+		}
+		
+		//
+		// selected items
+		//
+
+		.item.selected {
+
+			.tile {
+				border-color: @light-tile-selected-border-color;
+
+				.thumbnail::after {
+					border-color: @light-tile-selected-border-color;
+				}
+
+				.name {
+
+					//
+					// uneditable names
+					//
+
+					&:not([contenteditable="true"]) {
+						color: white;
+					}
+
+					//
+					// uneditable names
+					//
+
+					&[contenteditable="true"] {
+						border-top-color: @select-color;
+					}
+				}
+			}
+
+			.details {
+				color: white;
+				background-color: @select-color;
+			}
+		}
+	}
+
+	//
+	// unfocused items
+	//
+
+	.modal:not(.focused) .modal-dialog,
+	.desktop.app:not(.focused) > .body {
+		.tile-grid {
+
+			.item.selected {
+
+				.tile {
+					border-color: @highlight-color;
+
+					.thumbnail::after {
+						border-color: @highlight-color;
+					}
+
+					.name {
+
+						//
+						// uneditable names
+						//
+
+						&:not([contenteditable="true"]) {
+							color: white;
+							background-color: @highlight-color;
+						}
+
+						//
+						// editable names
+						//
+
+						&[contenteditable="true"] {
+							color: @dark-text-color;
+							background-color: white;
+							outline-color: @edit-highlight-color;
+						}
+					}
+				}
+
+				.details {
+					color: white;
+					background-color: @highlight-color;
+				}
+			}
+		}
+	}
+}

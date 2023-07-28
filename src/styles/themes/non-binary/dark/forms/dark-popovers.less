@@ -1,0 +1,94 @@
+/******************************************************************************\
+|                                                                              |
+|                                dark-popovers.less                            |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the SVG DOM element styles for this application.         |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// dark popover colors
+//
+
+@dark-popover-title-background-color: @dark-grey;
+@dark-popover-title-text-color: white;
+@dark-popover-title-icon-color: white;
+@dark-popover-text-color: @light-text-color;
+@dark-popover-title-color: white;
+@dark-popover-border-color: @dark-grey;
+@dark-popover-background-color: @very-very-dark-grey;
+
+//
+// dark popover styles
+//
+
+body:not(.binary).dark {
+	.popover {
+		border-color: @dark-popover-border-color;
+		background-color: @dark-popover-background-color;
+
+		.popover-title {
+			color: @dark-popover-title-text-color;
+			border-bottom-width: 0;
+			background-color: @dark-popover-title-background-color;
+
+			.icon {
+				color: @dark-popover-title-icon-color;
+				fill: @dark-popover-title-icon-color;
+			}
+		}
+
+		.popover-content {
+			color: @dark-popover-text-color;
+
+			.title {
+				color: @dark-popover-title-color;
+			}
+		}
+
+		//
+		// dark popover arrows
+		//
+
+		&.right > .arrow {
+			border-right-color: @dark-popover-border-color;
+
+			&:after {
+				border-right-color: @dark-popover-background-color;
+			}
+		}
+
+		&.left > .arrow {
+			border-left-color: @dark-popover-border-color;
+
+			&:after {
+				border-left-color: @dark-popover-background-color;
+			}
+		}
+
+		&.top > .arrow {
+			border-top-color: @dark-popover-border-color;
+
+			&:after {
+				border-top-color: @dark-popover-background-color;
+			}
+		}
+
+		&.bottom > .arrow {
+			border-bottom-color: @dark-popover-border-color;
+
+			&:after {
+				border-bottom-color: @dark-popover-background-color;
+			}
+		}	
+	}
+}

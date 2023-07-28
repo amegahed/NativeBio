@@ -1,0 +1,64 @@
+/******************************************************************************\
+|                                                                              |
+|                           medium-metal-sliders.less                          |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+body:not(.binary) {
+	&.metal-sliders,
+	&.metal.auto-sliders {
+
+		//
+		// metal slider thumb colors
+		//
+
+		&:not(.colored) {
+			input[type="range"] {
+				&:not(.colored) {
+					.metal-slider-thumb(@slider-thumb-color, @slider-thumb-hover-color);
+				}
+			}
+		}
+
+		//
+		// metal slider state colors
+		//
+
+		&.colored {
+			input[type="range"] {
+				&.colored {
+					&.success {
+						.metal-slider-active-thumb(@success-color, darken(@success-color, 10%));
+					}
+
+					&.warning {
+						.metal-slider-active-thumb(@warning-color, darken(@warning-color, 10%));
+					}
+
+					&.error {
+						.metal-slider-active-thumb(@error-color, darken(@error-color, 10%));
+					}
+				}
+			}
+		}
+
+		//
+		// metal slider tracks
+		//
+
+		input[type="range"] {
+			// .metal-slider-track(@slider-track-color);
+		}
+	}
+}

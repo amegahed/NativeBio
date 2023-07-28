@@ -1,0 +1,56 @@
+/******************************************************************************\
+|                                                                              |
+|                             colored-badges.less                              |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// badge colors
+//
+
+@badge-color: @medium-blue;
+@success-badge-color: @success-color;
+@caution-badge-color: @caution-color;
+@warning-badge-color: @warning-color;
+
+//
+// badge styles
+//
+
+body:not(.binary) {
+	&.colored {
+		.badge {
+			background-color: @badge-color;
+
+			//
+			// special badges
+			//
+
+			&.success {
+				color: white;
+				background-color: @success-badge-color;
+			}
+
+			&.caution {
+				color: white;
+				background-color: @caution-badge-color;
+			}
+
+			&.warning {
+				color: white;
+				background-color: @warning-badge-color;
+			}
+		}
+	}
+}

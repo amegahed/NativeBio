@@ -1,0 +1,53 @@
+/******************************************************************************\
+|                                                                              |
+|                         colorful-flat-task-bars.less                         |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+body:not(.binary).colorful.yellow {
+	&.flat {
+
+		//
+		// flat unminimized task bars
+		//
+
+		#desktop:not(.task-bar-minimized):not(.colorful) .task-bar {
+			.task-list {
+				li {
+					.flat(@task-bar-item-color);
+				}
+			}
+		}
+
+		#desktop.coloful:not(.task-bar-minimized) .task-bar {
+			.task-list {
+				li:not(.colored) {
+					.flat(@task-bar-item-color);
+				}
+			}
+		}
+
+		//
+		// flat minimized task bars
+		//
+
+		#desktop.task-bar-minimized:not(.colorful) .task-bar {
+			.task-list {
+				li:not(.colored) {
+					.flat(@task-bar-item-color);
+				}
+			}
+		}
+	}
+}

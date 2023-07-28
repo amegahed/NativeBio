@@ -1,0 +1,125 @@
+/******************************************************************************\
+|                                                                              |
+|                              medium-map-items.less                           |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// medium item map colors
+//
+
+@map-marker-color: lighten(red, 15%);
+
+@map-marker-outline-width: 1px;
+@map-marker-outline-color: fade(white, 100%);
+@map-marker-outline: -@map-marker-outline-width 0 0 @map-marker-outline-color, @map-marker-outline-width 0 0 @map-marker-outline-color, 0 @map-marker-outline-width 0 @map-marker-outline-color, 0 -@map-marker-outline-width 0 @map-marker-outline-color;
+
+@map-marker-selected-outline: -@map-marker-outline-width -@map-marker-outline-width 0 white, @map-marker-outline-width -@map-marker-outline-width 0 white, -@map-marker-outline-width @map-marker-outline-width 0 white, @map-marker-outline-width @map-marker-outline-width 0 white, 0 @map-marker-outline-width white;
+
+//
+// medium item map styles
+//
+
+body:not(.binary) {
+
+	//
+	// place markers
+	//
+
+	.icon > i {
+		&.fa-map-pin,
+		&.fa-map-marker,
+		&.fa-map-marker-alt {
+			color: @map-marker-color;
+		}
+	}
+
+	//
+	// all map overlays
+	//
+
+	.map.layer ~ .layer {
+		.item {
+			.icon i {
+				&.fa-map-pin,
+				&.fa-map-marker,
+				&.fa-map-marker-alt {
+					color: @map-marker-color;
+				}
+
+				&.fa-circle {
+					color: @map-marker-color;
+				}
+
+				&.place-info {
+					color: white !important;
+				}
+			}
+
+			/*
+			&.highlighted {
+				.icon i {
+					&.fa-circle,
+					&.fa-map-pin,
+					&.fa-map-marker,
+					&.fa-map-marker-alt {
+						color: @highlight-color;
+					}
+				}
+			}
+
+			&.selected {
+				.icon i {
+					&.fa-circle,
+					&.fa-map-pin,
+					&.fa-map-marker,
+					&.fa-map-marker-alt {
+						color: @select-color;
+					}
+				}
+			}
+			*/
+		}
+	}
+
+	//
+	// unfocused items
+	//
+
+	.modal:not(.focused) .modal-dialog,
+	.desktop.app:not(.focused) > .body {
+
+		//
+		// map overlays
+		//
+
+		.map.layer ~ .layer {
+
+			//
+			// selected markers
+			//
+
+			.item.selected {
+				.icon i {
+					&.fa-circle,
+					&.fa-map-pin,
+					&.fa-map-marker,
+					&.fa-map-marker-alt {
+						color: @highlight-color;
+					}
+				}
+			}
+		}
+	}
+}

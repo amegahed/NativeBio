@@ -1,0 +1,32 @@
+/******************************************************************************\
+|                                                                              |
+|                              dark-spinners.less                              |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// dark spinner colors
+//
+
+@dark-spinner-color: @brand-dark;
+
+//
+// dark spinner styles
+//
+
+body:not(.binary).dark {
+	.spinner {
+		border-top-color: @dark-spinner-color;
+	}
+}

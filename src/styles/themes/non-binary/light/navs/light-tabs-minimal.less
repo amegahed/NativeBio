@@ -1,0 +1,75 @@
+/******************************************************************************\
+|                                                                              |
+|                            light-tabs-minimal.less                           |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// tab colors
+//
+
+@light-minimal-tab-icon-color: @brand-light;
+@light-minimal-tab-text-color: @dark-text-color;
+
+@light-minimal-tab-hover-icon-color: @brand-light;
+@light-minimal-tab-hover-text-color: @brand-light;
+
+//
+// tab styles
+//
+
+body:not(.binary) {
+	&.light.tabs-minimal {
+		ul.nav-tabs {
+
+			//
+			// inactive tabs
+			//
+
+			> li:not(.active) {
+				> a {
+					color: @light-minimal-tab-text-color;
+
+					i {
+						color: @light-minimal-tab-icon-color;
+					}
+
+					svg {
+						fill: @light-minimal-tab-icon-color;
+					}
+
+					label {
+						color: @light-minimal-tab-text-color;
+					}
+				}
+
+				> a:hover {
+					color: @light-minimal-tab-hover-text-color;
+
+					i {
+						color: @light-minimal-tab-hover-icon-color;
+					}
+
+					svg {
+						fill: @light-minimal-tab-hover-icon-color;
+					}
+
+					label {
+						color: @light-minimal-tab-hover-text-color;
+					}
+				}
+			}
+		}
+	}
+}

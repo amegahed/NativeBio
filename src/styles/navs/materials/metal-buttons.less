@@ -1,0 +1,138 @@
+/******************************************************************************\
+|                                                                              |
+|                             metal-buttons.less                               |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// metal buttons
+//
+
+.metal-button (@button-color: lightgrey) {
+
+	&.selected {
+		.round-metal(@button-color);
+	}
+
+	&:hover {
+		.round-metal(@button-color);
+	}
+
+	&:active {
+		.round-metal(darken(@button-color, 10%));
+	}
+}
+
+.dark-metal-button (@button-color: lightgrey) {
+
+	&.selected {
+		.round-metal(@button-color);
+	}
+
+	&:hover {
+		.round-metal(@button-color);
+	}
+
+	&:active {
+		.round-metal(lighten(@button-color, 10%));
+	}
+}
+
+//
+// metal styled buttons
+//
+
+.metal-btn (@button-color: lightgrey) {
+	.round-metal(@button-color);
+
+	&:hover {
+		.round-metal(darken(@button-color, 5%));
+	}
+
+	&:active {
+		.round-metal(darken(@button-color, 10%));
+	}
+}
+
+.dark-metal-btn (@button-color: lightgrey) {
+	.round-metal(@button-color);
+
+	&:hover {
+		.round-metal(lighten(@button-color, 5%));
+	}
+
+	&:active {
+		.round-metal(lighten(@button-color, 10%));
+	}
+}
+
+//
+// metal disabled buttons
+//
+
+.metal-disabled-btn (@button-color: lightgrey) {
+	.round-metal(@button-color);
+
+	&:hover {
+		.round-metal(@button-color);
+	}
+
+	&:active {
+		.round-metal(@button-color);
+	}
+}
+
+//
+// metal mobile buttons
+//
+
+.metal-mobile-btn (@button-color: lightgrey) {
+	.round-metal(@button-color);
+
+	&:hover {
+		.round-metal(darken(@button-color, 5%));
+	}
+
+	&:active {
+		.round-metal(darken(@button-color, 10%));
+	}
+}
+
+.dark-metal-mobile-btn (@button-color: lightgrey) {
+	.round-metal(@button-color);
+
+	&:hover {
+		.round-metal(lighten(@button-color, 5%));
+	}
+
+	&:active {
+		.round-metal(lighten(@button-color, 10%));
+	}
+}
+
+//
+// metal disabled mobile buttons
+//
+
+.metal-disabled-mobile-btn (@button-color: lightgrey) {
+	.round-metal(@button-color);
+
+	&:hover {
+		.round-metal(@button-color);
+	}
+
+	&:active {
+		.round-metal(@button-color);
+	}
+}

@@ -1,0 +1,78 @@
+/******************************************************************************\
+|                                                                              |
+|                            dark-post-comments.less                           |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// dark post comment colors
+//
+
+@dark-comment-title-color: white;
+@dark-comment-text-color: @light-text-color;
+@dark-comment-link-color: white;
+@dark-comment-background-color: @dark-grey;
+@dark-comment-border-color: @dark-comment-background-color;
+@dark-comment-arrow-color: @dark-comment-background-color;
+
+//
+// dark post comment styles
+//
+
+body:not(.binary).dark {
+	.comments-list {
+
+		//
+		// dark unselected post comments
+		//
+
+		> .comment:not(.selected) > .info > .comment-bubble {
+		
+			> .comment-inner {
+				color: @dark-comment-text-color;
+				background-color: @dark-comment-background-color;
+				border-color: @dark-comment-border-color;
+
+				.title {
+					color: @dark-comment-title-color;
+
+					a {
+						color: @dark-comment-title-color;
+					}
+				}
+
+				a {
+					color: @dark-comment-link-color;
+				}
+			}
+
+			//
+			// dark unselected post comment arrows
+			//
+
+			&.top > .comment-arrow {
+				border-top-color: @dark-comment-arrow-color;
+			}
+			&.right > .comment-arrow {
+				border-right-color: @dark-comment-arrow-color;
+			}
+			&.left > .comment-arrow {
+				border-left-color: @dark-comment-arrow-color;
+			}
+			&.bottom > .comment-arrow {
+				border-bottom-color: @dark-comment-arrow-color;
+			}
+		}
+	}
+}

@@ -1,0 +1,104 @@
+/******************************************************************************\
+|                                                                              |
+|                            medium-task-bars.less                             |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// medium task bar colors
+//
+
+@task-bar-item-color: @modal-header-color;
+@task-bar-icon-color: @title-icon-color;
+@task-bar-text-color: @title-color;
+
+// task bar handles
+//
+@task-bar-handle-background: repeating-linear-gradient(to bottom, fade(white, 20%) 0px, fade(white, 20%) 2px, fade(black, 10%) 2px, fade(black, 10%) 4px);
+
+//
+// medium task bars
+//
+
+body:not(.binary) {
+
+	//
+	// task bars
+	//
+
+	#desktop {
+		.footer-bar {
+
+			.run-menu {
+				.dropdown-toggle {
+					box-shadow: @button-shadow;
+				}			
+			}
+			
+			.task-bar {
+				.pinned-items {
+					.btn {
+						box-shadow: @button-shadow;
+					}
+				}
+			}
+		}
+
+		&.task-bar-handles {
+			.footer-bar {
+				.handle {
+					background: @task-bar-handle-background;
+				}
+			}
+		}
+	}
+
+	//
+	// unminimized task bars
+	//
+
+	#desktop:not(.task-bar-minimized) {
+		.task-bar {
+			.task-list {
+				li {
+					.flat(@task-bar-item-color, outset);
+
+					i {
+						color: @task-bar-icon-color;
+					}
+
+					.title {
+						color: @task-bar-text-color;
+					}
+				}
+			}
+		}
+	}
+
+	//
+	// minimized task bars
+	//
+
+	#desktop.task-bar-minimized {
+		.task-bar {
+			.task-list {
+				li {
+					i {
+						color: white;
+					}
+				}
+			}
+		}
+	}
+}

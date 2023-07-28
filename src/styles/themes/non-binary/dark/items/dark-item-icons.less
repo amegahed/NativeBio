@@ -1,0 +1,123 @@
+/******************************************************************************\
+|                                                                              |
+|                              dark-item-icons.less                            |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// dark icon grid colors
+//
+
+@dark-icon-selected-border-color: @very-light-grey;
+@dark-icon-selected-background-color: fade(@dark-icon-selected-border-color, @icon-background-opacity);
+@dark-icon-highlighted-border-color: @very-light-grey;
+@dark-icon-highlighted-background-color: fade(@dark-icon-highlighted-border-color, @icon-background-opacity);
+
+//
+// dark icon grid styles
+//
+
+body:not(.binary).dark {
+	.icon-grid {
+
+		//
+		// dark items
+		//
+			
+		.item {
+
+			//
+			// dark selected items
+			//
+
+			&.selected {
+				border-color: @dark-icon-selected-border-color;
+
+				> .row:first-child {
+					border-color: inherit;
+
+					.icon:not(.colored) {
+						background-color: @dark-icon-selected-background-color;
+						border-color: inherit;
+					}
+				}
+
+				> .row:nth-child(3) {
+					.details {
+						background-color: @dark-select-color;
+					}
+				}
+			}
+
+			//
+			// dark highlighted items
+			//
+
+			&.highlighted {
+				border-color: @dark-icon-highlighted-border-color;
+
+				> .row:first-child {
+					border-color: inherit;
+
+					.icon:not(.colored) {
+						background-color: @dark-icon-highlighted-background-color;
+						border-color: inherit;
+					}
+				}
+
+				> .row:nth-child(2) {
+					.name {
+
+						//
+						// uneditable names
+						//
+
+						&:not([contenteditable="true"]) {
+							background-color: @dark-highlight-color;
+						}
+					}
+				}
+
+				> .row:nth-child(3) {
+					.details {
+						background-color: @dark-highlight-color;
+					}
+				}
+			}
+		}
+	}
+
+	//
+	// no icon backgrounds
+	//
+
+	&:not(.icon-backgrounds) {
+		.icon-grid, .app-icons {
+			.item {
+
+				//
+				// selected app icons
+				//
+
+				&.selected {
+					.icon, .icon.colored {
+						background: none !important;
+						background-color: @dark-icon-selected-background-color !important;
+						border-color: @dark-icon-selected-border-color !important;
+					}
+				}
+			}
+		}
+	}
+}

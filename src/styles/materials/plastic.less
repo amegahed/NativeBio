@@ -1,0 +1,225 @@
+/******************************************************************************\
+|                                                                              |
+|                                   plastic.less                               |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// plastic properties
+//
+
+@plastic-diffuse-strength: 100%;
+@plastic-specular-size: 50%;
+@plastic-specular-strength: 25%;
+@plastic-highlight-size: 25%;
+@plastic-highlight-strength: 75%;
+@plastic-reflection-strength: 0%;
+
+@round-plastic-specular-width: 50%;
+@round-plastic-specular-height: 25%;
+@round-plastic-specular-hoffset: 50%;
+@round-plastic-specular-voffset: 10%;
+
+@round-plastic-highlight-width: 25%;
+@round-plastic-highlight-height: 12%;
+@round-plastic-highlight-hoffset: 50%;
+@round-plastic-highlight-voffset: 10%;
+
+//
+// plastic mixins
+//
+
+.plastic (@color: white, @direction: bottom, @border-style: outset) {
+	background:
+
+		// highlight
+		//
+		linear-gradient(to @direction,
+			fade(white, @plastic-highlight-strength) 0%,
+			fade(white, 0%) 3px) no-repeat,
+
+		// specular
+		//
+		linear-gradient(to bottom,
+			fade(white, @plastic-specular-strength) 0%,
+			fade(white, 0%) 10px) no-repeat,
+
+		// diffuse
+		//
+		linear-gradient(to @direction,
+			lighten(@color, 20%) 0%,
+			@color 5px,
+			@color 100%) no-repeat;
+
+	// borders
+	//
+	& when (@border-style = inset) {
+		border-color: lighten(@color, 10%);
+	}
+	& when (@border-style = outset) {
+		border-color: darken(@color, 10%);
+	}
+}
+
+.round-plastic (@color: white, @direction: bottom, @border-style: outset) {
+	background:
+
+		// highlight
+		//
+		radial-gradient(ellipse @round-plastic-highlight-width @round-plastic-highlight-height at @round-plastic-highlight-hoffset @round-plastic-highlight-voffset,
+			fade(white, @plastic-highlight-strength) 0%, 
+			fade(white, @plastic-highlight-strength) @plastic-highlight-size, 
+			fade(white, 0%) 100%) no-repeat,
+
+		// specular
+		//
+		radial-gradient(ellipse @round-plastic-specular-width @round-plastic-specular-height at @round-plastic-specular-hoffset @round-plastic-specular-voffset,
+			fade(white, @plastic-specular-strength) 0%, 
+			fade(white, @plastic-specular-strength) @plastic-specular-size,
+			fade(white, 0%) 100%) no-repeat,
+
+		// diffuse
+		//
+		linear-gradient(to @direction,
+			fade(lighten(@color, 10%), @plastic-diffuse-strength) 0%,
+			fade(@color, @plastic-diffuse-strength) 50%,
+			fade(darken(@color, 10%), @plastic-diffuse-strength) 100%) no-repeat;
+
+	// borders
+	//
+	& when (@border-style = inset) {
+		border-color: lighten(@color, 10%);
+	}
+	& when (@border-style = outset) {
+		border-color: darken(@color, 10%);
+	}
+}
+
+.rounded-plastic (@color: white, @direction: bottom, @border-style: outset) {
+	& when (@direction = top) or (@direction = bottom) {
+		background:
+
+			// highlight
+			//
+			linear-gradient(to @direction,
+				fade(white, 0%) 0%,
+				fade(white, @plastic-highlight-strength) 10%,
+				fade(white, 0%) 30%) no-repeat,
+
+			// diffuse
+			//
+			linear-gradient(to @direction,
+				lighten(@color, 20%) 0,
+				@color 50%,
+				darken(@color, 10%) 100%) no-repeat;
+	}
+
+	& when (@direction = left) or (@direction = right) {
+		background:
+
+			// highlight
+			//
+			linear-gradient(to @direction,
+				fade(white, 0%) 0%,
+				fade(white, @plastic-highlight-strength) 10%,
+				fade(white, 0%) 30%) no-repeat,
+
+			// diffuse
+			//
+			linear-gradient(to @direction,
+				lighten(@color, 20%) 0,
+				@color 50%,
+				darken(@color, 10%) 100%) no-repeat;
+	}
+
+	// borders
+	//
+	& when (@border-style = inset) {
+		border-color: lighten(@color, 10%);
+	}
+	& when (@border-style = outset) {
+		border-color: darken(@color, 10%);
+	}
+}
+
+.long-round-plastic (@color: white, @direction: bottom, @border-style: outset, @width: 10px) {
+	& when (@direction = top) or (@direction = bottom) {
+		background:
+
+			// left shading
+			//
+			linear-gradient(to right,
+				darken(@color, 20%) 0%,
+				fade(darken(@color, 20%), 0) (@width / 2)) no-repeat,
+
+			// right shading
+			//
+			linear-gradient(to left,
+				darken(@color, 20%) 0%,
+				fade(darken(@color, 20%), 0) (@width / 2)) no-repeat,
+				
+			// highlight
+			//
+			linear-gradient(to @direction,
+				fade(white, 0%) 0%,
+				fade(white, @plastic-highlight-strength) 25%,
+				fade(white, 0%) 50%) no-repeat,
+
+			// diffuse
+			//
+			linear-gradient(to @direction,
+				darken(@color, 10%) 0,
+				@color 50%,
+				darken(@color, 10%) 100%) no-repeat;
+	}
+
+	& when (@direction = left) or (@direction = right) {
+		background:
+
+			// top shading
+			//
+			linear-gradient(to bottom,
+				darken(@color, 20%) 0%,
+				fade(darken(@color, 20%), 0) (@width / 2)) no-repeat,
+
+			// bottom shading
+			//
+			linear-gradient(to top,
+				darken(@color, 20%) 0%,
+				fade(darken(@color, 20%), 0) (@width / 2)) no-repeat,
+
+			// highlight
+			//
+			linear-gradient(to @direction,
+				fade(white, 0%) 0%,
+				fade(white, @plastic-highlight-strength) 25%,
+				fade(white, 0%) 50%) no-repeat,
+
+			// diffuse
+			//
+			linear-gradient(to @direction,
+				darken(@color, 10%) 0,
+				@color 50%,
+				darken(@color, 10%) 100%) no-repeat;
+	}
+
+	// borders
+	//
+	& when (@border-style = inset) {
+		border-color: darken(@color, 20%);
+	}
+	& when (@border-style = outset) {
+		border-color: darken(@color, 20%);
+	}
+}

@@ -1,0 +1,118 @@
+/******************************************************************************\
+|                                                                              |
+|                             medium-toolbars.less                             |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the SVG DOM element styles for this application.         |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// toolbar colors
+//
+
+@toolbar-color: @medium-grey;
+@toolbar-background-color: @app-background-color;
+@toolbar-border-color: @app-border-color;
+
+// toolbar handle images
+//
+@dark-grip-horizontal-image: url('../../../../images/splitters/horizontal-grip.png');
+@dark-grip-vertical-image: url('../../../../images/splitters/vertical-grip.png');
+
+//
+// toolbar styles
+//
+
+body:not(.binary) {
+	.toolbar {
+		background-color: @toolbar-background-color;
+		border-color: @toolbar-border-color !important;
+
+		//
+		// toolbar handles
+		//
+
+		.handle {
+			border-color: transparent;
+			background-color: @toolbar-background-color;
+			image-rendering: pixelated;
+		}
+
+		//
+		// toolbar controls
+		//
+
+		.controls, .tools {
+			background-color: @toolbar-background-color;
+			border-color: @toolbar-border-color;
+		}
+
+		.controls, .tools, .button {
+			i {
+				color: @toolbar-color;
+			}
+
+			svg {
+				fill: @toolbar-color;
+			}
+		}
+
+		//
+		// toolbar tiles
+		//
+
+		.tile {
+			border-color: @toolbar-border-color;
+		}
+
+		//
+		// toolbar tool groups
+		//
+
+		.tool-group {
+			.tools {
+				background-color: @toolbar-background-color;
+				border-color: @toolbar-border-color;
+
+				> div {
+					&:first-child {
+						border-color: @app-border-color;
+					}
+				}
+			}
+		}
+
+		//
+		// toolbar inputs
+		//
+
+		input {
+			color: @dark-text-color;
+		}
+
+		//
+		// handles
+		//
+
+		&.horizontal {
+			.handle {
+				background-image: @grip-horizontal-image;
+			}
+		}
+
+		&.vertical {
+			.handle {
+				background-image: @grip-vertical-image;
+			}
+		}
+	}
+}

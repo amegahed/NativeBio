@@ -1,0 +1,2032 @@
+/******************************************************************************\
+|                                                                              |
+|                                  styles.less                                 |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                                  styles.less                                 |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                           medium-app-launcher.less                           |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body:not(.binary).monochrome .app-launcher.app .icon-grid .item .icon,
+body:not(.binary).monochrome .app-icons .item .icon {
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.35);
+}
+body:not(.binary).monochrome .app-launcher.app .icon-grid .item .icon > img,
+body:not(.binary).monochrome .app-icons .item .icon > img {
+  filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.25));
+}
+body:not(.binary).monochrome .app-launcher.app .icon-grid .item .icon > img + i,
+body:not(.binary).monochrome .app-icons .item .icon > img + i {
+  display: none;
+}
+body:not(.binary).monochrome .app-launcher.app .icon-grid .item .icon:not(.colored),
+body:not(.binary).monochrome .app-icons .item .icon:not(.colored) {
+  background: #7070a7;
+  border-color: #57578d;
+  /*
+					&:hover {
+						background: @app-launcher-icon-hover-color;
+						border-color: @app-launcher-icon-border-color;
+					}
+					*/
+}
+body:not(.binary).monochrome .app-launcher.app .icon-grid .item .icon:not(.colored):active,
+body:not(.binary).monochrome .app-icons .item .icon:not(.colored):active {
+  background: #57578d;
+  border-color: #57578d;
+}
+/******************************************************************************\
+|                                                                              |
+|                            medium-calculator.less                            |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body:not(.binary).monochrome .calculator.app .keyboard .scientific {
+  background: rgba(87, 87, 141, 0.1);
+}
+body:not(.binary).monochrome .calculator.app .keyboard .programmer {
+  background: rgba(144, 144, 186, 0.1);
+}
+/******************************************************************************\
+|                                                                              |
+|                              medium-clock.less                               |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body:not(.binary).monochrome .clock.app .pie {
+  background: #afafce;
+}
+body:not(.binary).monochrome .clock.app .analog.display svg {
+  filter: drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.5));
+  overflow: visible;
+}
+body:not(.binary).monochrome .clock.app .analog.display svg #hands #hourhand {
+  stroke: #57578d;
+}
+body:not(.binary).monochrome .clock.app .analog.display svg #hands #minutehand {
+  stroke: #9090ba;
+}
+body:not(.binary).monochrome .clock.app .analog.display svg #hands #secondhand {
+  stroke: white;
+}
+body:not(.binary).monochrome .clock.app .analog.display svg #center {
+  fill: white;
+}
+body:not(.binary).monochrome .clock.app .analog.display svg line {
+  stroke: white;
+}
+/******************************************************************************\
+|                                                                              |
+|                           medium-code-editor.less                            |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body:not(.binary).monochrome .code-editor .body > .contents .sidebar .nav-tabs i {
+  color: white;
+}
+body:not(.binary).monochrome .code-editor .body > .contents .mainbar .code pre .ace_gutter {
+  color: #30304e;
+  background-color: #eeeef5;
+  border-color: #eeeef5;
+}
+body:not(.binary).monochrome .code-editor .body > .contents .mainbar .code pre .ace_gutter .ace_gutter-active-line {
+  background-color: #cfcfe1;
+}
+/******************************************************************************\
+|                                                                              |
+|                            medium-desktop.less                               |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body:not(.binary).monochrome {
+  /*
+	#desktop, .desktop.preview {
+
+		//
+		// background color
+		//
+
+		background-color: @desktop-background-color;
+	}
+	*/
+}
+body:not(.binary).monochrome #desktop.colored,
+body:not(.binary).monochrome .desktop.preview.colored {
+  background: #7070a7 !important;
+}
+body:not(.binary).monochrome #desktop.colored.black,
+body:not(.binary).monochrome .desktop.preview.colored.black {
+  background: black !important;
+}
+body:not(.binary).monochrome #desktop.colored.white,
+body:not(.binary).monochrome .desktop.preview.colored.white {
+  background: white !important;
+}
+body:not(.binary).monochrome #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle,
+body:not(.binary).monochrome #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle,
+body:not(.binary).monochrome #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle {
+  color: white;
+  background-color: #9090ba;
+}
+body:not(.binary).monochrome #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle i,
+body:not(.binary).monochrome #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle i,
+body:not(.binary).monochrome #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle i {
+  color: white;
+}
+/******************************************************************************\
+|                                                                              |
+|                                  styles.less                                 |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                                  colors.less                                 |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                                  styles.less                                 |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                                  styles.less                                 |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                           medium-flat-colored.less                           |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body:not(.binary).monochrome.flat .colored:not(.btn).red {
+  background: #9090ba;
+  border-color: #9090ba;
+}
+body:not(.binary).monochrome.flat .colored:not(.btn).raspberry {
+  background: #9090ba;
+  border-color: #9090ba;
+}
+body:not(.binary).monochrome.flat .colored:not(.btn).red-orange {
+  background: #9090ba;
+  border-color: #9090ba;
+}
+body:not(.binary).monochrome.flat .colored:not(.btn).orange {
+  background: #9090ba;
+  border-color: #9090ba;
+}
+body:not(.binary).monochrome.flat .colored:not(.btn).yellow {
+  background: #9090ba;
+  border-color: #9090ba;
+}
+body:not(.binary).monochrome.flat .colored:not(.btn).lime {
+  background: #9090ba;
+  border-color: #9090ba;
+}
+body:not(.binary).monochrome.flat .colored:not(.btn).green {
+  background: #9090ba;
+  border-color: #9090ba;
+}
+body:not(.binary).monochrome.flat .colored:not(.btn).teal {
+  background: #9090ba;
+  border-color: #9090ba;
+}
+body:not(.binary).monochrome.flat .colored:not(.btn).aqua {
+  background: #9090ba;
+  border-color: #9090ba;
+}
+body:not(.binary).monochrome.flat .colored:not(.btn).cyan {
+  background: #9090ba;
+  border-color: #9090ba;
+}
+body:not(.binary).monochrome.flat .colored:not(.btn).blue {
+  background: #9090ba;
+  border-color: #9090ba;
+}
+body:not(.binary).monochrome.flat .colored:not(.btn).indigo {
+  background: #9090ba;
+  border-color: #9090ba;
+}
+body:not(.binary).monochrome.flat .colored:not(.btn).violet {
+  background: #9090ba;
+  border-color: #9090ba;
+}
+body:not(.binary).monochrome.flat .colored:not(.btn).plum {
+  background: #9090ba;
+  border-color: #9090ba;
+}
+body:not(.binary).monochrome.flat .colored:not(.btn).purple {
+  background: #9090ba;
+  border-color: #9090ba;
+}
+body:not(.binary).monochrome.flat .colored:not(.btn).magenta {
+  background: #9090ba;
+  border-color: #9090ba;
+}
+body:not(.binary).monochrome.flat .colored:not(.btn).brown {
+  background: #9090ba;
+  border-color: #9090ba;
+}
+body:not(.binary).monochrome.flat .colored:not(.btn).grey {
+  background: #9090ba;
+  border-color: #9090ba;
+}
+body:not(.binary).monochrome.flat .colored:not(.btn).black {
+  background: black;
+  border-color: black;
+}
+body:not(.binary).monochrome.flat .colored:not(.btn).white {
+  background: white;
+  border-color: white;
+}
+body:not(.binary).monochrome.flat .colored:not(.btn).copper {
+  background: #9090ba;
+  border-color: #9090ba;
+}
+body:not(.binary).monochrome.flat .colored:not(.btn).silver {
+  background: #9090ba;
+  border-color: #9090ba;
+}
+body:not(.binary).monochrome.flat .colored:not(.btn).gold {
+  background: #9090ba;
+  border-color: #9090ba;
+}
+body:not(.binary).monochrome.flat .selected .colored:not(.btn) .red {
+  background: #7070a7;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.flat .selected .colored:not(.btn) .raspberry {
+  background: #7070a7;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.flat .selected .colored:not(.btn) .red-orange {
+  background: #7070a7;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.flat .selected .colored:not(.btn) .orange {
+  background: #7070a7;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.flat .selected .colored:not(.btn) .yellow {
+  background: #7070a7;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.flat .selected .colored:not(.btn) .lime {
+  background: #7070a7;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.flat .selected .colored:not(.btn) .green {
+  background: #7070a7;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.flat .selected .colored:not(.btn) .teal {
+  background: #7070a7;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.flat .selected .colored:not(.btn) .aqua {
+  background: #7070a7;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.flat .selected .colored:not(.btn) .cyan {
+  background: #7070a7;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.flat .selected .colored:not(.btn) .blue {
+  background: #7070a7;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.flat .selected .colored:not(.btn) .indigo {
+  background: #7070a7;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.flat .selected .colored:not(.btn) .violet {
+  background: #7070a7;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.flat .selected .colored:not(.btn) .plum {
+  background: #7070a7;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.flat .selected .colored:not(.btn) .purple {
+  background: #7070a7;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.flat .selected .colored:not(.btn) .magenta {
+  background: #7070a7;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.flat .selected .colored:not(.btn) .brown {
+  background: #7070a7;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.flat .selected .colored:not(.btn) .grey {
+  background: #7070a7;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.flat .selected .colored:not(.btn) .black {
+  background: black;
+  border-color: black;
+}
+body:not(.binary).monochrome.flat .selected .colored:not(.btn) .white {
+  background: #e6e6e6;
+  border-color: #e6e6e6;
+}
+body:not(.binary).monochrome.flat .selected .colored:not(.btn) .copper {
+  background: #7070a7;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.flat .selected .colored:not(.btn) .silver {
+  background: #7070a7;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.flat .selected .colored:not(.btn) .gold {
+  background: #7070a7;
+  border-color: #7070a7;
+}
+/******************************************************************************\
+|                                                                              |
+|                          medium-flat-desktops.less                          |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body:not(.binary).monochrome.flat #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle,
+body:not(.binary).monochrome.flat #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle,
+body:not(.binary).monochrome.flat #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle {
+  background: #9090ba;
+  border-color: #9090ba;
+}
+body:not(.binary).monochrome.flat #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover,
+body:not(.binary).monochrome.flat #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover,
+body:not(.binary).monochrome.flat #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover {
+  background: #8080b1;
+  border-color: #8080b1;
+}
+body:not(.binary).monochrome.flat #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active,
+body:not(.binary).monochrome.flat #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active,
+body:not(.binary).monochrome.flat #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active {
+  background: #7070a7;
+  border-color: #7070a7;
+}
+/******************************************************************************\
+|                                                                              |
+|                             medium-flat-tabs.less                            |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body:not(.binary).monochrome.flat-tabs.show-tab-close-buttons ul.nav-tabs > li.active i.fa-times:hover,
+body:not(.binary).monochrome.flat.auto-tabs.show-tab-close-buttons ul.nav-tabs > li.active i.fa-times:hover,
+body:not(.binary).monochrome.flat-tabs.show-tab-close-buttons ul.nav-tabs > li.active i.fa-xmark:hover,
+body:not(.binary).monochrome.flat.auto-tabs.show-tab-close-buttons ul.nav-tabs > li.active i.fa-xmark:hover {
+  background: #7070a7;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.flat-tabs.show-tab-close-buttons ul.nav-tabs > li.active i.fa-times:active,
+body:not(.binary).monochrome.flat.auto-tabs.show-tab-close-buttons ul.nav-tabs > li.active i.fa-times:active,
+body:not(.binary).monochrome.flat-tabs.show-tab-close-buttons ul.nav-tabs > li.active i.fa-xmark:active,
+body:not(.binary).monochrome.flat.auto-tabs.show-tab-close-buttons ul.nav-tabs > li.active i.fa-xmark:active {
+  background: #57578d;
+  border-color: #57578d;
+}
+/******************************************************************************\
+|                                                                              |
+|                                  styles.less                                 |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                           medium-chalk-colored.less                          |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body:not(.binary).monochrome.chalk .colored:not(.btn).red {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.chalk .colored:not(.btn).raspberry {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.chalk .colored:not(.btn).red-orange {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.chalk .colored:not(.btn).orange {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.chalk .colored:not(.btn).yellow {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.chalk .colored:not(.btn).lime {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.chalk .colored:not(.btn).green {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.chalk .colored:not(.btn).teal {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.chalk .colored:not(.btn).aqua {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.chalk .colored:not(.btn).cyan {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.chalk .colored:not(.btn).blue {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.chalk .colored:not(.btn).indigo {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.chalk .colored:not(.btn).violet {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.chalk .colored:not(.btn).plum {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.chalk .colored:not(.btn).purple {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.chalk .colored:not(.btn).magenta {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.chalk .colored:not(.btn).brown {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.chalk .colored:not(.btn).grey {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.chalk .colored:not(.btn).black {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #1a1a1a 0%, #000000 50%, #000000 100%) no-repeat;
+  border-color: #000000;
+}
+body:not(.binary).monochrome.chalk .colored:not(.btn).white {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #ffffff 0%, #ffffff 50%, #e6e6e6 100%) no-repeat;
+  border-color: #e6e6e6;
+}
+body:not(.binary).monochrome.chalk .colored:not(.btn).copper {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.chalk .colored:not(.btn).silver {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.chalk .colored:not(.btn).gold {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.chalk .selected .colored:not(.btn) .red {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.chalk .selected .colored:not(.btn) .raspberry {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.chalk .selected .colored:not(.btn) .red-orange {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.chalk .selected .colored:not(.btn) .orange {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.chalk .selected .colored:not(.btn) .yellow {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.chalk .selected .colored:not(.btn) .lime {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.chalk .selected .colored:not(.btn) .green {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.chalk .selected .colored:not(.btn) .teal {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.chalk .selected .colored:not(.btn) .aqua {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.chalk .selected .colored:not(.btn) .cyan {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.chalk .selected .colored:not(.btn) .blue {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.chalk .selected .colored:not(.btn) .indigo {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.chalk .selected .colored:not(.btn) .violet {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.chalk .selected .colored:not(.btn) .plum {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.chalk .selected .colored:not(.btn) .purple {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.chalk .selected .colored:not(.btn) .magenta {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.chalk .selected .colored:not(.btn) .brown {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.chalk .selected .colored:not(.btn) .grey {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.chalk .selected .colored:not(.btn) .black {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #1a1a1a 0%, #000000 50%, #000000 100%) no-repeat;
+  border-color: #000000;
+}
+body:not(.binary).monochrome.chalk .selected .colored:not(.btn) .white {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #ffffff 0%, #e6e6e6 50%, #cccccc 100%) no-repeat;
+  border-color: #cccccc;
+}
+body:not(.binary).monochrome.chalk .selected .colored:not(.btn) .copper {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.chalk .selected .colored:not(.btn) .silver {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.chalk .selected .colored:not(.btn) .gold {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+/******************************************************************************\
+|                                                                              |
+|                          medium-chalk-desktops.less                          |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body:not(.binary).monochrome.chalk #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle,
+body:not(.binary).monochrome.chalk #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle,
+body:not(.binary).monochrome.chalk #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.chalk #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover,
+body:not(.binary).monochrome.chalk #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover,
+body:not(.binary).monochrome.chalk #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9f9fc4 0%, #8080b1 50%, #61619d 100%) no-repeat;
+  border-color: #61619d;
+}
+body:not(.binary).monochrome.chalk #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active,
+body:not(.binary).monochrome.chalk #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active,
+body:not(.binary).monochrome.chalk #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+/******************************************************************************\
+|                                                                              |
+|                            medium-chalk-tabs.less                            |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body:not(.binary).monochrome.chalk-tabs.show-tab-close-buttons ul.nav-tabs > li.active i.fa-times:hover,
+body:not(.binary).monochrome.chalk.auto-tabs.show-tab-close-buttons ul.nav-tabs > li.active i.fa-times:hover,
+body:not(.binary).monochrome.chalk-tabs.show-tab-close-buttons ul.nav-tabs > li.active i.fa-xmark:hover,
+body:not(.binary).monochrome.chalk.auto-tabs.show-tab-close-buttons ul.nav-tabs > li.active i.fa-xmark:hover {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.chalk-tabs.show-tab-close-buttons ul.nav-tabs > li.active i.fa-times:active,
+body:not(.binary).monochrome.chalk.auto-tabs.show-tab-close-buttons ul.nav-tabs > li.active i.fa-times:active,
+body:not(.binary).monochrome.chalk-tabs.show-tab-close-buttons ul.nav-tabs > li.active i.fa-xmark:active,
+body:not(.binary).monochrome.chalk.auto-tabs.show-tab-close-buttons ul.nav-tabs > li.active i.fa-xmark:active {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #7070a7 0%, #57578d 50%, #43436e 100%) no-repeat;
+  border-color: #43436e;
+}
+/******************************************************************************\
+|                                                                              |
+|                                  styles.less                                 |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                          medium-plastic-colored.less                         |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body:not(.binary).monochrome.plastic .colored:not(.btn).red {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.plastic .colored:not(.btn).raspberry {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.plastic .colored:not(.btn).red-orange {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.plastic .colored:not(.btn).orange {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.plastic .colored:not(.btn).yellow {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.plastic .colored:not(.btn).lime {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.plastic .colored:not(.btn).green {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.plastic .colored:not(.btn).teal {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.plastic .colored:not(.btn).aqua {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.plastic .colored:not(.btn).cyan {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.plastic .colored:not(.btn).blue {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.plastic .colored:not(.btn).indigo {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.plastic .colored:not(.btn).violet {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.plastic .colored:not(.btn).plum {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.plastic .colored:not(.btn).purple {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.plastic .colored:not(.btn).magenta {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.plastic .colored:not(.btn).brown {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.plastic .colored:not(.btn).grey {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.plastic .colored:not(.btn).black {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #1a1a1a 0%, #000000 50%, #000000 100%) no-repeat;
+  border-color: #000000;
+}
+body:not(.binary).monochrome.plastic .colored:not(.btn).white {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #ffffff 0%, #ffffff 50%, #e6e6e6 100%) no-repeat;
+  border-color: #e6e6e6;
+}
+body:not(.binary).monochrome.plastic .colored:not(.btn).copper {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.plastic .colored:not(.btn).silver {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.plastic .colored:not(.btn).gold {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.plastic .selected .colored:not(.btn) .red {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.plastic .selected .colored:not(.btn) .raspberry {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.plastic .selected .colored:not(.btn) .red-orange {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.plastic .selected .colored:not(.btn) .orange {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.plastic .selected .colored:not(.btn) .yellow {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.plastic .selected .colored:not(.btn) .lime {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.plastic .selected .colored:not(.btn) .green {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.plastic .selected .colored:not(.btn) .teal {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.plastic .selected .colored:not(.btn) .aqua {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.plastic .selected .colored:not(.btn) .cyan {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.plastic .selected .colored:not(.btn) .blue {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.plastic .selected .colored:not(.btn) .indigo {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.plastic .selected .colored:not(.btn) .violet {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.plastic .selected .colored:not(.btn) .plum {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.plastic .selected .colored:not(.btn) .purple {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.plastic .selected .colored:not(.btn) .magenta {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.plastic .selected .colored:not(.btn) .brown {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.plastic .selected .colored:not(.btn) .grey {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.plastic .selected .colored:not(.btn) .black {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #1a1a1a 0%, #000000 50%, #000000 100%) no-repeat;
+  border-color: #000000;
+}
+body:not(.binary).monochrome.plastic .selected .colored:not(.btn) .white {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #ffffff 0%, #e6e6e6 50%, #cccccc 100%) no-repeat;
+  border-color: #cccccc;
+}
+body:not(.binary).monochrome.plastic .selected .colored:not(.btn) .copper {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.plastic .selected .colored:not(.btn) .silver {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.plastic .selected .colored:not(.btn) .gold {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+/******************************************************************************\
+|                                                                              |
+|                         medium-plastic-desktops.less                         |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body:not(.binary).monochrome.plastic #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle,
+body:not(.binary).monochrome.plastic #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle,
+body:not(.binary).monochrome.plastic #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #afafce 0%, #9090ba 50%, #7070a7 100%) no-repeat;
+  border-color: #7070a7;
+}
+body:not(.binary).monochrome.plastic #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover,
+body:not(.binary).monochrome.plastic #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover,
+body:not(.binary).monochrome.plastic #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9f9fc4 0%, #8080b1 50%, #61619d 100%) no-repeat;
+  border-color: #61619d;
+}
+body:not(.binary).monochrome.plastic #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active,
+body:not(.binary).monochrome.plastic #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active,
+body:not(.binary).monochrome.plastic #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+/******************************************************************************\
+|                                                                              |
+|                           medium-plastic-tabs.less                           |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body:not(.binary).monochrome.plastic-tabs.show-tab-close-buttons ul.nav-tabs > li.active i.fa-times:hover,
+body:not(.binary).monochrome.plastic.auto-tabs.show-tab-close-buttons ul.nav-tabs > li.active i.fa-times:hover,
+body:not(.binary).monochrome.plastic-tabs.show-tab-close-buttons ul.nav-tabs > li.active i.fa-xmark:hover,
+body:not(.binary).monochrome.plastic.auto-tabs.show-tab-close-buttons ul.nav-tabs > li.active i.fa-xmark:hover {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #9090ba 0%, #7070a7 50%, #57578d 100%) no-repeat;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.plastic-tabs.show-tab-close-buttons ul.nav-tabs > li.active i.fa-times:active,
+body:not(.binary).monochrome.plastic.auto-tabs.show-tab-close-buttons ul.nav-tabs > li.active i.fa-times:active,
+body:not(.binary).monochrome.plastic-tabs.show-tab-close-buttons ul.nav-tabs > li.active i.fa-xmark:active,
+body:not(.binary).monochrome.plastic.auto-tabs.show-tab-close-buttons ul.nav-tabs > li.active i.fa-xmark:active {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #7070a7 0%, #57578d 50%, #43436e 100%) no-repeat;
+  border-color: #43436e;
+}
+/******************************************************************************\
+|                                                                              |
+|                                  styles.less                                 |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                           medium-glass-colored.less                          |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body:not(.binary).monochrome.glass .colored:not(.btn).red {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #eeeef5 0%, #9090ba 50%, rgba(144, 144, 186, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 100%) no-repeat, #57578d;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.glass .colored:not(.btn).raspberry {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #eeeef5 0%, #9090ba 50%, rgba(144, 144, 186, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 100%) no-repeat, #57578d;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.glass .colored:not(.btn).red-orange {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #eeeef5 0%, #9090ba 50%, rgba(144, 144, 186, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 100%) no-repeat, #57578d;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.glass .colored:not(.btn).orange {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #eeeef5 0%, #9090ba 50%, rgba(144, 144, 186, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 100%) no-repeat, #57578d;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.glass .colored:not(.btn).yellow {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #eeeef5 0%, #9090ba 50%, rgba(144, 144, 186, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 100%) no-repeat, #57578d;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.glass .colored:not(.btn).lime {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #eeeef5 0%, #9090ba 50%, rgba(144, 144, 186, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 100%) no-repeat, #57578d;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.glass .colored:not(.btn).green {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #eeeef5 0%, #9090ba 50%, rgba(144, 144, 186, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 100%) no-repeat, #57578d;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.glass .colored:not(.btn).teal {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #eeeef5 0%, #9090ba 50%, rgba(144, 144, 186, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 100%) no-repeat, #57578d;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.glass .colored:not(.btn).aqua {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #eeeef5 0%, #9090ba 50%, rgba(144, 144, 186, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 100%) no-repeat, #57578d;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.glass .colored:not(.btn).cyan {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #eeeef5 0%, #9090ba 50%, rgba(144, 144, 186, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 100%) no-repeat, #57578d;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.glass .colored:not(.btn).blue {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #eeeef5 0%, #9090ba 50%, rgba(144, 144, 186, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 100%) no-repeat, #57578d;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.glass .colored:not(.btn).indigo {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #eeeef5 0%, #9090ba 50%, rgba(144, 144, 186, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 100%) no-repeat, #57578d;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.glass .colored:not(.btn).violet {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #eeeef5 0%, #9090ba 50%, rgba(144, 144, 186, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 100%) no-repeat, #57578d;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.glass .colored:not(.btn).plum {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #eeeef5 0%, #9090ba 50%, rgba(144, 144, 186, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 100%) no-repeat, #57578d;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.glass .colored:not(.btn).purple {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #eeeef5 0%, #9090ba 50%, rgba(144, 144, 186, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 100%) no-repeat, #57578d;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.glass .colored:not(.btn).magenta {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #eeeef5 0%, #9090ba 50%, rgba(144, 144, 186, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 100%) no-repeat, #57578d;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.glass .colored:not(.btn).brown {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #eeeef5 0%, #9090ba 50%, rgba(144, 144, 186, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 100%) no-repeat, #57578d;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.glass .colored:not(.btn).grey {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #eeeef5 0%, #9090ba 50%, rgba(144, 144, 186, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 100%) no-repeat, #57578d;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.glass .colored:not(.btn).black {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #4d4d4d 0%, #000000 50%, rgba(0, 0, 0, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(0, 0, 0, 0) 33%, rgba(0, 0, 0, 0.5) 100%) no-repeat, #000000;
+  border-color: #000000;
+}
+body:not(.binary).monochrome.glass .colored:not(.btn).white {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #ffffff 0%, #ffffff 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(255, 255, 255, 0) 33%, rgba(255, 255, 255, 0.5) 100%) no-repeat, #cccccc;
+  border-color: #cccccc;
+}
+body:not(.binary).monochrome.glass .colored:not(.btn).copper {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #eeeef5 0%, #9090ba 50%, rgba(144, 144, 186, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 100%) no-repeat, #57578d;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.glass .colored:not(.btn).silver {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #eeeef5 0%, #9090ba 50%, rgba(144, 144, 186, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 100%) no-repeat, #57578d;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.glass .colored:not(.btn).gold {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #eeeef5 0%, #9090ba 50%, rgba(144, 144, 186, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 100%) no-repeat, #57578d;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.glass .selected .colored:not(.btn) .red {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #cfcfe1 0%, #7070a7 50%, rgba(112, 112, 167, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 100%) no-repeat, #43436e;
+  border-color: #43436e;
+}
+body:not(.binary).monochrome.glass .selected .colored:not(.btn) .raspberry {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #cfcfe1 0%, #7070a7 50%, rgba(112, 112, 167, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 100%) no-repeat, #43436e;
+  border-color: #43436e;
+}
+body:not(.binary).monochrome.glass .selected .colored:not(.btn) .red-orange {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #cfcfe1 0%, #7070a7 50%, rgba(112, 112, 167, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 100%) no-repeat, #43436e;
+  border-color: #43436e;
+}
+body:not(.binary).monochrome.glass .selected .colored:not(.btn) .orange {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #cfcfe1 0%, #7070a7 50%, rgba(112, 112, 167, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 100%) no-repeat, #43436e;
+  border-color: #43436e;
+}
+body:not(.binary).monochrome.glass .selected .colored:not(.btn) .yellow {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #cfcfe1 0%, #7070a7 50%, rgba(112, 112, 167, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 100%) no-repeat, #43436e;
+  border-color: #43436e;
+}
+body:not(.binary).monochrome.glass .selected .colored:not(.btn) .lime {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #cfcfe1 0%, #7070a7 50%, rgba(112, 112, 167, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 100%) no-repeat, #43436e;
+  border-color: #43436e;
+}
+body:not(.binary).monochrome.glass .selected .colored:not(.btn) .green {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #cfcfe1 0%, #7070a7 50%, rgba(112, 112, 167, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 100%) no-repeat, #43436e;
+  border-color: #43436e;
+}
+body:not(.binary).monochrome.glass .selected .colored:not(.btn) .teal {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #cfcfe1 0%, #7070a7 50%, rgba(112, 112, 167, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 100%) no-repeat, #43436e;
+  border-color: #43436e;
+}
+body:not(.binary).monochrome.glass .selected .colored:not(.btn) .aqua {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #cfcfe1 0%, #7070a7 50%, rgba(112, 112, 167, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 100%) no-repeat, #43436e;
+  border-color: #43436e;
+}
+body:not(.binary).monochrome.glass .selected .colored:not(.btn) .cyan {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #cfcfe1 0%, #7070a7 50%, rgba(112, 112, 167, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 100%) no-repeat, #43436e;
+  border-color: #43436e;
+}
+body:not(.binary).monochrome.glass .selected .colored:not(.btn) .blue {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #cfcfe1 0%, #7070a7 50%, rgba(112, 112, 167, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 100%) no-repeat, #43436e;
+  border-color: #43436e;
+}
+body:not(.binary).monochrome.glass .selected .colored:not(.btn) .indigo {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #cfcfe1 0%, #7070a7 50%, rgba(112, 112, 167, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 100%) no-repeat, #43436e;
+  border-color: #43436e;
+}
+body:not(.binary).monochrome.glass .selected .colored:not(.btn) .violet {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #cfcfe1 0%, #7070a7 50%, rgba(112, 112, 167, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 100%) no-repeat, #43436e;
+  border-color: #43436e;
+}
+body:not(.binary).monochrome.glass .selected .colored:not(.btn) .plum {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #cfcfe1 0%, #7070a7 50%, rgba(112, 112, 167, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 100%) no-repeat, #43436e;
+  border-color: #43436e;
+}
+body:not(.binary).monochrome.glass .selected .colored:not(.btn) .purple {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #cfcfe1 0%, #7070a7 50%, rgba(112, 112, 167, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 100%) no-repeat, #43436e;
+  border-color: #43436e;
+}
+body:not(.binary).monochrome.glass .selected .colored:not(.btn) .magenta {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #cfcfe1 0%, #7070a7 50%, rgba(112, 112, 167, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 100%) no-repeat, #43436e;
+  border-color: #43436e;
+}
+body:not(.binary).monochrome.glass .selected .colored:not(.btn) .brown {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #cfcfe1 0%, #7070a7 50%, rgba(112, 112, 167, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 100%) no-repeat, #43436e;
+  border-color: #43436e;
+}
+body:not(.binary).monochrome.glass .selected .colored:not(.btn) .grey {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #cfcfe1 0%, #7070a7 50%, rgba(112, 112, 167, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 100%) no-repeat, #43436e;
+  border-color: #43436e;
+}
+body:not(.binary).monochrome.glass .selected .colored:not(.btn) .black {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #4d4d4d 0%, #000000 50%, rgba(0, 0, 0, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(0, 0, 0, 0) 33%, rgba(0, 0, 0, 0.5) 100%) no-repeat, #000000;
+  border-color: #000000;
+}
+body:not(.binary).monochrome.glass .selected .colored:not(.btn) .white {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #ffffff 0%, #e6e6e6 50%, rgba(230, 230, 230, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(230, 230, 230, 0) 33%, rgba(230, 230, 230, 0.5) 100%) no-repeat, #b3b3b3;
+  border-color: #b3b3b3;
+}
+body:not(.binary).monochrome.glass .selected .colored:not(.btn) .copper {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #cfcfe1 0%, #7070a7 50%, rgba(112, 112, 167, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 100%) no-repeat, #43436e;
+  border-color: #43436e;
+}
+body:not(.binary).monochrome.glass .selected .colored:not(.btn) .silver {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #cfcfe1 0%, #7070a7 50%, rgba(112, 112, 167, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 100%) no-repeat, #43436e;
+  border-color: #43436e;
+}
+body:not(.binary).monochrome.glass .selected .colored:not(.btn) .gold {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #cfcfe1 0%, #7070a7 50%, rgba(112, 112, 167, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 100%) no-repeat, #43436e;
+  border-color: #43436e;
+}
+/******************************************************************************\
+|                                                                              |
+|                          medium-glass-desktops.less                          |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body:not(.binary).monochrome.glass #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle,
+body:not(.binary).monochrome.glass #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle,
+body:not(.binary).monochrome.glass #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #eeeef5 0%, #9090ba 50%, rgba(144, 144, 186, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 100%) no-repeat, #57578d;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.glass #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover,
+body:not(.binary).monochrome.glass #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover,
+body:not(.binary).monochrome.glass #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #dfdfeb 0%, #8080b1 50%, rgba(128, 128, 177, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(128, 128, 177, 0) 33%, rgba(128, 128, 177, 0.5) 100%) no-repeat, #4d4d7d;
+  border-color: #4d4d7d;
+}
+body:not(.binary).monochrome.glass #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active,
+body:not(.binary).monochrome.glass #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active,
+body:not(.binary).monochrome.glass #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #cfcfe1 0%, #7070a7 50%, rgba(112, 112, 167, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 100%) no-repeat, #43436e;
+  border-color: #43436e;
+}
+/******************************************************************************\
+|                                                                              |
+|                            medium-glass-tabs.less                            |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body:not(.binary).monochrome.glass-tabs.show-tab-close-buttons ul.nav-tabs > li.active i.fa-times:hover,
+body:not(.binary).monochrome.glass.auto-tabs.show-tab-close-buttons ul.nav-tabs > li.active i.fa-times:hover,
+body:not(.binary).monochrome.glass-tabs.show-tab-close-buttons ul.nav-tabs > li.active i.fa-xmark:hover,
+body:not(.binary).monochrome.glass.auto-tabs.show-tab-close-buttons ul.nav-tabs > li.active i.fa-xmark:hover {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #cfcfe1 0%, #7070a7 50%, rgba(112, 112, 167, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 100%) no-repeat, #43436e;
+  border-color: #43436e;
+}
+body:not(.binary).monochrome.glass-tabs.show-tab-close-buttons ul.nav-tabs > li.active i.fa-times:active,
+body:not(.binary).monochrome.glass.auto-tabs.show-tab-close-buttons ul.nav-tabs > li.active i.fa-times:active,
+body:not(.binary).monochrome.glass-tabs.show-tab-close-buttons ul.nav-tabs > li.active i.fa-xmark:active,
+body:not(.binary).monochrome.glass.auto-tabs.show-tab-close-buttons ul.nav-tabs > li.active i.fa-xmark:active {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #afafce 0%, #57578d 50%, rgba(87, 87, 141, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(87, 87, 141, 0) 33%, rgba(87, 87, 141, 0.5) 100%) no-repeat, #30304e;
+  border-color: #30304e;
+}
+/******************************************************************************\
+|                                                                              |
+|                                  styles.less                                 |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                           medium-metal-colored.less                          |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body:not(.binary).monochrome.metal .colored:not(.btn).red {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #eeeef5 0%, #cfcfe1 25%, rgba(144, 144, 186, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(144, 144, 186, 0.75) 0%, rgba(144, 144, 186, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 66%, #afafce) no-repeat, #43436e;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.metal .colored:not(.btn).raspberry {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #eeeef5 0%, #cfcfe1 25%, rgba(144, 144, 186, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(144, 144, 186, 0.75) 0%, rgba(144, 144, 186, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 66%, #afafce) no-repeat, #43436e;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.metal .colored:not(.btn).red-orange {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #eeeef5 0%, #cfcfe1 25%, rgba(144, 144, 186, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(144, 144, 186, 0.75) 0%, rgba(144, 144, 186, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 66%, #afafce) no-repeat, #43436e;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.metal .colored:not(.btn).orange {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #eeeef5 0%, #cfcfe1 25%, rgba(144, 144, 186, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(144, 144, 186, 0.75) 0%, rgba(144, 144, 186, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 66%, #afafce) no-repeat, #43436e;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.metal .colored:not(.btn).yellow {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #eeeef5 0%, #cfcfe1 25%, rgba(144, 144, 186, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(144, 144, 186, 0.75) 0%, rgba(144, 144, 186, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 66%, #afafce) no-repeat, #43436e;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.metal .colored:not(.btn).lime {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #eeeef5 0%, #cfcfe1 25%, rgba(144, 144, 186, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(144, 144, 186, 0.75) 0%, rgba(144, 144, 186, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 66%, #afafce) no-repeat, #43436e;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.metal .colored:not(.btn).green {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #eeeef5 0%, #cfcfe1 25%, rgba(144, 144, 186, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(144, 144, 186, 0.75) 0%, rgba(144, 144, 186, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 66%, #afafce) no-repeat, #43436e;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.metal .colored:not(.btn).teal {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #eeeef5 0%, #cfcfe1 25%, rgba(144, 144, 186, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(144, 144, 186, 0.75) 0%, rgba(144, 144, 186, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 66%, #afafce) no-repeat, #43436e;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.metal .colored:not(.btn).aqua {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #eeeef5 0%, #cfcfe1 25%, rgba(144, 144, 186, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(144, 144, 186, 0.75) 0%, rgba(144, 144, 186, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 66%, #afafce) no-repeat, #43436e;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.metal .colored:not(.btn).cyan {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #eeeef5 0%, #cfcfe1 25%, rgba(144, 144, 186, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(144, 144, 186, 0.75) 0%, rgba(144, 144, 186, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 66%, #afafce) no-repeat, #43436e;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.metal .colored:not(.btn).blue {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #eeeef5 0%, #cfcfe1 25%, rgba(144, 144, 186, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(144, 144, 186, 0.75) 0%, rgba(144, 144, 186, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 66%, #afafce) no-repeat, #43436e;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.metal .colored:not(.btn).indigo {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #eeeef5 0%, #cfcfe1 25%, rgba(144, 144, 186, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(144, 144, 186, 0.75) 0%, rgba(144, 144, 186, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 66%, #afafce) no-repeat, #43436e;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.metal .colored:not(.btn).violet {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #eeeef5 0%, #cfcfe1 25%, rgba(144, 144, 186, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(144, 144, 186, 0.75) 0%, rgba(144, 144, 186, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 66%, #afafce) no-repeat, #43436e;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.metal .colored:not(.btn).plum {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #eeeef5 0%, #cfcfe1 25%, rgba(144, 144, 186, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(144, 144, 186, 0.75) 0%, rgba(144, 144, 186, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 66%, #afafce) no-repeat, #43436e;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.metal .colored:not(.btn).purple {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #eeeef5 0%, #cfcfe1 25%, rgba(144, 144, 186, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(144, 144, 186, 0.75) 0%, rgba(144, 144, 186, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 66%, #afafce) no-repeat, #43436e;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.metal .colored:not(.btn).magenta {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #eeeef5 0%, #cfcfe1 25%, rgba(144, 144, 186, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(144, 144, 186, 0.75) 0%, rgba(144, 144, 186, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 66%, #afafce) no-repeat, #43436e;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.metal .colored:not(.btn).brown {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #eeeef5 0%, #cfcfe1 25%, rgba(144, 144, 186, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(144, 144, 186, 0.75) 0%, rgba(144, 144, 186, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 66%, #afafce) no-repeat, #43436e;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.metal .colored:not(.btn).grey {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #eeeef5 0%, #cfcfe1 25%, rgba(144, 144, 186, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(144, 144, 186, 0.75) 0%, rgba(144, 144, 186, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 66%, #afafce) no-repeat, #43436e;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.metal .colored:not(.btn).black {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #4d4d4d 0%, #333333 25%, rgba(0, 0, 0, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(0, 0, 0, 0) 33%, rgba(0, 0, 0, 0.5) 66%, #1a1a1a) no-repeat, #000000;
+  border-color: #000000;
+}
+body:not(.binary).monochrome.metal .colored:not(.btn).white {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(255, 255, 255, 0) 33%, rgba(255, 255, 255, 0.5) 66%, #ffffff) no-repeat, #b3b3b3;
+  border-color: #cccccc;
+}
+body:not(.binary).monochrome.metal .colored:not(.btn).copper {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #eeeef5 0%, #cfcfe1 25%, rgba(144, 144, 186, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(144, 144, 186, 0.75) 0%, rgba(144, 144, 186, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 66%, #afafce) no-repeat, #43436e;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.metal .colored:not(.btn).silver {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #eeeef5 0%, #cfcfe1 25%, rgba(144, 144, 186, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(144, 144, 186, 0.75) 0%, rgba(144, 144, 186, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 66%, #afafce) no-repeat, #43436e;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.metal .colored:not(.btn).gold {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #eeeef5 0%, #cfcfe1 25%, rgba(144, 144, 186, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(144, 144, 186, 0.75) 0%, rgba(144, 144, 186, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 66%, #afafce) no-repeat, #43436e;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.metal .selected .colored:not(.btn) .red {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #cfcfe1 0%, #afafce 25%, rgba(112, 112, 167, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(112, 112, 167, 0.75) 0%, rgba(112, 112, 167, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 66%, #9090ba) no-repeat, #30304e;
+  border-color: #43436e;
+}
+body:not(.binary).monochrome.metal .selected .colored:not(.btn) .raspberry {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #cfcfe1 0%, #afafce 25%, rgba(112, 112, 167, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(112, 112, 167, 0.75) 0%, rgba(112, 112, 167, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 66%, #9090ba) no-repeat, #30304e;
+  border-color: #43436e;
+}
+body:not(.binary).monochrome.metal .selected .colored:not(.btn) .red-orange {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #cfcfe1 0%, #afafce 25%, rgba(112, 112, 167, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(112, 112, 167, 0.75) 0%, rgba(112, 112, 167, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 66%, #9090ba) no-repeat, #30304e;
+  border-color: #43436e;
+}
+body:not(.binary).monochrome.metal .selected .colored:not(.btn) .orange {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #cfcfe1 0%, #afafce 25%, rgba(112, 112, 167, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(112, 112, 167, 0.75) 0%, rgba(112, 112, 167, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 66%, #9090ba) no-repeat, #30304e;
+  border-color: #43436e;
+}
+body:not(.binary).monochrome.metal .selected .colored:not(.btn) .yellow {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #cfcfe1 0%, #afafce 25%, rgba(112, 112, 167, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(112, 112, 167, 0.75) 0%, rgba(112, 112, 167, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 66%, #9090ba) no-repeat, #30304e;
+  border-color: #43436e;
+}
+body:not(.binary).monochrome.metal .selected .colored:not(.btn) .lime {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #cfcfe1 0%, #afafce 25%, rgba(112, 112, 167, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(112, 112, 167, 0.75) 0%, rgba(112, 112, 167, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 66%, #9090ba) no-repeat, #30304e;
+  border-color: #43436e;
+}
+body:not(.binary).monochrome.metal .selected .colored:not(.btn) .green {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #cfcfe1 0%, #afafce 25%, rgba(112, 112, 167, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(112, 112, 167, 0.75) 0%, rgba(112, 112, 167, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 66%, #9090ba) no-repeat, #30304e;
+  border-color: #43436e;
+}
+body:not(.binary).monochrome.metal .selected .colored:not(.btn) .teal {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #cfcfe1 0%, #afafce 25%, rgba(112, 112, 167, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(112, 112, 167, 0.75) 0%, rgba(112, 112, 167, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 66%, #9090ba) no-repeat, #30304e;
+  border-color: #43436e;
+}
+body:not(.binary).monochrome.metal .selected .colored:not(.btn) .aqua {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #cfcfe1 0%, #afafce 25%, rgba(112, 112, 167, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(112, 112, 167, 0.75) 0%, rgba(112, 112, 167, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 66%, #9090ba) no-repeat, #30304e;
+  border-color: #43436e;
+}
+body:not(.binary).monochrome.metal .selected .colored:not(.btn) .cyan {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #cfcfe1 0%, #afafce 25%, rgba(112, 112, 167, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(112, 112, 167, 0.75) 0%, rgba(112, 112, 167, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 66%, #9090ba) no-repeat, #30304e;
+  border-color: #43436e;
+}
+body:not(.binary).monochrome.metal .selected .colored:not(.btn) .blue {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #cfcfe1 0%, #afafce 25%, rgba(112, 112, 167, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(112, 112, 167, 0.75) 0%, rgba(112, 112, 167, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 66%, #9090ba) no-repeat, #30304e;
+  border-color: #43436e;
+}
+body:not(.binary).monochrome.metal .selected .colored:not(.btn) .indigo {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #cfcfe1 0%, #afafce 25%, rgba(112, 112, 167, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(112, 112, 167, 0.75) 0%, rgba(112, 112, 167, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 66%, #9090ba) no-repeat, #30304e;
+  border-color: #43436e;
+}
+body:not(.binary).monochrome.metal .selected .colored:not(.btn) .violet {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #cfcfe1 0%, #afafce 25%, rgba(112, 112, 167, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(112, 112, 167, 0.75) 0%, rgba(112, 112, 167, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 66%, #9090ba) no-repeat, #30304e;
+  border-color: #43436e;
+}
+body:not(.binary).monochrome.metal .selected .colored:not(.btn) .plum {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #cfcfe1 0%, #afafce 25%, rgba(112, 112, 167, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(112, 112, 167, 0.75) 0%, rgba(112, 112, 167, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 66%, #9090ba) no-repeat, #30304e;
+  border-color: #43436e;
+}
+body:not(.binary).monochrome.metal .selected .colored:not(.btn) .purple {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #cfcfe1 0%, #afafce 25%, rgba(112, 112, 167, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(112, 112, 167, 0.75) 0%, rgba(112, 112, 167, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 66%, #9090ba) no-repeat, #30304e;
+  border-color: #43436e;
+}
+body:not(.binary).monochrome.metal .selected .colored:not(.btn) .magenta {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #cfcfe1 0%, #afafce 25%, rgba(112, 112, 167, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(112, 112, 167, 0.75) 0%, rgba(112, 112, 167, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 66%, #9090ba) no-repeat, #30304e;
+  border-color: #43436e;
+}
+body:not(.binary).monochrome.metal .selected .colored:not(.btn) .brown {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #cfcfe1 0%, #afafce 25%, rgba(112, 112, 167, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(112, 112, 167, 0.75) 0%, rgba(112, 112, 167, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 66%, #9090ba) no-repeat, #30304e;
+  border-color: #43436e;
+}
+body:not(.binary).monochrome.metal .selected .colored:not(.btn) .grey {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #cfcfe1 0%, #afafce 25%, rgba(112, 112, 167, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(112, 112, 167, 0.75) 0%, rgba(112, 112, 167, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 66%, #9090ba) no-repeat, #30304e;
+  border-color: #43436e;
+}
+body:not(.binary).monochrome.metal .selected .colored:not(.btn) .black {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #4d4d4d 0%, #333333 25%, rgba(0, 0, 0, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(0, 0, 0, 0) 33%, rgba(0, 0, 0, 0.5) 66%, #1a1a1a) no-repeat, #000000;
+  border-color: #000000;
+}
+body:not(.binary).monochrome.metal .selected .colored:not(.btn) .white {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(230, 230, 230, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(230, 230, 230, 0.75) 0%, rgba(230, 230, 230, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(230, 230, 230, 0) 33%, rgba(230, 230, 230, 0.5) 66%, #ffffff) no-repeat, #999999;
+  border-color: #b3b3b3;
+}
+body:not(.binary).monochrome.metal .selected .colored:not(.btn) .copper {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #cfcfe1 0%, #afafce 25%, rgba(112, 112, 167, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(112, 112, 167, 0.75) 0%, rgba(112, 112, 167, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 66%, #9090ba) no-repeat, #30304e;
+  border-color: #43436e;
+}
+body:not(.binary).monochrome.metal .selected .colored:not(.btn) .silver {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #cfcfe1 0%, #afafce 25%, rgba(112, 112, 167, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(112, 112, 167, 0.75) 0%, rgba(112, 112, 167, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 66%, #9090ba) no-repeat, #30304e;
+  border-color: #43436e;
+}
+body:not(.binary).monochrome.metal .selected .colored:not(.btn) .gold {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #cfcfe1 0%, #afafce 25%, rgba(112, 112, 167, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(112, 112, 167, 0.75) 0%, rgba(112, 112, 167, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 66%, #9090ba) no-repeat, #30304e;
+  border-color: #43436e;
+}
+/******************************************************************************\
+|                                                                              |
+|                          medium-metal-desktops.less                          |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body:not(.binary).monochrome.metal #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle,
+body:not(.binary).monochrome.metal #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle,
+body:not(.binary).monochrome.metal #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #eeeef5 0%, #cfcfe1 25%, rgba(144, 144, 186, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(144, 144, 186, 0.75) 0%, rgba(144, 144, 186, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(144, 144, 186, 0) 33%, rgba(144, 144, 186, 0.5) 66%, #afafce) no-repeat, #43436e;
+  border-color: #57578d;
+}
+body:not(.binary).monochrome.metal #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover,
+body:not(.binary).monochrome.metal #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover,
+body:not(.binary).monochrome.metal #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #dfdfeb 0%, #bfbfd8 25%, rgba(128, 128, 177, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(128, 128, 177, 0.75) 0%, rgba(128, 128, 177, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(128, 128, 177, 0) 33%, rgba(128, 128, 177, 0.5) 66%, #9f9fc4) no-repeat, #3a3a5e;
+  border-color: #4d4d7d;
+}
+body:not(.binary).monochrome.metal #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active,
+body:not(.binary).monochrome.metal #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active,
+body:not(.binary).monochrome.metal #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #cfcfe1 0%, #afafce 25%, rgba(112, 112, 167, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(112, 112, 167, 0.75) 0%, rgba(112, 112, 167, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 66%, #9090ba) no-repeat, #30304e;
+  border-color: #43436e;
+}
+/******************************************************************************\
+|                                                                              |
+|                            medium-metal-tabs.less                            |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body:not(.binary).monochrome.metal-tabs.show-tab-close-buttons ul.nav-tabs > li.active i.fa-times:hover,
+body:not(.binary).monochrome.metal.auto-tabs.show-tab-close-buttons ul.nav-tabs > li.active i.fa-times:hover,
+body:not(.binary).monochrome.metal-tabs.show-tab-close-buttons ul.nav-tabs > li.active i.fa-xmark:hover,
+body:not(.binary).monochrome.metal.auto-tabs.show-tab-close-buttons ul.nav-tabs > li.active i.fa-xmark:hover {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #cfcfe1 0%, #afafce 25%, rgba(112, 112, 167, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(112, 112, 167, 0.75) 0%, rgba(112, 112, 167, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(112, 112, 167, 0) 33%, rgba(112, 112, 167, 0.5) 66%, #9090ba) no-repeat, #30304e;
+  border-color: #43436e;
+}
+body:not(.binary).monochrome.metal-tabs.show-tab-close-buttons ul.nav-tabs > li.active i.fa-times:active,
+body:not(.binary).monochrome.metal.auto-tabs.show-tab-close-buttons ul.nav-tabs > li.active i.fa-times:active,
+body:not(.binary).monochrome.metal-tabs.show-tab-close-buttons ul.nav-tabs > li.active i.fa-xmark:active,
+body:not(.binary).monochrome.metal.auto-tabs.show-tab-close-buttons ul.nav-tabs > li.active i.fa-xmark:active {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, #afafce 0%, #9090ba 25%, rgba(87, 87, 141, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(87, 87, 141, 0.75) 0%, rgba(87, 87, 141, 0) 100%) no-repeat, /*
+		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
+			fade(white, 0%) 0%, 
+			fade(white, 0%) 40%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
+			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
+		*/ linear-gradient(to bottom, rgba(87, 87, 141, 0) 33%, rgba(87, 87, 141, 0.5) 66%, #7070a7) no-repeat, #1d1d2e;
+  border-color: #30304e;
+}
+/******************************************************************************\
+|                                                                              |
+|                                  styles.less                                 |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                             medium-nav-bars.less                             |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body:not(.binary).monochrome .navbar-inverse .navbar-nav .indicator .bar .inner {
+  background-color: #9090ba;
+}
+/******************************************************************************\
+|                                                                              |
+|                               medium-tabs.less                               |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body:not(.binary).monochrome.show-tab-close-buttons ul.nav-tabs > li.active i.fa-times:hover,
+body:not(.binary).monochrome.show-tab-close-buttons ul.nav-tabs > li.active i.fa-xmark:hover {
+  color: white;
+  background-color: #7070a7;
+}
+body:not(.binary).monochrome.show-tab-close-buttons ul.nav-tabs > li.active i.fa-times:hover svg,
+body:not(.binary).monochrome.show-tab-close-buttons ul.nav-tabs > li.active i.fa-xmark:hover svg {
+  fill: white;
+}
+body:not(.binary).monochrome.show-tab-close-buttons ul.nav-tabs > li.active i.fa-times:active,
+body:not(.binary).monochrome.show-tab-close-buttons ul.nav-tabs > li.active i.fa-xmark:active {
+  background-color: #57578d;
+}

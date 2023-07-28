@@ -1,0 +1,103 @@
+/******************************************************************************\
+|                                                                              |
+|                             binary-colors2.less                              |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// lightening functions
+//
+
+.LIGHTEN() {
+	background-image: @lighten-medium-4x4 !important;
+	background-size: 2px 2px !important;
+	background-repeat: repeat !important;
+	image-rendering: pixelated !important;
+}
+
+.LIGHTEN-LESS() {
+	background-image: @lighten-light-4x4 !important;
+	background-size: 2px 2px !important;
+	background-repeat: repeat !important;
+	image-rendering: pixelated !important;
+}
+
+.LIGHTEN-MORE() {
+	background-image: @lighten-heavy-4x4 !important;
+	background-size: 2px 2px !important;
+	background-repeat: repeat !important;
+	image-rendering: pixelated !important;
+}
+
+//
+// darkening functions
+//
+
+.DARKEN() {
+	background-image: @darken-medium-4x4 !important;
+	background-size: 2px 2px !important;
+	background-repeat: repeat !important;
+	image-rendering: pixelated !important;
+}
+
+.DARKEN-LESS() {
+	background-image: @darken-light-4x4 !important;
+	background-size: 2px 2px !important;
+	background-repeat: repeat !important;
+	image-rendering: pixelated !important;
+}
+
+.DARKEN-MORE() {
+	background-image: @darken-heavy-4x4 !important;
+	background-size: 2px 2px !important;
+	background-repeat: repeat !important;
+	image-rendering: pixelated !important;
+}
+
+//
+// color functions
+//
+
+.GREY() {
+	.DARKEN();
+	background-color: white !important;
+}
+
+.LIGHT-GREY() {
+	.DARKEN-LESS();
+	background-color: white !important;	
+}
+
+.DARK-GREY() {
+	.DARKEN-MORE();
+	background-color: white !important;
+}
+
+.WHITE() {
+	.CLEAR();
+	background-color: white !important;
+}
+
+.BLACK() {
+	.CLEAR();
+	background-color: black !important;
+}
+
+.CLEAR() {
+	background: none !important;
+	background-size: unset !important;
+	background-position: unset !important;
+	background-repeat: unset !important;
+	image-rendering: unset !important;	
+}

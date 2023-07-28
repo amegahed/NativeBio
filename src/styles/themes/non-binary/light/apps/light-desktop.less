@@ -1,0 +1,81 @@
+/******************************************************************************\
+|                                                                              |
+|                             light-desktop.less                               |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// light desktop colors
+//
+
+@light-desktop-footer-bar-color: white;
+@light-desktop-info-bar-color: @dark-text-color;
+@light-desktop-info-bar-icon-color: @medium-grey;
+@light-desktop-info-bar-background-color: @very-very-light-grey;
+
+//
+// light desktop styles
+//
+
+body:not(.binary) {
+
+	&.light #desktop.auto,
+	#desktop.light {
+
+		//
+		// light desktop footer bars
+		//
+
+		.desktop.app > .footer-bar {
+			background-color: @light-desktop-footer-bar-color;
+			border-color: @light-desktop-footer-bar-color;
+
+			//
+			// light desktop info bars
+			//
+
+			.desktop-info-bar {
+				color: @light-desktop-info-bar-color;
+				.flat(@light-desktop-info-bar-background-color);
+
+				.info-bar {
+					i {
+						color: @light-desktop-info-bar-icon-color;
+					}
+				}
+
+				.toolbar .button:not(:hover) {
+					i {
+						color: @light-desktop-info-bar-icon-color;
+					}
+				}
+			}
+		}
+	}
+
+	//
+	// light transparent desktop footer bars
+	//
+
+	/*
+	&.transparent.flat, &.translucent.flat {
+		&.light #desktop.auto,
+		#desktop.light {
+			.desktop.app > .footer-bar {
+				background-color: fade(@light-desktop-footer-bar-color, @desktop-footer-bar-opacity);
+			}
+		}
+	}
+	*/
+}

@@ -1,0 +1,138 @@
+/******************************************************************************\
+|                                                                              |
+|                             glass-buttons.less                               |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// glass buttons
+//
+
+.glass-button (@button-color: lightgrey) {
+
+	&.selected {
+		.round-glass(@button-color);
+	}
+
+	&:hover {
+		.round-glass(@button-color);
+	}
+	
+	&:active {
+		.round-glass(darken(@button-color, 10%));
+	}
+}
+
+.dark-glass-button (@button-color: lightgrey) {
+
+	&.selected {
+		.round-glass(@button-color);
+	}
+
+	&:hover {
+		.round-glass(@button-color);
+	}
+	
+	&:active {
+		.round-glass(lighten(@button-color, 10%));
+	}
+}
+
+//
+// glass styled buttons
+//
+
+.glass-btn (@button-color: lightgrey) {
+	.round-glass(@button-color);
+
+	&:hover {
+		.round-glass(darken(@button-color, 5%));
+	}
+
+	&:active {
+		.round-glass(darken(@button-color, 10%));
+	}
+}
+
+.dark-glass-btn (@button-color: lightgrey) {
+	.round-glass(@button-color);
+
+	&:hover {
+		.round-glass(lighten(@button-color, 5%));
+	}
+
+	&:active {
+		.round-glass(lighten(@button-color, 10%));
+	}
+}
+
+//
+// glass disabled buttons
+//
+
+.glass-disabled-btn (@button-color: lightgrey) {
+	.round-glass(@button-color);
+
+	&:hover {
+		.round-glass(@button-color);
+	}
+
+	&:active {
+		.round-glass(@button-color);
+	}
+}
+
+//
+// glass mobile buttons
+//
+
+.glass-mobile-btn (@button-color: lightgrey) {
+	.round-glass(@button-color);
+
+	&:hover {
+		.round-glass(darken(@button-color, 5%));
+	}
+
+	&:active {
+		.round-glass(darken(@button-color, 10%));
+	}
+}
+
+.dark-glass-mobile-btn (@button-color: lightgrey) {
+	.round-glass(@button-color);
+
+	&:hover {
+		.round-glass(lighten(@button-color, 5%));
+	}
+
+	&:active {
+		.round-glass(lighten(@button-color, 10%));
+	}
+}
+
+//
+// glass disabled mobile buttons
+//
+
+.glass-disabled-mobile-btn (@button-color: lightgrey) {
+	.round-glass(@button-color);
+
+	&:hover {
+		.round-glass(@button-color);
+	}
+
+	&:active {
+		.round-glass(@button-color);
+	}
+}

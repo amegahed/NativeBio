@@ -1,0 +1,99 @@
+/******************************************************************************\
+|                                                                              |
+|                             light-item-icons.less                            |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// light icon grid colors
+//
+
+@light-icon-selected-border-color: @very-light-grey;
+@light-icon-selected-background-color: fade(@light-icon-selected-border-color, @icon-background-opacity);
+@light-icon-highlighted-border-color: @light-highlight-color;
+@light-icon-highlighted-background-color: fade(@light-icon-highlighted-border-color, @icon-background-opacity);
+
+//
+// light icon grid styles
+//
+
+body:not(.binary).light {
+	.icon-grid {
+
+		//
+		// light items
+		//
+
+		.item {
+			> .row:nth-child(2) {
+				.name {
+
+					//
+					// light editable names
+					//
+
+					&[contenteditable="true"] {
+						outline-color: @light-edit-highlight-color;
+					}
+				}
+			}
+
+			//
+			// light selected items
+			//
+
+			&.selected {
+				border-color: @light-icon-selected-border-color;
+
+				> .row:first-child {
+					border-color: inherit;
+					
+					.icon:not(.colored) {
+						background-color: @light-icon-selected-background-color;
+						border-color: inherit;
+					}
+				}
+
+				> .row:nth-child(3) {
+					.details {
+						background-color: @light-select-color;
+					}
+				}
+			}
+		}
+	}
+
+	//
+	// no icon backgrounds
+	//
+
+	&:not(.icon-backgrounds) {
+		.icon-grid, .app-icons {
+			.item {
+
+				//
+				// selected app icons
+				//
+
+				&.selected {
+					.icon, .icon.colored {
+						background: none !important;
+						background-color: @light-icon-selected-background-color !important;
+						border-color: @light-icon-selected-border-color !important;
+					}
+				}
+			}
+		}
+	}
+}

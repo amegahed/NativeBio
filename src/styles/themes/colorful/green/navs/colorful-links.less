@@ -1,0 +1,42 @@
+/******************************************************************************\
+|                                                                              |
+|                              colorful-links.less                             |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// link colors
+//
+
+@link-color: @highlight-color;
+@link-hover-color: darken(@link-color, 10%);
+
+//
+// link styles
+//
+
+body:not(.binary).colorful.green {
+
+	//
+	// links
+	//
+
+	a {
+		color: @link-color;
+
+		&:hover {
+			color: @link-hover-color;
+		}
+	}
+}

@@ -1,0 +1,40 @@
+/******************************************************************************\
+|                                                                              |
+|                        accented-glass-desktops.less                          |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+body:not(.binary).colored.violet-accented {
+	&.glass {
+		#desktop,
+		#desktop.auto,
+		#desktop.medium {
+
+			//
+			// glass desktop footer bars
+			//
+
+			.desktop.app > .footer-bar {
+
+				//
+				// glass desktop info bars
+				//
+
+				.desktop-info-bar {
+					.rounded-glass(@desktop-info-bar-background-color);
+				}
+			}
+		}
+	}
+}

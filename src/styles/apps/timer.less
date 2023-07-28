@@ -1,0 +1,93 @@
+/******************************************************************************\
+|                                                                              |
+|                                   timer.less                                 |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+.timer.app {
+	.body {
+		display: flex;
+		flex-direction: column;
+		padding: 10px;
+		text-align: center;
+
+		.face {
+			width: 210px;
+			height: 210px;
+			border-radius: 105px;
+			margin: auto;
+
+			.pie {
+				position: absolute;
+				width: 200px;
+				height: 200px;
+			}
+
+			.digital.lcd.display {
+				position: absolute;
+				display: flex;
+				width: 190px;
+				height: 190px;
+				margin: 5px;
+				padding: 10px;
+				border-width: 0;
+				border-radius: 95px;
+
+				.digits {
+					margin: auto;
+					padding: 10px 0;
+
+					.hours, .minutes, .seconds, .hundredths, .colons {
+						display: inline-block;
+						font-size: 60px;
+						line-height: 55px;
+					}
+
+					.colons {
+						display: inline-block;
+						font-size: 90px;
+						vertical-align: super;
+						line-height: 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+//
+// tablet styles
+//
+
+body[device="tablet"] {
+	.timer.app {
+		.body {
+			transform: scale(2);
+		}
+	}
+}
+
+//
+// Windows Compatibility
+//
+
+[os="windows"] {
+	.timer.app {
+		.body .face {
+			.digital.lcd.display {
+				padding: 0;
+			}
+		}
+	}
+}

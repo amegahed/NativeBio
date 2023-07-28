@@ -1,0 +1,148 @@
+/******************************************************************************\
+|                                                                              |
+|                             light-nav-bars.less                              |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// navbar colors
+//
+
+@light-navbar-color: @light-grey;
+@light-navbar-hover-color: @medium-grey;
+@light-navbar-active-color: white;
+@light-navbar-brand-color: black;
+@light-navbar-background-color: white;
+@light-navbar-active-background-color: @brand-light;
+@light-navbar-border-color: @very-very-light-grey;
+
+// light navbar indicator colors
+//
+@light-navbar-indicator-background-color: white;
+@light-navbar-indicator-border-color: @light-navbar-border-color;
+
+//
+// navbar styles
+//
+
+body:not(.binary).light {
+	.navbar-inverse {
+
+		//
+		// navigation
+		//
+
+		.navbar-nav {
+
+			//
+			// light nav bar indicators
+			//
+
+			.indicator {
+				.bar {
+					background-color: @light-navbar-indicator-background-color;
+					border-color: @light-navbar-indicator-border-color;
+				}
+			}
+		}
+
+		//
+		// uncolored light navbars
+		//
+
+		&:not(.colored) {
+			background-color: @light-navbar-background-color;
+
+			//
+			// brand
+			//
+
+			.brand {
+				color: @light-navbar-brand-color;
+			}
+
+			//
+			// navigation
+			//
+
+			.navbar-nav {
+				
+				> li {
+
+					//
+					// inactive state
+					//
+
+					&:not(.active):not(.open) {
+						> a, > a:focus {
+							color: @light-navbar-color;
+
+							//
+							// hover state
+							//
+
+							&:hover {
+								color: @light-navbar-hover-color;
+
+								i, label {
+									color: @light-navbar-hover-color;
+								}
+							}
+						}
+					}
+
+					//
+					// active state
+					//
+
+					&.active {
+						background-color: @light-navbar-active-background-color;
+
+						> a, > a:focus {
+							color: @light-navbar-active-color;
+
+							i, label {
+								color: @light-navbar-active-color;
+							}
+						}
+					}
+
+					//
+					// open state
+					//
+
+					&.open {
+						background-color: @light-navbar-active-background-color;
+
+						> a, > a:focus {
+							color: @light-navbar-active-color;
+
+							i, label {
+								color: @light-navbar-active-color;
+							}
+						}
+					}
+				}
+
+				//
+				// light apps bar
+				//
+
+				&.apps {
+					border-color: @light-navbar-border-color;
+				}
+			}
+		}
+	}
+}

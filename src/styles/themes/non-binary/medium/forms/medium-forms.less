@@ -1,0 +1,89 @@
+/******************************************************************************\
+|                                                                              |
+|                              medium-forms.less                               |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// form colors
+//
+
+@form-input-color: @dark-text-color;
+@form-input-border-color: @very-very-light-grey;
+@form-input-addon-color: @very-very-very-light-grey;
+@form-input-focus-color: @very-very-light-grey;
+
+//
+// form styles
+//
+
+body:not(.binary) {
+
+	//
+	// legends
+	//
+
+	legend {
+		color: @dark-text-color;
+	}
+
+	.notes {
+		color: @dark-text-color;
+	}
+	
+	//
+	// inputs
+	//
+
+	.input-group {
+		.input-group-addon:not(.btn) {
+			background-color: @form-input-addon-color;
+			border-color: @form-input-border-color;
+		}
+	}
+
+	input:not([type="range"]):not([type="radio"]) {
+		color: @form-input-color;
+		border-color: @form-input-border-color;
+		outline: none;
+
+		&:focus {
+			border-color: @form-input-focus-color;
+			box-shadow: 0 1px 1px fade(black, 7.5%), 0 0 8px @form-input-focus-color;
+		}
+
+		&::placeholder {
+			opacity: 0.5;
+		}
+	}
+
+	select {
+		border-color: @form-input-border-color;
+	}
+
+	form {
+
+		//
+		// form help
+		//
+
+		i.fa-question-circle {
+			color: @light-grey;
+		}
+	}
+
+	span.secondary {
+		color: @medium-grey;
+	}
+}

@@ -1,0 +1,74 @@
+/******************************************************************************\
+|                                                                              |
+|                              radio-buttons.less                              |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+form {
+
+	//
+	// radio button inputs
+	//
+
+	input[type="radio"] {
+		appearance: none;
+		width: 14px;
+		height: 14px;
+		border-radius: 50%;
+		border-width: 2px;
+		border-style: solid;
+		background: white;
+
+		&:checked {
+			background-color: black;
+			border-color: @dark-text-color !important;
+			outline: none;
+		}
+	}
+}
+
+//
+// horizontal forms
+//
+
+.form-horizontal {
+
+	.radio, .checkbox {
+		padding-top: 5px;
+	}
+
+	.radio-inline, .checkbox-inline, .color-inline {
+
+		&:not(:last-child) {
+			margin-right: 5px;
+		}
+
+		input[type="checkbox"] {
+			position: relative;
+			float: left;
+		}
+
+		i {
+			margin-left: 10px;
+		}
+	}
+
+	.radio-inline, .checkbox-inline {
+		font-weight: bold;
+	}
+
+	.radio-inline + .radio-inline, .checkbox-inline + .checkbox-inline {
+		margin-left: 0;
+	}
+}

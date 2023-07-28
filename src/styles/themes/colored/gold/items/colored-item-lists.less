@@ -1,0 +1,83 @@
+/******************************************************************************\
+|                                                                              |
+|                            colored-item-lists.less                           |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+body:not(.binary).colored.gold {
+	.item-list:not(.dropdown-menu) {
+
+		//
+		// selected items
+		//
+
+		.item.selected {
+			> .info {
+				background-color: @select-color;
+
+				.icon {
+
+					i {
+						color: white;
+					}
+
+					&.thumbnail {
+						background-color: @select-color;
+					}
+
+					/*
+					.thumbnail {
+						&::after {
+							background-color: fade(@select-color; 50%);
+						}
+					}
+					*/
+				}
+
+				.name {
+
+					//
+					// uneditable names
+					//
+
+					&:not([contenteditable="true"]) {
+						color: white;
+						background-color: @select-color;
+					}
+				}
+
+				.details {
+					color: white;
+					background-color: @select-color;
+				}
+
+				.specifics > .details {
+					i, i.fa-info-circle {
+						color: white;
+					}
+				}
+			}
+
+			/*
+			&.pdf, &.svg {
+				.icon {
+					&::after {
+						background-color: fade(@select-color; 50%);
+					}
+				}
+			}
+			*/
+		}
+	}
+}

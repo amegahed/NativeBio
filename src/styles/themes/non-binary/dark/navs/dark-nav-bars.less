@@ -1,0 +1,160 @@
+/******************************************************************************\
+|                                                                              |
+|                              dark-nav-bars.less                              |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// dark navbar colors
+//
+
+@dark-navbar-color: @light-grey;
+@dark-navbar-hover-color: white;
+@dark-navbar-active-color: white;
+@dark-navbar-brand-color: white;
+@dark-navbar-background-color: @ultra-dark-grey;
+@dark-navbar-active-background-color: @brand-dark;
+@dark-navbar-border-color: @medium-grey;
+
+// dark navbar indicator colors
+//
+@dark-navbar-indicator-background-color: @dark-navbar-background-color;
+@dark-navbar-indicator-border-color: @dark-navbar-border-color;
+
+//
+// dark navbar styles
+//
+
+body:not(.binary).dark {
+	.navbar-inverse {
+
+		//
+		// navigation
+		//
+
+		.navbar-nav {
+
+			//
+			// dark nav bar indicators
+			//
+
+			.indicator {
+				.bar {
+					background-color: @dark-navbar-indicator-background-color;
+					border-color: @dark-navbar-indicator-border-color;
+				}
+			}
+		}
+
+		//
+		// uncolored dark navbars
+		//
+
+		&:not(.colored) {
+
+			//
+			// brand
+			//
+
+			.brand {
+				color: @dark-navbar-brand-color;
+
+				&:hover {
+
+					// add glow effect
+					//
+
+					.first, .middle, .last {
+						.glowing-text(white);
+					}
+				}
+			}
+
+			//
+			// navigation
+			//
+
+			.navbar-nav {
+
+				> li {
+
+					//
+					// inactive state
+					//
+
+					&:not(.active):not(.open) {
+						> a, > a:focus {
+							color: @dark-navbar-color;
+
+							//
+							// hover state
+							//
+
+							&:hover {
+								color: @dark-navbar-hover-color;
+
+								i, label {
+									color: @dark-navbar-hover-color;
+									.glowing-text(@dark-navbar-hover-color);
+								}
+							}
+						}
+					}
+
+					//
+					// active state
+					//
+
+					&.active {
+						background-color: @dark-navbar-active-background-color;
+
+						> a, > a:hover, > a:focus {
+							color: @dark-navbar-active-color;
+
+							i, label {
+								color: @dark-navbar-active-color;
+								.glowing-text(@dark-navbar-active-color);
+							}
+						}
+					}
+
+					//
+					// open state
+					//
+
+					&.open {
+						background-color: @dark-navbar-active-background-color;
+
+						> a, > a:focus {
+							color: @dark-navbar-active-color;
+
+							i, label {
+								color: @dark-navbar-active-color;
+								.glowing-text(@dark-navbar-active-color);
+							}
+						}
+					}
+				}
+
+				//
+				// dark apps bar
+				//
+
+				&.apps {
+					border-color: @dark-navbar-border-color;
+				}
+			}
+		}
+	}
+}

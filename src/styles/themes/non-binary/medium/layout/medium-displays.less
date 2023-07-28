@@ -1,0 +1,80 @@
+/******************************************************************************\
+|                                                                              |
+|                             medium-displays.less                             |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// display colors
+//
+
+@lcd-light-color: @very-light-grey;
+@lcd-dark-color: black;
+
+//
+// display styles
+//
+
+body:not(.binary) {
+
+	//
+	// led displays
+	//
+
+	.led {
+		color: lighten(red, 20%);
+		text-shadow: 0 0 3px lighten(red, 20%);
+	}
+
+	&.dark,
+	.dark {
+		.led {
+			color: lighten(red, 20%);
+			text-shadow: 0 0 3px red, 0 0 5px red, 0 0 10px red, 0 0 20px red;
+		}
+	}
+
+	//
+	// lcd displays
+	//
+
+	.lcd.display {
+		border-style: inset;
+
+		.digits {
+			filter: drop-shadow(2px 2px 2px fade(black, 50%));
+			text-shadow: none;
+		}
+	}
+
+	.lcd.pie {	
+		.slice {
+
+			&.empty {
+				background: @lcd-light-color;	
+			}
+
+			&.full {
+				background: @lcd-dark-color;
+			}
+
+			&.half-full {
+				background-image: linear-gradient(to right,
+					transparent 50%,
+					@lcd-dark-color 0%);
+			}
+
+			&.half-empty {
+				background-image: linear-gradient(to right,
+					transparent 50%,
+					@lcd-light-color 0%);
+			}
+		}
+	}
+}

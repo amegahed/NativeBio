@@ -1,0 +1,172 @@
+/******************************************************************************\
+|                                                                              |
+|                                  chalk.less                                  |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// chalk properties
+//
+
+@chalk-diffuse-strength: 100%;
+@chalk-highlight-strength: 25%;
+@chalk-highlight-size: 25%;
+
+@round-chalk-highlight-width: 50%;
+@round-chalk-highlight-height: 25%;
+@round-chalk-highlight-hoffset: 50%;
+@round-chalk-highlight-voffset: 10%;
+
+//
+// chalk mixins
+//
+
+.chalk (@color: white, @direction: bottom, @border-style: outset) {
+	background:
+
+		// diffuse
+		//
+		linear-gradient(to @direction,
+			lighten(@color, 20%) 0%,
+			@color 5px,
+			@color 100%) no-repeat;
+
+	// borders
+	//
+	& when (@border-style = inset) {
+		border-color: lighten(@color, 10%);
+	}
+	& when (@border-style = outset) {
+		border-color: darken(@color, 10%);
+	}
+}
+
+.round-chalk (@color: white, @direction: bottom, @border-style: outset) {
+	background:
+
+		// highlight
+		//
+		radial-gradient(ellipse @round-chalk-highlight-width @round-chalk-highlight-height at @round-chalk-highlight-hoffset @round-chalk-highlight-voffset,
+			fade(white, @chalk-highlight-strength) 0%, 
+			fade(white, @chalk-highlight-strength) @chalk-highlight-size, 
+			fade(white, 0%) 100%) no-repeat,
+
+		// diffuse
+		//
+		linear-gradient(to @direction,
+			fade(lighten(@color, 10%), @chalk-diffuse-strength) 0%,
+			fade(@color, @chalk-diffuse-strength) 50%,
+			fade(darken(@color, 10%), @chalk-diffuse-strength) 100%) no-repeat;
+
+	// borders
+	//
+	& when (@border-style = inset) {
+		border-color: lighten(@color, 10%);
+	}
+	& when (@border-style = outset) {
+		border-color: darken(@color, 10%);
+	}
+}
+
+.rounded-chalk (@color: white, @direction: bottom, @border-style: outset) {
+	& when (@direction = top) or (@direction = bottom) {
+		background:
+
+			// diffuse
+			//
+			linear-gradient(to @direction,
+				lighten(@color, 10%) 0%,
+				@color 50%,
+				darken(@color, 10%) 100%) no-repeat;
+	}
+
+	& when (@direction = left) or (@direction = right) {
+		background:
+
+			// diffuse
+			//
+			linear-gradient(to @direction,
+				lighten(@color, 10%) 0%,
+				@color 50%,
+				darken(@color, 10%) 100%) no-repeat;
+	}
+
+	// borders
+	//
+	& when (@border-style = inset) {
+		border-color: lighten(@color, 10%);
+	}
+	& when (@border-style = outset) {
+		border-color: darken(@color, 10%);
+	}
+}
+
+.long-round-chalk (@color: white, @direction: bottom, @border-style: outset, @width: 10px) {
+	& when (@direction = left) or (@direction = right) {
+		background:
+
+			// top shading
+			//
+			linear-gradient(to bottom,
+				darken(@color, 20%) 0%,
+				fade(darken(@color, 20%), 0) (@width / 2)) no-repeat,
+
+			// bottom shading
+			//
+			linear-gradient(to top,
+				darken(@color, 20%) 0%,
+				fade(darken(@color, 20%), 0) (@width / 2)) no-repeat,
+
+			// diffuse
+			//
+			linear-gradient(to @direction,
+				darken(@color, 10%) 0,
+				lighten(@color, 10%) 25%,
+				@color 50%,
+				darken(@color, 10%) 100%) no-repeat;
+	}
+
+	& when (@direction = top) or (@direction = bottom) {
+		background:
+
+			// left shading
+			//
+			linear-gradient(to right,
+				darken(@color, 20%) 0%,
+				fade(darken(@color, 20%), 0) (@width / 2)) no-repeat,
+
+			// right shading
+			//
+			linear-gradient(to left,
+				darken(@color, 20%) 0%,
+				fade(darken(@color, 20%), 0) (@width / 2)) no-repeat,
+
+			// diffuse
+			//
+			linear-gradient(to @direction,
+				darken(@color, 10%) 0,
+				lighten(@color, 10%) 25%,
+				@color 50%,
+				darken(@color, 10%) 100%) no-repeat;
+	}
+
+	// borders
+	//
+	& when (@border-style = inset) {
+		border-color: darken(@color, 20%);
+	}
+	& when (@border-style = outset) {
+		border-color: darken(@color, 20%);
+	}
+}

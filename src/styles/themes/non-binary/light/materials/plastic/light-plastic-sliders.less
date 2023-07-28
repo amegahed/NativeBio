@@ -1,0 +1,39 @@
+/******************************************************************************\
+|                                                                              |
+|                          light-plastic-sliders.less                          |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+body:not(.binary) {
+	&.light.plastic-sliders,
+	&.light.plastic.auto-sliders {
+
+		input[type="range"] {
+
+			//
+			// light plastic slider thumbs
+			//
+
+			&:not(.colored) {
+				.plastic-slider-thumb(@light-slider-thumb-color, @light-slider-thumb-hover-color);
+			}
+
+			//
+			// light plastic slider tracks
+			//
+
+			// .plastic-slider-track(@light-slider-track-color);
+		}
+	}
+}

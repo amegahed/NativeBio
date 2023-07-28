@@ -1,0 +1,77 @@
+/******************************************************************************\
+|                                                                              |
+|                                validation.less                               |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+ 
+//
+// span validation
+//
+
+.colored {
+
+	span.success {
+		color: @success-color;
+	}
+
+	span.caution {
+		color: @caution-color;
+	}
+
+	span.warning {
+		color: @warning-color;
+	}
+
+	span.error {
+		color: @error-color;
+	}
+}
+
+//
+// label validation
+//
+
+label.error {
+	font-weight: bold;
+	color: #c2002f;
+	padding-top: 0;
+	background: url(../images/forms/error.png) 5px 0px no-repeat;
+	padding-left: 30px;
+}
+
+label.error:empty {
+	display: none;
+}
+
+label.error.valid {
+	display: none;
+}
+
+//
+// input validation
+//
+
+.form-group.error input,
+.form-group.error textarea {
+	border: 1px solid #c2002f;
+}
+
+//
+// table validation
+//
+
+td.error {
+	outline: 1px solid @warning-color;
+	outline-offset: -2px
+}

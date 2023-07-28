@@ -1,0 +1,65 @@
+/******************************************************************************\
+|                                                                              |
+|                            light-panel-lists.less                            |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// light panel item colors
+//
+
+@light-panel-item-name-color: @light-brand-primary;
+@light-selected-panel-item-color: @dark-text-color;
+@light-selected-panel-item-background-color: mix(@light-panel-color, @highlight-color, 75%);
+@light-selected-panel-item-border-color: @highlight-color;
+
+//
+// light panel item styles
+//
+
+body:not(.binary).light {
+
+	.panel.item {
+
+		//
+		// light panel item info
+		//
+
+		> .info {
+			.name {
+				color: @light-panel-item-name-color;
+			}
+		}
+	}
+
+	//
+	// unfocused items
+	//
+
+	.modal:not(.focused) .modal-dialog,
+	.desktop.app:not(.focused) > .body {
+
+		.panel.item {
+
+			//
+			// light selected panel items
+			//
+
+			&.selected {
+				background-color: mix(@light-panel-color, @highlight-color, 75%);
+				border-color: @highlight-color;
+			}
+		}
+	}
+}

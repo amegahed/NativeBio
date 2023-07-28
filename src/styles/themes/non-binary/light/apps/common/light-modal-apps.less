@@ -1,0 +1,97 @@
+/******************************************************************************\
+|                                                                              |
+|                           light-modal-apps.less                              |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// light modal app colors
+//
+
+@light-app-unfocused-background-color: darken(@light-app-background-color, 10%);
+@light-app-unfocused-sidebar-color: @light-app-sidebar-color;
+@light-app-unfocused-sidebar-panel-color: @light-app-sidebar-panel-color;
+@light-app-unfocused-border-color: darken(@light-app-border-color, 10%);
+
+//
+// light modal app styles
+//
+
+body:not(.binary).light {
+
+	//
+	// light modal apps
+	//
+
+	.modals {
+
+		//
+		// light focused modal apps
+		//
+
+		.modal.focused .modal-dialog .app {
+
+			.header-bar, .footer-bar, & + .panel {
+				background-color: @light-app-background-color;
+			}
+
+			.body, .body-contents {
+				border-color: @light-app-background-color;
+
+				> .contents {
+					border-color: @light-app-border-color;
+
+					> .split {
+						border-color: @light-app-border-color;
+					}
+				}
+			}
+
+			.header-bar, .footer-bar, & + .panel {
+				border-color: @light-app-border-color;
+			}
+		}
+
+		//
+		// light unfocused modal apps
+		//
+
+		.modal:not(.focused) .modal-dialog .app {
+
+			.header-bar, .footer-bar, & + .panel  {
+				background-color: @light-app-unfocused-background-color;
+			}
+
+			.body, .body-contents {
+				border-color: @light-app-unfocused-background-color;
+
+				> .contents {
+					border-color: @light-app-unfocused-border-color;
+
+					> .split {
+						border-color: @light-app-unfocused-border-color;
+
+						&.sidebar {
+							background-color: @light-app-unfocused-sidebar-color;
+						}
+					}
+				}
+			}
+
+			.header-bar, .footer-bar, & + .panel  {
+				border-color: @light-app-unfocused-border-color;
+			}
+		}
+	}
+}

@@ -1,0 +1,96 @@
+/******************************************************************************\
+|                                                                              |
+|                             accented-buttons.less                            |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// button colors
+//
+
+@button-color: @accent-color;
+@button-label-color: white;
+
+//
+// disabled button colors
+//
+
+@button-disabled-color: @very-light-grey;
+@button-disabled-label-color: white;
+
+//
+// button styles
+//
+
+body:not(.binary).colored.blue-accented {
+
+	//
+	// buttons
+	//
+
+	.button {
+		.color-button(@button-color);
+		.label-button(@button-label-color);
+
+		&.selected {
+			.color-btn(@button-color);
+		}
+	}
+
+	//
+	// styled buttons
+	//
+
+	.btn:not(.btn-primary):not(.colored) {
+		.color-btn(@button-color);
+		.label-btn(@button-label-color);
+
+		//
+		// disabled buttons
+		//
+
+		&:disabled, &.btn-primary:disabled {
+			.color-disabled-btn(@button-disabled-color);
+			.label-disabled-btn(@button-disabled-label-color);
+		}
+
+		//
+		// special buttons
+		//
+
+		&.success {
+			.color-button(@success-color);
+
+			&:hover {
+				.color-button-label(white);
+			}
+		}
+
+		&.caution {
+			.color-button(@caution-color);
+
+			&:hover {
+				.color-button-label(white);
+			}
+		}
+
+		&.warning {
+			.color-button(@warning-color);
+
+			&:hover {
+				.color-button-label(white);
+			}
+		}
+	}
+}

@@ -1,0 +1,40 @@
+/******************************************************************************\
+|                                                                              |
+|                              medium-badges.less                              |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// badge colors
+//
+
+@badge-color: @medium-grey;
+@badge-text-color: white;
+@badge-border-color: white;
+
+//
+// badge styles
+//
+
+body:not(.binary) {
+	.badge {
+		color: @badge-text-color;
+		background-color: @badge-color;
+		border-color: @badge-border-color !important;
+
+		i {
+			color: @badge-text-color;
+		}
+	}
+}

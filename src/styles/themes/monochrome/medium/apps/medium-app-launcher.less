@@ -1,0 +1,65 @@
+/******************************************************************************\
+|                                                                              |
+|                           medium-app-launcher.less                           |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// app launcher colors
+//
+
+@app-launcher-icon-color: @medium-grey;
+@app-launcher-icon-hover-color: @app-launcher-icon-color;
+@app-launcher-icon-active-color: darken(@app-launcher-icon-hover-color, 10%);
+@app-launcher-icon-border-color: darken(@app-launcher-icon-color, 10%);
+
+//
+// app launcher styles
+//
+
+body:not(.binary).monochrome {
+	.app-launcher.app .icon-grid, 
+	.app-icons {
+		.item {
+			.icon {
+				box-shadow: @thumbnail-box-shadow;
+				
+				> img {
+					filter: @thumbnail-shadow;
+
+					& + i {
+						display: none;
+					}
+				}
+
+				&:not(.colored) {
+					background: @app-launcher-icon-color;
+					border-color: @app-launcher-icon-border-color;
+
+					/*
+					&:hover {
+						background: @app-launcher-icon-hover-color;
+						border-color: @app-launcher-icon-border-color;
+					}
+					*/
+
+					&:active {
+						background: @app-launcher-icon-active-color;
+						border-color: @app-launcher-icon-border-color;
+					}
+				}
+			}
+		}
+	}
+}

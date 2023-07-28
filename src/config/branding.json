@@ -1,0 +1,224 @@
+{
+	"name": "Native BioData Data Portal",
+	"title": "Native BioData",
+
+	"header": {
+		"height": 70,
+		"color": "#9090ba",
+
+		"brand": {
+			"logo": {
+				"src": "images/logos/native-biodata-icon.png",
+				"border": "rounded",
+				"height": 60
+			},
+
+			"logotype": {
+				"first": {
+					"text": "Native ",
+					"font_weight": "bold"
+				},
+				"middle": {
+					"text": "Bio",
+					"color": "rgb(0, 153, 204)",
+					"font_weight": "bold"
+				},
+				"last": {
+					"text": "Data",
+					"color": "rgb(0, 153, 204)",
+					"font_weight": "bold"
+				},
+				"suffix": {
+					"text": "consortium",
+					"font_size": 10,
+					"font_weight": "bold"
+				}
+			}
+		},
+
+		"nav": {
+			"about": {
+				"text": "About",
+				"icon": "fa fa-info-circle",
+				"href": "#about"
+			}
+		},
+
+		"buttons": {
+			"signin": {
+				"background": "",
+				"font": "",
+				"color": ""
+			},
+			"signup": {
+				"background": "",
+				"font": "",
+				"color": ""
+			}
+		}
+	},
+
+	"welcome": {
+		"background_image": "images/backgrounds/badlands.jpg",
+		"background_color": "#f0f0f7",
+		"details": "templates/welcome.tpl",
+
+		"splash": {
+			"background": "linear-gradient(to bottom, rgba(255,255,255, 0.9), rgba(255,255,255, 0.75))",
+
+			"brand": {
+				"logo": {
+					"src": "images/logos/native-biodata-icon.png",
+					"border": "rounded"
+				},
+
+				"logotype": {
+					"first": {
+						"text": "Native "
+					},
+					"middle": {
+						"text": "Bio",
+						"color": "rgb(0, 153, 204)"
+					},
+					"last": {
+						"text": "Data",
+						"color": "rgb(0, 153, 204)"
+					},
+					"suffix": {
+						"text": "<div>consortium</div>",
+						"font_size": 35
+					},
+					"multiline": true
+				}
+			},
+
+			"tagline2": {
+				"text": "Tagline"
+			},
+
+			"description": {
+				"text": "Sovereign Data Portal",
+				"font": "",
+				"color": "rgb(0, 153, 204)"
+			}
+		},
+
+		"crawler2": {
+			"scale": 1.5,
+			"rotation": 30,
+			"fov": 100,
+			"step": 5,
+			"time_step": 50,
+			
+			"overlay": {
+				"far_color": "rgba(16, 16, 16, 1)",
+				"near_color": "rgba(16, 32, 127, 0.5)"
+			},
+
+			"images": {
+				"Audio Player": "images/crawler/audio-player.png",
+				"Chat Browser": "images/crawler/chat-browser.png",
+				"Code Editor": "images/crawler/code-editor.png",
+
+				"Connection Manager": "images/crawler/connection-manager.png",
+				"File Browser": "images/crawler/file-browser.png",
+				"Image Viewer": "images/crawler/image-viewer.png",
+
+				"News Browser": "images/crawler/news-browser.png",
+				"PDF Viewer": "images/crawler/pdf-viewer.png",
+				"Profile Viewer": "images/crawler/profile-viewer.png",
+
+				"Text Editor": "images/crawler/text-editor.png",
+				"Tune Editor": "images/crawler/tune-editor.png",
+				"Video Player": "images/crawler/video-player.png"
+			}
+		}
+	},
+
+	"page":{
+		"background": "",
+		"theme": "",
+		"font": "",
+
+		"heading1": {
+			"font": "",
+			"icon": {
+				"color": "rgb(0, 153, 204)"
+			}
+		},
+
+		"heading2": {
+			"font": "",
+			"icon": {
+				"color": "rgb(0, 153, 204)"
+			}
+		},
+
+		"footer": {
+			"background": "rgb(34, 34, 34)",
+			"color": "rgb(145, 145, 145)",
+
+			"logo": {
+				"src": "images/logos/native-biodata-icon.png",
+				"height": 100
+			},
+
+			"links": {
+				"About": {
+					"icon": "fa fa-info-circle",
+					"href": "#about"
+				},
+				"Uses": {
+					"icon": "fa fa-user-circle",
+					"href": "#uses"
+				},
+				"Features": {
+					"icon": "fa fa-lightbulb",
+					"href": "#features"
+				},
+				"Apps": {
+					"icon": "fa fa-rocket",
+					"href": "#apps"
+				},
+				"Help": {
+					"icon": "fa fa-question-circle",
+					"href": "#help"
+				},
+				"Policies": {
+					"icon": "fa fa-gavel",
+					"href": "#policies"
+				},
+				"Privacy": {
+					"icon": "fa fa-file-alt",
+					"href": "#policies/privacy-policy"
+				},
+				"User Data": {
+					"icon": "fa fa-file-alt",
+					"href": "#policies/user-data-policy"
+				},
+				"Terms of Use": {
+					"icon": "fa fa-file-alt",
+					"href": "#policies/terms-of-use"
+				},
+				"Code of Conduct": {
+					"icon": "fa fa-file-alt",
+					"href": "#policies/code-of-conduct"
+				},
+				"Contact Us": {
+					"icon": "fa fa-envelope",
+					"href": "#contact"
+				}
+			}
+		}
+	},
+
+	"footer": {
+		"background": "rgb(68, 68, 68)",
+		"color": "white",
+		"font": "",
+		"copyright": {
+			"year": "2021",
+			"entity": "Native BioData Consortium (NBDC), 501c3"
+		}
+	}
+}

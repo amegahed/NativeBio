@@ -1,0 +1,47 @@
+/******************************************************************************\
+|                                                                              |
+|                          medium-drag-n-drop.less                             |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// drag and drop colors
+//
+
+@drag-n-drop-background-color: fade(@ultra-light-grey, 50%);
+@drag-n-drop-border-color: @light-grey;
+
+//
+// drag and drops styles
+//
+
+body:not(.binary) {
+	.dropzone {
+		
+		&::after {
+
+			// message
+			//
+			text-shadow: 5px 5px 10px fade(black, 25%);
+
+			// color and shading
+			//
+			background-color: @drag-n-drop-background-color;
+
+			// border color
+			//
+			border-color: @drag-n-drop-border-color;
+		}
+	}
+}

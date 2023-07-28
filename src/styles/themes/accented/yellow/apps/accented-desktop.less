@@ -1,0 +1,64 @@
+/******************************************************************************\
+|                                                                              |
+|                            accented-desktop.less                             |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// desktop colors
+//
+
+@desktop-info-bar-color: white;
+@desktop-info-bar-icon-color: white;
+@desktop-info-bar-background-color: @accent-color;
+
+//
+// desktop styles
+//
+
+body:not(.binary).colored.yellow-accented {
+	#desktop,
+	#desktop.auto,
+	#desktop.medium {
+		.desktop.app {
+
+			//
+			// desktop footer bars
+			//
+
+			> .footer-bar {
+
+				//
+				// desktop info bars
+				//
+
+				.desktop-info-bar {
+					color: @desktop-info-bar-color;
+
+					.info-bar {
+						i {
+							color: @desktop-info-bar-icon-color !important;
+						}
+					}
+
+					.toolbar .button:not(:hover) {
+						i {
+							color: @desktop-info-bar-icon-color !important;
+						}
+					}
+				}
+			}
+		}
+	}
+}

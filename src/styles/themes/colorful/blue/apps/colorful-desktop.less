@@ -1,0 +1,61 @@
+/******************************************************************************\
+|                                                                              |
+|                            colorful-desktop.less                             |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// desktop colors
+//
+
+@desktop-footer-bar-color: @highlight-color;
+@desktop-footer-bar-opacity: @max-plate-glass-opacity;
+
+//
+// desktop styles
+//
+
+body:not(.binary).colorful.blue {
+	& {
+		#desktop,
+		#desktop.auto,
+		#desktop.medium {
+			.desktop.app {
+
+				//
+				// desktop footer bars
+				//
+
+				> .footer-bar {
+					background-color: @desktop-footer-bar-color;
+					border-color: @desktop-footer-bar-color;
+				}
+			}
+		}
+
+		//
+		// transparent desktop footer bars
+		//
+
+		&.transparent, &.translucent {
+			#desktop {
+				.desktop.app {
+					> .footer-bar {
+						background-color: fade(@desktop-footer-bar-color, @desktop-footer-bar-opacity);
+					}
+				}
+			}
+		}
+	}
+}

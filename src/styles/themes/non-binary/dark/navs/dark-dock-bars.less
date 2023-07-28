@@ -1,0 +1,86 @@
+/******************************************************************************\
+|                                                                              |
+|                              dark-dock-bars.less                             |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// dark dock bar colors
+//
+
+@dark-dock-bar-background-color: @very-very-dark-grey;
+@dark-dock-bar-border-color: fade(lighten(@dark-dock-bar-background-color, 25%), 50%);
+@dark-dock-bar-divider-color: fade(@light-grey, 50%);
+@dark-dock-bar-item-indicator-color: @very-light-grey;
+
+//
+// dark dock bar styles
+//
+
+body:not(.binary).dark {
+
+	//
+	// dark dock bars
+	//
+
+	#dock-bar {
+		.shelf {
+			background-color: @dark-dock-bar-background-color;
+			border-color: @dark-dock-bar-border-color;
+		}
+
+		.dock {
+
+			// app and task icons
+			//
+			.apps, .tasks {
+				.item {
+					.indicator {
+						background-color: @dark-dock-bar-item-indicator-color;
+					}
+				}
+			}
+
+			// dividers
+			//
+			.tasks .icons:not(:empty) {
+				border-left-color: @dark-dock-bar-divider-color;
+			}
+		}
+	}
+
+	//
+	// dark transparent dock bars
+	//
+
+	&.transparent {
+		#dock-bar {
+			.shelf {
+				.plate-glass(@dark-dock-bar-background-color, 50%, 50%);
+			}
+		}
+	}
+
+	//
+	// dark translucent dock bars
+	//
+
+	&.translucent {
+		#dock-bar {
+			.shelf {
+				.frosted-plate-glass(@dark-dock-bar-background-color, 50%, 50%);
+			}
+		}
+	}
+}

@@ -1,0 +1,68 @@
+/******************************************************************************\
+|                                                                              |
+|                               colored-panels.less                            |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// panel colors
+//
+
+@panel-title-color: @highlight-color;
+@panel-label-color: @highlight-color;
+@panel-selected-color: @highlight-color;
+
+//
+// panel styles
+//
+
+body:not(.binary).colorful.blue {
+	&:not(.dark) {
+		.panel, ul.panels > li {
+
+			//
+			// panel labels
+			//
+
+			.header label, .heading label, .control-label {
+				color: @panel-label-color;
+
+				i:not(.fa-star) {
+					color: @panel-label-color;
+				}
+			}
+			
+			//
+			// panel content
+			//
+
+			.content {			
+				.title {
+					i {
+						color: @panel-title-color;
+					}
+				}
+			}
+
+			.selected .content {
+				color: white;
+				background-color: @panel-selected-color;
+
+				a {
+					color: white;
+				}
+			}
+		}
+	}
+}

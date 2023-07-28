@@ -1,0 +1,48 @@
+/******************************************************************************\
+|                                                                              |
+|                               dark-images.less                               |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+body:not(.binary).dark {
+	.image img {
+		outline-color: @very-dark-grey;
+	}
+
+	.thumbnail:not(.missing) {
+		i {
+			color: @medium-grey;
+		}
+	}
+
+	/*
+	.icon-grid, .tile-grid, .card-grid {
+		.owner .thumbnail {
+			background-color: @very-dark-grey;	
+		}
+	}
+	*/
+
+	/*
+	.tile-grid .item > .icon > .thumbnail {
+		background-color: transparent;
+		// background-color: fade(black, 50%);
+		// background-color: unset;
+
+		i {
+			color: @medium-grey;
+		}
+	}
+	*/
+}

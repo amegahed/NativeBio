@@ -1,0 +1,215 @@
+
+/******************************************************************************\
+|                                                                              |
+|                              medium-dialogs.less                             |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// dialog colors
+//
+
+@modal-header-color: @very-very-very-light-grey;
+@title-icon-color: @brand-medium;
+@title-color: @dark-text-color;
+@modal-background-color: white;
+@modal-footer-color: @modal-header-color;
+@modal-border-color: darken(@modal-header-color, 10%);
+
+@modal-unfocused-header-color: darken(@modal-header-color, 10%);
+@modal-unfocused-title-icon-color: @brand-dark;
+@modal-unfocused-title-color: @title-color;
+@modal-unfocused-background-color: @modal-background-color;
+@modal-unfocused-footer-color: darken(@modal-footer-color, 10%);
+@modal-unfocused-border-color: darken(@modal-border-color, 20%);
+
+// transparent dialogs
+//
+@transparent-dialog-opacity: @plate-glass-opacity;
+@translucent-dialog-opacity: @min-plate-glass-opacity;
+
+// dialog backdrop colors
+//
+@modal-backdrop-color: fade(black, 25%);
+
+//
+// dialog styles
+//
+
+body:not(.binary) {
+	.modals {
+	
+		.modal-dialog {
+			background: grey;
+
+			.modal-content {
+				color: @dark-text-color;
+			}
+		}
+
+		//
+		// focused dialogs
+		//
+
+		.modal.focused .modal-dialog:not(.colorful) {
+			border-color: @modal-border-color !important;
+
+			.modal-header {
+				.flat(@modal-header-color, outset);
+
+				.icon {
+
+					//
+					// title icon color
+					//
+
+					i {
+						color: @title-icon-color;
+					}
+
+					svg {
+						fill: @title-icon-color;
+					}
+				}
+
+				.title {
+
+					// clipped title ellipsis color
+					//
+					color: @title-color;
+
+					// title header text color
+					//
+					h1 {
+						color: @title-color;
+					}
+				}
+			}
+
+			.modal-content {
+				.flat(@modal-background-color, outset);
+
+				.modal-footer {
+					.flat(@modal-footer-color, outset);
+				}
+			}
+		}
+
+		//
+		// unfocused dialogs
+		//
+
+		.modal:not(.focused) .modal-dialog {
+			border-color: @modal-unfocused-border-color !important;
+
+			.modal-header {
+				.flat(@modal-unfocused-header-color, outset);
+
+				.icon {
+
+					//
+					// unfocused title icon color
+					//
+
+					i {
+						color: @modal-unfocused-title-icon-color;
+					}
+
+					svg {
+						fill: @modal-unfocused-title-icon-color;
+					}
+				}
+
+				.title {
+
+					// clipped title ellipsis color
+					//
+					color: @modal-unfocused-title-color;
+
+					// title header text color
+					//
+					h1 {
+						color: @modal-unfocused-title-color;
+					}
+				}
+			}
+
+			.modal-content {
+				.flat(@modal-unfocused-background-color, outset);
+
+				.modal-footer {
+					.flat(@modal-unfocused-footer-color, outset);
+				}
+			}
+		}
+	}
+
+	//
+	// transparent (non full screen) dialogs
+	//
+
+	&.transparent .modals {
+		.modal:not(.full-screen) {
+
+			.modal-dialog:not(.maximized) {
+				background: transparent !important;
+			}
+
+			&.focused .modal-dialog {
+				.modal-content {
+					.plate-glass(@modal-background-color, @transparent-dialog-opacity);
+				}
+			}
+
+			&:not(.focused) .modal-dialog {
+				.modal-content {
+					.plate-glass(@modal-unfocused-background-color, @transparent-dialog-opacity);
+				}
+			}
+		}
+	}
+
+	//
+	// translucent (non full screen) dialogs
+	//
+
+	&.translucent .modals {
+		.modal:not(.full-screen) {
+
+			.modal-dialog {
+				&.maximized {
+					background: white;
+				}
+
+				&:not(.maximized) {
+					background: transparent;
+				}
+			}
+
+			&.focused .modal-dialog {
+				.modal-content {
+					.frosted-plate-glass(@modal-background-color, @translucent-dialog-opacity);
+					overflow: visible;
+				}
+			}
+
+			&:not(.focused) .modal-dialog {
+				.modal-content {
+					.frosted-plate-glass(@modal-unfocused-background-color, @translucent-dialog-opacity);
+					overflow: visible;
+				}
+			}
+		}
+	}
+}

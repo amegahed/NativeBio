@@ -1,0 +1,76 @@
+/******************************************************************************\
+|                                                                              |
+|                            light-metal-buttons.less                          |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+body:not(.binary) {
+	&.light.metal-buttons,
+	&.light.metal.auto-buttons {
+
+		//
+		// light metal buttons
+		//
+
+		.button {
+			.metal-button(@light-button-color);
+		}
+
+		//
+		// light metal styled buttons
+		//
+
+		.btn {
+			.metal-btn(@button-color);
+
+			//
+			// light metal disabled buttons
+			//
+
+			&:disabled {
+				.metal-disabled-btn(@light-button-disabled-color);
+			}
+		}
+
+		//
+		// light metal mobile buttons
+		//
+
+		&[device="phone"], &[device="tablet"] {
+
+			//
+			// light metal button groups
+			//
+
+			.buttons {		
+
+				//
+				// light metal styled buttons
+				//
+
+				.btn:not(.btn-sm), .btn:not(.btn-sm):focus {
+					.metal-mobile-btn(@light-button-color);
+
+					//
+					// light metal disabled buttons
+					//
+
+					&:disabled {
+						.metal-disabled-mobile-btn(@light-button-disabled-color);
+					}	
+				}
+			}
+		}
+	}
+}

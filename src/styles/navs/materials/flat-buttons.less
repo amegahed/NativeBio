@@ -1,0 +1,94 @@
+/******************************************************************************\
+|                                                                              |
+|                              flat-buttons.less                               |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// flat buttons
+//
+
+.flat-button (@button-color: lightgrey, @border-style: none) {
+
+	&.selected {
+		.flat(@button-color, @border-style);
+	}
+
+	&:hover {
+		.flat(@button-color, @border-style);
+	}
+	
+	&:active {
+		.flat(darken(@button-color, 10%), @border-style);
+	}
+}
+
+.dark-flat-button (@button-color: lightgrey, @border-style: none) {
+
+	&.selected {
+		.flat(@button-color, @border-style);
+	}
+
+	&:hover {
+		.flat(@button-color, @border-style);
+	}
+	
+	&:active {
+		.flat(lighten(@button-color, 10%), @border-style);
+	}
+}
+
+//
+// flat styled buttons
+//
+
+.flat-btn (@button-color: lightgrey, @border-style: none) {
+	.flat(@button-color, @border-style);
+
+	&:hover {
+		.flat(darken(@button-color, 5%), @border-style);
+	}
+
+	&:active {
+		.flat(darken(@button-color, 10%), @border-style);
+	}
+}
+
+.dark-flat-btn (@button-color: lightgrey, @border-style: none) {
+	.flat(@button-color, @border-style);
+
+	&:hover {
+		.flat(lighten(@button-color, 5%), @border-style);
+	}
+
+	&:active {
+		.flat(lighten(@button-color, 10%), @border-style);
+	}
+}
+
+//
+// flat disabled buttons
+//
+
+.flat-disabled-btn (@button-color: lightgrey, @border-style: none) {
+	.flat(@button-color, @border-style);
+
+	&:hover {
+		.flat(@button-color, @border-style);
+	}
+
+	&:active {
+		.flat(@button-color, @border-style);
+	}
+}

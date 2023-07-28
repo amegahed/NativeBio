@@ -1,0 +1,41 @@
+/******************************************************************************\
+|                                                                              |
+|                            colored-chalk-menus.less                          |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the SVG DOM element styles for this application.         |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+body:not(.binary).colored.brown {
+	&.chalk-menus,
+	&.chalk.auto-menus {
+
+		.menu, .dropdown-menu {
+
+			//
+			// menu items
+			//
+		
+			> li:not(.disabled) {
+				&.open > a {
+					.rounded-chalk(@menu-open-color);
+				}
+				a:hover {
+					.rounded-chalk(@menu-hover-color);
+				}
+				a:active {
+					.rounded-chalk(@menu-active-color);		
+				}
+			}
+		}
+	}
+}

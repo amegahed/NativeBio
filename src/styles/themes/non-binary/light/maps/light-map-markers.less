@@ -1,0 +1,76 @@
+/******************************************************************************\
+|                                                                              |
+|                            light-map-markers.less                            |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+body:not(.binary):not(.colored) {
+	&.light {
+		.items-map {
+		
+			//
+			// all map overlays
+			//
+
+			.map ~ .layer {
+				.item-list {
+					.item {
+						&.selected {
+							.icon {
+								i.fa-map-pin,
+								i.fa-map-marker, 
+								i.fa-circle {
+									color: @light-select-color;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		//
+		// unfocused items
+		//
+
+		.modal:not(.focused) .modal-dialog,
+		.desktop.app:not(.focused) > .body {
+			.items-map {
+
+				//
+				// map overlays
+				//
+
+				.map ~ .layer {
+					.item-list {
+
+						//
+						// selected markers
+						//	
+							
+						.item.selected {
+							.icon {
+								i.fa-map-pin,
+								i.fa-map-marker, 
+								i.fa-circle {
+									color: @highlight-color;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

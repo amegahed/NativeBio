@@ -1,0 +1,51 @@
+/******************************************************************************\
+|                                                                              |
+|                              dark-scrollbars.less                            |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+body.binary.dark {
+
+	//
+	// desktop scrollbars
+	//
+
+	&[device="desktop"] {
+
+		//
+		// scrollbar thumb
+		//
+
+		::-webkit-scrollbar-thumb {
+			background-color: black;
+
+			&:hover {
+				.dark-grey();
+			}
+
+			&:active {
+				background-color: white;
+				background-image: none;
+			}
+		}
+
+		//
+		// scrollbar track
+		//
+
+		::-webkit-scrollbar-track {
+			.grey();
+		}
+	}
+}

@@ -1,0 +1,107 @@
+/******************************************************************************\
+|                                                                              |
+|                             colorful-apps.less                               |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// colorful app colors
+//
+
+@app-sidebar-color: lighten(@highlight-color, 25%);
+@app-transparent-sidebar-color: fade(lighten(@highlight-color, 10%), 50%);
+
+//
+// colorful app styles
+//
+
+body:not(.binary).colorful.blue {
+	.app {
+
+		//
+		// loading spinners
+		//
+
+		.spinner {
+			border-top-color: @highlight-color;
+		}
+	}
+
+	//
+	// app sidebar panels
+	//
+
+	&:not(.dark) {
+
+		//
+		// opaque sidebars
+		//
+
+		&.opaque.sidebar-panels .modal,
+		&.opaque #desktop.sidebar-panels.auto-sidebars,
+		#desktop.sidebar-panels.opaque-sidebars,
+		&.sidebar-panels.opaque #desktop.auto-sidebar-panels.auto-sidebars,
+		&.sidebar-panels #desktop.auto-sidebar-panels.opaque-sidebars {
+			.app {
+				.body, .body-region {
+					.contents {
+						> .sidebar {
+							background-color: @app-sidebar-color;
+						}
+					}
+				}
+			}
+		}
+
+		//
+		// transparent sidebars
+		//
+
+		&.transparent.sidebar-panels .modal,
+		/* &.transparent #desktop.sidebar-panels.auto-sidebars,
+		#desktop.sidebar-panels.transparent-sidebars,
+		&.sidebar-panels.transparent #desktop.auto-sidebar-panels.auto-sidebars,
+		&.sidebar-panels #desktop.auto-sidebar-panels.transparent-sidebars */ {
+			.app {
+				.body, .body-region {
+					.contents {
+						> .sidebar {
+							background-color: @app-transparent-sidebar-color;
+						}
+					}
+				}
+			}
+		}
+
+		//
+		// translucent sidebars
+		//
+
+		&.translucent.sidebar-panels .modal,
+		/* &.translucent #desktop.sidebar-panels.auto-sidebars,
+		#desktop.sidebar-panels.translucent-sidebars,
+		&.sidebar-panels.translucent #desktop.auto-sidebar-panels.auto-sidebars,
+		&.sidebar-panels #desktop.auto-sidebar-panels.translucent-sidebars */ {
+			.app {
+				.body, .body-region {
+					.contents {
+						> .sidebar {
+							background-color: @app-transparent-sidebar-color;
+						}
+					}
+				}
+			}
+		}
+	}
+}

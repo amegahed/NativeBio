@@ -1,0 +1,103 @@
+/******************************************************************************\
+|                                                                              |
+|                              binary-colors.less                              |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// lightening functions
+//
+
+.lighten() {
+	background-image: @lighten-medium-4x4;
+	background-size: 2px 2px;
+	background-repeat: repeat;
+	image-rendering: pixelated;
+}
+
+.lighten-less() {
+	background-image: @lighten-light-4x4;
+	background-size: 2px 2px;
+	background-repeat: repeat;
+	image-rendering: pixelated;
+}
+
+.lighten-more() {
+	background-image: @lighten-heavy-4x4;
+	background-size: 2px 2px;
+	background-repeat: repeat;
+	image-rendering: pixelated;
+}
+
+//
+// darkening functions
+//
+
+.darken() {
+	background-image: @darken-medium-4x4;
+	background-size: 2px 2px;
+	background-repeat: repeat;
+	image-rendering: pixelated;
+}
+
+.darken-less() {
+	background-image: @darken-light-4x4;
+	background-size: 2px 2px;
+	background-repeat: repeat;
+	image-rendering: pixelated;
+}
+
+.darken-more() {
+	background-image: @darken-heavy-4x4;
+	background-size: 2px 2px;
+	background-repeat: repeat;
+	image-rendering: pixelated;
+}
+
+//
+// color functions
+//
+
+.grey() {
+	.darken();
+	background-color: white;
+}
+
+.light-grey() {
+	.darken-less();
+	background-color: white;	
+}
+
+.dark-grey() {
+	.darken-more();
+	background-color: white;
+}
+
+.white() {
+	.clear();
+	background-color: white;
+}
+
+.black() {
+	.clear();
+	background-color: black;
+}
+
+.clear() {
+	background: none;
+	background-size: unset;
+	background-position: unset;
+	background-repeat: unset;
+	image-rendering: unset;	
+}

@@ -1,0 +1,111 @@
+/******************************************************************************\
+|                                                                              |
+|                           colorful-task-bars.less                            |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// medium task bar colors
+//
+
+@task-bar-item-color: @modal-header-color;
+@task-bar-icon-color: @title-icon-color;
+@task-bar-text-color: @title-color;
+
+//
+// medium task bars
+//
+
+body:not(.binary).colorful.teal {
+	& {
+
+		//
+		// task bars
+		//
+
+		#desktop {
+
+			//
+			// colorful task bars
+			//
+
+			&.colorful .footer-bar .task-bar {
+				.task-list {
+					li {
+						color: white;
+
+						i {
+							color: @very-very-very-light-grey;
+						}
+					}
+				}
+			}
+		}
+
+		//
+		// unminimized task bars
+		//
+
+		#desktop:not(.task-bar-minimized):not(.colorful) .task-bar {
+			.task-list {
+				li {
+					.flat(@task-bar-item-color);
+
+					i {
+						color: @task-bar-icon-color;
+					}
+
+					.title {
+						color: @task-bar-text-color;
+					}
+				}
+			}
+		}
+
+		#desktop.colorful:not(.task-bar-minimized) .task-bar {
+			.task-list {
+				li:not(.colored) {
+					.flat(@task-bar-item-color);
+
+					i {
+						color: @task-bar-icon-color;
+					}
+
+					.title {
+						color: @task-bar-text-color;
+					}
+				}
+			}
+		}
+
+		//
+		// minimized task bars
+		//
+
+		#desktop.task-bar-minimized:not(.colorful) .task-bar {
+			.task-list {
+				li {
+
+					i {
+						color: white;
+					}
+
+					&:not(.colored) {
+						.flat(@task-bar-item-color);
+					}
+				}
+			}
+		}
+	}
+}

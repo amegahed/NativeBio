@@ -1,0 +1,41 @@
+/******************************************************************************\
+|                                                                              |
+|                            colored-glass-menus.less                          |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the SVG DOM element styles for this application.         |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+body:not(.binary).grey {
+	&.glass-menus,
+	&.glass.auto-menus {
+
+		.menu, .dropdown-menu {
+
+			//
+			// menu items
+			//
+		
+			> li:not(.disabled) {
+				&.open > a {
+					.rounded-glass(@menu-open-color);
+				}
+				a:hover {
+					.rounded-glass(@menu-hover-color);
+				}
+				a:active {
+					.rounded-glass(@menu-active-color);		
+				}
+			}
+		}
+	}
+}
