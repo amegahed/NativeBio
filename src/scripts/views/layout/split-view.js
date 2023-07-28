@@ -582,7 +582,7 @@ export default BaseView.extend({
 		if (this.hasChildView('mainbar') && this.getChildView('mainbar').onResize) {
 			this.getChildView('mainbar').onResize(event);
 		}
-	},
+	}
 }, {
 
 	//

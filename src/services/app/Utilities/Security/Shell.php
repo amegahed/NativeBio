@@ -18,7 +18,6 @@
 
 namespace App\Utilities\Security;
 
-use Illuminate\Support\Facades\Log;
 use App\Models\Users\User;
 use App\Utilities\Files\UserStorage;
 
@@ -336,8 +335,6 @@ class Shell
 	 */
 	public function exec1(string $executable, array $flags, array $args): string {
 		$path = $this->toAbsolutePath($args? $args[0] : '');
-
-		Log::info("path = " . $path);
 
 		// check first path argument
 		//

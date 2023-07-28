@@ -42,7 +42,6 @@ class UserAccount extends TimeStamped
 	use ItemSizeConvertable;
 
 	const INVALID_USERNAMES = [
-		'admin',
 		'temp',
 		'anonymous'
 	];
@@ -640,6 +639,16 @@ class UserAccount extends TimeStamped
 	 */
 	public static function current(): ?UserAccount {
 		return self::find(Session::get('user_id'));
+	}
+
+	/**
+	 * Find if an username is in use in a user account.
+	 *
+	 * @param string $username
+	 * @return bool
+	 */
+	public static function usernameInUse($username): bool {
+		return UserAccount::where('username', '=', $username)->exists();
 	}
 
 	/**

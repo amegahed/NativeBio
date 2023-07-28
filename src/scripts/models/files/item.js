@@ -158,24 +158,48 @@ export default BaseModel.extend(_.extend({}, Downloadable, Compressable, Geoloca
 		}		
 	},
 
+	getPermissions: function() {
+		if (this.has('link')) {
+			return this.get('link').get('target').get('permissions');
+		} else {
+			return this.get('permissions');
+		}
+	},
+
 	//
 	// permissions querying methods
 	//
 
+	isReadable: function() {
+		return this.isReadableBy(application.session.user);
+	},
+
+	isWritable: function() {
+		return this.isWritableBy(application.session.user);
+	},
+
+	isExecutable: function() {
+		return this.isExecutableBy(application.session.user);
+	},
+
+	//
+	// user permissions querying methods
+	//
+
 	isReadableBy: function(user) {
-		let permissions = this.get('permissions') || '755';
+		let permissions = this.getPermissions() || '755';
 		let group = user? user.getGroup(this) : 'other';
 		return Permissions.isReadable(permissions, group);
 	},
 
 	isWritableBy: function(user) {
-		let permissions = this.get('permissions') || '755';
+		let permissions = this.getPermissions() || '755';
 		let group = user? user.getGroup(this) : 'other';
 		return Permissions.isWritable(permissions, group);
 	},
 
 	isExecutableBy: function(user) {
-		let permissions = this.get('permissions') || '755';
+		let permissions = this.getPermissions() || '755';
 		let group = user? user.getGroup(this) : 'other';
 		return Permissions.isExecutable(permissions, group);
 	},

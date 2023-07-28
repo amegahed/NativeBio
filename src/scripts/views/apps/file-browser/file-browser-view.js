@@ -300,8 +300,8 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, SelectableContainable,
 
 			// set view menu to tiles
 			//
-			if (this.hasChildView('header menu')) {
-				this.getChildView('header menu').getChildView('view').setViewKind('tiles');
+			if (this.hasChildView('header menu view')) {
+				this.getChildView('header menu view').setViewKind('tiles');
 			}
 		}
 	},
@@ -527,7 +527,9 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, SelectableContainable,
 				// enable empty trash
 				//
 				if (FileDisposable.isTrashDirectory(this.model)) {
-					this.getChildView('header menu').getChildView('file').setItemEnabled('empty-trash');
+					if (this.hasChildView('header menu file')) {
+						this.getChildView('header menu file').setItemEnabled('empty-trash');
+					}
 				}
 
 				// play paste sound
@@ -637,7 +639,9 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, SelectableContainable,
 			
 					// enable empty trash menu item
 					//
-					this.getChildView('header menu').getChildView('file').setItemEnabled('empty-trash');
+					if (this.hasChildView('header menu file')) {
+						this.getChildView('header menu file').setItemEnabled('empty-trash');
+					}
 				}
 			});
 		}
@@ -660,7 +664,9 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, SelectableContainable,
 
 				// disable empty trash menu item
 				//
-				this.getChildView('header menu').getChildView('file').setItemDisabled('empty-trash');
+				if (this.hasChildView('header menu file')) {
+					this.getChildView('header menu file').setItemDisabled('empty-trash');
+				}
 			}	
 		});
 	},
@@ -1509,7 +1515,9 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, SelectableContainable,
 				// enable empty trash
 				//
 				if (FileDisposable.isTrashDirectory(this.model)) {
-					this.getChildView('header menu').getChildView('file').setItemEnabled('empty-trash');
+					if (this.hasChildView('header menu file')) {
+						this.getChildView('header menu file').setItemEnabled('empty-trash');
+					}
 				}
 
 				// play move sound
@@ -1533,7 +1541,9 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, SelectableContainable,
 				// enable empty trash
 				//
 				if (FileDisposable.isTrashDirectory(child)) {
-					this.getChildView('header menu').getChildView('file').setItemEnabled('empty-trash');
+					if (this.hasChildView('header menu file')) {
+						this.getChildView('header menu file').setItemEnabled('empty-trash');
+					}
 				}
 
 				// perform callback

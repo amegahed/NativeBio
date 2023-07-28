@@ -47,6 +47,10 @@ export default _.extend({}, FileMovable, {
 		return this.model && this.model.getName() == this.trashDirectoryName;
 	},
 
+	isRecyclable: function() {
+		return !this.isShowingTrashDirectory() && application.isSignedIn();
+	},
+
 	hasTrashDirectory: function() {
 		return application.hasDirectory(this.trashDirectoryName + '/');
 	},
@@ -55,8 +59,16 @@ export default _.extend({}, FileMovable, {
 	// getting methods
 	//
 
+	getDirectory: function(name) {
+		let directory = application.getDirectory(name);
+		if (this.model && this.model.has('link')) {
+			directory.set('link', this.model.get('link'));
+		}
+		return directory;
+	},
+
 	getTrashDirectory: function() {
-		return application.getDirectory(this.trashDirectoryName + '/');
+		return this.getDirectory(this.trashDirectoryName + '/');
 	},
 
 	//
@@ -67,7 +79,7 @@ export default _.extend({}, FileMovable, {
 
 		// recycle items
 		//
-		if (!this.isShowingTrashDirectory()) {
+		if (this.isRecyclable()) {
 
 			// move items to trash
 			//
@@ -174,11 +186,11 @@ export default _.extend({}, FileMovable, {
 	//
 
 	createTrashDirectory: function(options) {
-		application.getDirectory().createDirectory(this.trashDirectoryName, options);
+		this.getDirectory().createDirectory(this.trashDirectoryName, options);
 	},
 
 	fetchTrashDirectory: function(options) {
-		application.getDirectory().fetchDirectory(this.trashDirectoryName, options);
+		this.getDirectory().fetchDirectory(this.trashDirectoryName, options);
 	},
 
 	disposeOfItem: function(item, options) {

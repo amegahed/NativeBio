@@ -53,10 +53,23 @@ class UserAccountController extends Controller
 			'email' => $request->input('email')
 		]);
 
-		// check validation
+		// if username matches current user, check email address only
 		//
-		if (!$userAccount->isTaken($errors)) {
-			return response(json_encode($errors), 409);
+		$currentUser =  User::current();
+		if ($currentUser && $userAccount->username == $currentUser->account->username) {
+
+			// check email validation
+			//
+			if (UserAccount::emailInUse($userAccount->email)) {
+				return response(json_encode($errors), 409);
+			}
+		} else {
+
+			// check account validation
+			//
+			if (!$userAccount->isTaken($errors)) {
+				return response(json_encode($errors), 409);
+			}
 		}
 
 		// return response
@@ -234,19 +247,28 @@ class UserAccountController extends Controller
 		// check if email has changed
 		//
 		if ($userAccount->email != $email) {
+			if (!$userAccount->isAdmin()) {
 
-			// send verification email
-			//
-			$emailVerification = new EmailVerification([
-				'id' => Guid::create(),
-				'user_id' => $userAccount->user_id,
-				'email' => $email
-			]);
-			$emailVerification->save();
-			$emailVerification->send('#verify-email', true); 
+				// send verification email
+				//
+				$emailVerification = new EmailVerification([
+					'id' => Guid::create(),
+					'user_id' => $userAccount->user_id,
+					'email' => $email
+				]);
+				$emailVerification->save();
+				$emailVerification->send('#verify-email', true);
+			} else {
+
+				// update user account
+				//
+				$userAccount->change([
+					'email' => $email
+				]);
+			}
 		}
 
-		// set user accout admin attributes
+		// set user account admin attributes
 		//
 		$currentUser = User::current();
 		if ($currentUser->isAdmin()) {

@@ -215,6 +215,16 @@ export default class Browser {
 	//
 
 	static download(url) {
+
+		// check if argument is an array
+		//
+		if (Array.isArray(url)) {
+			this.downloadAll(url);
+			return;
+		}
+
+		// create temporary link to simulate user event
+		//
 		let a = document.createElement("a");
 		a.setAttribute('href', url);
 		a.setAttribute('download', '');

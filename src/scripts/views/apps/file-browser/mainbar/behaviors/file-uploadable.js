@@ -81,6 +81,19 @@ export default _.extend({}, FileIterable, {
 			}
 		}
 
+		// make sure that directory is writable
+		//
+		if (!directory.isWritable()) {
+
+			// show error message
+			//
+			application.error({
+				message: "Permissions error - directory is not writable.",
+			});
+
+			return;
+		}
+
 		// make sure directory is loaded
 		//
 		if (!directory.loaded) {
@@ -334,6 +347,19 @@ export default _.extend({}, FileIterable, {
 			}));
 		}
 
+		// make sure that directory is writable
+		//
+		if (!directory.isWritable()) {
+
+			// show error message
+			//
+			application.error({
+				message: "Permissions error - directory is not writable.",
+			});
+
+			return;
+		}
+
 		// make sure directory is loaded
 		//
 		if (!directory.loaded) {
@@ -509,7 +535,11 @@ export default _.extend({}, FileIterable, {
 			//
 			let dirname = directory.path? directory.path + directoryEntry.name + '/': directoryEntry.name + '/';
 			return directory.createDirectory(FileUtils.getDirectoryName(dirname), {
+
+				// options
+				//
 				overwrite: options && options.overwrite,
+				permissions: directory.getPermissions(),
 
 				// callbacks
 				//
@@ -582,7 +612,11 @@ export default _.extend({}, FileIterable, {
 			}
 			let dirname = directory.path? directory.path + directoryEntry.name + '/': directoryEntry.name + '/';
 			directory.createDirectory(FileUtils.getDirectoryName(dirname), {
+
+				// options
+				//
 				overwrite: options && options.overwrite,
+				permissions: directory.getPermissions(),
 
 				// callbacks
 				//
@@ -611,6 +645,19 @@ export default _.extend({}, FileIterable, {
 					});
 				}
 			});
+		}
+
+		// make sure that directory is writable
+		//
+		if (!directory.isWritable()) {
+
+			// show error message
+			//
+			application.error({
+				message: "Permissions error - directory is not writable.",
+			});
+
+			return;
 		}
 
 		// make sure directory is loaded
@@ -824,7 +871,11 @@ export default _.extend({}, FileIterable, {
 			//
 			let dirname = directory.path? directory.path + directoryEntry.name + '/': directoryEntry.name + '/';
 			return directory.createDirectory(FileUtils.getDirectoryName(dirname), {
+
+				// options
+				//
 				overwrite: options && options.overwrite,
+				permissions: directory.getPermissions(),
 
 				// callbacks
 				//
@@ -903,6 +954,19 @@ export default _.extend({}, FileIterable, {
 			for (let i = 0; i < entries.length; i++) {
 				uploadEntry(entries[i], directory, onUpload);
 			}
+		}
+
+		// make sure that directory is writable
+		//
+		if (!directory.isWritable()) {
+
+			// show error message
+			//
+			application.error({
+				message: "Permissions error - directory is not writable.",
+			});
+
+			return;
 		}
 
 		// make sure directory is loaded

@@ -20,6 +20,12 @@ import BaseView from './views/base-view.js';
 export default Backbone.Router.extend({
 
 	//
+	// attributes
+	//
+
+	templates: 'templates',
+
+	//
 	// route definitions
 	//
 
@@ -827,12 +833,7 @@ export default Backbone.Router.extend({
 	//
 
 	showInfo: function(address) {
-		fetch('templates/' + address + '.tpl').then(response => {
-			if (!response.ok) { 
-				throw response;
-			}
-			return response.text();
-		}).then(text => {
+		this.fetchTemplate(address, (text) => {
 
 			// show info page
 			//
@@ -841,17 +842,6 @@ export default Backbone.Router.extend({
 			}), {
 				nav: address.contains('/')? address.split('/')[0] : address
 			});
-		}).catch(error => {
-			error.text().then(errorMessage => {
-
-				// show 404 page
-				//
-				this.showNotFound({
-					title: "Page Not Found",
-					message: "The page that you are looking for could not be found: " + address,
-					response: errorMessage				
-				});	
-			})
 		});
 	},
 
@@ -871,8 +861,29 @@ export default Backbone.Router.extend({
 	},
 
 	//
-	// utility model fetching methods
+	// utility fetching methods
 	//
+
+	fetchTemplate(address, callback) {
+		fetch(this.templates + '/' + address + '.tpl').then(response => {
+			if (!response.ok) {
+				throw response;
+			}
+			return response.text();
+		}).then(template => {
+			callback(template);
+			return;
+		}).catch(error => {
+
+			// show 404 page
+			//
+			this.showNotFound({
+				title: "Page Not Found",
+				message: "The page that you are looking for could not be found: " + address,
+				error: error
+			});
+		});
+	},
 
 	fetchUser: function(id, done) {
 		import(

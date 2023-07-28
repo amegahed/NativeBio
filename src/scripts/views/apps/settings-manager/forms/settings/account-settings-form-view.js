@@ -197,7 +197,13 @@ export default FormView.extend({
 			// show edit user account dialog
 			//
 			application.show(new EditUserAccountDialogView.default({
-				model: this.model
+				model: this.model,
+
+				// callbacks
+				//
+				onchange: () => {
+					this.render();
+				}
 			}));
 		});
 	},
