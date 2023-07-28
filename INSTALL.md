@@ -145,7 +145,7 @@ Set the variable "DB_PASSWORD" to your database password.  By default, database 
 DB_PASSWORD=root
 ```
 
-## Test The Database Connection
+## Test The Database Configuration
 
 Once you have configured the database, you should be able to log in to the "admin" user account.  To test whether the database has been properly configured, open up the application in your web browser.   You should see "SignIn" and "SignUp" button in the upper right hand corner.
 
@@ -183,7 +183,7 @@ Set the variable "MAIL_PASSWORD" to the password of the user to use for sending 
 MAIL_PASSWORD=mypassword
 ```
 
-## Test the mail capability
+## Test the Mail Configuration
 
 To test whether the mail configuration is functioning properly, we'll send a test email using the following steps:
 
