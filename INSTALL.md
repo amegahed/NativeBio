@@ -22,46 +22,56 @@ This application requires Apache or another similar web server.
 
 ### 2. SQL Database
 
-The data science map uses SQL for storing user, authentication, and academic information.
+The data science map uses SQL for storing user, authentication, and academic information.  You can use any of a number of SQL databases including MySQL, MariaDB, SQLite, PostgreSQL, Microsoft SQL Server and others.
 
-# Installing the Code
+# Install the Code
+
+## Move or Copy the Files
 
 Move or copy the files located in this repository's "/src" directory to the document root of your web server.
 
-## Setting Storage Permissions
+## Set Storage Permissions
 
 The application may sometimes have a need to write out temporary files, for example, log files or session files. It does this in the "services/storage" directory. Make sure that this directory is writable by your web server. On a unix system, make sure that the files in the web server folder are owned by the web server process (usually "apache") and set the permissions to make the directory writeable by the web server.
 
 ```
 chown -R apache:apache /var/www/html
-chmod -R 755 /var/www/html/services/storage
+chmod -R 755 /var/www/html
+
 ```
 
-## Setting Up The Database
+## Verify That The Server Can Access the Files
 
-The Native BioData Portal uses a standard SQL database. You can use any of a number of SQL databases including MySQL, MariaDB, and others. To set up your database, perform the following steps:
+Once you have copied the files into your web server's document root folder, verify that your web server can access the files.  To do so, open your web browser and type in the web address to the root directory:
+```
+http://localhost
+```
 
-### Locate the SQL Database Files
+# Set Up The Database
+
+The Native BioData Portal uses a standard SQL database. To set up your database, perform the following steps:
+
+## Locate the SQL Database Files
 
 Inside of the /database directory, you should see the following two SQL files:
 - initialize.sql
 - structure.sql
 
-### Create a New Database
+## Create a New Database
 
-Using a database editor of your choice, create a new database named "biodata".
+Using a database editor of your choice, create a new database.  You can name it whatever you want.  We suggest that you name it "biodata".
 
-### Create Database Tables
+## Create Database Tables
 
-Next, create the required database tables. To do this, open your new "biodata" database and execute the SQL script: "structure.sql".
+Next, create the required database tables. To do this, open your new database and execute the SQL script: "structure.sql".   You should see a list of tables that have been created.
 
-### Initialize the Database
+## Initialize the Database
 
-To initialize the database, open your "biodata" database and execute the SQL script: "initialize.sql".
+To initialize the database, open your database and execute the SQL script: "initialize.sql".  This will create a default "admin" user and write some basic information to the database such as country names.
 
-## Configuring the Client
+# Configure the Client Software
 
-The client is the "front end" or "user interface" portion of the software that the user interacts with.  The client needs to be able to talk to the "back end" where data is stored and managed.  In order for this to work, the client may need to be configured.   The client configuration is stored in the file "config/config.json".
+The client is the "front end" or "user interface" portion of the software that the user interacts with.  The client needs to be able to talk to the "back end" where data is stored and managed.  In order for the client to be able to talk to the server, the client may need to be configured.   The client configuration is stored in the file "config/config.json".
 
 ```
 "servers": {
@@ -70,7 +80,7 @@ The client is the "front end" or "user interface" portion of the software that t
   }
 ```
 
-If you have configured your software so that it is not located in the root of your DocumentRoot folder of your web server, then you may need to set the servers to point to the correct location:
+If you have configured your software so that it is not located in the standard location in the DocumentRoot folder of your web server, then you may need to set the client to point to point to the correct location of the server:
 
 ```
 "servers": {
@@ -79,11 +89,11 @@ If you have configured your software so that it is not located in the root of yo
   }
 ```
 
-## Configuring the Server
+# Configure the Server Software
 
 To configure the server software, go to the "services" folder where you copied the web server files. Inside of this directory your should see a file called ".env.example". Copy this file to ".env" and open it in your text editor.
 
-### Configure the app
+## Configure the App
 
 1.  Set environment (optional)
 Set the variable "APP_ENV" to either "dev" for development or "prod" for production.
@@ -93,7 +103,7 @@ APP_ENV=prod
 ```
 
 2.  Set the app key (optional)
-The app key is a unique identifier that is used to distinguish your particular application. To set the application key, go to the Sharedigm server directory and run the command "php artisan key:generate". This will fill in the "APP_KEY" parameter with a suitable random value.
+The app key is a unique identifier that is used to distinguish your particular application. To set the application key, go to the server directory and run the command "php artisan key:generate". This will fill in the "APP_KEY" parameter with a suitable random value.
 ```
 APP_KEY=<a random string of characters>
 ```
@@ -114,7 +124,7 @@ You can configure where you want your user storage to be located by setting the 
 APP_USER_STORAGE_PATH=/user-data
 ```
 
-### Configuring the Database
+## Configure the Database
 
 The database is where your user account information and other data is stored.  Follow these steps to make sure that the application can communicate to the database properly.
 
@@ -135,7 +145,21 @@ Set the variable "DB_PASSWORD" to your database password.  By default, database 
 DB_PASSWORD=root
 ```
 
-### Configuring Email
+## Test The Database Connection
+
+Once you have configured the database, you should be able to log in to the "admin" user account.  To test whether the database has been properly configured, open up the application in your web browser.   You should see "SignIn" and "SignUp" button in the upper right hand corner.
+
+### Sign In
+To sign in to the default "admin" account, click the "Sign In" button.  You should see a "Sign In" dialog box.  For the username, enter "admin".   For the password, also enter "admin".
+
+### Checking For Errors
+If you do not see the "Sign In" button when you load up the application in your web browser, then that means that something is not working with the back end server configuration.   To see what the error is, either look in your web browser's debugger or go to the logs folder.   The logs folder is located in:
+
+```
+services/storage/logs
+```
+
+## Configure Email
 
 This application uses email to verify users when they register for new accounts and to reset passwords.  It also uses email as a mechanism for sharing files and to allow user feeback.
 
@@ -158,6 +182,25 @@ Set the variable "MAIL_PASSWORD" to the password of the user to use for sending 
 ```
 MAIL_PASSWORD=mypassword
 ```
+
+## Test the mail capability
+
+To test whether the mail configuration is functioning properly, we'll send a test email using the following steps:
+
+1.  Log in to the admin user account
+Log in to the default admin user account as before - username: root, password: root.
+
+2.  Open Settings
+Once you have logged in, click the "Settings" icon (the gears icon) on the top nav bar.
+
+3.  Open Account Settings
+Click the "Account" icon on the left sidebar.
+
+4.  Enter Your Email Address.
+Click the "Edit Account" button and enter your email address.
+
+5. Send a Test Email
+Log out and click the "Sign In" button on the top nav bar.  On the "Sign In" dialog box, click the "Request My Username" link underneath "Username".   Enter your email address.  It should send an email to your email account.
 
 ## Installing Multimedia Support
 
@@ -189,18 +232,18 @@ After adding this line, restart your web server.
 
 ## Install Video Support
 
-For generating thumbnails for video files and for extracing video file metadata, Sharedigm uses the FFMpeg library.
+For generating thumbnails for video files and for extracing video file metadata, this application uses the FFMpeg library.
 
 1. Install the FFMpeg Framework
 Follow the instructions on [https://ffmpeg.org](https://ffmpeg.org) for installing the ImageMagick library on your particular platform.
 
 2.  Configure Your Server to Use FFMpeg
-Once you have installed the FFMpeg library, you may need to configure your Sharedigm server to know where the FFMpeg executables are on your file system. There are two executables that are used:
+Once you have installed the FFMpeg library, you may need to configure your server to know where the FFMpeg executables are on your file system. There are two executables that are used:
 
   - ffmpeg - this is an executable used to perform video operations.
   - ffprobe - this is an executable used to query video metadata.
 
-To configure the path to these executables, open the .env file in the root directory of your Sharedigm server directory and set the following two values:
+To configure the path to these executables, open the '.env' file in the 'services/' directory and set the following two values:
 
 ```
 APP_FFMPEG_BINARY_PATH=/usr/local/bin/ffmpeg
