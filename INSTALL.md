@@ -40,7 +40,7 @@ chmod -R 755 /var/www/html
 
 ```
 
-## Verify That The Server Can Access the Files
+## Test the Code Installation
 
 Once you have copied the files into your web server's document root folder, verify that your web server can access the files.  To do so, open your web browser and type in the web address to the root directory:
 ```
