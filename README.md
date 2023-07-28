@@ -35,7 +35,7 @@ Please follow the instructions in [INSTALL.md](INSTALL.md) to install the softwa
 <!-- LICENSE -->
 ## License
 
-Distributed under the Sustainable Use License which allows urestricted use of the software but does not allow you to commercialize it. See [LICENSE](LICENSE.md) for more information.
+Distributed under the Sustainable Use License which allows urestricted use of the software but does not allow you to commercialize it. See [LICENSE.md](LICENSE.md) for more information.
 
 <!-- CONTACT -->
 ## Contact
