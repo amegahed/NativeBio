@@ -30,7 +30,7 @@ The data science map uses SQL for storing user, authentication, and academic inf
 
 ## Installation
 
-Please follow these [instructions](https://www.sharedigm.com/#help/setting-up) to install the Native BioData portal.
+Please follow the instructions in [INSTALL.md](INSTALL.md) to install the software on your web server.
 
 <!-- LICENSE -->
 ## License
