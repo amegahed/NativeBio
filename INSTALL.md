@@ -1,6 +1,6 @@
 <p align="center">
   <div align="center">
-    <img src="./images/logos/native-biodata-logo.png" alt="Logo" style="max-width:300px">
+    <img src="./images/logos/native-biodata-logo.png" alt="Logo" style="width:300px">
   </div>
 </p>
 
