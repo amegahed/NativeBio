@@ -1,0 +1,35 @@
+/******************************************************************************\
+|                                                                              |
+|                        _accented-flat-scrollbars.scss                        |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+@use "../../navs/accented-scrollbars";
+@use "../../../../navs/materials/flat/flat-scrollbars";
+
+//
+// styles
+//
+
+body:not(.binary).colored.accented {
+	&:not(.dark).flat-scrollbars,
+	&:not(.dark).flat.auto-scrollbars {
+
+		//
+		// inactive scrollbar thumbs
+		//
+
+		@include flat-scrollbars.inactive-thumb-shading(accented-scrollbars.$color, accented-scrollbars.$hover-color);
+	}
+}

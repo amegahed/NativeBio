@@ -1,0 +1,39 @@
+/******************************************************************************\
+|                                                                              |
+|                              _flat-menus.scss                                |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+@use "../../../materials/flat/flat";
+
+//
+// mixins
+//
+
+@mixin coloring($open-color, $hover-color, $active-color) {
+	> li:not(.dropdown-toggle):not(.disabled) {
+
+		&.open > a {
+			@include flat.coloring($open-color);
+		}
+
+		a:hover {
+			@include flat.coloring($hover-color);
+		}
+
+		a:active {
+			@include flat.coloring($active-color);
+		}
+	}
+}

@@ -1,0 +1,115 @@
+/******************************************************************************\
+|                                                                              |
+|                      _medium-flat-colored-buttons.scss                       |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+@use "../../../../../colors/colors";
+@use "../../../../../navs/materials/flat/flat-btns";
+
+//
+// styles
+//
+
+body:not(.binary) {
+	&.flat.coloring {
+		.colored.btn {
+			color: white;
+
+			i {
+				color: white;
+			}
+
+			&.red {
+				@include flat-btns.shading(colors.$medium-red);
+			}
+
+			&.raspberry {
+				@include flat-btns.shading(colors.$medium-raspberry);
+			}
+
+			&.red-orange {
+				@include flat-btns.shading(colors.$medium-red-orange);
+			}
+
+			&.orange {
+				@include flat-btns.shading(colors.$medium-orange);
+			}
+
+			&.yellow {
+				@include flat-btns.shading(colors.$medium-yellow);
+			}
+
+			&.lime {
+				@include flat-btns.shading(colors.$medium-lime);
+			}
+
+			&.green {
+				@include flat-btns.shading(colors.$medium-green);
+			}
+
+			&.teal {
+				@include flat-btns.shading(colors.$medium-teal);
+			}
+
+			&.aqua {
+				@include flat-btns.shading(colors.$medium-aqua);
+			}
+
+			&.cyan {
+				@include flat-btns.shading(colors.$medium-cyan);
+			}
+
+			&.blue {
+				@include flat-btns.shading(colors.$medium-blue);
+			}
+
+			&.indigo {
+				@include flat-btns.shading(colors.$medium-indigo);
+			}
+
+			&.violet {
+				@include flat-btns.shading(colors.$medium-violet);
+			}
+
+			&.plum {
+				@include flat-btns.shading(colors.$medium-plum);
+			}
+
+			&.purple {
+				@include flat-btns.shading(colors.$medium-purple);
+			}
+
+			&.magenta {
+				@include flat-btns.shading(colors.$medium-magenta);
+			}
+
+			&.brown {
+				@include flat-btns.shading(colors.$medium-brown);
+			}
+
+			&.grey {
+				@include flat-btns.shading(colors.$medium-grey);
+			}
+
+			&.black {
+				@include flat-btns.shading(colors.$medium-black);
+			}
+
+			&.white {
+				@include flat-btns.shading(colors.$medium-white);
+			}
+		}
+	}
+}

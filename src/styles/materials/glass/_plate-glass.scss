@@ -1,0 +1,73 @@
+/******************************************************************************\
+|                                                                              |
+|                              _plate-glass.scss                               |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+\******************************************************************************/
+
+@use "../../colors/colors";
+
+//
+// variables
+//
+
+$min-opacity: 70%;
+$opacity: 80%;
+$max-opacity: 90%;
+
+//
+// mixins
+//
+
+@mixin shading ($color: white, $opacity: $opacity, $max-opacity: $max-opacity) {
+	background:
+
+		// specular
+		//
+		linear-gradient(to bottom,
+			colors.fade($color, $max-opacity) 0%,
+			transparent 100%) no-repeat,
+
+		// diffuse
+		//
+		colors.fade($color, $opacity);
+}
+
+@mixin multilayer-shading ($color: white, $opacity: $opacity, $max-opacity: $max-opacity) {
+	position: relative;
+	overflow: hidden;
+
+	background:
+
+		// diffuse
+		//
+		colors.fade($color, $opacity);
+
+	&:after {
+		position: absolute;
+		content: '';
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		pointer-events: none;
+
+		background:
+
+			// specular
+			//
+			linear-gradient(to bottom,
+				colors.fade($color, $max-opacity) 0%,
+				transparent 100%) no-repeat;
+	}
+}

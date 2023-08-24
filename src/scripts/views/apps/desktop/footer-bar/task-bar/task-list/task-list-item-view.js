@@ -26,7 +26,7 @@ export default BaseView.extend({
 	tagName: 'li',
 
 	template: template(`
-		<div class="icon<% if (typeof color != 'undefined') { %> colored <%= color %><% } %>" data-toggle="tooltip" title="<%= title %>">
+		<div class="icon" data-toggle="tooltip" title="<%= title %>">
 			<i class="<%= icon %>" ></i>
 		</div>
 		<div class="title">

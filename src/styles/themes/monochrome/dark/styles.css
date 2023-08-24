@@ -1,6 +1,6 @@
 /******************************************************************************\
 |                                                                              |
-|                                  styles.less                                 |
+|                                _colors.scss                                  |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -12,11 +12,11 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                                  styles.less                                 |
+|                              _text-colors.scss                               |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -28,11 +28,11 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                             dark-app-launcher.less                           |
+|                            _dark-app-launcher.scss                           |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -49,13 +49,7 @@
 body:not(.binary).monochrome.dark .app-launcher.app .icon-grid .item .icon:not(.colored),
 body:not(.binary).monochrome.dark .app-icons .item .icon:not(.colored) {
   background: #57578d;
-  border-color: #43436e;
-  /*
-						&:hover {
-							background: @dark-app-launcher-icon-hover-color;
-							border-color: @dark-app-launcher-icon-border-color;	
-						}
-						*/
+  border-color: color-mix(in srgb, rgb(0, 0, 127) 10%, #57578d);
 }
 body:not(.binary).monochrome.dark .app-launcher.app .icon-grid .item .icon:not(.colored) i,
 body:not(.binary).monochrome.dark .app-icons .item .icon:not(.colored) i {
@@ -63,12 +57,13 @@ body:not(.binary).monochrome.dark .app-icons .item .icon:not(.colored) i {
 }
 body:not(.binary).monochrome.dark .app-launcher.app .icon-grid .item .icon:not(.colored):active,
 body:not(.binary).monochrome.dark .app-icons .item .icon:not(.colored):active {
-  background: #43436e;
-  border-color: #43436e;
+  background: color-mix(in srgb, rgb(0, 0, 127) 10%, #57578d);
+  border-color: color-mix(in srgb, rgb(0, 0, 127) 10%, #57578d);
 }
+
 /******************************************************************************\
 |                                                                              |
-|                             dark-desktop.less                               |
+|                            _dark-desktop.scss                                |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -90,9 +85,10 @@ body:not(.binary).monochrome #desktop.dark .desktop.app > .footer-bar .run-menu 
 body:not(.binary).monochrome #desktop.dark .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle i {
   color: white;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                                  styles.less                                 |
+|                                 _index.scss                                  |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -108,7 +104,7 @@ body:not(.binary).monochrome #desktop.dark .desktop.app > .footer-bar .run-menu 
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                                  styles.less                                 |
+|                                 _lighting.scss                               |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -120,11 +116,113 @@ body:not(.binary).monochrome #desktop.dark .desktop.app > .footer-bar .run-menu 
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+\******************************************************************************/
+:root {
+  --light-direction: to bottom;
+  --ambient-color: rgb(0, 0, 127);
+  --light-color: white;
+}
+
+/******************************************************************************\
+|                                                                              |
+|                                 _flat.scss                                   |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+\******************************************************************************/
+@supports (color: color-mix(in srgb, white, black)) {
+  .flat .shaded, .flat.flat.shaded {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .flat .shaded.round, .flat.flat.shaded.round {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .flat .shaded.rounded, .flat.flat.shaded.rounded {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .flat .shaded.long.round, .flat.flat.shaded.long.round {
+    background-color: var(--primary-color);
+  }
+  .flat .shaded.textured, .flat.flat.shaded.textured {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .flat .shaded.textured.round, .flat.flat.shaded.textured.round {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .flat .shaded.textured.rounded, .flat.flat.shaded.textured.rounded {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .flat .shaded.textured.long.round, .flat.flat.shaded.textured.long.round {
+    background-color: var(--primary-color);
+  }
+}
+@supports not (color: color-mix(in srgb, white, black)) {
+  .flat .shaded, .flat.flat.shaded {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .flat .shaded.round, .flat.flat.shaded.round {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .flat .shaded.rounded, .flat.flat.shaded.rounded {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .flat .shaded.long.round, .flat.flat.shaded.long.round {
+    background-color: var(--primary-color);
+  }
+  .flat .shaded.textured, .flat.flat.shaded.textured {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .flat .shaded.textured.round, .flat.flat.shaded.textured.round {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .flat .shaded.textured.rounded, .flat.flat.shaded.textured.rounded {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .flat .shaded.textured.long.round, .flat.flat.shaded.textured.long.round {
+    background-color: var(--primary-color);
+  }
+}
+/******************************************************************************\
+|                                                                              |
+|                               _flat-btns.scss                                |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                            dark-flat-desktops.less                           |
+|                          _dark-flat-desktops.scss                            |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -141,24 +239,25 @@ body:not(.binary).monochrome #desktop.dark .desktop.app > .footer-bar .run-menu 
 body:not(.binary).monochrome.dark.flat #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle,
 body:not(.binary).monochrome.dark.flat #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle,
 body:not(.binary).monochrome.dark.flat #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle {
-  background: #57578d;
+  background-color: #57578d;
   border-color: #57578d;
 }
 body:not(.binary).monochrome.dark.flat #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover,
 body:not(.binary).monochrome.dark.flat #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover,
 body:not(.binary).monochrome.dark.flat #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover {
-  background: #4d4d7d;
-  border-color: #4d4d7d;
+  background-color: color-mix(in srgb, rgb(0, 0, 127) 10%, #57578d);
+  border-color: color-mix(in srgb, rgb(0, 0, 127) 10%, #57578d);
 }
 body:not(.binary).monochrome.dark.flat #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active,
 body:not(.binary).monochrome.dark.flat #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active,
 body:not(.binary).monochrome.dark.flat #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active {
-  background: #43436e;
-  border-color: #43436e;
+  background-color: color-mix(in srgb, rgb(0, 0, 127) 20%, #57578d);
+  border-color: color-mix(in srgb, rgb(0, 0, 127) 20%, #57578d);
 }
+
 /******************************************************************************\
 |                                                                              |
-|                                  styles.less                                 |
+|                                 _index.scss                                  |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -174,7 +273,39 @@ body:not(.binary).monochrome.dark.flat #desktop.medium .desktop.app > .footer-ba
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                            dark-chalk-desktops.less                          |
+|                               _round-chalk.scss                              |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                               _chalk-btns.scss                               |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                          _dark-chalk-desktops.scss                           |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -191,24 +322,28 @@ body:not(.binary).monochrome.dark.flat #desktop.medium .desktop.app > .footer-ba
 body:not(.binary).monochrome.dark.chalk #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle,
 body:not(.binary).monochrome.dark.chalk #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle,
 body:not(.binary).monochrome.dark.chalk #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #7070a7 0%, #57578d 50%, #43436e 100%) no-repeat;
-  border-color: #43436e;
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: #57578d;
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, #57578d);
 }
 body:not(.binary).monochrome.dark.chalk #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover,
 body:not(.binary).monochrome.dark.chalk #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover,
 body:not(.binary).monochrome.dark.chalk #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #61619d 0%, #4d4d7d 50%, #3a3a5e 100%) no-repeat;
-  border-color: #3a3a5e;
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: color-mix(in srgb, rgb(0, 0, 127) 10%, #57578d);
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, color-mix(in srgb, rgb(0, 0, 127) 10%, #57578d));
 }
 body:not(.binary).monochrome.dark.chalk #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active,
 body:not(.binary).monochrome.dark.chalk #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active,
 body:not(.binary).monochrome.dark.chalk #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #57578d 0%, #43436e 50%, #30304e 100%) no-repeat;
-  border-color: #30304e;
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: color-mix(in srgb, rgb(0, 0, 127) 20%, #57578d);
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, color-mix(in srgb, rgb(0, 0, 127) 20%, #57578d));
 }
+
 /******************************************************************************\
 |                                                                              |
-|                                  styles.less                                 |
+|                                 _index.scss                                  |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -224,7 +359,39 @@ body:not(.binary).monochrome.dark.chalk #desktop.medium .desktop.app > .footer-b
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                          dark-plastic-desktops.less                          |
+|                             _round-plastic.scss                              |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                              _plastic-btns.scss                              |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                         _dark-plastic-desktops.scss                          |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -241,24 +408,28 @@ body:not(.binary).monochrome.dark.chalk #desktop.medium .desktop.app > .footer-b
 body:not(.binary).monochrome.dark.plastic #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle,
 body:not(.binary).monochrome.dark.plastic #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle,
 body:not(.binary).monochrome.dark.plastic #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #7070a7 0%, #57578d 50%, #43436e 100%) no-repeat;
-  border-color: #43436e;
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: #57578d;
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, #57578d);
 }
 body:not(.binary).monochrome.dark.plastic #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover,
 body:not(.binary).monochrome.dark.plastic #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover,
 body:not(.binary).monochrome.dark.plastic #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #61619d 0%, #4d4d7d 50%, #3a3a5e 100%) no-repeat;
-  border-color: #3a3a5e;
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: color-mix(in srgb, rgb(0, 0, 127) 10%, #57578d);
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, color-mix(in srgb, rgb(0, 0, 127) 10%, #57578d));
 }
 body:not(.binary).monochrome.dark.plastic #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active,
 body:not(.binary).monochrome.dark.plastic #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active,
 body:not(.binary).monochrome.dark.plastic #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #57578d 0%, #43436e 50%, #30304e 100%) no-repeat;
-  border-color: #30304e;
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: color-mix(in srgb, rgb(0, 0, 127) 20%, #57578d);
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, color-mix(in srgb, rgb(0, 0, 127) 20%, #57578d));
 }
+
 /******************************************************************************\
 |                                                                              |
-|                                  styles.less                                 |
+|                                 _index.scss                                  |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -274,7 +445,39 @@ body:not(.binary).monochrome.dark.plastic #desktop.medium .desktop.app > .footer
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                            dark-glass-desktops.less                          |
+|                               _round-glass.scss                              |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                               _glass-btns.scss                               |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                          _dark-glass-desktops.scss                           |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -291,24 +494,28 @@ body:not(.binary).monochrome.dark.plastic #desktop.medium .desktop.app > .footer
 body:not(.binary).monochrome.dark.glass #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle,
 body:not(.binary).monochrome.dark.glass #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle,
 body:not(.binary).monochrome.dark.glass #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #afafce 0%, #57578d 50%, rgba(87, 87, 141, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(87, 87, 141, 0) 33%, rgba(87, 87, 141, 0.5) 100%) no-repeat, #30304e;
-  border-color: #30304e;
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, #57578d) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, #57578d) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, #57578d 50%, transparent) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 30%, #57578d);
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, #57578d);
 }
 body:not(.binary).monochrome.dark.glass #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover,
 body:not(.binary).monochrome.dark.glass #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover,
 body:not(.binary).monochrome.dark.glass #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #9f9fc4 0%, #4d4d7d 50%, rgba(77, 77, 125, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(77, 77, 125, 0) 33%, rgba(77, 77, 125, 0.5) 100%) no-repeat, #26263e;
-  border-color: #26263e;
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, color-mix(in srgb, rgb(0, 0, 127) 10%, #57578d)) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, color-mix(in srgb, rgb(0, 0, 127) 10%, #57578d)) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 10%, #57578d) 50%, transparent) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 30%, color-mix(in srgb, rgb(0, 0, 127) 10%, #57578d));
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, color-mix(in srgb, rgb(0, 0, 127) 10%, #57578d));
 }
 body:not(.binary).monochrome.dark.glass #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active,
 body:not(.binary).monochrome.dark.glass #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active,
 body:not(.binary).monochrome.dark.glass #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #9090ba 0%, #43436e 50%, rgba(67, 67, 110, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(67, 67, 110, 0) 33%, rgba(67, 67, 110, 0.5) 100%) no-repeat, #1d1d2e;
-  border-color: #1d1d2e;
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, color-mix(in srgb, rgb(0, 0, 127) 20%, #57578d)) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, color-mix(in srgb, rgb(0, 0, 127) 20%, #57578d)) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 20%, #57578d) 50%, transparent) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 30%, color-mix(in srgb, rgb(0, 0, 127) 20%, #57578d));
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, color-mix(in srgb, rgb(0, 0, 127) 20%, #57578d));
 }
+
 /******************************************************************************\
 |                                                                              |
-|                                  styles.less                                 |
+|                                 _index.scss                                  |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -324,7 +531,39 @@ body:not(.binary).monochrome.dark.glass #desktop.medium .desktop.app > .footer-b
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                            dark-metal-desktops.less                          |
+|                              _round-metal.scss                               |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                               _metal-btns.scss                               |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                          _dark-metal-desktops.scss                           |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -341,36 +580,72 @@ body:not(.binary).monochrome.dark.glass #desktop.medium .desktop.app > .footer-b
 body:not(.binary).monochrome.dark.metal #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle,
 body:not(.binary).monochrome.dark.metal #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle,
 body:not(.binary).monochrome.dark.metal #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, #afafce 0%, #9090ba 25%, rgba(87, 87, 141, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(87, 87, 141, 0.75) 0%, rgba(87, 87, 141, 0) 100%) no-repeat, /*
-		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
-			fade(white, 0%) 0%, 
-			fade(white, 0%) 40%,
-			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
-			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
-		*/ linear-gradient(to bottom, rgba(87, 87, 141, 0) 33%, rgba(87, 87, 141, 0.5) 66%, #7070a7) no-repeat, #1d1d2e;
-  border-color: #30304e;
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, #57578d) 75%, transparent) 50%, color-mix(in srgb, #57578d 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, #57578d 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, #57578d 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, #57578d) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 50%, #57578d);
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, #57578d);
 }
 body:not(.binary).monochrome.dark.metal #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover,
 body:not(.binary).monochrome.dark.metal #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover,
 body:not(.binary).monochrome.dark.metal #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, #9f9fc4 0%, #8080b1 25%, rgba(77, 77, 125, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(77, 77, 125, 0.75) 0%, rgba(77, 77, 125, 0) 100%) no-repeat, /*
-		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
-			fade(white, 0%) 0%, 
-			fade(white, 0%) 40%,
-			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
-			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
-		*/ linear-gradient(to bottom, rgba(77, 77, 125, 0) 33%, rgba(77, 77, 125, 0.5) 66%, #61619d) no-repeat, #13131f;
-  border-color: #26263e;
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, color-mix(in srgb, rgb(0, 0, 127) 10%, #57578d)) 75%, transparent) 50%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 10%, #57578d) 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 10%, #57578d) 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 10%, #57578d) 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, color-mix(in srgb, rgb(0, 0, 127) 10%, #57578d)) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 50%, color-mix(in srgb, rgb(0, 0, 127) 10%, #57578d));
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, color-mix(in srgb, rgb(0, 0, 127) 10%, #57578d));
 }
 body:not(.binary).monochrome.dark.metal #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active,
 body:not(.binary).monochrome.dark.metal #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active,
 body:not(.binary).monochrome.dark.metal #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, #9090ba 0%, #7070a7 25%, rgba(67, 67, 110, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(67, 67, 110, 0.75) 0%, rgba(67, 67, 110, 0) 100%) no-repeat, /*
-		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
-			fade(white, 0%) 0%, 
-			fade(white, 0%) 40%,
-			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
-			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
-		*/ linear-gradient(to bottom, rgba(67, 67, 110, 0) 33%, rgba(67, 67, 110, 0.5) 66%, #57578d) no-repeat, #09090f;
-  border-color: #1d1d2e;
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, color-mix(in srgb, rgb(0, 0, 127) 20%, #57578d)) 75%, transparent) 50%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 20%, #57578d) 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 20%, #57578d) 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 20%, #57578d) 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, color-mix(in srgb, rgb(0, 0, 127) 20%, #57578d)) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 50%, color-mix(in srgb, rgb(0, 0, 127) 20%, #57578d));
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, color-mix(in srgb, rgb(0, 0, 127) 20%, #57578d));
 }
+
+/******************************************************************************\
+|                                                                              |
+|                                 _index.scss                                  |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                                 _index.scss                                  |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                                 styles.scss                                  |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+/*# sourceMappingURL=styles.css.map */

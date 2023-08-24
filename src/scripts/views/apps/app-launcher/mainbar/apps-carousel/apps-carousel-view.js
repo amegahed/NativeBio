@@ -145,20 +145,13 @@ export default BaseView.extend(_.extend({}, Launchable, Timeable, {
 		//
 		let iconWidth = this.getIconWidth();
 		let iconHeight = this.getIconHeight();
-		let padding = 10;
-		let pageDotsHeight = 30;
-
-		// use larger padding for tablets
-		//
-		if (Browser.device == 'tablet') {
-			padding = 25;
-		}
+		let pageDotsHeight = 100;
 
 		// find icon grid size
 		//
 		let container = this.$el;
-		let width = container.width() - (padding * 2);
-		let height = container.height() - (padding * 2) - pageDotsHeight;
+		let width = container.width();
+		let height = container.height() - pageDotsHeight;
 
 		// find grid dimensions
 		//

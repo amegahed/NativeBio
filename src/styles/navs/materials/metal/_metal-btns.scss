@@ -1,0 +1,47 @@
+/******************************************************************************\
+|                                                                              |
+|                               _metal-btns.scss                               |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+\******************************************************************************/
+
+@use "../../../colors/colors";
+@use "../../../materials/metal/round-metal";
+
+//
+// mixins
+//
+
+@mixin shading($color) {
+	@include round-metal.shading($color, outset);
+
+	&:hover {
+		@include round-metal.shading(colors.darken($color, 10%), outset);
+	}
+
+	&:active {
+		@include round-metal.shading(colors.darken($color, 20%), outset);
+	}
+}
+
+@mixin dark-shading($color) {
+	@include round-metal.shading($color, outset);
+
+	&:hover {
+		@include round-metal.shading(colors.lighten($color, 10%), outset);
+	}
+
+	&:active {
+		@include round-metal.shading(colors.lighten($color, 20%), outset);
+	}
+}

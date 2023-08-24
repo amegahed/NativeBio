@@ -1,0 +1,233 @@
+/******************************************************************************\
+|                                                                              |
+|                         _medium-flat-colored.scss                            |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+@use "../../../../../colors/colors";
+@use "../../../../../materials/flat/flat";
+
+//
+// colors
+//
+
+$color: colors.$light-grey;
+$selected-color: colors.$medium-grey;
+
+//
+// styles
+//
+
+body:not(.binary) {
+	&.monochrome.flat {
+
+		//
+		// flat colored materials
+		//
+
+		.colored:not(.btn) {
+
+			&.red {
+				@include flat.coloring($color);
+			}
+
+			&.raspberry {
+				@include flat.coloring($color);
+			}
+
+			&.red-orange {
+				@include flat.coloring($color);
+			}
+
+			&.orange {
+				@include flat.coloring($color);
+			}
+
+			&.yellow {
+				@include flat.coloring($color);
+			}
+
+			&.lime {
+				@include flat.coloring($color);
+			}
+
+			&.green {
+				@include flat.coloring($color);
+			}
+
+			&.teal {
+				@include flat.coloring($color);
+			}
+
+			&.aqua {
+				@include flat.coloring($color);
+			}
+
+			&.cyan {
+				@include flat.coloring($color);
+			}
+
+			&.blue {
+				@include flat.coloring($color);
+			}
+
+			&.indigo {
+				@include flat.coloring($color);
+			}
+
+			&.violet {
+				@include flat.coloring($color);
+			}
+
+			&.plum {
+				@include flat.coloring($color);
+			}
+
+			&.purple {
+				@include flat.coloring($color);
+			}
+
+			&.magenta {
+				@include flat.coloring($color);
+			}
+
+			&.brown {
+				@include flat.coloring($color);
+			}
+
+			&.grey {
+				@include flat.coloring($color);
+			}
+
+			&.black {
+				@include flat.coloring(black);
+			}
+
+			&.white {
+				@include flat.coloring(white);
+			}
+
+			&.copper {
+				@include flat.coloring($color);
+			}
+
+			&.silver {
+				@include flat.coloring($color);
+			}
+
+			&.gold {
+				@include flat.coloring($color);
+			}
+		}
+
+		//
+		// flat selected colored materials
+		//
+
+		.selected .colored:not(.btn) {
+
+			.red {
+				@include flat.coloring($selected-color);
+			}
+
+			.raspberry {
+				@include flat.coloring($selected-color);
+			}
+
+			.red-orange {
+				@include flat.coloring($selected-color);
+			}
+
+			.orange {
+				@include flat.coloring($selected-color);
+			}
+
+			.yellow {
+				@include flat.coloring($selected-color);
+			}
+
+			.lime {
+				@include flat.coloring($selected-color);
+			}
+
+			.green {
+				@include flat.coloring($selected-color);
+			}
+
+			.teal {
+				@include flat.coloring($selected-color);
+			}
+
+			.aqua {
+				@include flat.coloring($selected-color);
+			}
+
+			.cyan {
+				@include flat.coloring($selected-color);
+			}
+
+			.blue {
+				@include flat.coloring($selected-color);
+			}
+
+			.indigo {
+				@include flat.coloring($selected-color);
+			}
+
+			.violet {
+				@include flat.coloring($selected-color);
+			}
+
+			.plum {
+				@include flat.coloring($selected-color);
+			}
+
+			.purple {
+				@include flat.coloring($selected-color);
+			}
+
+			.magenta {
+				@include flat.coloring($selected-color);
+			}
+
+			.brown {
+				@include flat.coloring($selected-color);
+			}
+
+			.grey {
+				@include flat.coloring($selected-color);
+			}
+
+			.black {
+				@include flat.coloring(black);
+			}
+
+			.white {
+				@include flat.coloring(white);
+			}
+
+			.copper {
+				@include flat.coloring($selected-color);
+			}
+
+			.silver {
+				@include flat.coloring($selected-color);
+			}
+
+			.gold {
+				@include flat.coloring($selected-color);
+			}
+		}
+	}
+}

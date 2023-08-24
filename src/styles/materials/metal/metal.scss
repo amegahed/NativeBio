@@ -1,0 +1,104 @@
+/******************************************************************************\
+|                                                                              |
+|                                _metal.scss                                   |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+\******************************************************************************/
+
+@use "../flat/flat";
+@use "flat-metal";
+@use "round-metal";
+@use "rounded-metal";
+@use "long-round-metal";
+
+//
+// variables
+//
+
+$border-radius: var(--border-radius);
+
+//
+// mixins
+//
+
+@mixin shading($color) {
+	@include flat-metal.shading($color);
+
+	&.round {
+		@include round-metal.shading($color);
+	}
+
+	&.rounded {
+		@include rounded-metal.shading($color);
+	}
+
+	&.long.round {
+		@include long-round-metal.shading($color, $border-radius);
+
+		&.vertical {
+			@include long-round-metal.vertical-shading($color, $border-radius);
+		}
+	}
+}
+
+@mixin multilayer-shading($color) {
+	@include flat-metal.multilayer-shading($color);
+
+	&.round {
+		@include round-metal.multilayer-shading($color);
+	}
+
+	&.rounded {
+		@include rounded-metal.multilayer-shading($color);
+	}
+
+	&.long.round {
+		@include long-round-metal.multilayer-shading($color, $border-radius);
+
+		&.vertical {
+			@include long-round-metal.vertical-multilayer-shading($color, $border-radius);
+		}
+	}
+}
+
+//
+// styles
+//
+
+@supports (color: color-mix(in srgb, white, black)) {
+	.metal {
+		.shaded, &.metal.shaded {
+			@include shading(var(--primary-color));
+
+			&.textured {
+				@include multilayer-shading(var(--primary-color));
+			}
+		}
+	}
+}
+
+//
+// fallback styles
+//
+
+@supports not (color: color-mix(in srgb, white, black)) {
+	.metal {
+		.shaded, &.metal.shaded {
+			@include flat.shading(var(--primary-color));
+
+			&.textured {
+				@include flat.multilayer-shading(var(--primary-color));
+			}
+		}
+	}
+}

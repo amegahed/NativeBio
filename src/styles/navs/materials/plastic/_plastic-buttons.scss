@@ -1,0 +1,53 @@
+/******************************************************************************\
+|                                                                              |
+|                            _plastic-buttons.scss                             |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+@use "../../../colors/colors";
+@use "../../../materials/plastic/round-plastic";
+
+//
+// mixins
+//
+
+@mixin shading($color) {
+
+	&:hover {
+		@include round-plastic.shading($color, outset);
+	}
+
+	&:active {
+		@include round-plastic.shading(colors.darken($color, 10%), outset);
+	}
+
+	&.selected {
+		@include round-plastic.shading($color, outset);
+	}
+}
+
+@mixin dark-shading($color) {
+
+	&:hover {
+		@include round-plastic.shading($color, outset);
+	}
+
+	&:active {
+		@include round-plastic.shading(colors.lighten($color, 10%), outset);
+	}
+
+	&.selected {
+		@include round-plastic.shading($color, outset);
+	}
+}

@@ -1,0 +1,37 @@
+/******************************************************************************\
+|                                                                              |
+|                         _colored-metal-menu-bars.scss                        |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the SVG DOM element styles for this application.         |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+@use "../../../../navs/materials/metal/metal-menu-bars";
+@use "../../navs/colored-menus";
+
+//
+// styles
+//
+
+body:not(.binary).colored.colored {
+	&.metal-menus,
+	&.metal.auto-menus {
+
+		//
+		// dropdown menu toggles
+		//
+
+		.menu-bar {
+			@include metal-menu-bars.shading(colored-menus.$open-color, colored-menus.$active-color);
+		}
+	}
+}

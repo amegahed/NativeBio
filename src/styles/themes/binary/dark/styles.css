@@ -1,10 +1,10 @@
 /******************************************************************************\
 |                                                                              |
-|                                   styles.less                                |
+|                            _binary-patterns.scss                             |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines various CSS styles used in this application.             |
+|        This defines the dom and svg visual styles for this application.      |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |
@@ -16,11 +16,11 @@
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                                  styles.less                                 |
+|                             _binary-colors.scss                              |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines various CSS styles used in this application.             |
+|        This defines the dom and svg visual styles for this application.      |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |
@@ -32,7 +32,23 @@
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                                dark-apps.less                                |
+|                              _binary-text.scss                               |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                               _dark-apps.scss                                |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -47,43 +63,40 @@
 |        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 body.binary.dark .app {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHElEQVQIHWNkYGD4D8RwwARnQRksSAKMIDaGCgBBbgEKSB2J0wAAAABJRU5ErkJggg==');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHElEQVQIHWNkYGD4D8RwwARnQRksSAKMIDaGCgBBbgEKSB2J0wAAAABJRU5ErkJggg==");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
   background-color: white;
 }
 body.binary.dark .app > .header-bar {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
   background-color: white;
   text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
-  background: black;
 }
 body.binary.dark .app > .header-bar .menu-bar li:hover,
-body.binary.dark .app > .header-bar .dropdown-menu,
-body.binary.dark .app > .header-bar .tooltip,
-body.binary.dark .app > .header-bar .button:hover {
+body.binary.dark .app > .header-bar .dropdown-menu, body.binary.dark .app > .header-bar .tooltip, body.binary.dark .app > .header-bar .button:hover {
   text-shadow: none;
 }
 body.binary.dark .app > .header-bar + .body {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
   background-color: white;
 }
 body.binary.dark .app > .header-bar + .body > .contents {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHElEQVQIHWNkYGD4D8RwwARnQRksSAKMIDaGCgBBbgEKSB2J0wAAAABJRU5ErkJggg==');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHElEQVQIHWNkYGD4D8RwwARnQRksSAKMIDaGCgBBbgEKSB2J0wAAAABJRU5ErkJggg==");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
   background-color: white;
 }
 body.binary.dark .app > .header-bar + .body + .footer-bar {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
@@ -95,7 +108,7 @@ body.binary.dark .app .map pattern svg path {
 }
 body.binary.dark .app .selection {
   color: white;
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAE0lEQVQIHWP4DwUMUMAEYxBPAwD6vQf7PKBWsAAAAABJRU5ErkJggg==');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAE0lEQVQIHWP4DwUMUMAEYxBPAwD6vQf7PKBWsAAAAABJRU5ErkJggg==");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
@@ -103,18 +116,19 @@ body.binary.dark .app .selection {
 body.binary.dark .modals .app > .body > .contents .mainbar > .items,
 body.binary.dark .modals .app > .body > .contents .mainbar .tab-pane > .items,
 body.binary.dark .modals .app > .body > .contents .mainbar .tab-pane .tab-pane form {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
   background-color: white;
 }
-body.binary.dark[device="desktop"] .modals .modal-dialog .app .body:not(.last) {
+body.binary.dark[device=desktop] .modals .modal-dialog .app .body:not(.last) {
   border-color: transparent;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                             dark-calculator.less                             |
+|                            _dark-calculator.scss                             |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -130,15 +144,16 @@ body.binary.dark[device="desktop"] .modals .modal-dialog .app .body:not(.last) {
 \******************************************************************************/
 body.binary.dark .calculator.app .keyboard .scientific,
 body.binary.dark .calculator.app .keyboard .programmer {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
   background-color: white;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                             dark-code-editor.less                            |
+|                            _dark-code-editor.scss                            |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -153,7 +168,7 @@ body.binary.dark .calculator.app .keyboard .programmer {
 |        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 body.binary.dark .code-editor.app .body > .contents .mainbar .tabbed-content .tabs {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHElEQVQIHWNkYGD4D8RwwARnQRksSAKMIDaGCgBBbgEKSB2J0wAAAABJRU5ErkJggg==');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHElEQVQIHWNkYGD4D8RwwARnQRksSAKMIDaGCgBBbgEKSB2J0wAAAABJRU5ErkJggg==");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
@@ -176,9 +191,10 @@ body.binary.dark .code-editor.app .body > .contents .mainbar .tabbed-content .ta
 body.binary.dark .code-editor.app .body > .contents .mainbar .tabbed-content .tab-content .code pre .ace_gutter .ace_gutter-active-line {
   background-color: white;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                             dark-desktops.less                               |
+|                            _dark-desktops.scss                               |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -193,7 +209,7 @@ body.binary.dark .code-editor.app .body > .contents .mainbar .tabbed-content .ta
 |        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 body.binary.dark #desktop {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHElEQVQIHWNkYGD4D8RwwARnQRksSAKMIDaGCgBBbgEKSB2J0wAAAABJRU5ErkJggg==');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHElEQVQIHWNkYGD4D8RwwARnQRksSAKMIDaGCgBBbgEKSB2J0wAAAABJRU5ErkJggg==");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
@@ -212,7 +228,7 @@ body.binary.dark .desktop.app > .body .app {
   background: none;
 }
 body.binary.dark .desktop.app > .body .app > .header-bar {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
@@ -229,17 +245,16 @@ body.binary.dark .desktop.app > .body .app > .body > .contents .mainbar > .items
 }
 body.binary.dark .desktop.app .selection {
   color: white;
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAE0lEQVQIHWP4DwUMUMAEYxBPAwD6vQf7PKBWsAAAAABJRU5ErkJggg==');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgIAQYYQr+AwGIzQQTgNEAXioEANQxRWMAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgIAQYYQr+AwGIzQQTgNEAXioEANQxRWMAAAAASUVORK5CYII=');
 }
 body.binary.dark .desktop.app .drag-image {
   border-color: white;
 }
 body.binary.dark .desktop.app .footer-bar {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
@@ -252,15 +267,16 @@ body.binary.dark .desktop.app .footer-bar .desktop-info-bar .button.btn-sm:hover
   text-shadow: none;
 }
 body.binary.dark .desktop.preview {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHElEQVQIHWNkYGD4D8RwwARnQRksSAKMIDaGCgBBbgEKSB2J0wAAAABJRU5ErkJggg==');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHElEQVQIHWNkYGD4D8RwwARnQRksSAKMIDaGCgBBbgEKSB2J0wAAAABJRU5ErkJggg==");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
   background-color: white;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                                  styles.less                                 |
+|                                 _index.scss                                  |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -276,7 +292,7 @@ body.binary.dark .desktop.preview {
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                               dark-dialogs.less                              |
+|                              _dark-dialogs.scss                              |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -305,7 +321,7 @@ body.binary.dark .modal .modal-dialog .modal-header .title {
   color: white;
 }
 body.binary.dark .modal .modal-dialog .modal-footer {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
@@ -314,9 +330,10 @@ body.binary.dark .modal .modal-dialog .modal-footer {
 body.binary.dark .modals:not(.show-buttons) .modal-dialog .modal-header .buttons button:not(:hover) i {
   color: white;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                                  styles.less                                 |
+|                                 _index.scss                                  |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -332,7 +349,7 @@ body.binary.dark .modals:not(.show-buttons) .modal-dialog .modal-header .buttons
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                             dark-item-icons.less                             |
+|                            _dark-item-icons.scss                             |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -351,7 +368,7 @@ body.binary.dark .icon-grid .item:not(.selected):not(.highlighted) > .row:first-
   filter: none;
 }
 body.binary.dark .icon-grid .item.selected > .row:first-child .icon {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHElEQVQIHWNkYGD4D8RwwARnQRksSAKMIDaGCgBBbgEKSB2J0wAAAABJRU5ErkJggg==');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHElEQVQIHWNkYGD4D8RwwARnQRksSAKMIDaGCgBBbgEKSB2J0wAAAABJRU5ErkJggg==");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
@@ -359,43 +376,43 @@ body.binary.dark .icon-grid .item.selected > .row:first-child .icon {
 }
 body.binary.dark .desktop.app .file-browser .mainbar .items > .icon-grid .item:not(.selected):not(.highlighted) {
   /*
-				> .row:nth-child(2) {
-					.name {
-						color: white;
-						background-color: black;
-					}
-				}
+  > .row:nth-child(2) {
+  	.name {
+  		color: white;
+  		background-color: black;
+  	}
+  }
 
-				> .row:nth-child(3) {			
-					.details {
-						color: white;
-						background-color: black;
-					}
-				}
-				*/
+  > .row:nth-child(3) {			
+  	.details {
+  		color: white;
+  		background-color: black;
+  	}
+  }
+  */
 }
 body.binary.dark .desktop.app .file-browser .mainbar .items > .icon-grid .item:not(.selected):not(.highlighted) > .row:first-child .icon i {
   color: white;
 }
 body.binary.dark .desktop.app .file-browser .mainbar .items > .icon-grid .item.selected {
   /*
-				> .row:nth-child(2) {
-					.name {
-						color: black;
-						background-color: white;
-					}
-				}
+  > .row:nth-child(2) {
+  	.name {
+  		color: black;
+  		background-color: white;
+  	}
+  }
 
-				> .row:nth-child(3) {			
-					.details {
-						color: black;
-						background-color: white;
-					}
-				}
-				*/
+  > .row:nth-child(3) {			
+  	.details {
+  		color: black;
+  		background-color: white;
+  	}
+  }
+  */
 }
 body.binary.dark .desktop.app .file-browser .mainbar .items > .icon-grid .item.selected > .row:first-child .icon {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
@@ -403,9 +420,10 @@ body.binary.dark .desktop.app .file-browser .mainbar .items > .icon-grid .item.s
   color: white;
   border-color: black;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                             dark-item-lists.less                             |
+|                            _dark-item-lists.scss                             |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -421,57 +439,57 @@ body.binary.dark .desktop.app .file-browser .mainbar .items > .icon-grid .item.s
 \******************************************************************************/
 body.binary.dark .desktop .mainbar .item-list {
   /*
-			.item {
-				> .info {
+  .item {
+  	> .info {
 
-					.status, .icon:not(.marker) {
-						i {
-							color: black;
-							// text-shadow: none !important;
-						}
-					}
+  		.status, .icon:not(.marker) {
+  			i {
+  				color: black;
+  			}
+  		}
 
-					.specifics {
-						.details {
-							color: white;
-							background: none;
-							text-shadow: none !important;
-						}
-					}
-				}
+  		.specifics {
+  			.details {
+  				color: white;
+  				background: none;
+  				text-shadow: none !important;
+  			}
+  		}
+  	}
 
-				//
-				// unselected list items
-				//
+  	//
+  	// unselected list items
+  	//
 
-				&:not(.selected):not(.highlighted) {
-					> .info {
-						.name {
-							color: white;
-							background-color: black;
-						}
-					}
-				}
+  	&:not(.selected):not(.highlighted) {
+  		> .info {
+  			.name {
+  				color: white;
+  				background-color: black;
+  			}
+  		}
+  	}
 
-				//
-				// selected list items
-				//
+  	//
+  	// selected list items
+  	//
 
-				&.selected {
-					> .info {
-						.name {
-							color: black;
-							background-color: white;
-							outline-color: black;
-						}
-					}
-				}
-			}
-			*/
+  	&.selected {
+  		> .info {
+  			.name {
+  				color: black;
+  				background-color: white;
+  				outline-color: black;
+  			}
+  		}
+  	}
+  }
+  */
 }
+
 /******************************************************************************\
 |                                                                              |
-|                             dark-item-tiles.less                             |
+|                            _dark-item-tiles.scss                             |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -485,7 +503,7 @@ body.binary.dark .desktop .mainbar .item-list {
 |******************************************************************************|
 |        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
-body.binary.dark .mainbar .tile-grid .item:not(.selected) > .tile > .name:not([contenteditable="true"]) {
+body.binary.dark .mainbar .tile-grid .item:not(.selected) > .tile > .name:not([contenteditable=true]) {
   background: none;
   background-size: unset;
   background-position: unset;
@@ -494,15 +512,16 @@ body.binary.dark .mainbar .tile-grid .item:not(.selected) > .tile > .name:not([c
   background-color: white;
 }
 body.binary.dark .desktop .mainbar .tile-grid .item.selected > .tile > .icon {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
   background-color: white;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                             dark-item-trees.less                             |
+|                            _dark-item-trees.scss                             |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -518,17 +537,18 @@ body.binary.dark .desktop .mainbar .tile-grid .item.selected > .tile > .icon {
 \******************************************************************************/
 body.binary.dark .desktop .mainbar .item-tree > .info {
   /*
-				.expander {
-					button i {
-						color: white;
-						text-shadow: none !important;
-					}
-				}
-				*/
+  .expander {
+  	button i {
+  		color: white;
+  		text-shadow: none !important;
+  	}
+  }
+  */
 }
+
 /******************************************************************************\
 |                                                                              |
-|                                dark-items.less                               |
+|                               _dark-items.scss                               |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -543,15 +563,16 @@ body.binary.dark .desktop .mainbar .item-tree > .info {
 |        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 body.binary.dark .mainbar > .items {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
   background-color: white;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                                  styles.less                                 |
+|                                 _index.scss                                  |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -567,7 +588,7 @@ body.binary.dark .mainbar > .items {
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                                dark-pages.less                               |
+|                               _dark-pages.scss                               |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -582,7 +603,7 @@ body.binary.dark .mainbar > .items {
 |        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 body.binary .page {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHElEQVQIHWNkYGD4D8RwwARnQRksSAKMIDaGCgBBbgEKSB2J0wAAAABJRU5ErkJggg==');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHElEQVQIHWNkYGD4D8RwwARnQRksSAKMIDaGCgBBbgEKSB2J0wAAAABJRU5ErkJggg==");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
@@ -594,9 +615,10 @@ body.binary .page .contents {
 body.binary .page .footer {
   color: white;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                                dark-panels.less                              |
+|                               _dark-panels.scss                              |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -611,7 +633,7 @@ body.binary .page .footer {
 |        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 body.binary.dark .panel {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
@@ -626,22 +648,23 @@ body.binary.dark .panel .panel {
   background-color: white;
 }
 body.binary.dark .panel.selected {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
   background-color: white;
 }
 body.binary.dark .panel.selected .panel {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
   background-color: white;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                                  styles.less                                 |
+|                                 _index.scss                                  |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -657,7 +680,7 @@ body.binary.dark .panel.selected .panel {
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                             dark-dock-bars.less                              |
+|                            _dark-dock-bars.scss                              |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -672,7 +695,7 @@ body.binary.dark .panel.selected .panel {
 |        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 body.binary.dark #dock-bar .shelf {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
@@ -682,9 +705,10 @@ body.binary.dark #dock-bar .shelf {
 body.binary.dark #dock-bar .shelf .icons {
   border-color: white;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                               dark-menus.less                                |
+|                              _dark-menus.scss                                |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -698,57 +722,46 @@ body.binary.dark #dock-bar .shelf .icons {
 |******************************************************************************|
 |        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
-body.binary.dark .dropdown-menu,
-body.binary.dark .menu-content {
+body.binary.dark .dropdown-menu, body.binary.dark .menu-content {
   background-color: black;
 }
-body.binary.dark .menu,
-body.binary.dark .dropdown-menu {
+body.binary.dark .menu, body.binary.dark .dropdown-menu {
   color: white;
   background-color: black;
   text-shadow: none;
 }
-body.binary.dark .menu .btn,
-body.binary.dark .dropdown-menu .btn {
+body.binary.dark .menu .btn, body.binary.dark .dropdown-menu .btn {
   color: black;
 }
-body.binary.dark .menu li > a.selected,
-body.binary.dark .dropdown-menu li > a.selected,
-body.binary.dark .menu li > a:active,
-body.binary.dark .dropdown-menu li > a:active {
+body.binary.dark .menu li > a.selected, body.binary.dark .menu li > a:active, body.binary.dark .dropdown-menu li > a.selected, body.binary.dark .dropdown-menu li > a:active {
   color: black;
   background-color: white;
 }
-body.binary.dark .menu li > a:hover,
-body.binary.dark .dropdown-menu li > a:hover {
+body.binary.dark .menu li > a:hover, body.binary.dark .dropdown-menu li > a:hover {
   color: black;
   background-color: white;
 }
-body.binary.dark .menu li.disabled::after,
-body.binary.dark .dropdown-menu li.disabled::after {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=');
+body.binary.dark .menu li.disabled::after, body.binary.dark .dropdown-menu li.disabled::after {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
 }
-body.binary.dark .dropdown-menu > li.open > a,
-body.binary.dark .dropdown-menu > li.open a:focus,
-body.binary.dark .dropdown-menu > li.open:active {
+body.binary.dark .dropdown-menu > li.open > a, body.binary.dark .dropdown-menu > li.open a:focus, body.binary.dark .dropdown-menu > li.open:active {
   color: black;
   background-color: white;
   border-color: white;
   text-shadow: none;
 }
-body.binary.dark .dropdown-menu > li.open > a:hover,
-body.binary.dark .dropdown-menu > li.open a:focus:hover,
-body.binary.dark .dropdown-menu > li.open:active:hover {
+body.binary.dark .dropdown-menu > li.open > a:hover, body.binary.dark .dropdown-menu > li.open a:focus:hover, body.binary.dark .dropdown-menu > li.open:active:hover {
   color: black;
   background-color: white;
   border-color: white;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                             dark-run-menus.less                              |
+|                            _dark-run-menus.scss                              |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -773,7 +786,7 @@ body.binary.dark .footer-bar .run-menu .nav .dropup.open .dropdown-toggle {
   background-color: white;
 }
 body.binary.dark .footer-bar .run-menu .icon-grid {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
@@ -783,9 +796,10 @@ body.binary.dark .footer-bar .run-menu .dropdown-menu .divider {
   color: black;
   background: white;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                              dark-scrollbars.less                            |
+|                             _dark-scrollbars.scss                            |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -799,30 +813,35 @@ body.binary.dark .footer-bar .run-menu .dropdown-menu .divider {
 |******************************************************************************|
 |        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
-body.binary.dark[device="desktop"] ::-webkit-scrollbar-thumb {
-  background-color: black;
-}
-body.binary.dark[device="desktop"] ::-webkit-scrollbar-thumb:hover {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHElEQVQIHWNkYGD4D8RwwARnQRksSAKMIDaGCgBBbgEKSB2J0wAAAABJRU5ErkJggg==');
+body.binary.dark[device=desktop] ::-webkit-scrollbar-thumb {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
   background-color: white;
 }
-body.binary.dark[device="desktop"] ::-webkit-scrollbar-thumb:active {
+body.binary.dark[device=desktop] ::-webkit-scrollbar-thumb:hover {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHElEQVQIHWNkYGD4D8RwwARnQRksSAKMIDaGCgBBbgEKSB2J0wAAAABJRU5ErkJggg==");
+  background-size: 2px 2px;
+  background-repeat: repeat;
+  image-rendering: pixelated;
   background-color: white;
+}
+body.binary.dark[device=desktop] ::-webkit-scrollbar-thumb:active {
+  background-color: black;
   background-image: none;
 }
-body.binary.dark[device="desktop"] ::-webkit-scrollbar-track {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=');
+body.binary.dark[device=desktop] ::-webkit-scrollbar-track {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
   background-color: white;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                             dark-task-bars.less                              |
+|                            _dark-task-bars.scss                              |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -850,9 +869,10 @@ body.binary.dark .task-bar .task-list li .title {
   color: white;
   text-shadow: none;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                             dark-tooltips.less                               |
+|                            _dark-tooltips.scss                               |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -870,25 +890,59 @@ body.binary.dark .task-bar .task-list li .title {
 body.binary.dark {
 	.tooltip {
 		.tooltip-inner {
-			color: @dark-tooltip-color;
-			background-color: @dark-tooltip-background-color;
+			color: $color;
+			background-color: $background-color;
 		}
 
 		&.top .tooltip-arrow {
-			border-top: 5px solid @dark-tooltip-background-color;
+			border-top: 5px solid $background-color;
 		}
 
 		&.bottom .tooltip-arrow {
-			border-bottom: 5px solid @dark-tooltip-background-color;
+			border-bottom: 5px solid $background-color;
 		}
 
 		&.left .tooltip-arrow {
-			border-left: 5px solid @dark-tooltip-background-color;
+			border-left: 5px solid $background-color;
 		}
-		
+
 		&.right .tooltip-arrow {
-			border-right: 5px solid @dark-tooltip-background-color;
+			border-right: 5px solid $background-color;
 		}
 	}
 }
 */
+/******************************************************************************\
+|                                                                              |
+|                                 _index.scss                                  |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                                 styles.scss                                  |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+/*# sourceMappingURL=styles.css.map */

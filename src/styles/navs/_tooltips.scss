@@ -1,0 +1,103 @@
+/******************************************************************************\
+|                                                                              |
+|                                _tooltips.scss                                |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// variables
+//
+
+$font-size: 75%;
+$round-border-radius: 5px;
+$rounded-border-radius: 3px;
+
+//
+// styles
+//
+
+.tooltip {
+	font-size: $font-size;
+	pointer-events: none;
+
+	// counter Bootstrap
+	//
+	// font-family: unset;
+
+	&.in {
+		opacity: 1;
+	}
+
+	// override default tooltip spacing
+	//
+	/*
+	&.top {
+		margin-top: 0;
+	}
+	&.bottom {
+		margin-top: 0;
+	}
+	&.right {
+		margin-left: 0;
+	}
+	&.left {
+		margin-right: 0;
+	}
+	*/
+
+	.tooltip-inner {
+		// white-space: nowrap;
+
+		// display text ellipsis
+		//
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+}
+
+.round .tooltip {
+	.tooltip-inner {
+		border-radius: $round-border-radius;
+	}
+}
+
+.rounded .tooltip {
+	.tooltip-inner {
+		border-radius: $rounded-border-radius;
+	}
+}
+
+.square .tooltip {
+	.tooltip-inner {
+		border-radius: 0;
+	}
+}
+
+//
+// mobile tooltips
+//
+
+body[device="phone"], body[device="tablet"] {
+
+	/*
+	button + .tooltip,
+	li + .tooltip {
+		display: none !important;
+	}
+	*/
+
+	.tooltip {
+		display: none !important;
+	}
+}

@@ -1,4 +1,4 @@
 build: 
-	lessc medium/styles.less > medium/styles.css 
-	lessc light/styles.less > light/styles.css 
-	lessc dark/styles.less > dark/styles.css 
+	sass medium/styles.scss medium/styles.css 
+	sass light/styles.scss light/styles.css 
+	sass dark/styles.scss dark/styles.css

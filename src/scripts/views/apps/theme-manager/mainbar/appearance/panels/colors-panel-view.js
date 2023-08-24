@@ -103,6 +103,14 @@ export default FormPanelView.extend({
 				<% } %>
 				<% } %>
 
+				<div class="radio-inline">
+					<label><input type="radio" name="highlight-color" class="colored" value="custom"<% if (highlight_color && highlight_color.startsWith('#')) {%> checked<% } %>>Custom</label>
+				</div>
+
+				<div class="color-inline">
+					<input type="color"<% if (highlight_color) { %> value="<%= highlight_color %>"<% } else { %> value="#999999"<% } %><% if (!highlight_color || !highlight_color.startsWith('#')) { %> style="display:none"<% } %> />
+				</div>
+
 				<i class="active fa fa-question-circle" data-toggle="popover" title="Highlight Color" data-content="This determines the color used for highlighting items."></i>
 			</div>
 		</div>
@@ -123,6 +131,14 @@ export default FormPanelView.extend({
 					<label><input type="radio" name="accent-color" class="colored none" value="none"<% if (accent_color == 'none') {%> checked<% } %>>None</label>
 				</div>
 
+				<div class="radio-inline">
+					<label><input type="radio" name="accent-color" class="colored" value="custom"<% if (accent_color && accent_color.startsWith('#')) {%> checked<% } %>>Custom</label>
+				</div>
+
+				<div class="color-inline">
+					<input type="color"<% if (accent_color) { %> value="<%= accent_color %>"<% } else { %> value="#999999"<% } %><% if (!accent_color || !accent_color.startsWith('#')) { %> style="display:none"<% } %> />
+				</div>
+
 				<i class="active fa fa-question-circle" data-toggle="popover" title="Highlight Color" data-content="This determines the color used for accenting items."></i>
 			</div>
 		</div>
@@ -133,7 +149,9 @@ export default FormPanelView.extend({
 		'change .day-theme input': 'onChangeDayTheme',
 		'change .night-theme input': 'onChangeNightTheme',
 		'change .highlight-color input': 'onChangeHighlightColor',
-		'change .accent-color input': 'onChangeAccentColor'
+		'change .highlight-color input[type="color"]': 'onChangeHighlightCustomColor',
+		'change .accent-color input': 'onChangeAccentColor',
+		'change .accent-color input[type="color"]': 'onChangeAccentCustomColor'
 	},
 
 	//
@@ -142,16 +160,37 @@ export default FormPanelView.extend({
 
 	getValue: function(key) {
 		switch (key) {
+
+			// theme
+			//
 			case 'color_scheme':
 				return this.$el.find('.color-scheme input:checked').val();
 			case 'day_theme':
 				return this.$el.find('.day-theme input:checked').val();
 			case 'night_theme':
 				return this.$el.find('.night-theme input:checked').val();
-			case 'highlight_color':
+
+			// highlight color
+			//
+			case 'use_custom_highlight_color':
+				return this.getValue('highlight_color_kind') == 'custom';
+			case 'custom_highlight_color':
+				return this.$el.find('.highlight-color input[type="color"]').val();
+			case 'highlight_color_kind':
 				return this.$el.find('.highlight-color input:checked').val();
-			case 'accent_color':
+			case 'highlight_color':
+				return this.getValue('use_custom_highlight_color')? this.getValue('custom_highlight_color') : this.getValue('highlight_color_kind');
+
+			// accent color
+			//
+			case 'use_custom_accent_color':
+				return this.getValue('accent_color_kind') == 'custom';
+			case 'custom_accent_color':
+				return this.$el.find('.accent-color input[type="color"]').val();
+			case 'accent_color_kind':
 				return this.$el.find('.accent-color input:checked').val();
+			case 'accent_color':
+				return this.getValue('use_custom_accent_color')? this.getValue('custom_accent_color') : this.getValue('accent_color_kind');
 		}
 	},
 
@@ -180,6 +219,22 @@ export default FormPanelView.extend({
 		};
 	},
 
+	showHighlightColor: function() {
+		this.$el.find('.highlight-color input[type="color"]').show();
+	},
+
+	hideHighlightColor: function() {
+		this.$el.find('.highlight-color input[type="color"]').hide();
+	},
+
+	showAccentColor: function() {
+		this.$el.find('.accent-color input[type="color"]').show();
+	},
+
+	hideAccentColor: function() {
+		this.$el.find('.accent-color input[type="color"]').hide();
+	},
+
 	//
 	// event handling methods
 	//
@@ -197,10 +252,38 @@ export default FormPanelView.extend({
 	},
 
 	onChangeHighlightColor: function() {
-		application.settings.theme.set('highlight_color', this.getValue('highlight_color'));
+		let highlightColor = this.getValue('highlight_color');
+		application.settings.theme.set('highlight_color', highlightColor);
+
+		// hide show custom color
+		//
+		if (highlightColor && highlightColor.startsWith('#')) {
+			this.showHighlightColor();
+		} else {
+			this.hideHighlightColor();
+		}
+	},
+
+	onChangeHighlightCustomColor: function() {
+		let highlightColor = this.getValue('highlight_color');
+		application.settings.theme.set('highlight_color', highlightColor);
 	},
 
 	onChangeAccentColor: function() {
-		application.settings.theme.set('accent_color', this.getValue('accent_color'));
-	}
+		let accentColor = this.getValue('accent_color');
+		application.settings.theme.set('accent_color', accentColor);
+
+		// hide show custom color
+		//
+		if (accentColor && accentColor.startsWith('#')) {
+			this.showAccentColor();
+		} else {
+			this.hideAccentColor();
+		}
+	},
+
+	onChangeAccentCustomColor: function() {
+		let accentColor = this.getValue('accent_color');
+		application.settings.theme.set('accent_color', accentColor);
+	},
 });

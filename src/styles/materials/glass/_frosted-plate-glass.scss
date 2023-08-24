@@ -1,0 +1,51 @@
+/******************************************************************************\
+|                                                                              |
+|                              _frosted-glass.scss                             |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+\******************************************************************************/
+
+@use "plate-glass";
+
+//
+// variables
+//
+
+$min-opacity: 50%;
+$opacity: 60%;
+$max-opacity: 70%;
+$blur: 15px;
+
+//
+// mixins
+//
+
+@mixin frosting($blur: $blur) {
+	backdrop-filter: blur($blur);
+	-webkit-backdrop-filter: blur($blur);
+}
+
+@mixin polishing($blur: $blur) {
+	backdrop-filter: none;
+	-webkit-backdrop-filter: none;
+}
+
+@mixin shading ($color: white, $opacity: $opacity, $max-opacity: $max-opacity) {
+	@include plate-glass.shading($color, $opacity, $max-opacity);
+	@include frosting();
+}
+
+@mixin multilayer-shading ($color: white, $opacity: $opacity, $max-opacity: $max-opacity) {
+	@include plate-glass.multilayer-shading($color, $opacity, $max-opacity);
+	@include frosting();
+}

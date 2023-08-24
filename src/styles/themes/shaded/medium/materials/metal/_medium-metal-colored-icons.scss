@@ -1,0 +1,230 @@
+/******************************************************************************\
+|                                                                              |
+|                       _medium-metal-colored-icons.scss                       |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+@use "../../../../../colors/colors";
+@use "../../../../../materials/metal/round-metal";
+
+//
+// styles
+//
+
+body:not(.binary) {
+	&.colored.metal-icons,
+	&.colored.metal.auto-icons {
+		&.icon-backgrounds {
+
+			//
+			// metal colored icon materials
+			//
+
+			.colored.icon,
+			.icon .colored {
+
+				&.red {
+					@include round-metal.shading(colors.$medium-red);
+				}
+
+				&.raspberry {
+					@include round-metal.shading(colors.$medium-raspberry);
+				}
+
+				&.red-orange {
+					@include round-metal.shading(colors.$medium-red-orange);
+				}
+
+				&.orange {
+					@include round-metal.shading(colors.$medium-orange);
+				}
+
+				&.yellow {
+					@include round-metal.shading(colors.$medium-yellow);
+				}
+
+				&.lime {
+					@include round-metal.shading(colors.$medium-lime);
+				}
+
+				&.green {
+					@include round-metal.shading(colors.$medium-green);
+				}
+
+				&.teal {
+					@include round-metal.shading(colors.$medium-teal);
+				}
+
+				&.aqua {
+					@include round-metal.shading(colors.$medium-aqua);
+				}
+
+				&.cyan {
+					@include round-metal.shading(colors.$medium-cyan);
+				}
+
+				&.blue {
+					@include round-metal.shading(colors.$medium-blue);
+				}
+
+				&.indigo {
+					@include round-metal.shading(colors.$medium-indigo);
+				}
+
+				&.violet {
+					@include round-metal.shading(colors.$medium-violet);
+				}
+
+				&.plum {
+					@include round-metal.shading(colors.$medium-plum);
+				}
+
+				&.purple {
+					@include round-metal.shading(colors.$medium-purple);
+				}
+
+				&.magenta {
+					@include round-metal.shading(colors.$medium-magenta);
+				}
+
+				&.brown {
+					@include round-metal.shading(colors.$medium-brown);
+				}
+
+				&.grey {
+					@include round-metal.shading(colors.$medium-grey);
+				}
+
+				&.black {
+					@include round-metal.shading(colors.$medium-black);
+				}
+
+				&.white {
+					@include round-metal.shading(colors.$medium-white);
+				}
+
+				&.copper {
+					@include round-metal.shading(colors.$medium-copper);
+				}
+
+				&.silver {
+					@include round-metal.shading(colors.$medium-silver);
+				}
+
+				&.gold {
+					@include round-metal.shading(colors.$medium-gold);
+				}
+			}
+
+			//
+			// selected metal colored icon materials
+			//
+
+			.selected .colored.icon,
+			.selected .icon .colored {
+				&.red {
+					@include round-metal.shading(colors.$dark-red);
+				}
+
+				&.raspberry {
+					@include round-metal.shading(colors.$dark-raspberry);
+				}
+
+				&.red-orange {
+					@include round-metal.shading(colors.$dark-red-orange);
+				}
+
+				&.orange {
+					@include round-metal.shading(colors.$dark-orange);
+				}
+
+				&.yellow {
+					@include round-metal.shading(colors.$dark-yellow);
+				}
+
+				&.lime {
+					@include round-metal.shading(colors.$dark-lime);
+				}
+
+				&.green {
+					@include round-metal.shading(colors.$dark-green);
+				}
+
+				&.teal {
+					@include round-metal.shading(colors.$dark-teal);
+				}
+
+				&.aqua {
+					@include round-metal.shading(colors.$dark-aqua);
+				}
+
+				&.cyan {
+					@include round-metal.shading(colors.$dark-cyan);
+				}
+
+				&.blue {
+					@include round-metal.shading(colors.$dark-blue);
+				}
+
+				&.indigo {
+					@include round-metal.shading(colors.$dark-indigo);
+				}
+
+				&.violet {
+					@include round-metal.shading(colors.$dark-violet);
+				}
+
+				&.plum {
+					@include round-metal.shading(colors.$dark-plum);
+				}
+
+				&.purple {
+					@include round-metal.shading(colors.$dark-purple);
+				}
+
+				&.magenta {
+					@include round-metal.shading(colors.$dark-magenta);
+				}
+
+				&.brown {
+					@include round-metal.shading(colors.$dark-brown);
+				}
+
+				&.grey {
+					@include round-metal.shading(colors.$dark-grey);
+				}
+
+				&.black {
+					@include round-metal.shading(colors.$dark-black);
+				}
+
+				&.white {
+					@include round-metal.shading(colors.$dark-white);
+				}
+
+				&.copper {
+					@include round-metal.shading(colors.$dark-copper);
+				}
+
+				&.silver {
+					@include round-metal.shading(colors.$dark-silver);
+				}
+
+				&.gold {
+					@include round-metal.shading(colors.$dark-gold);
+				}
+			}
+		}
+	}
+}

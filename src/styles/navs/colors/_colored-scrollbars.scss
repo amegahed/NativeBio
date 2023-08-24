@@ -1,0 +1,57 @@
+/******************************************************************************\
+|                                                                              |
+|                           _colored-scrollbars.scss                           |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+//
+// mixins
+//
+
+@mixin inactive-thumb-coloring($color, $hover-color) {
+	::-webkit-scrollbar-thumb:not(:active) {
+		background-color: $color;
+
+		&:hover {
+			background-color: $hover-color;
+		}
+	}
+}
+
+@mixin active-thumb-coloring($active-color) {
+	::-webkit-scrollbar-thumb:active {
+		background-color: $active-color;
+	}
+}
+
+@mixin thumb-coloring($color, $hover-color, $active-color) {
+	@include inactive-thumb-coloring($color, $hover-color);
+	@include active-thumb-coloring($active-color);
+}
+
+@mixin track-coloring($track-color) {
+	::-webkit-scrollbar-track,
+	::-webkit-scrollbar-corner {
+		background-color: $track-color;
+	}
+
+	::-webkit-scrollbar-thumb {
+		border-color: $track-color;
+	}
+}
+
+@mixin coloring($color, $hover-color, $active-color, $track-color) {
+	@include thumb-coloring($color, $hover-color, $active-color);
+	@include track-coloring($track-color);
+}

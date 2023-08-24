@@ -1,0 +1,36 @@
+/******************************************************************************\
+|                                                                              |
+|                        _accented-plastic-buttons.scss                        |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+@use "../../../../navs/materials/plastic/plastic-buttons";
+@use "../../navs/accented-buttons";
+
+//
+// styles
+//
+
+body:not(.binary).colored.accented {
+	&.plastic {
+
+		//
+		// plastic buttons
+		//
+
+		button {
+			@include plastic-buttons.shading(accented-buttons.$hover-color);
+		}
+	}
+}

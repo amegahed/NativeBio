@@ -1,0 +1,49 @@
+/******************************************************************************\
+|                                                                              |
+|                               _flat-tabs.scss                                |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+@use "../../../materials/flat/flat";
+
+//
+// mixins
+//
+
+@mixin inactive-shading($color, $hover-color) {
+	> li:not(.active) {
+
+		> a, > a:focus {
+			@include flat.coloring($color);
+		}
+
+		> a:hover {
+			@include flat.coloring($hover-color);
+		}
+	}
+}
+
+@mixin active-shading($active-color) {
+	> li.active {
+
+		> a, > a:focus {
+			@include flat.coloring($active-color);
+		}
+	}
+}
+
+@mixin shading($color, $hover-color, $active-color) {
+	@include inactive-shading($color, $hover-color);
+	@include active-shading($active-color);
+}

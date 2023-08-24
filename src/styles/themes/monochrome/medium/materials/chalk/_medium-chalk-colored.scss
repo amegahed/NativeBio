@@ -1,0 +1,233 @@
+/******************************************************************************\
+|                                                                              |
+|                         _medium-chalk-colored.scss                           |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+@use "../../../../../colors/colors";
+@use "../../../../../materials/chalk/chalk";
+
+//
+// colors
+//
+
+$color: colors.$light-grey;
+$selected-color: colors.$medium-grey;
+
+//
+// styles
+//
+
+body:not(.binary) {
+	&.monochrome.chalk {
+
+		//
+		// chalk colored materials
+		//
+
+		.colored:not(.btn) {
+
+			&.red {
+				@include chalk.shading($color);
+			}
+
+			&.raspberry {
+				@include chalk.shading($color);
+			}
+
+			&.red-orange {
+				@include chalk.shading($color);
+			}
+
+			&.orange {
+				@include chalk.shading($color);
+			}
+
+			&.yellow {
+				@include chalk.shading($color);
+			}
+
+			&.lime {
+				@include chalk.shading($color);
+			}
+
+			&.green {
+				@include chalk.shading($color);
+			}
+
+			&.teal {
+				@include chalk.shading($color);
+			}
+
+			&.aqua {
+				@include chalk.shading($color);
+			}
+
+			&.cyan {
+				@include chalk.shading($color);
+			}
+
+			&.blue {
+				@include chalk.shading($color);
+			}
+
+			&.indigo {
+				@include chalk.shading($color);
+			}
+
+			&.violet {
+				@include chalk.shading($color);
+			}
+
+			&.plum {
+				@include chalk.shading($color);
+			}
+
+			&.purple {
+				@include chalk.shading($color);
+			}
+
+			&.magenta {
+				@include chalk.shading($color);
+			}
+
+			&.brown {
+				@include chalk.shading($color);
+			}
+
+			&.grey {
+				@include chalk.shading($color);
+			}
+
+			&.black {
+				@include chalk.shading(black);
+			}
+
+			&.white {
+				@include chalk.shading(white);
+			}
+
+			&.copper {
+				@include chalk.shading($color);
+			}
+
+			&.silver {
+				@include chalk.shading($color);
+			}
+
+			&.gold {
+				@include chalk.shading($color);
+			}
+		}
+
+		//
+		// chalk selected colored materials
+		//
+
+		.selected .colored:not(.btn) {
+
+			.red {
+				@include chalk.shading($selected-color);
+			}
+
+			.raspberry {
+				@include chalk.shading($selected-color);
+			}
+
+			.red-orange {
+				@include chalk.shading($selected-color);
+			}
+
+			.orange {
+				@include chalk.shading($selected-color);
+			}
+
+			.yellow {
+				@include chalk.shading($selected-color);
+			}
+
+			.lime {
+				@include chalk.shading($selected-color);
+			}
+
+			.green {
+				@include chalk.shading($selected-color);
+			}
+
+			.teal {
+				@include chalk.shading($selected-color);
+			}
+
+			.aqua {
+				@include chalk.shading($selected-color);
+			}
+
+			.cyan {
+				@include chalk.shading($selected-color);
+			}
+
+			.blue {
+				@include chalk.shading($selected-color);
+			}
+
+			.indigo {
+				@include chalk.shading($selected-color);
+			}
+
+			.violet {
+				@include chalk.shading($selected-color);
+			}
+
+			.plum {
+				@include chalk.shading($selected-color);
+			}
+
+			.purple {
+				@include chalk.shading($selected-color);
+			}
+
+			.magenta {
+				@include chalk.shading($selected-color);
+			}
+
+			.brown {
+				@include chalk.shading($selected-color);
+			}
+
+			.grey {
+				@include chalk.shading($selected-color);
+			}
+
+			.black {
+				@include chalk.shading(black);
+			}
+
+			.white {
+				@include chalk.shading(white);
+			}
+
+			.copper {
+				@include chalk.shading($selected-color);
+			}
+
+			.silver {
+				@include chalk.shading($selected-color);
+			}
+
+			.gold {
+				@include chalk.shading($selected-color);
+			}
+		}
+	}
+}

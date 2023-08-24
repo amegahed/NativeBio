@@ -1,6 +1,6 @@
 /******************************************************************************\
 |                                                                              |
-|                                  styles.less                                 |
+|                                _colors.scss                                  |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -12,11 +12,11 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                                  styles.less                                 |
+|                                 _lighting.scss                               |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -28,11 +28,17 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
 \******************************************************************************/
+:root {
+  --light-direction: to bottom;
+  --ambient-color: rgb(0, 0, 127);
+  --light-color: white;
+}
+
 /******************************************************************************\
 |                                                                              |
-|                                  styles.less                                 |
+|                                 _flat.scss                                   |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -44,11 +50,75 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
 \******************************************************************************/
+@supports (color: color-mix(in srgb, white, black)) {
+  .flat .shaded, .flat.flat.shaded {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .flat .shaded.round, .flat.flat.shaded.round {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .flat .shaded.rounded, .flat.flat.shaded.rounded {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .flat .shaded.long.round, .flat.flat.shaded.long.round {
+    background-color: var(--primary-color);
+  }
+  .flat .shaded.textured, .flat.flat.shaded.textured {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .flat .shaded.textured.round, .flat.flat.shaded.textured.round {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .flat .shaded.textured.rounded, .flat.flat.shaded.textured.rounded {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .flat .shaded.textured.long.round, .flat.flat.shaded.textured.long.round {
+    background-color: var(--primary-color);
+  }
+}
+@supports not (color: color-mix(in srgb, white, black)) {
+  .flat .shaded, .flat.flat.shaded {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .flat .shaded.round, .flat.flat.shaded.round {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .flat .shaded.rounded, .flat.flat.shaded.rounded {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .flat .shaded.long.round, .flat.flat.shaded.long.round {
+    background-color: var(--primary-color);
+  }
+  .flat .shaded.textured, .flat.flat.shaded.textured {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .flat .shaded.textured.round, .flat.flat.shaded.textured.round {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .flat .shaded.textured.rounded, .flat.flat.shaded.textured.rounded {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .flat .shaded.textured.long.round, .flat.flat.shaded.textured.long.round {
+    background-color: var(--primary-color);
+  }
+}
 /******************************************************************************\
 |                                                                              |
-|                         dark-flat-colored-badges.less                        |
+|                               _validation.scss                               |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -62,25 +132,110 @@
 |******************************************************************************|
 |        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
-body:not(.binary).colored.dark.flat .badge {
-  background: hsl(220, 75%, 50%);
+.colored span.success {
+  color: #63cf7e;
+}
+.colored span.caution {
+  color: #f5af3e;
+}
+.colored span.warning {
+  color: #f56e3e;
+}
+.colored span.error {
+  color: #f47171;
+}
+
+label.error {
+  font-weight: bold;
+  color: #f47171;
+  padding-top: 0;
+  background: url(../images/forms/error.png) 5px 0px no-repeat;
+  padding-left: 30px;
+}
+
+label.error:empty {
+  display: none;
+}
+
+label.error.valid {
+  display: none;
+}
+
+.form-group.error input,
+.form-group.error textarea {
+  border: 1px solid #f47171;
+}
+
+td.error {
+  outline: 1px solid #f56e3e;
+  outline-offset: -2px;
+}
+
+/******************************************************************************\
+|                                                                              |
+|                              _dark-badges.scss                               |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body:not(.binary).colored.colored.dark .badge {
+  background-color: hsl(220, 75%, 50%);
+}
+body:not(.binary).colored.colored.dark .badge.success {
+  background-color: #63cf7e;
+}
+body:not(.binary).colored.colored.dark .badge.caution {
+  background-color: #f5af3e;
+}
+body:not(.binary).colored.colored.dark .badge.warning {
+  background-color: #f56e3e;
+}
+
+/******************************************************************************\
+|                                                                              |
+|                            _dark-flat-badges.scss                            |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body:not(.binary).colored.colored.dark.flat .badge {
+  background-color: hsl(220, 75%, 50%);
   border-color: hsl(220, 75%, 50%);
 }
-body:not(.binary).colored.dark.flat .badge.success {
-  background: hsl(135, 53%, 60%);
-  border-color: hsl(135, 53%, 60%);
+body:not(.binary).colored.colored.dark.flat .badge.success {
+  background-color: #63cf7e;
+  border-color: #63cf7e;
 }
-body:not(.binary).colored.dark.flat .badge.caution {
-  background: #f5af3d;
-  border-color: #f5af3d;
+body:not(.binary).colored.colored.dark.flat .badge.caution {
+  background-color: #f5af3e;
+  border-color: #f5af3e;
 }
-body:not(.binary).colored.dark.flat .badge.warning {
-  background: #f56e3d;
-  border-color: #f56e3d;
+body:not(.binary).colored.colored.dark.flat .badge.warning {
+  background-color: #f56e3e;
+  border-color: #f56e3e;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                                  styles.less                                 |
+|                                 _index.scss                                  |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -96,7 +251,23 @@ body:not(.binary).colored.dark.flat .badge.warning {
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                        dark-chalk-colored-badges.less                        |
+|                               _round-chalk.scss                              |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                           _dark-chalk-badges.scss                            |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -110,73 +281,30 @@ body:not(.binary).colored.dark.flat .badge.warning {
 |******************************************************************************|
 |        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
-body:not(.binary).colored.dark.chalk .badge {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, hsl(220, 75%, 60%) 0%, hsl(220, 75%, 50%) 50%, hsl(220, 75%, 40%) 100%) no-repeat;
-  border-color: hsl(220, 75%, 40%);
+body:not(.binary).colored.colored.dark.chalk .badge {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: hsl(220, 75%, 50%);
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, hsl(220, 75%, 50%));
 }
-body:not(.binary).colored.dark.chalk .badge.success {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, hsl(135, 53%, 70%) 0%, hsl(135, 53%, 60%) 50%, hsl(135, 53%, 50%) 100%) no-repeat;
-  border-color: hsl(135, 53%, 50%);
+body:not(.binary).colored.colored.dark.chalk .badge.success {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: #63cf7e;
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, #63cf7e);
 }
-body:not(.binary).colored.dark.chalk .badge.caution {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #f8c36d 0%, #f5af3d 50%, #f39b0c 100%) no-repeat;
-  border-color: #f39b0c;
+body:not(.binary).colored.colored.dark.chalk .badge.caution {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: #f5af3e;
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, #f5af3e);
 }
-body:not(.binary).colored.dark.chalk .badge.warning {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #f8926d 0%, #f56e3d 50%, #f3490c 100%) no-repeat;
-  border-color: #f3490c;
+body:not(.binary).colored.colored.dark.chalk .badge.warning {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: #f56e3e;
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, #f56e3e);
 }
+
 /******************************************************************************\
 |                                                                              |
-|                                  styles.less                                 |
-|                                                                              |
-|******************************************************************************|
-|                                                                              |
-|        This defines various CSS styles used in this application.             |
-|                                                                              |
-|        Author(s): Abe Megahed                                                |
-|                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.txt', which is part of this source code distribution.        |
-|                                                                              |
-|******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
-\******************************************************************************/
-/******************************************************************************\
-|                                                                              |
-|                       dark-plastic-colored-badges.less                       |
-|                                                                              |
-|******************************************************************************|
-|                                                                              |
-|        This defines various CSS styles used in this application.             |
-|                                                                              |
-|        Author(s): Abe Megahed                                                |
-|                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.txt', which is part of this source code distribution.        |
-|                                                                              |
-|******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
-\******************************************************************************/
-body:not(.binary).colored.dark.plastic .badge {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, hsl(220, 75%, 60%) 0%, hsl(220, 75%, 50%) 50%, hsl(220, 75%, 40%) 100%) no-repeat;
-  border-color: hsl(220, 75%, 40%);
-}
-body:not(.binary).colored.dark.plastic .badge.success {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, hsl(135, 53%, 70%) 0%, hsl(135, 53%, 60%) 50%, hsl(135, 53%, 50%) 100%) no-repeat;
-  border-color: hsl(135, 53%, 50%);
-}
-body:not(.binary).colored.dark.plastic .badge.caution {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #f8c36d 0%, #f5af3d 50%, #f39b0c 100%) no-repeat;
-  border-color: #f39b0c;
-}
-body:not(.binary).colored.dark.plastic .badge.warning {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, #f8926d 0%, #f56e3d 50%, #f3490c 100%) no-repeat;
-  border-color: #f3490c;
-}
-/******************************************************************************\
-|                                                                              |
-|                                  styles.less                                 |
+|                                 _index.scss                                  |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -192,7 +320,23 @@ body:not(.binary).colored.dark.plastic .badge.warning {
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                        dark-glass-colored-badges.less                        |
+|                             _round-plastic.scss                              |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                          _dark-plastic-badges.scss                           |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -206,97 +350,30 @@ body:not(.binary).colored.dark.plastic .badge.warning {
 |******************************************************************************|
 |        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
-body:not(.binary).colored.dark.glass .badge {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, hsl(220, 75%, 80%) 0%, hsl(220, 75%, 50%) 50%, hsla(220, 75%, 50%, 0) 100%) no-repeat, linear-gradient(to bottom, hsla(220, 75%, 50%, 0) 33%, hsla(220, 75%, 50%, 0.5) 100%) no-repeat, hsl(220, 75%, 30%);
-  border-color: hsl(220, 75%, 30%);
+body:not(.binary).colored.colored.dark.plastic .badge {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: hsl(220, 75%, 50%);
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, hsl(220, 75%, 50%));
 }
-body:not(.binary).colored.dark.glass .badge.success {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, hsl(135, 53%, 90%) 0%, hsl(135, 53%, 60%) 50%, hsla(135, 53%, 60%, 0) 100%) no-repeat, linear-gradient(to bottom, hsla(135, 53%, 60%, 0) 33%, hsla(135, 53%, 60%, 0.5) 100%) no-repeat, hsl(135, 53%, 40%);
-  border-color: hsl(135, 53%, 40%);
+body:not(.binary).colored.colored.dark.plastic .badge.success {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: #63cf7e;
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, #63cf7e);
 }
-body:not(.binary).colored.dark.glass .badge.caution {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #fdebce 0%, #f5af3d 50%, rgba(245, 175, 61, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(245, 175, 61, 0) 33%, rgba(245, 175, 61, 0.5) 100%) no-repeat, #c27c0a;
-  border-color: #c27c0a;
+body:not(.binary).colored.colored.dark.plastic .badge.caution {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: #f5af3e;
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, #f5af3e);
 }
-body:not(.binary).colored.dark.glass .badge.warning {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #fddbce 0%, #f56e3d 50%, rgba(245, 110, 61, 0) 100%) no-repeat, linear-gradient(to bottom, rgba(245, 110, 61, 0) 33%, rgba(245, 110, 61, 0.5) 100%) no-repeat, #c23b0a;
-  border-color: #c23b0a;
+body:not(.binary).colored.colored.dark.plastic .badge.warning {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: #f56e3e;
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, #f56e3e);
 }
+
 /******************************************************************************\
 |                                                                              |
-|                                  styles.less                                 |
-|                                                                              |
-|******************************************************************************|
-|                                                                              |
-|        This defines various CSS styles used in this application.             |
-|                                                                              |
-|        Author(s): Abe Megahed                                                |
-|                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.txt', which is part of this source code distribution.        |
-|                                                                              |
-|******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
-\******************************************************************************/
-/******************************************************************************\
-|                                                                              |
-|                        dark-metal-colored-badges.less                        |
-|                                                                              |
-|******************************************************************************|
-|                                                                              |
-|        This defines various CSS styles used in this application.             |
-|                                                                              |
-|        Author(s): Abe Megahed                                                |
-|                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.txt', which is part of this source code distribution.        |
-|                                                                              |
-|******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
-\******************************************************************************/
-body:not(.binary).colored.dark.metal .badge {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, hsl(220, 75%, 80%) 0%, hsl(220, 75%, 70%) 25%, hsla(220, 75%, 50%, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, hsla(220, 75%, 50%, 0.75) 0%, hsla(220, 75%, 50%, 0) 100%) no-repeat, /*
-		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
-			fade(white, 0%) 0%, 
-			fade(white, 0%) 40%,
-			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
-			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
-		*/ linear-gradient(to bottom, hsla(220, 75%, 50%, 0) 33%, hsla(220, 75%, 50%, 0.5) 66%, hsl(220, 75%, 60%)) no-repeat, hsl(220, 75%, 20%);
-  border-color: hsl(220, 75%, 30%);
-}
-body:not(.binary).colored.dark.metal .badge.success {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, hsl(135, 53%, 90%) 0%, hsl(135, 53%, 80%) 25%, hsla(135, 53%, 60%, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, hsla(135, 53%, 60%, 0.75) 0%, hsla(135, 53%, 60%, 0) 100%) no-repeat, /*
-		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
-			fade(white, 0%) 0%, 
-			fade(white, 0%) 40%,
-			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
-			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
-		*/ linear-gradient(to bottom, hsla(135, 53%, 60%, 0) 33%, hsla(135, 53%, 60%, 0.5) 66%, hsl(135, 53%, 70%)) no-repeat, hsl(135, 53%, 30%);
-  border-color: hsl(135, 53%, 40%);
-}
-body:not(.binary).colored.dark.metal .badge.caution {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, #fdebce 0%, #fad79e 25%, rgba(245, 175, 61, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(245, 175, 61, 0.75) 0%, rgba(245, 175, 61, 0) 100%) no-repeat, /*
-		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
-			fade(white, 0%) 0%, 
-			fade(white, 0%) 40%,
-			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
-			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
-		*/ linear-gradient(to bottom, rgba(245, 175, 61, 0) 33%, rgba(245, 175, 61, 0.5) 66%, #f8c36d) no-repeat, #925d07;
-  border-color: #c27c0a;
-}
-body:not(.binary).colored.dark.metal .badge.warning {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, #fddbce 0%, #fab69e 25%, rgba(245, 110, 61, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(245, 110, 61, 0.75) 0%, rgba(245, 110, 61, 0) 100%) no-repeat, /*
-		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
-			fade(white, 0%) 0%, 
-			fade(white, 0%) 40%,
-			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
-			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
-		*/ linear-gradient(to bottom, rgba(245, 110, 61, 0) 33%, rgba(245, 110, 61, 0.5) 66%, #f8926d) no-repeat, #922c07;
-  border-color: #c23b0a;
-}
-/******************************************************************************\
-|                                                                              |
-|                                  styles.less                                 |
+|                                 _index.scss                                  |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -312,7 +389,23 @@ body:not(.binary).colored.dark.metal .badge.warning {
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                           dark-colored-badges.less                           |
+|                               _round-glass.scss                              |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                           _dark-glass-badges.scss                            |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -326,15 +419,159 @@ body:not(.binary).colored.dark.metal .badge.warning {
 |******************************************************************************|
 |        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
-body:not(.binary).colored.dark .badge {
-  background-color: #fff;
+body:not(.binary).colored.colored.dark.glass .badge {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, hsl(220, 75%, 50%)) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, hsl(220, 75%, 50%)) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, hsl(220, 75%, 50%) 50%, transparent) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 30%, hsl(220, 75%, 50%));
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, hsl(220, 75%, 50%));
 }
-body:not(.binary).colored.dark .badge.success {
-  background-color: hsl(135, 53%, 60%);
+body:not(.binary).colored.colored.dark.glass .badge.success {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, #63cf7e) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, #63cf7e) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, #63cf7e 50%, transparent) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 30%, #63cf7e);
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, #63cf7e);
 }
-body:not(.binary).colored.dark .badge.caution {
-  background-color: #f5af3d;
+body:not(.binary).colored.colored.dark.glass .badge.caution {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, #f5af3e) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, #f5af3e) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, #f5af3e 50%, transparent) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 30%, #f5af3e);
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, #f5af3e);
 }
-body:not(.binary).colored.dark .badge.warning {
-  background-color: #f56e3d;
+body:not(.binary).colored.colored.dark.glass .badge.warning {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, #f56e3e) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, #f56e3e) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, #f56e3e 50%, transparent) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 30%, #f56e3e);
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, #f56e3e);
 }
+
+/******************************************************************************\
+|                                                                              |
+|                                 _index.scss                                  |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                              _round-metal.scss                               |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                           _dark-metal-badges.scss                            |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body:not(.binary).colored.colored.dark.metal .badge {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, hsl(220, 75%, 50%)) 75%, transparent) 50%, color-mix(in srgb, hsl(220, 75%, 50%) 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, hsl(220, 75%, 50%) 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, hsl(220, 75%, 50%) 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, hsl(220, 75%, 50%)) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 50%, hsl(220, 75%, 50%));
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, hsl(220, 75%, 50%));
+}
+body:not(.binary).colored.colored.dark.metal .badge.success {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, #63cf7e) 75%, transparent) 50%, color-mix(in srgb, #63cf7e 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, #63cf7e 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, #63cf7e 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, #63cf7e) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 50%, #63cf7e);
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, #63cf7e);
+}
+body:not(.binary).colored.colored.dark.metal .badge.caution {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, #f5af3e) 75%, transparent) 50%, color-mix(in srgb, #f5af3e 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, #f5af3e 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, #f5af3e 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, #f5af3e) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 50%, #f5af3e);
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, #f5af3e);
+}
+body:not(.binary).colored.colored.dark.metal .badge.warning {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, #f56e3e) 75%, transparent) 50%, color-mix(in srgb, #f56e3e 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, #f56e3e 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, #f56e3e 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, #f56e3e) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 50%, #f56e3e);
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, #f56e3e);
+}
+
+/******************************************************************************\
+|                                                                              |
+|                                 _index.scss                                  |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                                 _index.scss                                  |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                                 _index.scss                                  |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                                 styles.scss                                  |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,37 @@
+/******************************************************************************\
+|                                                                              |
+|                         _colored-chalk-menu-bars.scss                        |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the SVG DOM element styles for this application.         |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+@use "../../../../navs/materials/chalk/chalk-menu-bars";
+@use "../../navs/colored-menus";
+
+//
+// styles
+//
+
+body:not(.binary).colored.colored {
+	&.chalk-menus,
+	&.chalk.auto-menus {
+
+		//
+		// dropdown menu toggles
+		//
+
+		.menu-bar {
+			@include chalk-menu-bars.shading(colored-menus.$open-color, colored-menus.$active-color);
+		}
+	}
+}

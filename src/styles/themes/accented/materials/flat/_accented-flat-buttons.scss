@@ -1,0 +1,37 @@
+/******************************************************************************\
+|                                                                              |
+|                         _accented-flat-buttons.scss                          |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+@use "../../../../navs/materials/flat/flat-buttons";
+@use "../../navs/accented-buttons";
+
+//
+// styles
+//
+
+body:not(.binary).colored.accented {
+	&.flat-buttons,
+	&.flat.auto-buttons {
+
+		//
+		// buttons
+		//
+
+		button {
+			@include flat-buttons.shading(accented-buttons.$hover-color);
+		}
+	}
+}

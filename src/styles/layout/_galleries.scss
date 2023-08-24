@@ -1,0 +1,127 @@
+/******************************************************************************\
+|                                                                              |
+|                                _galleries.scss                               |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+@use "../layout/performance";
+
+//
+// variables
+//
+
+$max-image-width: 600px;
+$max-image-height: 450px;
+
+//
+// styles
+//
+
+.gallery:not(:empty) {
+	position: relative;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	image-rendering: auto;
+	overflow: hidden;
+
+	&.well {
+		padding: 10px;
+	}
+
+	.images {
+		// margin-right: -20px;
+		overflow: hidden;
+	}
+	
+	//
+	// single items
+	//
+
+	> img, 
+	> video {
+		max-width: $max-image-width;;
+		cursor: pointer;
+	}
+
+	> img.horizontal, 
+	> video.horizontal {
+		width: 100%;
+		height: auto;
+	}
+
+	> img.vertical, 
+	> video.vertical {
+		width: 100%;
+		max-width: calc($max-image-width * 2 / 3);
+		height: auto;
+	}
+
+	> video {
+		outline: none;
+
+		// use hardware acceleration
+		//
+		@include performance.acceleration;
+	}
+
+	//
+	// multiple items
+	//
+
+	/*
+	.item {
+		> a > img, 
+		> a > video {
+			cursor: pointer;
+			// max-height: $max-image-height;
+		}
+
+		> a > img {
+			position: absolute;
+		}
+		
+		> a > video {
+			max-width: 100%;
+		}
+	}
+	*/
+
+	//
+	// show tooltips
+	//
+	
+	.jpictura .jpictura-item {
+		overflow: visible;
+	}
+
+	//
+	// more buttons
+	//
+
+	button.more {
+		position: absolute;
+		right: 10px;
+		bottom: 10px;
+	}
+
+	//
+	// allow space for loading spinner
+	//
+
+	&.loading {
+		min-height: $max-image-height;
+	}
+}

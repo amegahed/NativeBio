@@ -1,0 +1,47 @@
+/******************************************************************************\
+|                                                                              |
+|                         _accented-flat-desktops.scss                         |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+@use "../../../../materials/flat/flat";
+@use "../../apps/accented-desktop";
+
+//
+// styles
+//
+
+body:not(.binary).colored.accented {
+	&.flat {
+		#desktop,
+		#desktop.auto,
+		#desktop.medium {
+
+			//
+			// flat desktop footer bars
+			//
+
+			.desktop.app > .footer-bar {
+
+				//
+				// flat desktop info bars
+				//
+
+				.desktop-info-bar {
+					@include flat.coloring(accented-desktop.$info-bar-background-color);
+				}
+			}
+		}
+	}
+}

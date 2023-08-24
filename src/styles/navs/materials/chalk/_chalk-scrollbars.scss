@@ -1,0 +1,68 @@
+/******************************************************************************\
+|                                                                              |
+|                           _chalk-scrollbars.scss                             |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+\******************************************************************************/
+
+@use "../../../materials/chalk/long-round-chalk";
+@use "../../../navs/scrollbars";
+
+//
+// mixins
+//
+
+@mixin inactive-thumb-shading($color, $hover-color) {
+	::-webkit-scrollbar-thumb:not(:active) {
+
+		// horizontal scrollbars
+		//
+		&:horizontal {
+			@include long-round-chalk.shading($color, scrollbars.$border-radius, none);
+		}
+		&:horizontal:hover {
+			@include long-round-chalk.shading($hover-color, scrollbars.$border-radius, none);
+		}
+
+		// vertical scrollbars
+		//
+		&:vertical {
+			@include long-round-chalk.vertical-shading($color, scrollbars.$border-radius, none);
+		}
+		&:vertical:hover {
+			@include long-round-chalk.vertical-shading($hover-color, scrollbars.$border-radius, none);
+		}
+	}
+}
+
+@mixin active-thumb-shading($active-color) {
+	 ::-webkit-scrollbar-thumb:active {
+
+		// horizontal scrollbars
+		//
+		&:horizontal {
+			@include long-round-chalk.shading($active-color, scrollbars.$border-radius, none);
+		}
+
+		// vertical scrollbars
+		//
+		&:vertical {
+			@include long-round-chalk.vertical-shading($active-color, scrollbars.$border-radius, none);
+		}
+	}
+}
+
+@mixin thumb-shading($color, $hover-color, $active-color) {
+	@include inactive-thumb-shading($color, $hover-color);
+	@include active-thumb-shading($active-color);
+}

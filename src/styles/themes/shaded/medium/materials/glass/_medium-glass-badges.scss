@@ -1,0 +1,48 @@
+/******************************************************************************\
+|                                                                              |
+|                          _medium-glass-badges.scss                           |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+@use "../../../../../materials/glass/round-glass";
+@use "../../navs/_colored-badges";
+@use "../../colors/special-colors";
+
+//
+// styles
+//
+
+body:not(.binary) {
+	&.glass.colored {
+		.badge {
+			@include round-glass.shading(colored-badges.$color);
+
+			//
+			// glass special badges
+			//
+
+			&.success {
+				@include round-glass.shading(special-colors.$success-color);
+			}
+
+			&.caution {
+				@include round-glass.shading(special-colors.$caution-color);
+			}
+
+			&.warning {
+				@include round-glass.shading(special-colors.$warning-color);
+			}
+		}
+	}
+}

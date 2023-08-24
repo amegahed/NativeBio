@@ -1,0 +1,233 @@
+/******************************************************************************\
+|                                                                              |
+|                         _medium-metal-colored.scss                           |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+@use "../../../../../colors/colors";
+@use "../../../../../materials/metal/metal";
+
+//
+// colors
+//
+
+$color: colors.$light-grey;
+$selected-color: colors.$medium-grey;
+
+//
+// styles
+//
+
+body:not(.binary) {
+	&.monochrome.metal {
+
+		//
+		// metal colored materials
+		//
+
+		.colored:not(.btn) {
+
+			&.red {
+				@include metal.shading($color);
+			}
+
+			&.raspberry {
+				@include metal.shading($color);
+			}
+
+			&.red-orange {
+				@include metal.shading($color);
+			}
+
+			&.orange {
+				@include metal.shading($color);
+			}
+
+			&.yellow {
+				@include metal.shading($color);
+			}
+
+			&.lime {
+				@include metal.shading($color);
+			}
+
+			&.green {
+				@include metal.shading($color);
+			}
+
+			&.teal {
+				@include metal.shading($color);
+			}
+
+			&.aqua {
+				@include metal.shading($color);
+			}
+
+			&.cyan {
+				@include metal.shading($color);
+			}
+
+			&.blue {
+				@include metal.shading($color);
+			}
+
+			&.indigo {
+				@include metal.shading($color);
+			}
+
+			&.violet {
+				@include metal.shading($color);
+			}
+
+			&.plum {
+				@include metal.shading($color);
+			}
+
+			&.purple {
+				@include metal.shading($color);
+			}
+
+			&.magenta {
+				@include metal.shading($color);
+			}
+
+			&.brown {
+				@include metal.shading($color);
+			}
+
+			&.grey {
+				@include metal.shading($color);
+			}
+
+			&.black {
+				@include metal.shading(black);
+			}
+
+			&.white {
+				@include metal.shading(white);
+			}
+
+			&.copper {
+				@include metal.shading($color);
+			}
+
+			&.silver {
+				@include metal.shading($color);
+			}
+
+			&.gold {
+				@include metal.shading($color);
+			}
+		}
+
+		//
+		// metal selected colored materials
+		//
+
+		.selected .colored:not(.btn) {
+
+			.red {
+				@include metal.shading($selected-color);
+			}
+
+			.raspberry {
+				@include metal.shading($selected-color);
+			}
+
+			.red-orange {
+				@include metal.shading($selected-color);
+			}
+
+			.orange {
+				@include metal.shading($selected-color);
+			}
+
+			.yellow {
+				@include metal.shading($selected-color);
+			}
+
+			.lime {
+				@include metal.shading($selected-color);
+			}
+
+			.green {
+				@include metal.shading($selected-color);
+			}
+
+			.teal {
+				@include metal.shading($selected-color);
+			}
+
+			.aqua {
+				@include metal.shading($selected-color);
+			}
+
+			.cyan {
+				@include metal.shading($selected-color);
+			}
+
+			.blue {
+				@include metal.shading($selected-color);
+			}
+
+			.indigo {
+				@include metal.shading($selected-color);
+			}
+
+			.violet {
+				@include metal.shading($selected-color);
+			}
+
+			.plum {
+				@include metal.shading($selected-color);
+			}
+
+			.purple {
+				@include metal.shading($selected-color);
+			}
+
+			.magenta {
+				@include metal.shading($selected-color);
+			}
+
+			.brown {
+				@include metal.shading($selected-color);
+			}
+
+			.grey {
+				@include metal.shading($selected-color);
+			}
+
+			.black {
+				@include metal.shading(black);
+			}
+
+			.white {
+				@include metal.shading(white);
+			}
+
+			.copper {
+				@include metal.shading($selected-color);
+			}
+
+			.silver {
+				@include metal.shading($selected-color);
+			}
+
+			.gold {
+				@include metal.shading($selected-color);
+			}
+		}
+	}
+}

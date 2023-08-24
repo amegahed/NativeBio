@@ -1,6 +1,6 @@
 /******************************************************************************\
 |                                                                              |
-|                                  styles.less                                 |
+|                                _colors.scss                                  |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -12,11 +12,11 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                                  styles.less                                 |
+|                                 _lighting.scss                               |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -28,11 +28,17 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
 \******************************************************************************/
+:root {
+  --light-direction: to bottom;
+  --ambient-color: rgb(0, 0, 127);
+  --light-color: white;
+}
+
 /******************************************************************************\
 |                                                                              |
-|                                  styles.less                                 |
+|                                 _flat.scss                                   |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -44,31 +50,75 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
 \******************************************************************************/
-/******************************************************************************\
-|                                                                              |
-|                         light-flat-colored-badges.less                       |
-|                                                                              |
-|******************************************************************************|
-|                                                                              |
-|        This defines various CSS styles used in this application.             |
-|                                                                              |
-|        Author(s): Abe Megahed                                                |
-|                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.txt', which is part of this source code distribution.        |
-|                                                                              |
-|******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
-\******************************************************************************/
-body:not(.binary).colored.light.flat .badge {
-  background: hsl(220, 75%, 50%);
-  border-color: hsl(220, 75%, 50%);
+@supports (color: color-mix(in srgb, white, black)) {
+  .flat .shaded, .flat.flat.shaded {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .flat .shaded.round, .flat.flat.shaded.round {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .flat .shaded.rounded, .flat.flat.shaded.rounded {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .flat .shaded.long.round, .flat.flat.shaded.long.round {
+    background-color: var(--primary-color);
+  }
+  .flat .shaded.textured, .flat.flat.shaded.textured {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .flat .shaded.textured.round, .flat.flat.shaded.textured.round {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .flat .shaded.textured.rounded, .flat.flat.shaded.textured.rounded {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .flat .shaded.textured.long.round, .flat.flat.shaded.textured.long.round {
+    background-color: var(--primary-color);
+  }
+}
+@supports not (color: color-mix(in srgb, white, black)) {
+  .flat .shaded, .flat.flat.shaded {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .flat .shaded.round, .flat.flat.shaded.round {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .flat .shaded.rounded, .flat.flat.shaded.rounded {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .flat .shaded.long.round, .flat.flat.shaded.long.round {
+    background-color: var(--primary-color);
+  }
+  .flat .shaded.textured, .flat.flat.shaded.textured {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .flat .shaded.textured.round, .flat.flat.shaded.textured.round {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .flat .shaded.textured.rounded, .flat.flat.shaded.textured.rounded {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .flat .shaded.textured.long.round, .flat.flat.shaded.textured.long.round {
+    background-color: var(--primary-color);
+  }
 }
 /******************************************************************************\
 |                                                                              |
-|                                  styles.less                                 |
+|                              _light-badges.scss                              |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -82,172 +132,310 @@ body:not(.binary).colored.light.flat .badge {
 |******************************************************************************|
 |        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
-/******************************************************************************\
-|                                                                              |
-|                        light-chalk-colored-badges.less                       |
-|                                                                              |
-|******************************************************************************|
-|                                                                              |
-|        This defines various CSS styles used in this application.             |
-|                                                                              |
-|        Author(s): Abe Megahed                                                |
-|                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.txt', which is part of this source code distribution.        |
-|                                                                              |
-|******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
-\******************************************************************************/
-body:not(.binary).colored.light.chalk .badge {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, hsl(220, 75%, 60%) 0%, hsl(220, 75%, 50%) 50%, hsl(220, 75%, 40%) 100%) no-repeat;
-  border-color: hsl(220, 75%, 40%);
-}
-/******************************************************************************\
-|                                                                              |
-|                                  styles.less                                 |
-|                                                                              |
-|******************************************************************************|
-|                                                                              |
-|        This defines various CSS styles used in this application.             |
-|                                                                              |
-|        Author(s): Abe Megahed                                                |
-|                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.txt', which is part of this source code distribution.        |
-|                                                                              |
-|******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
-\******************************************************************************/
-/******************************************************************************\
-|                                                                              |
-|                      light-plastic-colored-badges.less                       |
-|                                                                              |
-|******************************************************************************|
-|                                                                              |
-|        This defines various CSS styles used in this application.             |
-|                                                                              |
-|        Author(s): Abe Megahed                                                |
-|                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.txt', which is part of this source code distribution.        |
-|                                                                              |
-|******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
-\******************************************************************************/
-body:not(.binary).colored.light.plastic .badge {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, linear-gradient(to bottom, hsl(220, 75%, 60%) 0%, hsl(220, 75%, 50%) 50%, hsl(220, 75%, 40%) 100%) no-repeat;
-  border-color: hsl(220, 75%, 40%);
-}
-/******************************************************************************\
-|                                                                              |
-|                                  styles.less                                 |
-|                                                                              |
-|******************************************************************************|
-|                                                                              |
-|        This defines various CSS styles used in this application.             |
-|                                                                              |
-|        Author(s): Abe Megahed                                                |
-|                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.txt', which is part of this source code distribution.        |
-|                                                                              |
-|******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
-\******************************************************************************/
-/******************************************************************************\
-|                                                                              |
-|                       light-glass-colored-badges.less                        |
-|                                                                              |
-|******************************************************************************|
-|                                                                              |
-|        This defines various CSS styles used in this application.             |
-|                                                                              |
-|        Author(s): Abe Megahed                                                |
-|                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.txt', which is part of this source code distribution.        |
-|                                                                              |
-|******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
-\******************************************************************************/
-body:not(.binary).colored.light.glass .badge {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, #ffffff 0%, #ffffff 25%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, hsl(220, 75%, 80%) 0%, hsl(220, 75%, 50%) 50%, hsla(220, 75%, 50%, 0) 100%) no-repeat, linear-gradient(to bottom, hsla(220, 75%, 50%, 0) 33%, hsla(220, 75%, 50%, 0.5) 100%) no-repeat, hsl(220, 75%, 30%);
-  border-color: hsl(220, 75%, 30%);
-}
-/******************************************************************************\
-|                                                                              |
-|                                  styles.less                                 |
-|                                                                              |
-|******************************************************************************|
-|                                                                              |
-|        This defines various CSS styles used in this application.             |
-|                                                                              |
-|        Author(s): Abe Megahed                                                |
-|                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.txt', which is part of this source code distribution.        |
-|                                                                              |
-|******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
-\******************************************************************************/
-/******************************************************************************\
-|                                                                              |
-|                       light-metal-colored-badges.less                        |
-|                                                                              |
-|******************************************************************************|
-|                                                                              |
-|        This defines various CSS styles used in this application.             |
-|                                                                              |
-|        Author(s): Abe Megahed                                                |
-|                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.txt', which is part of this source code distribution.        |
-|                                                                              |
-|******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
-\******************************************************************************/
-body:not(.binary).colored.light.metal .badge {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, hsl(220, 75%, 80%) 0%, hsl(220, 75%, 70%) 25%, hsla(220, 75%, 50%, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, hsla(220, 75%, 50%, 0.75) 0%, hsla(220, 75%, 50%, 0) 100%) no-repeat, /*
-		radial-gradient(ellipse @round-metal-reflection-width @round-metal-reflection-height at @round-metal-reflection-hoffset @round-metal-reflection-voffset, 
-			fade(white, 0%) 0%, 
-			fade(white, 0%) 40%,
-			fade(multiply(@color, @background-color), @metal-reflection-strength) 50%,
-			fade(multiply(@color, @background-color), @metal-reflection-strength) 100%) no-repeat,
-		*/ linear-gradient(to bottom, hsla(220, 75%, 50%, 0) 33%, hsla(220, 75%, 50%, 0.5) 66%, hsl(220, 75%, 60%)) no-repeat, hsl(220, 75%, 20%);
-  border-color: hsl(220, 75%, 30%);
-}
-/******************************************************************************\
-|                                                                              |
-|                                  styles.less                                 |
-|                                                                              |
-|******************************************************************************|
-|                                                                              |
-|        This defines various CSS styles used in this application.             |
-|                                                                              |
-|        Author(s): Abe Megahed                                                |
-|                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.txt', which is part of this source code distribution.        |
-|                                                                              |
-|******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
-\******************************************************************************/
-/******************************************************************************\
-|                                                                              |
-|                           light-colored-badges.less                          |
-|                                                                              |
-|******************************************************************************|
-|                                                                              |
-|        This defines various CSS styles used in this application.             |
-|                                                                              |
-|        Author(s): Abe Megahed                                                |
-|                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.txt', which is part of this source code distribution.        |
-|                                                                              |
-|******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
-\******************************************************************************/
-body:not(.binary).colored.light .badge {
+body:not(.binary).colored.colored.light .badge {
   background-color: hsl(220, 75%, 50%);
 }
+
+/******************************************************************************\
+|                                                                              |
+|                            _light-flat-badges.scss                           |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body:not(.binary).colored.colored.light.flat .badge {
+  background-color: hsl(220, 75%, 50%);
+  border-color: hsl(220, 75%, 50%);
+}
+
+/******************************************************************************\
+|                                                                              |
+|                                 _index.scss                                  |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                               _round-chalk.scss                              |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                           _light-chalk-badges.scss                           |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body:not(.binary).colored.colored.light.chalk .badge {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: hsl(220, 75%, 50%);
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, hsl(220, 75%, 50%));
+}
+
+/******************************************************************************\
+|                                                                              |
+|                                 _index.scss                                  |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                             _round-plastic.scss                              |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                         _light-plastic-badges.scss                           |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body:not(.binary).colored.colored.light.plastic .badge {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: hsl(220, 75%, 50%);
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, hsl(220, 75%, 50%));
+}
+
+/******************************************************************************\
+|                                                                              |
+|                                 _index.scss                                  |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                               _round-glass.scss                              |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                          _light-glass-badges.scss                            |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body:not(.binary).colored.colored.light.glass .badge {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, hsl(220, 75%, 50%)) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, hsl(220, 75%, 50%)) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, hsl(220, 75%, 50%) 50%, transparent) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 30%, hsl(220, 75%, 50%));
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, hsl(220, 75%, 50%));
+}
+
+/******************************************************************************\
+|                                                                              |
+|                                 _index.scss                                  |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                              _round-metal.scss                               |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                          _light-metal-badges.scss                            |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body:not(.binary).colored.colored.light.metal .badge {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, hsl(220, 75%, 50%)) 75%, transparent) 50%, color-mix(in srgb, hsl(220, 75%, 50%) 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, hsl(220, 75%, 50%) 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, hsl(220, 75%, 50%) 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, hsl(220, 75%, 50%)) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 50%, hsl(220, 75%, 50%));
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, hsl(220, 75%, 50%));
+}
+
+/******************************************************************************\
+|                                                                              |
+|                                 _index.scss                                  |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                                 _index.scss                                  |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                                 _index.scss                                  |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                                 styles.scss                                  |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+/*# sourceMappingURL=styles.css.map */

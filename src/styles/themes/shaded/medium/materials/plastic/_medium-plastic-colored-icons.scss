@@ -1,0 +1,230 @@
+/******************************************************************************\
+|                                                                              |
+|                      _medium-plastic-colored-icons.scss                      |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+@use "../../../../../colors/colors";
+@use "../../../../../materials/plastic/round-plastic";
+
+//
+// styles
+//
+
+body:not(.binary) {
+	&.colored.plastic-icons,
+	&.colored.plastic.auto-icons {
+		&.icon-backgrounds {
+
+			//
+			// plastic colored icon materials
+			//
+
+			.colored.icon,
+			.icon .colored {
+
+				&.red {
+					@include round-plastic.shading(colors.$medium-red);
+				}
+
+				&.raspberry {
+					@include round-plastic.shading(colors.$medium-raspberry);
+				}
+
+				&.red-orange {
+					@include round-plastic.shading(colors.$medium-red-orange);
+				}
+
+				&.orange {
+					@include round-plastic.shading(colors.$medium-orange);
+				}
+
+				&.yellow {
+					@include round-plastic.shading(colors.$medium-yellow);
+				}
+
+				&.lime {
+					@include round-plastic.shading(colors.$medium-lime);
+				}
+
+				&.green {
+					@include round-plastic.shading(colors.$medium-green);
+				}
+
+				&.teal {
+					@include round-plastic.shading(colors.$medium-teal);
+				}
+
+				&.aqua {
+					@include round-plastic.shading(colors.$medium-aqua);
+				}
+
+				&.cyan {
+					@include round-plastic.shading(colors.$medium-cyan);
+				}
+
+				&.blue {
+					@include round-plastic.shading(colors.$medium-blue);
+				}
+
+				&.indigo {
+					@include round-plastic.shading(colors.$medium-indigo);
+				}
+
+				&.violet {
+					@include round-plastic.shading(colors.$medium-violet);
+				}
+
+				&.plum {
+					@include round-plastic.shading(colors.$medium-plum);
+				}
+
+				&.purple {
+					@include round-plastic.shading(colors.$medium-purple);
+				}
+
+				&.magenta {
+					@include round-plastic.shading(colors.$medium-magenta);
+				}
+
+				&.brown {
+					@include round-plastic.shading(colors.$medium-brown);
+				}
+
+				&.grey {
+					@include round-plastic.shading(colors.$medium-grey);
+				}
+
+				&.black {
+					@include round-plastic.shading(colors.$medium-black);
+				}
+
+				&.white {
+					@include round-plastic.shading(colors.$medium-white);
+				}
+
+				&.copper {
+					@include round-plastic.shading(colors.$medium-copper);
+				}
+
+				&.silver {
+					@include round-plastic.shading(colors.$medium-silver);
+				}
+
+				&.gold {
+					@include round-plastic.shading(colors.$medium-gold);
+				}
+			}
+
+			//
+			// selected plastic colored icon materials
+			//
+
+			.selected .colored.icon,
+			.selected .icon .colored {
+				&.red {
+					@include round-plastic.shading(colors.$dark-red);
+				}
+
+				&.raspberry {
+					@include round-plastic.shading(colors.$dark-raspberry);
+				}
+
+				&.red-orange {
+					@include round-plastic.shading(colors.$dark-red-orange);
+				}
+
+				&.orange {
+					@include round-plastic.shading(colors.$dark-orange);
+				}
+
+				&.yellow {
+					@include round-plastic.shading(colors.$dark-yellow);
+				}
+
+				&.lime {
+					@include round-plastic.shading(colors.$dark-lime);
+				}
+
+				&.green {
+					@include round-plastic.shading(colors.$dark-green);
+				}
+
+				&.teal {
+					@include round-plastic.shading(colors.$dark-teal);
+				}
+
+				&.aqua {
+					@include round-plastic.shading(colors.$dark-aqua);
+				}
+
+				&.cyan {
+					@include round-plastic.shading(colors.$dark-cyan);
+				}
+
+				&.blue {
+					@include round-plastic.shading(colors.$dark-blue);
+				}
+
+				&.indigo {
+					@include round-plastic.shading(colors.$dark-indigo);
+				}
+
+				&.violet {
+					@include round-plastic.shading(colors.$dark-violet);
+				}
+
+				&.plum {
+					@include round-plastic.shading(colors.$dark-plum);
+				}
+
+				&.purple {
+					@include round-plastic.shading(colors.$dark-purple);
+				}
+
+				&.magenta {
+					@include round-plastic.shading(colors.$dark-magenta);
+				}
+
+				&.brown {
+					@include round-plastic.shading(colors.$dark-brown);
+				}
+
+				&.grey {
+					@include round-plastic.shading(colors.$dark-grey);
+				}
+
+				&.black {
+					@include round-plastic.shading(colors.$dark-black);
+				}
+
+				&.white {
+					@include round-plastic.shading(colors.$dark-white);
+				}
+
+				&.copper {
+					@include round-plastic.shading(colors.$dark-copper);
+				}
+
+				&.silver {
+					@include round-plastic.shading(colors.$dark-silver);
+				}
+
+				&.gold {
+					@include round-plastic.shading(colors.$dark-gold);
+				}
+			}
+		}
+	}
+}

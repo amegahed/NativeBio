@@ -1,0 +1,47 @@
+/******************************************************************************\
+|                                                                              |
+|                               _flat-btns.scss                                |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+\******************************************************************************/
+
+@use "../../../colors/colors";
+@use "../../../materials/flat/flat";
+
+//
+// mixins
+//
+
+@mixin shading($color) {
+	@include flat.coloring($color);
+
+	&:hover {
+		@include flat.coloring(colors.darken($color, 10%));
+	}
+
+	&:active {
+		@include flat.coloring(colors.darken($color, 20%));
+	}
+}
+
+@mixin dark-shading($color) {
+	@include flat.coloring($color);
+
+	&:hover {
+		@include flat.coloring(colors.lighten($color, 10%));
+	}
+
+	&:active {
+		@include flat.coloring(colors.lighten($color, 20%));
+	}
+}

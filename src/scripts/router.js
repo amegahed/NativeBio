@@ -916,7 +916,7 @@ export default Backbone.Router.extend({
 		import(
 			'./models/users/user.js'
 		).then((User) => {
-			new User.default().fetchByUser(username, {
+			new User.default().fetchByUsername(username, {
 
 				// callbacks
 				//

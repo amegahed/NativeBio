@@ -218,7 +218,7 @@ export default class MouseDragRectBehavior extends MouseDragBehavior {
 
 			// add background position for dithering
 			//
-			'background-position': (rect.left % 2) + 'px ' + (rect.top % 2) + 'px'
+			'background-position': (rect.left % 2) + 'px ' + (rect.top % 2 + 1) + 'px'
 		}));
 	}
 

@@ -1,38 +1,6 @@
 /******************************************************************************\
 |                                                                              |
-|                                   styles.less                                |
-|                                                                              |
-|******************************************************************************|
-|                                                                              |
-|        This defines various CSS styles used in this application.             |
-|                                                                              |
-|        Author(s): Abe Megahed                                                |
-|                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.txt', which is part of this source code distribution.        |
-|                                                                              |
-|******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
-\******************************************************************************/
-/******************************************************************************\
-|                                                                              |
-|                                   styles.less                                |
-|                                                                              |
-|******************************************************************************|
-|                                                                              |
-|        This defines various CSS styles used in this application.             |
-|                                                                              |
-|        Author(s): Abe Megahed                                                |
-|                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.txt', which is part of this source code distribution.        |
-|                                                                              |
-|******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
-\******************************************************************************/
-/******************************************************************************\
-|                                                                              |
-|                             binary-branding.less                             |
+|                            _binary-branding.scss                             |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -48,7 +16,7 @@
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                             binary-patterns.less                             |
+|                            _binary-patterns.scss                             |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -64,7 +32,7 @@
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                             binary-patterns.less                             |
+|                            _binary-patterns.scss                             |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -80,7 +48,7 @@
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                              binary-colors.less                              |
+|                             _binary-colors.scss                              |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -96,7 +64,7 @@
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                             binary-colors2.less                              |
+|                            _binary-colors2.scss                              |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -112,7 +80,23 @@
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                                   styles.less                                |
+|                              _binary-text.scss                               |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                                 _index.scss                                  |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -128,7 +112,304 @@
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                              medium-images.less                              |
+|                              _performance.scss                               |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                                _colors.scss                                  |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                                 _images.scss                                 |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+.pixelated {
+  image-rendering: pixelated !important;
+}
+
+.smooth img {
+  image-rendering: auto !important;
+}
+.smooth img .fancybox-image img {
+  image-rendering: auto !important;
+}
+
+.thumbnail {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+.thumbnail i {
+  vertical-align: top;
+}
+
+.round .thumbnail {
+  border-radius: 10px;
+}
+
+.rounded .thumbnail {
+  border-radius: 5px;
+}
+
+.square .thumbnail {
+  border-radius: 0;
+}
+
+.round.logo {
+  border-radius: 50%;
+}
+.round.logo img {
+  border-radius: 50%;
+}
+
+.rounded.logo {
+  border-radius: 25%;
+}
+.rounded.logo img {
+  border-radius: 25%;
+}
+
+.icon .thumbnail.photo, .tile .thumbnail.photo {
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.25);
+}
+.icon svg, .icon .thumbnail:not(.photo), .tile svg, .tile .thumbnail:not(.photo) {
+  box-shadow: none;
+  text-shadow: none;
+  filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.25));
+}
+
+.png .icon .thumbnail, .png .tile .thumbnail {
+  box-shadow: none;
+  filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.25));
+}
+
+.small-icons .items .item .icon > svg {
+  transform: scale(0.9);
+}
+
+.large-icons .items .item .icon > svg {
+  transform: scale(1.1);
+}
+
+.tilted.left .icon > svg, .tilted.left .icon > img, .tilted.left .icon > .thumbnail, .tilted.left .owner > svg, .tilted.left .owner > img, .tilted.left .owner > .thumbnail, .tilted .left .icon > svg, .tilted .left .icon > img, .tilted .left .icon > .thumbnail, .tilted .left .owner > svg, .tilted .left .owner > img, .tilted .left .owner > .thumbnail {
+  transform: skewX(7.5deg);
+}
+.tilted.left.small-icons .icon > svg, .tilted.left.small-icons .icon > img, .tilted.left.small-icons .icon > .thumbnail, .tilted.left.small-icons .owner > svg, .tilted.left.small-icons .owner > img, .tilted.left.small-icons .owner > .thumbnail, .tilted .left.small-icons .icon > svg, .tilted .left.small-icons .icon > img, .tilted .left.small-icons .icon > .thumbnail, .tilted .left.small-icons .owner > svg, .tilted .left.small-icons .owner > img, .tilted .left.small-icons .owner > .thumbnail {
+  transform: skewX(7.5deg) scale(0.9);
+}
+.tilted.left.large-icons .icon > svg, .tilted.left.large-icons .icon > img, .tilted.left.large-icons .icon > .thumbnail, .tilted.left.large-icons .owner > svg, .tilted.left.large-icons .owner > img, .tilted.left.large-icons .owner > .thumbnail, .tilted .left.large-icons .icon > svg, .tilted .left.large-icons .icon > img, .tilted .left.large-icons .icon > .thumbnail, .tilted .left.large-icons .owner > svg, .tilted .left.large-icons .owner > img, .tilted .left.large-icons .owner > .thumbnail {
+  transform: skewX(7.5deg) scale(1.1);
+}
+.tilted.right .icon > svg, .tilted.right .icon > img, .tilted.right .icon > .thumbnail, .tilted.right .owner > svg, .tilted.right .owner > img, .tilted.right .owner > .thumbnail, .tilted .right .icon > svg, .tilted .right .icon > img, .tilted .right .icon > .thumbnail, .tilted .right .owner > svg, .tilted .right .owner > img, .tilted .right .owner > .thumbnail {
+  transform: skewX(-7.5deg);
+}
+.tilted.right.small-icons .icon > svg, .tilted.right.small-icons .icon > img, .tilted.right.small-icons .icon > .thumbnail, .tilted.right.small-icons .owner > svg, .tilted.right.small-icons .owner > img, .tilted.right.small-icons .owner > .thumbnail, .tilted .right.small-icons .icon > svg, .tilted .right.small-icons .icon > img, .tilted .right.small-icons .icon > .thumbnail, .tilted .right.small-icons .owner > svg, .tilted .right.small-icons .owner > img, .tilted .right.small-icons .owner > .thumbnail {
+  transform: skewX(-7.5deg) scale(0.9);
+}
+.tilted.right.large-icons .icon > svg, .tilted.right.large-icons .icon > img, .tilted.right.large-icons .icon > .thumbnail, .tilted.right.large-icons .owner > svg, .tilted.right.large-icons .owner > img, .tilted.right.large-icons .owner > .thumbnail, .tilted .right.large-icons .icon > svg, .tilted .right.large-icons .icon > img, .tilted .right.large-icons .icon > .thumbnail, .tilted .right.large-icons .owner > svg, .tilted .right.large-icons .owner > img, .tilted .right.large-icons .owner > .thumbnail {
+  transform: skewX(-7.5deg) scale(1.1);
+}
+.tilted.up .icon > svg, .tilted.up .icon > img, .tilted.up .icon > .thumbnail, .tilted.up .owner > svg, .tilted.up .owner > img, .tilted.up .owner > .thumbnail, .tilted .up .icon > svg, .tilted .up .icon > img, .tilted .up .icon > .thumbnail, .tilted .up .owner > svg, .tilted .up .owner > img, .tilted .up .owner > .thumbnail {
+  transform: skewY(-7.5deg);
+}
+.tilted.up.small-icons .icon > svg, .tilted.up.small-icons .icon > img, .tilted.up.small-icons .icon > .thumbnail, .tilted.up.small-icons .owner > svg, .tilted.up.small-icons .owner > img, .tilted.up.small-icons .owner > .thumbnail, .tilted .up.small-icons .icon > svg, .tilted .up.small-icons .icon > img, .tilted .up.small-icons .icon > .thumbnail, .tilted .up.small-icons .owner > svg, .tilted .up.small-icons .owner > img, .tilted .up.small-icons .owner > .thumbnail {
+  transform: skewY(-7.5deg) scale(0.9);
+}
+.tilted.up.large-icons .icon > svg, .tilted.up.large-icons .icon > img, .tilted.up.large-icons .icon > .thumbnail, .tilted.up.large-icons .owner > svg, .tilted.up.large-icons .owner > img, .tilted.up.large-icons .owner > .thumbnail, .tilted .up.large-icons .icon > svg, .tilted .up.large-icons .icon > img, .tilted .up.large-icons .icon > .thumbnail, .tilted .up.large-icons .owner > svg, .tilted .up.large-icons .owner > img, .tilted .up.large-icons .owner > .thumbnail {
+  transform: skewY(-7.5deg) scale(1.1);
+}
+.tilted.down .icon > svg, .tilted.down .icon > img, .tilted.down .icon > .thumbnail, .tilted.down .owner > svg, .tilted.down .owner > img, .tilted.down .owner > .thumbnail, .tilted .down .icon > svg, .tilted .down .icon > img, .tilted .down .icon > .thumbnail, .tilted .down .owner > svg, .tilted .down .owner > img, .tilted .down .owner > .thumbnail {
+  transform: skewY(7.5deg);
+}
+.tilted.down.small-icons .icon > svg, .tilted.down.small-icons .icon > img, .tilted.down.small-icons .icon > .thumbnail, .tilted.down.small-icons .owner > svg, .tilted.down.small-icons .owner > img, .tilted.down.small-icons .owner > .thumbnail, .tilted .down.small-icons .icon > svg, .tilted .down.small-icons .icon > img, .tilted .down.small-icons .icon > .thumbnail, .tilted .down.small-icons .owner > svg, .tilted .down.small-icons .owner > img, .tilted .down.small-icons .owner > .thumbnail {
+  transform: skewY(7.5deg) scale(0.9);
+}
+.tilted.down.large-icons .icon > svg, .tilted.down.large-icons .icon > img, .tilted.down.large-icons .icon > .thumbnail, .tilted.down.large-icons .owner > svg, .tilted.down.large-icons .owner > img, .tilted.down.large-icons .owner > .thumbnail, .tilted .down.large-icons .icon > svg, .tilted .down.large-icons .icon > img, .tilted .down.large-icons .icon > .thumbnail, .tilted .down.large-icons .owner > svg, .tilted .down.large-icons .owner > img, .tilted .down.large-icons .owner > .thumbnail {
+  transform: skewY(7.5deg) scale(1.1);
+}
+.tilted .tile > .icon > .thumbnail {
+  transform: none !important;
+}
+
+.thumbnail.photo {
+  border-radius: 0;
+  background-size: cover !important;
+}
+.thumbnail.photo:after {
+  border-radius: 0;
+}
+
+.polaroid.photo {
+  border: 8px solid white;
+  border-bottom: 35px solid white;
+  box-sizing: content-box;
+}
+
+.overflow.photo {
+  transform: scale(1.1);
+}
+
+.tilted.photo {
+  transform: rotate(-7.5deg);
+}
+
+.tilted.overflow.photo {
+  transform: rotate(-7.5deg);
+}
+
+.photo.shadowed, .image.shadowed {
+  box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.25);
+}
+.photo.shadowed.small, .image.shadowed.small {
+  box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.25);
+}
+
+outlined.photo {
+  border-width: 3px;
+  border-style: 3px;
+}
+
+.glossy.photo::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(15deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.25) 10%, rgba(255, 255, 255, 0) 25%), linear-gradient(-30deg, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0.15) 90%, rgba(0, 0, 0, 0.5) 100%);
+  mix-blend-mode: normal;
+}
+
+.inline.gallery > .images .item {
+  display: block;
+  max-width: 100%;
+  margin: 50px;
+  /*
+  &:first-child,
+  & + .item {
+  	margin-top: 50px;
+  }
+  &:last-child {
+  	margin-bottom: 50px;
+  }
+  */
+}
+.inline.gallery > .images .item img {
+  max-width: 100%;
+}
+
+.fancybox-skin {
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  background: none !important;
+  filter: drop-shadow(5px 5px 20px black);
+}
+.fancybox-skin .fancybox-outer {
+  background: none;
+}
+.fancybox-skin .fancybox-outer .fancybox-inner {
+  background: none;
+}
+.fancybox-skin .fancybox-outer .fancybox-inner .fancybox-image {
+  background: none;
+}
+.fancybox-skin .fancybox-title {
+  font: unset;
+}
+
+.round .fancybox-skin .fancybox-image {
+  border-radius: 15px;
+}
+
+.rounded .fancybox-skin .fancybox-image {
+  border-radius: 7px;
+}
+
+body[browser=firefox] img.pixelated {
+  image-rendering: -moz-crisp-edges;
+}
+
+[browser=safari] .icon > svg, [browser=safari] .icon .thumbnail, [browser=safari] .tile > svg, [browser=safari] .tile .thumbnail {
+  transform: translateZ(0);
+}
+[browser=safari].tilted.left .icon > svg, [browser=safari].tilted.left .icon .thumbnail, [browser=safari].tilted.left .tile > svg, [browser=safari].tilted.left .tile .thumbnail, [browser=safari].tilted .left .icon > svg, [browser=safari].tilted .left .icon .thumbnail, [browser=safari].tilted .left .tile > svg, [browser=safari].tilted .left .tile .thumbnail {
+  transform: skewX(7.5deg) translateZ(0);
+}
+[browser=safari].tilted.left.small-icons .icon > svg, [browser=safari].tilted.left.small-icons .icon .thumbnail, [browser=safari].tilted.left.small-icons .tile > svg, [browser=safari].tilted.left.small-icons .tile .thumbnail, [browser=safari].tilted .left.small-icons .icon > svg, [browser=safari].tilted .left.small-icons .icon .thumbnail, [browser=safari].tilted .left.small-icons .tile > svg, [browser=safari].tilted .left.small-icons .tile .thumbnail {
+  transform: skewX(7.5deg) scale(0.9) translateZ(0);
+}
+[browser=safari].tilted.left.large-icons .icon > svg, [browser=safari].tilted.left.large-icons .icon .thumbnail, [browser=safari].tilted.left.large-icons .tile > svg, [browser=safari].tilted.left.large-icons .tile .thumbnail, [browser=safari].tilted .left.large-icons .icon > svg, [browser=safari].tilted .left.large-icons .icon .thumbnail, [browser=safari].tilted .left.large-icons .tile > svg, [browser=safari].tilted .left.large-icons .tile .thumbnail {
+  transform: skewX(7.5deg) scale(1.1) translateZ(0);
+}
+[browser=safari].tilted.right .icon > svg, [browser=safari].tilted.right .icon .thumbnail, [browser=safari].tilted.right .tile > svg, [browser=safari].tilted.right .tile .thumbnail, [browser=safari].tilted .right .icon > svg, [browser=safari].tilted .right .icon .thumbnail, [browser=safari].tilted .right .tile > svg, [browser=safari].tilted .right .tile .thumbnail {
+  transform: skewX(-7.5deg) translateZ(0);
+}
+[browser=safari].tilted.right.small-icons .icon > svg, [browser=safari].tilted.right.small-icons .icon .thumbnail, [browser=safari].tilted.right.small-icons .tile > svg, [browser=safari].tilted.right.small-icons .tile .thumbnail, [browser=safari].tilted .right.small-icons .icon > svg, [browser=safari].tilted .right.small-icons .icon .thumbnail, [browser=safari].tilted .right.small-icons .tile > svg, [browser=safari].tilted .right.small-icons .tile .thumbnail {
+  transform: skewX(-7.5deg) scale(0.9) translateZ(0);
+}
+[browser=safari].tilted.right.large-icons .icon > svg, [browser=safari].tilted.right.large-icons .icon .thumbnail, [browser=safari].tilted.right.large-icons .tile > svg, [browser=safari].tilted.right.large-icons .tile .thumbnail, [browser=safari].tilted .right.large-icons .icon > svg, [browser=safari].tilted .right.large-icons .icon .thumbnail, [browser=safari].tilted .right.large-icons .tile > svg, [browser=safari].tilted .right.large-icons .tile .thumbnail {
+  transform: skewX(-7.5deg) scale(1.1) translateZ(0);
+}
+[browser=safari].tilted.up .icon > svg, [browser=safari].tilted.up .icon .thumbnail, [browser=safari].tilted.up .tile > svg, [browser=safari].tilted.up .tile .thumbnail, [browser=safari].tilted .up .icon > svg, [browser=safari].tilted .up .icon .thumbnail, [browser=safari].tilted .up .tile > svg, [browser=safari].tilted .up .tile .thumbnail {
+  transform: skewY(-7.5deg) translateZ(0);
+}
+[browser=safari].tilted.up.small-icons .icon > svg, [browser=safari].tilted.up.small-icons .icon .thumbnail, [browser=safari].tilted.up.small-icons .tile > svg, [browser=safari].tilted.up.small-icons .tile .thumbnail, [browser=safari].tilted .up.small-icons .icon > svg, [browser=safari].tilted .up.small-icons .icon .thumbnail, [browser=safari].tilted .up.small-icons .tile > svg, [browser=safari].tilted .up.small-icons .tile .thumbnail {
+  transform: skewY(-7.5deg) scale(0.9) translateZ(0);
+}
+[browser=safari].tilted.up.large-icons .icon > svg, [browser=safari].tilted.up.large-icons .icon .thumbnail, [browser=safari].tilted.up.large-icons .tile > svg, [browser=safari].tilted.up.large-icons .tile .thumbnail, [browser=safari].tilted .up.large-icons .icon > svg, [browser=safari].tilted .up.large-icons .icon .thumbnail, [browser=safari].tilted .up.large-icons .tile > svg, [browser=safari].tilted .up.large-icons .tile .thumbnail {
+  transform: skewY(-7.5deg) scale(1.1) translateZ(0);
+}
+[browser=safari].tilted.down .icon > svg, [browser=safari].tilted.down .icon .thumbnail, [browser=safari].tilted.down .tile > svg, [browser=safari].tilted.down .tile .thumbnail, [browser=safari].tilted .down .icon > svg, [browser=safari].tilted .down .icon .thumbnail, [browser=safari].tilted .down .tile > svg, [browser=safari].tilted .down .tile .thumbnail {
+  transform: skewY(7.5deg) translateZ(0);
+}
+[browser=safari].tilted.down.small-icons .icon > svg, [browser=safari].tilted.down.small-icons .icon .thumbnail, [browser=safari].tilted.down.small-icons .tile > svg, [browser=safari].tilted.down.small-icons .tile .thumbnail, [browser=safari].tilted .down.small-icons .icon > svg, [browser=safari].tilted .down.small-icons .icon .thumbnail, [browser=safari].tilted .down.small-icons .tile > svg, [browser=safari].tilted .down.small-icons .tile .thumbnail {
+  transform: skewY(7.5deg) scale(0.9) translateZ(0);
+}
+[browser=safari].tilted.down.large-icons .icon > svg, [browser=safari].tilted.down.large-icons .icon .thumbnail, [browser=safari].tilted.down.large-icons .tile > svg, [browser=safari].tilted.down.large-icons .tile .thumbnail, [browser=safari].tilted .down.large-icons .icon > svg, [browser=safari].tilted .down.large-icons .icon .thumbnail, [browser=safari].tilted .down.large-icons .tile > svg, [browser=safari].tilted .down.large-icons .tile .thumbnail {
+  transform: skewY(7.5deg) scale(1.1) translateZ(0);
+}
+
+/******************************************************************************\
+|                                                                              |
+|                             _medium-images.scss                              |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -151,12 +432,13 @@ body.binary .thumbnail.photo {
 body.binary .profile.photo .thumbnail.missing i {
   color: white;
 }
-body.binary[device="desktop"][browser="safari"] .fancybox-image {
+body.binary[device=desktop][browser=safari] .fancybox-image {
   -webkit-transform: none !important;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                              medium-layout.less                              |
+|                             _medium-layout.scss                              |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -174,7 +456,7 @@ body.binary {
   color: black;
 }
 body.binary .well {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
@@ -187,9 +469,10 @@ body.binary .well:not(.gallery) {
 body.binary .toolbar {
   background-color: white;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                              medium-pages.less                              |
+|                             _medium-pages.scss                               |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -204,7 +487,7 @@ body.binary .toolbar {
 |        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 body.binary .page {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
@@ -213,17 +496,11 @@ body.binary .page {
 body.binary .page a {
   text-decoration: underline;
 }
-body.binary .page .contents,
-body.binary .page .footer {
+body.binary .page .contents, body.binary .page .footer {
   image-rendering: auto;
 }
 body.binary .page .attention {
-  /*
-			color: white;
-			background-color: black;
-			.unoutline-text();
-			*/
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
@@ -239,7 +516,7 @@ body.binary .page .contents {
   image-rendering: auto;
 }
 body.binary .page .contents .breadcrumb {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
@@ -250,7 +527,7 @@ body.binary .page .contents .breadcrumb li > a {
   text-decoration: underline;
 }
 body.binary .page .contents.colored {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
@@ -258,9 +535,7 @@ body.binary .page .contents.colored {
   color: black !important;
   text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
 }
-body.binary .page .contents.colored h2,
-body.binary .page .contents.colored a,
-body.binary .page .contents.colored i {
+body.binary .page .contents.colored h2, body.binary .page .contents.colored a, body.binary .page .contents.colored i {
   color: black !important;
 }
 body.binary .page .contents .tip h3 .icon i {
@@ -270,14 +545,14 @@ body.binary .page .footer {
   color: white;
   background: black;
 }
-body.binary .page .footer .info,
-body.binary .page .footer .branding {
+body.binary .page .footer .info, body.binary .page .footer .branding {
   color: white !important;
   background: black !important;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                              medium-panels.less                              |
+|                             _medium-panels.scss                              |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -292,7 +567,7 @@ body.binary .page .footer .branding {
 |        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 body.binary .panel {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
@@ -312,7 +587,7 @@ body.binary .panel.empty {
   text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
 }
 body.binary .panel.selected {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHElEQVQIHWNkYGD4D8RwwARnQRksSAKMIDaGCgBBbgEKSB2J0wAAAABJRU5ErkJggg==');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHElEQVQIHWNkYGD4D8RwwARnQRksSAKMIDaGCgBBbgEKSB2J0wAAAABJRU5ErkJggg==");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
@@ -324,9 +599,10 @@ body.binary .tab-content .panels > li > form {
   border-width: 1px;
   border-style: solid;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                             medium-splitters.less                            |
+|                            _medium-splitters.scss                            |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -341,17 +617,18 @@ body.binary .tab-content .panels > li > form {
 |        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 body.binary .split-view .gutter .handle {
-  background-image: url('../../../../images/splitters/black-grip.png');
+  background-image: url("../../../../images/splitters/black-grip.png");
 }
 body.binary .split-view .gutter.gutter-horizontal .handle {
-  background-image: url('../../../../images/splitters/black-horizontal-grip.png');
+  background-image: url("../../../../images/splitters/black-horizontal-grip.png");
 }
 body.binary .split-view .gutter.gutter-vertical .handle {
-  background-image: url('../../../../images/splitters/black-vertical-grip.png');
+  background-image: url("../../../../images/splitters/black-vertical-grip.png");
 }
+
 /******************************************************************************\
 |                                                                              |
-|                             medium-tables.less                               |
+|                            _medium-tables.scss                               |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -381,7 +658,7 @@ body.binary table tbody td.selected:not(.item)::after {
   border-color: black;
 }
 body.binary table tbody td.highlighted {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
@@ -397,9 +674,10 @@ body.binary table.tablesorter thead tr .tablesorter-headerAsc:not(.sorter-false)
 body.binary table.tablesorter thead tr .tablesorter-headerDesc:not(.sorter-false) {
   background-image: url(../../../../vendor/jquery/tablesorter/images/desc-light.gif);
 }
+
 /******************************************************************************\
 |                                                                              |
-|                           medium-typography.less                             |
+|                          _medium-typography.scss                             |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -413,23 +691,20 @@ body.binary table.tablesorter thead tr .tablesorter-headerDesc:not(.sorter-false
 |******************************************************************************|
 |        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
-body.binary .page h1,
-body.binary .page h2,
-body.binary .page h3 {
+body.binary .page h1, body.binary .page h2, body.binary .page h3 {
   color: black !important;
   text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
 }
-body.binary .page h1 i,
-body.binary .page h2 i,
-body.binary .page h3 i {
+body.binary .page h1 i, body.binary .page h2 i, body.binary .page h3 i {
   color: black !important;
 }
 body.binary hr {
   background: black;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                             medium-welcome.less                              |
+|                            _medium-welcome.scss                              |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -443,18 +718,18 @@ body.binary hr {
 |******************************************************************************|
 |        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
-body.binary .welcome.page .contents .masthead,
-body.binary .welcome.page .contents .splash {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=');
+body.binary .welcome.page .contents .masthead, body.binary .welcome.page .contents .splash {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
   background-color: white;
   background-color: transparent;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                                   styles.less                                |
+|                                 _index.scss                                  |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -470,7 +745,7 @@ body.binary .welcome.page .contents .splash {
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                              medium-badges.less                              |
+|                             _medium-badges.scss                              |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -489,9 +764,10 @@ body.binary .welcome.page .contents .splash {
   border-color: white;
   text-shadow: none;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                               medium-buttons.less                            |
+|                              _medium-buttons.scss                            |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -505,19 +781,16 @@ body.binary .welcome.page .contents .splash {
 |******************************************************************************|
 |        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
-body.binary .button:active,
-body.binary .button.selected {
+body.binary .button:active, body.binary .button.selected {
   color: white;
   background: black;
   border-color: black;
   text-shadow: none;
 }
-body.binary .button:active i,
-body.binary .button.selected i {
+body.binary .button:active i, body.binary .button.selected i {
   color: white;
 }
-body.binary .button:active svg,
-body.binary .button.selected svg {
+body.binary .button:active svg, body.binary .button.selected svg {
   fill: white;
 }
 body.binary .btn {
@@ -528,27 +801,23 @@ body.binary .btn:active {
   background: black;
   border-color: black;
 }
-body.binary .btn.btn-primary,
-body.binary .btn.btn-primary:focus {
+body.binary .btn.btn-primary, body.binary .btn.btn-primary:focus {
   color: white;
   background-color: black;
   border-color: black;
 }
-body.binary .btn.btn-primary:disabled,
-body.binary .btn.btn-primary:focus:disabled {
+body.binary .btn.btn-primary:disabled, body.binary .btn.btn-primary:focus:disabled {
   border-style: dashed;
   border-color: white;
 }
-body.binary .btn:disabled,
-body.binary .btn:disabled:hover {
+body.binary .btn:disabled, body.binary .btn:disabled:hover {
   opacity: 1;
   color: black;
   background-color: white;
   border-color: black;
   border-style: dashed;
 }
-body.binary #main .btn.btn-primary,
-body.binary .modals .btn.btn-primary {
+body.binary #main .btn.btn-primary, body.binary .modals .btn.btn-primary {
   position: relative;
   color: black;
   background-color: white;
@@ -556,8 +825,7 @@ body.binary .modals .btn.btn-primary {
   border-style: solid !important;
   border-color: unset;
 }
-body.binary #main .btn.btn-primary::after,
-body.binary .modals .btn.btn-primary::after {
+body.binary #main .btn.btn-primary::after, body.binary .modals .btn.btn-primary::after {
   content: "";
   position: absolute;
   left: 0;
@@ -570,56 +838,51 @@ body.binary .modals .btn.btn-primary::after {
   margin: 1px;
   pointer-events: none;
 }
-body.binary #main .btn.btn-primary:active,
-body.binary .modals .btn.btn-primary:active {
+body.binary #main .btn.btn-primary:active, body.binary .modals .btn.btn-primary:active {
   color: white;
   background-color: black;
   border-color: black;
 }
-body.binary #main .btn.btn-primary:disabled::after,
-body.binary .modals .btn.btn-primary:disabled::after {
+body.binary #main .btn.btn-primary:disabled::after, body.binary .modals .btn.btn-primary:disabled::after {
   border-style: dashed;
 }
-body.binary.rounded-buttons .btn.btn-primary,
-body.binary.rounded.auto-corner-buttons .btn.btn-primary {
+body.binary.rounded-buttons .btn.btn-primary, body.binary.rounded.auto-corner-buttons .btn.btn-primary {
   border-radius: 7px;
 }
-body.binary.rounded-buttons .btn.btn-primary::after,
-body.binary.rounded.auto-corner-buttons .btn.btn-primary::after {
+body.binary.rounded-buttons .btn.btn-primary::after, body.binary.rounded.auto-corner-buttons .btn.btn-primary::after {
   border-radius: 5px;
 }
-body.binary.round-buttons .btn.btn-primary,
-body.binary.round.auto-corner-buttons .btn.btn-primary {
+body.binary.round-buttons .btn.btn-primary, body.binary.round.auto-corner-buttons .btn.btn-primary {
   border-radius: 17px;
 }
-body.binary.round-buttons .btn.btn-primary::after,
-body.binary.round.auto-corner-buttons .btn.btn-primary::after {
+body.binary.round-buttons .btn.btn-primary::after, body.binary.round.auto-corner-buttons .btn.btn-primary::after {
   border-radius: 15px;
 }
-body.binary[device="desktop"] .btn:not(:active):not(:disabled):hover {
+body.binary[device=desktop] .btn:not(:active):not(:disabled):hover {
   color: black;
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
   background-color: white;
   text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
 }
-body.binary[device="desktop"] .btn.btn-primary:hover {
+body.binary[device=desktop] .btn.btn-primary:hover {
   color: white;
   background-color: black;
   border-color: black;
 }
-body.binary[device="desktop"] .btn:disabled:hover {
+body.binary[device=desktop] .btn:disabled:hover {
   opacity: 1;
   color: black;
   background-color: white;
   border-color: black;
   border-style: dashed;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                             medium-dock-bars.less                            |
+|                            _medium-dock-bars.scss                            |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -634,7 +897,7 @@ body.binary[device="desktop"] .btn:disabled:hover {
 |        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 body.binary #dock-bar .shelf {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
@@ -643,24 +906,19 @@ body.binary #dock-bar .shelf {
 body.binary #dock-bar .dock .apps .item .icon img {
   display: none;
 }
-body.binary #dock-bar .dock .apps .item .icon,
-body.binary #dock-bar .dock .tasks .item .icon {
+body.binary #dock-bar .dock .apps .item .icon, body.binary #dock-bar .dock .tasks .item .icon {
   background: white;
 }
-body.binary #dock-bar .dock .apps .item .icon i,
-body.binary #dock-bar .dock .tasks .item .icon i {
+body.binary #dock-bar .dock .apps .item .icon i, body.binary #dock-bar .dock .tasks .item .icon i {
   color: unset;
 }
-body.binary #dock-bar .dock .apps .item.selected .icon,
-body.binary #dock-bar .dock .tasks .item.selected .icon {
+body.binary #dock-bar .dock .apps .item.selected .icon, body.binary #dock-bar .dock .tasks .item.selected .icon {
   background: black;
 }
-body.binary #dock-bar .dock .apps .item.selected .icon i,
-body.binary #dock-bar .dock .tasks .item.selected .icon i {
+body.binary #dock-bar .dock .apps .item.selected .icon i, body.binary #dock-bar .dock .tasks .item.selected .icon i {
   color: white;
 }
-body.binary #dock-bar .dock .apps .indicator,
-body.binary #dock-bar .dock .tasks .indicator {
+body.binary #dock-bar .dock .apps .indicator, body.binary #dock-bar .dock .tasks .indicator {
   background-color: black;
 }
 body.binary #dock-bar .dock .tasks svg {
@@ -681,9 +939,10 @@ body.binary #window-icon .window-icon-header {
 body.binary #window-icon .window-icon-button {
   fill: white !important;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                              medium-menus.less                               |
+|                             _medium-menus.scss                               |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -697,81 +956,66 @@ body.binary #window-icon .window-icon-button {
 |******************************************************************************|
 |        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
-body.binary .dropdown-menu,
-body.binary .menu-content {
+body.binary .dropdown-menu, body.binary .menu-content {
   background-color: white;
 }
-body.binary .menu li > a.selected,
-body.binary .dropdown-menu li > a.selected,
-body.binary .menu li > a:active,
-body.binary .dropdown-menu li > a:active {
+body.binary .menu li > a.selected, body.binary .menu li > a:active, body.binary .dropdown-menu li > a.selected, body.binary .dropdown-menu li > a:active {
   color: white;
   background-color: black;
   text-shadow: none;
 }
-body.binary .menu li > a:hover,
-body.binary .dropdown-menu li > a:hover {
+body.binary .menu li > a:hover, body.binary .dropdown-menu li > a:hover {
   color: white;
   background-color: black;
   text-shadow: none;
 }
-body.binary .menu li.divider,
-body.binary .dropdown-menu li.divider {
+body.binary .menu li.divider, body.binary .dropdown-menu li.divider {
   border-bottom-style: dotted;
 }
-body.binary .menu li.divider:hover,
-body.binary .dropdown-menu li.divider:hover {
+body.binary .menu li.divider:hover, body.binary .dropdown-menu li.divider:hover {
   border-bottom-style: dotted;
 }
-body.binary .menu > li.disabled,
-body.binary .dropdown-menu > li.disabled {
+body.binary .menu > li.disabled, body.binary .dropdown-menu > li.disabled {
   color: unset;
   position: relative;
 }
-body.binary .menu > li.disabled > a,
-body.binary .dropdown-menu > li.disabled > a {
+body.binary .menu > li.disabled > a, body.binary .dropdown-menu > li.disabled > a {
   color: unset;
 }
-body.binary .menu > li.disabled > a > i,
-body.binary .dropdown-menu > li.disabled > a > i {
+body.binary .menu > li.disabled > a > i, body.binary .dropdown-menu > li.disabled > a > i {
   color: unset;
 }
-body.binary .menu > li.disabled::after,
-body.binary .dropdown-menu > li.disabled::after {
+body.binary .menu > li.disabled::after, body.binary .dropdown-menu > li.disabled::after {
   content: "";
   position: absolute;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAAqADAAQAAAABAAAAAgAAAADtGLyqAAAAEElEQVQIHWP4DwQMMADiAABHygf5AsusngAAAABJRU5ErkJggg==');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAAqADAAQAAAABAAAAAgAAAADtGLyqAAAAEElEQVQIHWP4DwQMMADiAABHygf5AsusngAAAABJRU5ErkJggg==");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
 }
-body.binary .menu ul.panels li:not(:last-child),
-body.binary .dropdown-menu ul.panels li:not(:last-child) {
+body.binary .menu ul.panels li:not(:last-child), body.binary .dropdown-menu ul.panels li:not(:last-child) {
   border-bottom-style: dotted;
 }
-body.binary .dropdown-menu > li.open > a,
-body.binary .dropdown-menu > li.open a:focus,
-body.binary .dropdown-menu > li.open:active {
+body.binary .dropdown-menu > li.open > a, body.binary .dropdown-menu > li.open a:focus, body.binary .dropdown-menu > li.open:active {
   color: white;
   background-color: black;
   border-color: black;
   text-shadow: none;
 }
-body.binary .dropdown-menu > li.open > a:hover,
-body.binary .dropdown-menu > li.open a:focus:hover,
-body.binary .dropdown-menu > li.open:active:hover {
+body.binary .dropdown-menu > li.open > a:hover, body.binary .dropdown-menu > li.open a:focus:hover, body.binary .dropdown-menu > li.open:active:hover {
   color: white;
   background-color: black;
   border-color: black;
   text-shadow: none;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                             medium-menu-bars.less                            |
+|                            _medium-menu-bars.scss                            |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -785,57 +1029,50 @@ body.binary .dropdown-menu > li.open:active:hover {
 |******************************************************************************|
 |        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
-body.binary .menu-bar > ul.nav-menus > li > a,
-body.binary .menu-bar > ul.nav-menus > li > a:focus {
+body.binary .menu-bar > ul.nav-menus > li > a, body.binary .menu-bar > ul.nav-menus > li > a:focus {
   color: black;
-  background: none;
+  background-color: none;
 }
-body.binary .menu-bar > ul.nav-menus > li > a > i,
-body.binary .menu-bar > ul.nav-menus > li > a:focus > i {
+body.binary .menu-bar > ul.nav-menus > li > a > i, body.binary .menu-bar > ul.nav-menus > li > a:focus > i {
   color: black;
 }
-body.binary .menu-bar > ul.nav-menus > li > a:hover,
-body.binary .menu-bar > ul.nav-menus > li > a:focus:hover {
+body.binary .menu-bar > ul.nav-menus > li > a:hover, body.binary .menu-bar > ul.nav-menus > li > a:focus:hover {
   color: white;
   background-color: black;
   border-color: black;
 }
-body.binary .menu-bar > ul.nav-menus > li > a:hover > i,
-body.binary .menu-bar > ul.nav-menus > li > a:focus:hover > i {
+body.binary .menu-bar > ul.nav-menus > li > a:hover > i, body.binary .menu-bar > ul.nav-menus > li > a:focus:hover > i {
   color: white;
 }
-body.binary .menu-bar > ul.nav-menus > li > a:active,
-body.binary .menu-bar > ul.nav-menus > li > a:focus:active {
+body.binary .menu-bar > ul.nav-menus > li > a:active, body.binary .menu-bar > ul.nav-menus > li > a:focus:active {
   color: white;
   background-color: black;
   border-color: black;
 }
-body.binary .menu-bar > ul.nav-menus > li > a:active > i,
-body.binary .menu-bar > ul.nav-menus > li > a:focus:active > i {
+body.binary .menu-bar > ul.nav-menus > li > a:active > i, body.binary .menu-bar > ul.nav-menus > li > a:focus:active > i {
   color: white;
 }
-body.binary .menu-bar > ul.nav-menus > li.open > a,
-body.binary .menu-bar > ul.nav-menus > li.open > a:focus {
+body.binary .menu-bar > ul.nav-menus > li.open > a, body.binary .menu-bar > ul.nav-menus > li.open > a:focus {
   color: white;
   background-color: black;
   border-color: black;
 }
-body.binary .menu-bar > ul.nav-menus > li.open > a:hover,
-body.binary .menu-bar > ul.nav-menus > li.open > a:focus:hover {
+body.binary .menu-bar > ul.nav-menus > li.open > a:hover, body.binary .menu-bar > ul.nav-menus > li.open > a:focus:hover {
   color: white;
   background-color: black;
   border-color: black;
 }
 body.binary .menu-bar > ul.nav-menus > li.disabled a {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
   background-color: white;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                             medium-nav-bars.less                             |
+|                            _medium-nav-bars.scss                             |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -869,32 +1106,26 @@ body.binary .navbar-inverse .navbar-nav > li > a i {
 body.binary .navbar-inverse .navbar-nav > li.active {
   background-color: white;
 }
-body.binary .navbar-inverse .navbar-nav > li.active > a,
-body.binary .navbar-inverse .navbar-nav > li.active > a:focus {
+body.binary .navbar-inverse .navbar-nav > li.active > a, body.binary .navbar-inverse .navbar-nav > li.active > a:focus {
   color: black;
 }
-body.binary .navbar-inverse .navbar-nav > li.active > a:hover,
-body.binary .navbar-inverse .navbar-nav > li.active > a:focus:hover {
+body.binary .navbar-inverse .navbar-nav > li.active > a:hover, body.binary .navbar-inverse .navbar-nav > li.active > a:focus:hover {
   color: black;
   background-color: white;
 }
-body.binary .navbar-inverse .navbar-nav > li.active > a:hover i,
-body.binary .navbar-inverse .navbar-nav > li.active > a:focus:hover i {
+body.binary .navbar-inverse .navbar-nav > li.active > a:hover i, body.binary .navbar-inverse .navbar-nav > li.active > a:focus:hover i {
   color: black;
 }
 body.binary .navbar-inverse .navbar-nav > li.open {
   background-color: white;
 }
-body.binary .navbar-inverse .navbar-nav > li.open > a,
-body.binary .navbar-inverse .navbar-nav > li.open > a:focus {
+body.binary .navbar-inverse .navbar-nav > li.open > a, body.binary .navbar-inverse .navbar-nav > li.open > a:focus {
   color: black;
 }
-body.binary .navbar-inverse .navbar-nav > li.open > a:hover,
-body.binary .navbar-inverse .navbar-nav > li.open > a:focus:hover {
+body.binary .navbar-inverse .navbar-nav > li.open > a:hover, body.binary .navbar-inverse .navbar-nav > li.open > a:focus:hover {
   color: black;
 }
-body.binary .navbar-inverse .navbar-nav > li.open > a:hover i,
-body.binary .navbar-inverse .navbar-nav > li.open > a:focus:hover i {
+body.binary .navbar-inverse .navbar-nav > li.open > a:hover i, body.binary .navbar-inverse .navbar-nav > li.open > a:focus:hover i {
   color: black;
 }
 body.binary .navbar-inverse .navbar-nav .indicator .bar .inner {
@@ -910,9 +1141,10 @@ body.binary .navbar-inverse .navbar-nav.apps > li.current > a {
 body.binary .navbar-inverse .navbar-nav.apps > li.current > a i {
   color: black !important;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                            medium-page-dots.less                             |
+|                           _medium-page-dots.scss                             |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -932,10 +1164,12 @@ body.binary .flickity-page-dots .dot {
 }
 body.binary .flickity-page-dots .dot.is-selected {
   background: white;
+  border-color: white;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                           medium-progress-bars.less                          |
+|                          _medium-progress-bars.scss                          |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -957,9 +1191,10 @@ body.binary .progress {
 body.binary .progress .bar {
   background-color: black;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                             medium-run-menus.less                            |
+|                            _medium-run-menus.scss                            |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -989,7 +1224,7 @@ body.binary .footer-bar .run-menu .dropup.open .dropdown-toggle > i {
   color: black;
 }
 body.binary .footer-bar .run-menu .icon-grid {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
@@ -1000,15 +1235,16 @@ body.binary .footer-bar .run-menu .dropdown-menu li > a .icon {
   box-shadow: none;
 }
 body.binary .footer-bar .run-menu .dropdown-menu .divider {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
   background-color: white;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                            medium-scrollbars.less                            |
+|                           _medium-scrollbars.scss                            |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -1025,10 +1261,10 @@ body.binary .footer-bar .run-menu .dropdown-menu .divider {
 @media (min-width: 480px) {
   body.binary ::-webkit-scrollbar-thumb {
     background-color: white;
-    border-color: transparentz;
+    border-color: transparent;
   }
   body.binary ::-webkit-scrollbar-thumb:hover {
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=');
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=");
     background-size: 2px 2px;
     background-repeat: repeat;
     image-rendering: pixelated;
@@ -1041,16 +1277,14 @@ body.binary .footer-bar .run-menu .dropdown-menu .divider {
     border-width: 1px;
     border-color: black;
   }
-  body.binary.thick-scrollbars .sidebar > ::-webkit-scrollbar-thumb:vertical,
-  body.binary.thick-scrollbars .mainbar > ::-webkit-scrollbar-thumb:vertical {
+  body.binary.thick-scrollbars .sidebar > ::-webkit-scrollbar-thumb:vertical, body.binary.thick-scrollbars .mainbar > ::-webkit-scrollbar-thumb:vertical {
     border-right: none;
   }
-  body.binary.thick-scrollbars .sidebar > ::-webkit-scrollbar-thumb:horizontal,
-  body.binary.thick-scrollbars .mainbar > ::-webkit-scrollbar-thumb:horizontal {
+  body.binary.thick-scrollbars .sidebar > ::-webkit-scrollbar-thumb:horizontal, body.binary.thick-scrollbars .mainbar > ::-webkit-scrollbar-thumb:horizontal {
     border-bottom: none;
   }
   body.binary ::-webkit-scrollbar-track {
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=');
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=");
     background-size: 2px 2px;
     background-repeat: repeat;
     image-rendering: pixelated;
@@ -1063,9 +1297,10 @@ body.binary .footer-bar .run-menu .dropdown-menu .divider {
     border-top: 1px solid black;
   }
 }
+
 /******************************************************************************\
 |                                                                              |
-|                              medium-tabs.less                                |
+|                             _medium-tabs.scss                                |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -1080,37 +1315,29 @@ body.binary .footer-bar .run-menu .dropdown-menu .divider {
 |        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 body.binary ul.nav-tabs > li:not(.active) > a {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
   background-color: white;
 }
-body.binary ul.nav-tabs > li:not(.active) > a i,
-body.binary ul.nav-tabs > li:not(.active) > a label,
-body.binary ul.nav-tabs > li:not(.active) > a .name {
+body.binary ul.nav-tabs > li:not(.active) > a i, body.binary ul.nav-tabs > li:not(.active) > a label, body.binary ul.nav-tabs > li:not(.active) > a .name {
   text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
 }
 body.binary ul.nav-tabs > li.active > a {
   background: black;
 }
-body.binary ul.nav-tabs > li.active > a i,
-body.binary ul.nav-tabs > li.active > a label {
+body.binary ul.nav-tabs > li.active > a i, body.binary ul.nav-tabs > li.active > a label {
   text-shadow: none;
 }
-body.binary.show-tab-close-buttons ul.nav-tabs > li.active i.fa-times:hover,
-body.binary.show-tab-close-buttons ul.nav-tabs > li.active i.fa-xmark:hover {
+body.binary.show-tab-close-buttons ul.nav-tabs > li.active i.fa-times:hover, body.binary.show-tab-close-buttons ul.nav-tabs > li.active i.fa-xmark:hover {
   color: black;
   background-color: white;
 }
-body.binary.show-tab-close-buttons ul.nav-tabs > li.active i.fa-times:hover svg,
-body.binary.show-tab-close-buttons ul.nav-tabs > li.active i.fa-xmark:hover svg {
+body.binary.show-tab-close-buttons ul.nav-tabs > li.active i.fa-times:hover svg, body.binary.show-tab-close-buttons ul.nav-tabs > li.active i.fa-xmark:hover svg {
   fill: black;
 }
 body.binary ul.nav-tabs.flush > li:not(.active) a {
-  background-color: transparent;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
   background: none;
   background-size: unset;
   background-position: unset;
@@ -1119,9 +1346,10 @@ body.binary ul.nav-tabs.flush > li:not(.active) a {
   background-color: white;
   border-color: black;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                            medium-task-bars.less                             |
+|                           _medium-task-bars.scss                             |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -1138,9 +1366,10 @@ body.binary ul.nav-tabs.flush > li:not(.active) a {
 body.binary #desktop.task-bar-handles .footer-bar .handle {
   background: repeating-linear-gradient(to bottom, white 0px, white 1px, black 1px, black 2px);
 }
+
 /******************************************************************************\
 |                                                                              |
-|                             medium-tooltips.less                             |
+|                            _medium-tooltips.scss                             |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -1152,9 +1381,10 @@ body.binary #desktop.task-bar-handles .footer-bar .handle {
 body.binary .tooltip .tooltip-inner {
   text-shadow: none;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                                   styles.less                                |
+|                                 _index.scss                                  |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -1170,7 +1400,7 @@ body.binary .tooltip .tooltip-inner {
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                           medium-drag-n-drop.less                            |
+|                          _medium-drag-n-drop.scss                            |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -1186,14 +1416,15 @@ body.binary .tooltip .tooltip-inner {
 \******************************************************************************/
 body.binary .dropzone::after {
   text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAAqADAAQAAAABAAAAAgAAAADtGLyqAAAAEElEQVQIHWP4DwQMMADiAABHygf5AsusngAAAABJRU5ErkJggg==');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAAqADAAQAAAABAAAAAgAAAADtGLyqAAAAEElEQVQIHWP4DwQMMADiAABHygf5AsusngAAAABJRU5ErkJggg==");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                           medium-form-elements.less                          |
+|                          _medium-form-elements.scss                          |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -1218,7 +1449,7 @@ body.binary label.error {
 body.binary input:focus {
   box-shadow: none;
 }
-body.binary input:not([type="radio"]):not([type="checkbox"]):not([type="range"]),
+body.binary input:not([type=radio]):not([type=checkbox]):not([type=range]),
 body.binary textarea {
   border-width: 1px;
   border-style: solid;
@@ -1228,7 +1459,7 @@ body.binary textarea {
 body.binary textarea {
   background: white !important;
 }
-body.binary input:not([type="range"]):focus {
+body.binary input:not([type=range]):focus {
   box-shadow: none !important;
 }
 body.binary ::selection {
@@ -1242,9 +1473,10 @@ body.binary ::-moz-selection {
   text-shadow: none;
   opacity: 1;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                                medium-forms.less                             |
+|                               _medium-forms.scss                             |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -1270,7 +1502,7 @@ body.binary .notes {
   text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
 }
 body.binary .alert-warning {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
@@ -1279,9 +1511,10 @@ body.binary .alert-warning {
   text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
   border-color: black;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                              medium-sliders.less                             |
+|                             _medium-sliders.scss                             |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -1301,69 +1534,70 @@ body.binary .input {
 body.binary .input .input-group {
   display: flex;
 }
-body.binary .input input:not([type="range"]) {
+body.binary .input input:not([type=range]) {
   text-align: center;
 }
-body.binary .input input:not([type="range"]):focus {
+body.binary .input input:not([type=range]):focus {
   outline: none;
 }
 body.binary .input.selectable input {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
-body.binary input[type="range"]::-webkit-slider-thumb {
+body.binary input[type=range]::-webkit-slider-thumb {
   border-style: solid;
   border-color: unset;
   background-color: white;
   margin-top: -6px;
 }
-body.binary input[type="range"]::-webkit-slider-thumb:hover {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=');
+body.binary input[type=range]::-webkit-slider-thumb:hover {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
   background-color: white;
 }
-body.binary input[type="range"]::-webkit-slider-thumb:active {
+body.binary input[type=range]::-webkit-slider-thumb:active {
   background-color: black;
 }
-body.binary input[type="range"]::-moz-range-thumb {
+body.binary input[type=range]::-moz-range-thumb {
   border-style: solid;
   border-color: unset;
   background-color: white;
   margin-top: -6px;
 }
-body.binary input[type="range"]::-moz-range-thumb:hover {
+body.binary input[type=range]::-moz-range-thumb:hover {
   background-color: black;
 }
-body.binary input[type="range"]::-ms-thumb {
+body.binary input[type=range]::-ms-thumb {
   border-style: solid;
   border-color: unset;
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
   background-color: white;
 }
-body.binary input[type="range"]::-ms-thumb:hover {
+body.binary input[type=range]::-ms-thumb:hover {
   background-color: black;
 }
-body.binary input[type="range"]::-webkit-slider-runnable-track {
+body.binary input[type=range]::-webkit-slider-runnable-track {
   border-style: solid;
   border-color: unset;
   background-color: black;
 }
-body.binary input[type="range"]::-moz-range-track {
+body.binary input[type=range]::-moz-range-track {
   border-style: solid;
   border-color: unset;
   background-color: black;
 }
-body.binary input[type="range"]:focus::-webkit-slider-runnable-track {
+body.binary input[type=range]:focus::-webkit-slider-runnable-track {
   background-color: black !important;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                                   styles.less                                |
+|                                 _index.scss                                  |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -1379,7 +1613,7 @@ body.binary input[type="range"]:focus::-webkit-slider-runnable-track {
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                               medium-items.less                              |
+|                              _medium-items.scss                              |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -1415,10 +1649,7 @@ body.binary svg .file-corner {
   fill: white !important;
   stroke: black !important;
 }
-body.binary svg .file-icon path,
-body.binary svg .file-icon polygon,
-body.binary svg .file-icon circle,
-body.binary svg .file-icon rect {
+body.binary svg .file-icon path, body.binary svg .file-icon polygon, body.binary svg .file-icon circle, body.binary svg .file-icon rect {
   fill: black !important;
 }
 body.binary svg .file-type path {
@@ -1480,9 +1711,7 @@ body.binary svg .clipboard-corner {
 body.binary svg .clipboard-contents {
   fill: black;
 }
-body.binary svg .volume-icon,
-body.binary svg .volume-outlines,
-body.binary svg .volume-top {
+body.binary svg .volume-icon, body.binary svg .volume-outlines, body.binary svg .volume-top {
   fill: white !important;
   stroke: black !important;
 }
@@ -1491,7 +1720,7 @@ body.binary svg .volume-type path {
   fill: black !important;
 }
 body.binary .app-icons .item.selected .icon {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHElEQVQIHWNkYGD4D8RwwARnQRksSAKMIDaGCgBBbgEKSB2J0wAAAABJRU5ErkJggg==') !important;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHElEQVQIHWNkYGD4D8RwwARnQRksSAKMIDaGCgBBbgEKSB2J0wAAAABJRU5ErkJggg==") !important;
   background-size: 2px 2px !important;
   background-repeat: repeat !important;
   image-rendering: pixelated !important;
@@ -1500,9 +1729,10 @@ body.binary .app-icons .item.selected .icon {
 body.binary .app-icons .item.selected .icon i {
   color: black !important;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                            medium-item-icons.less                            |
+|                           _medium-item-icons.scss                            |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -1541,14 +1771,14 @@ body.binary .icon-grid .item:not(.selected):not(.highlighted) > .row:nth-child(3
   background-color: white;
 }
 body.binary .icon-grid .item.highlighted > .row:first-child .icon {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
   background-color: white;
 }
 body.binary .icon-grid .item.selected > .row:first-child .icon {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHElEQVQIHWNkYGD4D8RwwARnQRksSAKMIDaGCgBBbgEKSB2J0wAAAABJRU5ErkJggg==');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHElEQVQIHWNkYGD4D8RwwARnQRksSAKMIDaGCgBBbgEKSB2J0wAAAABJRU5ErkJggg==");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
@@ -1561,7 +1791,7 @@ body.binary .icon-grid .item.selected > .row:first-child .icon svg {
 body.binary .icon-grid .item.selected > .row:nth-child(2) .name {
   text-shadow: none;
 }
-body.binary .icon-grid .item.selected > .row:nth-child(2) .name[contenteditable="true"] {
+body.binary .icon-grid .item.selected > .row:nth-child(2) .name[contenteditable=true] {
   color: black;
   background-color: white;
   outline-color: black;
@@ -1571,9 +1801,10 @@ body.binary .icon-grid .item.selected > .row:nth-child(3) .details {
   background-color: black;
   text-shadow: none;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                            medium-item-lists.less                            |
+|                           _medium-item-lists.scss                            |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -1587,8 +1818,7 @@ body.binary .icon-grid .item.selected > .row:nth-child(3) .details {
 |******************************************************************************|
 |        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
-body.binary .item-list:not(.dropdown-menu) .item > .info .status i,
-body.binary .item-list:not(.dropdown-menu) .item > .info .icon:not(.marker) i {
+body.binary .item-list:not(.dropdown-menu) .item > .info .status i, body.binary .item-list:not(.dropdown-menu) .item > .info .icon:not(.marker) i {
   text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
 }
 body.binary .item-list:not(.dropdown-menu) .item > .info .specifics .details {
@@ -1610,25 +1840,26 @@ body.binary .item-list:not(.dropdown-menu) .item.selected > .info .details i {
 body.binary .item-list:not(.dropdown-menu) .item.selected > .info .name {
   text-shadow: none;
 }
-body.binary .item-list:not(.dropdown-menu) .item.selected > .info .name:not([contenteditable="true"]) {
+body.binary .item-list:not(.dropdown-menu) .item.selected > .info .name:not([contenteditable=true]) {
   color: white;
   background-color: black;
 }
-body.binary .item-list:not(.dropdown-menu) .item.selected > .info .name[contenteditable="true"] {
+body.binary .item-list:not(.dropdown-menu) .item.selected > .info .name[contenteditable=true] {
   color: black;
   background-color: white;
   outline-color: black;
 }
 body.binary .item-list:not(.dropdown-menu):not(.inline) .item:nth-child(odd):not(.selected) > div.info {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
   background-color: white;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                            medium-card-grids.less                            |
+|                           _medium-card-grids.scss                            |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -1645,8 +1876,7 @@ body.binary .item-list:not(.dropdown-menu):not(.inline) .item:nth-child(odd):not
 body.binary .card-grid .cards .item .card {
   background: white;
 }
-body.binary .card-grid .cards .item .card .icon > svg,
-body.binary .card-grid .cards .item .card .icon .thumbnail:not(.photo) {
+body.binary .card-grid .cards .item .card .icon > svg, body.binary .card-grid .cards .item .card .icon .thumbnail:not(.photo) {
   -webkit-filter: none;
   filter: none;
 }
@@ -1658,7 +1888,7 @@ body.binary .card-grid .cards .item.selected .card {
 body.binary .card-grid .cards .item.selected .card .row:first-child .name {
   text-shadow: none;
 }
-body.binary .card-grid .cards .item.selected .card .row:first-child .name[contenteditable="true"] {
+body.binary .card-grid .cards .item.selected .card .row:first-child .name[contenteditable=true] {
   color: black;
   background-color: white;
   outline-color: white;
@@ -1666,9 +1896,10 @@ body.binary .card-grid .cards .item.selected .card .row:first-child .name[conten
 body.binary .card-grid .cards .item.selected .card label {
   text-shadow: none;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                            medium-item-tiles.less                            |
+|                           _medium-item-tiles.scss                            |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -1683,23 +1914,22 @@ body.binary .card-grid .cards .item.selected .card label {
 |        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 body.binary .tile-grid .item > .tile > .icon {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
   background-color: white;
 }
-body.binary .tile-grid .item > .tile > .icon .thumbnail.photo,
-body.binary .tile-grid .item > .tile > .icon svg {
+body.binary .tile-grid .item > .tile > .icon .thumbnail.photo, body.binary .tile-grid .item > .tile > .icon svg {
   filter: none;
 }
 body.binary .tile-grid .item > .specifics .details {
   color: black;
   background-color: white;
 }
-body.binary .tile-grid .item:not(.selected) > .tile > .name:not([contenteditable="true"]) {
+body.binary .tile-grid .item:not(.selected) > .tile > .name:not([contenteditable=true]) {
   color: black;
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
@@ -1710,7 +1940,7 @@ body.binary .tile-grid .item.selected > .tile {
   outline-color: black;
 }
 body.binary .tile-grid .item.selected > .tile > .icon {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHElEQVQIHWNkYGD4D8RwwARnQRksSAKMIDaGCgBBbgEKSB2J0wAAAABJRU5ErkJggg==');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHElEQVQIHWNkYGD4D8RwwARnQRksSAKMIDaGCgBBbgEKSB2J0wAAAABJRU5ErkJggg==");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
@@ -1725,13 +1955,13 @@ body.binary .tile-grid .item.selected > .tile > .icon .thumbnail {
 body.binary .tile-grid .item.selected > .tile > .icon > svg {
   filter: invert(1);
 }
-body.binary .tile-grid .item.selected > .tile > .name:not([contenteditable="true"]) {
+body.binary .tile-grid .item.selected > .tile > .name:not([contenteditable=true]) {
   color: white;
   background-color: black;
   outline: none;
   text-shadow: none;
 }
-body.binary .tile-grid .item.selected > .tile > .name[contenteditable="true"] {
+body.binary .tile-grid .item.selected > .tile > .name[contenteditable=true] {
   color: black;
   background: white;
   outline-color: black;
@@ -1740,15 +1970,13 @@ body.binary .tile-grid .item.selected > .specifics .details {
   color: white;
   background-color: black;
 }
-body.binary .tile-grid svg .tile-icon path,
-body.binary .tile-grid svg .tile-icon polygon,
-body.binary .tile-grid svg .tile-icon rect,
-body.binary .tile-grid svg .tile-icon circle {
+body.binary .tile-grid svg .tile-icon path, body.binary .tile-grid svg .tile-icon polygon, body.binary .tile-grid svg .tile-icon rect, body.binary .tile-grid svg .tile-icon circle {
   fill: black !important;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                            medium-item-pages.less                            |
+|                           _medium-item-pages.scss                            |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -1769,7 +1997,7 @@ body.binary .pager .pages .main-carousel .item .row:nth-child(2) .specifics .det
   background-color: white;
 }
 body.binary .pager .pages .main-carousel .item.selected .row:first-child .icon {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
@@ -1778,11 +2006,11 @@ body.binary .pager .pages .main-carousel .item.selected .row:first-child .icon {
 body.binary .pager .pages .main-carousel .item.selected .row:first-child .icon img {
   image-rendering: auto;
 }
-body.binary .pager .pages .main-carousel .item.selected .row:nth-child(2) .name:not([contenteditable="true"]) {
+body.binary .pager .pages .main-carousel .item.selected .row:nth-child(2) .name:not([contenteditable=true]) {
   color: white;
   background-color: black;
 }
-body.binary .pager .pages .main-carousel .item.selected .row:nth-child(2) .name[contenteditable="true"] {
+body.binary .pager .pages .main-carousel .item.selected .row:nth-child(2) .name[contenteditable=true] {
   color: black;
   background-color: white;
   outline-color: black;
@@ -1794,9 +2022,10 @@ body.binary .pager .pages .main-carousel .item.selected .row:nth-child(2) .speci
 body.binary .pager .nav-bar .info-bar {
   text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                               medium-items.less                              |
+|                         _medium-item-galleries.scss                          |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -1810,18 +2039,18 @@ body.binary .pager .nav-bar .info-bar {
 |******************************************************************************|
 |        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
-body.binary .jpictura.gallery .item.selected::after,
-body.binary .jpictura.gallery .item.highlighted::after {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=');
+body.binary .jpictura.gallery .item.selected::after, body.binary .jpictura.gallery .item.highlighted::after {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
   border-color: white;
   border-style: dashed;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                                   styles.less                                |
+|                                 _index.scss                                  |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -1837,7 +2066,7 @@ body.binary .jpictura.gallery .item.highlighted::after {
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                                medium-modals.less                            |
+|                               _medium-modals.scss                            |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -1854,16 +2083,16 @@ body.binary .jpictura.gallery .item.highlighted::after {
 body.binary .modal .modal-dialog .modal-header .title h1 {
   text-shadow: none;
 }
-body.binary .modal.focused .modal-dialog:not(.maximized) .modal-header .handle,
-body.binary .modal.focused .modal-dialog:not(.maximized) .modal-header .buttons {
+body.binary .modal.focused .modal-dialog:not(.maximized) .modal-header .handle, body.binary .modal.focused .modal-dialog:not(.maximized) .modal-header .buttons {
   background: repeating-linear-gradient(to bottom, black 0px, black 1px, white 1px, white 2px);
 }
 body.binary .modal:not(.focused) .modal-dialog .modal-header > .buttons {
   visibility: hidden;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                           medium-dialog-handles.less                         |
+|                          _medium-dialog-handles.scss                         |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -1877,13 +2106,13 @@ body.binary .modal:not(.focused) .modal-dialog .modal-header > .buttons {
 |******************************************************************************|
 |        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
-body.binary .modal.focused .modal-dialog:not(.maximized) .modal-header .handle,
-body.binary .modal.focused .modal-dialog:not(.maximized) .modal-header .buttons {
+body.binary .modal.focused .modal-dialog:not(.maximized) .modal-header .handle, body.binary .modal.focused .modal-dialog:not(.maximized) .modal-header .buttons {
   background: repeating-linear-gradient(to bottom, black 0px, black 1px, white 1px, white 2px);
 }
+
 /******************************************************************************\
 |                                                                              |
-|                                   styles.less                                |
+|                                 _index.scss                                  |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -1899,7 +2128,7 @@ body.binary .modal.focused .modal-dialog:not(.maximized) .modal-header .buttons 
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                          medium-comment-bubbles.less                         |
+|                         _medium-comment-bubbles.scss                         |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -1957,9 +2186,10 @@ body.binary .selected > .comment-bubble.bottom > .comment-arrow,
 body.binary .selected > .info > .comment-bubble.bottom > .comment-arrow {
   border-bottom-color: black;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                         medium-comment-replies.less                          |
+|                        _medium-comment-replies.scss                          |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -1990,9 +2220,10 @@ body.binary .replies-list > .reply:not(.selected) > .info > .comment-bubble.left
 body.binary .replies-list > .reply:not(.selected) > .info > .comment-bubble.bottom > .comment-arrow {
   border-bottom-color: black;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                           medium-post-comments.less                          |
+|                          _medium-post-comments.scss                          |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -2023,9 +2254,10 @@ body.binary .comments-list > .comment:not(.selected) > .info > .comment-bubble.l
 body.binary .comments-list > .comment:not(.selected) > .info > .comment-bubble.bottom > .comment-arrow {
   border-bottom-color: black;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                                 medium-posts.less                            |
+|                               _medium-posts.scss                             |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -2039,41 +2271,27 @@ body.binary .comments-list > .comment:not(.selected) > .info > .comment-bubble.b
 |******************************************************************************|
 |        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
-body.binary .new-post .comment-bubble .comment-inner,
-body.binary .new-comment .comment-bubble .comment-inner,
-body.binary .new-reply .comment-bubble .comment-inner,
-body.binary .new-message .comment-bubble .comment-inner {
+body.binary .new-post .comment-bubble .comment-inner, body.binary .new-comment .comment-bubble .comment-inner, body.binary .new-reply .comment-bubble .comment-inner, body.binary .new-message .comment-bubble .comment-inner {
   color: black;
   background-color: white;
   border-color: black;
 }
-body.binary .new-post .comment-bubble.top .comment-arrow,
-body.binary .new-comment .comment-bubble.top .comment-arrow,
-body.binary .new-reply .comment-bubble.top .comment-arrow,
-body.binary .new-message .comment-bubble.top .comment-arrow {
+body.binary .new-post .comment-bubble.top .comment-arrow, body.binary .new-comment .comment-bubble.top .comment-arrow, body.binary .new-reply .comment-bubble.top .comment-arrow, body.binary .new-message .comment-bubble.top .comment-arrow {
   border-top-color: black;
 }
-body.binary .new-post .comment-bubble.right .comment-arrow,
-body.binary .new-comment .comment-bubble.right .comment-arrow,
-body.binary .new-reply .comment-bubble.right .comment-arrow,
-body.binary .new-message .comment-bubble.right .comment-arrow {
+body.binary .new-post .comment-bubble.right .comment-arrow, body.binary .new-comment .comment-bubble.right .comment-arrow, body.binary .new-reply .comment-bubble.right .comment-arrow, body.binary .new-message .comment-bubble.right .comment-arrow {
   border-right-color: black;
 }
-body.binary .new-post .comment-bubble.left .comment-arrow,
-body.binary .new-comment .comment-bubble.left .comment-arrow,
-body.binary .new-reply .comment-bubble.left .comment-arrow,
-body.binary .new-message .comment-bubble.left .comment-arrow {
+body.binary .new-post .comment-bubble.left .comment-arrow, body.binary .new-comment .comment-bubble.left .comment-arrow, body.binary .new-reply .comment-bubble.left .comment-arrow, body.binary .new-message .comment-bubble.left .comment-arrow {
   border-left-color: black;
 }
-body.binary .new-post .comment-bubble.bottom .comment-arrow,
-body.binary .new-comment .comment-bubble.bottom .comment-arrow,
-body.binary .new-reply .comment-bubble.bottom .comment-arrow,
-body.binary .new-message .comment-bubble.bottom .comment-arrow {
+body.binary .new-post .comment-bubble.bottom .comment-arrow, body.binary .new-comment .comment-bubble.bottom .comment-arrow, body.binary .new-reply .comment-bubble.bottom .comment-arrow, body.binary .new-message .comment-bubble.bottom .comment-arrow {
   border-bottom-color: black;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                                   styles.less                                |
+|                                 _index.scss                                  |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -2089,7 +2307,7 @@ body.binary .new-message .comment-bubble.bottom .comment-arrow {
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                                medium-apps.less                              |
+|                               _medium-apps.scss                              |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -2104,16 +2322,13 @@ body.binary .new-message .comment-bubble.bottom .comment-arrow {
 |        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 body.binary .app {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
   background-color: white;
 }
 body.binary .app > .header-bar {
-  background-color: transparent;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
   background: none;
   background-size: unset;
   background-position: unset;
@@ -2122,9 +2337,6 @@ body.binary .app > .header-bar {
   background-color: white;
 }
 body.binary .app > .header-bar + .body {
-  background-color: transparent;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
   background: none;
   background-size: unset;
   background-position: unset;
@@ -2133,7 +2345,7 @@ body.binary .app > .header-bar + .body {
   background-color: white;
 }
 body.binary .app > .header-bar + .body > .contents {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
@@ -2155,9 +2367,6 @@ body.binary .app > .header-bar + .body > .contents > .mainbar > form {
   background: white;
 }
 body.binary .app .footer-bar {
-  background-color: transparent;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
   background: none;
   background-size: unset;
   background-position: unset;
@@ -2170,20 +2379,17 @@ body.binary .app .help.message {
 }
 body.binary .app .selection {
   color: black;
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=');
+  border-color: black;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
-  border-color: black;
   background-attachment: local;
   z-index: 2;
 }
 body.binary .modals .app > .body > .contents .mainbar > .items,
 body.binary .modals .app > .body > .contents .mainbar .tab-pane > .items,
 body.binary .modals .app > .body > .contents .mainbar .tab-pane .tab-pane form {
-  background-color: transparent;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
   background: none;
   background-size: unset;
   background-position: unset;
@@ -2199,35 +2405,34 @@ body.binary .spinner {
 body.binary .map pattern svg path {
   stroke: black;
 }
-body[device="desktop"] .modals.padded .modal-dialog .app .body:not(.last) {
+
+body[device=desktop] .modals.padded .modal-dialog .app .body:not(.last) {
   border-color: white;
 }
-body[device="phone"] .app .header-bar,
-body[device="tablet"] .app .header-bar {
+
+body[device=phone] .app .header-bar, body[device=tablet] .app .header-bar {
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-bottom-color: black;
 }
-body[device="phone"] .app .body .split-view,
-body[device="tablet"] .app .body .split-view {
+body[device=phone] .app .body .split-view, body[device=tablet] .app .body .split-view {
   margin-top: -1px;
   height: calc(100% + 3px);
 }
-body[device="phone"] .app .footer-bar,
-body[device="tablet"] .app .footer-bar {
+body[device=phone] .app .footer-bar, body[device=tablet] .app .footer-bar {
   border-top-width: 1px;
   border-top-style: solid;
   border-top-color: black;
 }
-body[device="phone"] .modal-dialog .modal-content .modal-footer,
-body[device="tablet"] .modal-dialog .modal-content .modal-footer {
+body[device=phone] .modal-dialog .modal-content .modal-footer, body[device=tablet] .modal-dialog .modal-content .modal-footer {
   border-top-width: 1px;
   border-top-style: solid;
   border-top-color: black;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                           medium-app-launcher.less                           |
+|                          _medium-app-launcher.scss                           |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -2243,9 +2448,6 @@ body[device="tablet"] .modal-dialog .modal-content .modal-footer {
 \******************************************************************************/
 body.binary .app-launcher.app .icon-grid .item > .row:first-child .icon,
 body.binary .app-icons .item > .row:first-child .icon {
-  background-color: transparent;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
   background: none;
   background-size: unset;
   background-position: unset;
@@ -2253,9 +2455,10 @@ body.binary .app-icons .item > .row:first-child .icon {
   image-rendering: unset;
   background-color: white;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                            medium-calculator.less                            |
+|                           _medium-calculator.scss                            |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -2278,15 +2481,16 @@ body.binary .calculator.app .display .digits {
 }
 body.binary .calculator.app .keyboard .scientific,
 body.binary .calculator.app .keyboard .programmer {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
   background-color: white;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                              medium-clock.less                               |
+|                             _medium-clock.scss                               |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -2303,14 +2507,14 @@ body.binary .calculator.app .keyboard .programmer {
 body.binary .clock.app .body .face {
   background: black;
   /*
-				.digital.display {
-					.light-grey();
+  .digital.display {
+  	@include light-grey();
 
-					.digits {
-						.outline-text();
-					}
-				}
-				*/
+  	.digits {
+  		@include outline-text();
+  	}
+  }
+  */
 }
 body.binary .clock.app .body .face .display {
   background: white;
@@ -2318,9 +2522,10 @@ body.binary .clock.app .body .face .display {
 body.binary .clock.app .body .face .analog.display svg line {
   stroke: black;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                              medium-desktop.less                             |
+|                             _medium-desktop.scss                             |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -2335,7 +2540,7 @@ body.binary .clock.app .body .face .analog.display svg line {
 |        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 body.binary #desktop {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
@@ -2358,7 +2563,7 @@ body.binary .desktop.app > .body .app > .body > .contents {
 }
 body.binary .desktop.app .selection {
   color: white;
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAE0lEQVQIHWP4DwUMUMAEYxBPAwD6vQf7PKBWsAAAAABJRU5ErkJggg==');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAE0lEQVQIHWP4DwUMUMAEYxBPAwD6vQf7PKBWsAAAAABJRU5ErkJggg==");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
@@ -2370,15 +2575,16 @@ body.binary .desktop.app > .body > .app > .body > .split-view > .mainbar > .item
   background: white;
 }
 body.binary .desktop.preview {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
   background-color: white;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                           medium-image-viewer.less                           |
+|                          _medium-image-viewer.scss                           |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -2393,8 +2599,43 @@ body.binary .desktop.preview {
 |        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 body.binary .image-viewer.app .image + .selection {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAAqADAAQAAAABAAAAAgAAAADtGLyqAAAAEElEQVQIHWP4DwQMMADiAABHygf5AsusngAAAABJRU5ErkJggg==');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAAqADAAQAAAABAAAAAgAAAADtGLyqAAAAEElEQVQIHWP4DwQMMADiAABHygf5AsusngAAAABJRU5ErkJggg==");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
 }
+
+/******************************************************************************\
+|                                                                              |
+|                                 _index.scss                                  |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                                 styles.scss                                  |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+/*# sourceMappingURL=styles.css.map */

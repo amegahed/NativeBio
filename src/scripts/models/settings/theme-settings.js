@@ -177,7 +177,7 @@ export default UserSettings.extend({
 			case 'monochrome':
 				$('body').removeClass('binary');
 				$('body').addClass('monochrome');
-				$('body').removeClass('colored');
+				$('body').addClass('colored');
 				$('body').removeClass('colorful');
 				break;
 			case 'colored':
@@ -218,7 +218,7 @@ export default UserSettings.extend({
 			this.applyAccentColor(accentColor);
 		} else if (colorScheme == 'monochrome') {
 			this.applyHighlightColor('grey');
-			this.applyAccentColor('grey');
+			this.removeAccentColors();
 		} else {
 			this.removeHighlightColors();
 			this.removeAccentColors();
@@ -232,33 +232,51 @@ export default UserSettings.extend({
 
 		// clear previous highlight color
 		//
-		this.removeHighlightColors(config.defaults.colors);
+		this.removeHighlightColors();
 
 		// set new highlight color
 		//
-		if (highlightColor != 'none') {
-			$('body').addClass(highlightColor);
+		if (highlightColor && highlightColor != 'none') {
+			if (!highlightColor.startsWith('#')) {
+				$('body').addClass(highlightColor);
+				$('body').css({
+					'--primary-color': ''
+				});
+			} else {
+				$('body').css({
+					'--primary-color': highlightColor
+				});
+			}
 		}
 	},
 
 	applyAccentColor: function(accentColor) {
-		if (!accentColor) {
-			accentColor = 'blue';
-		}
 
 		// clear previous accent color
 		//
-		this.removeAccentColors(config.defaults.colors);
+		this.removeAccentColors();
 
 		// set new accent color
 		//
-		if (accentColor != 'none') {
+		if (accentColor && accentColor != 'none') {
 			$('body').addClass('accented');
-			$('body').addClass(accentColor + '-accented');
+			if (!accentColor.startsWith('#')) {
+				$('body').addClass(accentColor + '-accented');
+				$('body').css({
+					'--secondary-color': ''
+				});
+			} else {
+				$('body').css({
+					'--secondary-color': accentColor
+				});
+			}
 		}
 	},
 
 	removeHighlightColors: function(colors) {
+		if (!colors) {
+			colors = config.defaults.colors;
+		}
 		if (!colors) {
 			return;
 		}
@@ -270,9 +288,11 @@ export default UserSettings.extend({
 
 	removeAccentColors: function(colors) {
 		if (!colors) {
+			colors = config.defaults.colors;
+		}
+		if (!colors) {
 			return;
 		}
-
 		$('body').removeClass('accented');
 		for (let i = 0; i < colors.length; i++) {
 			let color = colors[i];
@@ -720,60 +740,31 @@ export default UserSettings.extend({
 		this.loadCSS(id, href, done);
 	},
 
-	loadColor: function(color, done) {
-		if (!color || color == 'none') {
-			return;
-		}
-		let id = 'colored' + '-' + color;
-		let href = 'styles/themes/colored/' + color + '/styles.css';
-		this.loadCSS(id, href, done);
-	},
-
-	loadHighlightColor: function(highlightColor, done) {
-		if (!highlightColor || highlightColor == 'none') {
-			return;
-		}
-		let id = 'highlighted' + '-' + highlightColor;
-		let href = 'styles/themes/colorful/' + highlightColor + '/styles.css';
-		this.loadCSS(id, href, done);
-	},
-
-	loadAccentColor: function(accentColor, done) {
-		if (!accentColor || accentColor == 'none') {
-			return;
-		}
-		let id = 'accented' + '-' + accentColor;
-		let href = 'styles/themes/accented/' + accentColor + '/styles.css';
-		this.loadCSS(id, href, done);
-	},
-
-	loadTheme: function(colorScheme, theme, highlightColor, accentColor, done) {
+	loadTheme: function(colorScheme, theme) {
 
 		// first load medium theme
 		//
 		if (theme != 'medium') {
-			this.loadTheme(colorScheme, 'medium', highlightColor, done);
+			this.loadTheme(colorScheme, 'medium');
 		}
 
 		switch (colorScheme) {
 			case 'binary':
-				this.loadThemeCSS(colorScheme, theme, done);
+				this.loadThemeCSS(colorScheme, theme);
 				break;
 			case 'monochrome':
-				this.loadThemeCSS('non-binary', theme, done);
-				this.loadThemeCSS('monochrome', theme, done);
-				this.loadThemeCSS('shaded', theme, done);
-				this.loadColor('grey', done);
+				this.loadTheme('colored', theme);
+				this.loadThemeCSS('monochrome', theme);
 				break;
 			case 'colored':
-				this.loadThemeCSS('non-binary', theme, done);
-				this.loadThemeCSS('shaded', theme, done);
-				this.loadColor(highlightColor, done);
-				this.loadAccentColor(accentColor, done);
+				this.loadThemeCSS('non-binary', theme);
+				this.loadThemeCSS('shaded', theme);
+				this.loadColorSchemeCSS('colored');
+				this.loadColorSchemeCSS('accented');
 				break;
 			case 'colorful':
-				this.loadTheme('colored', theme, highlightColor, accentColor, done);
-				this.loadHighlightColor(highlightColor, done);
+				this.loadTheme('colored', theme);
+				this.loadColorSchemeCSS('colorful');
 				break;
 		}	
 	}

@@ -261,25 +261,8 @@ export default DialogView.extend({
 
 		// add dialog color
 		//
-		this.$el.find('.modal-dialog').addClass('colored ' + this.app.getColor());
+		// this.$el.find('.modal-dialog').addClass('colored ' + this.app.getColor());
 	},
-	
-	/*
-	onRender: function() {
-
-		// use maximized windows for mobile
-		//
-		if (this.options.maximized || Browser.is_mobile) {
-			 this.maximize({
-				silent: true
-			 });
-		}
-
-		// call superclass method
-		//
-		DialogView.prototype.onRender.call(this);
-	},
-	*/
 
 	onShow: function() {
 

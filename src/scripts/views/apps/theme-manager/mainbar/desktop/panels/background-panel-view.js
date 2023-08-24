@@ -137,16 +137,24 @@ export default FormPanelView.extend({
 
 	getValue: function(key) {
 		switch (key) {
+
+			// background
+			//
 			case 'background_size':
 				return this.$el.find('.background-size input:checked').attr('value');
 			case 'background_repeats':
 				return this.getChildView('repeats').getValue();
+
+			// background color
+			//
 			case 'background_color_kind':
 				return this.$el.find('.background-color :checked').val();
+			case 'custom_background_color':
+				return this.$el.find('.background-color input[type="color"]').val();
 			case 'use_custom_color':
 				return this.getValue('background_color_kind') == 'custom';
 			case 'background_color':
-				return this.getValue('use_custom_color')? this.$el.find('.background-color input[type="color"]').val() : this.getValue('background_color_kind');
+				return this.getValue('use_custom_color')? this.getValue('custom_background_color') : this.getValue('background_color_kind');
 		}
 	},
 
@@ -156,7 +164,7 @@ export default FormPanelView.extend({
 
 	reset: function() {
 		this.showBackgroundImage(null);
-		this.showBackgroundColor(null);
+		this.showBackgroundColor();
 		this.hideRepeatSelector();
 		application.settings.desktop.set('background_image', null);
 	},
@@ -246,11 +254,11 @@ export default FormPanelView.extend({
 	},
 
 	showBackgroundColor: function() {
-		this.$el.find('.background-color').show();
+		this.$el.find('.background-color input[type="color"]').show();
 	},
 
 	hideBackgroundColor: function() {
-		this.$el.find('.background-color').hide();
+		this.$el.find('.background-color input[type="color"]').hide();
 	},
 
 	//
@@ -441,9 +449,9 @@ export default FormPanelView.extend({
 		// hide show custom color
 		//
 		if (backgroundColor && backgroundColor.startsWith('#')) {
-			this.$el.find('.background-color input[type="color"]').show();
+			this.showBackgroundColor();
 		} else {
-			this.$el.find('.background-color input[type="color"]').hide();
+			this.hideBackgroundColor();
 		}
 	},
 

@@ -1,10 +1,10 @@
 /******************************************************************************\
 |                                                                              |
-|                                   styles.less                                |
+|                            _binary-patterns.scss                             |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines various CSS styles used in this application.             |
+|        This defines the dom and svg visual styles for this application.      |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |
@@ -16,11 +16,11 @@
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                                  styles.less                                 |
+|                             _binary-colors.scss                              |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines various CSS styles used in this application.             |
+|        This defines the dom and svg visual styles for this application.      |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |
@@ -32,7 +32,7 @@
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                                light-apps.less                               |
+|                               _light-apps.scss                               |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -47,7 +47,7 @@
 |        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 body.binary.light .app {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
@@ -62,21 +62,20 @@ body.binary.light .app > .header-bar + .body {
   background-color: white;
 }
 body.binary.light .app > .header-bar + .body > .contents {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
   background-color: white;
 }
 body.binary.light .modal .app > .body > .contents .mainbar {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
   background-color: white;
 }
-body.binary.light .modal .app > .body > .contents .mainbar form,
-body.binary.light .modal .app > .body > .contents .mainbar .tab-content {
+body.binary.light .modal .app > .body > .contents .mainbar form, body.binary.light .modal .app > .body > .contents .mainbar .tab-content {
   background: none;
   background-size: unset;
   background-position: unset;
@@ -84,9 +83,10 @@ body.binary.light .modal .app > .body > .contents .mainbar .tab-content {
   image-rendering: unset;
   background-color: white;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                            light-calculator.less                             |
+|                           _light-calculator.scss                             |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -108,9 +108,10 @@ body.binary.light .calculator.app .keyboard .programmer {
   background-repeat: unset;
   image-rendering: unset;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                             light-desktops.less                              |
+|                            _light-desktops.scss                              |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -125,7 +126,7 @@ body.binary.light .calculator.app .keyboard .programmer {
 |        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 body.binary.light #desktop {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
@@ -151,21 +152,22 @@ body.binary.light .desktop.app > .body .app > .body > .contents {
 }
 body.binary.light .desktop.app .selection {
   color: black;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAFklEQVQIHWNgIAQYkRT8B7GZkATATAAWcgED8+hADQAAAABJRU5ErkJggg==");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=');
 }
 body.binary.light .desktop.preview {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
   background-color: white;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                                  styles.less                                 |
+|                                 _index.scss                                  |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -181,7 +183,7 @@ body.binary.light .desktop.preview {
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                             light-item-icons.less                            |
+|                            _light-item-icons.scss                            |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -196,15 +198,16 @@ body.binary.light .desktop.preview {
 |        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 body.binary.light .icon-grid .item.selected > .row:first-child .icon {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
   background-color: white;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                                  styles.less                                 |
+|                                 _index.scss                                  |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -220,7 +223,7 @@ body.binary.light .icon-grid .item.selected > .row:first-child .icon {
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                               light-pages.less                               |
+|                              _light-pages.scss                               |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -235,7 +238,7 @@ body.binary.light .icon-grid .item.selected > .row:first-child .icon {
 |        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 body.binary.light .page {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
@@ -247,9 +250,10 @@ body.binary.light .page .contents {
 body.binary.light .page .footer {
   color: white;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                               light-panels.less                              |
+|                              _light-panels.scss                              |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -272,15 +276,16 @@ body.binary.light .panel {
   background-color: white;
 }
 body.binary.light .panel.selected {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
   background-color: white;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                                  styles.less                                 |
+|                                 _index.scss                                  |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -296,7 +301,7 @@ body.binary.light .panel.selected {
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                            light-dock-bars.less                              |
+|                           _light-dock-bars.scss                              |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -318,9 +323,26 @@ body.binary.light #dock-bar .shelf {
   image-rendering: unset;
   background-color: white;
 }
+
 /******************************************************************************\
 |                                                                              |
-|                              light-nav-bars.less                             |
+|                              _binary-text.scss                               |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                             _light-nav-bars.scss                             |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -338,12 +360,12 @@ body.binary.light #dock-bar .shelf {
 body.binary {
 	&.light {
 		.navbar-inverse {
-			background-color: @light-navbar-background-color;
-			border-color: @light-navbar-background-color;
+			background-color: $background-color;
+			border-color: $background-color;
 			box-shadow: none;
 
 			.navbar-brand {
-				color: @light-navbar-color;
+				color: $color;
 
 				.logo {
 					filter: invert(1);
@@ -351,7 +373,7 @@ body.binary {
 			}
 
 			.navbar-nav {
-				
+
 				> li {
 
 					//
@@ -359,10 +381,10 @@ body.binary {
 					//
 
 					> a {
-						color: @light-navbar-color;
+						color: $color;
 
 						label {
-							.unoutline-text();
+							@include binary-text.unoutline;
 						}
 					}
 
@@ -372,12 +394,12 @@ body.binary {
 
 					&.active {
 						> a, > a:focus {
-							color: @light-navbar-active-color;
-							background-color: @light-navbar-active-background-color;
+							color: $active-color;
+							background-color: $active-background-color;
 
 							&:hover {
-								color: @light-navbar-active-color;
-								background-color: @light-navbar-active-background-color;
+								color: $active-color;
+								background-color: $active-background-color;
 							}
 						}
 					}
@@ -388,12 +410,12 @@ body.binary {
 
 					&.open { 
 						> a, > a:focus {
-							color: @light-navbar-active-color;
-							background-color: @light-navbar-active-background-color;
+							color: $active-color;
+							background-color: $active-background-color;
 
 							&:hover {
-								color: @light-navbar-active-color;
-								background-color: @light-navbar-active-background-color;
+								color: $active-color;
+								background-color: $active-background-color;
 							}
 						}
 					}
@@ -402,11 +424,11 @@ body.binary {
 				//
 				// nav bar indicators
 				//
-				
+
 				.indicator {
 					.bar {					
 						.inner {
-							background-color: @light-navbar-color;
+							background-color: $color;
 						}
 					}
 				}
@@ -416,16 +438,16 @@ body.binary {
 				//
 
 				&.apps {
-					border-color: @light-navbar-color;
+					border-color: $color;
 
 					> li {
 						&.current {
 
 							> a {
-								background-color: @light-navbar-color;
+								background-color: $color;
 
 								i {
-									color: @light-navbar-background-color;
+									color: $background-color;
 								}
 							}
 						}
@@ -438,7 +460,7 @@ body.binary {
 */
 /******************************************************************************\
 |                                                                              |
-|                             light-run-menus.less                             |
+|                            _light-run-menus.scss                             |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -475,3 +497,38 @@ body.binary.light .footer-bar .run-menu .icon-grid {
   image-rendering: unset;
   background-color: white;
 }
+
+/******************************************************************************\
+|                                                                              |
+|                                 _index.scss                                  |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                                 styles.scss                                  |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+/*# sourceMappingURL=styles.css.map */

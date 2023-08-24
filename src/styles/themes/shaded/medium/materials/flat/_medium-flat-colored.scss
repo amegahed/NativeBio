@@ -1,0 +1,225 @@
+/******************************************************************************\
+|                                                                              |
+|                           _medium-flat-colored.scss                          |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+@use "../../../../../colors/colors";
+@use "../../../../../materials/flat/flat";
+
+//
+// styles
+//
+
+body:not(.binary) {
+	&.colored {
+
+		//
+		// flat colored materials
+		//
+
+		.colored {
+
+			&.red {
+				@include flat.shading(colors.$medium-red);
+			}
+
+			&.raspberry {
+				@include flat.shading(colors.$medium-raspberry);
+			}
+
+			&.red-orange {
+				@include flat.shading(colors.$medium-red-orange);
+			}
+
+			&.orange {
+				@include flat.shading(colors.$medium-orange);
+			}
+
+			&.yellow {
+				@include flat.shading(colors.$medium-yellow);
+			}
+
+			&.lime {
+				@include flat.shading(colors.$medium-lime);
+			}
+
+			&.green {
+				@include flat.shading(colors.$medium-green);
+			}
+
+			&.teal {
+				@include flat.shading(colors.$medium-teal);
+			}
+
+			&.aqua {
+				@include flat.shading(colors.$medium-aqua);
+			}
+
+			&.cyan {
+				@include flat.shading(colors.$medium-cyan);
+			}
+
+			&.blue {
+				@include flat.shading(colors.$medium-blue);
+			}
+
+			&.indigo {
+				@include flat.shading(colors.$medium-indigo);
+			}
+
+			&.violet {
+				@include flat.shading(colors.$medium-violet);
+			}
+
+			&.plum {
+				@include flat.shading(colors.$medium-plum);
+			}
+
+			&.purple {
+				@include flat.shading(colors.$medium-purple);
+			}
+
+			&.magenta {
+				@include flat.shading(colors.$medium-magenta);
+			}
+
+			&.brown {
+				@include flat.shading(colors.$medium-brown);
+			}
+
+			&.grey {
+				@include flat.shading(colors.$medium-grey);
+			}
+
+			&.black {
+				@include flat.shading(colors.$medium-black);
+			}
+
+			&.white {
+				@include flat.shading(colors.$medium-white);
+			}
+
+			&.copper {
+				@include flat.shading(colors.$medium-copper);
+			}
+
+			&.silver {
+				@include flat.shading(colors.$medium-silver);
+			}
+
+			&.gold {
+				@include flat.shading(colors.$medium-gold);
+			}
+		}
+
+		//
+		// selected flat colored materials
+		//
+
+		.selected .colored {
+			&.red {
+				@include flat.shading(colors.$dark-red);
+			}
+
+			&.raspberry {
+				@include flat.shading(colors.$dark-raspberry);
+			}
+
+			&.red-orange {
+				@include flat.shading(colors.$dark-red-orange);
+			}
+
+			&.orange {
+				@include flat.shading(colors.$dark-orange);
+			}
+
+			&.yellow {
+				@include flat.shading(colors.$dark-yellow);
+			}
+
+			&.lime {
+				@include flat.shading(colors.$dark-lime);
+			}
+
+			&.green {
+				@include flat.shading(colors.$dark-green);
+			}
+
+			&.teal {
+				@include flat.shading(colors.$dark-teal);
+			}
+
+			&.aqua {
+				@include flat.shading(colors.$dark-aqua);
+			}
+
+			&.cyan {
+				@include flat.shading(colors.$dark-cyan);
+			}
+
+			&.blue {
+				@include flat.shading(colors.$dark-blue);
+			}
+
+			&.indigo {
+				@include flat.shading(colors.$dark-indigo);
+			}
+
+			&.violet {
+				@include flat.shading(colors.$dark-violet);
+			}
+
+			&.plum {
+				@include flat.shading(colors.$dark-plum);
+			}
+
+			&.purple {
+				@include flat.shading(colors.$dark-purple);
+			}
+
+			&.magenta {
+				@include flat.shading(colors.$dark-magenta);
+			}
+
+			&.brown {
+				@include flat.shading(colors.$dark-brown);
+			}
+
+			&.grey {
+				@include flat.shading(colors.$dark-grey);
+			}
+
+			&.black {
+				@include flat.shading(colors.$dark-black);
+			}
+
+			&.white {
+				@include flat.shading(colors.$dark-white);
+			}
+
+			&.copper {
+				@include flat.shading(colors.$dark-copper);
+			}
+
+			&.silver {
+				@include flat.shading(colors.$dark-silver);
+			}
+
+			&.gold {
+				@include flat.shading(colors.$dark-gold);
+			}
+		}
+	}
+}

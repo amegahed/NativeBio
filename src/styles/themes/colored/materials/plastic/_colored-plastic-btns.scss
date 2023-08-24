@@ -1,0 +1,48 @@
+/******************************************************************************\
+|                                                                              |
+|                        _colored-plastic-buttons.scss                         |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+@use "../../../../navs/materials/plastic/plastic-btns";
+@use "../../navs/colored-btns";
+
+//
+// styles
+//
+
+body:not(.binary).colored.colored {
+	&.plastic-buttons,
+	&.plastic.auto-buttons {
+
+		//
+		// plastic styled buttons
+		//
+
+		.btn {
+
+			//
+			// plastic primary buttons
+			//
+
+			&.btn-primary {
+				@include plastic-btns.shading(colored-btns.$primary-color);
+
+				&:disabled {
+					@include plastic-btns.shading(colored-btns.$disabled-primary-color);
+				}
+			}
+		}
+	}
+}

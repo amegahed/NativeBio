@@ -1,0 +1,92 @@
+/******************************************************************************\
+|                                                                              |
+|                            _medium-displays.scss                             |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+
+@use "../../../../colors/colors";
+
+//
+// colors
+//
+
+$lcd-light-color: colors.$very-light-grey;
+$lcd-dark-color: black;
+
+//
+// styles
+//
+
+body:not(.binary) {
+
+	//
+	// led displays
+	//
+
+	.led {
+		color: lighten(red, 20%);
+		text-shadow: 0 0 3px lighten(red, 20%);
+	}
+
+	&.dark,
+	.dark {
+		.led {
+			color: lighten(red, 20%);
+			text-shadow: 0 0 3px red, 0 0 5px red, 0 0 10px red, 0 0 20px red;
+		}
+	}
+
+	//
+	// lcd displays
+	//
+
+	.lcd.display {
+		background: colors.$very-very-light-grey;
+		border-color: colors.$very-very-very-light-grey;
+		border-style: inset;
+
+		.digits {
+			filter: drop-shadow(2px 2px 2px colors.fade(black, 50%));
+			text-shadow: none;
+		}
+	}
+
+	&:not(.flat) {
+		.lcd.display {
+			background: linear-gradient(to bottom,
+				colors.$very-very-very-light-grey 0,
+				colors.$light-grey 100%);
+		}
+	}
+
+	.lcd.pie {	
+		.slice {
+
+			&.empty {
+				background: $lcd-light-color;
+			}
+
+			&.full {
+				background: $lcd-dark-color;
+			}
+
+			&.half-full {
+				background-image: linear-gradient(to right,
+					transparent 50%,
+					$lcd-dark-color 0%);
+			}
+
+			&.half-empty {
+				background-image: linear-gradient(to right,
+					transparent 50%,
+					$lcd-light-color 0%);
+			}
+		}
+	}
+}

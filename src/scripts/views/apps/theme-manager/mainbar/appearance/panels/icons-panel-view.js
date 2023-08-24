@@ -199,6 +199,10 @@ export default FormPanelView.extend({
 				<% } %>
 				<% } %>
 
+				<div class="radio-inline">
+					<label><input type="radio" name="icon-tint" value="none"<% if (!icon_tint || icon_tint == 'none' || icon_tint == '') {%> checked<% } %>>None</label>
+				</div>
+
 				<i class="active fa fa-question-circle" data-toggle="popover" title="Icon Tint" data-content="This determines the color used for folder icons."></i>
 			</div>
 		</div>
