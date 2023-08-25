@@ -126,7 +126,7 @@ APP_USER_STORAGE_PATH=/user-data
 
 5.  Add shared user files
 
-Once you have specified a location for your user storage, you will want to copy a set of shared files there so they can be references by all users.  These files include things like avatar icons, desktop background images, and emoji.  To do so, locate the user-data/Shared folder in the repository and copy the Shared folder into the location that you have specified for your user storage.
+Once you have specified a location for your user storage, you will want to copy a set of shared files there so they can be referenced by all users.  These shared files include things like avatar icons, desktop background images, and emoji.  To do so, locate the user-data/Shared folder in the repository and copy the Shared folder into the location that you have specified for your user storage.
 
 ## Configure the Database
 
