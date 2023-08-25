@@ -133,24 +133,24 @@
 |        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 .colored span.success {
-  color: #63cf7e;
+  color: hsl(135, 33%, 50%);
 }
 .colored span.caution {
-  color: #f5af3e;
+  color: #da9526;
 }
 .colored span.warning {
-  color: #f56e3e;
+  color: #da5626;
 }
 .colored span.error {
-  color: #f47171;
+  color: #dc5656;
 }
 
 label.error {
   font-weight: bold;
-  color: #f47171;
+  color: #dc5656;
   padding-top: 0;
   background: url(../images/forms/error.png) 5px 0px no-repeat;
-  padding-left: 30px;
+  padding-left: 10px;
 }
 
 label.error:empty {
@@ -163,11 +163,11 @@ label.error.valid {
 
 .form-group.error input,
 .form-group.error textarea {
-  border: 1px solid #f47171;
+  border: 1px solid #dc5656;
 }
 
 td.error {
-  outline: 1px solid #f56e3e;
+  outline: 1px solid #da5626;
   outline-offset: -2px;
 }
 
@@ -191,13 +191,13 @@ body:not(.binary).colored.colored.dark .badge {
   background-color: hsl(220, 75%, 50%);
 }
 body:not(.binary).colored.colored.dark .badge.success {
-  background-color: #63cf7e;
+  background-color: hsl(135, 33%, 50%);
 }
 body:not(.binary).colored.colored.dark .badge.caution {
-  background-color: #f5af3e;
+  background-color: #da9526;
 }
 body:not(.binary).colored.colored.dark .badge.warning {
-  background-color: #f56e3e;
+  background-color: #da5626;
 }
 
 /******************************************************************************\
@@ -221,16 +221,16 @@ body:not(.binary).colored.colored.dark.flat .badge {
   border-color: hsl(220, 75%, 50%);
 }
 body:not(.binary).colored.colored.dark.flat .badge.success {
-  background-color: #63cf7e;
-  border-color: #63cf7e;
+  background-color: hsl(135, 33%, 50%);
+  border-color: hsl(135, 33%, 50%);
 }
 body:not(.binary).colored.colored.dark.flat .badge.caution {
-  background-color: #f5af3e;
-  border-color: #f5af3e;
+  background-color: #da9526;
+  border-color: #da9526;
 }
 body:not(.binary).colored.colored.dark.flat .badge.warning {
-  background-color: #f56e3e;
-  border-color: #f56e3e;
+  background-color: #da5626;
+  border-color: #da5626;
 }
 
 /******************************************************************************\
@@ -288,18 +288,18 @@ body:not(.binary).colored.colored.dark.chalk .badge {
 }
 body:not(.binary).colored.colored.dark.chalk .badge.success {
   background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
-  background-color: #63cf7e;
-  border-color: color-mix(in srgb, var(--ambient-color) 10%, #63cf7e);
+  background-color: hsl(135, 33%, 50%);
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, hsl(135, 33%, 50%));
 }
 body:not(.binary).colored.colored.dark.chalk .badge.caution {
   background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
-  background-color: #f5af3e;
-  border-color: color-mix(in srgb, var(--ambient-color) 10%, #f5af3e);
+  background-color: #da9526;
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, #da9526);
 }
 body:not(.binary).colored.colored.dark.chalk .badge.warning {
   background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
-  background-color: #f56e3e;
-  border-color: color-mix(in srgb, var(--ambient-color) 10%, #f56e3e);
+  background-color: #da5626;
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, #da5626);
 }
 
 /******************************************************************************\
@@ -357,18 +357,18 @@ body:not(.binary).colored.colored.dark.plastic .badge {
 }
 body:not(.binary).colored.colored.dark.plastic .badge.success {
   background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
-  background-color: #63cf7e;
-  border-color: color-mix(in srgb, var(--ambient-color) 10%, #63cf7e);
+  background-color: hsl(135, 33%, 50%);
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, hsl(135, 33%, 50%));
 }
 body:not(.binary).colored.colored.dark.plastic .badge.caution {
   background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
-  background-color: #f5af3e;
-  border-color: color-mix(in srgb, var(--ambient-color) 10%, #f5af3e);
+  background-color: #da9526;
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, #da9526);
 }
 body:not(.binary).colored.colored.dark.plastic .badge.warning {
   background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
-  background-color: #f56e3e;
-  border-color: color-mix(in srgb, var(--ambient-color) 10%, #f56e3e);
+  background-color: #da5626;
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, #da5626);
 }
 
 /******************************************************************************\
@@ -425,19 +425,19 @@ body:not(.binary).colored.colored.dark.glass .badge {
   border-color: color-mix(in srgb, var(--ambient-color) 30%, hsl(220, 75%, 50%));
 }
 body:not(.binary).colored.colored.dark.glass .badge.success {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, #63cf7e) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, #63cf7e) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, #63cf7e 50%, transparent) 100%) no-repeat;
-  background-color: color-mix(in srgb, var(--ambient-color) 30%, #63cf7e);
-  border-color: color-mix(in srgb, var(--ambient-color) 30%, #63cf7e);
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, hsl(135, 33%, 50%)) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, hsl(135, 33%, 50%)) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, hsl(135, 33%, 50%) 50%, transparent) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 30%, hsl(135, 33%, 50%));
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, hsl(135, 33%, 50%));
 }
 body:not(.binary).colored.colored.dark.glass .badge.caution {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, #f5af3e) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, #f5af3e) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, #f5af3e 50%, transparent) 100%) no-repeat;
-  background-color: color-mix(in srgb, var(--ambient-color) 30%, #f5af3e);
-  border-color: color-mix(in srgb, var(--ambient-color) 30%, #f5af3e);
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, #da9526) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, #da9526) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, #da9526 50%, transparent) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 30%, #da9526);
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, #da9526);
 }
 body:not(.binary).colored.colored.dark.glass .badge.warning {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, #f56e3e) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, #f56e3e) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, #f56e3e 50%, transparent) 100%) no-repeat;
-  background-color: color-mix(in srgb, var(--ambient-color) 30%, #f56e3e);
-  border-color: color-mix(in srgb, var(--ambient-color) 30%, #f56e3e);
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, #da5626) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, #da5626) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, #da5626 50%, transparent) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 30%, #da5626);
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, #da5626);
 }
 
 /******************************************************************************\
@@ -494,19 +494,19 @@ body:not(.binary).colored.colored.dark.metal .badge {
   border-color: color-mix(in srgb, var(--ambient-color) 30%, hsl(220, 75%, 50%));
 }
 body:not(.binary).colored.colored.dark.metal .badge.success {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, #63cf7e) 75%, transparent) 50%, color-mix(in srgb, #63cf7e 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, #63cf7e 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, #63cf7e 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, #63cf7e) 100%) no-repeat;
-  background-color: color-mix(in srgb, var(--ambient-color) 50%, #63cf7e);
-  border-color: color-mix(in srgb, var(--ambient-color) 30%, #63cf7e);
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, hsl(135, 33%, 50%)) 75%, transparent) 50%, color-mix(in srgb, hsl(135, 33%, 50%) 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, hsl(135, 33%, 50%) 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, hsl(135, 33%, 50%) 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, hsl(135, 33%, 50%)) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 50%, hsl(135, 33%, 50%));
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, hsl(135, 33%, 50%));
 }
 body:not(.binary).colored.colored.dark.metal .badge.caution {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, #f5af3e) 75%, transparent) 50%, color-mix(in srgb, #f5af3e 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, #f5af3e 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, #f5af3e 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, #f5af3e) 100%) no-repeat;
-  background-color: color-mix(in srgb, var(--ambient-color) 50%, #f5af3e);
-  border-color: color-mix(in srgb, var(--ambient-color) 30%, #f5af3e);
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, #da9526) 75%, transparent) 50%, color-mix(in srgb, #da9526 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, #da9526 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, #da9526 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, #da9526) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 50%, #da9526);
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, #da9526);
 }
 body:not(.binary).colored.colored.dark.metal .badge.warning {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, #f56e3e) 75%, transparent) 50%, color-mix(in srgb, #f56e3e 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, #f56e3e 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, #f56e3e 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, #f56e3e) 100%) no-repeat;
-  background-color: color-mix(in srgb, var(--ambient-color) 50%, #f56e3e);
-  border-color: color-mix(in srgb, var(--ambient-color) 30%, #f56e3e);
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, #da5626) 75%, transparent) 50%, color-mix(in srgb, #da5626 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, #da5626 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, #da5626 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, #da5626) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 50%, #da5626);
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, #da5626);
 }
 
 /******************************************************************************\

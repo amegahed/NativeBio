@@ -435,10 +435,13 @@ body:not(.binary) .desktop.app > .body > .app .mainbar .items + .dropzone {
   color: white;
 }
 body:not(.binary) .desktop.app > .body > .app .mainbar .help.message {
-  color: #afafce;
+  color: #eeeef5;
   background: color-mix(in srgb, #afafce 25%, transparent);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+}
+body:not(.binary) .desktop.app > .body > .app .mainbar .help.message i {
+  color: #eeeef5;
 }
 body:not(.binary).transparent .desktop.app > .body > .app > .header-bar, body:not(.binary).translucent .desktop.app > .body > .app > .header-bar {
   background: linear-gradient(to bottom, color-mix(in srgb, #eeeef5 90%, transparent) 0%, transparent 100%) no-repeat, color-mix(in srgb, #eeeef5 80%, transparent);

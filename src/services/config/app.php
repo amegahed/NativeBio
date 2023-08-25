@@ -140,7 +140,7 @@ return [
     |
     */
 
-    'default_folders' => env('DEFAULT_FOLDERS', [
+    'default_folders' => json_decode(env('APP_DEFAULT_FOLDERS', '')) ?? [
         '.Clipboard',
         'Audio',
         'Code',
@@ -156,7 +156,7 @@ return [
         'Videos',
         'Websites',
         'Trash'
-    ]),
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -168,7 +168,7 @@ return [
     |
     */
 
-    'default_groups' => env('DEFAULT_FOLDERS', [
+    'default_groups' => env('APP_DEFAULT_FOLDERS', [
         'Acquaintences' => '/Shared/Pictures/Emoji/Smileys/1F642.svg',
         'Colleagues' => '/Shared/Pictures/Emoji/Clothing/1F454.svg',
         'Friends' => '/Shared/Pictures/Emoji/Smileys/1F600.svg',

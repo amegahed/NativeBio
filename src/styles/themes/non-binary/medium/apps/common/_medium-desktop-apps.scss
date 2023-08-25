@@ -33,7 +33,7 @@ $header-bar-opacity: plate-glass.$opacity;
 $sidebar-panels-color: colors.fade(white, 50%);
 $mainbar-background-color: white;
 $preview-border-color: colors.$very-light-grey;
-$message-color: colors.$very-light-grey;
+$message-color: colors.$very-very-very-light-grey;
 $message-background-color: colors.fade(colors.$very-light-grey, 25%);
 
 $transparent-header-bar-color: text-colors.$dark-color;
@@ -147,6 +147,10 @@ body:not(.binary) {
 						color: $message-color;
 						background: $message-background-color;
 						@include frosted-glass.frosting();
+
+						i {
+							color: $message-color;
+						}
 					}
 				}
 			}

@@ -40,7 +40,7 @@ export default BaseView.extend(_.extend({}, PopoverShowable, Validatable, {
 		//
 		'change input': 'onChange',
 		'change textarea': 'onChange',
-		'change select': 'onChange',
+		'change select': 'onChange'
 	},
 
 	focusable: 'input:visible, textarea:visible, select:visible',

@@ -37,7 +37,6 @@ class UserStorage
 	 * @return bool
 	 */
 	static function isLocal(): bool {
-		// return false;
 		return config('filesystems.default') == 'local';
 	}
 

@@ -114,19 +114,19 @@ $rounded-border-radius: 5px;
 //
 
 .round {
-	.input input, textarea {
+	.input-group input, textarea {
 		border-radius: $round-border-radius;
 	}
 }
 
 .rounded {
-	.input input, textarea {
+	.input-group input, textarea {
 		border-radius: $rounded-border-radius;
 	}
 }
 
 .square {
-	.input input, textarea {
+	.input-group input, textarea {
 		border-radius: 0;
 	}
 }

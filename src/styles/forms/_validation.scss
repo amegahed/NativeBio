@@ -21,10 +21,10 @@
 // colors
 //
 
-$success-color:			saturate(colors.$light-green, 20%);
-$caution-color:			saturate(mix(colors.$light-gold, colors.$light-orange), 20%);
-$warning-color: 		saturate(mix(colors.$light-orange, colors.$light-red), 20%);
-$error-color: 			saturate(lighten(colors.$light-red, 10%), 20%);
+$success-color:			colors.$medium-green;
+$caution-color:			mix(colors.$medium-gold, colors.$medium-orange);
+$warning-color: 		mix(colors.$medium-orange, colors.$medium-red);
+$error-color: 			colors.$light-red;
 
 //
 // styles
@@ -58,7 +58,7 @@ label.error {
 	color: $error-color;
 	padding-top: 0;
 	background: url(../images/forms/error.png) 5px 0px no-repeat;
-	padding-left: 30px;
+	padding-left: 10px;
 }
 
 label.error:empty {

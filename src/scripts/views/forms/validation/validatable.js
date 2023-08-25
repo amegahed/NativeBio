@@ -50,7 +50,8 @@ export default {
 
 	isValid: function() {
 		if (this.validator) {
-			return this.validator.checkForm();
+			// return this.validator.checkForm();
+			return this.validator.form();
 		} else {
 			return true;
 		}
