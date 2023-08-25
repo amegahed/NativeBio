@@ -103,11 +103,11 @@ APP_ENV=prod
 ```
 
 2.  Set the app key (optional)
-The app key is a unique identifier that is used to distinguish your particular application. To set the application key, go to the server directory and run the command "php artisan key:generate". This will fill in the "APP_KEY" parameter with a suitable random value.
+The app key is a unique identifier that is used to distinguish your particular application.  It is used for encrypting session cookies. To set the application key, go to the server directory and run the command "php artisan key:generate". This will fill in the "APP_KEY" parameter with a suitable random value.
 ```
 APP_KEY=<a random string of characters>
 ```
-Note:  This step is considered good practice, but an app key is already set to setting it to a unique value is optional.
+Note:  This step is considered good practice, but an app key is already set to a unique value so setting it to your own instance specific unique value is optional.
 
 3.  Set debugging Info (optional)
 The variable "APP_DEBUG" determines whether or not detailed error messages are displayed.  For production, set this to "false". This will prevent debug messages from being shown in the case of an error.  For development, you can leave this set to "true".
