@@ -18,7 +18,7 @@ Desktop
 
 ### 1. PHP 8.1+
 
-The data science map uses Laravel10 which relies upon PHP 8.1 or later.
+The back end code is built upon Laravel10 which relies upon PHP 8.1 or later.
 
 ### 2. Web Server
 
@@ -26,11 +26,25 @@ This application requires Apache or another similar web server.
 
 ### 2. SQL Database
 
-The data science map uses SQL for storing user, authentication, and academic information.
+SQL is used for storing user, authentication, and academic information.
 
 ## Installation
 
 Please follow the instructions in [INSTALL.md](INSTALL.md) to install the software on your web server.
+
+## Using the Platform
+
+An extensive [User Guide](https://www.sharedigm.com/#help) is available that explains the system from a user perspective.  It covers numerous aspects of the system including:
+
+- account creation and deletion
+- password management and recovery
+- user profile creation and management
+- file uploading, management, and sharing
+- social media posting and direct messaging
+- photo viewing and sharing
+- music / audio playing
+- changing system settings and preferences
+- theming and customization
 
 <!-- LICENSE -->
 ## License
