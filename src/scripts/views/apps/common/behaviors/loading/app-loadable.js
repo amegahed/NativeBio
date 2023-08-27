@@ -303,6 +303,8 @@ export default {
 					done(AppView.default);
 				});
 				break;
+			default:
+				done();
 		}
 	}
 

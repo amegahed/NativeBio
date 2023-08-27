@@ -31,7 +31,7 @@ $title-color: light-branding.$secondary-color;
 $label-color: light-branding.$primary-color;
 $content-color: white;
 
-$hover-color: white;
+$hover-color: $content-color;
 $select-color: light-branding.$secondary-color;
 $section-border-color: colors.darken($color, 5%);
 $light-nested-panel-color: white;
@@ -138,7 +138,7 @@ body:not(.binary).light {
 
 	ul.panels > li {
 		&:hover {
-			background-color: $color;
+			background-color: $hover-color;
 		}
 	}
 }

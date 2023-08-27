@@ -231,6 +231,10 @@ body:not(.binary).dark {
 								.panels > .panel, label {
 									color: white !important;
 								}
+
+								.expander i {
+									color: white !important;
+								}
 							}
 						}
 					}
@@ -258,6 +262,10 @@ body:not(.binary).dark {
 
 							.panel {
 								@include frosted-plate-glass.shading($sidebar-panel-color);
+
+								.expander i {
+									color: white !important;
+								}
 							}
 						}
 					}

@@ -321,6 +321,10 @@ body:not(.binary) {
 								.panels > .panel, label {
 									color: text-colors.$dark-color !important;
 								}
+
+								.expander i {
+									color: text-colors.$dark-color !important;
+								}
 							}
 						}
 					}

@@ -583,7 +583,7 @@
 				"icon": "svg.svg",
 				"font": "fa fa-file-image",
 				"color": "#E57E25",
-				"app": "image-viewer"
+				"app": "image_viewer"
 			},
 			"swift": {
 				"icon": "swift.svg",

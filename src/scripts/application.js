@@ -1142,7 +1142,7 @@ export default Marionette.Application.extend(_.extend({}, FullScreenable, AppLoa
 	//
 
 	launch: function(appName, options, launchOptions) {
-		this.loadAppView(appName, (AppView) => {
+		this.loadAppView(appName.replace(/-/g, '_'), (AppView) => {
 
 			// check if app was found
 			//
@@ -1151,7 +1151,7 @@ export default Marionette.Application.extend(_.extend({}, FullScreenable, AppLoa
 				// show alert dialog
 				//
 				this.alert({
-					message: "Application not found."
+					message: "Application " + appName +  " not found."
 				});
 
 				// perform callback

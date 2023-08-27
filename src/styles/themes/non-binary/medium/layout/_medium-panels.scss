@@ -32,7 +32,7 @@ $label-color: text-colors.$dark-color;
 $icon-color: medium-branding.$secondary-color;
 $content-color: white;
 
-$hover-color: white;
+$hover-color: $content-color;
 $select-color: medium-branding.$primary-color;
 $section-border-color: darken($color, 5%);
 $nested-panel-color: white;

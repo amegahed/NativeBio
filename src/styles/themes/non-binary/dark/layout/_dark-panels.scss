@@ -33,7 +33,7 @@ $link-color: colors.$very-very-light-grey;
 $link-hover-color: white;
 $content-color: colors.$very-very-very-dark-grey;
 
-$hover-color: colors.darken($color, 5%);
+$hover-color: $content-color;
 $select-color: dark-branding.$primary-color;
 $section-border-color: colors.lighten($color, 5%);
 $dark-nested-panel-color: colors.$very-very-very-dark-grey;
