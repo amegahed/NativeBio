@@ -168,12 +168,12 @@ return [
     |
     */
 
-    'default_groups' => env('APP_DEFAULT_FOLDERS', [
+    'default_groups' => json_decode(env('APP_DEFAULT_GROUPS', '')) ?? [
         'Acquaintences' => '/Shared/Pictures/Emoji/Smileys/1F642.svg',
         'Colleagues' => '/Shared/Pictures/Emoji/Clothing/1F454.svg',
         'Friends' => '/Shared/Pictures/Emoji/Smileys/1F600.svg',
         'Family' => '/Shared/Pictures/Twemoji/Objects/Science/1f9ec.svg'
-    ]),
+    ],
 
     /*
     |--------------------------------------------------------------------------
