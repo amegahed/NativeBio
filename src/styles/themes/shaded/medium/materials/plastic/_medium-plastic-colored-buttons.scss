@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../../colors/colors";
@@ -27,83 +27,83 @@ body:not(.binary) {
 		.colored.btn {
 
 			&.red {
-				@include plastic-btns.shading(colors.$medium-red);
+				@include plastic-btns.shaded(colors.$medium-red);
 			}
 
 			&.raspberry {
-				@include plastic-btns.shading(colors.$medium-raspberry);
+				@include plastic-btns.shaded(colors.$medium-raspberry);
 			}
 
 			&.red-orange {
-				@include plastic-btns.shading(colors.$medium-red-orange);
+				@include plastic-btns.shaded(colors.$medium-red-orange);
 			}
 
 			&.orange {
-				@include plastic-btns.shading(colors.$medium-orange);
+				@include plastic-btns.shaded(colors.$medium-orange);
 			}
 
 			&.yellow {
-				@include plastic-btns.shading(colors.$medium-yellow);
+				@include plastic-btns.shaded(colors.$medium-yellow);
 			}
 
 			&.lime {
-				@include plastic-btns.shading(colors.$medium-lime);
+				@include plastic-btns.shaded(colors.$medium-lime);
 			}
 
 			&.green {
-				@include plastic-btns.shading(colors.$medium-green);
+				@include plastic-btns.shaded(colors.$medium-green);
 			}
 
 			&.teal {
-				@include plastic-btns.shading(colors.$medium-teal);
+				@include plastic-btns.shaded(colors.$medium-teal);
 			}
 
 			&.aqua {
-				@include plastic-btns.shading(colors.$medium-aqua);
+				@include plastic-btns.shaded(colors.$medium-aqua);
 			}
 
 			&.cyan {
-				@include plastic-btns.shading(colors.$medium-cyan);
+				@include plastic-btns.shaded(colors.$medium-cyan);
 			}
 
 			&.blue {
-				@include plastic-btns.shading(colors.$medium-blue);
+				@include plastic-btns.shaded(colors.$medium-blue);
 			}
 
 			&.indigo {
-				@include plastic-btns.shading(colors.$medium-indigo);
+				@include plastic-btns.shaded(colors.$medium-indigo);
 			}
 
 			&.violet {
-				@include plastic-btns.shading(colors.$medium-violet);
+				@include plastic-btns.shaded(colors.$medium-violet);
 			}
 
 			&.plum {
-				@include plastic-btns.shading(colors.$medium-plum);
+				@include plastic-btns.shaded(colors.$medium-plum);
 			}
 
 			&.purple {
-				@include plastic-btns.shading(colors.$medium-purple);
+				@include plastic-btns.shaded(colors.$medium-purple);
 			}
 
 			&.magenta {
-				@include plastic-btns.shading(colors.$medium-magenta);
+				@include plastic-btns.shaded(colors.$medium-magenta);
 			}
 
 			&.brown {
-				@include plastic-btns.shading(colors.$medium-brown);
+				@include plastic-btns.shaded(colors.$medium-brown);
 			}
 
 			&.grey {
-				@include plastic-btns.shading(colors.$medium-grey);
+				@include plastic-btns.shaded(colors.$medium-grey);
 			}
 
 			&.black {
-				@include plastic-btns.shading(colors.$medium-black);
+				@include plastic-btns.shaded(colors.$medium-black);
 			}
 
 			&.white {
-				@include plastic-btns.shading(colors.$medium-white);
+				@include plastic-btns.shaded(colors.$medium-white);
 			}
 		}
 	}

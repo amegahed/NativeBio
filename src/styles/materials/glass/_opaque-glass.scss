@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "flat-glass";
@@ -21,10 +21,22 @@
 // mixins
 //
 
-@mixin shading ($color: white, $border-style: outset) {
-	@include flat-glass.shading($color, $border-style, 0);
+@mixin shade($color: white, $border-style: outset) {
+	@include flat-glass.shade($color, $border-style, 0%);
 }
 
-@mixin multilayer-shading ($color: white, $border-style: outset, $opacity: 100%) {
-	@include flat-glass.multilayer-shading($color, $border-style, 0);
+@mixin multilayer-shade($color: white, $border-style: outset, $opacity: 100%) {
+	@include flat-glass.multilayer-shade($color, $border-style, 0%);
+}
+
+//
+// color mixins
+//
+
+@mixin shaded($color: white, $border-style: outset) {
+	@include flat-glass.shaded($color, $border-style, 0%);
+}
+
+@mixin multilayer-shaded($color: white, $border-style: outset, $opacity: 100%) {
+	@include flat-glass.multilayer-shaded($color, $border-style, 0%);
 }

@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../../materials/glass/round-glass";
@@ -26,14 +26,14 @@ body:not(.binary) {
 	&.dark.glass {
 		.flickity-page-dots {
 			.dot {
-				@include round-glass.shading(dark-page-dots.$color);
+				@include round-glass.shaded(dark-page-dots.$color);
 
 				//
 				// selected page dots
 				//
 
 				&.is-selected {
-					@include round-glass.shading(dark-page-dots.$selected-color);
+					@include round-glass.shaded(dark-page-dots.$selected-color);
 				}
 			}
 		}

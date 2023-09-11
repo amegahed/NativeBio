@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../navs/materials/glass/glass-menu-bars";
@@ -22,16 +22,38 @@
 // styles
 //
 
-body:not(.binary).colored.colored {
-	&.glass-menus,
-	&.glass.auto-menus {
+@supports (color: color-mix(in srgb, white, black)) {
+	body:not(.binary).colored.colored {
+		&.glass-menus,
+		&.glass.auto-menus {
 
-		//
-		// dropdown menu toggles
-		//
+			//
+			// dropdown menu toggles
+			//
 
-		.menu-bar {
-			@include glass-menu-bars.shading(colored-menus.$open-color, colored-menus.$active-color);
+			.menu-bar {
+				@include glass-menu-bars.shade(colored-menus.$open-color, colored-menus.$active-color);
+			}
+		}
+	}
+}
+
+//
+// fallback styles
+//
+
+@supports not (color: color-mix(in srgb, white, black)) {
+	body:not(.binary).colored.colored {
+		&.glass-menus,
+		&.glass.auto-menus {
+
+			//
+			// dropdown menu toggles
+			//
+
+			.menu-bar {
+				@include glass-menu-bars.shaded(colored-menus.$default-open-color, colored-menus.$default-active-color);
+			}
 		}
 	}
 }

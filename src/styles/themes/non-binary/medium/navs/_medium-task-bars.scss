@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../colors/colors";
@@ -23,7 +23,7 @@
 // variables
 //
 
-$handle-background: repeating-linear-gradient(to bottom, colors.fade(white, 20%) 0px, colors.fade(white, 20%) 2px, colors.fade(black, 10%) 2px, colors.fade(black, 10%) 4px);
+$handle-background: repeating-linear-gradient(to bottom, colors.faded(white, 20%) 0px, colors.faded(white, 20%) 2px, colors.faded(black, 10%) 2px, colors.faded(black, 10%) 4px);
 
 //
 // colors

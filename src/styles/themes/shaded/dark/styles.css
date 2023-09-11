@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
@@ -28,7 +28,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 :root {
   --light-direction: to bottom;
@@ -50,7 +50,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 @supports (color: color-mix(in srgb, white, black)) {
   .flat .shaded, .flat.flat.shaded {
@@ -130,13 +130,13 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 .colored span.success {
   color: hsl(135, 33%, 50%);
 }
 .colored span.caution {
-  color: #da9526;
+  color: #df9820;
 }
 .colored span.warning {
   color: #da5626;
@@ -185,7 +185,7 @@ td.error {
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 body:not(.binary).colored.colored.dark .badge {
   background-color: hsl(220, 75%, 50%);
@@ -194,7 +194,7 @@ body:not(.binary).colored.colored.dark .badge.success {
   background-color: hsl(135, 33%, 50%);
 }
 body:not(.binary).colored.colored.dark .badge.caution {
-  background-color: #da9526;
+  background-color: #df9820;
 }
 body:not(.binary).colored.colored.dark .badge.warning {
   background-color: #da5626;
@@ -214,7 +214,7 @@ body:not(.binary).colored.colored.dark .badge.warning {
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 body:not(.binary).colored.colored.dark.flat .badge {
   background-color: hsl(220, 75%, 50%);
@@ -225,8 +225,8 @@ body:not(.binary).colored.colored.dark.flat .badge.success {
   border-color: hsl(135, 33%, 50%);
 }
 body:not(.binary).colored.colored.dark.flat .badge.caution {
-  background-color: #da9526;
-  border-color: #da9526;
+  background-color: #df9820;
+  border-color: #df9820;
 }
 body:not(.binary).colored.colored.dark.flat .badge.warning {
   background-color: #da5626;
@@ -247,7 +247,7 @@ body:not(.binary).colored.colored.dark.flat .badge.warning {
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
@@ -263,7 +263,7 @@ body:not(.binary).colored.colored.dark.flat .badge.warning {
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
@@ -279,27 +279,27 @@ body:not(.binary).colored.colored.dark.flat .badge.warning {
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 body:not(.binary).colored.colored.dark.chalk .badge {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, transparent 100%) no-repeat, linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, transparent 50%, rgba(0, 0, 0, 0.1) 100%) no-repeat;
   background-color: hsl(220, 75%, 50%);
-  border-color: color-mix(in srgb, var(--ambient-color) 10%, hsl(220, 75%, 50%));
+  border-color: #1d56d5;
 }
 body:not(.binary).colored.colored.dark.chalk .badge.success {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, transparent 100%) no-repeat, linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, transparent 50%, rgba(0, 0, 0, 0.1) 100%) no-repeat;
   background-color: hsl(135, 33%, 50%);
-  border-color: color-mix(in srgb, var(--ambient-color) 10%, hsl(135, 33%, 50%));
+  border-color: #4d996c;
 }
 body:not(.binary).colored.colored.dark.chalk .badge.caution {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
-  background-color: #da9526;
-  border-color: color-mix(in srgb, var(--ambient-color) 10%, #da9526);
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, transparent 100%) no-repeat, linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, transparent 50%, rgba(0, 0, 0, 0.1) 100%) no-repeat;
+  background-color: #df9820;
+  border-color: #c9892a;
 }
 body:not(.binary).colored.colored.dark.chalk .badge.warning {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, transparent 100%) no-repeat, linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, transparent 50%, rgba(0, 0, 0, 0.1) 100%) no-repeat;
   background-color: #da5626;
-  border-color: color-mix(in srgb, var(--ambient-color) 10%, #da5626);
+  border-color: #c44d2f;
 }
 
 /******************************************************************************\
@@ -316,7 +316,7 @@ body:not(.binary).colored.colored.dark.chalk .badge.warning {
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
@@ -332,7 +332,7 @@ body:not(.binary).colored.colored.dark.chalk .badge.warning {
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
@@ -348,27 +348,27 @@ body:not(.binary).colored.colored.dark.chalk .badge.warning {
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 body:not(.binary).colored.colored.dark.plastic .badge {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, white 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), rgba(255, 255, 255, 0.1) 0%, transparent 50%, rgba(0, 0, 0, 0.1) 100%) no-repeat;
   background-color: hsl(220, 75%, 50%);
-  border-color: color-mix(in srgb, var(--ambient-color) 10%, hsl(220, 75%, 50%));
+  border-color: #1d56d5;
 }
 body:not(.binary).colored.colored.dark.plastic .badge.success {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, white 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), rgba(255, 255, 255, 0.1) 0%, transparent 50%, rgba(0, 0, 0, 0.1) 100%) no-repeat;
   background-color: hsl(135, 33%, 50%);
-  border-color: color-mix(in srgb, var(--ambient-color) 10%, hsl(135, 33%, 50%));
+  border-color: #4d996c;
 }
 body:not(.binary).colored.colored.dark.plastic .badge.caution {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
-  background-color: #da9526;
-  border-color: color-mix(in srgb, var(--ambient-color) 10%, #da9526);
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, white 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), rgba(255, 255, 255, 0.1) 0%, transparent 50%, rgba(0, 0, 0, 0.1) 100%) no-repeat;
+  background-color: #df9820;
+  border-color: #c9892a;
 }
 body:not(.binary).colored.colored.dark.plastic .badge.warning {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, white 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), rgba(255, 255, 255, 0.1) 0%, transparent 50%, rgba(0, 0, 0, 0.1) 100%) no-repeat;
   background-color: #da5626;
-  border-color: color-mix(in srgb, var(--ambient-color) 10%, #da5626);
+  border-color: #c44d2f;
 }
 
 /******************************************************************************\
@@ -385,7 +385,7 @@ body:not(.binary).colored.colored.dark.plastic .badge.warning {
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
@@ -401,7 +401,7 @@ body:not(.binary).colored.colored.dark.plastic .badge.warning {
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
@@ -417,27 +417,27 @@ body:not(.binary).colored.colored.dark.plastic .badge.warning {
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 body:not(.binary).colored.colored.dark.glass .badge {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, hsl(220, 75%, 50%)) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, hsl(220, 75%, 50%)) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, hsl(220, 75%, 50%) 50%, transparent) 100%) no-repeat;
-  background-color: color-mix(in srgb, var(--ambient-color) 30%, hsl(220, 75%, 50%));
-  border-color: color-mix(in srgb, var(--ambient-color) 30%, hsl(220, 75%, 50%));
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, white 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #d2dff9 0%, #3670e2 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, rgba(32, 96, 223, 0.5) 100%) no-repeat;
+  background-color: #1643c2;
+  border-color: #1643c2;
 }
 body:not(.binary).colored.colored.dark.glass .badge.success {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, hsl(135, 33%, 50%)) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, hsl(135, 33%, 50%)) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, hsl(135, 33%, 50%) 50%, transparent) 100%) no-repeat;
-  background-color: color-mix(in srgb, var(--ambient-color) 30%, hsl(135, 33%, 50%));
-  border-color: color-mix(in srgb, var(--ambient-color) 30%, hsl(135, 33%, 50%));
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, white 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #ddeee1 0%, #66b379 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, rgba(85, 170, 106, 0.5) 100%) no-repeat;
+  background-color: #3c7770;
+  border-color: #3c7770;
 }
 body:not(.binary).colored.colored.dark.glass .badge.caution {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, #da9526) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, #da9526) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, #da9526 50%, transparent) 100%) no-repeat;
-  background-color: color-mix(in srgb, var(--ambient-color) 30%, #da9526);
-  border-color: color-mix(in srgb, var(--ambient-color) 30%, #da9526);
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, white 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #f9ead2 0%, #e2a236 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, rgba(223, 152, 32, 0.5) 100%) no-repeat;
+  background-color: #9c6a3d;
+  border-color: #9c6a3d;
 }
 body:not(.binary).colored.colored.dark.glass .badge.warning {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, #da5626) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, #da5626) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, #da5626 50%, transparent) 100%) no-repeat;
-  background-color: color-mix(in srgb, var(--ambient-color) 30%, #da5626);
-  border-color: color-mix(in srgb, var(--ambient-color) 30%, #da5626);
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, white 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #f8ddd4 0%, #de673c 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, rgba(218, 86, 38, 0.5) 100%) no-repeat;
+  background-color: #993c41;
+  border-color: #993c41;
 }
 
 /******************************************************************************\
@@ -454,7 +454,7 @@ body:not(.binary).colored.colored.dark.glass .badge.warning {
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
@@ -470,7 +470,7 @@ body:not(.binary).colored.colored.dark.glass .badge.warning {
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
@@ -486,27 +486,27 @@ body:not(.binary).colored.colored.dark.glass .badge.warning {
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 body:not(.binary).colored.colored.dark.metal .badge {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, hsl(220, 75%, 50%)) 75%, transparent) 50%, color-mix(in srgb, hsl(220, 75%, 50%) 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, hsl(220, 75%, 50%) 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, hsl(220, 75%, 50%) 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, hsl(220, 75%, 50%)) 100%) no-repeat;
-  background-color: color-mix(in srgb, var(--ambient-color) 50%, hsl(220, 75%, 50%));
-  border-color: color-mix(in srgb, var(--ambient-color) 30%, hsl(220, 75%, 50%));
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(77, 128, 229, 0.75) 50%, rgba(0, 0, 0, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, #2060df 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, rgba(32, 96, 223, 0.5) 66%, #6390e9 100%) no-repeat;
+  background-color: #1030af;
+  border-color: #1643c2;
 }
 body:not(.binary).colored.colored.dark.metal .badge.success {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, hsl(135, 33%, 50%)) 75%, transparent) 50%, color-mix(in srgb, hsl(135, 33%, 50%) 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, hsl(135, 33%, 50%) 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, hsl(135, 33%, 50%) 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, hsl(135, 33%, 50%)) 100%) no-repeat;
-  background-color: color-mix(in srgb, var(--ambient-color) 50%, hsl(135, 33%, 50%));
-  border-color: color-mix(in srgb, var(--ambient-color) 30%, hsl(135, 33%, 50%));
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(119, 187, 136, 0.75) 50%, rgba(0, 0, 0, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, #55aa6a 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, rgba(85, 170, 106, 0.5) 66%, #88c497 100%) no-repeat;
+  background-color: #2b5575;
+  border-color: #3c7770;
 }
 body:not(.binary).colored.colored.dark.metal .badge.caution {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, #da9526) 75%, transparent) 50%, color-mix(in srgb, #da9526 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, #da9526 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, #da9526 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, #da9526) 100%) no-repeat;
-  background-color: color-mix(in srgb, var(--ambient-color) 50%, #da9526);
-  border-color: color-mix(in srgb, var(--ambient-color) 30%, #da9526);
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(229, 173, 77, 0.75) 50%, rgba(0, 0, 0, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, #df9820 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, rgba(223, 152, 32, 0.5) 66%, #e9b763 100%) no-repeat;
+  background-color: #704c50;
+  border-color: #9c6a3d;
 }
 body:not(.binary).colored.colored.dark.metal .badge.warning {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, #da5626) 75%, transparent) 50%, color-mix(in srgb, #da5626 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, #da5626 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, #da5626 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, #da5626) 100%) no-repeat;
-  background-color: color-mix(in srgb, var(--ambient-color) 50%, #da5626);
-  border-color: color-mix(in srgb, var(--ambient-color) 30%, #da5626);
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(225, 120, 81, 0.75) 50%, rgba(0, 0, 0, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, #da5626 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, rgba(218, 86, 38, 0.5) 66%, #e58967 100%) no-repeat;
+  background-color: #6d2b53;
+  border-color: #993c41;
 }
 
 /******************************************************************************\
@@ -523,7 +523,7 @@ body:not(.binary).colored.colored.dark.metal .badge.warning {
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
@@ -539,7 +539,7 @@ body:not(.binary).colored.colored.dark.metal .badge.warning {
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
@@ -555,7 +555,7 @@ body:not(.binary).colored.colored.dark.metal .badge.warning {
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
@@ -571,7 +571,7 @@ body:not(.binary).colored.colored.dark.metal .badge.warning {
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 /*# sourceMappingURL=styles.css.map */

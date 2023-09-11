@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../bootstrap/variables";
@@ -24,6 +24,7 @@
 
 $padding: 30px 50px;
 $margin: 0 -50px;
+$carousel-height: 150px;
 
 //
 // styles
@@ -51,6 +52,27 @@ $margin: 0 -50px;
 
 	.carousel {
 		margin: $margin;
+		height: $carousel-height;
+		overflow: hidden;
+
+		.carousel-cell {
+			height: $carousel-height !important;
+		}
+	}
+
+	.icon-grid.large {
+		text-align: center;
+		font-size: 12px;
+
+		.item {
+			width: 125px;
+			height: $carousel-height;
+			transform: translate(0,50px) scale(1.5);
+
+			i {
+				font-size: 40px
+			}
+		}
 	}
 
 	&.colored {

@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../../materials/chalk/round-chalk";
@@ -26,22 +26,22 @@
 body:not(.binary) {
 	&.chalk.colored {
 		.badge {
-			@include round-chalk.shading(colored-badges.$color);
+			@include round-chalk.shaded(colored-badges.$color);
 
 			//
 			// chalk special badges
 			//
 
 			&.success {
-				@include round-chalk.shading(special-colors.$success-color);
+				@include round-chalk.shaded(special-colors.$success-color);
 			}
 
 			&.caution {
-				@include round-chalk.shading(special-colors.$caution-color);
+				@include round-chalk.shaded(special-colors.$caution-color);
 			}
 
 			&.warning {
-				@include round-chalk.shading(special-colors.$warning-color);
+				@include round-chalk.shaded(special-colors.$warning-color);
 			}
 		}
 	}

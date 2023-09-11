@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "flat-glass";
@@ -28,22 +28,36 @@ $blur: 10px;
 // mixins
 //
 
-@mixin frosting($blur: $blur) {
+@mixin frosted($blur: $blur) {
 	backdrop-filter: blur($blur);
 	-webkit-backdrop-filter: blur($blur);
 }
 
-@mixin polishing($blur: $blur) {
+@mixin polished {
 	backdrop-filter: none;
 	-webkit-backdrop-filter: none;
 }
 
-@mixin shading ($color: white, $border-style: outset, $opacity: $opacity) {
-	@include flat-glass.shading($color, $border-style, $opacity);
-	@include frosting();
+@mixin shade($color: white, $border-style: outset, $opacity: $opacity) {
+	@include flat-glass.shade($color, $border-style, $opacity);
+	@include frosted();
 }
 
-@mixin multilayer-shading ($color: white, $border-style: outset, $opacity: $opacity) {
-	@include flat-glass.multilayer-shading($color, $border-style, $opacity);
-	@include frosting();
+@mixin multilayer-shade($color: white, $border-style: outset, $opacity: $opacity) {
+	@include flat-glass.multilayer-shade($color, $border-style, $opacity);
+	@include frosted();
+}
+
+//
+// color mixins
+//
+
+@mixin shaded($color: white, $border-style: outset, $opacity: $opacity) {
+	@include flat-glass.shaded($color, $border-style, $opacity);
+	@include frosted();
+}
+
+@mixin multilayer-shaded($color: white, $border-style: outset, $opacity: $opacity) {
+	@include flat-glass.multilayer-shaded($color, $border-style, $opacity);
+	@include frosted();
 }

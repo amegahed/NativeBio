@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../../forms/materials/metal/metal-sliders";
@@ -32,7 +32,7 @@ body:not(.binary) {
 		//
 
 		input[type="range"] {
-			@include metal-sliders.thumb-shading(medium-sliders.$thumb-color, medium-sliders.$thumb-hover-color, medium-sliders.$thumb-active-color);
+			@include metal-sliders.thumb-shaded(medium-sliders.$thumb-color, medium-sliders.$thumb-hover-color, medium-sliders.$thumb-active-color);
 		}
 
 		//
@@ -43,15 +43,15 @@ body:not(.binary) {
 			input[type="range"] {
 				&.colored {
 					&.success {
-						@include metal-sliders.active-thumb-shading(validation.$success-color);
+						@include metal-sliders.active-thumb-shade(validation.$success-color);
 					}
 
 					&.warning {
-						@include metal-sliders.active-thumb-shading(validation.$warning-color);
+						@include metal-sliders.active-thumb-shade(validation.$warning-color);
 					}
 
 					&.error {
-						@include metal-sliders.active-thumb-shading(validation.$error-color);
+						@include metal-sliders.active-thumb-shade(validation.$error-color);
 					}
 				}
 			}

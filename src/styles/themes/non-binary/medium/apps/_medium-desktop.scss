@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../colors/colors";
@@ -25,8 +25,8 @@
 $background-color: colors.$medium-grey;
 $footer-bar-color: colors.$very-very-very-light-grey;
 $footer-bar-opacity: plate-glass.$max-opacity;
-$footer-bar-item-shadow: 2px 2px 10px colors.fade(black, 33%);
-$run-menu-box-shadow: 10px 10px 20px colors.fade(black, 25%);
+$footer-bar-item-shadow: 2px 2px 10px colors.faded(black, 33%);
+$run-menu-box-shadow: 10px 10px 20px colors.faded(black, 25%);
 
 $info-bar-color: white;
 $info-bar-icon-color: white;

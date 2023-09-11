@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../navs/materials/chalk/chalk-btns";
@@ -22,25 +22,58 @@
 // styles
 //
 
-body:not(.binary).colored.colored {
-	&.chalk-buttons,
-	&.chalk.auto-buttons {
-
-		//
-		// chalk styled buttons
-		//
-
-		.btn {
+@supports (color: color-mix(in srgb, white, black)) {
+	body:not(.binary).colored.colored {
+		&.chalk-buttons,
+		&.chalk.auto-buttons {
 
 			//
-			// chalk primary buttons
+			// chalk styled buttons
 			//
 
-			&.btn-primary {
-				@include chalk-btns.shading(colored-btns.$primary-color);
+			.btn {
 
-				&:disabled {
-					@include chalk-btns.shading(colored-btns.$disabled-primary-color);
+				//
+				// chalk primary buttons
+				//
+
+				&.btn-primary {
+					@include chalk-btns.shade(colored-btns.$primary-color);
+
+					&:disabled {
+						@include chalk-btns.shade(colored-btns.$disabled-primary-color);
+					}
+				}
+			}
+		}
+	}
+}
+
+//
+// fallback styles
+//
+
+@supports not (color: color-mix(in srgb, white, black)) {
+	body:not(.binary).colored.colored {
+		&.chalk-buttons,
+		&.chalk.auto-buttons {
+
+			//
+			// chalk styled buttons
+			//
+
+			.btn {
+
+				//
+				// chalk primary buttons
+				//
+
+				&.btn-primary {
+					@include chalk-btns.shaded(colored-btns.$default-primary-color);
+
+					&:disabled {
+						@include chalk-btns.shaded(colored-btns.$default-disabled-primary-color);
+					}
 				}
 			}
 		}

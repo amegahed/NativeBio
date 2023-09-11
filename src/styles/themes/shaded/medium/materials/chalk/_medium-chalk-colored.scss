@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../../colors/colors";
@@ -32,95 +32,95 @@ body:not(.binary) {
 		.colored:not(.flat) {
 
 			&.red {
-				@include round-chalk.shading(colors.$medium-red);
+				@include round-chalk.shaded(colors.$medium-red);
 			}
 
 			&.raspberry {
-				@include round-chalk.shading(colors.$medium-raspberry);
+				@include round-chalk.shaded(colors.$medium-raspberry);
 			}
 
 			&.red-orange {
-				@include round-chalk.shading(colors.$medium-red-orange);
+				@include round-chalk.shaded(colors.$medium-red-orange);
 			}
 
 			&.orange {
-				@include round-chalk.shading(colors.$medium-orange);
+				@include round-chalk.shaded(colors.$medium-orange);
 			}
 
 			&.yellow {
-				@include round-chalk.shading(colors.$medium-yellow);
+				@include round-chalk.shaded(colors.$medium-yellow);
 			}
 
 			&.lime {
-				@include round-chalk.shading(colors.$medium-lime);
+				@include round-chalk.shaded(colors.$medium-lime);
 			}
 
 			&.green {
-				@include round-chalk.shading(colors.$medium-green);
+				@include round-chalk.shaded(colors.$medium-green);
 			}
 
 			&.teal {
-				@include round-chalk.shading(colors.$medium-teal);
+				@include round-chalk.shaded(colors.$medium-teal);
 			}
 
 			&.aqua {
-				@include round-chalk.shading(colors.$medium-aqua);
+				@include round-chalk.shaded(colors.$medium-aqua);
 			}
 
 			&.cyan {
-				@include round-chalk.shading(colors.$medium-cyan);
+				@include round-chalk.shaded(colors.$medium-cyan);
 			}
 
 			&.blue {
-				@include round-chalk.shading(colors.$medium-blue);
+				@include round-chalk.shaded(colors.$medium-blue);
 			}
 
 			&.indigo {
-				@include round-chalk.shading(colors.$medium-indigo);
+				@include round-chalk.shaded(colors.$medium-indigo);
 			}
 
 			&.violet {
-				@include round-chalk.shading(colors.$medium-violet);
+				@include round-chalk.shaded(colors.$medium-violet);
 			}
 
 			&.plum {
-				@include round-chalk.shading(colors.$medium-plum);
+				@include round-chalk.shaded(colors.$medium-plum);
 			}
 
 			&.purple {
-				@include round-chalk.shading(colors.$medium-purple);
+				@include round-chalk.shaded(colors.$medium-purple);
 			}
 
 			&.magenta {
-				@include round-chalk.shading(colors.$medium-magenta);
+				@include round-chalk.shaded(colors.$medium-magenta);
 			}
 
 			&.brown {
-				@include round-chalk.shading(colors.$medium-brown);
+				@include round-chalk.shaded(colors.$medium-brown);
 			}
 
 			&.grey {
-				@include round-chalk.shading(colors.$medium-grey);
+				@include round-chalk.shaded(colors.$medium-grey);
 			}
 
 			&.black {
-				@include round-chalk.shading(colors.$medium-black);
+				@include round-chalk.shaded(colors.$medium-black);
 			}
 
 			&.white {
-				@include round-chalk.shading(colors.$medium-white);
+				@include round-chalk.shaded(colors.$medium-white);
 			}
 
 			&.copper {
-				@include round-chalk.shading(colors.$medium-copper);
+				@include round-chalk.shaded(colors.$medium-copper);
 			}
 
 			&.silver {
-				@include round-chalk.shading(colors.$medium-silver);
+				@include round-chalk.shaded(colors.$medium-silver);
 			}
 
 			&.gold {
-				@include round-chalk.shading(colors.$medium-gold);
+				@include round-chalk.shaded(colors.$medium-gold);
 			}
 		}
 
@@ -130,95 +130,95 @@ body:not(.binary) {
 
 		.selected .colored:not(.flat) {
 			&.red {
-				@include round-chalk.shading(colors.$dark-red);
+				@include round-chalk.shaded(colors.$dark-red);
 			}
 
 			&.raspberry {
-				@include round-chalk.shading(colors.$dark-raspberry);
+				@include round-chalk.shaded(colors.$dark-raspberry);
 			}
 
 			&.red-orange {
-				@include round-chalk.shading(colors.$dark-red-orange);
+				@include round-chalk.shaded(colors.$dark-red-orange);
 			}
 
 			&.orange {
-				@include round-chalk.shading(colors.$dark-orange);
+				@include round-chalk.shaded(colors.$dark-orange);
 			}
 
 			&.yellow {
-				@include round-chalk.shading(colors.$dark-yellow);
+				@include round-chalk.shaded(colors.$dark-yellow);
 			}
 
 			&.lime {
-				@include round-chalk.shading(colors.$dark-lime);
+				@include round-chalk.shaded(colors.$dark-lime);
 			}
 
 			&.green {
-				@include round-chalk.shading(colors.$dark-green);
+				@include round-chalk.shaded(colors.$dark-green);
 			}
 
 			&.teal {
-				@include round-chalk.shading(colors.$dark-teal);
+				@include round-chalk.shaded(colors.$dark-teal);
 			}
 
 			&.aqua {
-				@include round-chalk.shading(colors.$dark-aqua);
+				@include round-chalk.shaded(colors.$dark-aqua);
 			}
 
 			&.cyan {
-				@include round-chalk.shading(colors.$dark-cyan);
+				@include round-chalk.shaded(colors.$dark-cyan);
 			}
 
 			&.blue {
-				@include round-chalk.shading(colors.$dark-blue);
+				@include round-chalk.shaded(colors.$dark-blue);
 			}
 
 			&.indigo {
-				@include round-chalk.shading(colors.$dark-indigo);
+				@include round-chalk.shaded(colors.$dark-indigo);
 			}
 
 			&.violet {
-				@include round-chalk.shading(colors.$dark-violet);
+				@include round-chalk.shaded(colors.$dark-violet);
 			}
 
 			&.plum {
-				@include round-chalk.shading(colors.$dark-plum);
+				@include round-chalk.shaded(colors.$dark-plum);
 			}
 
 			&.purple {
-				@include round-chalk.shading(colors.$dark-purple);
+				@include round-chalk.shaded(colors.$dark-purple);
 			}
 
 			&.magenta {
-				@include round-chalk.shading(colors.$dark-magenta);
+				@include round-chalk.shaded(colors.$dark-magenta);
 			}
 
 			&.brown {
-				@include round-chalk.shading(colors.$dark-brown);
+				@include round-chalk.shaded(colors.$dark-brown);
 			}
 
 			&.grey {
-				@include round-chalk.shading(colors.$dark-grey);
+				@include round-chalk.shaded(colors.$dark-grey);
 			}
 
 			&.black {
-				@include round-chalk.shading(colors.$dark-black);
+				@include round-chalk.shaded(colors.$dark-black);
 			}
 
 			&.white {
-				@include round-chalk.shading(colors.$dark-white);
+				@include round-chalk.shaded(colors.$dark-white);
 			}
 
 			&.copper {
-				@include round-chalk.shading(colors.$dark-copper);
+				@include round-chalk.shaded(colors.$dark-copper);
 			}
 
 			&.silver {
-				@include round-chalk.shading(colors.$dark-silver);
+				@include round-chalk.shaded(colors.$dark-silver);
 			}
 
 			&.gold {
-				@include round-chalk.shading(colors.$dark-gold);
+				@include round-chalk.shaded(colors.$dark-gold);
 			}
 		}
 	}

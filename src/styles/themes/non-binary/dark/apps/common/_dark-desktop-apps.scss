@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../../colors/colors";
@@ -29,14 +29,14 @@
 
 $header-bar-color: text-colors.$light-color;
 $header-bar-icon-color: colors.$light-grey;
-$header-bar-background-color: colors.$very-very-dark-grey;
+$header-bar-background-color: colors.$very-dark-grey;
 $header-bar-border-color: dark-apps.$border-color;
 $sidebar-panel-color: dark-panels.$background-color;
-$sidebar-panels-color: colors.fade(dark-panels.$background-color, 50%);
-$mainbar-background-color: darken(colors.$very-very-dark-grey, 5%);
-$transparent-sidebar-color: colors.fade(dark-apps.$sidebar-color, 50%);
+$sidebar-panels-color: colors.faded(dark-panels.$background-color, 50%);
+$mainbar-background-color: colors.$very-very-dark-grey;
+$transparent-sidebar-color: colors.faded(dark-apps.$sidebar-color, 50%);
 $transparent-sidebar-label-color: white;
-$transparent-sidebar-panel-color: colors.fade(colors.$dark-grey, 25%);
+$transparent-sidebar-panel-color: colors.faded(colors.$dark-grey, 25%);
 
 //
 // styles
@@ -116,7 +116,7 @@ body:not(.binary).dark {
 			.desktop.app > .body > .app {
 
 				> .header-bar {
-					@include plate-glass.shading($header-bar-background-color,
+					@include plate-glass.shaded($header-bar-background-color,
 					medium-desktop-apps.$header-bar-opacity);
 				}
 			}
@@ -173,7 +173,7 @@ body:not(.binary).dark {
 				.contents {
 					> .sidebar {
 						background-color: $transparent-sidebar-color;
-						@include frosted-plate-glass.frosting();
+						@include frosted-plate-glass.frosted();
 					}
 				}
 			}
@@ -225,7 +225,7 @@ body:not(.binary).dark {
 							background-color: $sidebar-panels-color;
 
 							.panel {
-								@include plate-glass.shading($sidebar-panels-color);
+								@include plate-glass.shaded($sidebar-panels-color);
 								color: white !important;
 
 								.panels > .panel, label {
@@ -255,13 +255,13 @@ body:not(.binary).dark {
 			> .body, > .body-region {
 				.contents {
 					> .sidebar {
-						@include frosted-plate-glass.polishing();
+						@include frosted-plate-glass.polished();
 
 						.panels {
-							@include frosted-plate-glass.shading($sidebar-panels-color);
+							@include frosted-plate-glass.shaded($sidebar-panels-color);
 
 							.panel {
-								@include frosted-plate-glass.shading($sidebar-panel-color);
+								@include frosted-plate-glass.shaded($sidebar-panel-color);
 
 								.expander i {
 									color: white !important;

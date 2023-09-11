@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../../colors/colors";
@@ -33,7 +33,7 @@ body:not(.binary).monochrome {
 
 			.colored.icon,
 			.icon .colored {
-				@include flat.coloring(colors.$light-grey);
+				@include flat.colored(colors.$light-grey);
 			}
 
 			//
@@ -42,7 +42,7 @@ body:not(.binary).monochrome {
 
 			.selected .colored.icon,
 			.selected .icon .colored {
-				@include flat.coloring(colors.$medium-grey);
+				@include flat.colored(colors.$medium-grey);
 			}
 		}
 	}

@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../materials/flat/flat";
@@ -22,11 +22,29 @@
 // styles
 //
 
-body:not(.binary).colored.accented {
-	&:not(.dark).flat {
-		.progress {
-			.bar {
-				@include flat.coloring(accented-progress-bars.$color);
+@supports (color: color-mix(in srgb, white, black)) {
+	body:not(.binary).colored.accented {
+		&:not(.dark).flat {
+			.progress {
+				.bar {
+					@include flat.color(accented-progress-bars.$color);
+				}
+			}
+		}
+	}
+}
+
+//
+// fallback styles
+//
+
+@supports not (color: color-mix(in srgb, white, black)) {
+	body:not(.binary).colored.accented {
+		&:not(.dark).flat {
+			.progress {
+				.bar {
+					@include flat.colored(accented-progress-bars.$default-color);
+				}
 			}
 		}
 	}

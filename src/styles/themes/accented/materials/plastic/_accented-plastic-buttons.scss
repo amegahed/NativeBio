@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../navs/materials/plastic/plastic-buttons";
@@ -22,15 +22,36 @@
 // styles
 //
 
-body:not(.binary).colored.accented {
-	&.plastic {
+@supports (color: color-mix(in srgb, white, black)) {
+	body:not(.binary).colored.accented {
+		&.plastic {
 
-		//
-		// plastic buttons
-		//
+			//
+			// plastic buttons
+			//
 
-		button {
-			@include plastic-buttons.shading(accented-buttons.$hover-color);
+			button {
+				@include plastic-buttons.shade(accented-buttons.$hover-color);
+			}
+		}
+	}
+}
+
+//
+// fallback styles
+//
+
+@supports not (color: color-mix(in srgb, white, black)) {
+	body:not(.binary).colored.accented {
+		&.plastic {
+
+			//
+			// plastic buttons
+			//
+
+			button {
+				@include plastic-buttons.shaded(accented-buttons.$default-hover-color);
+			}
 		}
 	}
 }

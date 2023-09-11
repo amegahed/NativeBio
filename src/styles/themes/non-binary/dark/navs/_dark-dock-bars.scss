@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../colors/colors";
@@ -24,8 +24,8 @@
 //
 
 $background-color: colors.$very-very-dark-grey;
-$border-color: colors.fade(lighten($background-color, 25%), 50%);
-$divider-color: colors.fade(colors.$light-grey, 50%);
+$border-color: colors.faded(lighten($background-color, 25%), 50%);
+$divider-color: colors.faded(colors.$light-grey, 50%);
 $item-indicator-color: colors.$very-light-grey;
 
 //
@@ -71,7 +71,7 @@ body:not(.binary).dark {
 	&.transparent {
 		#dock-bar {
 			.shelf {
-				@include plate-glass.shading($background-color, 50%, 50%);
+				@include plate-glass.shaded($background-color, 50%, 50%);
 			}
 		}
 	}
@@ -83,7 +83,7 @@ body:not(.binary).dark {
 	&.translucent {
 		#dock-bar {
 			.shelf {
-				@include frosted-plate-glass.shading($background-color, 50%, 50%);
+				@include frosted-plate-glass.shaded($background-color, 50%, 50%);
 			}
 		}
 	}

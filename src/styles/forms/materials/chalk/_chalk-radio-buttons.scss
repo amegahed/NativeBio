@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../materials/chalk/round-chalk";
@@ -21,11 +21,24 @@
 // mixins
 //
 
-@mixin shading($color) {
+@mixin shade($color) {
 	box-shadow: var(--radio-button-shadow);
 
 	&:checked {
-		@include round-chalk.shading($color);
+		@include round-chalk.shade($color);
+		transform: scale(-1) rotate(var(--light-direction));
+	}
+}
+
+//
+// color mixins
+//
+
+@mixin shaded($color) {
+	box-shadow: var(--radio-button-shadow);
+
+	&:checked {
+		@include round-chalk.shaded($color);
 		transform: scale(-1) rotate(var(--light-direction));
 	}
 }

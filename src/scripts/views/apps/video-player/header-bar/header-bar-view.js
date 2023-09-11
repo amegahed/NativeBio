@@ -77,9 +77,9 @@ export default HeaderBarView.extend({
 
 	showVolumeBar: function() {
 
-		// ios does not allow control of volume
+		// do not show volume control for mobile
 		//
-		if (Browser.mobileOS == 'iOS') {
+		if (Browser.is_mobile) {
 			return;
 		}
 

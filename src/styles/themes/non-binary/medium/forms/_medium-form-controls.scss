@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../colors/colors";
@@ -69,8 +69,8 @@ body:not(.binary) {
 			border-color: $border-color;
 
 			&:focus {
-				border-color: colors.fade($focus-color, 75%) !important;
-				box-shadow: 1px 1px 10px 0 colors.fade($focus-color, 50%) !important;
+				border-color: colors.faded($focus-color, 75%) !important;
+				box-shadow: 1px 1px 10px 0 colors.faded($focus-color, 50%) !important;
 			}
 		}
 	}

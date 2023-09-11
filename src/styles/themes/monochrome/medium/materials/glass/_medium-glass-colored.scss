@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../../colors/colors";
@@ -39,95 +39,95 @@ body:not(.binary) {
 		.colored:not(.btn) {
 
 			&.red {
-				@include glass.shading($color);
+				@include glass.shade($color);
 			}
 
 			&.raspberry {
-				@include glass.shading($color);
+				@include glass.shade($color);
 			}
 
 			&.red-orange {
-				@include glass.shading($color);
+				@include glass.shade($color);
 			}
 
 			&.orange {
-				@include glass.shading($color);
+				@include glass.shade($color);
 			}
 
 			&.yellow {
-				@include glass.shading($color);
+				@include glass.shade($color);
 			}
 
 			&.lime {
-				@include glass.shading($color);
+				@include glass.shade($color);
 			}
 
 			&.green {
-				@include glass.shading($color);
+				@include glass.shade($color);
 			}
 
 			&.teal {
-				@include glass.shading($color);
+				@include glass.shade($color);
 			}
 
 			&.aqua {
-				@include glass.shading($color);
+				@include glass.shade($color);
 			}
 
 			&.cyan {
-				@include glass.shading($color);
+				@include glass.shade($color);
 			}
 
 			&.blue {
-				@include glass.shading($color);
+				@include glass.shade($color);
 			}
 
 			&.indigo {
-				@include glass.shading($color);
+				@include glass.shade($color);
 			}
 
 			&.violet {
-				@include glass.shading($color);
+				@include glass.shade($color);
 			}
 
 			&.plum {
-				@include glass.shading($color);
+				@include glass.shade($color);
 			}
 
 			&.purple {
-				@include glass.shading($color);
+				@include glass.shade($color);
 			}
 
 			&.magenta {
-				@include glass.shading($color);
+				@include glass.shade($color);
 			}
 
 			&.brown {
-				@include glass.shading($color);
+				@include glass.shade($color);
 			}
 
 			&.grey {
-				@include glass.shading($color);
+				@include glass.shade($color);
 			}
 
 			&.black {
-				@include glass.shading(black);
+				@include glass.shade(black);
 			}
 
 			&.white {
-				@include glass.shading(white);
+				@include glass.shade(white);
 			}
 
 			&.copper {
-				@include glass.shading($color);
+				@include glass.shade($color);
 			}
 
 			&.silver {
-				@include glass.shading($color);
+				@include glass.shade($color);
 			}
 
 			&.gold {
-				@include glass.shading($color);
+				@include glass.shade($color);
 			}
 		}
 
@@ -138,95 +138,95 @@ body:not(.binary) {
 		.selected .colored:not(.btn) {
 
 			.red {
-				@include glass.shading($selected-color);
+				@include glass.shade($selected-color);
 			}
 
 			.raspberry {
-				@include glass.shading($selected-color);
+				@include glass.shade($selected-color);
 			}
 
 			.red-orange {
-				@include glass.shading($selected-color);
+				@include glass.shade($selected-color);
 			}
 
 			.orange {
-				@include glass.shading($selected-color);
+				@include glass.shade($selected-color);
 			}
 
 			.yellow {
-				@include glass.shading($selected-color);
+				@include glass.shade($selected-color);
 			}
 
 			.lime {
-				@include glass.shading($selected-color);
+				@include glass.shade($selected-color);
 			}
 
 			.green {
-				@include glass.shading($selected-color);
+				@include glass.shade($selected-color);
 			}
 
 			.teal {
-				@include glass.shading($selected-color);
+				@include glass.shade($selected-color);
 			}
 
 			.aqua {
-				@include glass.shading($selected-color);
+				@include glass.shade($selected-color);
 			}
 
 			.cyan {
-				@include glass.shading($selected-color);
+				@include glass.shade($selected-color);
 			}
 
 			.blue {
-				@include glass.shading($selected-color);
+				@include glass.shade($selected-color);
 			}
 
 			.indigo {
-				@include glass.shading($selected-color);
+				@include glass.shade($selected-color);
 			}
 
 			.violet {
-				@include glass.shading($selected-color);
+				@include glass.shade($selected-color);
 			}
 
 			.plum {
-				@include glass.shading($selected-color);
+				@include glass.shade($selected-color);
 			}
 
 			.purple {
-				@include glass.shading($selected-color);
+				@include glass.shade($selected-color);
 			}
 
 			.magenta {
-				@include glass.shading($selected-color);
+				@include glass.shade($selected-color);
 			}
 
 			.brown {
-				@include glass.shading($selected-color);
+				@include glass.shade($selected-color);
 			}
 
 			.grey {
-				@include glass.shading($selected-color);
+				@include glass.shade($selected-color);
 			}
 
 			.black {
-				@include glass.shading(black);
+				@include glass.shade(black);
 			}
 
 			.white {
-				@include glass.shading(white);
+				@include glass.shade(white);
 			}
 
 			.copper {
-				@include glass.shading($selected-color);
+				@include glass.shade($selected-color);
 			}
 
 			.silver {
-				@include glass.shading($selected-color);
+				@include glass.shade($selected-color);
 			}
 
 			.gold {
-				@include glass.shading($selected-color);
+				@include glass.shade($selected-color);
 			}
 		}
 	}

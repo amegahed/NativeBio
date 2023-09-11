@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../../colors/colors";
@@ -27,83 +27,83 @@ body:not(.binary) {
 		.colored.btn {
 
 			&.red {
-				@include chalk-btns.shading(colors.$medium-red);
+				@include chalk-btns.shaded(colors.$medium-red);
 			}
 
 			&.raspberry {
-				@include chalk-btns.shading(colors.$medium-raspberry);
+				@include chalk-btns.shaded(colors.$medium-raspberry);
 			}
 
 			&.red-orange {
-				@include chalk-btns.shading(colors.$medium-red-orange);
+				@include chalk-btns.shaded(colors.$medium-red-orange);
 			}
 
 			&.orange {
-				@include chalk-btns.shading(colors.$medium-orange);
+				@include chalk-btns.shaded(colors.$medium-orange);
 			}
 
 			&.yellow {
-				@include chalk-btns.shading(colors.$medium-yellow);
+				@include chalk-btns.shaded(colors.$medium-yellow);
 			}
 
 			&.lime {
-				@include chalk-btns.shading(colors.$medium-lime);
+				@include chalk-btns.shaded(colors.$medium-lime);
 			}
 
 			&.green {
-				@include chalk-btns.shading(colors.$medium-green);
+				@include chalk-btns.shaded(colors.$medium-green);
 			}
 
 			&.teal {
-				@include chalk-btns.shading(colors.$medium-teal);
+				@include chalk-btns.shaded(colors.$medium-teal);
 			}
 
 			&.aqua {
-				@include chalk-btns.shading(colors.$medium-aqua);
+				@include chalk-btns.shaded(colors.$medium-aqua);
 			}
 
 			&.cyan {
-				@include chalk-btns.shading(colors.$medium-cyan);
+				@include chalk-btns.shaded(colors.$medium-cyan);
 			}
 
 			&.blue {
-				@include chalk-btns.shading(colors.$medium-blue);
+				@include chalk-btns.shaded(colors.$medium-blue);
 			}
 
 			&.indigo {
-				@include chalk-btns.shading(colors.$medium-indigo);
+				@include chalk-btns.shaded(colors.$medium-indigo);
 			}
 
 			&.violet {
-				@include chalk-btns.shading(colors.$medium-violet);
+				@include chalk-btns.shaded(colors.$medium-violet);
 			}
 
 			&.plum {
-				@include chalk-btns.shading(colors.$medium-plum);
+				@include chalk-btns.shaded(colors.$medium-plum);
 			}
 
 			&.purple {
-				@include chalk-btns.shading(colors.$medium-purple);
+				@include chalk-btns.shaded(colors.$medium-purple);
 			}
 
 			&.magenta {
-				@include chalk-btns.shading(colors.$medium-magenta);
+				@include chalk-btns.shaded(colors.$medium-magenta);
 			}
 
 			&.brown {
-				@include chalk-btns.shading(colors.$medium-brown);
+				@include chalk-btns.shaded(colors.$medium-brown);
 			}
 
 			&.grey {
-				@include chalk-btns.shading(colors.$medium-grey);
+				@include chalk-btns.shaded(colors.$medium-grey);
 			}
 
 			&.black {
-				@include chalk-btns.shading(colors.$medium-black);
+				@include chalk-btns.shaded(colors.$medium-black);
 			}
 
 			&.white {
-				@include chalk-btns.shading(colors.$medium-white);
+				@include chalk-btns.shaded(colors.$medium-white);
 			}
 		}
 	}

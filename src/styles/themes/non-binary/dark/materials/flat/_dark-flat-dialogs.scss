@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../../materials/flat/flat";
@@ -32,7 +32,7 @@ body:not(.binary) {
 
 		.modal.focused .modal-dialog {
 			.modal-header {
-				@include flat.coloring(dark-dialogs.$header-color, inset);
+				@include flat.colored(dark-dialogs.$header-color, inset);
 			}
 		}
 
@@ -42,7 +42,7 @@ body:not(.binary) {
 
 		.modal:not(.focused) .modal-dialog {
 			.modal-header {
-				@include flat.coloring(dark-dialogs.$unfocused-header-color, inset);
+				@include flat.colored(dark-dialogs.$unfocused-header-color, inset);
 			}
 		}
 	}

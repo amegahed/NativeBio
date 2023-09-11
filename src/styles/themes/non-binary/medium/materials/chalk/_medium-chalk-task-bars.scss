@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../../materials/chalk/round-chalk";
@@ -32,7 +32,7 @@ body:not(.binary) {
 		#desktop:not(.task-bar-minimized):not(.colorful) .task-bar {
 			.task-list {
 				li {
-					@include round-chalk.shading(medium-task-bars.$item-color);
+					@include round-chalk.shaded(medium-task-bars.$item-color);
 				}
 			}
 		}
@@ -40,7 +40,7 @@ body:not(.binary) {
 		#desktop.coloful:not(.task-bar-minimized) .task-bar {
 			.task-list {
 				li:not(.colored) {
-					@include round-chalk.shading(medium-task-bars.$item-color);
+					@include round-chalk.shaded(medium-task-bars.$item-color);
 				}
 			}
 		}
@@ -52,7 +52,7 @@ body:not(.binary) {
 		#desktop.task-bar-minimized:not(.colorful) .task-bar {
 			.task-list {
 				li:not(.colored) {
-					@include round-chalk.shading(medium-task-bars.$item-color);
+					@include round-chalk.shaded(medium-task-bars.$item-color);
 				}
 			}
 		}

@@ -28,7 +28,7 @@ export default {
 
 		// check if item has been saved
 		//
-		if (!item.isSaved()) {
+		if (item.isSaved && !item.isSaved()) {
 
 			// show notification
 			//
@@ -42,7 +42,7 @@ export default {
 
 		// check if item is owned
 		//
-		} else if (item.isOwned()) {
+		} else if (item.isOwned && item.isOwned()) {
 
 			// show notification
 			//

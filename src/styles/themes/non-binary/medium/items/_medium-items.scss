@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../colors/colors";
@@ -24,7 +24,7 @@
 //
 
 $details-background-opacity: 50%;
-$details-background-color: colors.fade(colors.$very-light-grey, $details-background-opacity);
+$details-background-color: colors.faded(colors.$very-light-grey, $details-background-opacity);
 
 //
 // styles

@@ -12,16 +12,16 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-@use "../colors/dark-branding";
+@use "../../../../colors/colors";
 
 //
 // colors
 //
 
-$color: dark-branding.$secondary-color;
+$color: colors.$very-light-grey;
 $hover-color: white;
 
 //

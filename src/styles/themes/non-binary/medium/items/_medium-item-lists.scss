@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../colors/colors";
@@ -26,8 +26,8 @@
 
 $background-opacity: 25%;
 $info-color: colors.$medium-grey;
-$even-item-background-color: colors.fade(white, $background-opacity);
-$odd-item-background-color: colors.fade(colors.$light-grey, $background-opacity);
+$even-item-background-color: colors.faded(white, $background-opacity);
+$odd-item-background-color: colors.faded(colors.$light-grey, $background-opacity);
 
 //
 // styles
@@ -105,7 +105,7 @@ body:not(.binary) {
 					/*
 					.thumbnail {
 						&::after {
-							background: colors.fade(medium-selection.$highlight-color; 50%);
+							background: colors.faded(medium-selection.$highlight-color; 50%);
 						}
 					}
 					*/
@@ -156,7 +156,7 @@ body:not(.binary) {
 					/*
 					.thumbnail {
 						&::after {
-							background: colors.fade(medium-selection.$select-color; 50%);
+							background: colors.faded(medium-selection.$select-color; 50%);
 						}
 					}
 					*/
@@ -188,7 +188,7 @@ body:not(.binary) {
 			&.pdf, &.svg {
 				.icon {
 					&::after {
-						background: colors.fade(medium-selection.$select-color; 50%);
+						background: colors.faded(medium-selection.$select-color; 50%);
 					}
 				}
 			}
@@ -237,7 +237,7 @@ body:not(.binary) {
 						/*
 						.thumbnail {
 							&::after {
-								background: colors.fade(medium-selection.$highlight-color; 50%);
+								background: colors.faded(medium-selection.$highlight-color; 50%);
 							}
 						}
 						*/

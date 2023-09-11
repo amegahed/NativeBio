@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../../navs/materials/glass/glass-buttons";
@@ -27,7 +27,7 @@ body:not(.binary) {
 	&.dark.glass.auto-buttons {
 
 		.button {
-			@include glass-buttons.shading(dark-buttons.$color);
+			@include glass-buttons.shaded(dark-buttons.$color);
 		}
 	}
 }

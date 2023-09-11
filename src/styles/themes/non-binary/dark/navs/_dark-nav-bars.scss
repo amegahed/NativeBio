@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../colors/colors";
@@ -76,7 +76,7 @@ body:not(.binary).dark {
 					// add glow effect
 					//
 					.first, .middle, .last {
-						@include text-colors.glowing();
+						@include text-colors.glow();
 					}
 				}
 			}
@@ -109,7 +109,7 @@ body:not(.binary).dark {
 
 									// add glow effect
 									//
-									@include text-colors.glowing($hover-color);
+									@include text-colors.glow($hover-color);
 								}
 							}
 						}
@@ -130,7 +130,7 @@ body:not(.binary).dark {
 
 								// add glow effect
 								//
-								@include text-colors.glowing($active-color);
+								@include text-colors.glow($active-color);
 							}
 						}
 					}
@@ -150,7 +150,7 @@ body:not(.binary).dark {
 
 								// add glow effect
 								//
-								@include text-colors.glowing($active-color);
+								@include text-colors.glow($active-color);
 							}
 						}
 					}

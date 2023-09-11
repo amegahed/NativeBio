@@ -12,14 +12,14 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 //
 // mixins
 //
 
-@mixin inactive-thumb-coloring($color, $hover-color) {
+@mixin inactive-thumb-colored($color, $hover-color) {
 
 	&::-webkit-slider-thumb {
 		&:not(:active) {
@@ -66,7 +66,7 @@
 	}
 }
 
-@mixin active-thumb-coloring($active-color) {
+@mixin active-thumb-colored($active-color) {
 
 	&::-webkit-slider-thumb {
 		&:active {
@@ -98,12 +98,12 @@
 	}
 }
 
-@mixin thumb-coloring($color, $hover-color, $active-color) {
-	@include inactive-thumb-coloring($color, $hover-color);
-	@include active-thumb-coloring($active-color);
+@mixin thumb-colored($color, $hover-color, $active-color) {
+	@include inactive-thumb-colored($color, $hover-color);
+	@include active-thumb-colored($active-color);
 }
 
-@mixin track-coloring($track-color) {
+@mixin track-colored($track-color) {
 
 	&::-webkit-slider-runnable-track {
 		background-color: $track-color;
@@ -114,7 +114,7 @@
 	}
 }
 
-@mixin coloring($color, $hover-color, $active-color, $track-color) {
-	@include thumb-coloring($color, $hover-color, $active-color);
-	@include track-coloring($track-color);
+@mixin colored($color, $hover-color, $active-color, $track-color) {
+	@include thumb-colored($color, $hover-color, $active-color);
+	@include track-colored($track-color);
 }

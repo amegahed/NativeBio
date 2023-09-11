@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../colors/colors";
@@ -126,21 +126,21 @@ body:not(.binary) {
 
 		.card-grid {
 			.item .card {
-				background: colors.fade(white, 50%);
-				@include frosted-glass.frosting(5px);
+				background: colors.faded(white, 50%);
+				@include frosted-glass.frosted(5px);
 			}
 		}
 
 		.tile-grid {
 			.item .icon {
-				background: colors.fade(white, 50%);
+				background: colors.faded(white, 50%);
 
 				> i {
 					transform: translateZ(0);
 				}
 
 				&::before {
-					@include frosted-glass.frosting(5px);
+					@include frosted-glass.frosted(5px);
 				}
 			}
 		}

@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../../colors/colors";
@@ -27,83 +27,83 @@ body:not(.binary) {
 		.colored.btn {
 
 			&.red {
-				@include glass-btns.shading(colors.$medium-red);
+				@include glass-btns.shaded(colors.$medium-red);
 			}
 
 			&.raspberry {
-				@include glass-btns.shading(colors.$medium-raspberry);
+				@include glass-btns.shaded(colors.$medium-raspberry);
 			}
 
 			&.red-orange {
-				@include glass-btns.shading(colors.$medium-red-orange);
+				@include glass-btns.shaded(colors.$medium-red-orange);
 			}
 
 			&.orange {
-				@include glass-btns.shading(colors.$medium-orange);
+				@include glass-btns.shaded(colors.$medium-orange);
 			}
 
 			&.yellow {
-				@include glass-btns.shading(colors.$medium-yellow);
+				@include glass-btns.shaded(colors.$medium-yellow);
 			}
 
 			&.lime {
-				@include glass-btns.shading(colors.$medium-lime);
+				@include glass-btns.shaded(colors.$medium-lime);
 			}
 
 			&.green {
-				@include glass-btns.shading(colors.$medium-green);
+				@include glass-btns.shaded(colors.$medium-green);
 			}
 
 			&.teal {
-				@include glass-btns.shading(colors.$medium-teal);
+				@include glass-btns.shaded(colors.$medium-teal);
 			}
 
 			&.aqua {
-				@include glass-btns.shading(colors.$medium-aqua);
+				@include glass-btns.shaded(colors.$medium-aqua);
 			}
 
 			&.cyan {
-				@include glass-btns.shading(colors.$medium-cyan);
+				@include glass-btns.shaded(colors.$medium-cyan);
 			}
 
 			&.blue {
-				@include glass-btns.shading(colors.$medium-blue);
+				@include glass-btns.shaded(colors.$medium-blue);
 			}
 
 			&.indigo {
-				@include glass-btns.shading(colors.$medium-indigo);
+				@include glass-btns.shaded(colors.$medium-indigo);
 			}
 
 			&.violet {
-				@include glass-btns.shading(colors.$medium-violet);
+				@include glass-btns.shaded(colors.$medium-violet);
 			}
 
 			&.plum {
-				@include glass-btns.shading(colors.$medium-plum);
+				@include glass-btns.shaded(colors.$medium-plum);
 			}
 
 			&.purple {
-				@include glass-btns.shading(colors.$medium-purple);
+				@include glass-btns.shaded(colors.$medium-purple);
 			}
 
 			&.magenta {
-				@include glass-btns.shading(colors.$medium-magenta);
+				@include glass-btns.shaded(colors.$medium-magenta);
 			}
 
 			&.brown {
-				@include glass-btns.shading(colors.$medium-brown);
+				@include glass-btns.shaded(colors.$medium-brown);
 			}
 
 			&.grey {
-				@include glass-btns.shading(colors.$medium-grey);
+				@include glass-btns.shaded(colors.$medium-grey);
 			}
 
 			&.black {
-				@include glass-btns.shading(colors.$medium-black);
+				@include glass-btns.shaded(colors.$medium-black);
 			}
 
 			&.white {
-				@include glass-btns.shading(colors.$medium-white);
+				@include glass-btns.shaded(colors.$medium-white);
 			}
 		}
 	}

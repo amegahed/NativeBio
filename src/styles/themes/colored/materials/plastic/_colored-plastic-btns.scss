@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../navs/materials/plastic/plastic-btns";
@@ -22,25 +22,58 @@
 // styles
 //
 
-body:not(.binary).colored.colored {
-	&.plastic-buttons,
-	&.plastic.auto-buttons {
-
-		//
-		// plastic styled buttons
-		//
-
-		.btn {
+@supports (color: color-mix(in srgb, white, black)) {
+	body:not(.binary).colored.colored {
+		&.plastic-buttons,
+		&.plastic.auto-buttons {
 
 			//
-			// plastic primary buttons
+			// plastic styled buttons
 			//
 
-			&.btn-primary {
-				@include plastic-btns.shading(colored-btns.$primary-color);
+			.btn {
 
-				&:disabled {
-					@include plastic-btns.shading(colored-btns.$disabled-primary-color);
+				//
+				// plastic primary buttons
+				//
+
+				&.btn-primary {
+					@include plastic-btns.shade(colored-btns.$primary-color);
+
+					&:disabled {
+						@include plastic-btns.shade(colored-btns.$disabled-primary-color);
+					}
+				}
+			}
+		}
+	}
+}
+
+//
+// fallback styles
+//
+
+@supports not (color: color-mix(in srgb, white, black)) {
+	body:not(.binary).colored.colored {
+		&.plastic-buttons,
+		&.plastic.auto-buttons {
+
+			//
+			// plastic styled buttons
+			//
+
+			.btn {
+
+				//
+				// plastic primary buttons
+				//
+
+				&.btn-primary {
+					@include plastic-btns.shaded(colored-btns.$default-primary-color);
+
+					&:disabled {
+						@include plastic-btns.shaded(colored-btns.$default-disabled-primary-color);
+					}
 				}
 			}
 		}

@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../../colors/colors";
@@ -32,95 +32,95 @@ body:not(.binary) {
 		.colored:not(.flat) {
 
 			&.red {
-				@include round-glass.shading(colors.$medium-red);
+				@include round-glass.shaded(colors.$medium-red);
 			}
 
 			&.raspberry {
-				@include round-glass.shading(colors.$medium-raspberry);
+				@include round-glass.shaded(colors.$medium-raspberry);
 			}
 
 			&.red-orange {
-				@include round-glass.shading(colors.$medium-red-orange);
+				@include round-glass.shaded(colors.$medium-red-orange);
 			}
 
 			&.orange {
-				@include round-glass.shading(colors.$medium-orange);
+				@include round-glass.shaded(colors.$medium-orange);
 			}
 
 			&.yellow {
-				@include round-glass.shading(colors.$medium-yellow);
+				@include round-glass.shaded(colors.$medium-yellow);
 			}
 
 			&.lime {
-				@include round-glass.shading(colors.$medium-lime);
+				@include round-glass.shaded(colors.$medium-lime);
 			}
 
 			&.green {
-				@include round-glass.shading(colors.$medium-green);
+				@include round-glass.shaded(colors.$medium-green);
 			}
 
 			&.teal {
-				@include round-glass.shading(colors.$medium-teal);
+				@include round-glass.shaded(colors.$medium-teal);
 			}
 
 			&.aqua {
-				@include round-glass.shading(colors.$medium-aqua);
+				@include round-glass.shaded(colors.$medium-aqua);
 			}
 
 			&.cyan {
-				@include round-glass.shading(colors.$medium-cyan);
+				@include round-glass.shaded(colors.$medium-cyan);
 			}
 
 			&.blue {
-				@include round-glass.shading(colors.$medium-blue);
+				@include round-glass.shaded(colors.$medium-blue);
 			}
 
 			&.indigo {
-				@include round-glass.shading(colors.$medium-indigo);
+				@include round-glass.shaded(colors.$medium-indigo);
 			}
 
 			&.violet {
-				@include round-glass.shading(colors.$medium-violet);
+				@include round-glass.shaded(colors.$medium-violet);
 			}
 
 			&.plum {
-				@include round-glass.shading(colors.$medium-plum);
+				@include round-glass.shaded(colors.$medium-plum);
 			}
 
 			&.purple {
-				@include round-glass.shading(colors.$medium-purple);
+				@include round-glass.shaded(colors.$medium-purple);
 			}
 
 			&.magenta {
-				@include round-glass.shading(colors.$medium-magenta);
+				@include round-glass.shaded(colors.$medium-magenta);
 			}
 
 			&.brown {
-				@include round-glass.shading(colors.$medium-brown);
+				@include round-glass.shaded(colors.$medium-brown);
 			}
 
 			&.grey {
-				@include round-glass.shading(colors.$medium-grey);
+				@include round-glass.shaded(colors.$medium-grey);
 			}
 
 			&.black {
-				@include round-glass.shading(colors.$medium-black);
+				@include round-glass.shaded(colors.$medium-black);
 			}
 
 			&.white {
-				@include round-glass.shading(colors.$medium-white);
+				@include round-glass.shaded(colors.$medium-white);
 			}
 
 			&.copper {
-				@include round-glass.shading(colors.$medium-copper);
+				@include round-glass.shaded(colors.$medium-copper);
 			}
 
 			&.silver {
-				@include round-glass.shading(colors.$medium-silver);
+				@include round-glass.shaded(colors.$medium-silver);
 			}
 
 			&.gold {
-				@include round-glass.shading(colors.$medium-gold);
+				@include round-glass.shaded(colors.$medium-gold);
 			}
 		}
 
@@ -130,95 +130,95 @@ body:not(.binary) {
 
 		.selected .colored:not(.flat) {
 			&.red {
-				@include round-glass.shading(colors.$dark-red);
+				@include round-glass.shaded(colors.$dark-red);
 			}
 
 			&.raspberry {
-				@include round-glass.shading(colors.$dark-raspberry);
+				@include round-glass.shaded(colors.$dark-raspberry);
 			}
 
 			&.red-orange {
-				@include round-glass.shading(colors.$dark-red-orange);
+				@include round-glass.shaded(colors.$dark-red-orange);
 			}
 
 			&.orange {
-				@include round-glass.shading(colors.$dark-orange);
+				@include round-glass.shaded(colors.$dark-orange);
 			}
 
 			&.yellow {
-				@include round-glass.shading(colors.$dark-yellow);
+				@include round-glass.shaded(colors.$dark-yellow);
 			}
 
 			&.lime {
-				@include round-glass.shading(colors.$dark-lime);
+				@include round-glass.shaded(colors.$dark-lime);
 			}
 
 			&.green {
-				@include round-glass.shading(colors.$dark-green);
+				@include round-glass.shaded(colors.$dark-green);
 			}
 
 			&.teal {
-				@include round-glass.shading(colors.$dark-teal);
+				@include round-glass.shaded(colors.$dark-teal);
 			}
 
 			&.aqua {
-				@include round-glass.shading(colors.$dark-aqua);
+				@include round-glass.shaded(colors.$dark-aqua);
 			}
 
 			&.cyan {
-				@include round-glass.shading(colors.$dark-cyan);
+				@include round-glass.shaded(colors.$dark-cyan);
 			}
 
 			&.blue {
-				@include round-glass.shading(colors.$dark-blue);
+				@include round-glass.shaded(colors.$dark-blue);
 			}
 
 			&.indigo {
-				@include round-glass.shading(colors.$dark-indigo);
+				@include round-glass.shaded(colors.$dark-indigo);
 			}
 
 			&.violet {
-				@include round-glass.shading(colors.$dark-violet);
+				@include round-glass.shaded(colors.$dark-violet);
 			}
 
 			&.plum {
-				@include round-glass.shading(colors.$dark-plum);
+				@include round-glass.shaded(colors.$dark-plum);
 			}
 
 			&.purple {
-				@include round-glass.shading(colors.$dark-purple);
+				@include round-glass.shaded(colors.$dark-purple);
 			}
 
 			&.magenta {
-				@include round-glass.shading(colors.$dark-magenta);
+				@include round-glass.shaded(colors.$dark-magenta);
 			}
 
 			&.brown {
-				@include round-glass.shading(colors.$dark-brown);
+				@include round-glass.shaded(colors.$dark-brown);
 			}
 
 			&.grey {
-				@include round-glass.shading(colors.$dark-grey);
+				@include round-glass.shaded(colors.$dark-grey);
 			}
 
 			&.black {
-				@include round-glass.shading(colors.$dark-black);
+				@include round-glass.shaded(colors.$dark-black);
 			}
 
 			&.white {
-				@include round-glass.shading(colors.$dark-white);
+				@include round-glass.shaded(colors.$dark-white);
 			}
 
 			&.copper {
-				@include round-glass.shading(colors.$dark-copper);
+				@include round-glass.shaded(colors.$dark-copper);
 			}
 
 			&.silver {
-				@include round-glass.shading(colors.$dark-silver);
+				@include round-glass.shaded(colors.$dark-silver);
 			}
 
 			&.gold {
-				@include round-glass.shading(colors.$dark-gold);
+				@include round-glass.shaded(colors.$dark-gold);
 			}
 		}
 	}

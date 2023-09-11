@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../../colors/colors";
@@ -39,95 +39,95 @@ body:not(.binary) {
 		.colored:not(.btn) {
 
 			&.red {
-				@include metal.shading($color);
+				@include metal.shade($color);
 			}
 
 			&.raspberry {
-				@include metal.shading($color);
+				@include metal.shade($color);
 			}
 
 			&.red-orange {
-				@include metal.shading($color);
+				@include metal.shade($color);
 			}
 
 			&.orange {
-				@include metal.shading($color);
+				@include metal.shade($color);
 			}
 
 			&.yellow {
-				@include metal.shading($color);
+				@include metal.shade($color);
 			}
 
 			&.lime {
-				@include metal.shading($color);
+				@include metal.shade($color);
 			}
 
 			&.green {
-				@include metal.shading($color);
+				@include metal.shade($color);
 			}
 
 			&.teal {
-				@include metal.shading($color);
+				@include metal.shade($color);
 			}
 
 			&.aqua {
-				@include metal.shading($color);
+				@include metal.shade($color);
 			}
 
 			&.cyan {
-				@include metal.shading($color);
+				@include metal.shade($color);
 			}
 
 			&.blue {
-				@include metal.shading($color);
+				@include metal.shade($color);
 			}
 
 			&.indigo {
-				@include metal.shading($color);
+				@include metal.shade($color);
 			}
 
 			&.violet {
-				@include metal.shading($color);
+				@include metal.shade($color);
 			}
 
 			&.plum {
-				@include metal.shading($color);
+				@include metal.shade($color);
 			}
 
 			&.purple {
-				@include metal.shading($color);
+				@include metal.shade($color);
 			}
 
 			&.magenta {
-				@include metal.shading($color);
+				@include metal.shade($color);
 			}
 
 			&.brown {
-				@include metal.shading($color);
+				@include metal.shade($color);
 			}
 
 			&.grey {
-				@include metal.shading($color);
+				@include metal.shade($color);
 			}
 
 			&.black {
-				@include metal.shading(black);
+				@include metal.shade(black);
 			}
 
 			&.white {
-				@include metal.shading(white);
+				@include metal.shade(white);
 			}
 
 			&.copper {
-				@include metal.shading($color);
+				@include metal.shade($color);
 			}
 
 			&.silver {
-				@include metal.shading($color);
+				@include metal.shade($color);
 			}
 
 			&.gold {
-				@include metal.shading($color);
+				@include metal.shade($color);
 			}
 		}
 
@@ -138,95 +138,95 @@ body:not(.binary) {
 		.selected .colored:not(.btn) {
 
 			.red {
-				@include metal.shading($selected-color);
+				@include metal.shade($selected-color);
 			}
 
 			.raspberry {
-				@include metal.shading($selected-color);
+				@include metal.shade($selected-color);
 			}
 
 			.red-orange {
-				@include metal.shading($selected-color);
+				@include metal.shade($selected-color);
 			}
 
 			.orange {
-				@include metal.shading($selected-color);
+				@include metal.shade($selected-color);
 			}
 
 			.yellow {
-				@include metal.shading($selected-color);
+				@include metal.shade($selected-color);
 			}
 
 			.lime {
-				@include metal.shading($selected-color);
+				@include metal.shade($selected-color);
 			}
 
 			.green {
-				@include metal.shading($selected-color);
+				@include metal.shade($selected-color);
 			}
 
 			.teal {
-				@include metal.shading($selected-color);
+				@include metal.shade($selected-color);
 			}
 
 			.aqua {
-				@include metal.shading($selected-color);
+				@include metal.shade($selected-color);
 			}
 
 			.cyan {
-				@include metal.shading($selected-color);
+				@include metal.shade($selected-color);
 			}
 
 			.blue {
-				@include metal.shading($selected-color);
+				@include metal.shade($selected-color);
 			}
 
 			.indigo {
-				@include metal.shading($selected-color);
+				@include metal.shade($selected-color);
 			}
 
 			.violet {
-				@include metal.shading($selected-color);
+				@include metal.shade($selected-color);
 			}
 
 			.plum {
-				@include metal.shading($selected-color);
+				@include metal.shade($selected-color);
 			}
 
 			.purple {
-				@include metal.shading($selected-color);
+				@include metal.shade($selected-color);
 			}
 
 			.magenta {
-				@include metal.shading($selected-color);
+				@include metal.shade($selected-color);
 			}
 
 			.brown {
-				@include metal.shading($selected-color);
+				@include metal.shade($selected-color);
 			}
 
 			.grey {
-				@include metal.shading($selected-color);
+				@include metal.shade($selected-color);
 			}
 
 			.black {
-				@include metal.shading(black);
+				@include metal.shade(black);
 			}
 
 			.white {
-				@include metal.shading(white);
+				@include metal.shade(white);
 			}
 
 			.copper {
-				@include metal.shading($selected-color);
+				@include metal.shade($selected-color);
 			}
 
 			.silver {
-				@include metal.shading($selected-color);
+				@include metal.shade($selected-color);
 			}
 
 			.gold {
-				@include metal.shading($selected-color);
+				@include metal.shade($selected-color);
 			}
 		}
 	}

@@ -12,17 +12,17 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../colors/colors";
-@use "../../colors/lighting";
+@use "../lighting";
 
 //
 // mixins
 //
 
-@mixin coloring($color, $border-style: flat) {
+@mixin color($color, $border-style: flat) {
 
 	// ambient
 	//
@@ -39,42 +39,102 @@
 	}
 }
 
-@mixin filling($color) {
+@mixin fill($color) {
 
 	// ambient
 	//
 	background-color: $color;
 }
 
-@mixin shading($color, $border-style: flat) {
-	@include coloring($color, $border-style);
+@mixin shade($color, $border-style: flat) {
+	@include color($color, $border-style);
 
 	&.round {
-		@include coloring($color, $border-style);
+		@include color($color, $border-style);
 	}
 
 	&.rounded {
-		@include coloring($color, $border-style);
+		@include color($color, $border-style);
 	}
 
 	&.long.round {
-		@include filling($color);
+		@include fill($color);
 	}
 }
 
-@mixin multilayer-shading($color) {
-	@include coloring($color);
+@mixin multilayer-shade($color) {
+	@include color($color);
 
 	&.round {
-		@include coloring($color);
+		@include color($color);
 	}
 
 	&.rounded {
-		@include coloring($color);
+		@include color($color);
 	}
 
 	&.long.round {
-		@include filling($color);
+		@include fill($color);
+	}
+}
+
+//
+// color mixins
+//
+
+@mixin colored($color, $border-style: flat) {
+
+	// ambient
+	//
+	background-color: $color;
+
+	// borders
+	//
+	@if ($border-style == inset) {
+		border-color: lighting.lightened($color, 10%);
+	} @else if ($border-style == outset) {
+		border-color: lighting.darkened($color, 10%);
+	} @else if ($border-style != none) {
+		border-color: $color;
+	}
+}
+
+@mixin filled($color) {
+
+	// ambient
+	//
+	background-color: $color;
+}
+
+@mixin shaded($color, $border-style: flat) {
+	@include colored($color, $border-style);
+
+	&.round {
+		@include colored($color, $border-style);
+	}
+
+	&.rounded {
+		@include colored($color, $border-style);
+	}
+
+	&.long.round {
+		@include filled($color);
+	}
+}
+
+@mixin multilayer-shaded($color) {
+	@include colored($color);
+
+	&.round {
+		@include colored($color);
+	}
+
+	&.rounded {
+		@include colored($color);
+	}
+
+	&.long.round {
+		@include filled($color);
 	}
 }
 
@@ -85,10 +145,10 @@
 @supports (color: color-mix(in srgb, white, black)) {
 	.flat {
 		.shaded, &.flat.shaded {
-			@include shading(var(--primary-color));
+			@include shade(var(--primary-color));
 
 			&.textured {
-				@include shading(var(--primary-color));
+				@include shade(var(--primary-color));
 			}
 		}
 	}
@@ -101,10 +161,10 @@
 @supports not (color: color-mix(in srgb, white, black)) {
 	.flat {
 		.shaded, &.flat.shaded {
-			@include shading(var(--primary-color));
+			@include shade(var(--primary-color));
 
 			&.textured {
-				@include shading(var(--primary-color));
+				@include shade(var(--primary-color));
 			}
 		}
 	}

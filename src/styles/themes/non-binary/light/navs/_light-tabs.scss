@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../colors/colors";
@@ -28,7 +28,7 @@ $text-color: text-colors.$dark-color;
 $hover-color: darken($color, 10%);
 $hover-icon-color: $icon-color;
 $hover-text-color: $text-color;
-$background-color: colors.$very-very-very-light-grey;
+$background-color: colors.$ultra-light-grey;
 $border-color: $background-color;
 
 //

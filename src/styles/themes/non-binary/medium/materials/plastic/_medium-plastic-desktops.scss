@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../../materials/plastic/flat-plastic";
@@ -34,14 +34,14 @@ body:not(.binary) {
 			//
 
 			.desktop.app > .footer-bar {
-				@include flat-plastic.shading(medium-desktop.$footer-bar-color);
+				@include flat-plastic.shaded(medium-desktop.$footer-bar-color);
 
 				//
 				// plastic desktop info bars
 				//
 
 				.desktop-info-bar {
-					@include rounded-plastic.shading(medium-desktop.$info-bar-background-color);
+					@include rounded-plastic.shaded(medium-desktop.$info-bar-background-color);
 				}
 			}
 		}

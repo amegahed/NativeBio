@@ -7,7 +7,7 @@
 |        This defines the dom and svg visual styles for this application.      |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../colors/colors";
@@ -30,12 +30,12 @@ $side-head-sort-fill-color: darken($side-head-fill-color, 10%);
 $side-head-outline-color: $side-head-fill-color;
 
 $body-color: text-colors.$dark-color;
-$body-fill-color: colors.fade(white, 25%);
+$body-fill-color: colors.faded(white, 25%);
 
 $row-border-color: darken(colors.$very-very-very-light-grey, 5%);
 $row-odd-fill-color: colors.$very-very-very-light-grey;
 $row-even-fill-color: colors.$ultra-light-grey;
-$row-selected-fill-color: colors.fade(medium-branding.$secondary-color, 33%);
+$row-selected-fill-color: colors.faded(medium-branding.$secondary-color, 33%);
 $row-selected-stroke-color: medium-branding.$secondary-color;
 
 $cell-highlighted-color: white;
@@ -286,7 +286,7 @@ body:not(.binary) {
 			}
 
 			//
-			// cell shading
+			// cell shaded
 			//
 
 			tr {

@@ -12,9 +12,10 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
+@use "../../../colors/branding";
 @use "../../../materials/glass/plate-glass";
 
 //
@@ -23,6 +24,7 @@
 
 $footer-bar-color: var(--primary-color);
 $footer-bar-opacity: plate-glass.$max-opacity;
+$default-footer-bar-color: branding.$primary-color;
 
 //
 // styles

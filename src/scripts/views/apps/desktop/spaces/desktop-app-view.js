@@ -53,7 +53,7 @@ export default AppView.extend(_.extend({}, Wallpaperable, AppLoadable, {
 	},
 
 	events: {
-		'mousedown .app .body': 'onMouseDown',
+		'mousedown .app > .body': 'onMouseDown',
 		'beforeunload': 'onBeforeUnload'
 	},
 
@@ -338,10 +338,9 @@ export default AppView.extend(_.extend({}, Wallpaperable, AppLoadable, {
 
 		// show task bar
 		//
-		if (launcherStyle == 'taskbar') {
-			if (!this.hasChildView('footer')) {
-				this.showFooterBar();
-			}	
+		this.showFooterBar();
+		if (launcherStyle != 'taskbar') {
+			this.$el.find('.footer-bar').hide();
 		}
 
 		// update menu bar if launcher style changes

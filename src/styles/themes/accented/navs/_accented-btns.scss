@@ -12,12 +12,13 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../navs/colors/colored-btns";
 @use "../../../navs/colors/colored-buttons";
 @use "../../../colors/colors";
+@use "../../../colors/branding";
 @use "../../../forms/validation";
 
 //
@@ -25,11 +26,8 @@
 //
 
 $color: var(--secondary-color);
-$hover-color: colors.darken($color, 10%);
-$active-color: colors.darken($color, 20%);
 $label-color: white;
-$disabled-color: colors.fade($color, 50%);
-$disabled-label-color: white;
+$default-color: branding.$secondary-color;
 
 //
 // styles
@@ -42,7 +40,7 @@ body:not(.binary).colored.accented {
 	//
 
 	.btn:not(.btn-primary):not(.colored):not(:disabled) {
-		@include colored-btns.coloring($color);
+		@include colored-btns.colored($color);
 		@include colored-btns.labeling($label-color);
 
 		//
@@ -50,17 +48,17 @@ body:not(.binary).colored.accented {
 		//
 
 		&.success {
-			@include colored-buttons.coloring(validation.$success-color);
+			@include colored-buttons.colored(validation.$success-color);
 			@include colored-buttons.labeling(white);
 		}
 
 		&.caution {
-			@include colored-buttons.coloring(validation.$caution-color);
+			@include colored-buttons.colored(validation.$caution-color);
 			@include colored-buttons.labeling(white);
 		}
 
 		&.warning {
-			@include colored-buttons.coloring(validation.$warning-color);
+			@include colored-buttons.colored(validation.$warning-color);
 			@include colored-buttons.labeling(white);
 		}
 	}

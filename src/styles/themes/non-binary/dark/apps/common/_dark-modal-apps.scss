@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../../colors/colors";
@@ -22,8 +22,8 @@
 // colors
 //
 
-$unfocused-background-color: colors.darken(dark-apps.$background-color, 10%);
-$unfocused-border-color: colors.darken(dark-apps.$border-color, 10%);
+$unfocused-background-color: darken(dark-apps.$background-color, 10%);
+$unfocused-border-color: darken(dark-apps.$border-color, 10%);
 $unfocused-sidebar-color: dark-apps.$sidebar-color;
 $unfocused-sidebar-panel-color: dark-apps.$sidebar-panel-color;
 
@@ -124,7 +124,7 @@ body:not(.binary).dark {
 					.body, .body-region {
 						> .contents {
 							> .sidebar {
-								background-color: colors.fade(dark-apps.$sidebar-color, 50%);
+								background-color: colors.faded(dark-apps.$sidebar-color, 50%);
 							}
 						}
 					}
@@ -136,7 +136,7 @@ body:not(.binary).dark {
 					.body, .body-region {
 						> .contents {
 							> .sidebar {
-								background-color: colors.fade($unfocused-sidebar-color, 50%);
+								background-color: colors.faded($unfocused-sidebar-color, 50%);
 							}
 						}
 					}

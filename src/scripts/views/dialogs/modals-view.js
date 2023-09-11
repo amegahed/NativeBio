@@ -134,10 +134,12 @@ export default BaseView.extend({
 	// focusing methods
 	//
 
-	blurAll: function() {
+	blurAll: function(options) {
 		this.each((modalView) => {
-			if (modalView.blur) {
-				modalView.blur();
+			if (!options || options.except != modalView) {
+				if (modalView.blur) {
+					modalView.blur();
+				}
 			}
 		});
 	},

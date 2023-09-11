@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../../navs/materials/chalk/chalk-btns";
@@ -31,14 +31,14 @@ body:not(.binary) {
 		//
 
 		.btn {
-			@include chalk-btns.shading(medium-btns.$color);
+			@include chalk-btns.shaded(medium-btns.$color);
 
 			//
 			// chalk disabled buttons
 			//
 
 			&:disabled {
-				@include chalk-btns.shading(medium-btns.$disabled-color);
+				@include chalk-btns.shaded(medium-btns.$disabled-color);
 			}
 		}
 	}

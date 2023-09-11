@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../navs/colors/colored-buttons";
@@ -36,7 +36,7 @@ body:not(.binary) {
 			//
 
 			&.success {
-				@include colored-buttons.coloring(special-colors.$success-color);
+				@include colored-buttons.colored(special-colors.$success-color);
 
 				&:hover {
 					@include colored-buttons.labeling(white);
@@ -44,7 +44,7 @@ body:not(.binary) {
 			}
 
 			&.caution {
-				@include colored-buttons.coloring(special-colors.$caution-color);
+				@include colored-buttons.colored(special-colors.$caution-color);
 
 				&:hover {
 					@include colored-buttons.labeling(white);
@@ -52,7 +52,7 @@ body:not(.binary) {
 			}
 
 			&.warning {
-				@include colored-buttons.coloring(special-colors.$warning-color);
+				@include colored-buttons.colored(special-colors.$warning-color);
 
 				&:hover {
 					@include colored-buttons.labeling(white);

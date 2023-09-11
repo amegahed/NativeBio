@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../navs/colors/colored-buttons";
@@ -46,17 +46,17 @@ body:not(.binary).colored.colored {
 					button {
 
 						&.minimize {
-							@include colored-buttons.coloring($minimize-button-color);
+							@include colored-buttons.colored($minimize-button-color);
 							@include colored-buttons.labeling($minimize-button-label-color);
 						}
 
 						&.maximize, &.unmaximize {
-							@include colored-buttons.coloring($maximize-button-color);
+							@include colored-buttons.colored($maximize-button-color);
 							@include colored-buttons.labeling($maximize-button-label-color);
 						}
 
 						&.close-btn {
-							@include colored-buttons.coloring($close-button-color);
+							@include colored-buttons.colored($close-button-color);
 							@include colored-buttons.labeling($close-button-label-color);
 						}
 					}

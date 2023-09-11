@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../colors/colors";
@@ -25,15 +25,15 @@
 // colors
 //
 
-$background: colors.fade(colors.$very-light-grey, 25%);
+$background: colors.faded(colors.$very-light-grey, 25%);
 $grid-color: white;
 $grid-background-color: colors.$ultra-dark-grey;
 $name-color: text-colors.$dark-color;
-$name-background-color: colors.fade(white, 50%);
+$name-background-color: colors.faded(white, 50%);
 $highlighted-border-color: colors.$very-light-grey;
 $selected-border-color: colors.$very-light-grey;
 $highlight-angle: 150deg;
-$page-thumbnail-shadow: 5px 5px 20px colors.fade(black, 25%);
+$page-thumbnail-shadow: 5px 5px 20px colors.faded(black, 25%);
 
 //
 // styles
@@ -60,7 +60,7 @@ body:not(.binary) {
 				.name {
 					color: $name-color;
 					background-color: $name-background-color;
-					@include frosted-glass.frosting(5px);
+					@include frosted-glass.frosted(5px);
 
 					//
 					// editable names

@@ -12,10 +12,11 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../colors/colors";
+@use "../../../colors/branding";
 @use "../../../navs/colors/colored-menus";
 
 //
@@ -34,6 +35,10 @@ $hover-text-color: white;
 $active-text-color: white;
 $open-text-color: white;
 
+$default-open-color: branding.$primary-color;
+$default-hover-color: branding.$primary-color;
+$default-active-color: darken($default-hover-color, 10%);
+
 //
 // styles
 //
@@ -45,7 +50,7 @@ body:not(.binary).colored.colored {
 	//
 
 	.menu, .dropdown-menu {
-		@include colored-menus.coloring($open-color, $hover-color, $active-color);
+		@include colored-menus.colored($open-color, $hover-color, $active-color);
 		@include colored-menus.marking($open-icon-color, $hover-icon-color, $active-icon-color);
 		@include colored-menus.labeling($open-text-color, $hover-text-color, $active-text-color);
 	}

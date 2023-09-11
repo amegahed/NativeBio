@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../../navs/materials/flat/flat-buttons";
@@ -27,7 +27,7 @@ body:not(.binary) {
 	&.light.flat.auto-buttons {
 
 		button {
-			@include flat-buttons.shading(light-buttons.$color);
+			@include flat-buttons.shaded(light-buttons.$color);
 		}
 	}
 }

@@ -17,6 +17,7 @@
 
 import ItemsView from '../../../../views/items/items-view.js';
 import AppIconsView from '../../../../views/apps/common/items/icons/app-icons-view.js';
+import AppCardsView from '../../../../views/apps/common/items/cards/app-cards-view.js';
 import AppsListView from '../../../../views/apps/common/items/lists/apps-list-view.js';
 import AppsMenuView from '../../../../views/apps/common/items/menus/apps-menu-view.js';
 
@@ -108,6 +109,9 @@ export default ItemsView.extend({
 			case 'icons':
 				this.showIcons();
 				break;
+			case 'cards':
+				this.showCards();
+				break;
 			case 'lists':
 				this.showLists();
 				break;
@@ -119,6 +123,12 @@ export default ItemsView.extend({
 
 	showIcons: function() {
 		this.showChildView('items', new AppIconsView(_.extend({
+			collection: this.collection
+		}, this.options)));
+	},
+
+	showCards: function() {
+		this.showChildView('items', new AppCardsView(_.extend({
 			collection: this.collection
 		}, this.options)));
 	},

@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../../colors/colors";
@@ -23,20 +23,20 @@
 // colors
 //
 
-$background-color: colors.$very-very-very-light-grey;
+$background-color: colors.$ultra-light-grey;
 $message-color: colors.$light-grey;
-$border-color: colors.darken($background-color, 10%);
+$border-color: darken($background-color, 10%);
 
 $sidebar-color: $background-color;
 $sidebar-panel-color: white;
 $sidebar-header-background-color: transparent;
-$colored-sidebar-color: colors.lighten(medium-branding.$primary-color, 10%);
+$colored-sidebar-color: lighten(medium-branding.$primary-color, 10%);
 $sidebar-panel-blur: 10px;
 $sidebar-panel-opacity: 25%;
-$transparent-sidebar-color: colors.fade($background-color, 50%);
+$transparent-sidebar-color: colors.faded($background-color, 50%);
 
 $spinner-color: medium-branding.$secondary-color;
-$spinner-background-color: colors.fade(colors.$light-grey, 25%);
+$spinner-background-color: colors.faded(colors.$light-grey, 25%);
 
 //
 // styles

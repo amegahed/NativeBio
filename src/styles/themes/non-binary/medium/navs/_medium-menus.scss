@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../colors/colors";
@@ -30,7 +30,7 @@
 $color: medium-apps.$background-color;
 $icon-color: colors.$medium-grey;
 $text-color: text-colors.$dark-color;
-$border-color: colors.$very-very-light-grey;
+$border-color: darken($color, 10%);
 $item-divider-color: $border-color;
 
 $disabled-color: none;
@@ -70,7 +70,7 @@ body:not(.binary) {
 
 	&.transparent {
 		.dropdown-menu, .menu-content {
-			@include plate-glass.shading($color);
+			@include plate-glass.shaded($color);
 
 			.panel, ul.panels > li:not(:hover) {
 				background: none;
@@ -90,7 +90,7 @@ body:not(.binary) {
 
 	&.translucent {
 		.dropdown-menu, .menu-content {
-			@include frosted-plate-glass.shading($color);
+			@include frosted-plate-glass.shaded($color);
 
 			.panel, ul.panels > li:not(:hover) {
 				background: none;
@@ -164,15 +164,15 @@ body:not(.binary) {
 					}	
 				}
 			}
+		}
 
-			//
-			// dividers
-			//
+		//
+		// dividers
+		//
 
-			&.divider:not(.disabled) {
-				border-color: $item-divider-color;
-				background-color: $item-divider-color;
-			}
+		.divider:not(.disabled) {
+			border-color: $item-divider-color;
+			background-color: $item-divider-color;
 		}
 	}
 

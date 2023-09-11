@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../../colors/colors";
@@ -27,83 +27,83 @@ body:not(.binary) {
 		.colored.btn {
 
 			&.red {
-				@include metal-btns.shading(colors.$medium-red);
+				@include metal-btns.shaded(colors.$medium-red);
 			}
 
 			&.raspberry {
-				@include metal-btns.shading(colors.$medium-raspberry);
+				@include metal-btns.shaded(colors.$medium-raspberry);
 			}
 
 			&.red-orange {
-				@include metal-btns.shading(colors.$medium-red-orange);
+				@include metal-btns.shaded(colors.$medium-red-orange);
 			}
 
 			&.orange {
-				@include metal-btns.shading(colors.$medium-orange);
+				@include metal-btns.shaded(colors.$medium-orange);
 			}
 
 			&.yellow {
-				@include metal-btns.shading(colors.$medium-yellow);
+				@include metal-btns.shaded(colors.$medium-yellow);
 			}
 
 			&.lime {
-				@include metal-btns.shading(colors.$medium-lime);
+				@include metal-btns.shaded(colors.$medium-lime);
 			}
 
 			&.green {
-				@include metal-btns.shading(colors.$medium-green);
+				@include metal-btns.shaded(colors.$medium-green);
 			}
 
 			&.teal {
-				@include metal-btns.shading(colors.$medium-teal);
+				@include metal-btns.shaded(colors.$medium-teal);
 			}
 
 			&.aqua {
-				@include metal-btns.shading(colors.$medium-aqua);
+				@include metal-btns.shaded(colors.$medium-aqua);
 			}
 
 			&.cyan {
-				@include metal-btns.shading(colors.$medium-cyan);
+				@include metal-btns.shaded(colors.$medium-cyan);
 			}
 
 			&.blue {
-				@include metal-btns.shading(colors.$medium-blue);
+				@include metal-btns.shaded(colors.$medium-blue);
 			}
 
 			&.indigo {
-				@include metal-btns.shading(colors.$medium-indigo);
+				@include metal-btns.shaded(colors.$medium-indigo);
 			}
 
 			&.violet {
-				@include metal-btns.shading(colors.$medium-violet);
+				@include metal-btns.shaded(colors.$medium-violet);
 			}
 
 			&.plum {
-				@include metal-btns.shading(colors.$medium-plum);
+				@include metal-btns.shaded(colors.$medium-plum);
 			}
 
 			&.purple {
-				@include metal-btns.shading(colors.$medium-purple);
+				@include metal-btns.shaded(colors.$medium-purple);
 			}
 
 			&.magenta {
-				@include metal-btns.shading(colors.$medium-magenta);
+				@include metal-btns.shaded(colors.$medium-magenta);
 			}
 
 			&.brown {
-				@include metal-btns.shading(colors.$medium-brown);
+				@include metal-btns.shaded(colors.$medium-brown);
 			}
 
 			&.grey {
-				@include metal-btns.shading(colors.$medium-grey);
+				@include metal-btns.shaded(colors.$medium-grey);
 			}
 
 			&.black {
-				@include metal-btns.shading(colors.$medium-black);
+				@include metal-btns.shaded(colors.$medium-black);
 			}
 
 			&.white {
-				@include metal-btns.shading(colors.$medium-white);
+				@include metal-btns.shaded(colors.$medium-white);
 			}
 		}
 	}

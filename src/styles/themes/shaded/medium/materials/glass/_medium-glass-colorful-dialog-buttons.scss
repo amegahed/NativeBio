@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../../navs/materials/glass/glass-btns";
@@ -36,15 +36,15 @@ body:not(.binary) {
 					button {
 
 						&.minimize {
-							@include glass-btns.shading(colorful-dialog-buttons.$minimize-button-color);
+							@include glass-btns.shaded(colorful-dialog-buttons.$minimize-button-color);
 						}
 
 						&.maximize, &.unmaximize {
-							@include glass-btns.shading(colorful-dialog-buttons.$maximize-button-color);
+							@include glass-btns.shaded(colorful-dialog-buttons.$maximize-button-color);
 						}
 
 						&.close-btn {
-							@include glass-btns.shading(colorful-dialog-buttons.$close-button-color);
+							@include glass-btns.shaded(colorful-dialog-buttons.$close-button-color);
 						}
 					}
 				}
@@ -61,15 +61,15 @@ body:not(.binary) {
 					button {
 
 						&.minimize {
-							@include glass-btns.shading(colorful-dialog-buttons.$unfocused-button-color);
+							@include glass-btns.shaded(colorful-dialog-buttons.$unfocused-button-color);
 						}
 
 						&.maximize, &.unmaximize {
-							@include glass-btns.shading(colorful-dialog-buttons.$unfocused-button-color);
+							@include glass-btns.shaded(colorful-dialog-buttons.$unfocused-button-color);
 						}
 
 						&.close-btn {
-							@include glass-btns.shading(colorful-dialog-buttons.$unfocused-button-color);
+							@include glass-btns.shaded(colorful-dialog-buttons.$unfocused-button-color);
 						}
 					}
 				}

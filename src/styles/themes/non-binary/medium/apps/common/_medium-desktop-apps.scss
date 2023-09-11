@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../../colors/colors";
@@ -27,21 +27,21 @@
 
 $header-bar-color: text-colors.$dark-color;
 $header-bar-icon-color: colors.$medium-grey;
-$header-bar-background-color: colors.$very-very-very-light-grey;
+$header-bar-background-color: colors.$ultra-light-grey;
 $header-bar-border-color: medium-apps.$border-color;
 $header-bar-opacity: plate-glass.$opacity;
-$sidebar-panels-color: colors.fade(white, 50%);
+$sidebar-panels-color: colors.faded(white, 50%);
 $mainbar-background-color: white;
 $preview-border-color: colors.$very-light-grey;
 $message-color: colors.$very-very-very-light-grey;
-$message-background-color: colors.fade(colors.$very-light-grey, 25%);
+$message-background-color: colors.faded(colors.$very-light-grey, 25%);
 
 $transparent-header-bar-color: text-colors.$dark-color;
 $transparent-header-bar-icon-color: colors.$medium-grey;
-$transparent-header-bar-background-color: colors.$very-very-very-light-grey;
-$transparent-sidebar-color: colors.fade(white, 75%);
+$transparent-header-bar-background-color: colors.$ultra-light-grey;
+$transparent-sidebar-color: colors.faded(white, 75%);
 $transparent-sidebar-label-color: white;
-$transparent-sidebar-panel-color: colors.fade(medium-apps.$background-color, medium-apps.$sidebar-panel-opacity);
+$transparent-sidebar-panel-color: colors.faded(medium-apps.$background-color, medium-apps.$sidebar-panel-opacity);
 
 //
 // styles
@@ -146,7 +146,7 @@ body:not(.binary) {
 					.help.message {
 						color: $message-color;
 						background: $message-background-color;
-						@include frosted-glass.frosting();
+						@include frosted-glass.frosted();
 
 						i {
 							color: $message-color;
@@ -165,7 +165,7 @@ body:not(.binary) {
 		.desktop.app > .body > .app {
 
 			> .header-bar {
-				@include plate-glass.shading($header-bar-background-color,
+				@include plate-glass.shaded($header-bar-background-color,
 				$header-bar-opacity);
 			}
 		}
@@ -263,7 +263,7 @@ body:not(.binary) {
 					> .sidebar {
 						color: text-colors.$dark-color !important;
 						background-color: $transparent-sidebar-color;
-						@include frosted-glass.frosting();
+						@include frosted-glass.frosted();
 					}
 				}
 			}
@@ -315,7 +315,7 @@ body:not(.binary) {
 							background-color: $sidebar-panels-color;
 
 							.panel {
-								@include plate-glass.shading(white, 50%, 75%);
+								@include plate-glass.shaded(white, 50%, 75%);
 								color: text-colors.$dark-color !important;
 
 								.panels > .panel, label {
@@ -345,15 +345,15 @@ body:not(.binary) {
 			> .body, > .body-region {
 				.contents {
 					> .sidebar {
-						@include frosted-glass.polishing();
+						@include frosted-glass.polished();
 
 						.panels {
 							background-color: $sidebar-panels-color;
-							@include frosted-glass.frosting();
+							@include frosted-glass.frosted();
 
 							.panel {
-								@include plate-glass.shading(white, 25%, 50%);
-								@include frosted-glass.frosting();
+								@include plate-glass.shaded(white, 25%, 50%);
+								@include frosted-glass.frosted();
 							}
 						}
 					}

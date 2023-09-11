@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../navs/materials/flat/flat-btns";
@@ -33,22 +33,57 @@ body:not(.binary).colored.accented {
 		//
 
 		.btn:not(.btn-primary):not(.colored):not(:disabled) {
-			@include flat-btns.shading(accented-btns.$color);
 
 			//
 			// special buttons
 			//
 
 			&.success {
-				@include flat-buttons.shading(validation.$success-color);
+				@include flat-buttons.shade(validation.$success-color);
 			}
 
 			&.caution {
-				@include flat-buttons.shading(validation.$caution-color);
+				@include flat-buttons.shade(validation.$caution-color);
 			}
 
 			&.warning {
-				@include flat-buttons.shading(validation.$warning-color);
+				@include flat-buttons.shade(validation.$warning-color);
+			}
+		}
+	}
+}
+
+@supports (color: color-mix(in srgb, white, black)) {
+	body:not(.binary).colored.accented {
+		&.flat-buttons,
+		&.flat.auto-buttons {
+
+			//
+			// styled buttons
+			//
+
+			.btn:not(.btn-primary):not(.colored):not(:disabled) {
+				@include flat-btns.shade(accented-btns.$color);
+			}
+		}
+	}
+}
+
+//
+// fallback styles
+//
+
+@supports not (color: color-mix(in srgb, white, black)) {
+	body:not(.binary).colored.accented {
+		&.flat-buttons,
+		&.flat.auto-buttons {
+
+			//
+			// styled buttons
+			//
+
+			.btn:not(.btn-primary):not(.colored):not(:disabled) {
+				@include flat-btns.shaded(accented-btns.$default-color);
 			}
 		}
 	}

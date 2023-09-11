@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../colors/colors";
@@ -22,11 +22,11 @@
 // colors
 //
 
-$background-color: colors.fade(medium-selection.$highlight-color, 25%);
+$background-color: colors.faded(medium-selection.$highlight-color, 25%);
 $border-color: medium-selection.$highlight-color;
-$selected-background-color: colors.fade(medium-selection.$select-color, 25%);
+$selected-background-color: colors.faded(medium-selection.$select-color, 25%);
 $selected-border-color: medium-selection.$select-color;
-$highlighted-background-color: colors.fade(medium-selection.$highlight-color, 25%);
+$highlighted-background-color: colors.faded(medium-selection.$highlight-color, 25%);
 $highlighted-border-color: medium-selection.$highlight-color;
 
 //

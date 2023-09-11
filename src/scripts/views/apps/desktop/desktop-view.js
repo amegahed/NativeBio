@@ -267,10 +267,17 @@ export default AppView.extend(_.extend({}, Wallpaperable, {
 		switch (runMenuItems || 'icons') {
 			case 'icons':
 				this.$el.addClass('run-menu-icons');
+				this.$el.removeClass('run-menu-cards');
+				this.$el.removeClass('run-menu-lists');
+				break;
+			case 'cards':
+				this.$el.removeClass('run-menu-icons');
+				this.$el.addClass('run-menu-cards');
 				this.$el.removeClass('run-menu-lists');
 				break;
 			case 'lists':
 				this.$el.removeClass('run-menu-icons');
+				this.$el.removeClass('run-menu-cards');
 				this.$el.addClass('run-menu-lists');
 				break;
 		}

@@ -12,10 +12,11 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../colors/colors";
+@use "../../../colors/branding";
 @use "../../../navs/colors/colored-scrollbars";
 
 //
@@ -24,6 +25,8 @@
 
 $color: var(--secondary-color);
 $hover-color: colors.darken($color, 10%);
+$default-color: branding.$secondary-color;
+$default-hover-color: darken($default-color, 10%);
 
 //
 // styles
@@ -36,6 +39,6 @@ body:not(.binary).colored.accented {
 		// scrollbar thumbs
 		//
 
-		@include colored-scrollbars.inactive-thumb-coloring($color, $hover-color);
+		@include colored-scrollbars.inactive-thumb-colored($color, $hover-color);
 	}
 }

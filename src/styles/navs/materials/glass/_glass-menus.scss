@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../materials/glass/rounded-glass";
@@ -21,19 +21,40 @@
 // mixins
 //
 
-@mixin shading($open-color, $hover-color, $active-color) {
+@mixin shade($open-color, $hover-color, $active-color) {
 	> li:not(.dropdown-toggle):not(.disabled) {
 
 		&.open > a {
-			@include rounded-glass.shading($open-color);
+			@include rounded-glass.shade($open-color);
 		}
 
 		a:hover {
-			@include rounded-glass.shading($hover-color);
+			@include rounded-glass.shade($hover-color);
 		}
 
 		a:active {
-			@include rounded-glass.shading($active-color);
+			@include rounded-glass.shade($active-color);
+		}
+	}
+}
+
+//
+// color mixins
+//
+
+@mixin shaded($open-color, $hover-color, $active-color) {
+	> li:not(.dropdown-toggle):not(.disabled) {
+
+		&.open > a {
+			@include rounded-glass.shaded($open-color);
+		}
+
+		a:hover {
+			@include rounded-glass.shaded($hover-color);
+		}
+
+		a:active {
+			@include rounded-glass.shaded($active-color);
 		}
 	}
 }

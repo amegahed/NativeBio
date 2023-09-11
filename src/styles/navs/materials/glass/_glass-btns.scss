@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../colors/colors";
@@ -22,26 +22,54 @@
 // mixins
 //
 
-@mixin shading($color) {
-	@include round-glass.shading($color, outset);
+@mixin shade($color) {
+	@include round-glass.shade($color, outset);
 
 	&:hover {
-		@include round-glass.shading(colors.darken($color, 10%), outset);
+		@include round-glass.shade(colors.darken($color, 10%), outset);
 	}
 
 	&:active {
-		@include round-glass.shading(colors.darken($color, 20%), outset);
+		@include round-glass.shade(colors.darken($color, 20%), outset);
 	}
 }
 
-@mixin dark-shading($color) {
-	@include round-glass.shading($color, outset);
+@mixin dark-shade($color) {
+	@include round-glass.shade($color, outset);
 
 	&:hover {
-		@include round-glass.shading(colors.lighten($color, 10%), outset);
+		@include round-glass.shade(colors.lighten($color, 10%), outset);
 	}
 
 	&:active {
-		@include round-glass.shading(colors.lighten($color, 20%), outset);
+		@include round-glass.shade(colors.lighten($color, 20%), outset);
+	}
+}
+
+//
+// color mixins
+//
+
+@mixin shaded($color) {
+	@include round-glass.shaded($color, outset);
+
+	&:hover {
+		@include round-glass.shaded(darken($color, 10%), outset);
+	}
+
+	&:active {
+		@include round-glass.shaded(darken($color, 20%), outset);
+	}
+}
+
+@mixin dark-shaded($color) {
+	@include round-glass.shaded($color, outset);
+
+	&:hover {
+		@include round-glass.shaded(lighten($color, 10%), outset);
+	}
+
+	&:active {
+		@include round-glass.shaded(lighten($color, 20%), outset);
 	}
 }

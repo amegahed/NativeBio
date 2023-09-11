@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../materials/flat/flat";
@@ -21,10 +21,22 @@
 // mixins
 //
 
-@mixin shading($color) {
+@mixin shade($color) {
 	box-shadow: none;
 
 	&:checked {
-		@include flat.shading($color);
+		@include flat.shade($color);
+	}
+}
+
+//
+// color mixins
+//
+
+@mixin shaded($color) {
+	box-shadow: none;
+
+	&:checked {
+		@include flat.shaded($color);
 	}
 }

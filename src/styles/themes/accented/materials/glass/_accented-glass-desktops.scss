@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../materials/glass/rounded-glass";
@@ -22,24 +22,56 @@
 // styles
 //
 
-body:not(.binary).colored.accented {
-	&.glass {
-		#desktop,
-		#desktop.auto,
-		#desktop.medium {
-
-			//
-			// glass desktop footer bars
-			//
-
-			.desktop.app > .footer-bar {
+@supports (color: color-mix(in srgb, white, black)) {
+	body:not(.binary).colored.accented {
+		&.glass {
+			#desktop,
+			#desktop.auto,
+			#desktop.medium {
 
 				//
-				// glass desktop info bars
+				// glass desktop footer bars
 				//
 
-				.desktop-info-bar {
-					@include rounded-glass.shading(accented-desktop.$info-bar-background-color);
+				.desktop.app > .footer-bar {
+
+					//
+					// glass desktop info bars
+					//
+
+					.desktop-info-bar {
+						@include rounded-glass.shade(accented-desktop.$info-bar-background-color);
+					}
+				}
+			}
+		}
+	}
+}
+
+//
+// fallback styles
+//
+
+@supports not (color: color-mix(in srgb, white, black)) {
+	body:not(.binary).colored.accented {
+		&.glass {
+			#desktop,
+			#desktop.auto,
+			#desktop.medium {
+
+				//
+				// glass desktop footer bars
+				//
+
+				.desktop.app > .footer-bar {
+
+					//
+					// glass desktop info bars
+					//
+
+					.desktop-info-bar {
+						@include rounded-glass.shaded(accented-desktop.$default-info-bar-background-color);
+					}
 				}
 			}
 		}

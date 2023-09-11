@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../../colors/colors";
@@ -29,7 +29,7 @@ $sidebar-color: $background-color;
 $sidebar-panel-color: light-panels.$background-color;
 $sidebar-header-background-color: transparent;
 $border-color: medium-apps.$border-color;
-$transparent-sidebar-color: colors.fade($sidebar-color, 50%);
+$transparent-sidebar-color: colors.faded($sidebar-color, 50%);
 
 //
 // styles

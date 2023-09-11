@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../flat/flat";
@@ -31,42 +31,86 @@ $border-radius: var(--border-radius);
 // mixins
 //
 
-@mixin shading($color) {
-	@include flat-metal.shading($color);
+@mixin shade($color) {
+	@include flat-metal.shade($color);
 
 	&.round {
-		@include round-metal.shading($color);
+		@include round-metal.shade($color);
 	}
 
 	&.rounded {
-		@include rounded-metal.shading($color);
+		@include rounded-metal.shade($color);
 	}
 
 	&.long.round {
-		@include long-round-metal.shading($color, $border-radius);
+		@include long-round-metal.shade($color, $border-radius);
 
 		&.vertical {
-			@include long-round-metal.vertical-shading($color, $border-radius);
+			@include long-round-metal.vertical-shade($color, $border-radius);
 		}
 	}
 }
 
-@mixin multilayer-shading($color) {
-	@include flat-metal.multilayer-shading($color);
+@mixin multilayer-shade($color) {
+	@include flat-metal.multilayer-shade($color);
 
 	&.round {
-		@include round-metal.multilayer-shading($color);
+		@include round-metal.multilayer-shade($color);
 	}
 
 	&.rounded {
-		@include rounded-metal.multilayer-shading($color);
+		@include rounded-metal.multilayer-shade($color);
 	}
 
 	&.long.round {
-		@include long-round-metal.multilayer-shading($color, $border-radius);
+		@include long-round-metal.multilayer-shade($color, $border-radius);
 
 		&.vertical {
-			@include long-round-metal.vertical-multilayer-shading($color, $border-radius);
+			@include long-round-metal.vertical-multilayer-shade($color, $border-radius);
+		}
+	}
+}
+
+//
+// color mixins
+//
+
+@mixin shaded($color) {
+	@include flat-metal.shaded($color);
+
+	&.round {
+		@include round-metal.shaded($color);
+	}
+
+	&.rounded {
+		@include rounded-metal.shaded($color);
+	}
+
+	&.long.round {
+		@include long-round-metal.shaded($color, $border-radius);
+
+		&.vertical {
+			@include long-round-metal.vertical-shaded($color, $border-radius);
+		}
+	}
+}
+
+@mixin multilayer-shaded($color) {
+	@include flat-metal.multilayer-shaded($color);
+
+	&.round {
+		@include round-metal.multilayer-shaded($color);
+	}
+
+	&.rounded {
+		@include rounded-metal.multilayer-shaded($color);
+	}
+
+	&.long.round {
+		@include long-round-metal.multilayer-shaded($color, $border-radius);
+
+		&.vertical {
+			@include long-round-metal.vertical-multilayer-shaded($color, $border-radius);
 		}
 	}
 }
@@ -78,10 +122,10 @@ $border-radius: var(--border-radius);
 @supports (color: color-mix(in srgb, white, black)) {
 	.metal {
 		.shaded, &.metal.shaded {
-			@include shading(var(--primary-color));
+			@include shade(var(--primary-color));
 
 			&.textured {
-				@include multilayer-shading(var(--primary-color));
+				@include multilayer-shade(var(--primary-color));
 			}
 		}
 	}
@@ -94,10 +138,10 @@ $border-radius: var(--border-radius);
 @supports not (color: color-mix(in srgb, white, black)) {
 	.metal {
 		.shaded, &.metal.shaded {
-			@include flat.shading(var(--primary-color));
+			@include flat.shade(var(--primary-color));
 
 			&.textured {
-				@include flat.multilayer-shading(var(--primary-color));
+				@include flat.multilayer-shade(var(--primary-color));
 			}
 		}
 	}

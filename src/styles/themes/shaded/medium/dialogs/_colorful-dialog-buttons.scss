@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../navs/colors/colored-btns";
@@ -50,17 +50,17 @@ body:not(.binary).colored {
 						button {
 
 							&.minimize {
-								@include colored-btns.coloring($minimize-button-color);
+								@include colored-btns.colored($minimize-button-color);
 								@include colored-btns.labeling($button-label-color);
 							}
 
 							&.maximize, &.unmaximize {
-								@include colored-btns.coloring($maximize-button-color);
+								@include colored-btns.colored($maximize-button-color);
 								@include colored-btns.labeling($button-label-color);
 							}
 
 							&.close-btn {
-								@include colored-btns.coloring($close-button-color);
+								@include colored-btns.colored($close-button-color);
 								@include colored-btns.labeling($button-label-color);
 							}
 						}
@@ -78,17 +78,17 @@ body:not(.binary).colored {
 						button {
 
 							&.minimize {
-								@include colored-btns.coloring($unfocused-button-color);
+								@include colored-btns.colored($unfocused-button-color);
 								@include colored-btns.labeling($unfocused-button-label-color);
 							}
 
 							&.maximize, &.unmaximize {
-								@include colored-btns.coloring($unfocused-button-color);
+								@include colored-btns.colored($unfocused-button-color);
 								@include colored-btns.labeling($unfocused-button-label-color);
 							}
 
 							&.close-btn {
-								@include colored-btns.coloring($unfocused-button-color);
+								@include colored-btns.colored($unfocused-button-color);
 								@include colored-btns.labeling($unfocused-button-label-color);
 							}			
 						}
@@ -108,15 +108,15 @@ body:not(.binary).colored {
 						button {
 
 							&.minimize {
-								@include colored-btns.coloring($minimize-button-color);
+								@include colored-btns.colored($minimize-button-color);
 							}
 
 							&.maximize, &.unmaximize {
-								@include colored-btns.coloring($maximize-button-color);
+								@include colored-btns.colored($maximize-button-color);
 							}
 
 							&.close-btn {
-								@include colored-btns.coloring($close-button-color);
+								@include colored-btns.colored($close-button-color);
 							}
 						}
 					}

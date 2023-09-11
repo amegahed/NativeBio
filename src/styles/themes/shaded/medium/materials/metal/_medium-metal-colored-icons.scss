@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../../colors/colors";
@@ -35,95 +35,95 @@ body:not(.binary) {
 			.icon .colored {
 
 				&.red {
-					@include round-metal.shading(colors.$medium-red);
+					@include round-metal.shaded(colors.$medium-red);
 				}
 
 				&.raspberry {
-					@include round-metal.shading(colors.$medium-raspberry);
+					@include round-metal.shaded(colors.$medium-raspberry);
 				}
 
 				&.red-orange {
-					@include round-metal.shading(colors.$medium-red-orange);
+					@include round-metal.shaded(colors.$medium-red-orange);
 				}
 
 				&.orange {
-					@include round-metal.shading(colors.$medium-orange);
+					@include round-metal.shaded(colors.$medium-orange);
 				}
 
 				&.yellow {
-					@include round-metal.shading(colors.$medium-yellow);
+					@include round-metal.shaded(colors.$medium-yellow);
 				}
 
 				&.lime {
-					@include round-metal.shading(colors.$medium-lime);
+					@include round-metal.shaded(colors.$medium-lime);
 				}
 
 				&.green {
-					@include round-metal.shading(colors.$medium-green);
+					@include round-metal.shaded(colors.$medium-green);
 				}
 
 				&.teal {
-					@include round-metal.shading(colors.$medium-teal);
+					@include round-metal.shaded(colors.$medium-teal);
 				}
 
 				&.aqua {
-					@include round-metal.shading(colors.$medium-aqua);
+					@include round-metal.shaded(colors.$medium-aqua);
 				}
 
 				&.cyan {
-					@include round-metal.shading(colors.$medium-cyan);
+					@include round-metal.shaded(colors.$medium-cyan);
 				}
 
 				&.blue {
-					@include round-metal.shading(colors.$medium-blue);
+					@include round-metal.shaded(colors.$medium-blue);
 				}
 
 				&.indigo {
-					@include round-metal.shading(colors.$medium-indigo);
+					@include round-metal.shaded(colors.$medium-indigo);
 				}
 
 				&.violet {
-					@include round-metal.shading(colors.$medium-violet);
+					@include round-metal.shaded(colors.$medium-violet);
 				}
 
 				&.plum {
-					@include round-metal.shading(colors.$medium-plum);
+					@include round-metal.shaded(colors.$medium-plum);
 				}
 
 				&.purple {
-					@include round-metal.shading(colors.$medium-purple);
+					@include round-metal.shaded(colors.$medium-purple);
 				}
 
 				&.magenta {
-					@include round-metal.shading(colors.$medium-magenta);
+					@include round-metal.shaded(colors.$medium-magenta);
 				}
 
 				&.brown {
-					@include round-metal.shading(colors.$medium-brown);
+					@include round-metal.shaded(colors.$medium-brown);
 				}
 
 				&.grey {
-					@include round-metal.shading(colors.$medium-grey);
+					@include round-metal.shaded(colors.$medium-grey);
 				}
 
 				&.black {
-					@include round-metal.shading(colors.$medium-black);
+					@include round-metal.shaded(colors.$medium-black);
 				}
 
 				&.white {
-					@include round-metal.shading(colors.$medium-white);
+					@include round-metal.shaded(colors.$medium-white);
 				}
 
 				&.copper {
-					@include round-metal.shading(colors.$medium-copper);
+					@include round-metal.shaded(colors.$medium-copper);
 				}
 
 				&.silver {
-					@include round-metal.shading(colors.$medium-silver);
+					@include round-metal.shaded(colors.$medium-silver);
 				}
 
 				&.gold {
-					@include round-metal.shading(colors.$medium-gold);
+					@include round-metal.shaded(colors.$medium-gold);
 				}
 			}
 
@@ -134,95 +134,95 @@ body:not(.binary) {
 			.selected .colored.icon,
 			.selected .icon .colored {
 				&.red {
-					@include round-metal.shading(colors.$dark-red);
+					@include round-metal.shaded(colors.$dark-red);
 				}
 
 				&.raspberry {
-					@include round-metal.shading(colors.$dark-raspberry);
+					@include round-metal.shaded(colors.$dark-raspberry);
 				}
 
 				&.red-orange {
-					@include round-metal.shading(colors.$dark-red-orange);
+					@include round-metal.shaded(colors.$dark-red-orange);
 				}
 
 				&.orange {
-					@include round-metal.shading(colors.$dark-orange);
+					@include round-metal.shaded(colors.$dark-orange);
 				}
 
 				&.yellow {
-					@include round-metal.shading(colors.$dark-yellow);
+					@include round-metal.shaded(colors.$dark-yellow);
 				}
 
 				&.lime {
-					@include round-metal.shading(colors.$dark-lime);
+					@include round-metal.shaded(colors.$dark-lime);
 				}
 
 				&.green {
-					@include round-metal.shading(colors.$dark-green);
+					@include round-metal.shaded(colors.$dark-green);
 				}
 
 				&.teal {
-					@include round-metal.shading(colors.$dark-teal);
+					@include round-metal.shaded(colors.$dark-teal);
 				}
 
 				&.aqua {
-					@include round-metal.shading(colors.$dark-aqua);
+					@include round-metal.shaded(colors.$dark-aqua);
 				}
 
 				&.cyan {
-					@include round-metal.shading(colors.$dark-cyan);
+					@include round-metal.shaded(colors.$dark-cyan);
 				}
 
 				&.blue {
-					@include round-metal.shading(colors.$dark-blue);
+					@include round-metal.shaded(colors.$dark-blue);
 				}
 
 				&.indigo {
-					@include round-metal.shading(colors.$dark-indigo);
+					@include round-metal.shaded(colors.$dark-indigo);
 				}
 
 				&.violet {
-					@include round-metal.shading(colors.$dark-violet);
+					@include round-metal.shaded(colors.$dark-violet);
 				}
 
 				&.plum {
-					@include round-metal.shading(colors.$dark-plum);
+					@include round-metal.shaded(colors.$dark-plum);
 				}
 
 				&.purple {
-					@include round-metal.shading(colors.$dark-purple);
+					@include round-metal.shaded(colors.$dark-purple);
 				}
 
 				&.magenta {
-					@include round-metal.shading(colors.$dark-magenta);
+					@include round-metal.shaded(colors.$dark-magenta);
 				}
 
 				&.brown {
-					@include round-metal.shading(colors.$dark-brown);
+					@include round-metal.shaded(colors.$dark-brown);
 				}
 
 				&.grey {
-					@include round-metal.shading(colors.$dark-grey);
+					@include round-metal.shaded(colors.$dark-grey);
 				}
 
 				&.black {
-					@include round-metal.shading(colors.$dark-black);
+					@include round-metal.shaded(colors.$dark-black);
 				}
 
 				&.white {
-					@include round-metal.shading(colors.$dark-white);
+					@include round-metal.shaded(colors.$dark-white);
 				}
 
 				&.copper {
-					@include round-metal.shading(colors.$dark-copper);
+					@include round-metal.shaded(colors.$dark-copper);
 				}
 
 				&.silver {
-					@include round-metal.shading(colors.$dark-silver);
+					@include round-metal.shaded(colors.$dark-silver);
 				}
 
 				&.gold {
-					@include round-metal.shading(colors.$dark-gold);
+					@include round-metal.shaded(colors.$dark-gold);
 				}
 			}
 		}

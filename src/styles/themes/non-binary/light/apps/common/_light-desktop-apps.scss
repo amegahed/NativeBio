@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../../colors/colors";
@@ -32,11 +32,11 @@ $header-bar-icon-color: colors.$light-grey;
 $header-bar-background-color: white;
 $header-bar-border-color: light-apps.$border-color;
 $sidebar-panel-color: light-panels.$background-color;
-$sidebar-panels-color: colors.fade(light-panels.$background-color, 50%);
+$sidebar-panels-color: colors.faded(light-panels.$background-color, 50%);
 $mainbar-background-color: white;
-$transparent-sidebar-color: colors.fade(white, 75%);
+$transparent-sidebar-color: colors.faded(white, 75%);
 $transparent-sidebar-label-color: white;
-$transparent-sidebar-panel-color: colors.fade(white, 25%);
+$transparent-sidebar-panel-color: colors.faded(white, 25%);
 
 //
 // styles
@@ -116,7 +116,7 @@ body:not(.binary).light {
 			.desktop.app > .body > .app {
 
 				> .header-bar {
-					@include plate-glass.shading($header-bar-background-color,
+					@include plate-glass.shaded($header-bar-background-color,
 					medium-desktop-apps.$header-bar-opacity);
 				}
 			}
@@ -173,7 +173,7 @@ body:not(.binary).light {
 				.contents {
 					> .sidebar {
 						background-color: $transparent-sidebar-color;
-						@include frosted-glass.frosting();
+						@include frosted-glass.frosted();
 					}
 				}
 			}
@@ -251,15 +251,15 @@ body:not(.binary).light {
 			> .body, > .body-region {
 				.contents {
 					> .sidebar {
-						@include frosted-glass.polishing();
+						@include frosted-glass.polished();
 
 						.panels {
 							background-color: $sidebar-panels-color;
-							@include frosted-glass.frosting();
+							@include frosted-glass.frosted();
 
 							.panel {
 								background-color: $sidebar-panel-color;
-								@include frosted-glass.frosting();
+								@include frosted-glass.frosted();
 							}
 						}
 					}

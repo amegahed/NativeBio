@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../navs/task-bars";
@@ -25,6 +25,9 @@
 
 $run-menu-toggle-height: 30px;
 $font-size: task-bars.$font-size;
+$icon-grid-width: 450px;
+$card-grid-width: 450px;
+$card-grid-columns: 2;
 
 //
 // styles
@@ -79,6 +82,7 @@ $font-size: task-bars.$font-size;
 					position: absolute;
 					bottom: 30px;
 					cursor: default;
+					pointer-events: none;
 
 					> ul, > div {
 						position: absolute;
@@ -97,12 +101,17 @@ $font-size: task-bars.$font-size;
 						font-weight: bold;
 						border-width: 1px;
 						border-style: solid;
+						pointer-events: auto;
 					}
 
 					.icon-grid {
 						text-align: center;
 						padding-top: 20px;
 						padding-bottom: 0;
+					}
+
+					.card-grid.apps-list {
+						padding: 10px;
 					}
 
 					.apps-list {
@@ -115,6 +124,10 @@ $font-size: task-bars.$font-size;
 							}
 						}
 					}
+
+					.divider {
+						border: none;
+					}
 				}
 			}
 		}
@@ -125,11 +138,20 @@ $font-size: task-bars.$font-size;
 // run menu items
 //
 
-#desktop.run-menu-icons,
-#desktop:not(.run-menu-lists):not(.run-menu-lists) {
+#desktop.run-menu-icons {
 	.footer-bar {
 		.run-menu {
-			.dropdown-menu {
+			.card-grid, .apps-list:not(.card-grid) {
+				display: none !important;
+			}
+		}
+	}
+}
+
+#desktop.run-menu-cards {
+	.footer-bar {
+		.run-menu {
+			.app-icons, .apps-list:not(.card-grid) {
 				display: none !important;
 			}
 		}
@@ -139,7 +161,7 @@ $font-size: task-bars.$font-size;
 #desktop.run-menu-lists {
 	.footer-bar {
 		.run-menu {
-			.app-icons {
+			.app-icons, .card-grid {
 				display: none !important;
 			}
 		}
@@ -303,7 +325,15 @@ body[device="tablet"] {
 				.menu-bar {
 					.items {
 						.icon-grid {
-							max-width: 450px;
+							width: $icon-grid-width;
+						}
+
+						.card-grid {
+							width: $card-grid-width;
+
+							.cards {
+								column-count: $card-grid-columns;
+							}
 						}
 					}
 				}

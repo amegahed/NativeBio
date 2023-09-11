@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../../navs/materials/metal/metal-btns";
@@ -34,7 +34,7 @@ body:not(.binary) {
 			.modal-header {
 				.buttons {
 					button.close-btn {
-						@include metal-btns.shading(colored-dialog-buttons.$close-button-color);
+						@include metal-btns.shaded(colored-dialog-buttons.$close-button-color);
 					}
 				}
 			}

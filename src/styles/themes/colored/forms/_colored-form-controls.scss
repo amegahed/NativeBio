@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../colors/colors";
@@ -21,8 +21,8 @@
 // colors
 //
 
-$form-input-highlight-color: colors.fade(colors.lighten(var(--primary-color), 10%), 50%);
-$form-input-highlight-border-color: colors.fade(var(--primary-color), 50%);
+$form-input-highlight-color: colors.fade(var(--primary-color), 50%);
+$form-input-highlight-border-color: var(--primary-color);
 
 //
 // styles

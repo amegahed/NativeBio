@@ -31,7 +31,9 @@ export default {
 
 		// update view
 		//
-		this.modals.blurAll();
+		this.modals.blurAll({
+			except: this
+		});
 		this.$el.addClass('focused');
 
 		// perform actions

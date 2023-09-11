@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../materials/glass/flat-glass";
@@ -23,83 +23,173 @@
 // styles
 //
 
-body:not(.binary).colored.colorful {
-	& .glass.modals,
-	&.glass .auto-material.modals {
+@supports (color: color-mix(in srgb, white, black)) {
+	body:not(.binary).colored.colorful {
+		& .glass.modals,
+		&.glass .auto-material.modals {
 
-		//
-		// focused dialogs
-		//
+			//
+			// focused dialogs
+			//
 
-		.modal.focused .modal-dialog {
-			.modal-header {
-				@include flat-glass.shading(colorful-dialogs.$header-color);
+			.modal.focused .modal-dialog {
+				.modal-header {
+					@include flat-glass.shade(colorful-dialogs.$header-color);
+				}
+			}
+
+			//
+			// unfocused dialogs
+			//
+
+			.modal:not(.focused) .modal-dialog {
+				.modal-header {
+					@include flat-glass.shade(colorful-dialogs.$unfocused-header-color);
+				}
 			}
 		}
 
 		//
-		// unfocused dialogs
+		// transparent dialogs
 		//
 
-		.modal:not(.focused) .modal-dialog {
-			.modal-header {
-				@include flat-glass.shading(colorful-dialogs.$unfocused-header-color);
+		&.transparent .glass.modals,
+		&.transparent.glass .auto-material.modals {
+
+			//
+			// transparent focused dialogs
+			//
+
+			.modal.focused .modal-dialog {
+				.modal-header {
+					@include flat-glass.shade(colorful-dialogs.$header-color);
+				}
+			}
+
+			//
+			// transparent unfocused dialogs
+			//
+
+			.modal:not(.focused) .modal-dialog {
+				.modal-header {
+					@include flat-glass.shade(colorful-dialogs.$unfocused-header-color);
+				}
+			}
+		}
+
+		//
+		// translucent dialogs
+		//
+
+		&.translucent .glass.modals,
+		&.translucent.glass .auto-material.modals {
+
+			//
+			// translucent focused dialogs
+			//
+
+			.modal.focused .modal-dialog {
+				.modal-header {
+					@include frosted-glass.shade(colorful-dialogs.$header-color);
+				}
+			}
+
+			//
+			// translucent unfocused dialogs
+			//
+
+			.modal:not(.focused) .modal-dialog {
+				.modal-header {
+					@include frosted-glass.shade(colorful-dialogs.$unfocused-header-color);
+				}
 			}
 		}
 	}
+}
 
-	//
-	// transparent dialogs
-	//
+//
+// fallback styles
+//
 
-	&.transparent .glass.modals,
-	&.transparent.glass .auto-material.modals {
+@supports not (color: color-mix(in srgb, white, black)) {
+	body:not(.binary).colored.colorful {
+		& .glass.modals,
+		&.glass .auto-material.modals {
 
-		//
-		// transparent focused dialogs
-		//
+			//
+			// focused dialogs
+			//
 
-		.modal.focused .modal-dialog {
-			.modal-header {
-				@include flat-glass.shading(colorful-dialogs.$header-color);
+			.modal.focused .modal-dialog {
+				.modal-header {
+					@include flat-glass.shaded(colorful-dialogs.$default-header-color);
+				}
+			}
+
+			//
+			// unfocused dialogs
+			//
+
+			.modal:not(.focused) .modal-dialog {
+				.modal-header {
+					@include flat-glass.shaded(colorful-dialogs.$default-unfocused-header-color);
+				}
 			}
 		}
 
 		//
-		// transparent unfocused dialogs
+		// transparent dialogs
 		//
 
-		.modal:not(.focused) .modal-dialog {
-			.modal-header {
-				@include flat-glass.shading(colorful-dialogs.$unfocused-header-color);
+		&.transparent .glass.modals,
+		&.transparent.glass .auto-material.modals {
+
+			//
+			// transparent focused dialogs
+			//
+
+			.modal.focused .modal-dialog {
+				.modal-header {
+					@include flat-glass.shaded(colorful-dialogs.$default-header-color);
+				}
+			}
+
+			//
+			// transparent unfocused dialogs
+			//
+
+			.modal:not(.focused) .modal-dialog {
+				.modal-header {
+					@include flat-glass.shaded(colorful-dialogs.$default-unfocused-header-color);
+				}
 			}
 		}
-	}
-
-	//
-	// translucent dialogs
-	//
-
-	&.translucent .glass.modals,
-	&.translucent.glass .auto-material.modals {
 
 		//
-		// translucent focused dialogs
+		// translucent dialogs
 		//
 
-		.modal.focused .modal-dialog {
-			.modal-header {
-				@include frosted-glass.shading(colorful-dialogs.$header-color);
+		&.translucent .glass.modals,
+		&.translucent.glass .auto-material.modals {
+
+			//
+			// translucent focused dialogs
+			//
+
+			.modal.focused .modal-dialog {
+				.modal-header {
+					@include frosted-glass.shaded(colorful-dialogs.$default-header-color);
+				}
 			}
-		}
 
-		//
-		// translucent unfocused dialogs
-		//
+			//
+			// translucent unfocused dialogs
+			//
 
-		.modal:not(.focused) .modal-dialog {
-			.modal-header {
-				@include frosted-glass.shading(colorful-dialogs.$unfocused-header-color);
+			.modal:not(.focused) .modal-dialog {
+				.modal-header {
+					@include frosted-glass.shaded(colorful-dialogs.$default-unfocused-header-color);
+				}
 			}
 		}
 	}

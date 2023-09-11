@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../../colors/colors";
@@ -39,95 +39,95 @@ body:not(.binary) {
 		.colored:not(.btn) {
 
 			&.red {
-				@include flat.coloring($color);
+				@include flat.color($color);
 			}
 
 			&.raspberry {
-				@include flat.coloring($color);
+				@include flat.color($color);
 			}
 
 			&.red-orange {
-				@include flat.coloring($color);
+				@include flat.color($color);
 			}
 
 			&.orange {
-				@include flat.coloring($color);
+				@include flat.color($color);
 			}
 
 			&.yellow {
-				@include flat.coloring($color);
+				@include flat.color($color);
 			}
 
 			&.lime {
-				@include flat.coloring($color);
+				@include flat.color($color);
 			}
 
 			&.green {
-				@include flat.coloring($color);
+				@include flat.color($color);
 			}
 
 			&.teal {
-				@include flat.coloring($color);
+				@include flat.color($color);
 			}
 
 			&.aqua {
-				@include flat.coloring($color);
+				@include flat.color($color);
 			}
 
 			&.cyan {
-				@include flat.coloring($color);
+				@include flat.color($color);
 			}
 
 			&.blue {
-				@include flat.coloring($color);
+				@include flat.color($color);
 			}
 
 			&.indigo {
-				@include flat.coloring($color);
+				@include flat.color($color);
 			}
 
 			&.violet {
-				@include flat.coloring($color);
+				@include flat.color($color);
 			}
 
 			&.plum {
-				@include flat.coloring($color);
+				@include flat.color($color);
 			}
 
 			&.purple {
-				@include flat.coloring($color);
+				@include flat.color($color);
 			}
 
 			&.magenta {
-				@include flat.coloring($color);
+				@include flat.color($color);
 			}
 
 			&.brown {
-				@include flat.coloring($color);
+				@include flat.color($color);
 			}
 
 			&.grey {
-				@include flat.coloring($color);
+				@include flat.color($color);
 			}
 
 			&.black {
-				@include flat.coloring(black);
+				@include flat.color(black);
 			}
 
 			&.white {
-				@include flat.coloring(white);
+				@include flat.color(white);
 			}
 
 			&.copper {
-				@include flat.coloring($color);
+				@include flat.color($color);
 			}
 
 			&.silver {
-				@include flat.coloring($color);
+				@include flat.color($color);
 			}
 
 			&.gold {
-				@include flat.coloring($color);
+				@include flat.color($color);
 			}
 		}
 
@@ -138,95 +138,95 @@ body:not(.binary) {
 		.selected .colored:not(.btn) {
 
 			.red {
-				@include flat.coloring($selected-color);
+				@include flat.color($selected-color);
 			}
 
 			.raspberry {
-				@include flat.coloring($selected-color);
+				@include flat.color($selected-color);
 			}
 
 			.red-orange {
-				@include flat.coloring($selected-color);
+				@include flat.color($selected-color);
 			}
 
 			.orange {
-				@include flat.coloring($selected-color);
+				@include flat.color($selected-color);
 			}
 
 			.yellow {
-				@include flat.coloring($selected-color);
+				@include flat.color($selected-color);
 			}
 
 			.lime {
-				@include flat.coloring($selected-color);
+				@include flat.color($selected-color);
 			}
 
 			.green {
-				@include flat.coloring($selected-color);
+				@include flat.color($selected-color);
 			}
 
 			.teal {
-				@include flat.coloring($selected-color);
+				@include flat.color($selected-color);
 			}
 
 			.aqua {
-				@include flat.coloring($selected-color);
+				@include flat.color($selected-color);
 			}
 
 			.cyan {
-				@include flat.coloring($selected-color);
+				@include flat.color($selected-color);
 			}
 
 			.blue {
-				@include flat.coloring($selected-color);
+				@include flat.color($selected-color);
 			}
 
 			.indigo {
-				@include flat.coloring($selected-color);
+				@include flat.color($selected-color);
 			}
 
 			.violet {
-				@include flat.coloring($selected-color);
+				@include flat.color($selected-color);
 			}
 
 			.plum {
-				@include flat.coloring($selected-color);
+				@include flat.color($selected-color);
 			}
 
 			.purple {
-				@include flat.coloring($selected-color);
+				@include flat.color($selected-color);
 			}
 
 			.magenta {
-				@include flat.coloring($selected-color);
+				@include flat.color($selected-color);
 			}
 
 			.brown {
-				@include flat.coloring($selected-color);
+				@include flat.color($selected-color);
 			}
 
 			.grey {
-				@include flat.coloring($selected-color);
+				@include flat.color($selected-color);
 			}
 
 			.black {
-				@include flat.coloring(black);
+				@include flat.color(black);
 			}
 
 			.white {
-				@include flat.coloring(white);
+				@include flat.color(white);
 			}
 
 			.copper {
-				@include flat.coloring($selected-color);
+				@include flat.color($selected-color);
 			}
 
 			.silver {
-				@include flat.coloring($selected-color);
+				@include flat.color($selected-color);
 			}
 
 			.gold {
-				@include flat.coloring($selected-color);
+				@include flat.color($selected-color);
 			}
 		}
 	}

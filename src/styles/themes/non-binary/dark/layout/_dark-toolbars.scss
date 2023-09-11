@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../colors/colors";
@@ -24,8 +24,8 @@
 // variables
 //
 
-$grip-horizontal-image: url('../../../../images/splitters/dark-horizontal-grip.png');
-$grip-vertical-image: url('../../../../images/splitters/dark-vertical-grip.png');
+$grip-horizontal-image: url('../../../../images/splitters/white-horizontal-grip.png');
+$grip-vertical-image: url('../../../../images/splitters/white-vertical-grip.png');
 
 //
 // colors
@@ -58,7 +58,7 @@ body:not(.binary).dark {
 
 		.expander, .rotator {
 			&:hover, &:active {
-				@include colors.glowing(white);
+				@include colors.glow(white);
 			}
 		}
 		
@@ -122,7 +122,7 @@ body:not(.binary).dark {
 
 				&:focus {
 					border-color: dark-forms.$input-focus-color;
-					box-shadow: inset 0 1px 1px colors.fade(black, 7.5%), 0 0 8px dark-forms.$input-focus-color;
+					box-shadow: inset 0 1px 1px colors.faded(black, 7.5%), 0 0 8px dark-forms.$input-focus-color;
 				}
 			}
 		}

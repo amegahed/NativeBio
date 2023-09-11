@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../colors/colors";
@@ -27,11 +27,11 @@
 // colors
 //
 
-$color: colors.darken(dark-apps.$background-color, 10%);
-$border-color: colors.$very-very-dark-grey;
+$color: darken(dark-apps.$background-color, 10%);
 $icon-color: colors.$light-grey;
 $text-color: text-colors.$light-color;
-$item-divider-color: colors.lighten($border-color, 10%);
+$border-color: lighten($color, 10%);
+$item-divider-color: $border-color;
 
 $disabled-color: none;
 $disabled-icon-color: colors.$medium-grey;
@@ -69,7 +69,7 @@ body:not(.binary).dark {
 	//
 
 	&.transparent .dropdown-menu {
-		@include plate-glass.shading($color);
+		@include plate-glass.shaded($color);
 
 		.panel, ul.panels > li:not(:hover) {
 			background: none;
@@ -88,7 +88,7 @@ body:not(.binary).dark {
 
 	&.translucent {
 		.dropdown-menu, .menu-content {
-			@include frosted-plate-glass.shading($color);
+			@include frosted-plate-glass.shaded($color);
 
 			.panel, ul.panels > li:not(:hover) {
 				background: none;
@@ -148,7 +148,7 @@ body:not(.binary).dark {
 
 					&:hover, &:active {
 						> i {
-							@include colors.glowing(white);
+							@include colors.glow(white);
 						}
 					}
 				}
@@ -179,15 +179,15 @@ body:not(.binary).dark {
 					}
 				}
 			}
+		}
 
-			//
-			// dark dividers
-			//
+		//
+		// dark dividers
+		//
 
-			&.divider:not(.disabled) {
-				border-color: $item-divider-color;
-				background-color: $item-divider-color;
-			}
+		.divider:not(.disabled) {
+			border-color: $item-divider-color;
+			background-color: $item-divider-color;
 		}
 	}
 
@@ -234,7 +234,7 @@ body:not(.binary).dark {
 
 	&.transparent {
 		.dropdown-menu {
-			@include plate-glass.shading($color);
+			@include plate-glass.shaded($color);
 
 			.panel, ul.panels > li:not(:hover) {
 				background: none;
@@ -254,7 +254,7 @@ body:not(.binary).dark {
 
 	&.translucent {
 		.dropdown-menu {
-			@include frosted-plate-glass.shading($color);
+			@include frosted-plate-glass.shaded($color);
 
 			.panel, ul.panels > li:not(:hover) {
 				background: none;

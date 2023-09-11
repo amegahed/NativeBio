@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../../materials/plastic/round-plastic";
@@ -26,22 +26,22 @@
 body:not(.binary) {
 	&.plastic.colored {
 		.badge {
-			@include round-plastic.shading(colored-badges.$color);
+			@include round-plastic.shaded(colored-badges.$color);
 
 			//
 			// plastic special badges
 			//
 
 			&.success {
-				@include round-plastic.shading(special-colors.$success-color);
+				@include round-plastic.shaded(special-colors.$success-color);
 			}
 
 			&.caution {
-				@include round-plastic.shading(special-colors.$caution-color);
+				@include round-plastic.shaded(special-colors.$caution-color);
 			}
 
 			&.warning {
-				@include round-plastic.shading(special-colors.$warning-color);
+				@include round-plastic.shaded(special-colors.$warning-color);
 			}
 		}
 	}

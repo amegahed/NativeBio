@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../materials/metal/long-round-metal";
@@ -22,19 +22,47 @@
 // styles
 //
 
-body:not(.binary).colored.colored {
-	&.metal {
+@supports (color: color-mix(in srgb, white, black)) {
+	body:not(.binary).colored.colored {
+		&.metal {
 
-		.navbar-inverse {
+			.navbar-inverse {
 
-			//
-			// nav bar indicators
-			//
+				//
+				// nav bar indicators
+				//
 
-			.indicator {
-				.bar {
-					.inner {
-						@include long-round-metal.shading(colored-nav-bars.$indicator-color, 5px);
+				.indicator {
+					.bar {
+						.inner {
+							@include long-round-metal.shade(colored-nav-bars.$indicator-color, 5px);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+//
+// fallback styles
+//
+
+@supports not (color: color-mix(in srgb, white, black)) {
+	body:not(.binary).colored.colored {
+		&.metal {
+
+			.navbar-inverse {
+
+				//
+				// nav bar indicators
+				//
+
+				.indicator {
+					.bar {
+						.inner {
+							@include long-round-metal.shaded(colored-nav-bars.$default-indicator-color, 5px);
+						}
 					}
 				}
 			}

@@ -248,19 +248,6 @@ export default ModalView.extend(_.extend({}, Resizable, Minimizable, Maximizable
 	// mouse event handling methods
 	//
 
-	onClick: function(event) {
-
-		// move window to top and focus
-		//
-		if (!this.isFocused()) {
-			this.focus();
-		}
-
-		// call superclass method
-		//
-		ModalView.prototype.onClick.call(this, event);
-	},
-
 	onDoubleClickHandle: function() {
 
 		// call superclass method

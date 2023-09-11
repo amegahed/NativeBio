@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../../materials/plastic/rounded-plastic";
@@ -34,11 +34,11 @@ body:not(.binary) {
 			> li:not(.active) {
 				> a,
 				> a:focus {
-					@include rounded-plastic.shading(medium-tabs.$color);
+					@include rounded-plastic.shaded(medium-tabs.$color);
 				}
 
 				> a:hover {
-					@include rounded-plastic.shading(medium-tabs.$hover-color);
+					@include rounded-plastic.shaded(medium-tabs.$hover-color);
 				}		
 			}
 		}

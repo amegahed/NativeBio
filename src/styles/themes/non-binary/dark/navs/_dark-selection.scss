@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../colors/colors";
@@ -25,10 +25,10 @@
 
 $select-color: colors.$medium-grey;
 $highlight-color: colors.$medium-grey;
-$disabled-color: colors.fade(colors.$very-light-grey, 50%);
-$edit-highlight-color: colors.fade($select-color, 50%);
-$select-box-color: dark-branding.$secondary-color;
-$select-box-border-color: dark-branding.$secondary-color;
+$disabled-color: colors.faded(colors.$very-light-grey, 50%);
+$edit-highlight-color: colors.faded($select-color, 50%);
+$select-box-color: colors.$light-grey;
+$select-box-border-color: colors.$very-light-grey;
 $select-box-opacity: medium-selection.$select-box-opacity;
 
 //
@@ -42,12 +42,12 @@ body:not(.binary).dark {
 	}
 
 	.selection {
-		background-color: colors.fade($select-box-color, $select-box-opacity);
+		background-color: colors.faded($select-box-color, $select-box-opacity);
 		border-color: $select-box-border-color;
 	}
 
 	svg .selection {
-		fill: colors.fade($select-box-color, $select-box-opacity);
+		fill: colors.faded($select-box-color, $select-box-opacity);
 		stroke: $select-box-border-color;
 	}
 }

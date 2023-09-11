@@ -12,10 +12,11 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../colors/colors";
+@use "../../../colors/branding";
 @use "../../../forms/colors/colored-sliders";
 
 //
@@ -23,6 +24,7 @@
 //
 
 $thumb-active-color: var(--primary-color);
+$default-thumb-active-color: branding.$primary-color;
 
 //
 // styles
@@ -30,6 +32,6 @@ $thumb-active-color: var(--primary-color);
 
 body:not(.binary).colored.colored {
 	input[type="range"] {
-		@include colored-sliders.active-thumb-coloring($thumb-active-color);
+		@include colored-sliders.active-thumb-colored($thumb-active-color);
 	}
 }

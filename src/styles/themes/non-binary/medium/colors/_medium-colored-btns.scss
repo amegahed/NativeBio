@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../colors/colors";
@@ -28,83 +28,83 @@ body:not(.binary).colored {
 		@include colored-btns.label(white);
 
 		&.red {
-			@include colored-btns.coloring(colors.$medium-red);
+			@include colored-btns.colored(colors.$medium-red);
 		}
 
 		&.raspberry {
-			@include colored-btns.coloring(colors.$medium-raspberry);
+			@include colored-btns.colored(colors.$medium-raspberry);
 		}
 
 		&.red-orange {
-			@include colored-btns.coloring(colors.$medium-red-orange);
+			@include colored-btns.colored(colors.$medium-red-orange);
 		}
 
 		&.orange {
-			@include colored-btns.coloring(colors.$medium-orange);
+			@include colored-btns.colored(colors.$medium-orange);
 		}
 
 		&.yellow {
-			@include colored-btns.coloring(colors.$medium-yellow);
+			@include colored-btns.colored(colors.$medium-yellow);
 		}
 
 		&.lime {
-			@include colored-btns.coloring(colors.$medium-lime);
+			@include colored-btns.colored(colors.$medium-lime);
 		}
 
 		&.green {
-			@include colored-btns.coloring(colors.$medium-green);
+			@include colored-btns.colored(colors.$medium-green);
 		}
 
 		&.teal {
-			@include colored-btns.coloring(colors.$medium-teal);
+			@include colored-btns.colored(colors.$medium-teal);
 		}
 
 		&.aqua {
-			@include colored-btns.coloring(colors.$medium-aqua);
+			@include colored-btns.colored(colors.$medium-aqua);
 		}
 
 		&.cyan {
-			@include colored-btns.coloring(colors.$medium-cyan);
+			@include colored-btns.colored(colors.$medium-cyan);
 		}
 
 		&.blue {
-			@include colored-btns.coloring(colors.$medium-blue);
+			@include colored-btns.colored(colors.$medium-blue);
 		}
 
 		&.indigo {
-			@include colored-btns.coloring(colors.$medium-indigo);
+			@include colored-btns.colored(colors.$medium-indigo);
 		}
 
 		&.violet {
-			@include colored-btns.coloring(colors.$medium-violet);
+			@include colored-btns.colored(colors.$medium-violet);
 		}
 
 		&.plum {
-			@include colored-btns.coloring(colors.$medium-plum);
+			@include colored-btns.colored(colors.$medium-plum);
 		}
 
 		&.purple {
-			@include colored-btns.coloring(colors.$medium-purple);
+			@include colored-btns.colored(colors.$medium-purple);
 		}
 
 		&.magenta {
-			@include colored-btns.coloring(colors.$medium-magenta);
+			@include colored-btns.colored(colors.$medium-magenta);
 		}
 
 		&.brown {
-			@include colored-btns.coloring(colors.$medium-brown);
+			@include colored-btns.colored(colors.$medium-brown);
 		}
 
 		&.grey {
-			@include colored-btns.coloring(colors.$medium-grey);
+			@include colored-btns.colored(colors.$medium-grey);
 		}
 
 		&.black {
-			@include colored-btns.coloring(colors.$medium-black);
+			@include colored-btns.colored(colors.$medium-black);
 		}
 
 		&.white {
-			@include colored-btns.coloring(colors.$medium-white);
+			@include colored-btns.colored(colors.$medium-white);
 		}
 	}
 }

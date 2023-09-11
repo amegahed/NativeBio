@@ -12,10 +12,11 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../colors/colors";
+@use "../../../colors/branding";
 @use "../../../navs/colors/colored-btns";
 
 //
@@ -26,6 +27,8 @@ $primary-color: var(--primary-color);
 $primary-label-color: white;
 $disabled-primary-color: colors.blend($primary-color, colors.$very-light-grey);
 $disabled-primary-label-color: white;
+$default-primary-color: branding.$primary-color;
+$default-disabled-primary-color: colors.blended($default-primary-color, colors.$very-light-grey);
 
 //
 // styles
@@ -44,11 +47,11 @@ body:not(.binary).colored.colored {
 		//
 
 		&.btn-primary {
-			@include colored-btns.coloring($primary-color);
+			@include colored-btns.colored($primary-color);
 			@include colored-btns.labeling($primary-label-color);
 
 			&:disabled {
-				@include colored-btns.coloring($disabled-primary-color);
+				@include colored-btns.colored($disabled-primary-color);
 				@include colored-btns.labeling($disabled-primary-label-color);
 			}
 		}

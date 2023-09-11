@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../../materials/metal/round-metal";
@@ -25,22 +25,22 @@
 body:not(.binary).colored.colored {
 	&.dark.metal {
 		.badge {
-			@include round-metal.shading(dark-badges.$color);
+			@include round-metal.shaded(dark-badges.$color);
 
 			//
 			// dark metal special badges
 			//
 
 			&.success {
-				@include round-metal.shading(dark-badges.$success-color);
+				@include round-metal.shaded(dark-badges.$success-color);
 			}
 
 			&.caution {
-				@include round-metal.shading(dark-badges.$caution-color);
+				@include round-metal.shaded(dark-badges.$caution-color);
 			}
 
 			&.warning {
-				@include round-metal.shading(dark-badges.$warning-color);
+				@include round-metal.shaded(dark-badges.$warning-color);
 			}
 		}
 	}

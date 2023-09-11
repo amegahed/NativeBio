@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../../navs/materials/glass/glass-btns";
@@ -41,7 +41,7 @@ body:not(.binary).monochrome {
 
 				.run-menu .menu-bar {
 					.dropdown-toggle {
-						@include glass-btns.shading(dark-desktop.$run-menu-color);
+						@include glass-btns.shade(dark-desktop.$run-menu-color);
 					}
 				}
 			}

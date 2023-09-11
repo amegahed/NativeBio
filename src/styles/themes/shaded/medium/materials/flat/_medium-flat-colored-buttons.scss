@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../../colors/colors";
@@ -23,7 +23,7 @@
 //
 
 body:not(.binary) {
-	&.flat.coloring {
+	&.flat.colored {
 		.colored.btn {
 			color: white;
 
@@ -32,83 +32,83 @@ body:not(.binary) {
 			}
 
 			&.red {
-				@include flat-btns.shading(colors.$medium-red);
+				@include flat-btns.shaded(colors.$medium-red);
 			}
 
 			&.raspberry {
-				@include flat-btns.shading(colors.$medium-raspberry);
+				@include flat-btns.shaded(colors.$medium-raspberry);
 			}
 
 			&.red-orange {
-				@include flat-btns.shading(colors.$medium-red-orange);
+				@include flat-btns.shaded(colors.$medium-red-orange);
 			}
 
 			&.orange {
-				@include flat-btns.shading(colors.$medium-orange);
+				@include flat-btns.shaded(colors.$medium-orange);
 			}
 
 			&.yellow {
-				@include flat-btns.shading(colors.$medium-yellow);
+				@include flat-btns.shaded(colors.$medium-yellow);
 			}
 
 			&.lime {
-				@include flat-btns.shading(colors.$medium-lime);
+				@include flat-btns.shaded(colors.$medium-lime);
 			}
 
 			&.green {
-				@include flat-btns.shading(colors.$medium-green);
+				@include flat-btns.shaded(colors.$medium-green);
 			}
 
 			&.teal {
-				@include flat-btns.shading(colors.$medium-teal);
+				@include flat-btns.shaded(colors.$medium-teal);
 			}
 
 			&.aqua {
-				@include flat-btns.shading(colors.$medium-aqua);
+				@include flat-btns.shaded(colors.$medium-aqua);
 			}
 
 			&.cyan {
-				@include flat-btns.shading(colors.$medium-cyan);
+				@include flat-btns.shaded(colors.$medium-cyan);
 			}
 
 			&.blue {
-				@include flat-btns.shading(colors.$medium-blue);
+				@include flat-btns.shaded(colors.$medium-blue);
 			}
 
 			&.indigo {
-				@include flat-btns.shading(colors.$medium-indigo);
+				@include flat-btns.shaded(colors.$medium-indigo);
 			}
 
 			&.violet {
-				@include flat-btns.shading(colors.$medium-violet);
+				@include flat-btns.shaded(colors.$medium-violet);
 			}
 
 			&.plum {
-				@include flat-btns.shading(colors.$medium-plum);
+				@include flat-btns.shaded(colors.$medium-plum);
 			}
 
 			&.purple {
-				@include flat-btns.shading(colors.$medium-purple);
+				@include flat-btns.shaded(colors.$medium-purple);
 			}
 
 			&.magenta {
-				@include flat-btns.shading(colors.$medium-magenta);
+				@include flat-btns.shaded(colors.$medium-magenta);
 			}
 
 			&.brown {
-				@include flat-btns.shading(colors.$medium-brown);
+				@include flat-btns.shaded(colors.$medium-brown);
 			}
 
 			&.grey {
-				@include flat-btns.shading(colors.$medium-grey);
+				@include flat-btns.shaded(colors.$medium-grey);
 			}
 
 			&.black {
-				@include flat-btns.shading(colors.$medium-black);
+				@include flat-btns.shaded(colors.$medium-black);
 			}
 
 			&.white {
-				@include flat-btns.shading(colors.$medium-white);
+				@include flat-btns.shaded(colors.$medium-white);
 			}
 		}
 	}

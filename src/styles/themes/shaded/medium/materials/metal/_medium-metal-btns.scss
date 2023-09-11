@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../../navs/materials/metal/metal-buttons";
@@ -37,15 +37,15 @@ body:not(.binary) {
 			//
 
 			&.success {
-				@include metal-buttons.shading(special-colors.$success-color);
+				@include metal-buttons.shaded(special-colors.$success-color);
 			}
 
 			&.caution {
-				@include metal-buttons.shading(special-colors.$caution-color);
+				@include metal-buttons.shaded(special-colors.$caution-color);
 			}
 
 			&.warning {
-				@include metal-buttons.shading(special-colors.$warning-color);
+				@include metal-buttons.shaded(special-colors.$warning-color);
 			}
 		}
 	}

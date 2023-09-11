@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../colors/colors";
@@ -23,9 +23,9 @@
 //
 
 $thumb-color: colors.$very-very-light-grey;
-$thumb-hover-color: colors.darken($thumb-color, 10%);
-$thumb-active-color: colors.darken($thumb-color, 20%);
-$track-color: colors.darken(colors.$very-very-very-light-grey, 5%);
+$thumb-hover-color: darken($thumb-color, 10%);
+$thumb-active-color: darken($thumb-color, 20%);
+$track-color: darken(colors.$very-very-very-light-grey, 5%);
 
 //
 // styles
@@ -38,12 +38,12 @@ body:not(.binary).light {
 		// slider thumbs
 		//
 
-		@include colored-sliders.thumb-coloring($thumb-color, $thumb-hover-color, $thumb-active-color);
+		@include colored-sliders.thumb-colored($thumb-color, $thumb-hover-color, $thumb-active-color);
 
 		//
 		// slider tracks
 		//
 
-		@include colored-sliders.track-coloring($track-color);
+		@include colored-sliders.track-colored($track-color);
 	}
 }

@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../colors/colors";
@@ -26,19 +26,19 @@
 // colors
 //
 
-$header-color: darken(colors.$very-dark-grey, 5%);
+$header-color: colors.$very-dark-grey;
 $title-icon-color: var(--primary-color);
 $title-color: white;
 $background-color: colors.$ultra-dark-grey;
 $footer-color: $header-color;
 $border-color: lighten($header-color, 10%);
 
-$unfocused-header-color: colors.darken($header-color, 10%);
+$unfocused-header-color: darken($header-color, 10%);
 $unfocused-title-icon-color: dark-branding.$secondary-color;
-$unfocused-title-color: colors.darken($title-color, 10%);
-$unfocused-background-color: colors.darken($background-color, 10%);
-$unfocused-footer-color: colors.darken($footer-color, 10%);
-$unfocused-border-color: colors.darken($border-color, 10%);
+$unfocused-title-color: darken($title-color, 10%);
+$unfocused-background-color: darken($background-color, 10%);
+$unfocused-footer-color: darken($footer-color, 10%);
+$unfocused-border-color: darken($border-color, 10%);
 
 //
 // styles
@@ -169,13 +169,13 @@ body:not(.binary).dark {
 
 			&.focused .modal-dialog {
 				.modal-content {
-					@include plate-glass.shading($background-color);
+					@include plate-glass.shaded($background-color);
 				}
 			}
 
 			&:not(.focused) .modal-dialog {
 				.modal-content {
-					@include plate-glass.shading($unfocused-background-color);
+					@include plate-glass.shaded($unfocused-background-color);
 				}
 			}
 		}
@@ -200,13 +200,13 @@ body:not(.binary).dark {
 
 			&.focused .modal-dialog {
 				.modal-content {
-					@include frosted-plate-glass.shading($background-color);
+					@include frosted-plate-glass.shaded($background-color);
 				}
 			}
 
 			&:not(.focused) .modal-dialog {
 				.modal-content {
-					@include frosted-plate-glass.shading($unfocused-background-color);
+					@include frosted-plate-glass.shaded($unfocused-background-color);
 				}
 			}
 		}

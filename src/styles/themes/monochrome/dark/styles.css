@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
@@ -28,7 +28,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
@@ -44,21 +44,21 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 body:not(.binary).monochrome.dark .app-launcher.app .icon-grid .item .icon:not(.colored),
 body:not(.binary).monochrome.dark .app-icons .item .icon:not(.colored) {
-  background: #57578d;
-  border-color: color-mix(in srgb, rgb(0, 0, 127) 10%, #57578d);
+  background: #4d4d80;
+  border-color: color-mix(in srgb, rgb(0, 0, 127) 10%, #4d4d80);
 }
 body:not(.binary).monochrome.dark .app-launcher.app .icon-grid .item .icon:not(.colored) i,
 body:not(.binary).monochrome.dark .app-icons .item .icon:not(.colored) i {
-  color: #30304e !important;
+  color: #272740 !important;
 }
 body:not(.binary).monochrome.dark .app-launcher.app .icon-grid .item .icon:not(.colored):active,
 body:not(.binary).monochrome.dark .app-icons .item .icon:not(.colored):active {
-  background: color-mix(in srgb, rgb(0, 0, 127) 10%, #57578d);
-  border-color: color-mix(in srgb, rgb(0, 0, 127) 10%, #57578d);
+  background: color-mix(in srgb, rgb(0, 0, 127) 10%, #4d4d80);
+  border-color: color-mix(in srgb, rgb(0, 0, 127) 10%, #4d4d80);
 }
 
 /******************************************************************************\
@@ -75,12 +75,12 @@ body:not(.binary).monochrome.dark .app-icons .item .icon:not(.colored):active {
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 body:not(.binary).monochrome #desktop.dark .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle {
   color: white;
-  background-color: #57578d;
-  border-color: #57578d;
+  background-color: #4d4d80;
+  border-color: #4d4d80;
 }
 body:not(.binary).monochrome #desktop.dark .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle i {
   color: white;
@@ -100,7 +100,7 @@ body:not(.binary).monochrome #desktop.dark .desktop.app > .footer-bar .run-menu 
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
@@ -116,7 +116,7 @@ body:not(.binary).monochrome #desktop.dark .desktop.app > .footer-bar .run-menu 
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 :root {
   --light-direction: to bottom;
@@ -138,7 +138,7 @@ body:not(.binary).monochrome #desktop.dark .desktop.app > .footer-bar .run-menu 
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 @supports (color: color-mix(in srgb, white, black)) {
   .flat .shaded, .flat.flat.shaded {
@@ -218,7 +218,7 @@ body:not(.binary).monochrome #desktop.dark .desktop.app > .footer-bar .run-menu 
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
@@ -234,25 +234,25 @@ body:not(.binary).monochrome #desktop.dark .desktop.app > .footer-bar .run-menu 
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 body:not(.binary).monochrome.dark.flat #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle,
 body:not(.binary).monochrome.dark.flat #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle,
 body:not(.binary).monochrome.dark.flat #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle {
-  background-color: #57578d;
-  border-color: #57578d;
+  background-color: #4d4d80;
+  border-color: #4d4d80;
 }
 body:not(.binary).monochrome.dark.flat #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover,
 body:not(.binary).monochrome.dark.flat #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover,
 body:not(.binary).monochrome.dark.flat #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover {
-  background-color: color-mix(in srgb, rgb(0, 0, 127) 10%, #57578d);
-  border-color: color-mix(in srgb, rgb(0, 0, 127) 10%, #57578d);
+  background-color: color-mix(in srgb, rgb(0, 0, 127) 10%, #4d4d80);
+  border-color: color-mix(in srgb, rgb(0, 0, 127) 10%, #4d4d80);
 }
 body:not(.binary).monochrome.dark.flat #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active,
 body:not(.binary).monochrome.dark.flat #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active,
 body:not(.binary).monochrome.dark.flat #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active {
-  background-color: color-mix(in srgb, rgb(0, 0, 127) 20%, #57578d);
-  border-color: color-mix(in srgb, rgb(0, 0, 127) 20%, #57578d);
+  background-color: color-mix(in srgb, rgb(0, 0, 127) 20%, #4d4d80);
+  border-color: color-mix(in srgb, rgb(0, 0, 127) 20%, #4d4d80);
 }
 
 /******************************************************************************\
@@ -269,7 +269,7 @@ body:not(.binary).monochrome.dark.flat #desktop.medium .desktop.app > .footer-ba
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
@@ -285,7 +285,7 @@ body:not(.binary).monochrome.dark.flat #desktop.medium .desktop.app > .footer-ba
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
@@ -301,7 +301,7 @@ body:not(.binary).monochrome.dark.flat #desktop.medium .desktop.app > .footer-ba
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
@@ -317,28 +317,28 @@ body:not(.binary).monochrome.dark.flat #desktop.medium .desktop.app > .footer-ba
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 body:not(.binary).monochrome.dark.chalk #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle,
 body:not(.binary).monochrome.dark.chalk #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle,
 body:not(.binary).monochrome.dark.chalk #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle {
   background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
-  background-color: #57578d;
-  border-color: color-mix(in srgb, var(--ambient-color) 10%, #57578d);
+  background-color: #4d4d80;
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, #4d4d80);
 }
 body:not(.binary).monochrome.dark.chalk #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover,
 body:not(.binary).monochrome.dark.chalk #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover,
 body:not(.binary).monochrome.dark.chalk #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover {
   background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
-  background-color: color-mix(in srgb, rgb(0, 0, 127) 10%, #57578d);
-  border-color: color-mix(in srgb, var(--ambient-color) 10%, color-mix(in srgb, rgb(0, 0, 127) 10%, #57578d));
+  background-color: color-mix(in srgb, rgb(0, 0, 127) 10%, #4d4d80);
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, color-mix(in srgb, rgb(0, 0, 127) 10%, #4d4d80));
 }
 body:not(.binary).monochrome.dark.chalk #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active,
 body:not(.binary).monochrome.dark.chalk #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active,
 body:not(.binary).monochrome.dark.chalk #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active {
   background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
-  background-color: color-mix(in srgb, rgb(0, 0, 127) 20%, #57578d);
-  border-color: color-mix(in srgb, var(--ambient-color) 10%, color-mix(in srgb, rgb(0, 0, 127) 20%, #57578d));
+  background-color: color-mix(in srgb, rgb(0, 0, 127) 20%, #4d4d80);
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, color-mix(in srgb, rgb(0, 0, 127) 20%, #4d4d80));
 }
 
 /******************************************************************************\
@@ -355,7 +355,7 @@ body:not(.binary).monochrome.dark.chalk #desktop.medium .desktop.app > .footer-b
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
@@ -371,7 +371,7 @@ body:not(.binary).monochrome.dark.chalk #desktop.medium .desktop.app > .footer-b
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
@@ -387,7 +387,7 @@ body:not(.binary).monochrome.dark.chalk #desktop.medium .desktop.app > .footer-b
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
@@ -403,28 +403,28 @@ body:not(.binary).monochrome.dark.chalk #desktop.medium .desktop.app > .footer-b
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 body:not(.binary).monochrome.dark.plastic #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle,
 body:not(.binary).monochrome.dark.plastic #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle,
 body:not(.binary).monochrome.dark.plastic #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle {
   background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
-  background-color: #57578d;
-  border-color: color-mix(in srgb, var(--ambient-color) 10%, #57578d);
+  background-color: #4d4d80;
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, #4d4d80);
 }
 body:not(.binary).monochrome.dark.plastic #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover,
 body:not(.binary).monochrome.dark.plastic #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover,
 body:not(.binary).monochrome.dark.plastic #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover {
   background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
-  background-color: color-mix(in srgb, rgb(0, 0, 127) 10%, #57578d);
-  border-color: color-mix(in srgb, var(--ambient-color) 10%, color-mix(in srgb, rgb(0, 0, 127) 10%, #57578d));
+  background-color: color-mix(in srgb, rgb(0, 0, 127) 10%, #4d4d80);
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, color-mix(in srgb, rgb(0, 0, 127) 10%, #4d4d80));
 }
 body:not(.binary).monochrome.dark.plastic #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active,
 body:not(.binary).monochrome.dark.plastic #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active,
 body:not(.binary).monochrome.dark.plastic #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active {
   background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
-  background-color: color-mix(in srgb, rgb(0, 0, 127) 20%, #57578d);
-  border-color: color-mix(in srgb, var(--ambient-color) 10%, color-mix(in srgb, rgb(0, 0, 127) 20%, #57578d));
+  background-color: color-mix(in srgb, rgb(0, 0, 127) 20%, #4d4d80);
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, color-mix(in srgb, rgb(0, 0, 127) 20%, #4d4d80));
 }
 
 /******************************************************************************\
@@ -441,7 +441,7 @@ body:not(.binary).monochrome.dark.plastic #desktop.medium .desktop.app > .footer
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
@@ -457,7 +457,7 @@ body:not(.binary).monochrome.dark.plastic #desktop.medium .desktop.app > .footer
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
@@ -473,7 +473,7 @@ body:not(.binary).monochrome.dark.plastic #desktop.medium .desktop.app > .footer
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
@@ -489,28 +489,28 @@ body:not(.binary).monochrome.dark.plastic #desktop.medium .desktop.app > .footer
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 body:not(.binary).monochrome.dark.glass #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle,
 body:not(.binary).monochrome.dark.glass #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle,
 body:not(.binary).monochrome.dark.glass #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, #57578d) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, #57578d) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, #57578d 50%, transparent) 100%) no-repeat;
-  background-color: color-mix(in srgb, var(--ambient-color) 30%, #57578d);
-  border-color: color-mix(in srgb, var(--ambient-color) 30%, #57578d);
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, #4d4d80) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, #4d4d80) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, #4d4d80 50%, transparent) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 30%, #4d4d80);
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, #4d4d80);
 }
 body:not(.binary).monochrome.dark.glass #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover,
 body:not(.binary).monochrome.dark.glass #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover,
 body:not(.binary).monochrome.dark.glass #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, color-mix(in srgb, rgb(0, 0, 127) 10%, #57578d)) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, color-mix(in srgb, rgb(0, 0, 127) 10%, #57578d)) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 10%, #57578d) 50%, transparent) 100%) no-repeat;
-  background-color: color-mix(in srgb, var(--ambient-color) 30%, color-mix(in srgb, rgb(0, 0, 127) 10%, #57578d));
-  border-color: color-mix(in srgb, var(--ambient-color) 30%, color-mix(in srgb, rgb(0, 0, 127) 10%, #57578d));
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, color-mix(in srgb, rgb(0, 0, 127) 10%, #4d4d80)) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, color-mix(in srgb, rgb(0, 0, 127) 10%, #4d4d80)) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 10%, #4d4d80) 50%, transparent) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 30%, color-mix(in srgb, rgb(0, 0, 127) 10%, #4d4d80));
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, color-mix(in srgb, rgb(0, 0, 127) 10%, #4d4d80));
 }
 body:not(.binary).monochrome.dark.glass #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active,
 body:not(.binary).monochrome.dark.glass #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active,
 body:not(.binary).monochrome.dark.glass #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, color-mix(in srgb, rgb(0, 0, 127) 20%, #57578d)) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, color-mix(in srgb, rgb(0, 0, 127) 20%, #57578d)) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 20%, #57578d) 50%, transparent) 100%) no-repeat;
-  background-color: color-mix(in srgb, var(--ambient-color) 30%, color-mix(in srgb, rgb(0, 0, 127) 20%, #57578d));
-  border-color: color-mix(in srgb, var(--ambient-color) 30%, color-mix(in srgb, rgb(0, 0, 127) 20%, #57578d));
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, color-mix(in srgb, rgb(0, 0, 127) 20%, #4d4d80)) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, color-mix(in srgb, rgb(0, 0, 127) 20%, #4d4d80)) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 20%, #4d4d80) 50%, transparent) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 30%, color-mix(in srgb, rgb(0, 0, 127) 20%, #4d4d80));
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, color-mix(in srgb, rgb(0, 0, 127) 20%, #4d4d80));
 }
 
 /******************************************************************************\
@@ -527,7 +527,7 @@ body:not(.binary).monochrome.dark.glass #desktop.medium .desktop.app > .footer-b
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
@@ -543,7 +543,7 @@ body:not(.binary).monochrome.dark.glass #desktop.medium .desktop.app > .footer-b
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
@@ -559,7 +559,7 @@ body:not(.binary).monochrome.dark.glass #desktop.medium .desktop.app > .footer-b
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
@@ -575,28 +575,28 @@ body:not(.binary).monochrome.dark.glass #desktop.medium .desktop.app > .footer-b
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 body:not(.binary).monochrome.dark.metal #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle,
 body:not(.binary).monochrome.dark.metal #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle,
 body:not(.binary).monochrome.dark.metal #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, #57578d) 75%, transparent) 50%, color-mix(in srgb, #57578d 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, #57578d 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, #57578d 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, #57578d) 100%) no-repeat;
-  background-color: color-mix(in srgb, var(--ambient-color) 50%, #57578d);
-  border-color: color-mix(in srgb, var(--ambient-color) 30%, #57578d);
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, #4d4d80) 75%, transparent) 50%, color-mix(in srgb, #4d4d80 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, #4d4d80 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, #4d4d80 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, #4d4d80) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 50%, #4d4d80);
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, #4d4d80);
 }
 body:not(.binary).monochrome.dark.metal #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover,
 body:not(.binary).monochrome.dark.metal #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover,
 body:not(.binary).monochrome.dark.metal #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, color-mix(in srgb, rgb(0, 0, 127) 10%, #57578d)) 75%, transparent) 50%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 10%, #57578d) 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 10%, #57578d) 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 10%, #57578d) 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, color-mix(in srgb, rgb(0, 0, 127) 10%, #57578d)) 100%) no-repeat;
-  background-color: color-mix(in srgb, var(--ambient-color) 50%, color-mix(in srgb, rgb(0, 0, 127) 10%, #57578d));
-  border-color: color-mix(in srgb, var(--ambient-color) 30%, color-mix(in srgb, rgb(0, 0, 127) 10%, #57578d));
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, color-mix(in srgb, rgb(0, 0, 127) 10%, #4d4d80)) 75%, transparent) 50%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 10%, #4d4d80) 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 10%, #4d4d80) 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 10%, #4d4d80) 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, color-mix(in srgb, rgb(0, 0, 127) 10%, #4d4d80)) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 50%, color-mix(in srgb, rgb(0, 0, 127) 10%, #4d4d80));
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, color-mix(in srgb, rgb(0, 0, 127) 10%, #4d4d80));
 }
 body:not(.binary).monochrome.dark.metal #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active,
 body:not(.binary).monochrome.dark.metal #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active,
 body:not(.binary).monochrome.dark.metal #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, color-mix(in srgb, rgb(0, 0, 127) 20%, #57578d)) 75%, transparent) 50%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 20%, #57578d) 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 20%, #57578d) 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 20%, #57578d) 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, color-mix(in srgb, rgb(0, 0, 127) 20%, #57578d)) 100%) no-repeat;
-  background-color: color-mix(in srgb, var(--ambient-color) 50%, color-mix(in srgb, rgb(0, 0, 127) 20%, #57578d));
-  border-color: color-mix(in srgb, var(--ambient-color) 30%, color-mix(in srgb, rgb(0, 0, 127) 20%, #57578d));
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, color-mix(in srgb, rgb(0, 0, 127) 20%, #4d4d80)) 75%, transparent) 50%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 20%, #4d4d80) 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 20%, #4d4d80) 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 20%, #4d4d80) 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, color-mix(in srgb, rgb(0, 0, 127) 20%, #4d4d80)) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 50%, color-mix(in srgb, rgb(0, 0, 127) 20%, #4d4d80));
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, color-mix(in srgb, rgb(0, 0, 127) 20%, #4d4d80));
 }
 
 /******************************************************************************\
@@ -613,7 +613,7 @@ body:not(.binary).monochrome.dark.metal #desktop.medium .desktop.app > .footer-b
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
@@ -629,7 +629,7 @@ body:not(.binary).monochrome.dark.metal #desktop.medium .desktop.app > .footer-b
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
@@ -645,7 +645,7 @@ body:not(.binary).monochrome.dark.metal #desktop.medium .desktop.app > .footer-b
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 /*# sourceMappingURL=styles.css.map */

@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 $medium-red:			hsl(0, 66%, 50%);
@@ -78,7 +78,7 @@ $dark-white:			darken($medium-white, 10%);
 
 $medium-copper:			$medium-orange;
 $medium-silver:			#e0e0e0;
-$medium-gold:			hsl(45, 66%, 50%);
+$medium-gold:			hsl(45, 75%, 50%);
 
 $light-copper:			lighten($medium-copper, 10%);
 $light-silver:			lighten($medium-silver, 10%);
@@ -92,7 +92,7 @@ $dark-gold:				darken($medium-gold, 10%);
 // greys
 //
 
-$medium-grey: #7070a7;
+$medium-grey: #6060a0;
 $ultra-dark-grey: darken($medium-grey, 45%);
 $very-very-very-dark-grey: darken($medium-grey, 40%);
 $very-very-dark-grey: darken($medium-grey, 30%);
@@ -147,10 +147,22 @@ $ambient-color: rgb(0, 0, 127);
 }
 
 //
+// color mixins
+//
+
+@function faded($color, $amount) {
+	@return mix($color, transparent, $amount);
+}
+
+@function blended($color1, $color2, $amount: 50%) {
+	@return mix($color2, $color1, $amount);
+}
+
+//
 // gradients
 //
 
-@mixin horizontal-gradient ($start-color: #eee, $end-color: white) {
+@mixin horizontal-gradient($start-color: #eee, $end-color: white) {
 	background-color: $start-color;
 	background: -webkit-gradient(linear, left top, right top, from($start-color), to($end-color));
 	background: -webkit-linear-gradient(left, $start-color, $end-color);
@@ -159,7 +171,7 @@ $ambient-color: rgb(0, 0, 127);
 	background: -o-linear-gradient(left, $start-color, $end-color);
 }
 
-@mixin vertical-gradient ($start-color: #eee, $end-color: white) {
+@mixin vertical-gradient($start-color: #eee, $end-color: white) {
 	background-color: $start-color;
 	background: -webkit-gradient(linear, left top, left bottom, from($start-color), to($end-color));
 	background: -webkit-linear-gradient(top, $start-color, $end-color);
@@ -172,10 +184,10 @@ $ambient-color: rgb(0, 0, 127);
 // glowing
 //
 
-@mixin glowing ($color: white) {
+@mixin glow($color: white) {
 	filter: drop-shadow(0 0 5px $color) drop-shadow(0 0 10px $color);
 }
 
-@mixin not-glowing() {
+@mixin snuff {
 	filter: none;
 }

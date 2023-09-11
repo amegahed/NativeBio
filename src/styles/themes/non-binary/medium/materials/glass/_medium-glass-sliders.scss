@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../../forms/materials/glass/glass-sliders";
@@ -32,7 +32,7 @@ body:not(.binary) {
 		//
 
 		input[type="range"] {
-			@include glass-sliders.thumb-shading(medium-sliders.$thumb-color, medium-sliders.$thumb-hover-color, medium-sliders.$thumb-active-color);
+			@include glass-sliders.thumb-shaded(medium-sliders.$thumb-color, medium-sliders.$thumb-hover-color, medium-sliders.$thumb-active-color);
 		}
 
 		//
@@ -43,15 +43,15 @@ body:not(.binary) {
 			input[type="range"] {
 				&.colored {
 					&.success {
-						@include glass-sliders.active-thumb-shading(validation.$success-color);
+						@include glass-sliders.active-thumb-shade(validation.$success-color);
 					}
 
 					&.warning {
-						@include glass-sliders.active-thumb-shading(validation.$warning-color);
+						@include glass-sliders.active-thumb-shade(validation.$warning-color);
 					}
 
 					&.error {
-						@include glass-sliders.active-thumb-shading(validation.$error-color);
+						@include glass-sliders.active-thumb-shade(validation.$error-color);
 					}
 				}
 			}

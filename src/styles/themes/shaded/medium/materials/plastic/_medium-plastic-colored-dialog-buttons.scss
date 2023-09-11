@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../../navs/materials/plastic/plastic-btns";
@@ -34,7 +34,7 @@ body:not(.binary) {
 			.modal-header {
 				.buttons {
 					button.close-btn {
-						@include plastic-btns.shading(colored-dialog-buttons.$close-button-color);
+						@include plastic-btns.shaded(colored-dialog-buttons.$close-button-color);
 					}
 				}
 			}

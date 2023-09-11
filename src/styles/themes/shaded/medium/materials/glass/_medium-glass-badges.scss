@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../../materials/glass/round-glass";
@@ -26,22 +26,22 @@
 body:not(.binary) {
 	&.glass.colored {
 		.badge {
-			@include round-glass.shading(colored-badges.$color);
+			@include round-glass.shaded(colored-badges.$color);
 
 			//
 			// glass special badges
 			//
 
 			&.success {
-				@include round-glass.shading(special-colors.$success-color);
+				@include round-glass.shaded(special-colors.$success-color);
 			}
 
 			&.caution {
-				@include round-glass.shading(special-colors.$caution-color);
+				@include round-glass.shaded(special-colors.$caution-color);
 			}
 
 			&.warning {
-				@include round-glass.shading(special-colors.$warning-color);
+				@include round-glass.shaded(special-colors.$warning-color);
 			}
 		}
 	}

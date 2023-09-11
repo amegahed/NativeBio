@@ -12,10 +12,11 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../colors/colors";
+@use "../../../colors/branding";
 
 //
 // colors
@@ -29,6 +30,10 @@ $unfocused-header-color: colors.darken($header-color, 10%);
 $unfocused-title-icon-color: $title-icon-color;
 $unfocused-title-color: $title-color;
 $unfocused-border-color: colors.darken($border-color, 20%);
+$default-header-color: branding.$primary-color;
+$default-border-color: $default-header-color;
+$default-unfocused-header-color: darken($default-header-color, 10%);
+$default-unfocused-border-color: darken($default-border-color, 20%);
 
 //
 // styles

@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../colors/colors";
@@ -25,8 +25,8 @@
 
 $select-color: light-branding.$secondary-color;
 $highlight-color: light-branding.$primary-color;
-$disabled-color: colors.fade(colors.$very-light-grey, 50%);
-$edit-highlight-color: colors.fade($select-color, 50%);
+$disabled-color: colors.faded(colors.$very-light-grey, 50%);
+$edit-highlight-color: colors.faded($select-color, 50%);
 $select-box-color: light-branding.$secondary-color;
 $select-box-border-color: lighten(light-branding.$secondary-color, 10%);
 $select-box-opacity: medium-selection.$select-box-opacity;
@@ -42,12 +42,12 @@ body:not(.binary).light {
 	}
 
 	.selection {
-		background-color: colors.fade($select-box-color, $select-box-opacity);
+		background-color: colors.faded($select-box-color, $select-box-opacity);
 		border-color: $select-box-border-color;
 	}
 
 	svg .selection {
-		fill: colors.fade($select-box-color, $select-box-opacity);
+		fill: colors.faded($select-box-color, $select-box-opacity);
 		stroke: $select-box-border-color;
 	}
 }

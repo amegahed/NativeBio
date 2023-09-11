@@ -7,7 +7,7 @@
 |        This defines the dom and svg visual styles for this application.      |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../colors/colors";
@@ -52,7 +52,7 @@ body:not(.binary) {
 		border-style: inset;
 
 		.digits {
-			filter: drop-shadow(2px 2px 2px colors.fade(black, 50%));
+			filter: drop-shadow(2px 2px 2px colors.faded(black, 50%));
 			text-shadow: none;
 		}
 	}

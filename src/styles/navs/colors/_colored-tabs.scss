@@ -12,14 +12,14 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 //
 // mixins
 //
 
-@mixin inactive-coloring($color, $hover-color) {
+@mixin inactive-colored($color, $hover-color) {
 	> li:not(.active) {
 
 		> a, > a:focus {
@@ -34,7 +34,7 @@
 	}
 }
 
-@mixin active-coloring($active-color) {
+@mixin active-colored($active-color) {
 	> li.active {
 
 		> a, > a:focus {
@@ -44,9 +44,9 @@
 	}
 }
 
-@mixin coloring($color, $hover-color, $active-color) {
-	@include inactive-coloring($color, $hover-color);
-	@include active-coloring($active-color);
+@mixin colored($color, $hover-color, $active-color) {
+	@include inactive-colored($color, $hover-color);
+	@include active-colored($active-color);
 }
 
 @mixin inactive-labeling($icon-color, $text-color, $hover-icon-color, $hover-text-color) {

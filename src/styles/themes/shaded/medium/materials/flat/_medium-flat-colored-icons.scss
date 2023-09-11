@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../../colors/colors";
@@ -35,95 +35,95 @@ body:not(.binary) {
 			.icon .colored {
 
 				&.red {
-					@include flat.shading(colors.$medium-red, outset);
+					@include flat.shaded(colors.$medium-red, outset);
 				}
 
 				&.raspberry {
-					@include flat.shading(colors.$medium-raspberry, outset);
+					@include flat.shaded(colors.$medium-raspberry, outset);
 				}
 
 				&.red-orange {
-					@include flat.shading(colors.$medium-red-orange, outset);
+					@include flat.shaded(colors.$medium-red-orange, outset);
 				}
 
 				&.orange {
-					@include flat.shading(colors.$medium-orange, outset);
+					@include flat.shaded(colors.$medium-orange, outset);
 				}
 
 				&.yellow {
-					@include flat.shading(colors.$medium-yellow, outset);
+					@include flat.shaded(colors.$medium-yellow, outset);
 				}
 
 				&.lime {
-					@include flat.shading(colors.$medium-lime, outset);
+					@include flat.shaded(colors.$medium-lime, outset);
 				}
 
 				&.green {
-					@include flat.shading(colors.$medium-green, outset);
+					@include flat.shaded(colors.$medium-green, outset);
 				}
 
 				&.teal {
-					@include flat.shading(colors.$medium-teal, outset);
+					@include flat.shaded(colors.$medium-teal, outset);
 				}
 
 				&.aqua {
-					@include flat.shading(colors.$medium-aqua, outset);
+					@include flat.shaded(colors.$medium-aqua, outset);
 				}
 
 				&.cyan {
-					@include flat.shading(colors.$medium-cyan, outset);
+					@include flat.shaded(colors.$medium-cyan, outset);
 				}
 
 				&.blue {
-					@include flat.shading(colors.$medium-blue, outset);
+					@include flat.shaded(colors.$medium-blue, outset);
 				}
 
 				&.indigo {
-					@include flat.shading(colors.$medium-indigo, outset);
+					@include flat.shaded(colors.$medium-indigo, outset);
 				}
 
 				&.violet {
-					@include flat.shading(colors.$medium-violet, outset);
+					@include flat.shaded(colors.$medium-violet, outset);
 				}
 
 				&.plum {
-					@include flat.shading(colors.$medium-plum, outset);
+					@include flat.shaded(colors.$medium-plum, outset);
 				}
 
 				&.purple {
-					@include flat.shading(colors.$medium-purple, outset);
+					@include flat.shaded(colors.$medium-purple, outset);
 				}
 
 				&.magenta {
-					@include flat.shading(colors.$medium-magenta, outset);
+					@include flat.shaded(colors.$medium-magenta, outset);
 				}
 
 				&.brown {
-					@include flat.shading(colors.$medium-brown, outset);
+					@include flat.shaded(colors.$medium-brown, outset);
 				}
 
 				&.grey {
-					@include flat.shading(colors.$medium-grey, outset);
+					@include flat.shaded(colors.$medium-grey, outset);
 				}
 
 				&.black {
-					@include flat.shading(colors.$medium-black, outset);
+					@include flat.shaded(colors.$medium-black, outset);
 				}
 
 				&.white {
-					@include flat.shading(colors.$medium-white, outset);
+					@include flat.shaded(colors.$medium-white, outset);
 				}
 
 				&.copper {
-					@include flat.shading(colors.$medium-copper, outset);
+					@include flat.shaded(colors.$medium-copper, outset);
 				}
 
 				&.silver {
-					@include flat.shading(colors.$medium-silver, outset);
+					@include flat.shaded(colors.$medium-silver, outset);
 				}
 
 				&.gold {
-					@include flat.shading(colors.$medium-gold, outset);
+					@include flat.shaded(colors.$medium-gold, outset);
 				}
 			}
 
@@ -134,95 +134,95 @@ body:not(.binary) {
 			.selected .colored.icon,
 			.selected .icon .colored {
 				&.red {
-					@include flat.shading(colors.$dark-red, outset);
+					@include flat.shaded(colors.$dark-red, outset);
 				}
 
 				&.raspberry {
-					@include flat.shading(colors.$dark-raspberry, outset);
+					@include flat.shaded(colors.$dark-raspberry, outset);
 				}
 
 				&.red-orange {
-					@include flat.shading(colors.$dark-red-orange, outset);
+					@include flat.shaded(colors.$dark-red-orange, outset);
 				}
 
 				&.orange {
-					@include flat.shading(colors.$dark-orange, outset);
+					@include flat.shaded(colors.$dark-orange, outset);
 				}
 
 				&.yellow {
-					@include flat.shading(colors.$dark-yellow, outset);
+					@include flat.shaded(colors.$dark-yellow, outset);
 				}
 
 				&.lime {
-					@include flat.shading(colors.$dark-lime, outset);
+					@include flat.shaded(colors.$dark-lime, outset);
 				}
 
 				&.green {
-					@include flat.shading(colors.$dark-green, outset);
+					@include flat.shaded(colors.$dark-green, outset);
 				}
 
 				&.teal {
-					@include flat.shading(colors.$dark-teal, outset);
+					@include flat.shaded(colors.$dark-teal, outset);
 				}
 
 				&.aqua {
-					@include flat.shading(colors.$dark-aqua, outset);
+					@include flat.shaded(colors.$dark-aqua, outset);
 				}
 
 				&.cyan {
-					@include flat.shading(colors.$dark-cyan, outset);
+					@include flat.shaded(colors.$dark-cyan, outset);
 				}
 
 				&.blue {
-					@include flat.shading(colors.$dark-blue, outset);
+					@include flat.shaded(colors.$dark-blue, outset);
 				}
 
 				&.indigo {
-					@include flat.shading(colors.$dark-indigo, outset);
+					@include flat.shaded(colors.$dark-indigo, outset);
 				}
 
 				&.violet {
-					@include flat.shading(colors.$dark-violet, outset);
+					@include flat.shaded(colors.$dark-violet, outset);
 				}
 
 				&.plum {
-					@include flat.shading(colors.$dark-plum, outset);
+					@include flat.shaded(colors.$dark-plum, outset);
 				}
 
 				&.purple {
-					@include flat.shading(colors.$dark-purple, outset);
+					@include flat.shaded(colors.$dark-purple, outset);
 				}
 
 				&.magenta {
-					@include flat.shading(colors.$dark-magenta, outset);
+					@include flat.shaded(colors.$dark-magenta, outset);
 				}
 
 				&.brown {
-					@include flat.shading(colors.$dark-brown, outset);
+					@include flat.shaded(colors.$dark-brown, outset);
 				}
 
 				&.grey {
-					@include flat.shading(colors.$dark-grey, outset);
+					@include flat.shaded(colors.$dark-grey, outset);
 				}
 
 				&.black {
-					@include flat.shading(colors.$dark-black, outset);
+					@include flat.shaded(colors.$dark-black, outset);
 				}
 
 				&.white {
-					@include flat.shading(colors.$dark-white, outset);
+					@include flat.shaded(colors.$dark-white, outset);
 				}
 
 				&.copper {
-					@include flat.shading(colors.$dark-copper, outset);
+					@include flat.shaded(colors.$dark-copper, outset);
 				}
 
 				&.silver {
-					@include flat.shading(colors.$dark-silver, outset);
+					@include flat.shaded(colors.$dark-silver, outset);
 				}
 
 				&.gold {
-					@include flat.shading(colors.$dark-gold, outset);
+					@include flat.shaded(colors.$dark-gold, outset);
 				}
 			}
 		}

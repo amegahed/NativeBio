@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../apps/common/medium-apps";
@@ -25,6 +25,7 @@
 $grip-image: url('../../../../images/splitters/grip.png');
 $grip-horizontal-image: url('../../../../images/splitters/horizontal-grip.png');
 $grip-vertical-image: url('../../../../images/splitters/vertical-grip.png');
+$grip-opacity: 0.25;
 
 //
 // colors
@@ -48,6 +49,7 @@ body:not(.binary) {
 			.handle {
 				background-image: $grip-image;
 				image-rendering: pixelated;
+				opacity: $grip-opacity;
 			}
 
 			&.gutter-horizontal {

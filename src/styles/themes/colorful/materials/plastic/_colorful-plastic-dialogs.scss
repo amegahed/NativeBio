@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../materials/plastic/flat-plastic";
@@ -22,27 +22,61 @@
 // styles
 //
 
-body:not(.binary).colored.colorful {
-	& .plastic.modals,
-	&.plastic .auto-material.modals {
+@supports (color: color-mix(in srgb, white, black)) {
+	body:not(.binary).colored.colorful {
+		& .plastic.modals,
+		&.plastic .auto-material.modals {
 
-		//
-		// focused dialogs
-		//
+			//
+			// focused dialogs
+			//
 
-		.modal.focused .modal-dialog {
-			.modal-header {
-				@include flat-plastic.shading(colorful-dialogs.$header-color);
+			.modal.focused .modal-dialog {
+				.modal-header {
+					@include flat-plastic.shade(colorful-dialogs.$header-color);
+				}
+			}
+
+			//
+			// unfocused dialogs
+			//
+
+			.modal:not(.focused) .modal-dialog {
+				.modal-header {
+					@include flat-plastic.shade(colorful-dialogs.$unfocused-header-color);
+				}
 			}
 		}
+	}
+}
 
-		//
-		// unfocused dialogs
-		//
+//
+// fallback styles
+//
 
-		.modal:not(.focused) .modal-dialog {
-			.modal-header {
-				@include flat-plastic.shading(colorful-dialogs.$unfocused-header-color);
+@supports not (color: color-mix(in srgb, white, black)) {
+	body:not(.binary).colored.colorful {
+		& .plastic.modals,
+		&.plastic .auto-material.modals {
+
+			//
+			// focused dialogs
+			//
+
+			.modal.focused .modal-dialog {
+				.modal-header {
+					@include flat-plastic.shaded(colorful-dialogs.$default-header-color);
+				}
+			}
+
+			//
+			// unfocused dialogs
+			//
+
+			.modal:not(.focused) .modal-dialog {
+				.modal-header {
+					@include flat-plastic.shaded(colorful-dialogs.$default-unfocused-header-color);
+				}
 			}
 		}
 	}

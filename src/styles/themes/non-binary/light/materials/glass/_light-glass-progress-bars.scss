@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../../materials/glass/long-round-glass";
@@ -25,7 +25,7 @@
 body:not(.binary) {
 	&.light.glass {
 		.progress .bar {
-			@include long-round-glass.shading(light-progress-bars.$color);
+			@include long-round-glass.shaded(light-progress-bars.$color);
 		}
 	}
 }

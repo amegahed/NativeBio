@@ -68,9 +68,15 @@ export default class Ray2 {
 		return new Ray2(location, direction);
 	}
 
-	scaledBy(ray) {
-		let location = this.location.scaledBy(ray.location);
-		let direction = this.direction.scaledBy(ray.direction);
+	scaledBy(scalar) {
+		let location = this.location.clone();
+		let direction = this.direction.scaledBy(scalar);
+		return new Ray2(location, direction);
+	}
+
+	scaledTo(scalar) {
+		let location = this.location.clone();
+		let direction = this.direction.scaledTo(scalar);
 		return new Ray2(location, direction);
 	}
 }

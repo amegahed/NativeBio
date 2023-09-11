@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../medium/items/medium-item-lists";
@@ -74,7 +74,7 @@ body:not(.binary).light {
 					/*
 					.thumbnail {
 						&::after {
-							background: colors.fade(light-selection.$select-color; 50%);
+							background: colors.faded(light-selection.$select-color; 50%);
 						}
 					}
 					*/
@@ -101,7 +101,7 @@ body:not(.binary).light {
 			&.pdf, &.svg {
 				.icon {
 					&::after {
-						background: colors.fade(light-selection.$select-color; 50%);
+						background: colors.faded(light-selection.$select-color; 50%);
 					}
 				}
 			}

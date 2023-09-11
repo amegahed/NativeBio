@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../navs/materials/glass/glass-btns";
@@ -22,25 +22,58 @@
 // styles
 //
 
-body:not(.binary).colored.colored {
-	&.glass-buttons,
-	&.glass.auto-buttons {
-
-		//
-		// glass styled buttons
-		//
-
-		.btn {
+@supports (color: color-mix(in srgb, white, black)) {
+	body:not(.binary).colored.colored {
+		&.glass-buttons,
+		&.glass.auto-buttons {
 
 			//
-			// glass primary buttons
+			// glass styled buttons
 			//
 
-			&.btn-primary {
-				@include glass-btns.shading(colored-btns.$primary-color);
+			.btn {
 
-				&:disabled {
-					@include glass-btns.shading(colored-btns.$disabled-primary-color);
+				//
+				// glass primary buttons
+				//
+
+				&.btn-primary {
+					@include glass-btns.shade(colored-btns.$primary-color);
+
+					&:disabled {
+						@include glass-btns.shade(colored-btns.$disabled-primary-color);
+					}
+				}
+			}
+		}
+	}
+}
+
+//
+// fallback styles
+//
+
+@supports not (color: color-mix(in srgb, white, black)) {
+	body:not(.binary).colored.colored {
+		&.glass-buttons,
+		&.glass.auto-buttons {
+
+			//
+			// glass styled buttons
+			//
+
+			.btn {
+
+				//
+				// glass primary buttons
+				//
+
+				&.btn-primary {
+					@include glass-btns.shaded(colored-btns.$default-primary-color);
+
+					&:disabled {
+						@include glass-btns.shaded(colored-btns.$default-disabled-primary-color);
+					}
 				}
 			}
 		}

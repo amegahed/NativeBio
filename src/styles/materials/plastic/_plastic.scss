@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../flat/flat";
@@ -31,42 +31,86 @@ $border-radius: var(--border-radius);
 // mixins
 //
 
-@mixin shading($color) {
-	@include flat-plastic.shading($color);
+@mixin shade($color) {
+	@include flat-plastic.shade($color);
 
 	&.round {
-		@include round-plastic.shading($color);
+		@include round-plastic.shade($color);
 	}
 
 	&.rounded {
-		@include rounded-plastic.shading($color);
+		@include rounded-plastic.shade($color);
 	}
 
 	&.long.round {
-		@include long-round-plastic.shading($color, $border-radius);
+		@include long-round-plastic.shade($color, $border-radius);
 
 		&.vertical {
-			@include long-round-plastic.vertical-shading($color, $border-radius);
+			@include long-round-plastic.vertical-shade($color, $border-radius);
 		}
 	}
 }
 
-@mixin multilayer-shading($color) {
-	@include flat-plastic.multilayer-shading($color);
+@mixin multilayer-shade($color) {
+	@include flat-plastic.multilayer-shade($color);
 
 	&.round {
-		@include round-plastic.multilayer-shading($color);
+		@include round-plastic.multilayer-shade($color);
 	}
 
 	&.rounded {
-		@include rounded-plastic.multilayer-shading($color);
+		@include rounded-plastic.multilayer-shade($color);
 	}
 
 	&.long.round {
-		@include long-round-plastic.multilayer-shading($color, $border-radius);
+		@include long-round-plastic.multilayer-shade($color, $border-radius);
 
 		&.vertical {
-			@include long-round-plastic.vertical-multilayer-shading($color, $border-radius);
+			@include long-round-plastic.vertical-multilayer-shade($color, $border-radius);
+		}
+	}
+}
+
+//
+// color mixins
+//
+
+@mixin shaded($color) {
+	@include flat-plastic.shade($color);
+
+	&.round {
+		@include round-plastic.shaded($color);
+	}
+
+	&.rounded {
+		@include rounded-plastic.shaded($color);
+	}
+
+	&.long.round {
+		@include long-round-plastic.shaded($color, $border-radius);
+
+		&.vertical {
+			@include long-round-plastic.vertical-shaded($color, $border-radius);
+		}
+	}
+}
+
+@mixin multilayer-shaded($color) {
+	@include flat-plastic.multilayer-shaded($color);
+
+	&.round {
+		@include round-plastic.multilayer-shaded($color);
+	}
+
+	&.rounded {
+		@include rounded-plastic.multilayer-shaded($color);
+	}
+
+	&.long.round {
+		@include long-round-plastic.multilayer-shaded($color, $border-radius);
+
+		&.vertical {
+			@include long-round-plastic.vertical-multilayer-shaded($color, $border-radius);
 		}
 	}
 }
@@ -78,10 +122,10 @@ $border-radius: var(--border-radius);
 @supports (color: color-mix(in srgb, white, black)) {
 	.plastic {
 		.shaded, &.plastic.shaded {
-			@include shading(var(--primary-color));
+			@include shade(var(--primary-color));
 
 			&.textured {
-				@include multilayer-shading(var(--primary-color));
+				@include multilayer-shade(var(--primary-color));
 			}
 		}
 	}
@@ -94,10 +138,10 @@ $border-radius: var(--border-radius);
 @supports not (color: color-mix(in srgb, white, black)) {
 	.plastic {
 		.shaded, &.plastic.shaded {
-			@include flat.shading(var(--primary-color));
+			@include flat.shade(var(--primary-color));
 
 			&.textured {
-				@include flat.multilayer-shading(var(--primary-color));
+				@include flat.multilayer-shade(var(--primary-color));
 			}
 		}
 	}

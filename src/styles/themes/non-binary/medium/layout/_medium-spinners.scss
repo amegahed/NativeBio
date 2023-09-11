@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../colors/colors";
@@ -23,7 +23,7 @@
 //
 
 $color: medium-branding.$secondary-color;
-$background-color: colors.fade(colors.$very-very-very-light-grey, 50%);
+$background-color: colors.faded(colors.$very-very-very-light-grey, 50%);
 
 //
 // styles

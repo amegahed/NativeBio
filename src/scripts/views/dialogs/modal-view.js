@@ -416,11 +416,17 @@ export default BaseView.extend(_.extend({}, Positionable, Draggable, Stackable, 
 			this.toTop();
 		}
 
-		this.focus();
+		// focus, if not already focused
+		//
+		if (!this.isFocused()) {
+			this.focus();
+		}
 
 		// block event from parent
 		//
-		event.stopPropagation();
+		if (!$(event.originalEvent.target).hasClass('clickable')) {
+			event.stopPropagation();
+		}
 
 		// skip mouse events if touch enabled
 		//

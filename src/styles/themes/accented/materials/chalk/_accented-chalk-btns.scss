@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../navs/materials/chalk/chalk-btns";
@@ -33,22 +33,57 @@ body:not(.binary).colored.accented {
 		//
 
 		.btn:not(.btn-primary):not(.colored):not(:disabled) {
-			@include chalk-btns.shading(accented-btns.$color);
 
 			//
 			// special buttons
 			//
 
 			&.success {
-				@include chalk-buttons.shading(validation.$success-color);
+				@include chalk-buttons.shade(validation.$success-color);
 			}
 
 			&.caution {
-				@include chalk-buttons.shading(validation.$caution-color);
+				@include chalk-buttons.shade(validation.$caution-color);
 			}
 
 			&.warning {
-				@include chalk-buttons.shading(validation.$warning-color);
+				@include chalk-buttons.shade(validation.$warning-color);
+			}
+		}
+	}
+}
+
+@supports (color: color-mix(in srgb, white, black)) {
+	body:not(.binary).colored.accented {
+		&.chalk-buttons,
+		&.chalk.auto-buttons {
+
+			//
+			// styled buttons
+			//
+
+			.btn:not(.btn-primary):not(.colored):not(:disabled) {
+				@include chalk-btns.shade(accented-btns.$color);
+			}
+		}
+	}
+}
+
+//
+// fallback styles
+//
+
+@supports not (color: color-mix(in srgb, white, black)) {
+	body:not(.binary).colored.accented {
+		&.chalk-buttons,
+		&.chalk.auto-buttons {
+
+			//
+			// styled buttons
+			//
+
+			.btn:not(.btn-primary):not(.colored):not(:disabled) {
+				@include chalk-btns.shaded(accented-btns.$default-color);
 			}
 		}
 	}

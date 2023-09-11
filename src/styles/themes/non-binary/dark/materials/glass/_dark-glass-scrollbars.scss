@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../../navs/materials/glass/glass-scrollbars";
@@ -30,6 +30,6 @@ body:not(.binary) {
 		// scrollbar thumbs
 		//
 
-		@include glass-scrollbars.thumb-shading(dark-scrollbars.$color, dark-scrollbars.$hover-color, dark-scrollbars.$active-color);
+		@include glass-scrollbars.thumb-shaded(dark-scrollbars.$color, dark-scrollbars.$hover-color, dark-scrollbars.$active-color);
 	}
 }

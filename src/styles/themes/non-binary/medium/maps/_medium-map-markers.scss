@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../colors/colors";
@@ -29,7 +29,7 @@ $outline-width: 1px;
 //
 
 $color: lighten(red, 15%);
-$outline-color: colors.fade(white, 100%);
+$outline-color: colors.faded(white, 100%);
 $outline: (-$outline-width) 0 0 $outline-color, $outline-width 0 0 $outline-color, 0 $outline-width 0 $outline-color, 0 (-$outline-width) 0 $outline-color;
 $selected-outline: (-$outline-width) (-$outline-width) 0 white, $outline-width (-$outline-width) 0 white, (-$outline-width) $outline-width 0 white, $outline-width $outline-width 0 white, 0 $outline-width white;
 

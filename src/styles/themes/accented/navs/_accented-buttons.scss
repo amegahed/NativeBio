@@ -12,21 +12,23 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../navs/colors/colored-buttons";
 @use "../../../navs/colors/colored-btns";
 @use "../../../colors/colors";
+@use "../../../colors/branding";
 
 //
 // colors
 //
 
 $hover-color: var(--secondary-color);
-$active-color: colors.darken($hover-color, 10%);
 $selected-color: colors.darken($hover-color, 20%);
 $label-color: white;
+$default-hover-color: branding.$secondary-color;
+$default-selected-color: colors.darken($default-hover-color, 20%);
 
 //
 // styles
@@ -40,12 +42,12 @@ body:not(.binary).colored.accented {
 
 	button {
 		&:hover {
-			@include colored-buttons.coloring($hover-color);
+			@include colored-buttons.colored($hover-color);
 			@include colored-buttons.labeling($label-color);
 		}
 
 		&.selected {
-			@include colored-btns.coloring($selected-color);
+			@include colored-btns.colored($selected-color);
 			@include colored-buttons.labeling($label-color);
 		}
 	}

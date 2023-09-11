@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../colors/colors";
@@ -22,32 +22,66 @@
 // mixins
 //
 
-@mixin shading($color) {
+@mixin shade($color) {
 
 	&:hover {
-		@include round-metal.shading($color, outset);
+		@include round-metal.shade($color, outset);
 	}
 
 	&:active {
-		@include round-metal.shading(colors.darken($color, 10%), outset);
+		@include round-metal.shade(colors.darken($color, 10%), outset);
 	}
 
 	&.selected {
-		@include round-metal.shading($color, outset);
+		@include round-metal.shade($color, outset);
 	}
 }
 
-@mixin dark-shading($color) {
+@mixin dark-shade($color) {
 
 	&:hover {
-		@include round-metal.shading($color, outset);
+		@include round-metal.shade($color, outset);
 	}
 
 	&:active {
-		@include round-metal.shading(colors.lighten($color, 10%), outset);
+		@include round-metal.shade(colors.lighten($color, 10%), outset);
 	}
 
 	&.selected {
-		@include round-metal.shading($color, outset);
+		@include round-metal.shade($color, outset);
+	}
+}
+
+//
+// color mixins
+//
+
+@mixin shaded($color) {
+
+	&:hover {
+		@include round-metal.shaded($color, outset);
+	}
+
+	&:active {
+		@include round-metal.shaded(darken($color, 10%), outset);
+	}
+
+	&.selected {
+		@include round-metal.shaded($color, outset);
+	}
+}
+
+@mixin dark-shaded($color) {
+
+	&:hover {
+		@include round-metal.shaded($color, outset);
+	}
+
+	&:active {
+		@include round-metal.shaded(lighten($color, 10%), outset);
+	}
+
+	&.selected {
+		@include round-metal.shaded($color, outset);
 	}
 }

@@ -13,7 +13,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../colors/colors";
@@ -26,20 +26,20 @@
 // colors
 //
 
-$header-color: colors.$very-very-very-light-grey;
+$header-color: colors.$ultra-light-grey;
 $title-icon-color: var(--primary-color);
 $title-color: text-colors.$dark-color;
 $background-color: white;
 $footer-color: $header-color;
-$border-color: colors.darken($header-color, 10%);
-$backdrop-color: colors.fade(black, 25%);
+$border-color: darken($header-color, 10%);
+$backdrop-color: colors.faded(black, 25%);
 
-$unfocused-header-color: colors.darken($header-color, 10%);
+$unfocused-header-color: darken($header-color, 10%);
 $unfocused-title-icon-color: medium-branding.$secondary-color;
-$unfocused-title-color: colors.darken($title-color, 10%);
-$unfocused-background-color: colors.darken($background-color, 10%);
-$unfocused-footer-color: colors.darken($footer-color, 10%);
-$unfocused-border-color: colors.darken($border-color, 10%);
+$unfocused-title-color: darken($title-color, 10%);
+$unfocused-background-color: darken($background-color, 10%);
+$unfocused-footer-color: darken($footer-color, 10%);
+$unfocused-border-color: darken($border-color, 10%);
 
 //
 // styles
@@ -172,13 +172,13 @@ body:not(.binary) {
 
 			&.focused .modal-dialog {
 				.modal-content {
-					@include plate-glass.shading($background-color);
+					@include plate-glass.shaded($background-color);
 				}
 			}
 
 			&:not(.focused) .modal-dialog {
 				.modal-content {
-					@include plate-glass.shading($unfocused-background-color);
+					@include plate-glass.shaded($unfocused-background-color);
 				}
 			}
 		}
@@ -203,14 +203,14 @@ body:not(.binary) {
 
 			&.focused .modal-dialog {
 				.modal-content {
-					@include frosted-plate-glass.shading($background-color);
+					@include frosted-plate-glass.shaded($background-color);
 					overflow: visible;
 				}
 			}
 
 			&:not(.focused) .modal-dialog {
 				.modal-content {
-					@include frosted-plate-glass.shading($unfocused-background-color);
+					@include frosted-plate-glass.shaded($unfocused-background-color);
 					overflow: visible;
 				}
 			}

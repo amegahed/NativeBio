@@ -39,19 +39,24 @@ export default BaseView.extend(_.extend({}, Timeable, {
 					<% } %>
 					<span class="dropdown-title">Run</span>
 				</a>
-				<div class="app-icons"></div>
-				<div class="apps-list"></div>
+				<div class="icons"></div>
+				<div class="cards"></div>
+				<div class="list"></div>
 			</li>
 		</ul>
 	`),
 
 	regions: {
 		icons: {
-			el: '.app-icons',
+			el: '.icons',
+			replaceElement: true
+		},
+		cards: {
+			el: '.cards',
 			replaceElement: true
 		},
 		list: {
-			el: '.apps-list',
+			el: '.list',
 			replaceElement: true
 		}
 	},
@@ -132,9 +137,28 @@ export default BaseView.extend(_.extend({}, Timeable, {
 		this.$el.find('.icon-grid').addClass('menu-content');
 	},
 
+	showAppCards: function() {
+		this.showChildView('cards', new AppsView({
+			collection: this.collection,
+			view_kind: 'cards',
+
+			// options
+			//
+			show_dividers: true,
+
+			// callbacks
+			//
+			onclick: (item) => this.onClick(item)
+		}));
+
+		// add menu styling
+		//
+		this.$el.find('.card-grid').addClass('menu-content');
+	},
+
 	showAppsList: function() {
 		this.showChildView('list', new AppsView({
-			collection: this.collection.clone(),
+			collection: this.collection,
 			view_kind: 'menus',
 
 			// options
@@ -249,6 +273,7 @@ export default BaseView.extend(_.extend({}, Timeable, {
 		// show child views
 		//
 		this.showAppIcons();
+		this.showAppCards();
 		this.showAppsList();
 
 		this.$el.find('.apps-list').addClass('dropdown-menu');
@@ -268,6 +293,11 @@ export default BaseView.extend(_.extend({}, Timeable, {
 		});
 		this.getChildView('list').$el.find('.dropdown-menu').mouseleave((event) => {
 			if (this.isOpen() && event.target.className == 'dropdown-menu' && this.isAutohide()) {
+				this.close();
+			}
+		});
+		this.getChildView('cards').$el.mouseleave(() => {
+			if (this.isOpen() && this.isAutohide()) {
 				this.close();
 			}
 		});

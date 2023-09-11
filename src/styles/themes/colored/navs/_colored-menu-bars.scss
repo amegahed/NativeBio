@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../colors/colors";
@@ -42,7 +42,7 @@ body:not(.binary).colored.colored {
 	//
 
 	.menu-bar {
-		@include colored-menu-bars.coloring($open-color, $active-color);
+		@include colored-menu-bars.colored($open-color, $active-color);
 		@include colored-menu-bars.marking($open-icon-color, $active-icon-color);
 		@include colored-menu-bars.labeling($open-text-color, $active-text-color);
 	}

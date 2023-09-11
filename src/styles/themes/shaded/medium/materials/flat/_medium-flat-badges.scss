@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../../materials/flat/flat";
@@ -23,24 +23,24 @@
 //
 
 body:not(.binary) {
-	&.flat.coloring {
+	&.flat.colored {
 		.badge {
-			@include flat.coloring(colored-badges.$color);
+			@include flat.colored(colored-badges.$color);
 
 			//
 			// flat special badges
 			//
 
 			&.success {
-				@include flat.coloring(colored-badges.$success-color);
+				@include flat.colored(colored-badges.$success-color);
 			}
 
 			&.caution {
-				@include flat.coloring(colored-badges.$caution-color);
+				@include flat.colored(colored-badges.$caution-color);
 			}
 
 			&.warning {
-				@include flat.coloring(colored-badges.$warning-color);
+				@include flat.colored(colored-badges.$warning-color);
 			}
 		}
 	}

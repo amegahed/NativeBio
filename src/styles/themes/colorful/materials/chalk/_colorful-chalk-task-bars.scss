@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../materials/chalk/round-chalk";
@@ -22,37 +22,82 @@
 // styles
 //
 
-body:not(.binary).colored.colorful {
-	&.chalk {
+@supports (color: color-mix(in srgb, white, black)) {
+	body:not(.binary).colored.colorful {
+		&.chalk {
 
-		//
-		// chalk unminimized task bars
-		//
+			//
+			// chalk unminimized task bars
+			//
 
-		#desktop:not(.task-bar-minimized):not(.colorful) .task-bar {
-			.task-list {
-				li {
-					@include round-chalk.shading(colorful-task-bars.$item-color);
+			#desktop:not(.task-bar-minimized):not(.colorful) .task-bar {
+				.task-list {
+					li {
+						@include round-chalk.shade(colorful-task-bars.$item-color);
+					}
+				}
+			}
+
+			#desktop.coloful:not(.task-bar-minimized) .task-bar {
+				.task-list {
+					li:not(.colored) {
+						@include round-chalk.shade(colorful-task-bars.$item-color);
+					}
+				}
+			}
+
+			//
+			// chalk minimized task bars
+			//
+
+			#desktop.task-bar-minimized:not(.colorful) .task-bar {
+				.task-list {
+					li:not(.colored) {
+						@include round-chalk.shade(colorful-task-bars.$item-color);
+					}
 				}
 			}
 		}
+	}
+}
 
-		#desktop.coloful:not(.task-bar-minimized) .task-bar {
-			.task-list {
-				li:not(.colored) {
-					@include round-chalk.shading(colorful-task-bars.$item-color);
+//
+// fallback styles
+//
+
+@supports not (color: color-mix(in srgb, white, black)) {
+	body:not(.binary).colored.colorful {
+		&.chalk {
+
+			//
+			// chalk unminimized task bars
+			//
+
+			#desktop:not(.task-bar-minimized):not(.colorful) .task-bar {
+				.task-list {
+					li {
+						@include round-chalk.shaded(colorful-task-bars.$default-item-color);
+					}
 				}
 			}
-		}
 
-		//
-		// chalk minimized task bars
-		//
+			#desktop.coloful:not(.task-bar-minimized) .task-bar {
+				.task-list {
+					li:not(.colored) {
+						@include round-chalk.shaded(colorful-task-bars.$default-item-color);
+					}
+				}
+			}
 
-		#desktop.task-bar-minimized:not(.colorful) .task-bar {
-			.task-list {
-				li:not(.colored) {
-					@include round-chalk.shading(colorful-task-bars.$item-color);
+			//
+			// chalk minimized task bars
+			//
+
+			#desktop.task-bar-minimized:not(.colorful) .task-bar {
+				.task-list {
+					li:not(.colored) {
+						@include round-chalk.shaded(colorful-task-bars.$default-item-color);
+					}
 				}
 			}
 		}

@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../materials/chalk/rounded-chalk";
@@ -21,29 +21,60 @@
 // mixins
 //
 
-@mixin inactive-shading($color, $hover-color) {
+@mixin inactive-shade($color, $hover-color) {
 	> li:not(.active) {
 
 		> a, > a:focus {
-			@include rounded-chalk.shading($color);
+			@include rounded-chalk.shade($color);
 		}
 
 		> a:hover {
-			@include rounded-chalk.shading($hover-color);
+			@include rounded-chalk.shade($hover-color);
 		}
 	}
 }
 
-@mixin active-shading($active-color) {
+@mixin active-shade($active-color) {
 	> li.active {
 
 		> a, > a:focus {
-			@include rounded-chalk.shading($active-color);
+			@include rounded-chalk.shade($active-color);
 		}
 	}
 }
 
-@mixin shading($color, $hover-color, $active-color) {
-	@include inactive-shading($color, $hover-color);
-	@include active-shading($active-color);
+@mixin shade($color, $hover-color, $active-color) {
+	@include inactive-shade($color, $hover-color);
+	@include active-shade($active-color);
+}
+
+//
+// color mixins
+//
+
+@mixin inactive-shaded($color, $hover-color) {
+	> li:not(.active) {
+
+		> a, > a:focus {
+			@include rounded-chalk.shaded($color);
+		}
+
+		> a:hover {
+			@include rounded-chalk.shaded($hover-color);
+		}
+	}
+}
+
+@mixin active-shaded($active-color) {
+	> li.active {
+
+		> a, > a:focus {
+			@include rounded-chalk.shaded($active-color);
+		}
+	}
+}
+
+@mixin shaded($color, $hover-color, $active-color) {
+	@include inactive-shaded($color, $hover-color);
+	@include active-shaded($active-color);
 }

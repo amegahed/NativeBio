@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2023, Specular CSS, http://www.specularcss.org          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 //
@@ -56,11 +56,11 @@ $texture-blur: 5px;
 // texture roughness mixins
 //
 
-@mixin frosting($amount: var(--texture-blur)) {
+@mixin frosted($amount: var(--texture-blur)) {
 	filter: blur($amount);
 }
 
-@mixin polishing() {
+@mixin polished {
 	filter: none;
 }
 
@@ -76,10 +76,10 @@ $texture-blur: 5px;
 .shaded {
 	&.frosted .shaded, &.frosted {
 		&::before {
-			@include frosting();
+			@include frosted();
 		}
 		&::after {
-			@include frosting();
+			@include frosted();
 		}
 	}
 }

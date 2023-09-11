@@ -63,7 +63,11 @@ export default FormPanelView.extend({
 				<div class="radio-inline">
 					<label><input type="radio" name="run-menu-items" value="icons"<% if (run_menu_items == 'icons') { %> checked<% } %>>Icons</label>
 				</div>
-		
+
+				<div class="radio-inline">
+					<label><input type="radio" name="run-menu-items" value="cards"<% if (run_menu_items == 'cards') { %> checked<% } %>>Cards</label>
+				</div>
+
 				<div class="radio-inline">
 					<label><input type="radio" name="run-menu-items" value="lists"<% if (run_menu_items == 'lists') { %> checked<% } %>>Lists</label>
 				</div>

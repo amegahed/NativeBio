@@ -12,8 +12,10 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
+
+@use "../../../colors/branding";
 
 //
 // colors
@@ -22,6 +24,7 @@
 $active-color: var(--primary-color);
 $active-icon-color: white;
 $active-text-color: white;
+$default-active-color: branding.$primary-color;
 
 //
 // styles

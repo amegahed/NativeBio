@@ -12,7 +12,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2020, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
 @use "../../../../colors/colors";
@@ -27,11 +27,11 @@
 
 $panel-item-name-color: dark-branding.$primary-color;
 $selected-panel-item-color: text-colors.$light-color;
-$selected-panel-item-background-color: colors.blend(dark-panels.$background-color, dark-selection.$select-color, 25%);
+$selected-panel-item-background-color: colors.blended(dark-panels.$background-color, dark-selection.$select-color, 25%);
 $selected-panel-item-border-color: dark-selection.$select-color;
 
-$unfocused-selected-panel-item-background-color: colors.darken($selected-panel-item-background-color, 10%);
-$unfocused-selected-panel-item-border-color: colors.darken($selected-panel-item-border-color, 10%);
+$unfocused-selected-panel-item-background-color: darken($selected-panel-item-background-color, 10%);
+$unfocused-selected-panel-item-border-color: darken($selected-panel-item-border-color, 10%);
 
 //
 // styles
