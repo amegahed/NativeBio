@@ -25,7 +25,6 @@ export default IconsView.extend({
 	//
 
 	className: 'app-icons icon-grid',
-	template: template(''),
 	childView: AppIconView,
 
 	//

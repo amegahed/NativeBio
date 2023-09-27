@@ -30,9 +30,11 @@ export default SelectableCollectionView.extend({
 		<svg class="defs">
 			<defs></defs>
 		</svg>
+		<div class="icons"></div>
 	`),
 
 	childView: IconView,
+	childViewContainer: '.icons',
 
 	//
 	// rendering methods

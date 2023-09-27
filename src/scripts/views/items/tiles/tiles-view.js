@@ -30,9 +30,11 @@ export default SelectableCollectionView.extend({
 		<svg class="defs">
 			<defs></defs>
 		</svg>
+		<div class="tiles"></div>
 	`),
 
 	childView: TileView,
+	childViewContainer: '.tiles',
 
 	//
 	// getting methods

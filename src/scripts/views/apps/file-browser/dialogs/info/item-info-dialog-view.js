@@ -217,23 +217,23 @@ export default InfoDialogView.extend({
 		//
 		switch (this.tab) {
 			case 'permissions':
-				this.showButtons(['save', 'cancel']);
+				this.showFooterButtons(['save', 'cancel']);
 				break;
 			case 'place':
 				if (this.model.has('place')) {
-					this.showButtons(['edit-place', 'delete-place', 'cancel']);
+					this.showFooterButtons(['edit-place', 'delete-place', 'cancel']);
 				} else {
-					this.showButtons(['set-place', 'cancel']);
+					this.showFooterButtons(['set-place', 'cancel']);
 				}
 				break;
 			case 'sharing':
-				this.showButtons(['new-shares', 'delete-shares', 'cancel']);
+				this.showFooterButtons(['new-shares', 'delete-shares', 'cancel']);
 				break;
 			case 'links':
-				this.showButtons(['new-link', 'edit-link', 'view-link', 'copy-link', 'delete-links']);
+				this.showFooterButtons(['new-link', 'edit-link', 'view-link', 'copy-link', 'delete-links']);
 				break;
 			default:
-				this.showButtons(['ok', 'open-folder']);
+				this.showFooterButtons(['ok', 'open-folder']);
 				break;
 		}
 	},
@@ -380,13 +380,13 @@ export default InfoDialogView.extend({
 		this.update();
 	},
 
-	showButtons: function(which) {
+	showFooterButtons: function(which) {
 
 		// hide / show buttons
 		//
-		this.$el.find('button').hide();
+		this.$el.find('.modal-footer button').hide();
 		for (let i = 0; i < which.length; i++) {
-			this.$el.find('button.' + which[i]).show();
+			this.$el.find('.modal-footer button.' + which[i]).show();
 		}
 	},
 

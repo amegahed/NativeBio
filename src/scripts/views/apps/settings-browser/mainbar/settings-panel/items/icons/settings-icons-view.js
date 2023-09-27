@@ -25,8 +25,16 @@ export default IconsView.extend({
 	//
 
 	className: 'settings icon-grid',
-	template: template(''),
+
+	template: template(`
+		<svg class="defs">
+			<defs></defs>
+		</svg>
+		<div class="icons"></div>
+	`),
+
 	childView: SettingsIconView,
+	childViewContainer: '.icons',
 
 	//
 	// querying methods

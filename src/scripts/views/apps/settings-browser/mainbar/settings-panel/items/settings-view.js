@@ -27,8 +27,7 @@ export default ItemsView.extend({
 
 	className: 'items',
 
-	template: template(`<div class="items"></div>
-	`),
+	template: template(`<div class="items"></div>`),
 
 	regions: {
 		items: {
