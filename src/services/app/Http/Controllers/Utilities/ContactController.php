@@ -23,6 +23,7 @@ class ContactController extends Controller
 		$email = $request->input('email');
 		$subject = $request->input('subject');
 		$messageText = $request->input('message');
+		$attachment = $request->file('attachment');
 
 		// return error if email is not enabled
 		//
@@ -40,9 +41,18 @@ class ContactController extends Controller
 			'message_text' => $messageText,
 			'app_name' => config('app.name'),
 			'client_url' => config('app.client_url')
-		], function($message) use ($name, $username, $email, $subject, $messageText) {
+		], function($message) use ($name, $username, $email, $subject, $messageText, $attachment) {
 			$message->to(config('mail.contact.address'));
 			$message->subject($subject);
+
+			// add attachment
+			//
+			if ($attachment) {
+				$message->attach($attachment->getRealPath(), array(
+					'as' => $attachment->getClientOriginalName(),
+					'mime' => $attachment->getMimeType())
+				);
+			}
 		});
 
 		// return sent information
