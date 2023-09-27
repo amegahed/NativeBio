@@ -33,25 +33,12 @@ export default BaseView.extend({
 		</ol>
 		
 		<div class="content">
-		
-			<% if (user_help) { %>
-			<h2><i class="fa fa-cog"></i>Technical Questions</h2>
-			<p>For technical questions, if you can log in to the application, we ask that you post your question to the public news group about the platform.  This will help other users that may have the same question. </p>
-			<% } %>
-		
-			<% if (contact_form) { %>
-			<% if (user_help) { %>
-			<h2><i class="fa fa-question-circle"></i>Other Questions and Comments</h2>
-			<p>For all other questions and comments, please fill out the contact form below: </p>
+			<p><%= description %></p>
 			<br />
-			<% } else { %>
-			<p>For questions and comments, please fill out the contact form below: </p>
-			<br />
-			<% } %>
+
 			<div class="panel">
 				<div class="contact-form"></div>
 			</div>
-			<% } %>
 		</div>
 	`),
 
@@ -64,12 +51,15 @@ export default BaseView.extend({
 	//
 
 	templateContext: function() {
-		return config.defaults.contact;
+		return {
+			description: config.defaults.contact.description
+		};
 	},
 
 	onRender: function() {
-		if (config.defaults.contact.contact_form) {
-			this.showChildView('form', new ContactFormView());
-		}
+		this.showChildView('form', new ContactFormView({
+			subjects: config.defaults.contact.subjects,
+			label: config.defaults.contact.label
+		}));
 	}
 });

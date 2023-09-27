@@ -39,7 +39,7 @@ export default FormView.extend({
 			</div>
 		</div>
 		
-		<div class="username form-group">
+		<div class="username form-group" style="display:none">
 			<label class="control-label"><i class="fa fa-keyboard"></i>Username</label>
 			<div class="controls">
 				<div class="input-group">
@@ -63,18 +63,20 @@ export default FormView.extend({
 			</div>
 		</div>
 		
+		<% if (subjects) { %>
 		<div class="subject form-group">
 			<label class="control-label"><i class="fa fa-info-circle"></i>Subject</label>
 			<div class="controls">
 				<select>
-					<% for (let i = 0; i < contact_subjects.length; i++) { %>
-					<option><%= contact_subjects[i] %></option>
+					<% for (let i = 0; i < subjects.length; i++) { %>
+					<option><%= subjects[i] %></option>
 					<% } %>
 				</select>
 		
 				<i class="active fa fa-question-circle" data-toggle="popover" title="Subject" data-content="This is the subject of your message."></i>
 			</div>
 		</div>
+		<% } %>
 		
 		<div class="message wide form-group">
 			<label class="required control-label"><i class="fa fa-quote-left"></i>Message</label>
@@ -88,6 +90,15 @@ export default FormView.extend({
 				</div>
 			</div>
 		</div>
+
+		<div class="attachment form-group">
+			<label class="control-label"><i class="fa fa-file"></i>Attachment</label>
+			<div class="controls">
+				<button class="select btn" style="float:left; margin-right:10px"><i class="fa fa-mouse-pointer"></i>Select File</button>
+				<input type="file" id="file" class="form-control" style="float:left; margin-right:10px; display:none" />
+				<button class="remove btn btn-sm" style="margin:2px; display:none"><i class="fa fa-xmark"></i></button>
+			</div>
+		</div>
 		
 		<div class="notes">
 			<span class="required"></span>Fields are required
@@ -95,12 +106,15 @@ export default FormView.extend({
 		
 		<div class="buttons">
 			<button class="submit btn btn-primary btn-lg">
-				<i class="fa fa-envelope"></i>Submit Question
+				<i class="fa fa-envelope"></i><%= label %>
 			</button>
 		</div>
 	`),
 
 	events: {
+		'click .select': 'onClickSelect',
+		'click .remove': 'onClickRemove',
+		'change input[type="file"]': 'onChangeFile',
 		'click .submit': 'onClickSubmit'
 	},
 
@@ -113,7 +127,7 @@ export default FormView.extend({
 	},
 
 	//
-	// form methods
+	// getting methods
 	//
 
 	getValue: function(key) {
@@ -128,6 +142,8 @@ export default FormView.extend({
 				return this.$el.find('.subject option:selected').text();
 			case 'message':
 				return this.$el.find('.message textarea').val();
+			case 'attachment':
+				return this.$el.find('.attachment input[type="file"]')[0].files[0];
 		}
 	},
 
@@ -137,8 +153,23 @@ export default FormView.extend({
 			username: this.getValue('username'),
 			email: this.getValue('email'),
 			subject: this.getValue('subject'),
-			message: this.getValue('message')
+			message: this.getValue('message'),
+			attachment: this.getValue('attachment')
 		};
+	},
+
+	//
+	// setting methods
+	//
+
+	setFilename: function(filename) {
+		const fileInput = this.$el.find('input[type="file"]')[0];
+
+		// Help Safari out
+		//
+		if (fileInput.webkitEntries.length) {
+			fileInput.dataset.file = filename;
+		}
 	},
 
 	//
@@ -146,12 +177,24 @@ export default FormView.extend({
 	//
 
 	templateContext: function() {
-		return config.defaults.contact;
+		return this.options
 	},
 
 	//
 	// mouse event handling methods
 	//
+
+	onClickSelect: function(event) {
+		this.$el.find('input[type="file"]').trigger('click');
+		this.block(event);
+	},
+
+	onClickRemove: function(event) {
+		this.$el.find('input[type="file"]')[0].value = null;
+		this.$el.find('input[type="file"]').hide();
+		this.$el.find('.remove').hide();
+		this.block(event);
+	},
 
 	onClickSubmit: function() {
 		this.submit({
@@ -178,5 +221,25 @@ export default FormView.extend({
 				});
 			}
 		});
-	}
+	},
+
+	//
+	// file event handling methods
+	//
+
+	onChangeFile: function(event) {
+		this.$el.find('input[type="file"]').show();
+		this.$el.find('.remove').show();
+
+		// set input filename (required for Safari)
+		//
+		if (event) {
+			if (event.target.files[0]) {
+				let filename = event.target.files[0].name;
+				this.setFilename(filename);
+			} else {
+				this.setFilename('No file chosen');
+			}
+		}
+	},
 });

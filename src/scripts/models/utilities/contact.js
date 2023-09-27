@@ -23,5 +23,30 @@ export default BaseModel.extend({
 	// ajax attributes
 	//
 
-	urlRoot: config.servers.api + '/contacts'
+	urlRoot: config.servers.api + '/contacts',
+
+	//
+	// ajax methods
+	//
+
+	save: function(attributes, options) {
+
+		// create form data
+		//
+		let formData = new FormData();
+		let keys = Object.keys(attributes);
+		for (let i = 0; i < keys.length; i++) {
+			let key = keys[i];
+			let value = attributes[key];
+			formData.append(key, value);
+		}
+
+		$.ajax(_.extend({}, options, {
+			type: 'POST',
+			url: this.urlRoot,
+			data: formData,
+			contentType: false,
+			processData: false
+		}));
+	}
 });

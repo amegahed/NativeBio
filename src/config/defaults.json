@@ -5,7 +5,7 @@
 			"desktop_apps": {
 				"phone": ["app_launcher"],
 				"tablet": ["app_launcher"],
-				"desktop": ["file_browser", "messenger"]
+				"desktop": ["file_browser", "messenger", "map_viewer"]
 			},
 			"pinned_apps": []
 		}
@@ -20,7 +20,7 @@
 	"settings": {
 		"enable_notifications": true,
 		"mute_sounds": false,
-		"volume": 1
+		"volume": 5
 	},
 
 	"dialogs": {
@@ -72,15 +72,13 @@
 	},
 
 	"help": {
-		"show_app": false,
-		"show_pdf": false,
-		"show_topic": "Sharedigm"
+		"docs": false,
+		"topic": "DSI"
 	},
 
 	"contact": {
-		"user_help": false,
-		"contact_form": true,
-		"contact_subjects": [
+		"description": "For questions and comments, please fill out the contact form below: ",
+		"subjects": [
 			"Question",
 			"Comment",
 			"Feature Request",
@@ -89,6 +87,7 @@
 			"Bug Report",
 			"Security Incident",
 			"Other"
-		]
+		],
+		"label": "Submit Question"
 	}
 }
