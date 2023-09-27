@@ -26,7 +26,6 @@ export default IconsView.extend(_.extend({}, Launchable, {
 	//
 
 	className: 'icons',
-	template: template(''),
 	childView: DockIconView,
 
 	//
