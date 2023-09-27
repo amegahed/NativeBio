@@ -18,40 +18,7 @@
 @use "../../../../navs/materials/chalk/chalk-btns";
 @use "../../../../navs/materials/chalk/chalk-buttons";
 @use "../../navs/accented-btns";
-@use "../../../../forms/validation";
 
-//
-// styles
-//
-
-body:not(.binary).colored.accented {
-	&.chalk-buttons,
-	&.chalk.auto-buttons {
-
-		//
-		// styled buttons
-		//
-
-		.btn:not(.btn-primary):not(.colored):not(:disabled) {
-
-			//
-			// special buttons
-			//
-
-			&.success {
-				@include chalk-buttons.shade(validation.$success-color);
-			}
-
-			&.caution {
-				@include chalk-buttons.shade(validation.$caution-color);
-			}
-
-			&.warning {
-				@include chalk-buttons.shade(validation.$warning-color);
-			}
-		}
-	}
-}
 
 @supports (color: color-mix(in srgb, white, black)) {
 	body:not(.binary).colored.accented {

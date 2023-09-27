@@ -16,7 +16,6 @@
 \******************************************************************************/
 
 @use "../../../../../forms/materials/plastic/plastic-sliders";
-@use "../../../../../forms/validation";
 @use "../../forms/medium-sliders";
 
 //
@@ -33,28 +32,6 @@ body:not(.binary) {
 
 		input[type="range"] {
 			@include plastic-sliders.thumb-shaded(medium-sliders.$thumb-color, medium-sliders.$thumb-hover-color, medium-sliders.$thumb-active-color);
-		}
-
-		//
-		// slider states
-		//
-
-		&.colored {
-			input[type="range"] {
-				&.colored {
-					&.success {
-						@include plastic-sliders.active-thumb-shade(validation.$success-color);
-					}
-
-					&.warning {
-						@include plastic-sliders.active-thumb-shade(validation.$warning-color);
-					}
-
-					&.error {
-						@include plastic-sliders.active-thumb-shade(validation.$error-color);
-					}
-				}
-			}
 		}
 	}
 }

@@ -84,7 +84,7 @@
 	}	
 }
 
-@mixin labeling($color) {
+@mixin labeled($color) {
 	&:hover {
 		@include label($color);
 		@include icon($color);

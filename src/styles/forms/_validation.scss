@@ -15,50 +15,15 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-@use "../colors/colors";
-
-//
-// colors
-//
-
-$success-color:			colors.$medium-green;
-$caution-color:			mix(colors.$medium-gold, colors.$medium-orange);
-$warning-color: 		mix(colors.$medium-orange, colors.$medium-red);
-$error-color: 			colors.$light-red;
-
 //
 // styles
 //
 
-.colored {
-
-	span.success {
-		color: $success-color;
-	}
-
-	span.caution {
-		color: $caution-color;
-	}
-
-	span.warning {
-		color: $warning-color;
-	}
-
-	span.error {
-		color: $error-color;
-	}
-}
-
-//
-// label validation
-//
-
 label.error {
 	font-weight: bold;
-	color: $error-color;
 	padding-top: 0;
 	background: url(../images/forms/error.png) 5px 0px no-repeat;
-	padding-left: 10px;
+	padding-left: 30px;
 }
 
 label.error:empty {
@@ -70,19 +35,9 @@ label.error.valid {
 }
 
 //
-// input validation
-//
-
-.form-group.error input,
-.form-group.error textarea {
-	border: 1px solid $error-color;
-}
-
-//
 // table validation
 //
 
 td.error {
-	outline: 1px solid $warning-color;
 	outline-offset: -2px
 }

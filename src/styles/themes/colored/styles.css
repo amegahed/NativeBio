@@ -147,6 +147,45 @@ body:not(.binary).colored.colored .app .body textarea.highlighted {
 
 /******************************************************************************\
 |                                                                              |
+|                             _colored-forms.scss                              |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body.colored span.success {
+  color: hsl(135, 33%, 50%) !important;
+}
+body.colored span.caution {
+  color: #df9820 !important;
+}
+body.colored span.warning {
+  color: #da5626 !important;
+}
+body.colored span.error {
+  color: #dc5656 !important;
+}
+body.colored label.error {
+  color: #dc5656 !important;
+}
+body.colored .form-group.error input,
+body.colored .form-group.error textarea {
+  border-color: #dc5656 !important;
+}
+body.colored td.error {
+  outline-color: #da5626 !important;
+}
+
+/******************************************************************************\
+|                                                                              |
 |                         _colored-form-controls.scss                          |
 |                                                                              |
 |******************************************************************************|
@@ -700,11 +739,92 @@ body:not(.binary).colored.colored.colored table tbody tr td:not(.append).selecte
 }
 /******************************************************************************\
 |                                                                              |
+|                            _colored-badges.scss                              |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body:not(.binary).colored .badge {
+  background-color: hsl(220, 75%, 50%);
+}
+body:not(.binary).colored .badge.success {
+  color: white;
+  background-color: hsl(135, 33%, 50%);
+}
+body:not(.binary).colored .badge.caution {
+  color: white;
+  background-color: #df9820;
+}
+body:not(.binary).colored .badge.warning {
+  color: white;
+  background-color: #da5626;
+}
+
+/******************************************************************************\
+|                                                                              |
+|                          _colored-flat-badges.scss                           |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body:not(.binary).flat.colored .badge {
+  background-color: hsl(220, 75%, 50%);
+  border-color: hsl(220, 75%, 50%);
+}
+body:not(.binary).flat.colored .badge.success {
+  background-color: hsl(135, 33%, 50%);
+  border-color: hsl(135, 33%, 50%);
+}
+body:not(.binary).flat.colored .badge.caution {
+  background-color: #df9820;
+  border-color: #df9820;
+}
+body:not(.binary).flat.colored .badge.warning {
+  background-color: #da5626;
+  border-color: #da5626;
+}
+
+/******************************************************************************\
+|                                                                              |
 |                               _flat-btns.scss                                |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
 |        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                              _flat-buttons.scss                              |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |
@@ -925,6 +1045,22 @@ body[device=desktop] button + .popover + .tooltip + button {
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
+|                            _colored-buttons.scss                             |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
 |                              _colored-btns.scss                              |
 |                                                                              |
 |******************************************************************************|
@@ -983,6 +1119,126 @@ body:not(.binary).colored.colored .btn.btn-primary:disabled i {
 body:not(.binary).colored.colored .btn.btn-primary:disabled svg {
   fill: white;
 }
+body:not(.binary).colored.colored .btn:not(.btn-primary):not(.colored):not(:disabled).success {
+  /*
+  &:active {
+  	background: colors.darken($color, 10%);
+  	border-color: colors.darken($color, 10%);
+  }
+  */
+}
+body:not(.binary).colored.colored .btn:not(.btn-primary):not(.colored):not(:disabled).success:hover {
+  background: hsl(135, 33%, 50%);
+  border-color: hsl(135, 33%, 50%);
+}
+body:not(.binary).colored.colored .btn:not(.btn-primary):not(.colored):not(:disabled).success.selected {
+  background: hsl(135, 33%, 50%);
+  border-color: hsl(135, 33%, 50%);
+}
+body:not(.binary).colored.colored .btn:not(.btn-primary):not(.colored):not(:disabled).success:hover {
+  color: white;
+}
+body:not(.binary).colored.colored .btn:not(.btn-primary):not(.colored):not(:disabled).success:hover span {
+  color: white;
+}
+body:not(.binary).colored.colored .btn:not(.btn-primary):not(.colored):not(:disabled).success:hover i {
+  color: white;
+}
+body:not(.binary).colored.colored .btn:not(.btn-primary):not(.colored):not(:disabled).success:hover svg {
+  fill: white;
+}
+body:not(.binary).colored.colored .btn:not(.btn-primary):not(.colored):not(:disabled).success.selected {
+  color: white;
+}
+body:not(.binary).colored.colored .btn:not(.btn-primary):not(.colored):not(:disabled).success.selected span {
+  color: white;
+}
+body:not(.binary).colored.colored .btn:not(.btn-primary):not(.colored):not(:disabled).success.selected i {
+  color: white;
+}
+body:not(.binary).colored.colored .btn:not(.btn-primary):not(.colored):not(:disabled).success.selected svg {
+  fill: white;
+}
+body:not(.binary).colored.colored .btn:not(.btn-primary):not(.colored):not(:disabled).caution {
+  /*
+  &:active {
+  	background: colors.darken($color, 10%);
+  	border-color: colors.darken($color, 10%);
+  }
+  */
+}
+body:not(.binary).colored.colored .btn:not(.btn-primary):not(.colored):not(:disabled).caution:hover {
+  background: #df9820;
+  border-color: #df9820;
+}
+body:not(.binary).colored.colored .btn:not(.btn-primary):not(.colored):not(:disabled).caution.selected {
+  background: #df9820;
+  border-color: #df9820;
+}
+body:not(.binary).colored.colored .btn:not(.btn-primary):not(.colored):not(:disabled).caution:hover {
+  color: white;
+}
+body:not(.binary).colored.colored .btn:not(.btn-primary):not(.colored):not(:disabled).caution:hover span {
+  color: white;
+}
+body:not(.binary).colored.colored .btn:not(.btn-primary):not(.colored):not(:disabled).caution:hover i {
+  color: white;
+}
+body:not(.binary).colored.colored .btn:not(.btn-primary):not(.colored):not(:disabled).caution:hover svg {
+  fill: white;
+}
+body:not(.binary).colored.colored .btn:not(.btn-primary):not(.colored):not(:disabled).caution.selected {
+  color: white;
+}
+body:not(.binary).colored.colored .btn:not(.btn-primary):not(.colored):not(:disabled).caution.selected span {
+  color: white;
+}
+body:not(.binary).colored.colored .btn:not(.btn-primary):not(.colored):not(:disabled).caution.selected i {
+  color: white;
+}
+body:not(.binary).colored.colored .btn:not(.btn-primary):not(.colored):not(:disabled).caution.selected svg {
+  fill: white;
+}
+body:not(.binary).colored.colored .btn:not(.btn-primary):not(.colored):not(:disabled).warning {
+  /*
+  &:active {
+  	background: colors.darken($color, 10%);
+  	border-color: colors.darken($color, 10%);
+  }
+  */
+}
+body:not(.binary).colored.colored .btn:not(.btn-primary):not(.colored):not(:disabled).warning:hover {
+  background: #da5626;
+  border-color: #da5626;
+}
+body:not(.binary).colored.colored .btn:not(.btn-primary):not(.colored):not(:disabled).warning.selected {
+  background: #da5626;
+  border-color: #da5626;
+}
+body:not(.binary).colored.colored .btn:not(.btn-primary):not(.colored):not(:disabled).warning:hover {
+  color: white;
+}
+body:not(.binary).colored.colored .btn:not(.btn-primary):not(.colored):not(:disabled).warning:hover span {
+  color: white;
+}
+body:not(.binary).colored.colored .btn:not(.btn-primary):not(.colored):not(:disabled).warning:hover i {
+  color: white;
+}
+body:not(.binary).colored.colored .btn:not(.btn-primary):not(.colored):not(:disabled).warning:hover svg {
+  fill: white;
+}
+body:not(.binary).colored.colored .btn:not(.btn-primary):not(.colored):not(:disabled).warning.selected {
+  color: white;
+}
+body:not(.binary).colored.colored .btn:not(.btn-primary):not(.colored):not(:disabled).warning.selected span {
+  color: white;
+}
+body:not(.binary).colored.colored .btn:not(.btn-primary):not(.colored):not(:disabled).warning.selected i {
+  color: white;
+}
+body:not(.binary).colored.colored .btn:not(.btn-primary):not(.colored):not(:disabled).warning.selected svg {
+  fill: white;
+}
 
 /******************************************************************************\
 |                                                                              |
@@ -1000,6 +1256,43 @@ body:not(.binary).colored.colored .btn.btn-primary:disabled svg {
 |******************************************************************************|
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
+body:not(.binary).colored.flat-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).success:hover, body:not(.binary).colored.flat.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).success:hover {
+  background-color: hsl(135, 33%, 50%);
+  border-color: hsl(135, 33%, 50%);
+}
+body:not(.binary).colored.flat-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).success:active, body:not(.binary).colored.flat.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).success:active {
+  background-color: color-mix(in srgb, rgb(0, 0, 127) 10%, hsl(135, 33%, 50%));
+  border-color: color-mix(in srgb, rgb(0, 0, 127) 10%, hsl(135, 33%, 50%));
+}
+body:not(.binary).colored.flat-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).success.selected, body:not(.binary).colored.flat.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).success.selected {
+  background-color: hsl(135, 33%, 50%);
+  border-color: hsl(135, 33%, 50%);
+}
+body:not(.binary).colored.flat-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).caution:hover, body:not(.binary).colored.flat.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).caution:hover {
+  background-color: #df9820;
+  border-color: #df9820;
+}
+body:not(.binary).colored.flat-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).caution:active, body:not(.binary).colored.flat.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).caution:active {
+  background-color: color-mix(in srgb, rgb(0, 0, 127) 10%, #df9820);
+  border-color: color-mix(in srgb, rgb(0, 0, 127) 10%, #df9820);
+}
+body:not(.binary).colored.flat-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).caution.selected, body:not(.binary).colored.flat.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).caution.selected {
+  background-color: #df9820;
+  border-color: #df9820;
+}
+body:not(.binary).colored.flat-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).warning:hover, body:not(.binary).colored.flat.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).warning:hover {
+  background-color: #da5626;
+  border-color: #da5626;
+}
+body:not(.binary).colored.flat-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).warning:active, body:not(.binary).colored.flat.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).warning:active {
+  background-color: color-mix(in srgb, rgb(0, 0, 127) 10%, #da5626);
+  border-color: color-mix(in srgb, rgb(0, 0, 127) 10%, #da5626);
+}
+body:not(.binary).colored.flat-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).warning.selected, body:not(.binary).colored.flat.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).warning.selected {
+  background-color: #da5626;
+  border-color: #da5626;
+}
+
 @supports (color: color-mix(in srgb, white, black)) {
   body:not(.binary).colored.colored.flat-buttons .btn.btn-primary, body:not(.binary).colored.colored.flat.auto-buttons .btn.btn-primary {
     background-color: var(--primary-color);
@@ -1451,6 +1744,151 @@ body:not(.binary).colored.colored ::-webkit-scrollbar-thumb:active {
 |******************************************************************************|
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
+body:not(.binary).flat-sliders.colored input[type=range].colored.success, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.success {
+  -webkit-appearance: none;
+}
+body:not(.binary).flat-sliders.colored input[type=range].colored.success::-webkit-slider-thumb:active, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.success::-webkit-slider-thumb:active {
+  background-color: hsl(135, 33%, 50%);
+  border-color: hsl(135, 33%, 50%);
+}
+body:not(.binary).flat-sliders.colored input[type=range].colored.success::-webkit-slider-thumb:active.round, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.success::-webkit-slider-thumb:active.round {
+  background-color: hsl(135, 33%, 50%);
+  border-color: hsl(135, 33%, 50%);
+}
+body:not(.binary).flat-sliders.colored input[type=range].colored.success::-webkit-slider-thumb:active.rounded, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.success::-webkit-slider-thumb:active.rounded {
+  background-color: hsl(135, 33%, 50%);
+  border-color: hsl(135, 33%, 50%);
+}
+body:not(.binary).flat-sliders.colored input[type=range].colored.success::-webkit-slider-thumb:active.long.round, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.success::-webkit-slider-thumb:active.long.round {
+  background-color: hsl(135, 33%, 50%);
+}
+body:not(.binary).flat-sliders.colored input[type=range].colored.success::-moz-range-thumb:active, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.success::-moz-range-thumb:active {
+  background-color: hsl(135, 33%, 50%);
+  border-color: hsl(135, 33%, 50%);
+}
+body:not(.binary).flat-sliders.colored input[type=range].colored.success::-moz-range-thumb:active.round, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.success::-moz-range-thumb:active.round {
+  background-color: hsl(135, 33%, 50%);
+  border-color: hsl(135, 33%, 50%);
+}
+body:not(.binary).flat-sliders.colored input[type=range].colored.success::-moz-range-thumb:active.rounded, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.success::-moz-range-thumb:active.rounded {
+  background-color: hsl(135, 33%, 50%);
+  border-color: hsl(135, 33%, 50%);
+}
+body:not(.binary).flat-sliders.colored input[type=range].colored.success::-moz-range-thumb:active.long.round, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.success::-moz-range-thumb:active.long.round {
+  background-color: hsl(135, 33%, 50%);
+}
+body:not(.binary).flat-sliders.colored input[type=range].colored.success::-ms-thumb:active, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.success::-ms-thumb:active {
+  background-color: hsl(135, 33%, 50%);
+  border-color: hsl(135, 33%, 50%);
+}
+body:not(.binary).flat-sliders.colored input[type=range].colored.success::-ms-thumb:active.round, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.success::-ms-thumb:active.round {
+  background-color: hsl(135, 33%, 50%);
+  border-color: hsl(135, 33%, 50%);
+}
+body:not(.binary).flat-sliders.colored input[type=range].colored.success::-ms-thumb:active.rounded, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.success::-ms-thumb:active.rounded {
+  background-color: hsl(135, 33%, 50%);
+  border-color: hsl(135, 33%, 50%);
+}
+body:not(.binary).flat-sliders.colored input[type=range].colored.success::-ms-thumb:active.long.round, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.success::-ms-thumb:active.long.round {
+  background-color: hsl(135, 33%, 50%);
+}
+body:not(.binary).flat-sliders.colored input[type=range].colored.warning, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.warning {
+  -webkit-appearance: none;
+}
+body:not(.binary).flat-sliders.colored input[type=range].colored.warning::-webkit-slider-thumb:active, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.warning::-webkit-slider-thumb:active {
+  background-color: #da5626;
+  border-color: #da5626;
+}
+body:not(.binary).flat-sliders.colored input[type=range].colored.warning::-webkit-slider-thumb:active.round, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.warning::-webkit-slider-thumb:active.round {
+  background-color: #da5626;
+  border-color: #da5626;
+}
+body:not(.binary).flat-sliders.colored input[type=range].colored.warning::-webkit-slider-thumb:active.rounded, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.warning::-webkit-slider-thumb:active.rounded {
+  background-color: #da5626;
+  border-color: #da5626;
+}
+body:not(.binary).flat-sliders.colored input[type=range].colored.warning::-webkit-slider-thumb:active.long.round, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.warning::-webkit-slider-thumb:active.long.round {
+  background-color: #da5626;
+}
+body:not(.binary).flat-sliders.colored input[type=range].colored.warning::-moz-range-thumb:active, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.warning::-moz-range-thumb:active {
+  background-color: #da5626;
+  border-color: #da5626;
+}
+body:not(.binary).flat-sliders.colored input[type=range].colored.warning::-moz-range-thumb:active.round, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.warning::-moz-range-thumb:active.round {
+  background-color: #da5626;
+  border-color: #da5626;
+}
+body:not(.binary).flat-sliders.colored input[type=range].colored.warning::-moz-range-thumb:active.rounded, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.warning::-moz-range-thumb:active.rounded {
+  background-color: #da5626;
+  border-color: #da5626;
+}
+body:not(.binary).flat-sliders.colored input[type=range].colored.warning::-moz-range-thumb:active.long.round, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.warning::-moz-range-thumb:active.long.round {
+  background-color: #da5626;
+}
+body:not(.binary).flat-sliders.colored input[type=range].colored.warning::-ms-thumb:active, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.warning::-ms-thumb:active {
+  background-color: #da5626;
+  border-color: #da5626;
+}
+body:not(.binary).flat-sliders.colored input[type=range].colored.warning::-ms-thumb:active.round, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.warning::-ms-thumb:active.round {
+  background-color: #da5626;
+  border-color: #da5626;
+}
+body:not(.binary).flat-sliders.colored input[type=range].colored.warning::-ms-thumb:active.rounded, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.warning::-ms-thumb:active.rounded {
+  background-color: #da5626;
+  border-color: #da5626;
+}
+body:not(.binary).flat-sliders.colored input[type=range].colored.warning::-ms-thumb:active.long.round, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.warning::-ms-thumb:active.long.round {
+  background-color: #da5626;
+}
+body:not(.binary).flat-sliders.colored input[type=range].colored.error, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.error {
+  -webkit-appearance: none;
+}
+body:not(.binary).flat-sliders.colored input[type=range].colored.error::-webkit-slider-thumb:active, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.error::-webkit-slider-thumb:active {
+  background-color: #dc5656;
+  border-color: #dc5656;
+}
+body:not(.binary).flat-sliders.colored input[type=range].colored.error::-webkit-slider-thumb:active.round, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.error::-webkit-slider-thumb:active.round {
+  background-color: #dc5656;
+  border-color: #dc5656;
+}
+body:not(.binary).flat-sliders.colored input[type=range].colored.error::-webkit-slider-thumb:active.rounded, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.error::-webkit-slider-thumb:active.rounded {
+  background-color: #dc5656;
+  border-color: #dc5656;
+}
+body:not(.binary).flat-sliders.colored input[type=range].colored.error::-webkit-slider-thumb:active.long.round, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.error::-webkit-slider-thumb:active.long.round {
+  background-color: #dc5656;
+}
+body:not(.binary).flat-sliders.colored input[type=range].colored.error::-moz-range-thumb:active, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.error::-moz-range-thumb:active {
+  background-color: #dc5656;
+  border-color: #dc5656;
+}
+body:not(.binary).flat-sliders.colored input[type=range].colored.error::-moz-range-thumb:active.round, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.error::-moz-range-thumb:active.round {
+  background-color: #dc5656;
+  border-color: #dc5656;
+}
+body:not(.binary).flat-sliders.colored input[type=range].colored.error::-moz-range-thumb:active.rounded, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.error::-moz-range-thumb:active.rounded {
+  background-color: #dc5656;
+  border-color: #dc5656;
+}
+body:not(.binary).flat-sliders.colored input[type=range].colored.error::-moz-range-thumb:active.long.round, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.error::-moz-range-thumb:active.long.round {
+  background-color: #dc5656;
+}
+body:not(.binary).flat-sliders.colored input[type=range].colored.error::-ms-thumb:active, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.error::-ms-thumb:active {
+  background-color: #dc5656;
+  border-color: #dc5656;
+}
+body:not(.binary).flat-sliders.colored input[type=range].colored.error::-ms-thumb:active.round, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.error::-ms-thumb:active.round {
+  background-color: #dc5656;
+  border-color: #dc5656;
+}
+body:not(.binary).flat-sliders.colored input[type=range].colored.error::-ms-thumb:active.rounded, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.error::-ms-thumb:active.rounded {
+  background-color: #dc5656;
+  border-color: #dc5656;
+}
+body:not(.binary).flat-sliders.colored input[type=range].colored.error::-ms-thumb:active.long.round, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.error::-ms-thumb:active.long.round {
+  background-color: #dc5656;
+}
+
 @supports (color: color-mix(in srgb, white, black)) {
   body:not(.binary).colored.colored.flat-sliders input[type=range]:not(.colored), body:not(.binary).colored.colored.flat.auto-sliders input[type=range]:not(.colored) {
     -webkit-appearance: none;
@@ -1667,11 +2105,64 @@ body:not(.binary).colored.colored ul.nav-tabs > li.active > a:focus label {
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
+|                          _colored-chalk-badges.scss                          |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body:not(.binary).chalk.colored .badge {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, transparent 100%) no-repeat, linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, transparent 50%, rgba(0, 0, 0, 0.1) 100%) no-repeat;
+  background-color: hsl(220, 75%, 50%);
+  border-color: #1d56d5;
+}
+body:not(.binary).chalk.colored .badge.success {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, transparent 100%) no-repeat, linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, transparent 50%, rgba(0, 0, 0, 0.1) 100%) no-repeat;
+  background-color: hsl(135, 33%, 50%);
+  border-color: #4d996c;
+}
+body:not(.binary).chalk.colored .badge.caution {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, transparent 100%) no-repeat, linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, transparent 50%, rgba(0, 0, 0, 0.1) 100%) no-repeat;
+  background-color: #df9820;
+  border-color: #c9892a;
+}
+body:not(.binary).chalk.colored .badge.warning {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, transparent 100%) no-repeat, linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, transparent 50%, rgba(0, 0, 0, 0.1) 100%) no-repeat;
+  background-color: #da5626;
+  border-color: #c44d2f;
+}
+
+/******************************************************************************\
+|                                                                              |
 |                               _chalk-btns.scss                               |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
 |        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                             _chalk-buttons.scss                              |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |
@@ -1697,6 +2188,52 @@ body:not(.binary).colored.colored ul.nav-tabs > li.active > a:focus label {
 |******************************************************************************|
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
+body:not(.binary).colored.chalk-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).success:hover, body:not(.binary).colored.chalk.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).success:hover {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: hsl(135, 33%, 50%);
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, hsl(135, 33%, 50%));
+}
+body:not(.binary).colored.chalk-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).success:active, body:not(.binary).colored.chalk.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).success:active {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: color-mix(in srgb, rgb(0, 0, 127) 10%, hsl(135, 33%, 50%));
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, color-mix(in srgb, rgb(0, 0, 127) 10%, hsl(135, 33%, 50%)));
+}
+body:not(.binary).colored.chalk-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).success.selected, body:not(.binary).colored.chalk.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).success.selected {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: hsl(135, 33%, 50%);
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, hsl(135, 33%, 50%));
+}
+body:not(.binary).colored.chalk-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).caution:hover, body:not(.binary).colored.chalk.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).caution:hover {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: #df9820;
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, #df9820);
+}
+body:not(.binary).colored.chalk-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).caution:active, body:not(.binary).colored.chalk.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).caution:active {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: color-mix(in srgb, rgb(0, 0, 127) 10%, #df9820);
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, color-mix(in srgb, rgb(0, 0, 127) 10%, #df9820));
+}
+body:not(.binary).colored.chalk-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).caution.selected, body:not(.binary).colored.chalk.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).caution.selected {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: #df9820;
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, #df9820);
+}
+body:not(.binary).colored.chalk-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).warning:hover, body:not(.binary).colored.chalk.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).warning:hover {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: #da5626;
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, #da5626);
+}
+body:not(.binary).colored.chalk-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).warning:active, body:not(.binary).colored.chalk.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).warning:active {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: color-mix(in srgb, rgb(0, 0, 127) 10%, #da5626);
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, color-mix(in srgb, rgb(0, 0, 127) 10%, #da5626));
+}
+body:not(.binary).colored.chalk-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).warning.selected, body:not(.binary).colored.chalk.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).warning.selected {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: #da5626;
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, #da5626);
+}
+
 @supports (color: color-mix(in srgb, white, black)) {
   body:not(.binary).colored.colored.chalk-buttons .btn.btn-primary, body:not(.binary).colored.colored.chalk.auto-buttons .btn.btn-primary {
     background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
@@ -2321,6 +2858,70 @@ input[type=range]::-moz-range-track {
 |******************************************************************************|
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
+body:not(.binary).chalk-sliders.colored input[type=range].colored.success, body:not(.binary).chalk.auto-sliders.colored input[type=range].colored.success {
+  -webkit-appearance: none;
+}
+body:not(.binary).chalk-sliders.colored input[type=range].colored.success::-webkit-slider-thumb:active, body:not(.binary).chalk.auto-sliders.colored input[type=range].colored.success::-webkit-slider-thumb:active {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: hsl(135, 33%, 50%);
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, hsl(135, 33%, 50%));
+  transform: scale(-1) rotate(var(--light-direction));
+}
+body:not(.binary).chalk-sliders.colored input[type=range].colored.success::-moz-range-thumb:active, body:not(.binary).chalk.auto-sliders.colored input[type=range].colored.success::-moz-range-thumb:active {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: hsl(135, 33%, 50%);
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, hsl(135, 33%, 50%));
+  transform: scale(-1) rotate(var(--light-direction));
+}
+body:not(.binary).chalk-sliders.colored input[type=range].colored.success::-ms-thumb:active, body:not(.binary).chalk.auto-sliders.colored input[type=range].colored.success::-ms-thumb:active {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: hsl(135, 33%, 50%);
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, hsl(135, 33%, 50%));
+  transform: scale(-1) rotate(var(--light-direction));
+}
+body:not(.binary).chalk-sliders.colored input[type=range].colored.warning, body:not(.binary).chalk.auto-sliders.colored input[type=range].colored.warning {
+  -webkit-appearance: none;
+}
+body:not(.binary).chalk-sliders.colored input[type=range].colored.warning::-webkit-slider-thumb:active, body:not(.binary).chalk.auto-sliders.colored input[type=range].colored.warning::-webkit-slider-thumb:active {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: #da5626;
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, #da5626);
+  transform: scale(-1) rotate(var(--light-direction));
+}
+body:not(.binary).chalk-sliders.colored input[type=range].colored.warning::-moz-range-thumb:active, body:not(.binary).chalk.auto-sliders.colored input[type=range].colored.warning::-moz-range-thumb:active {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: #da5626;
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, #da5626);
+  transform: scale(-1) rotate(var(--light-direction));
+}
+body:not(.binary).chalk-sliders.colored input[type=range].colored.warning::-ms-thumb:active, body:not(.binary).chalk.auto-sliders.colored input[type=range].colored.warning::-ms-thumb:active {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: #da5626;
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, #da5626);
+  transform: scale(-1) rotate(var(--light-direction));
+}
+body:not(.binary).chalk-sliders.colored input[type=range].colored.error, body:not(.binary).chalk.auto-sliders.colored input[type=range].colored.error {
+  -webkit-appearance: none;
+}
+body:not(.binary).chalk-sliders.colored input[type=range].colored.error::-webkit-slider-thumb:active, body:not(.binary).chalk.auto-sliders.colored input[type=range].colored.error::-webkit-slider-thumb:active {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: #dc5656;
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, #dc5656);
+  transform: scale(-1) rotate(var(--light-direction));
+}
+body:not(.binary).chalk-sliders.colored input[type=range].colored.error::-moz-range-thumb:active, body:not(.binary).chalk.auto-sliders.colored input[type=range].colored.error::-moz-range-thumb:active {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: #dc5656;
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, #dc5656);
+  transform: scale(-1) rotate(var(--light-direction));
+}
+body:not(.binary).chalk-sliders.colored input[type=range].colored.error::-ms-thumb:active, body:not(.binary).chalk.auto-sliders.colored input[type=range].colored.error::-ms-thumb:active {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: #dc5656;
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, #dc5656);
+  transform: scale(-1) rotate(var(--light-direction));
+}
+
 @supports (color: color-mix(in srgb, white, black)) {
   body:not(.binary).colored.colored.chalk-sliders input[type=range]:not(.colored), body:not(.binary).colored.colored.chalk.auto-sliders input[type=range]:not(.colored) {
     -webkit-appearance: none;
@@ -2447,11 +3048,64 @@ input[type=range]::-moz-range-track {
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
+|                        _colored-plastic-badges.scss                          |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body:not(.binary).plastic.colored .badge {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, white 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), rgba(255, 255, 255, 0.1) 0%, transparent 50%, rgba(0, 0, 0, 0.1) 100%) no-repeat;
+  background-color: hsl(220, 75%, 50%);
+  border-color: #1d56d5;
+}
+body:not(.binary).plastic.colored .badge.success {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, white 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), rgba(255, 255, 255, 0.1) 0%, transparent 50%, rgba(0, 0, 0, 0.1) 100%) no-repeat;
+  background-color: hsl(135, 33%, 50%);
+  border-color: #4d996c;
+}
+body:not(.binary).plastic.colored .badge.caution {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, white 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), rgba(255, 255, 255, 0.1) 0%, transparent 50%, rgba(0, 0, 0, 0.1) 100%) no-repeat;
+  background-color: #df9820;
+  border-color: #c9892a;
+}
+body:not(.binary).plastic.colored .badge.warning {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, white 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), rgba(255, 255, 255, 0.1) 0%, transparent 50%, rgba(0, 0, 0, 0.1) 100%) no-repeat;
+  background-color: #da5626;
+  border-color: #c44d2f;
+}
+
+/******************************************************************************\
+|                                                                              |
 |                              _plastic-btns.scss                              |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
 |        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                            _plastic-buttons.scss                             |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |
@@ -2477,6 +3131,52 @@ input[type=range]::-moz-range-track {
 |******************************************************************************|
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
+body:not(.binary).colored.plastic-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).success:hover, body:not(.binary).colored.plastic.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).success:hover {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: hsl(135, 33%, 50%);
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, hsl(135, 33%, 50%));
+}
+body:not(.binary).colored.plastic-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).success:active, body:not(.binary).colored.plastic.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).success:active {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: color-mix(in srgb, rgb(0, 0, 127) 10%, hsl(135, 33%, 50%));
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, color-mix(in srgb, rgb(0, 0, 127) 10%, hsl(135, 33%, 50%)));
+}
+body:not(.binary).colored.plastic-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).success.selected, body:not(.binary).colored.plastic.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).success.selected {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: hsl(135, 33%, 50%);
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, hsl(135, 33%, 50%));
+}
+body:not(.binary).colored.plastic-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).caution:hover, body:not(.binary).colored.plastic.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).caution:hover {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: #df9820;
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, #df9820);
+}
+body:not(.binary).colored.plastic-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).caution:active, body:not(.binary).colored.plastic.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).caution:active {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: color-mix(in srgb, rgb(0, 0, 127) 10%, #df9820);
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, color-mix(in srgb, rgb(0, 0, 127) 10%, #df9820));
+}
+body:not(.binary).colored.plastic-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).caution.selected, body:not(.binary).colored.plastic.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).caution.selected {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: #df9820;
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, #df9820);
+}
+body:not(.binary).colored.plastic-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).warning:hover, body:not(.binary).colored.plastic.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).warning:hover {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: #da5626;
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, #da5626);
+}
+body:not(.binary).colored.plastic-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).warning:active, body:not(.binary).colored.plastic.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).warning:active {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: color-mix(in srgb, rgb(0, 0, 127) 10%, #da5626);
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, color-mix(in srgb, rgb(0, 0, 127) 10%, #da5626));
+}
+body:not(.binary).colored.plastic-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).warning.selected, body:not(.binary).colored.plastic.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).warning.selected {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: #da5626;
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, #da5626);
+}
+
 @supports (color: color-mix(in srgb, white, black)) {
   body:not(.binary).colored.colored.plastic-buttons .btn.btn-primary, body:not(.binary).colored.colored.plastic.auto-buttons .btn.btn-primary {
     background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
@@ -2833,6 +3533,61 @@ input[type=range]::-moz-range-track {
 |******************************************************************************|
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
+body:not(.binary).plastic-sliders.colored input[type=range].colored.success, body:not(.binary).plastic.auto-sliders.colored input[type=range].colored.success {
+  -webkit-appearance: none;
+}
+body:not(.binary).plastic-sliders.colored input[type=range].colored.success::-webkit-slider-thumb:active, body:not(.binary).plastic.auto-sliders.colored input[type=range].colored.success::-webkit-slider-thumb:active {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: hsl(135, 33%, 50%);
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, hsl(135, 33%, 50%));
+}
+body:not(.binary).plastic-sliders.colored input[type=range].colored.success::-moz-range-thumb:active, body:not(.binary).plastic.auto-sliders.colored input[type=range].colored.success::-moz-range-thumb:active {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: hsl(135, 33%, 50%);
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, hsl(135, 33%, 50%));
+}
+body:not(.binary).plastic-sliders.colored input[type=range].colored.success::-ms-thumb:active, body:not(.binary).plastic.auto-sliders.colored input[type=range].colored.success::-ms-thumb:active {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: hsl(135, 33%, 50%);
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, hsl(135, 33%, 50%));
+}
+body:not(.binary).plastic-sliders.colored input[type=range].colored.warning, body:not(.binary).plastic.auto-sliders.colored input[type=range].colored.warning {
+  -webkit-appearance: none;
+}
+body:not(.binary).plastic-sliders.colored input[type=range].colored.warning::-webkit-slider-thumb:active, body:not(.binary).plastic.auto-sliders.colored input[type=range].colored.warning::-webkit-slider-thumb:active {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: #da5626;
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, #da5626);
+}
+body:not(.binary).plastic-sliders.colored input[type=range].colored.warning::-moz-range-thumb:active, body:not(.binary).plastic.auto-sliders.colored input[type=range].colored.warning::-moz-range-thumb:active {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: #da5626;
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, #da5626);
+}
+body:not(.binary).plastic-sliders.colored input[type=range].colored.warning::-ms-thumb:active, body:not(.binary).plastic.auto-sliders.colored input[type=range].colored.warning::-ms-thumb:active {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: #da5626;
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, #da5626);
+}
+body:not(.binary).plastic-sliders.colored input[type=range].colored.error, body:not(.binary).plastic.auto-sliders.colored input[type=range].colored.error {
+  -webkit-appearance: none;
+}
+body:not(.binary).plastic-sliders.colored input[type=range].colored.error::-webkit-slider-thumb:active, body:not(.binary).plastic.auto-sliders.colored input[type=range].colored.error::-webkit-slider-thumb:active {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: #dc5656;
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, #dc5656);
+}
+body:not(.binary).plastic-sliders.colored input[type=range].colored.error::-moz-range-thumb:active, body:not(.binary).plastic.auto-sliders.colored input[type=range].colored.error::-moz-range-thumb:active {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: #dc5656;
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, #dc5656);
+}
+body:not(.binary).plastic-sliders.colored input[type=range].colored.error::-ms-thumb:active, body:not(.binary).plastic.auto-sliders.colored input[type=range].colored.error::-ms-thumb:active {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
+  background-color: #dc5656;
+  border-color: color-mix(in srgb, var(--ambient-color) 10%, #dc5656);
+}
+
 @supports (color: color-mix(in srgb, white, black)) {
   body:not(.binary).colored.colored.plastic-sliders input[type=range]:not(.colored), body:not(.binary).colored.colored.plastic.auto-sliders input[type=range]:not(.colored) {
     -webkit-appearance: none;
@@ -2953,11 +3708,64 @@ input[type=range]::-moz-range-track {
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
+|                         _colored-glass-badges.scss                           |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body:not(.binary).glass.colored .badge {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, white 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #d2dff9 0%, #3670e2 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, rgba(32, 96, 223, 0.5) 100%) no-repeat;
+  background-color: #1643c2;
+  border-color: #1643c2;
+}
+body:not(.binary).glass.colored .badge.success {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, white 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #ddeee1 0%, #66b379 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, rgba(85, 170, 106, 0.5) 100%) no-repeat;
+  background-color: #3c7770;
+  border-color: #3c7770;
+}
+body:not(.binary).glass.colored .badge.caution {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, white 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #f9ead2 0%, #e2a236 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, rgba(223, 152, 32, 0.5) 100%) no-repeat;
+  background-color: #9c6a3d;
+  border-color: #9c6a3d;
+}
+body:not(.binary).glass.colored .badge.warning {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, white 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #f8ddd4 0%, #de673c 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, rgba(218, 86, 38, 0.5) 100%) no-repeat;
+  background-color: #993c41;
+  border-color: #993c41;
+}
+
+/******************************************************************************\
+|                                                                              |
 |                               _glass-btns.scss                               |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
 |        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                             _glass-buttons.scss                              |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |
@@ -2983,6 +3791,52 @@ input[type=range]::-moz-range-track {
 |******************************************************************************|
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
+body:not(.binary).colored.glass-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).success:hover, body:not(.binary).colored.glass.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).success:hover {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, hsl(135, 33%, 50%)) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, hsl(135, 33%, 50%)) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, hsl(135, 33%, 50%) 50%, transparent) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 30%, hsl(135, 33%, 50%));
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, hsl(135, 33%, 50%));
+}
+body:not(.binary).colored.glass-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).success:active, body:not(.binary).colored.glass.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).success:active {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, color-mix(in srgb, rgb(0, 0, 127) 10%, hsl(135, 33%, 50%))) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, color-mix(in srgb, rgb(0, 0, 127) 10%, hsl(135, 33%, 50%))) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 10%, hsl(135, 33%, 50%)) 50%, transparent) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 30%, color-mix(in srgb, rgb(0, 0, 127) 10%, hsl(135, 33%, 50%)));
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, color-mix(in srgb, rgb(0, 0, 127) 10%, hsl(135, 33%, 50%)));
+}
+body:not(.binary).colored.glass-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).success.selected, body:not(.binary).colored.glass.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).success.selected {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, hsl(135, 33%, 50%)) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, hsl(135, 33%, 50%)) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, hsl(135, 33%, 50%) 50%, transparent) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 30%, hsl(135, 33%, 50%));
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, hsl(135, 33%, 50%));
+}
+body:not(.binary).colored.glass-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).caution:hover, body:not(.binary).colored.glass.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).caution:hover {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, #df9820) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, #df9820) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, #df9820 50%, transparent) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 30%, #df9820);
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, #df9820);
+}
+body:not(.binary).colored.glass-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).caution:active, body:not(.binary).colored.glass.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).caution:active {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, color-mix(in srgb, rgb(0, 0, 127) 10%, #df9820)) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, color-mix(in srgb, rgb(0, 0, 127) 10%, #df9820)) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 10%, #df9820) 50%, transparent) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 30%, color-mix(in srgb, rgb(0, 0, 127) 10%, #df9820));
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, color-mix(in srgb, rgb(0, 0, 127) 10%, #df9820));
+}
+body:not(.binary).colored.glass-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).caution.selected, body:not(.binary).colored.glass.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).caution.selected {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, #df9820) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, #df9820) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, #df9820 50%, transparent) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 30%, #df9820);
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, #df9820);
+}
+body:not(.binary).colored.glass-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).warning:hover, body:not(.binary).colored.glass.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).warning:hover {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, #da5626) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, #da5626) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, #da5626 50%, transparent) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 30%, #da5626);
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, #da5626);
+}
+body:not(.binary).colored.glass-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).warning:active, body:not(.binary).colored.glass.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).warning:active {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, color-mix(in srgb, rgb(0, 0, 127) 10%, #da5626)) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, color-mix(in srgb, rgb(0, 0, 127) 10%, #da5626)) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 10%, #da5626) 50%, transparent) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 30%, color-mix(in srgb, rgb(0, 0, 127) 10%, #da5626));
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, color-mix(in srgb, rgb(0, 0, 127) 10%, #da5626));
+}
+body:not(.binary).colored.glass-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).warning.selected, body:not(.binary).colored.glass.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).warning.selected {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, #da5626) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, #da5626) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, #da5626 50%, transparent) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 30%, #da5626);
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, #da5626);
+}
+
 @supports (color: color-mix(in srgb, white, black)) {
   body:not(.binary).colored.colored.glass-buttons .btn.btn-primary, body:not(.binary).colored.colored.glass.auto-buttons .btn.btn-primary {
     background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, var(--primary-color)) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, var(--primary-color)) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, var(--primary-color) 50%, transparent) 100%) no-repeat;
@@ -3339,6 +4193,70 @@ input[type=range]::-moz-range-track {
 |******************************************************************************|
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
+body:not(.binary).glass-sliders.colored input[type=range].colored.success, body:not(.binary).glass.auto-sliders.colored input[type=range].colored.success {
+  -webkit-appearance: none;
+}
+body:not(.binary).glass-sliders.colored input[type=range].colored.success::-webkit-slider-thumb:active, body:not(.binary).glass.auto-sliders.colored input[type=range].colored.success::-webkit-slider-thumb:active {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, hsl(135, 33%, 50%)) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, hsl(135, 33%, 50%)) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, hsl(135, 33%, 50%) 50%, transparent) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 30%, hsl(135, 33%, 50%));
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, hsl(135, 33%, 50%));
+  transform: scale(-1) rotate(var(--light-direction));
+}
+body:not(.binary).glass-sliders.colored input[type=range].colored.success::-moz-range-thumb:active, body:not(.binary).glass.auto-sliders.colored input[type=range].colored.success::-moz-range-thumb:active {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, hsl(135, 33%, 50%)) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, hsl(135, 33%, 50%)) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, hsl(135, 33%, 50%) 50%, transparent) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 30%, hsl(135, 33%, 50%));
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, hsl(135, 33%, 50%));
+  transform: scale(-1) rotate(var(--light-direction));
+}
+body:not(.binary).glass-sliders.colored input[type=range].colored.success::-ms-thumb:active, body:not(.binary).glass.auto-sliders.colored input[type=range].colored.success::-ms-thumb:active {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, hsl(135, 33%, 50%)) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, hsl(135, 33%, 50%)) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, hsl(135, 33%, 50%) 50%, transparent) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 30%, hsl(135, 33%, 50%));
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, hsl(135, 33%, 50%));
+  transform: scale(-1) rotate(var(--light-direction));
+}
+body:not(.binary).glass-sliders.colored input[type=range].colored.warning, body:not(.binary).glass.auto-sliders.colored input[type=range].colored.warning {
+  -webkit-appearance: none;
+}
+body:not(.binary).glass-sliders.colored input[type=range].colored.warning::-webkit-slider-thumb:active, body:not(.binary).glass.auto-sliders.colored input[type=range].colored.warning::-webkit-slider-thumb:active {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, #da5626) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, #da5626) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, #da5626 50%, transparent) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 30%, #da5626);
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, #da5626);
+  transform: scale(-1) rotate(var(--light-direction));
+}
+body:not(.binary).glass-sliders.colored input[type=range].colored.warning::-moz-range-thumb:active, body:not(.binary).glass.auto-sliders.colored input[type=range].colored.warning::-moz-range-thumb:active {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, #da5626) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, #da5626) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, #da5626 50%, transparent) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 30%, #da5626);
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, #da5626);
+  transform: scale(-1) rotate(var(--light-direction));
+}
+body:not(.binary).glass-sliders.colored input[type=range].colored.warning::-ms-thumb:active, body:not(.binary).glass.auto-sliders.colored input[type=range].colored.warning::-ms-thumb:active {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, #da5626) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, #da5626) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, #da5626 50%, transparent) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 30%, #da5626);
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, #da5626);
+  transform: scale(-1) rotate(var(--light-direction));
+}
+body:not(.binary).glass-sliders.colored input[type=range].colored.error, body:not(.binary).glass.auto-sliders.colored input[type=range].colored.error {
+  -webkit-appearance: none;
+}
+body:not(.binary).glass-sliders.colored input[type=range].colored.error::-webkit-slider-thumb:active, body:not(.binary).glass.auto-sliders.colored input[type=range].colored.error::-webkit-slider-thumb:active {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, #dc5656) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, #dc5656) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, #dc5656 50%, transparent) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 30%, #dc5656);
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, #dc5656);
+  transform: scale(-1) rotate(var(--light-direction));
+}
+body:not(.binary).glass-sliders.colored input[type=range].colored.error::-moz-range-thumb:active, body:not(.binary).glass.auto-sliders.colored input[type=range].colored.error::-moz-range-thumb:active {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, #dc5656) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, #dc5656) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, #dc5656 50%, transparent) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 30%, #dc5656);
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, #dc5656);
+  transform: scale(-1) rotate(var(--light-direction));
+}
+body:not(.binary).glass-sliders.colored input[type=range].colored.error::-ms-thumb:active, body:not(.binary).glass.auto-sliders.colored input[type=range].colored.error::-ms-thumb:active {
+  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, #dc5656) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, #dc5656) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, #dc5656 50%, transparent) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 30%, #dc5656);
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, #dc5656);
+  transform: scale(-1) rotate(var(--light-direction));
+}
+
 @supports (color: color-mix(in srgb, white, black)) {
   body:not(.binary).colored.colored.glass-sliders input[type=range]:not(.colored), body:not(.binary).colored.colored.glass.auto-sliders input[type=range]:not(.colored) {
     -webkit-appearance: none;
@@ -3465,11 +4383,64 @@ input[type=range]::-moz-range-track {
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
+|                         _colored-metal-badges.scss                           |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body:not(.binary).metal.colored .badge {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(77, 128, 229, 0.75) 50%, rgba(0, 0, 0, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, #2060df 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, rgba(32, 96, 223, 0.5) 66%, #6390e9 100%) no-repeat;
+  background-color: #1030af;
+  border-color: #1643c2;
+}
+body:not(.binary).metal.colored .badge.success {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(119, 187, 136, 0.75) 50%, rgba(0, 0, 0, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, #55aa6a 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, rgba(85, 170, 106, 0.5) 66%, #88c497 100%) no-repeat;
+  background-color: #2b5575;
+  border-color: #3c7770;
+}
+body:not(.binary).metal.colored .badge.caution {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(229, 173, 77, 0.75) 50%, rgba(0, 0, 0, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, #df9820 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, rgba(223, 152, 32, 0.5) 66%, #e9b763 100%) no-repeat;
+  background-color: #704c50;
+  border-color: #9c6a3d;
+}
+body:not(.binary).metal.colored .badge.warning {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(225, 120, 81, 0.75) 50%, rgba(0, 0, 0, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, #da5626 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, rgba(218, 86, 38, 0.5) 66%, #e58967 100%) no-repeat;
+  background-color: #6d2b53;
+  border-color: #993c41;
+}
+
+/******************************************************************************\
+|                                                                              |
 |                               _metal-btns.scss                               |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
 |        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                             _metal-buttons.scss                              |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |
@@ -3495,6 +4466,52 @@ input[type=range]::-moz-range-track {
 |******************************************************************************|
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
+body:not(.binary).colored.metal-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).success:hover, body:not(.binary).colored.metal.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).success:hover {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, hsl(135, 33%, 50%)) 75%, transparent) 50%, color-mix(in srgb, hsl(135, 33%, 50%) 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, hsl(135, 33%, 50%) 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, hsl(135, 33%, 50%) 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, hsl(135, 33%, 50%)) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 50%, hsl(135, 33%, 50%));
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, hsl(135, 33%, 50%));
+}
+body:not(.binary).colored.metal-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).success:active, body:not(.binary).colored.metal.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).success:active {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, color-mix(in srgb, rgb(0, 0, 127) 10%, hsl(135, 33%, 50%))) 75%, transparent) 50%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 10%, hsl(135, 33%, 50%)) 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 10%, hsl(135, 33%, 50%)) 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 10%, hsl(135, 33%, 50%)) 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, color-mix(in srgb, rgb(0, 0, 127) 10%, hsl(135, 33%, 50%))) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 50%, color-mix(in srgb, rgb(0, 0, 127) 10%, hsl(135, 33%, 50%)));
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, color-mix(in srgb, rgb(0, 0, 127) 10%, hsl(135, 33%, 50%)));
+}
+body:not(.binary).colored.metal-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).success.selected, body:not(.binary).colored.metal.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).success.selected {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, hsl(135, 33%, 50%)) 75%, transparent) 50%, color-mix(in srgb, hsl(135, 33%, 50%) 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, hsl(135, 33%, 50%) 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, hsl(135, 33%, 50%) 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, hsl(135, 33%, 50%)) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 50%, hsl(135, 33%, 50%));
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, hsl(135, 33%, 50%));
+}
+body:not(.binary).colored.metal-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).caution:hover, body:not(.binary).colored.metal.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).caution:hover {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, #df9820) 75%, transparent) 50%, color-mix(in srgb, #df9820 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, #df9820 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, #df9820 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, #df9820) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 50%, #df9820);
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, #df9820);
+}
+body:not(.binary).colored.metal-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).caution:active, body:not(.binary).colored.metal.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).caution:active {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, color-mix(in srgb, rgb(0, 0, 127) 10%, #df9820)) 75%, transparent) 50%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 10%, #df9820) 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 10%, #df9820) 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 10%, #df9820) 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, color-mix(in srgb, rgb(0, 0, 127) 10%, #df9820)) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 50%, color-mix(in srgb, rgb(0, 0, 127) 10%, #df9820));
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, color-mix(in srgb, rgb(0, 0, 127) 10%, #df9820));
+}
+body:not(.binary).colored.metal-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).caution.selected, body:not(.binary).colored.metal.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).caution.selected {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, #df9820) 75%, transparent) 50%, color-mix(in srgb, #df9820 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, #df9820 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, #df9820 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, #df9820) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 50%, #df9820);
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, #df9820);
+}
+body:not(.binary).colored.metal-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).warning:hover, body:not(.binary).colored.metal.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).warning:hover {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, #da5626) 75%, transparent) 50%, color-mix(in srgb, #da5626 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, #da5626 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, #da5626 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, #da5626) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 50%, #da5626);
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, #da5626);
+}
+body:not(.binary).colored.metal-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).warning:active, body:not(.binary).colored.metal.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).warning:active {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, color-mix(in srgb, rgb(0, 0, 127) 10%, #da5626)) 75%, transparent) 50%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 10%, #da5626) 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 10%, #da5626) 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 10%, #da5626) 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, color-mix(in srgb, rgb(0, 0, 127) 10%, #da5626)) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 50%, color-mix(in srgb, rgb(0, 0, 127) 10%, #da5626));
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, color-mix(in srgb, rgb(0, 0, 127) 10%, #da5626));
+}
+body:not(.binary).colored.metal-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).warning.selected, body:not(.binary).colored.metal.auto-buttons .btn:not(.btn-primary):not(.colored):not(:disabled).warning.selected {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, #da5626) 75%, transparent) 50%, color-mix(in srgb, #da5626 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, #da5626 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, #da5626 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, #da5626) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 50%, #da5626);
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, #da5626);
+}
+
 @supports (color: color-mix(in srgb, white, black)) {
   body:not(.binary).colored.colored.metal-buttons .btn.btn-primary, body:not(.binary).colored.colored.metal.auto-buttons .btn.btn-primary {
     background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, var(--primary-color)) 75%, transparent) 50%, color-mix(in srgb, var(--primary-color) 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, var(--primary-color) 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, var(--primary-color) 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, var(--primary-color)) 100%) no-repeat;
@@ -3851,6 +4868,70 @@ input[type=range]::-moz-range-track {
 |******************************************************************************|
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
+body:not(.binary).metal-sliders.colored input[type=range].colored.success, body:not(.binary).metal.auto-sliders.colored input[type=range].colored.success {
+  -webkit-appearance: none;
+}
+body:not(.binary).metal-sliders.colored input[type=range].colored.success::-webkit-slider-thumb:active, body:not(.binary).metal.auto-sliders.colored input[type=range].colored.success::-webkit-slider-thumb:active {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, hsl(135, 33%, 50%)) 75%, transparent) 50%, color-mix(in srgb, hsl(135, 33%, 50%) 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, hsl(135, 33%, 50%) 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, hsl(135, 33%, 50%) 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, hsl(135, 33%, 50%)) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 50%, hsl(135, 33%, 50%));
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, hsl(135, 33%, 50%));
+  transform: scale(-1) rotate(var(--light-direction));
+}
+body:not(.binary).metal-sliders.colored input[type=range].colored.success::-moz-range-thumb:active, body:not(.binary).metal.auto-sliders.colored input[type=range].colored.success::-moz-range-thumb:active {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, hsl(135, 33%, 50%)) 75%, transparent) 50%, color-mix(in srgb, hsl(135, 33%, 50%) 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, hsl(135, 33%, 50%) 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, hsl(135, 33%, 50%) 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, hsl(135, 33%, 50%)) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 50%, hsl(135, 33%, 50%));
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, hsl(135, 33%, 50%));
+  transform: scale(-1) rotate(var(--light-direction));
+}
+body:not(.binary).metal-sliders.colored input[type=range].colored.success::-ms-thumb:active, body:not(.binary).metal.auto-sliders.colored input[type=range].colored.success::-ms-thumb:active {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, hsl(135, 33%, 50%)) 75%, transparent) 50%, color-mix(in srgb, hsl(135, 33%, 50%) 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, hsl(135, 33%, 50%) 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, hsl(135, 33%, 50%) 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, hsl(135, 33%, 50%)) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 50%, hsl(135, 33%, 50%));
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, hsl(135, 33%, 50%));
+  transform: scale(-1) rotate(var(--light-direction));
+}
+body:not(.binary).metal-sliders.colored input[type=range].colored.warning, body:not(.binary).metal.auto-sliders.colored input[type=range].colored.warning {
+  -webkit-appearance: none;
+}
+body:not(.binary).metal-sliders.colored input[type=range].colored.warning::-webkit-slider-thumb:active, body:not(.binary).metal.auto-sliders.colored input[type=range].colored.warning::-webkit-slider-thumb:active {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, #da5626) 75%, transparent) 50%, color-mix(in srgb, #da5626 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, #da5626 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, #da5626 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, #da5626) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 50%, #da5626);
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, #da5626);
+  transform: scale(-1) rotate(var(--light-direction));
+}
+body:not(.binary).metal-sliders.colored input[type=range].colored.warning::-moz-range-thumb:active, body:not(.binary).metal.auto-sliders.colored input[type=range].colored.warning::-moz-range-thumb:active {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, #da5626) 75%, transparent) 50%, color-mix(in srgb, #da5626 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, #da5626 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, #da5626 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, #da5626) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 50%, #da5626);
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, #da5626);
+  transform: scale(-1) rotate(var(--light-direction));
+}
+body:not(.binary).metal-sliders.colored input[type=range].colored.warning::-ms-thumb:active, body:not(.binary).metal.auto-sliders.colored input[type=range].colored.warning::-ms-thumb:active {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, #da5626) 75%, transparent) 50%, color-mix(in srgb, #da5626 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, #da5626 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, #da5626 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, #da5626) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 50%, #da5626);
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, #da5626);
+  transform: scale(-1) rotate(var(--light-direction));
+}
+body:not(.binary).metal-sliders.colored input[type=range].colored.error, body:not(.binary).metal.auto-sliders.colored input[type=range].colored.error {
+  -webkit-appearance: none;
+}
+body:not(.binary).metal-sliders.colored input[type=range].colored.error::-webkit-slider-thumb:active, body:not(.binary).metal.auto-sliders.colored input[type=range].colored.error::-webkit-slider-thumb:active {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, #dc5656) 75%, transparent) 50%, color-mix(in srgb, #dc5656 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, #dc5656 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, #dc5656 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, #dc5656) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 50%, #dc5656);
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, #dc5656);
+  transform: scale(-1) rotate(var(--light-direction));
+}
+body:not(.binary).metal-sliders.colored input[type=range].colored.error::-moz-range-thumb:active, body:not(.binary).metal.auto-sliders.colored input[type=range].colored.error::-moz-range-thumb:active {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, #dc5656) 75%, transparent) 50%, color-mix(in srgb, #dc5656 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, #dc5656 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, #dc5656 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, #dc5656) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 50%, #dc5656);
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, #dc5656);
+  transform: scale(-1) rotate(var(--light-direction));
+}
+body:not(.binary).metal-sliders.colored input[type=range].colored.error::-ms-thumb:active, body:not(.binary).metal.auto-sliders.colored input[type=range].colored.error::-ms-thumb:active {
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, #dc5656) 75%, transparent) 50%, color-mix(in srgb, #dc5656 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, #dc5656 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, #dc5656 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, #dc5656) 100%) no-repeat;
+  background-color: color-mix(in srgb, var(--ambient-color) 50%, #dc5656);
+  border-color: color-mix(in srgb, var(--ambient-color) 30%, #dc5656);
+  transform: scale(-1) rotate(var(--light-direction));
+}
+
 @supports (color: color-mix(in srgb, white, black)) {
   body:not(.binary).colored.colored.metal-sliders input[type=range]:not(.colored), body:not(.binary).colored.colored.metal.auto-sliders input[type=range]:not(.colored) {
     -webkit-appearance: none;

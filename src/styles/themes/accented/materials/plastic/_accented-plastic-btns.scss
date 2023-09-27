@@ -18,40 +18,10 @@
 @use "../../../../navs/materials/plastic/plastic-btns";
 @use "../../../../navs/materials/plastic/plastic-buttons";
 @use "../../navs/accented-btns";
-@use "../../../../forms/validation";
 
 //
 // styles
 //
-
-body:not(.binary).colored.accented {
-	&.plastic-buttons,
-	&.plastic.auto-buttons {
-
-		//
-		// styled buttons
-		//
-
-		.btn:not(.btn-primary):not(.colored):not(:disabled) {
-
-			//
-			// special buttons
-			//
-
-			&.success {
-				@include plastic-buttons.shade(validation.$success-color);
-			}
-
-			&.caution {
-				@include plastic-buttons.shade(validation.$caution-color);
-			}
-
-			&.warning {
-				@include plastic-buttons.shade(validation.$warning-color);
-			}
-		}
-	}
-}
 
 @supports (color: color-mix(in srgb, white, black)) {
 	body:not(.binary).colored.accented {

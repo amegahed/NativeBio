@@ -17,10 +17,39 @@
 
 @use "../../../../forms/materials/flat/flat-sliders";
 @use "../../forms/colored-sliders";
+@use "../../forms/colored-forms";
 
 //
 // styles
 //
+
+body:not(.binary) {
+	&.flat-sliders,
+	&.flat.auto-sliders {
+
+		//
+		// slider states
+		//
+
+		&.colored {
+			input[type="range"] {
+				&.colored {
+					&.success {
+						@include flat-sliders.active-thumb-shade(colored-forms.$success-color);
+					}
+
+					&.warning {
+						@include flat-sliders.active-thumb-shade(colored-forms.$warning-color);
+					}
+
+					&.error {
+						@include flat-sliders.active-thumb-shade(colored-forms.$error-color);
+					}
+				}
+			}
+		}
+	}
+}
 
 @supports (color: color-mix(in srgb, white, black)) {
 	body:not(.binary).colored.colored {

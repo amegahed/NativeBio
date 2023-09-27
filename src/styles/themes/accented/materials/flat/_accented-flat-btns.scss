@@ -18,40 +18,10 @@
 @use "../../../navs/materials/flat/flat-btns";
 @use "../../../navs/materials/flat/flat-buttons";
 @use "../../navs/accented-btns";
-@use "../../../../forms/validation";
 
 //
 // styles
 //
-
-body:not(.binary).colored.accented {
-	&.flat-buttons,
-	&.flat.auto-buttons {
-
-		//
-		// styled buttons
-		//
-
-		.btn:not(.btn-primary):not(.colored):not(:disabled) {
-
-			//
-			// special buttons
-			//
-
-			&.success {
-				@include flat-buttons.shade(validation.$success-color);
-			}
-
-			&.caution {
-				@include flat-buttons.shade(validation.$caution-color);
-			}
-
-			&.warning {
-				@include flat-buttons.shade(validation.$warning-color);
-			}
-		}
-	}
-}
 
 @supports (color: color-mix(in srgb, white, black)) {
 	body:not(.binary).colored.accented {

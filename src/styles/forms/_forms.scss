@@ -22,6 +22,9 @@
 $addon-width: 25px;
 $addon-height: 25px;
 
+$round-border-radius: 15px;
+$rounded-border-radius: 5px;
+
 $round-alert-border-radius: 15px;
 $rounded-alert-border-radius: 5px;
 
@@ -31,16 +34,20 @@ $rounded-alert-border-radius: 5px;
 
 form {
 
+	.well {
+		margin: 10px 0;
+	}
+
+	.notes {
+		text-align: right;
+	}
+
 	//
 	// form labels
 	//
 
 	label {
 		margin-bottom: 0;
-	}
-
-	.well {
-		margin: 10px 0;
 	}
 
 	//
@@ -72,6 +79,28 @@ form {
 
 	.percentage::after {
 		content: "%"
+	}
+}
+
+//
+// input corners
+//
+
+.round {
+	input, textarea {
+		border-radius: $round-border-radius;
+	}
+}
+
+.rounded {
+	input, textarea {
+		border-radius: $rounded-border-radius;
+	}
+}
+
+.square {
+	input, textarea {
+		border-radius: 0;
 	}
 }
 

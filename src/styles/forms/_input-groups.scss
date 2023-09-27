@@ -33,6 +33,7 @@ $rounded-border-radius: 5px;
 	//
 
 	input[type="text"], input[type="number"], input[type="password"], input[type="date"], input[type="time"] {
+		font-size: 1em;
 		padding: 5px 10px;
 		line-height: 15px;
 		-webkit-appearance: none;
@@ -41,12 +42,6 @@ $rounded-border-radius: 5px;
 
 	input[type="date"], input[type="time"] {
 		line-height: 15px;
-	}
-
-	input[type=number].spinnable::-webkit-outer-spin-button, 
-	input[type=number].spinnable::-webkit-inner-spin-button {
-		-webkit-appearance: inner-spin-button !important;
-		opacity: 1;
 	}
 
 	//
@@ -106,28 +101,6 @@ $rounded-border-radius: 5px;
 		button {
 			height: 25px;
 		}
-	}
-}
-
-//
-// input corners
-//
-
-.round {
-	.input-group input, textarea {
-		border-radius: $round-border-radius;
-	}
-}
-
-.rounded {
-	.input-group input, textarea {
-		border-radius: $rounded-border-radius;
-	}
-}
-
-.square {
-	.input-group input, textarea {
-		border-radius: 0;
 	}
 }
 

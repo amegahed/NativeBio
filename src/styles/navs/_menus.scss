@@ -33,6 +33,8 @@ $round-border-radius: 10px;
 $rounded-border-radius: 7px;
 $round-item-border-radius: $round-border-radius - 1px;
 $rounded-item-border-radius: $rounded-border-radius - 1px;
+$round-divider-border-radius: 15px;
+$rounded-divider-border-radius: 7px;
 
 //
 // styles
@@ -472,6 +474,10 @@ body {
 		.context-menu .dropdown-menu {
 			border-radius: $round-border-radius !important;
 		}
+
+		.divider {
+			border-radius: $round-divider-border-radius;
+		}
 	}
 
 	//
@@ -505,6 +511,10 @@ body {
 		.context-menu .dropdown-menu {
 			border-radius: $rounded-border-radius !important;
 		}
+
+		.divider {
+			border-radius: $rounded-divider-border-radius;
+		}
 	}
 
 	//
@@ -514,6 +524,10 @@ body {
 	&.square-menus,
 	&.square.auto-corner-menus {
 		.menu, .dropdown-menu {
+			border-radius: 0;
+		}
+
+		.divider {
 			border-radius: 0;
 		}
 	}

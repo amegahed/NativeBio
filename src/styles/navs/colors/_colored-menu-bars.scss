@@ -43,7 +43,7 @@
 	}
 }
 
-@mixin labeling($open-text-color, $active-text-color) {
+@mixin labeled($open-text-color, $active-text-color) {
 	> .nav-menus {
 		.dropdown {
 
@@ -64,7 +64,7 @@
 	}
 }
 
-@mixin marking($open-icon-color, $active-icon-color) {
+@mixin marked($open-icon-color, $active-icon-color) {
 	> .nav-menus {
 		.dropdown {
 

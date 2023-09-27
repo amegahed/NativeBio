@@ -25,7 +25,7 @@
 body:not(.binary).colored {
 	.colored.btn, .colored.btn:focus, 
 	.colored.btn:active, .colored.btn:active:focus {
-		@include colored-btns.label(white);
+		@include colored-btns.labeled(white);
 
 		&.red {
 			@include colored-btns.colored(colors.$medium-red);

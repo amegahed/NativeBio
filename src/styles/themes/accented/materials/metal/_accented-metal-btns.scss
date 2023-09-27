@@ -18,40 +18,10 @@
 @use "../../../../navs/materials/metal/metal-btns";
 @use "../../../../navs/materials/metal/metal-buttons";
 @use "../../navs/accented-btns";
-@use "../../../../forms/validation";
 
 //
 // styles
 //
-
-body:not(.binary).colored.accented {
-	&.metal-buttons,
-	&.metal.auto-buttons {
-
-		//
-		// styled buttons
-		//
-
-		.btn:not(.btn-primary):not(.colored):not(:disabled) {
-
-			//
-			// special buttons
-			//
-
-			&.success {
-				@include metal-buttons.shade(validation.$success-color);
-			}
-
-			&.caution {
-				@include metal-buttons.shade(validation.$caution-color);
-			}
-
-			&.warning {
-				@include metal-buttons.shade(validation.$warning-color);
-			}
-		}
-	}
-}
 
 @supports (color: color-mix(in srgb, white, black)) {
 	body:not(.binary).colored.accented {

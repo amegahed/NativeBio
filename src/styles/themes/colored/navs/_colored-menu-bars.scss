@@ -43,7 +43,7 @@ body:not(.binary).colored.colored {
 
 	.menu-bar {
 		@include colored-menu-bars.colored($open-color, $active-color);
-		@include colored-menu-bars.marking($open-icon-color, $active-icon-color);
-		@include colored-menu-bars.labeling($open-text-color, $active-text-color);
+		@include colored-menu-bars.marked($open-icon-color, $active-icon-color);
+		@include colored-menu-bars.labeled($open-text-color, $active-text-color);
 	}
 }

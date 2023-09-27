@@ -51,7 +51,7 @@ body:not(.binary).colored.colored {
 
 	.menu, .dropdown-menu {
 		@include colored-menus.colored($open-color, $hover-color, $active-color);
-		@include colored-menus.marking($open-icon-color, $hover-icon-color, $active-icon-color);
-		@include colored-menus.labeling($open-text-color, $hover-text-color, $active-text-color);
+		@include colored-menus.marked($open-icon-color, $hover-icon-color, $active-icon-color);
+		@include colored-menus.labeled($open-text-color, $hover-text-color, $active-text-color);
 	}
 }

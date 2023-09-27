@@ -11,10 +11,7 @@ build:
 	sass monochrome/light/styles.scss monochrome/light/styles.css
 	sass monochrome/dark/styles.scss monochrome/dark/styles.css
 
-	sass shaded/medium/styles.scss shaded/medium/styles.css
-	sass shaded/light/styles.scss shaded/light/styles.css
-	sass shaded/dark/styles.scss shaded/dark/styles.css
-
+	sass shaded/styles.scss shaded/styles.css
 	sass colored/styles.scss colored/styles.css
 	sass colorful/styles.scss colorful/styles.css
 	sass accented/styles.scss accented/styles.css

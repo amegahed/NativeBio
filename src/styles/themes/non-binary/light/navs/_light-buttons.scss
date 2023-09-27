@@ -38,6 +38,6 @@ body:not(.binary).light {
 
 	.button {
 		@include colored-buttons.colored($color);
-		@include colored-buttons.labeling($label-color);
+		@include colored-buttons.labeled($label-color);
 	}
 }

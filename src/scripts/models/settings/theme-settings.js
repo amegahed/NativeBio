@@ -758,7 +758,7 @@ export default UserSettings.extend({
 				break;
 			case 'colored':
 				this.loadThemeCSS('non-binary', theme);
-				this.loadThemeCSS('shaded', theme);
+				this.loadColorSchemeCSS('shaded');
 				this.loadColorSchemeCSS('colored');
 				this.loadColorSchemeCSS('accented');
 				break;

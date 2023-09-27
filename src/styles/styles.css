@@ -7408,6 +7408,7 @@ fieldset legend.bottom {
   -webkit-box-shadow: none;
   color: unset;
   border-color: unset;
+  font-size: 1em;
   padding: 5px 7px;
   z-index: auto !important;
 }
@@ -7428,7 +7429,7 @@ input.form-control {
 textarea.form-control {
   width: 100%;
   resize: vertical;
-  padding: 3px 10px;
+  padding: 5px 10px;
   font-weight: normal;
 }
 
@@ -7545,10 +7546,6 @@ input:focus {
   margin-left: 5px;
 }
 
-input[type=search]::-webkit-search-cancel-button {
-  -webkit-appearance: searchfield-cancel-button;
-}
-
 .controls input[type=color] {
   vertical-align: sub;
 }
@@ -7569,6 +7566,25 @@ select:focus {
 table select {
   padding: 2px 10px;
   margin: -2px 0px;
+}
+
+input[type=file] {
+  display: inline-block;
+  padding: 3px 10px;
+  width: auto;
+  white-space: nowrap;
+  overflow: hidden;
+}
+input[type=file]::-webkit-file-upload-button {
+  display: none;
+}
+
+input[data-file]::after {
+  content: attr(data-file);
+}
+
+input[type=file]::-webkit-file-upload-button {
+  display: none;
 }
 
 .round select {
@@ -7667,17 +7683,6 @@ body[device=phone] select, body[device=tablet] select {
 .form-group .controls .range-input input[type=number] {
   -moz-appearance: textfield;
 }
-.form-group .controls .control-inline input[type=number]::-webkit-inner-spin-button,
-.form-group .controls .control-inline input[type=number]::-webkit-outer-spin-button,
-.form-group .controls .checkbox-inline input[type=number]::-webkit-inner-spin-button,
-.form-group .controls .checkbox-inline input[type=number]::-webkit-outer-spin-button,
-.form-group .controls .radio-inline input[type=number]::-webkit-inner-spin-button,
-.form-group .controls .radio-inline input[type=number]::-webkit-outer-spin-button,
-.form-group .controls .range-input input[type=number]::-webkit-inner-spin-button,
-.form-group .controls .range-input input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  -moz-appearance: textfield;
-}
 .form-group .controls .control-inline input[type=range],
 .form-group .controls .checkbox-inline input[type=range],
 .form-group .controls .radio-inline input[type=range],
@@ -7687,11 +7692,11 @@ body[device=phone] select, body[device=tablet] select {
 }
 .form-group .controls > i {
   position: relative;
+  line-height: 30px;
   vertical-align: middle;
 }
 .form-group .controls > select {
-  height: 25px;
-  padding: 0 10px;
+  padding: 3px 10px;
   float: left;
   border-width: 1px;
   border-style: solid;
@@ -7858,11 +7863,14 @@ form {
   }
   */
 }
-form label {
-  margin-bottom: 0;
-}
 form .well {
   margin: 10px 0;
+}
+form .notes {
+  text-align: right;
+}
+form label {
+  margin-bottom: 0;
 }
 form .separator {
   text-align: center;
@@ -7873,6 +7881,18 @@ form .separator::before, form .separator::after {
 }
 form .percentage::after {
   content: "%";
+}
+
+.round input, .round textarea {
+  border-radius: 15px;
+}
+
+.rounded input, .rounded textarea {
+  border-radius: 5px;
+}
+
+.square input, .square textarea {
+  border-radius: 0;
 }
 
 input + i.fa-question-circle, label + i.fa-question-circle {
@@ -8010,6 +8030,7 @@ body[device=desktop] form.form-vertical > .items {
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 .input-group input[type=text], .input-group input[type=number], .input-group input[type=password], .input-group input[type=date], .input-group input[type=time] {
+  font-size: 1em;
   padding: 5px 10px;
   line-height: 15px;
   -webkit-appearance: none;
@@ -8017,11 +8038,6 @@ body[device=desktop] form.form-vertical > .items {
 }
 .input-group input[type=date], .input-group input[type=time] {
   line-height: 15px;
-}
-.input-group input[type=number].spinnable::-webkit-outer-spin-button,
-.input-group input[type=number].spinnable::-webkit-inner-spin-button {
-  -webkit-appearance: inner-spin-button !important;
-  opacity: 1;
 }
 .input-group input[type=radio], .input-group input[type=checkbox], .input-group input[type=color] {
   height: 30px;
@@ -8062,18 +8078,6 @@ body[device=desktop] form.form-vertical > .items {
 }
 .input-group .btn button {
   height: 25px;
-}
-
-.round .input-group input, .round textarea {
-  border-radius: 15px;
-}
-
-.rounded .input-group input, .rounded textarea {
-  border-radius: 5px;
-}
-
-.square .input-group input, .square textarea {
-  border-radius: 0;
 }
 
 .input-group-addon:not(:first-child) {
@@ -8641,25 +8645,11 @@ input[type=range]::-moz-range-track {
 |******************************************************************************|
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
-.colored span.success {
-  color: hsl(135, 33%, 50%);
-}
-.colored span.caution {
-  color: #df9820;
-}
-.colored span.warning {
-  color: #da5626;
-}
-.colored span.error {
-  color: #dc5656;
-}
-
 label.error {
   font-weight: bold;
-  color: #dc5656;
   padding-top: 0;
   background: url(../images/forms/error.png) 5px 0px no-repeat;
-  padding-left: 10px;
+  padding-left: 30px;
 }
 
 label.error:empty {
@@ -8670,13 +8660,7 @@ label.error.valid {
   display: none;
 }
 
-.form-group.error input,
-.form-group.error textarea {
-  border: 1px solid #dc5656;
-}
-
 td.error {
-  outline: 1px solid #da5626;
   outline-offset: -2px;
 }
 
@@ -12648,12 +12632,9 @@ table.numbered.count-bubbles td:first-child::before {
 }
 .toolbar .input input[type=number] {
   -moz-appearance: textfield;
-  padding: 0;
 }
-.toolbar .input input[type=number]::-webkit-inner-spin-button,
-.toolbar .input input[type=number]::-webkit-outer-spin-button {
+.toolbar .input input[type=number]::-webkit-outer-spin-button, .toolbar .input input[type=number]::-webkit-inner-spin-button {
   -webkit-appearance: none;
-  margin: 0;
 }
 .toolbar .input input[type=date] {
   padding-right: 0;
@@ -15233,6 +15214,9 @@ body[device=phone] .post.panel > .buttons, body[device=phone] .task.panel > .but
 .new-post > form .attachments .items > div, .new-comment > form .attachments .items > div, .new-reply > form .attachments .items > div, .new-message > form .attachments .items > div, .new-task > form .attachments .items > div {
   padding: 0;
 }
+.new-post > form .attachments .items .icons:not(:empty), .new-comment > form .attachments .items .icons:not(:empty), .new-reply > form .attachments .items .icons:not(:empty), .new-message > form .attachments .items .icons:not(:empty), .new-task > form .attachments .items .icons:not(:empty) {
+  margin-top: 10px;
+}
 .new-post > form .dropzone, .new-comment > form .dropzone, .new-reply > form .dropzone, .new-message > form .dropzone, .new-task > form .dropzone {
   margin: -5px;
   padding: 5px;
@@ -16519,6 +16503,9 @@ body.round-menus .context-menu .dropdown-menu, body.round.auto-corner-menus:not(
 body.round.auto-corner-menus .context-menu .dropdown-menu {
   border-radius: 10px !important;
 }
+body.round-menus .divider, body.round.auto-corner-menus .divider {
+  border-radius: 15px;
+}
 body.rounded-menus.menus-attached .dropdown:not(.context-menu) .dropdown-menu, body.rounded.auto-corner-menus.menus-attached .dropdown:not(.context-menu) .dropdown-menu {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
@@ -16536,7 +16523,13 @@ body.rounded-menus .context-menu .dropdown-menu, body.rounded.auto-corner-menus:
 body.rounded.auto-corner-menus .context-menu .dropdown-menu {
   border-radius: 7px !important;
 }
+body.rounded-menus .divider, body.rounded.auto-corner-menus .divider {
+  border-radius: 7px;
+}
 body.square-menus .menu, body.square-menus .dropdown-menu, body.square.auto-corner-menus .menu, body.square.auto-corner-menus .dropdown-menu {
+  border-radius: 0;
+}
+body.square-menus .divider, body.square.auto-corner-menus .divider {
   border-radius: 0;
 }
 

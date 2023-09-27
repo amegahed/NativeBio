@@ -24,7 +24,7 @@
 //
 
 $color: colors.$very-very-light-grey;
-$icon-color: colors.$very-dark-grey;
+$icon-color: colors.$dark-grey;
 $label-color: text-colors.$dark-color;
 $disabled-color: colors.$very-light-grey;
 $disabled-icon-color: white;
@@ -51,7 +51,7 @@ body:not(.binary) {
 
 		&:disabled {
 			@include colored-btns.colored($disabled-color);
-			@include colored-btns.labeling($disabled-label-color);
+			@include colored-btns.labeled($disabled-label-color);
 		}
 	}
 

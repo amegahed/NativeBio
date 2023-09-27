@@ -16,11 +16,42 @@
 \******************************************************************************/
 
 @use "../../../../navs/materials/chalk/chalk-btns";
+@use "../../../../navs/materials/chalk/chalk-buttons";
 @use "../../navs/colored-btns";
+@use "../../forms/colored-forms";
 
 //
 // styles
 //
+
+body:not(.binary).colored {
+	&.chalk-buttons,
+	&.chalk.auto-buttons {
+
+		//
+		// styled buttons
+		//
+
+		.btn:not(.btn-primary):not(.colored):not(:disabled) {
+
+			//
+			// special buttons
+			//
+
+			&.success {
+				@include chalk-buttons.shade(colored-forms.$success-color);
+			}
+
+			&.caution {
+				@include chalk-buttons.shade(colored-forms.$caution-color);
+			}
+
+			&.warning {
+				@include chalk-buttons.shade(colored-forms.$warning-color);
+			}
+		}
+	}
+}
 
 @supports (color: color-mix(in srgb, white, black)) {
 	body:not(.binary).colored.colored {

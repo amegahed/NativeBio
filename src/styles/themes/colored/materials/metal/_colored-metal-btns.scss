@@ -16,11 +16,42 @@
 \******************************************************************************/
 
 @use "../../../../navs/materials/metal/metal-btns";
+@use "../../../../navs/materials/metal/metal-buttons";
 @use "../../navs/colored-btns";
+@use "../../forms/colored-forms";
 
 //
 // styles
 //
+
+body:not(.binary).colored {
+	&.metal-buttons,
+	&.metal.auto-buttons {
+
+		//
+		// styled buttons
+		//
+
+		.btn:not(.btn-primary):not(.colored):not(:disabled) {
+
+			//
+			// special buttons
+			//
+
+			&.success {
+				@include metal-buttons.shade(colored-forms.$success-color);
+			}
+
+			&.caution {
+				@include metal-buttons.shade(colored-forms.$caution-color);
+			}
+
+			&.warning {
+				@include metal-buttons.shade(colored-forms.$warning-color);
+			}
+		}
+	}
+}
 
 @supports (color: color-mix(in srgb, white, black)) {
 	body:not(.binary).colored.colored {

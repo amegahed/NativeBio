@@ -17,10 +17,39 @@
 
 @use "../../../../forms/materials/metal/metal-sliders";
 @use "../../forms/colored-sliders";
+@use "../../forms/colored-forms";
 
 //
 // styles
 //
+
+body:not(.binary) {
+	&.metal-sliders,
+	&.metal.auto-sliders {
+
+		//
+		// slider states
+		//
+
+		&.colored {
+			input[type="range"] {
+				&.colored {
+					&.success {
+						@include metal-sliders.active-thumb-shade(colored-forms.$success-color);
+					}
+
+					&.warning {
+						@include metal-sliders.active-thumb-shade(colored-forms.$warning-color);
+					}
+
+					&.error {
+						@include metal-sliders.active-thumb-shade(colored-forms.$error-color);
+					}
+				}
+			}
+		}
+	}
+}
 
 @supports (color: color-mix(in srgb, white, black)) {
 	body:not(.binary).colored.colored {

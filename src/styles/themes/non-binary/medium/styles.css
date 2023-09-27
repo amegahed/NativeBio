@@ -881,6 +881,14 @@ body:not(.binary).colored .colored.btn span, body:not(.binary).colored .colored.
 body:not(.binary).colored .colored.btn:active span, body:not(.binary).colored .colored.btn:active:focus span {
   color: white;
 }
+body:not(.binary).colored .colored.btn i, body:not(.binary).colored .colored.btn:focus i,
+body:not(.binary).colored .colored.btn:active i, body:not(.binary).colored .colored.btn:active:focus i {
+  color: white;
+}
+body:not(.binary).colored .colored.btn svg, body:not(.binary).colored .colored.btn:focus svg,
+body:not(.binary).colored .colored.btn:active svg, body:not(.binary).colored .colored.btn:active:focus svg {
+  fill: white;
+}
 body:not(.binary).colored .colored.btn.red, body:not(.binary).colored .colored.btn:focus.red,
 body:not(.binary).colored .colored.btn:active.red, body:not(.binary).colored .colored.btn:active:focus.red {
   background: hsl(0, 66%, 50%);
@@ -2614,7 +2622,7 @@ body:not(.binary) .input-group .input-group-addon:not(.btn) {
 }
 body:not(.binary) input:not([type=range]):not([type=radio]) {
   color: #272740;
-  background-color: #f0f0f6;
+  background-color: white;
   border-color: #c0c0d9;
   outline: none;
 }
@@ -4400,10 +4408,10 @@ body:not(.binary) .btn span {
   color: #272740;
 }
 body:not(.binary) .btn i {
-  color: #3a3a60;
+  color: #4d4d80;
 }
 body:not(.binary) .btn svg {
-  fill: #3a3a60;
+  fill: #4d4d80;
 }
 body:not(.binary) .btn:disabled {
   background: #a0a0c6;
@@ -4864,61 +4872,6 @@ body:not(.binary).flat-scrollbars ::-webkit-scrollbar-thumb:active:vertical, bod
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                               _validation.scss                               |
-|                                                                              |
-|******************************************************************************|
-|                                                                              |
-|        This defines various CSS styles used in this application.             |
-|                                                                              |
-|        Author(s): Abe Megahed                                                |
-|                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.txt', which is part of this source code distribution.        |
-|                                                                              |
-|******************************************************************************|
-|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
-\******************************************************************************/
-.colored span.success {
-  color: hsl(135, 33%, 50%);
-}
-.colored span.caution {
-  color: #df9820;
-}
-.colored span.warning {
-  color: #da5626;
-}
-.colored span.error {
-  color: #dc5656;
-}
-
-label.error {
-  font-weight: bold;
-  color: #dc5656;
-  padding-top: 0;
-  background: url(../images/forms/error.png) 5px 0px no-repeat;
-  padding-left: 10px;
-}
-
-label.error:empty {
-  display: none;
-}
-
-label.error.valid {
-  display: none;
-}
-
-.form-group.error input,
-.form-group.error textarea {
-  border: 1px solid #dc5656;
-}
-
-td.error {
-  outline: 1px solid #da5626;
-  outline-offset: -2px;
-}
-
-/******************************************************************************\
-|                                                                              |
 |                          _medium-flat-sliders.scss                           |
 |                                                                              |
 |******************************************************************************|
@@ -5071,150 +5024,6 @@ body:not(.binary).flat-sliders input[type=range]::-ms-thumb:active.rounded, body
 }
 body:not(.binary).flat-sliders input[type=range]::-ms-thumb:active.long.round, body:not(.binary).flat.auto-sliders input[type=range]::-ms-thumb:active.long.round {
   background-color: #7070aa;
-}
-body:not(.binary).flat-sliders.colored input[type=range].colored.success, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.success {
-  -webkit-appearance: none;
-}
-body:not(.binary).flat-sliders.colored input[type=range].colored.success::-webkit-slider-thumb:active, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.success::-webkit-slider-thumb:active {
-  background-color: hsl(135, 33%, 50%);
-  border-color: hsl(135, 33%, 50%);
-}
-body:not(.binary).flat-sliders.colored input[type=range].colored.success::-webkit-slider-thumb:active.round, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.success::-webkit-slider-thumb:active.round {
-  background-color: hsl(135, 33%, 50%);
-  border-color: hsl(135, 33%, 50%);
-}
-body:not(.binary).flat-sliders.colored input[type=range].colored.success::-webkit-slider-thumb:active.rounded, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.success::-webkit-slider-thumb:active.rounded {
-  background-color: hsl(135, 33%, 50%);
-  border-color: hsl(135, 33%, 50%);
-}
-body:not(.binary).flat-sliders.colored input[type=range].colored.success::-webkit-slider-thumb:active.long.round, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.success::-webkit-slider-thumb:active.long.round {
-  background-color: hsl(135, 33%, 50%);
-}
-body:not(.binary).flat-sliders.colored input[type=range].colored.success::-moz-range-thumb:active, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.success::-moz-range-thumb:active {
-  background-color: hsl(135, 33%, 50%);
-  border-color: hsl(135, 33%, 50%);
-}
-body:not(.binary).flat-sliders.colored input[type=range].colored.success::-moz-range-thumb:active.round, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.success::-moz-range-thumb:active.round {
-  background-color: hsl(135, 33%, 50%);
-  border-color: hsl(135, 33%, 50%);
-}
-body:not(.binary).flat-sliders.colored input[type=range].colored.success::-moz-range-thumb:active.rounded, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.success::-moz-range-thumb:active.rounded {
-  background-color: hsl(135, 33%, 50%);
-  border-color: hsl(135, 33%, 50%);
-}
-body:not(.binary).flat-sliders.colored input[type=range].colored.success::-moz-range-thumb:active.long.round, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.success::-moz-range-thumb:active.long.round {
-  background-color: hsl(135, 33%, 50%);
-}
-body:not(.binary).flat-sliders.colored input[type=range].colored.success::-ms-thumb:active, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.success::-ms-thumb:active {
-  background-color: hsl(135, 33%, 50%);
-  border-color: hsl(135, 33%, 50%);
-}
-body:not(.binary).flat-sliders.colored input[type=range].colored.success::-ms-thumb:active.round, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.success::-ms-thumb:active.round {
-  background-color: hsl(135, 33%, 50%);
-  border-color: hsl(135, 33%, 50%);
-}
-body:not(.binary).flat-sliders.colored input[type=range].colored.success::-ms-thumb:active.rounded, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.success::-ms-thumb:active.rounded {
-  background-color: hsl(135, 33%, 50%);
-  border-color: hsl(135, 33%, 50%);
-}
-body:not(.binary).flat-sliders.colored input[type=range].colored.success::-ms-thumb:active.long.round, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.success::-ms-thumb:active.long.round {
-  background-color: hsl(135, 33%, 50%);
-}
-body:not(.binary).flat-sliders.colored input[type=range].colored.warning, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.warning {
-  -webkit-appearance: none;
-}
-body:not(.binary).flat-sliders.colored input[type=range].colored.warning::-webkit-slider-thumb:active, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.warning::-webkit-slider-thumb:active {
-  background-color: #da5626;
-  border-color: #da5626;
-}
-body:not(.binary).flat-sliders.colored input[type=range].colored.warning::-webkit-slider-thumb:active.round, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.warning::-webkit-slider-thumb:active.round {
-  background-color: #da5626;
-  border-color: #da5626;
-}
-body:not(.binary).flat-sliders.colored input[type=range].colored.warning::-webkit-slider-thumb:active.rounded, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.warning::-webkit-slider-thumb:active.rounded {
-  background-color: #da5626;
-  border-color: #da5626;
-}
-body:not(.binary).flat-sliders.colored input[type=range].colored.warning::-webkit-slider-thumb:active.long.round, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.warning::-webkit-slider-thumb:active.long.round {
-  background-color: #da5626;
-}
-body:not(.binary).flat-sliders.colored input[type=range].colored.warning::-moz-range-thumb:active, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.warning::-moz-range-thumb:active {
-  background-color: #da5626;
-  border-color: #da5626;
-}
-body:not(.binary).flat-sliders.colored input[type=range].colored.warning::-moz-range-thumb:active.round, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.warning::-moz-range-thumb:active.round {
-  background-color: #da5626;
-  border-color: #da5626;
-}
-body:not(.binary).flat-sliders.colored input[type=range].colored.warning::-moz-range-thumb:active.rounded, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.warning::-moz-range-thumb:active.rounded {
-  background-color: #da5626;
-  border-color: #da5626;
-}
-body:not(.binary).flat-sliders.colored input[type=range].colored.warning::-moz-range-thumb:active.long.round, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.warning::-moz-range-thumb:active.long.round {
-  background-color: #da5626;
-}
-body:not(.binary).flat-sliders.colored input[type=range].colored.warning::-ms-thumb:active, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.warning::-ms-thumb:active {
-  background-color: #da5626;
-  border-color: #da5626;
-}
-body:not(.binary).flat-sliders.colored input[type=range].colored.warning::-ms-thumb:active.round, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.warning::-ms-thumb:active.round {
-  background-color: #da5626;
-  border-color: #da5626;
-}
-body:not(.binary).flat-sliders.colored input[type=range].colored.warning::-ms-thumb:active.rounded, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.warning::-ms-thumb:active.rounded {
-  background-color: #da5626;
-  border-color: #da5626;
-}
-body:not(.binary).flat-sliders.colored input[type=range].colored.warning::-ms-thumb:active.long.round, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.warning::-ms-thumb:active.long.round {
-  background-color: #da5626;
-}
-body:not(.binary).flat-sliders.colored input[type=range].colored.error, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.error {
-  -webkit-appearance: none;
-}
-body:not(.binary).flat-sliders.colored input[type=range].colored.error::-webkit-slider-thumb:active, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.error::-webkit-slider-thumb:active {
-  background-color: #dc5656;
-  border-color: #dc5656;
-}
-body:not(.binary).flat-sliders.colored input[type=range].colored.error::-webkit-slider-thumb:active.round, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.error::-webkit-slider-thumb:active.round {
-  background-color: #dc5656;
-  border-color: #dc5656;
-}
-body:not(.binary).flat-sliders.colored input[type=range].colored.error::-webkit-slider-thumb:active.rounded, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.error::-webkit-slider-thumb:active.rounded {
-  background-color: #dc5656;
-  border-color: #dc5656;
-}
-body:not(.binary).flat-sliders.colored input[type=range].colored.error::-webkit-slider-thumb:active.long.round, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.error::-webkit-slider-thumb:active.long.round {
-  background-color: #dc5656;
-}
-body:not(.binary).flat-sliders.colored input[type=range].colored.error::-moz-range-thumb:active, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.error::-moz-range-thumb:active {
-  background-color: #dc5656;
-  border-color: #dc5656;
-}
-body:not(.binary).flat-sliders.colored input[type=range].colored.error::-moz-range-thumb:active.round, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.error::-moz-range-thumb:active.round {
-  background-color: #dc5656;
-  border-color: #dc5656;
-}
-body:not(.binary).flat-sliders.colored input[type=range].colored.error::-moz-range-thumb:active.rounded, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.error::-moz-range-thumb:active.rounded {
-  background-color: #dc5656;
-  border-color: #dc5656;
-}
-body:not(.binary).flat-sliders.colored input[type=range].colored.error::-moz-range-thumb:active.long.round, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.error::-moz-range-thumb:active.long.round {
-  background-color: #dc5656;
-}
-body:not(.binary).flat-sliders.colored input[type=range].colored.error::-ms-thumb:active, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.error::-ms-thumb:active {
-  background-color: #dc5656;
-  border-color: #dc5656;
-}
-body:not(.binary).flat-sliders.colored input[type=range].colored.error::-ms-thumb:active.round, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.error::-ms-thumb:active.round {
-  background-color: #dc5656;
-  border-color: #dc5656;
-}
-body:not(.binary).flat-sliders.colored input[type=range].colored.error::-ms-thumb:active.rounded, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.error::-ms-thumb:active.rounded {
-  background-color: #dc5656;
-  border-color: #dc5656;
-}
-body:not(.binary).flat-sliders.colored input[type=range].colored.error::-ms-thumb:active.long.round, body:not(.binary).flat.auto-sliders.colored input[type=range].colored.error::-ms-thumb:active.long.round {
-  background-color: #dc5656;
 }
 
 /******************************************************************************\
@@ -6126,69 +5935,6 @@ body:not(.binary).chalk-sliders input[type=range]::-ms-thumb:active, body:not(.b
   border-color: #6565a6;
   transform: scale(-1) rotate(var(--light-direction));
 }
-body:not(.binary).chalk-sliders.colored input[type=range].colored.success, body:not(.binary).chalk.auto-sliders.colored input[type=range].colored.success {
-  -webkit-appearance: none;
-}
-body:not(.binary).chalk-sliders.colored input[type=range].colored.success::-webkit-slider-thumb:active, body:not(.binary).chalk.auto-sliders.colored input[type=range].colored.success::-webkit-slider-thumb:active {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
-  background-color: hsl(135, 33%, 50%);
-  border-color: color-mix(in srgb, var(--ambient-color) 10%, hsl(135, 33%, 50%));
-  transform: scale(-1) rotate(var(--light-direction));
-}
-body:not(.binary).chalk-sliders.colored input[type=range].colored.success::-moz-range-thumb:active, body:not(.binary).chalk.auto-sliders.colored input[type=range].colored.success::-moz-range-thumb:active {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
-  background-color: hsl(135, 33%, 50%);
-  border-color: color-mix(in srgb, var(--ambient-color) 10%, hsl(135, 33%, 50%));
-  transform: scale(-1) rotate(var(--light-direction));
-}
-body:not(.binary).chalk-sliders.colored input[type=range].colored.success::-ms-thumb:active, body:not(.binary).chalk.auto-sliders.colored input[type=range].colored.success::-ms-thumb:active {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
-  background-color: hsl(135, 33%, 50%);
-  border-color: color-mix(in srgb, var(--ambient-color) 10%, hsl(135, 33%, 50%));
-  transform: scale(-1) rotate(var(--light-direction));
-}
-body:not(.binary).chalk-sliders.colored input[type=range].colored.warning, body:not(.binary).chalk.auto-sliders.colored input[type=range].colored.warning {
-  -webkit-appearance: none;
-}
-body:not(.binary).chalk-sliders.colored input[type=range].colored.warning::-webkit-slider-thumb:active, body:not(.binary).chalk.auto-sliders.colored input[type=range].colored.warning::-webkit-slider-thumb:active {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
-  background-color: #da5626;
-  border-color: color-mix(in srgb, var(--ambient-color) 10%, #da5626);
-  transform: scale(-1) rotate(var(--light-direction));
-}
-body:not(.binary).chalk-sliders.colored input[type=range].colored.warning::-moz-range-thumb:active, body:not(.binary).chalk.auto-sliders.colored input[type=range].colored.warning::-moz-range-thumb:active {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
-  background-color: #da5626;
-  border-color: color-mix(in srgb, var(--ambient-color) 10%, #da5626);
-  transform: scale(-1) rotate(var(--light-direction));
-}
-body:not(.binary).chalk-sliders.colored input[type=range].colored.warning::-ms-thumb:active, body:not(.binary).chalk.auto-sliders.colored input[type=range].colored.warning::-ms-thumb:active {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
-  background-color: #da5626;
-  border-color: color-mix(in srgb, var(--ambient-color) 10%, #da5626);
-  transform: scale(-1) rotate(var(--light-direction));
-}
-body:not(.binary).chalk-sliders.colored input[type=range].colored.error, body:not(.binary).chalk.auto-sliders.colored input[type=range].colored.error {
-  -webkit-appearance: none;
-}
-body:not(.binary).chalk-sliders.colored input[type=range].colored.error::-webkit-slider-thumb:active, body:not(.binary).chalk.auto-sliders.colored input[type=range].colored.error::-webkit-slider-thumb:active {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
-  background-color: #dc5656;
-  border-color: color-mix(in srgb, var(--ambient-color) 10%, #dc5656);
-  transform: scale(-1) rotate(var(--light-direction));
-}
-body:not(.binary).chalk-sliders.colored input[type=range].colored.error::-moz-range-thumb:active, body:not(.binary).chalk.auto-sliders.colored input[type=range].colored.error::-moz-range-thumb:active {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
-  background-color: #dc5656;
-  border-color: color-mix(in srgb, var(--ambient-color) 10%, #dc5656);
-  transform: scale(-1) rotate(var(--light-direction));
-}
-body:not(.binary).chalk-sliders.colored input[type=range].colored.error::-ms-thumb:active, body:not(.binary).chalk.auto-sliders.colored input[type=range].colored.error::-ms-thumb:active {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 25%, transparent) 0%, color-mix(in srgb, white 25%, transparent) 25%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
-  background-color: #dc5656;
-  border-color: color-mix(in srgb, var(--ambient-color) 10%, #dc5656);
-  transform: scale(-1) rotate(var(--light-direction));
-}
 
 /******************************************************************************\
 |                                                                              |
@@ -6707,60 +6453,6 @@ body:not(.binary).plastic-sliders input[type=range]::-ms-thumb:active, body:not(
   background: radial-gradient(ellipse 25% 12% at 50% 10%, white 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), rgba(255, 255, 255, 0.1) 0%, transparent 50%, rgba(0, 0, 0, 0.1) 100%) no-repeat;
   background-color: #7070aa;
   border-color: #6565a6;
-}
-body:not(.binary).plastic-sliders.colored input[type=range].colored.success, body:not(.binary).plastic.auto-sliders.colored input[type=range].colored.success {
-  -webkit-appearance: none;
-}
-body:not(.binary).plastic-sliders.colored input[type=range].colored.success::-webkit-slider-thumb:active, body:not(.binary).plastic.auto-sliders.colored input[type=range].colored.success::-webkit-slider-thumb:active {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
-  background-color: hsl(135, 33%, 50%);
-  border-color: color-mix(in srgb, var(--ambient-color) 10%, hsl(135, 33%, 50%));
-}
-body:not(.binary).plastic-sliders.colored input[type=range].colored.success::-moz-range-thumb:active, body:not(.binary).plastic.auto-sliders.colored input[type=range].colored.success::-moz-range-thumb:active {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
-  background-color: hsl(135, 33%, 50%);
-  border-color: color-mix(in srgb, var(--ambient-color) 10%, hsl(135, 33%, 50%));
-}
-body:not(.binary).plastic-sliders.colored input[type=range].colored.success::-ms-thumb:active, body:not(.binary).plastic.auto-sliders.colored input[type=range].colored.success::-ms-thumb:active {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
-  background-color: hsl(135, 33%, 50%);
-  border-color: color-mix(in srgb, var(--ambient-color) 10%, hsl(135, 33%, 50%));
-}
-body:not(.binary).plastic-sliders.colored input[type=range].colored.warning, body:not(.binary).plastic.auto-sliders.colored input[type=range].colored.warning {
-  -webkit-appearance: none;
-}
-body:not(.binary).plastic-sliders.colored input[type=range].colored.warning::-webkit-slider-thumb:active, body:not(.binary).plastic.auto-sliders.colored input[type=range].colored.warning::-webkit-slider-thumb:active {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
-  background-color: #da5626;
-  border-color: color-mix(in srgb, var(--ambient-color) 10%, #da5626);
-}
-body:not(.binary).plastic-sliders.colored input[type=range].colored.warning::-moz-range-thumb:active, body:not(.binary).plastic.auto-sliders.colored input[type=range].colored.warning::-moz-range-thumb:active {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
-  background-color: #da5626;
-  border-color: color-mix(in srgb, var(--ambient-color) 10%, #da5626);
-}
-body:not(.binary).plastic-sliders.colored input[type=range].colored.warning::-ms-thumb:active, body:not(.binary).plastic.auto-sliders.colored input[type=range].colored.warning::-ms-thumb:active {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
-  background-color: #da5626;
-  border-color: color-mix(in srgb, var(--ambient-color) 10%, #da5626);
-}
-body:not(.binary).plastic-sliders.colored input[type=range].colored.error, body:not(.binary).plastic.auto-sliders.colored input[type=range].colored.error {
-  -webkit-appearance: none;
-}
-body:not(.binary).plastic-sliders.colored input[type=range].colored.error::-webkit-slider-thumb:active, body:not(.binary).plastic.auto-sliders.colored input[type=range].colored.error::-webkit-slider-thumb:active {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
-  background-color: #dc5656;
-  border-color: color-mix(in srgb, var(--ambient-color) 10%, #dc5656);
-}
-body:not(.binary).plastic-sliders.colored input[type=range].colored.error::-moz-range-thumb:active, body:not(.binary).plastic.auto-sliders.colored input[type=range].colored.error::-moz-range-thumb:active {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
-  background-color: #dc5656;
-  border-color: color-mix(in srgb, var(--ambient-color) 10%, #dc5656);
-}
-body:not(.binary).plastic-sliders.colored input[type=range].colored.error::-ms-thumb:active, body:not(.binary).plastic.auto-sliders.colored input[type=range].colored.error::-ms-thumb:active {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 0%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), color-mix(in srgb, white 10%, transparent) 0%, transparent 50%, color-mix(in srgb, black 10%, transparent) 100%) no-repeat;
-  background-color: #dc5656;
-  border-color: color-mix(in srgb, var(--ambient-color) 10%, #dc5656);
 }
 
 /******************************************************************************\
@@ -7308,69 +7000,6 @@ body:not(.binary).glass-sliders input[type=range]::-ms-thumb:active, body:not(.b
   border-color: #4e4e9d;
   transform: scale(-1) rotate(var(--light-direction));
 }
-body:not(.binary).glass-sliders.colored input[type=range].colored.success, body:not(.binary).glass.auto-sliders.colored input[type=range].colored.success {
-  -webkit-appearance: none;
-}
-body:not(.binary).glass-sliders.colored input[type=range].colored.success::-webkit-slider-thumb:active, body:not(.binary).glass.auto-sliders.colored input[type=range].colored.success::-webkit-slider-thumb:active {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, hsl(135, 33%, 50%)) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, hsl(135, 33%, 50%)) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, hsl(135, 33%, 50%) 50%, transparent) 100%) no-repeat;
-  background-color: color-mix(in srgb, var(--ambient-color) 30%, hsl(135, 33%, 50%));
-  border-color: color-mix(in srgb, var(--ambient-color) 30%, hsl(135, 33%, 50%));
-  transform: scale(-1) rotate(var(--light-direction));
-}
-body:not(.binary).glass-sliders.colored input[type=range].colored.success::-moz-range-thumb:active, body:not(.binary).glass.auto-sliders.colored input[type=range].colored.success::-moz-range-thumb:active {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, hsl(135, 33%, 50%)) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, hsl(135, 33%, 50%)) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, hsl(135, 33%, 50%) 50%, transparent) 100%) no-repeat;
-  background-color: color-mix(in srgb, var(--ambient-color) 30%, hsl(135, 33%, 50%));
-  border-color: color-mix(in srgb, var(--ambient-color) 30%, hsl(135, 33%, 50%));
-  transform: scale(-1) rotate(var(--light-direction));
-}
-body:not(.binary).glass-sliders.colored input[type=range].colored.success::-ms-thumb:active, body:not(.binary).glass.auto-sliders.colored input[type=range].colored.success::-ms-thumb:active {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, hsl(135, 33%, 50%)) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, hsl(135, 33%, 50%)) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, hsl(135, 33%, 50%) 50%, transparent) 100%) no-repeat;
-  background-color: color-mix(in srgb, var(--ambient-color) 30%, hsl(135, 33%, 50%));
-  border-color: color-mix(in srgb, var(--ambient-color) 30%, hsl(135, 33%, 50%));
-  transform: scale(-1) rotate(var(--light-direction));
-}
-body:not(.binary).glass-sliders.colored input[type=range].colored.warning, body:not(.binary).glass.auto-sliders.colored input[type=range].colored.warning {
-  -webkit-appearance: none;
-}
-body:not(.binary).glass-sliders.colored input[type=range].colored.warning::-webkit-slider-thumb:active, body:not(.binary).glass.auto-sliders.colored input[type=range].colored.warning::-webkit-slider-thumb:active {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, #da5626) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, #da5626) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, #da5626 50%, transparent) 100%) no-repeat;
-  background-color: color-mix(in srgb, var(--ambient-color) 30%, #da5626);
-  border-color: color-mix(in srgb, var(--ambient-color) 30%, #da5626);
-  transform: scale(-1) rotate(var(--light-direction));
-}
-body:not(.binary).glass-sliders.colored input[type=range].colored.warning::-moz-range-thumb:active, body:not(.binary).glass.auto-sliders.colored input[type=range].colored.warning::-moz-range-thumb:active {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, #da5626) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, #da5626) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, #da5626 50%, transparent) 100%) no-repeat;
-  background-color: color-mix(in srgb, var(--ambient-color) 30%, #da5626);
-  border-color: color-mix(in srgb, var(--ambient-color) 30%, #da5626);
-  transform: scale(-1) rotate(var(--light-direction));
-}
-body:not(.binary).glass-sliders.colored input[type=range].colored.warning::-ms-thumb:active, body:not(.binary).glass.auto-sliders.colored input[type=range].colored.warning::-ms-thumb:active {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, #da5626) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, #da5626) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, #da5626 50%, transparent) 100%) no-repeat;
-  background-color: color-mix(in srgb, var(--ambient-color) 30%, #da5626);
-  border-color: color-mix(in srgb, var(--ambient-color) 30%, #da5626);
-  transform: scale(-1) rotate(var(--light-direction));
-}
-body:not(.binary).glass-sliders.colored input[type=range].colored.error, body:not(.binary).glass.auto-sliders.colored input[type=range].colored.error {
-  -webkit-appearance: none;
-}
-body:not(.binary).glass-sliders.colored input[type=range].colored.error::-webkit-slider-thumb:active, body:not(.binary).glass.auto-sliders.colored input[type=range].colored.error::-webkit-slider-thumb:active {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, #dc5656) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, #dc5656) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, #dc5656 50%, transparent) 100%) no-repeat;
-  background-color: color-mix(in srgb, var(--ambient-color) 30%, #dc5656);
-  border-color: color-mix(in srgb, var(--ambient-color) 30%, #dc5656);
-  transform: scale(-1) rotate(var(--light-direction));
-}
-body:not(.binary).glass-sliders.colored input[type=range].colored.error::-moz-range-thumb:active, body:not(.binary).glass.auto-sliders.colored input[type=range].colored.error::-moz-range-thumb:active {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, #dc5656) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, #dc5656) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, #dc5656 50%, transparent) 100%) no-repeat;
-  background-color: color-mix(in srgb, var(--ambient-color) 30%, #dc5656);
-  border-color: color-mix(in srgb, var(--ambient-color) 30%, #dc5656);
-  transform: scale(-1) rotate(var(--light-direction));
-}
-body:not(.binary).glass-sliders.colored input[type=range].colored.error::-ms-thumb:active, body:not(.binary).glass.auto-sliders.colored input[type=range].colored.error::-ms-thumb:active {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, color-mix(in srgb, white 100%, transparent) 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 50%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 80%, #dc5656) 100%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 10%, #dc5656) 100%, transparent) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, color-mix(in srgb, #dc5656 50%, transparent) 100%) no-repeat;
-  background-color: color-mix(in srgb, var(--ambient-color) 30%, #dc5656);
-  border-color: color-mix(in srgb, var(--ambient-color) 30%, #dc5656);
-  transform: scale(-1) rotate(var(--light-direction));
-}
 
 /******************************************************************************\
 |                                                                              |
@@ -7888,69 +7517,6 @@ body:not(.binary).metal-sliders input[type=range]::-ms-thumb:active, body:not(.b
   background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(141, 141, 187, 0.75) 50%, rgba(0, 0, 0, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, #7070aa 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, rgba(112, 112, 170, 0.5) 66%, #9b9bc4 100%) no-repeat;
   background-color: #383895;
   border-color: #4e4e9d;
-  transform: scale(-1) rotate(var(--light-direction));
-}
-body:not(.binary).metal-sliders.colored input[type=range].colored.success, body:not(.binary).metal.auto-sliders.colored input[type=range].colored.success {
-  -webkit-appearance: none;
-}
-body:not(.binary).metal-sliders.colored input[type=range].colored.success::-webkit-slider-thumb:active, body:not(.binary).metal.auto-sliders.colored input[type=range].colored.success::-webkit-slider-thumb:active {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, hsl(135, 33%, 50%)) 75%, transparent) 50%, color-mix(in srgb, hsl(135, 33%, 50%) 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, hsl(135, 33%, 50%) 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, hsl(135, 33%, 50%) 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, hsl(135, 33%, 50%)) 100%) no-repeat;
-  background-color: color-mix(in srgb, var(--ambient-color) 50%, hsl(135, 33%, 50%));
-  border-color: color-mix(in srgb, var(--ambient-color) 30%, hsl(135, 33%, 50%));
-  transform: scale(-1) rotate(var(--light-direction));
-}
-body:not(.binary).metal-sliders.colored input[type=range].colored.success::-moz-range-thumb:active, body:not(.binary).metal.auto-sliders.colored input[type=range].colored.success::-moz-range-thumb:active {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, hsl(135, 33%, 50%)) 75%, transparent) 50%, color-mix(in srgb, hsl(135, 33%, 50%) 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, hsl(135, 33%, 50%) 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, hsl(135, 33%, 50%) 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, hsl(135, 33%, 50%)) 100%) no-repeat;
-  background-color: color-mix(in srgb, var(--ambient-color) 50%, hsl(135, 33%, 50%));
-  border-color: color-mix(in srgb, var(--ambient-color) 30%, hsl(135, 33%, 50%));
-  transform: scale(-1) rotate(var(--light-direction));
-}
-body:not(.binary).metal-sliders.colored input[type=range].colored.success::-ms-thumb:active, body:not(.binary).metal.auto-sliders.colored input[type=range].colored.success::-ms-thumb:active {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, hsl(135, 33%, 50%)) 75%, transparent) 50%, color-mix(in srgb, hsl(135, 33%, 50%) 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, hsl(135, 33%, 50%) 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, hsl(135, 33%, 50%) 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, hsl(135, 33%, 50%)) 100%) no-repeat;
-  background-color: color-mix(in srgb, var(--ambient-color) 50%, hsl(135, 33%, 50%));
-  border-color: color-mix(in srgb, var(--ambient-color) 30%, hsl(135, 33%, 50%));
-  transform: scale(-1) rotate(var(--light-direction));
-}
-body:not(.binary).metal-sliders.colored input[type=range].colored.warning, body:not(.binary).metal.auto-sliders.colored input[type=range].colored.warning {
-  -webkit-appearance: none;
-}
-body:not(.binary).metal-sliders.colored input[type=range].colored.warning::-webkit-slider-thumb:active, body:not(.binary).metal.auto-sliders.colored input[type=range].colored.warning::-webkit-slider-thumb:active {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, #da5626) 75%, transparent) 50%, color-mix(in srgb, #da5626 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, #da5626 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, #da5626 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, #da5626) 100%) no-repeat;
-  background-color: color-mix(in srgb, var(--ambient-color) 50%, #da5626);
-  border-color: color-mix(in srgb, var(--ambient-color) 30%, #da5626);
-  transform: scale(-1) rotate(var(--light-direction));
-}
-body:not(.binary).metal-sliders.colored input[type=range].colored.warning::-moz-range-thumb:active, body:not(.binary).metal.auto-sliders.colored input[type=range].colored.warning::-moz-range-thumb:active {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, #da5626) 75%, transparent) 50%, color-mix(in srgb, #da5626 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, #da5626 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, #da5626 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, #da5626) 100%) no-repeat;
-  background-color: color-mix(in srgb, var(--ambient-color) 50%, #da5626);
-  border-color: color-mix(in srgb, var(--ambient-color) 30%, #da5626);
-  transform: scale(-1) rotate(var(--light-direction));
-}
-body:not(.binary).metal-sliders.colored input[type=range].colored.warning::-ms-thumb:active, body:not(.binary).metal.auto-sliders.colored input[type=range].colored.warning::-ms-thumb:active {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, #da5626) 75%, transparent) 50%, color-mix(in srgb, #da5626 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, #da5626 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, #da5626 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, #da5626) 100%) no-repeat;
-  background-color: color-mix(in srgb, var(--ambient-color) 50%, #da5626);
-  border-color: color-mix(in srgb, var(--ambient-color) 30%, #da5626);
-  transform: scale(-1) rotate(var(--light-direction));
-}
-body:not(.binary).metal-sliders.colored input[type=range].colored.error, body:not(.binary).metal.auto-sliders.colored input[type=range].colored.error {
-  -webkit-appearance: none;
-}
-body:not(.binary).metal-sliders.colored input[type=range].colored.error::-webkit-slider-thumb:active, body:not(.binary).metal.auto-sliders.colored input[type=range].colored.error::-webkit-slider-thumb:active {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, #dc5656) 75%, transparent) 50%, color-mix(in srgb, #dc5656 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, #dc5656 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, #dc5656 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, #dc5656) 100%) no-repeat;
-  background-color: color-mix(in srgb, var(--ambient-color) 50%, #dc5656);
-  border-color: color-mix(in srgb, var(--ambient-color) 30%, #dc5656);
-  transform: scale(-1) rotate(var(--light-direction));
-}
-body:not(.binary).metal-sliders.colored input[type=range].colored.error::-moz-range-thumb:active, body:not(.binary).metal.auto-sliders.colored input[type=range].colored.error::-moz-range-thumb:active {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, #dc5656) 75%, transparent) 50%, color-mix(in srgb, #dc5656 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, #dc5656 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, #dc5656 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, #dc5656) 100%) no-repeat;
-  background-color: color-mix(in srgb, var(--ambient-color) 50%, #dc5656);
-  border-color: color-mix(in srgb, var(--ambient-color) 30%, #dc5656);
-  transform: scale(-1) rotate(var(--light-direction));
-}
-body:not(.binary).metal-sliders.colored input[type=range].colored.error::-ms-thumb:active, body:not(.binary).metal.auto-sliders.colored input[type=range].colored.error::-ms-thumb:active {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, #dc5656) 75%, transparent) 50%, color-mix(in srgb, #dc5656 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, #dc5656 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, #dc5656 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, #dc5656) 100%) no-repeat;
-  background-color: color-mix(in srgb, var(--ambient-color) 50%, #dc5656);
-  border-color: color-mix(in srgb, var(--ambient-color) 30%, #dc5656);
   transform: scale(-1) rotate(var(--light-direction));
 }
 

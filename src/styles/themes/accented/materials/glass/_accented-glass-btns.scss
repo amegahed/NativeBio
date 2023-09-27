@@ -18,40 +18,10 @@
 @use "../../../../navs/materials/glass/glass-btns";
 @use "../../../../navs/materials/glass/glass-buttons";
 @use "../../navs/accented-btns";
-@use "../../../../forms/validation";
 
 //
 // styles
 //
-
-body:not(.binary).colored.accented {
-	&.glass-buttons,
-	&.glass.auto-buttons {
-
-		//
-		// styled buttons
-		//
-
-		.btn:not(.btn-primary):not(.colored):not(:disabled) {
-
-			//
-			// special buttons
-			//
-
-			&.success {
-				@include glass-buttons.shade(validation.$success-color);
-			}
-
-			&.caution {
-				@include glass-buttons.shade(validation.$caution-color);
-			}
-
-			&.warning {
-				@include glass-buttons.shade(validation.$warning-color);
-			}
-		}
-	}
-}
 
 @supports (color: color-mix(in srgb, white, black)) {
 	body:not(.binary).colored.accented {

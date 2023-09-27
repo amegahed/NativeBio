@@ -74,7 +74,7 @@
 	}
 }
 
-@mixin labeling($color) {
+@mixin labeled($color) {
 	@include label($color);
 	@include icon($color);
 }

@@ -103,6 +103,10 @@ $attachments-height: 200px;
 				> div {
 					padding: 0;
 				}
+
+				.icons:not(:empty) {
+					margin-top: 10px;
+				}
 			}
 		}
 

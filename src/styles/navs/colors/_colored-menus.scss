@@ -39,7 +39,7 @@
 	}
 }
 
-@mixin labeling($open-text-color, $hover-text-color, $active-text-color) {
+@mixin labeled($open-text-color, $hover-text-color, $active-text-color) {
 	> li:not(.dropdown-toggle):not(.disabled) {
 
 		&.open > a {
@@ -56,7 +56,7 @@
 	}
 }
 
-@mixin marking($open-icon-color, $hover-icon-color, $active-icon-color) {
+@mixin marked($open-icon-color, $hover-icon-color, $active-icon-color) {
 	> li:not(.dropdown-toggle):not(.disabled) {
 
 		&.open > a {
