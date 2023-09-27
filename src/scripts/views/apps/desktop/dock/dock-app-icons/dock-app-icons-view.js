@@ -24,7 +24,7 @@ export default DockIconsView.extend( {
 	// attributes
 	//
 
-	className: 'app-icons icons',
+	className: 'apps',
 	childView: DockAppIconView,
 
 	//

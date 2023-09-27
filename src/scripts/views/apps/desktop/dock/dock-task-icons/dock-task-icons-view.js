@@ -24,6 +24,7 @@ export default DockIconsView.extend({
 	// attributes
 	//
 
+	className: 'tasks',
 	childView: DockTaskIconView,
 
 	//

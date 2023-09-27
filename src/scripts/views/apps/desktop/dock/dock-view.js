@@ -42,11 +42,11 @@ export default BaseView.extend(_.extend({}, Launchable, {
 	regions: {
 		apps: {
 			el: '.apps',
-			replaceElement: false
+			replaceElement: true
 		},
 		tasks: {
 			el: '.tasks',
-			replaceElement: false
+			replaceElement: true
 		}
 	},
 
