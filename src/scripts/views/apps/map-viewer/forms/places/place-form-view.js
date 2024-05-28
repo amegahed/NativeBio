@@ -15,7 +15,7 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import Directory from '../../../../../models/files/directory.js';
+import Directory from '../../../../../models/storage/directories/directory.js';
 import FormView from '../../../../../views/forms/form-view.js';
 import '../../../../../../vendor/bootstrap/js/plugins/bootstrap-select/bootstrap-select.js';
 
@@ -99,7 +99,7 @@ export default FormView.extend({
 		</div>
 		
 		<div class="set-location form-group">
-			<label class="control-label"></label>
+			<label class="control-label"><i class="fa fa-map-marker"></i>Location</label>
 			<div class="inline controls">
 				<div class="buttons">
 					<button class="select-place btn">

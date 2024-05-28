@@ -22,14 +22,14 @@ export default {
 	// sharing methods
 	//
 
-	shareLinkByPost: function(url, options) {
+	shareLinkByTopic: function(url, options) {
 		import(
-			'../../../../../views/apps/messenger/messenger-view.js'
-		).then((MessengerView) => {
+			'../../../../../views/apps/topic-viewer/topic-viewer-view.js'
+		).then((TopicViewerView) => {
 
 			// show default topic
 			//
-			application.showTopic(MessengerView.default.defaultTopic, {
+			application.showTopic(TopicViewerView.default.default_topic, {
 				message: (options && options.message? options.message : '') + url,
 				privacy: options? options.privacy : null
 			});

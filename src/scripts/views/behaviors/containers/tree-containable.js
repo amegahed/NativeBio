@@ -22,6 +22,9 @@ export default {
 	//
 
 	each: function(callback, filter, options) {
+
+		// iterate over children
+		//
 		for (let i = 0; i < this.children.length; i++) {
 			let child = this.children.findByIndex(i);
 

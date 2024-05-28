@@ -41,46 +41,130 @@ export default BaseView.extend({
 	},
 
 	//
+	// querying methods
+	//
+
+	hasMenu: function(name) {
+		return this.hasChildView(name);
+	},
+
+	//
 	// getting methods
 	//
 
-	getDropdown: function(name) {
-		return this.getChildView(name).$el.parent();
+	getMenu: function(name) {
+		if (this.hasChildView(name)) {
+			return this.getChildView(name).$el.parent();
+		}
+	},
+
+	getMenuNames: function() {
+		return Object.keys(this.regions);
+	},
+
+	getMenus: function() {
+		let menus = [];
+		let names = this.getMenuNames();
+		for (let i = 0; i < names.length; i++) {
+			menus.push(this.getChildView(names[i]));
+		}
+		return menus;
 	},
 
 	//
 	// setting methods
 	//
 
-	setDropdownVisible: function(name, visible) {
+	setEnabled: function (enabled) {
+		switch (typeof enabled) {
+
+			case 'boolean': {
+
+				// set items to value
+				//
+				let names = this.getMenuNames();
+				for (let i = 0; i < names.length; i++) {
+					let name = names[i];
+					if (this.hasMenu(name)) {
+						this.setMenuEnabled(name, enabled);
+					}
+				}
+				break;
+			}
+
+			case 'object': {
+
+				// set items to values
+				//
+				for (let name in enabled) {
+					if (this.hasMenu(name)) {
+						this.setMenuEnabled(name, enabled[name]);
+					}
+				}
+				break;
+			}
+		}
+	},
+
+	setDisabled: function(disabled) {
+		switch (typeof disabled) {
+
+			case 'boolean': {
+
+				// set items to value
+				//
+				let names = this.getMenuNames();
+				for (let i = 0; i < names.length; i++) {
+					this.setMenuDisabled(names[i], disabled);
+				}
+				break;
+			}
+
+			case 'object': {
+
+				// set items to values
+				//
+				for (let name in disabled) {
+					this.setMenuDisabled(name, disabled[name]);
+				}
+				break;
+			}
+		}
+	},
+
+	//
+	// menu setting methods
+	//
+
+	setMenuVisible: function(name, visible) {
 		if (visible || visible == undefined) {
-			this.getDropdown(name).css('display', '');
+			this.getMenu(name).css('display', '');
 		} else {
-			this.getDropdown(name).css('display', 'none');
+			this.getMenu(name).css('display', 'none');
 		}
 	},
 
-	setDropdownHidden: function(name, hidden) {
+	setMenuHidden: function(name, hidden) {
 		if (hidden || hidden == undefined) {
-			this.getDropdown(name).css('display', 'none');
+			this.getMenu(name).css('display', 'none');
 		} else {
-			this.getDropdown(name).css('display', '');
+			this.getMenu(name).css('display', '');
 		}
 	},
 
-	setDropdownEnabled: function(name, enabled) {
+	setMenuEnabled: function(name, enabled) {
 		if (enabled || enabled == undefined) {
-			this.getDropdown(name).removeClass('disabled');
+			this.getMenu(name).removeClass('disabled');
 		} else {
-			this.getDropdown(name).addClass('disabled');
+			this.getMenu(name).addClass('disabled');
 		}
 	},
 
-	setDropdownDisabled: function(name, disabled) {
+	setMenuDisabled: function(name, disabled) {
 		if (disabled || disabled == undefined) {
-			this.getDropdown(name).addClass('disabled');
+			this.getMenu(name).addClass('disabled');
 		} else {
-			this.getDropdown(name).removeClass('disabled');
+			this.getMenu(name).removeClass('disabled');
 		}
 	},
 

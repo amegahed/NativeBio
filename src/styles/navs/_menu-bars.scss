@@ -46,6 +46,7 @@ $shadow: 3px 3px 7px rgba(black, 33%);
 
 		> li {
 			display: inline-flex;
+			height: $height;
 			float: none;
 			border: none;
 			margin-bottom: 0;
@@ -56,13 +57,11 @@ $shadow: 3px 3px 7px rgba(black, 33%);
 
 			> a {
 				display: flex;
-				height: 30px;
 				padding: 5px 10px;
 				border-radius: 0;
 				border-width: 1px;
 				border-style: solid;
 				border-color: transparent;
-				margin: auto;
 
 				i {
 					margin: auto;
@@ -129,9 +128,10 @@ $shadow: 3px 3px 7px rgba(black, 33%);
 	.menu-bar {
 		.nav-menus {
 			> li {
+				height: $thin-height;
+
 				> a {
 					padding: 1px 10px;
-					height: $thin-height;
 				}
 			}
 		}
@@ -145,12 +145,8 @@ $shadow: 3px 3px 7px rgba(black, 33%);
 body:not(.binary):not(.flat-menus):not(.flat.auto-menus) {
 	.menu-bar {
 		> ul.nav-menus {
-			> li:not(.disabled) {
-				> a:active {
-					box-shadow: $shadow;
-				}
-
-				> a:hover {
+			> li:not(.disabled).open {
+				> a {
 					box-shadow: $shadow;
 				}
 			}

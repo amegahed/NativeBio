@@ -25,13 +25,13 @@ export default FileMenuView.extend({
 
 	template: template(`
 		<li role="presentation">
-			<a class="new-window"><i class="far fa-window-maximize"></i>New Window<span class="command shortcut">enter</span></a>
+			<a class="new-file"><i class="fa fa-file-alt"></i>New File<span class="command shortcut">F</span></a>
 		</li>
 
 		<li role="presentation">
-			<a class="new-file"><i class="fa fa-file-alt"></i>New File<span class="command shortcut">F</span></a>
+			<a class="new-window"><i class="far fa-window-maximize"></i>New Window<span class="command shortcut">enter</span></a>
 		</li>
-		
+
 		<li role="presentation">
 			<a class="open-file"><i class="fa fa-folder-open"></i>Open<span class="command shortcut">O</span></a>
 		</li>
@@ -62,8 +62,8 @@ export default FileMenuView.extend({
 	`),
 
 	events: {
-		'click .new-window': 'onClickNewWindow',
 		'click .new-file': 'onClickNewFile',
+		'click .new-window': 'onClickNewWindow',
 		'click .open-file': 'onClickOpenFile',
 		'click .show-info': 'onClickShowInfo',
 		'click .save-file': 'onClickSaveFile',
@@ -84,8 +84,8 @@ export default FileMenuView.extend({
 		let isWritable = file? file.isWritableBy(application.session.user) : false;
 
 		return {
-			'new-window': true,
 			'new-file': true,
+			'new-window': true,
 			'open-file': isDirectoryReadable,
 			'show-info': file != undefined && !file.isNew(),
 			'save-file': isSignedIn && isDirty && isWritable,

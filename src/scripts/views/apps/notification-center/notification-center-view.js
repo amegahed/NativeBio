@@ -108,7 +108,7 @@ export default AppView.extend({
 
 					error: (model, response) => {
 
-						// show error view
+						// show error message
 						//
 						application.error({
 							message: "Could not get connection requests.",
@@ -120,7 +120,7 @@ export default AppView.extend({
 
 			error: (model, response) => {
 
-				// show error view
+				// show error message
 				//
 				application.error({
 					message: "Could not get notifications.",

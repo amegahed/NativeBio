@@ -36,11 +36,11 @@
 	
 	<h2><i class="fa fa-desktop"></i>Screen Shots</h2>
 	<div class="figure desktop-only">
-		<a href="images/info/apps/project-viewer/project-viewer.png" target="_blank" class="lightbox" title="Tasks"><img class="dialog" src="images/info/apps/project-viewer/project-viewer.png" /></a>
-		<div class="caption">Tasks</div>
+		<a href="images/info/apps/project-viewer/project-viewer.png" target="_blank" class="lightbox" title="<%= config.apps['project_viewer'].name %>"><img class="dialog" src="images/info/apps/project-viewer/project-viewer.png" /></a>
+		<div class="caption"><%= config.apps['project_viewer'].name %></div>
 	</div>
 	<div class="figure mobile-only">
-		<a href="images/info/apps/project-viewer/mobile/mobile-project-viewer.png" target="_blank" class="lightbox" title="Tasks"><img class="dialog" src="images/info/apps/project-viewer/mobile/mobile-project-viewer.png" /></a>
-		<div class="caption">Tasks</div>
+		<a href="images/info/apps/project-viewer/mobile/mobile-project-viewer.png" target="_blank" class="lightbox" title="<%= config.apps['project_viewer'].name %>"><img class="dialog" src="images/info/apps/project-viewer/mobile/mobile-project-viewer.png" /></a>
+		<div class="caption"><%= config.apps['project_viewer'].name %></div>
 	</div>
 </div>

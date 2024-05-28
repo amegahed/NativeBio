@@ -63,32 +63,14 @@ export default AppView.extend({
 		'click .reset': 'onClickReset'
 	}),
 
-	// animation attributes
-	//
-	ticking: true,
-	updateInterval: 100,
-
-	//
-	// constructor
-	//
-
-	initialize: function() {
-
-		// call superclass constructor
-		//
-		AppView.prototype.initialize.call(this);
-
-		// set attributes
-		//
-		this.seconds = 0;
-		this.count = 0;
-	},
-
 	//
 	// timing methods
 	//
 
 	start: function() {
+		if (this.blinking) {
+			return;
+		}
 
 		// set start time
 		//
@@ -98,9 +80,16 @@ export default AppView.extend({
 
 		// start updating at regular intervals
 		//
+		let updateInterval = this.preferences.get('show_hundredths')? 30 : 1000;
 		this.setInterval(() => {
 			this.update();
-		}, this.updateInterval);
+		}, updateInterval);
+
+		// perform initial update
+		//
+		window.setTimeout(() => {
+			this.update();
+		}, 10);
 		
 		this.getChildView('buttons').start();
 	},
@@ -114,19 +103,38 @@ export default AppView.extend({
 	},
 
 	stop: function() {
-		this.clearInterval();
-		this.seconds += TimeUtils.getElapsedSeconds(this.startTime, new Date());
+		this.clearInterval(this.blinking);
+		this.elapsed += TimeUtils.getElapsedSeconds(this.startTime, new Date()) * this.direction;
 		this.getChildView('buttons').stop();
 	},
 
 	reset: function() {
+
+		// reset display
+		//
 		this.stop();
-		this.seconds = 0;
+		this.stopBlinking();
+		this.showDigits();
+
+		switch (this.preferences.get('direction')) {
+			case 'down':
+				this.elapsed = this.seconds;
+				break;
+			case 'up':
+				this.elapsed = 0;
+				break;
+		}
 
 		// reset time
 		//
-		this.setTime(0);
-		this.getChildView('face').setAngle(0);
+		this.setTime(this.elapsed);
+
+		// reset status
+		//
+		if (this.blinking) {
+			window.clearTimeout(this.blinking);
+			this.showDigits();
+		}
 	},
 
 	//
@@ -142,19 +150,112 @@ export default AppView.extend({
 	//
 
 	onRender: function() {
-		this.showChildView('face', new FaceView());
+		let direction = this.preferences.get('direction');
+
+		// find start time
+		//
+		let hours = this.preferences.get('hours');
+		let minutes = this.preferences.get('minutes');
+		let seconds = this.preferences.get('seconds');
+
+		// set initial attributes
+		//
+		this.direction = direction == 'down'? -1 : 1;
+		this.seconds = (hours * 3600) + (minutes * 60) + seconds;
+		switch (direction) {
+			case 'down':
+				this.elapsed = this.seconds;
+				break;
+			case 'up':
+				this.elapsed = 0;
+				break;
+		}
+
+		// show child views
+		//
+		this.showChildView('face', new FaceView({
+			display: this.preferences.get('display'),
+			hours: direction == 'down'? hours : 0,
+			minutes: direction == 'down'? minutes : 0,
+			seconds: direction == 'down'? seconds : 0,
+			show_hours: this.preferences.get('show_hours'),
+			show_hundredths: this.preferences.get('show_hundredths')
+		}));
 		this.showChildView('buttons', new ButtonsView());
 	},
 
 	update: function() {
-		let seconds = this.seconds + TimeUtils.getElapsedSeconds(this.startTime, new Date());
-		this.setTime(seconds);
-		this.count++;
+		let seconds = this.elapsed + TimeUtils.getElapsedSeconds(this.startTime, new Date()) * this.direction;
 
-		// update analog display
+		// check limit
 		//
-		if (!this.ticking || this.count % 10 == 0) {
-			this.getChildView('face').setAngle(360 * seconds / 60);
+		switch (this.preferences.get('direction')) {
+			case 'down':
+				if (seconds < 0) {
+					seconds = 0;
+					this.blink();
+				}
+				break;
+			case 'up':
+				if (seconds > this.seconds) {
+					seconds = this.seconds;
+					this.blink();
+				}
+				break;
 		}
+
+		// update digital display
+		//
+		this.setTime(seconds);
+	},
+
+	blink: function() {
+		this.stop();
+
+		// start blinking interval
+		//
+		this.blinks = 0;
+		this.blinking = window.setInterval(() => {
+			this.blinks++;
+
+			// update display
+			//
+			if (this.blinks % 2 == 0) {
+				this.hideDigits();
+			} else {
+				this.showDigits();
+
+				// play error sound
+				//
+				application.play('tap');
+			}
+		}, 500);
+	},
+
+	stopBlinking: function() {
+		if (this.blinking) {
+			window.clearInterval(this.blinking);
+		}
+		this.blinking = null;
+	},
+
+	//
+	// hiding methods
+	//
+
+	hideDigits: function() {
+		this.$el.find('.digits').addClass('hidden');
+	},
+
+	showDigits: function() {
+		this.$el.find('.digits').removeClass('hidden');
+	},
+
+	//
+	// cleanup methods
+	//
+
+	onBeforeDestroy: function() {
+		this.stopBlinking();
 	}
 });

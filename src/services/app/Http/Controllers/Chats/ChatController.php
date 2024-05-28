@@ -13,7 +13,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|            Copyright (C) 2016-2020, Sharedigm, www.sharedigm.com             |
+|            Copyright (C) 2016-2024, Sharedigm, www.sharedigm.com             |
 \******************************************************************************/
 
 namespace App\Http\Controllers\Chats;
@@ -25,7 +25,7 @@ use App\Models\Chats\Chat;
 use App\Models\Chats\ChatMessage;
 use App\Models\Chats\ChatMembership;
 use App\Http\Controllers\Controller;
-use App\Utilities\Filters\DateFilters;
+use App\Utilities\Filters\DateFilter;
 use App\Utilities\Uuids\Guid;
 
 class ChatController extends Controller

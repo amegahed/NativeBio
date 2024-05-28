@@ -36,11 +36,11 @@
 	
 	<h2><i class="fa fa-desktop"></i>Screen Shots</h2>
 	<div class="figure desktop-only">
-		<a href="images/info/apps/topic-browser/topic-browser.png" target="_blank" class="lightbox" title="Topics"><img class="dialog" src="images/info/apps/topic-browser/topic-browser.png" /></a>
-		<div class="caption">Topics</div>
+		<a href="images/info/apps/topic-browser/topic-browser.png" target="_blank" class="lightbox" title="<%= config.apps['topic_browser'].name %>"><img class="dialog" src="images/info/apps/topic-browser/topic-browser.png" /></a>
+		<div class="caption"><%= config.apps['topic_browser'].name %></div>
 	</div>
 	<div class="figure mobile-only">
-		<a href="images/info/apps/topic-browser/mobile/mobile-topic-browser.png" target="_blank" class="lightbox" title="Topics"><img src="images/info/apps/topic-browser/mobile/mobile-topic-browser.png" /></a>
-		<div class="caption">Topics</div>
+		<a href="images/info/apps/topic-browser/mobile/mobile-topic-browser.png" target="_blank" class="lightbox" title="<%= config.apps['topic_browser'].name %>"><img src="images/info/apps/topic-browser/mobile/mobile-topic-browser.png" /></a>
+		<div class="caption"><%= config.apps['topic_browser'].name %></div>
 	</div>
 </div>

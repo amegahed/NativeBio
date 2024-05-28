@@ -67,6 +67,7 @@ export default CollectionView.extend(_.extend({}, SelectableContainable, {
 
 			// options
 			//
+			features: this.options.features,
 			preferences: this.options.preferences,
 			collapsed: this.options.collapsed,
 			selected: this.options.selected,

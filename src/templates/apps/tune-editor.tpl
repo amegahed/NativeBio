@@ -38,11 +38,11 @@
 
 	<h2><i class="fa fa-desktop"></i>Screen Shots</h2>
 	<div class="figure desktop-only">
-		<a href="images/info/apps/tune-editor/tune-editor.png" target="_blank" class="lightbox" title="Tunes"><img class="dialog" src="images/info/apps/tune-editor/tune-editor.png" /></a>
-		<div class="caption">Tunes</div>
+		<a href="images/info/apps/tune-editor/tune-editor.png" target="_blank" class="lightbox" title="<%= config.apps['tune_editor'].name %>"><img class="dialog" src="images/info/apps/tune-editor/tune-editor.png" /></a>
+		<div class="caption"><%= config.apps['tune_editor'].name %></div>
 	</div>
 	<div class="figure mobile-only">
-		<a href="images/info/apps/tune-editor/mobile/mobile-tune-editor.png" target="_blank" class="lightbox" title="Tunes"><img src="images/info/apps/tune-editor/mobile/mobile-tune-editor.png" /></a>
-		<div class="caption">Tunes</div>
+		<a href="images/info/apps/tune-editor/mobile/mobile-tune-editor.png" target="_blank" class="lightbox" title="<%= config.apps['tune_editor'].name %>"><img src="images/info/apps/tune-editor/mobile/mobile-tune-editor.png" /></a>
+		<div class="caption"><%= config.apps['tune_editor'].name %></div>
 	</div>
 </div>

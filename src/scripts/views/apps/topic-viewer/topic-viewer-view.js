@@ -17,9 +17,9 @@
 
 import Topic from '../../../models/topics/topic.js';
 import Post from '../../../models/topics/post.js';
-import Item from '../../../models/files/item.js';
-import File from '../../../models/files/file.js';
-import Directory from '../../../models/files/directory.js';
+import Item from '../../../models/storage/item.js';
+import File from '../../../models/storage/files/file.js';
+import Directory from '../../../models/storage/directories/directory.js';
 import BaseCollection from '../../../collections/base-collection.js';
 import Topics from '../../../collections/topics/topics.js';
 import AppSplitView from '../../../views/apps/common/app-split-view.js';
@@ -145,7 +145,7 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, ContainableSelectable,
 	getDefaultTopic: function() {
 		let name = this.preferences.get('default_topic');
 		if (!name || name == '' || name == config.apps[this.name].defaults.topic.name) {
-			return this.constructor.defaultTopic;
+			return this.constructor.default_topic;
 		} else {
 			return this.getTopicByName(name);
 		}
@@ -218,7 +218,7 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, ContainableSelectable,
 		// update view
 		//
 		switch (key) {
-			
+
 			// mainbar options
 			//
 			case 'show_comments':
@@ -272,16 +272,25 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, ContainableSelectable,
 		//
 		if (this.selected && !(this.selected.model instanceof Topic)) {
 			let model = this.selected.model;
-			let editable = model.isOwnedBy(application.session.user);
-			if (editable) {
-				this.selected.edit();
-			} else {
+
+			// check permissions
+			//
+			if (!model.isOwnedBy(application.session.user)) {
+
+				// show alert message
+				//
 				application.alert({
 					icon: '<i class="fa fa-lock"></i>',
 					title: "Permissions Error",
 					message: "You do not have permission to edit this item."
 				});
+
+				return;
 			}
+
+			// edit selected
+			//
+			this.selected.edit();
 
 		// delete selected topic
 		//
@@ -301,16 +310,25 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, ContainableSelectable,
 		//
 		if (this.selected && !(this.selected.model instanceof Topic)) {
 			let model = this.selected.model;
-			let editable = model.isOwnedBy(application.session.user);
-			if (editable) {
-				this.selected.delete();
-			} else {
+
+			// check permissions
+			//
+			if (!model.isOwnedBy(application.session.user)) {
+
+				// show alert message
+				//
 				application.alert({
 					icon: '<i class="fa fa-lock"></i>',
 					title: "Permissions Error",
 					message: "You do not have permission to delete this item."
 				});
+
+				return;
 			}
+
+			// delete selected
+			//
+			this.selected.delete();
 
 		// delete selected topic
 		//
@@ -341,7 +359,7 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, ContainableSelectable,
 				title: 'Move ' + (posts.length == 1? 'Post' : 'Posts'),
 				message: "Are you sure that you would like to move " + (posts.length == 1? '"' + posts[0].getMessage({max_words: 3}) + '..."': "these " + posts.length + " posts") + " from #" +
 					this.model.get('name') + " to #" + topic.get('name') + "?",
-				
+
 				// callbacks
 				//
 				accept: () => {
@@ -360,7 +378,7 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, ContainableSelectable,
 
 			// play drop sound
 			//
-			application.play('drop');		
+			application.play('drop');
 		}
 	},
 
@@ -381,11 +399,38 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, ContainableSelectable,
 	// topic methods
 	//
 
+	openTopic: function(topic, options) {
+		this.openModel(topic);
+
+		// set options
+		//
+		if (options && (options.message || options.items)) {
+			let activeView = this.getActiveView();
+			if (activeView) {
+				let formView = activeView.getChildView('form');
+				if (formView) {
+					if (options.message) {
+						formView.setValue('message', options.message);
+					}
+					if (options.items) {
+						formView.addAttachments(options.items);
+					}
+				}
+			}
+		}
+	},
+
+	openTopics: function(topics, options) {
+		for (let i = 0; i < topics.length; i++) {
+			this.openTopic(topics[i], options);
+		}
+	},
+
 	openSelectedTopics: function() {
 		if (this.hasSelected()) {
 			this.openSelected();
 		} else {
-			this.showOpenTopicDialog();
+			this.showOpenTopicsDialog();
 		}
 	},
 
@@ -435,7 +480,7 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, ContainableSelectable,
 					application.error({
 						message: "Could not remove member from topic.",
 						response: response
-					});		
+					});
 				}
 			});
 		}
@@ -450,7 +495,7 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, ContainableSelectable,
 			}
 
 			removeTopic(topic);
-		}	
+		}
 	},
 
 	removeTopics: function(topics, options) {
@@ -463,7 +508,7 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, ContainableSelectable,
 			//
 			application.confirm({
 				title: "Remove Topics",
-				message: "Are you sure you want to remove " + 
+				message: "Are you sure you want to remove " +
 					(topics.length > 1? "these " + topics.length + " topics" : "#" + topics[0].get('name')) + " from your list of topics?",
 
 				// callbacks
@@ -552,7 +597,7 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, ContainableSelectable,
 
 					// play delete sound
 					//
-					application.play('delete');		
+					application.play('delete');
 				},
 
 				error: (model, response) => {
@@ -562,7 +607,7 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, ContainableSelectable,
 					application.error({
 						message: "Could not delete topic.",
 						response: response
-					});			
+					});
 				}
 			});
 		}
@@ -591,25 +636,25 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, ContainableSelectable,
 					},
 
 					error: (model, response) => {
-				
+
 						// show error message
 						//
 						application.error({
 							message: "Could not fetch unsubscribed public topics.",
 							response: response
-						});		
+						});
 					}
 				});
 			},
 
 			error: (model, response) => {
-		
+
 				// show error message
 				//
 				application.error({
 					message: "Could not fetch unsubscribed topics.",
 					response: response
-				});		
+				});
 			}
 		});
 	},
@@ -619,10 +664,10 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, ContainableSelectable,
 	//
 
 	searchFor: function(search) {
-		this.search = search;
+		this.options.search = search;
 		this.showContent();
 	},
-	
+
 	//
 	// sharing methods
 	//
@@ -656,7 +701,7 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, ContainableSelectable,
 			model: application.getDirectory('Videos')
 		});
 	},
-	
+
 	shareMaps: function() {
 		this.getActiveView().shareItems({
 			model: application.getDirectory('Maps')
@@ -682,15 +727,15 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, ContainableSelectable,
 		});
 	},
 
-	shareSelectedByPost: function(options) {
-		this.shareLinkByPost(this.getSelected()[0].model.getUrl(), _.extend({}, options, {
+	shareSelectedByTopic: function(options) {
+		this.shareLinkByTopic(this.getSelected()[0].model.getUrl(), _.extend({}, options, {
 			message: 'Check out this post: ' + '\n'
 		}));
 	},
 
 	shareSelectedByMessage: function(options) {
 		this.shareLinkByMessage(this.getSelected()[0].model.getUrl(), _.extend({}, options, {
-			message: 'Check out this post: ' + '\n'
+			message: 'Check out this message: ' + '\n'
 		}));
 	},
 
@@ -731,11 +776,14 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, ContainableSelectable,
 
 			// options
 			//
-			search: this.search,
+			message: this.options.message,
+			items: this.options.items,
+			search: this.options.search,
 			preferences: this.preferences,
 
 			// capabilities
 			//
+			features: this.options.features,
 			editable: this.options.editable,
 
 			// callbacks
@@ -809,7 +857,7 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, ContainableSelectable,
 				// callbacks
 				//
 				onopen: (items) => {
-					this.openModels(items);
+					this.openTopics(items);
 				}
 			}));
 		});
@@ -838,7 +886,7 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, ContainableSelectable,
 				},
 
 				onsave: (topic) => {
-					
+
 					// add model to list
 					//
 					this.collection.add(topic);
@@ -853,7 +901,7 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, ContainableSelectable,
 
 	showInfoDialog: function() {
 		if (this.selected && this.selected.model instanceof Item) {
-			
+
 			// show attachment info
 			//
 			this.showItemInfoDialog(this.selected.model);
@@ -871,25 +919,23 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, ContainableSelectable,
 
 			// show mainbar post topic info
 			//
-			this.showTopicInfoDialog(this.getPostTopic(this.getSelectedOpenPost()));				
+			this.showTopicInfoDialog(this.getPostTopic(this.getSelectedOpenPost()));
 		}
 	},
 
-	/*
-	showTopicInvitationsDialog: function() {
+	showTopicInvitationsDialog: function(topic) {
 		import(
-			'../../../views/apps/topic-viewer/sharing/dialogs/topic-invitations-dialog-view.js'
+			'../../../views/apps/topic-viewer/dialogs/invitations/topic-invitations-dialog-view.js'
 		).then((TopicInvitationsDialogView) => {
 
 			// show topic invitations dialog
 			//
 			this.show(new TopicInvitationsDialogView.default({
 				model: topic,
-				message: config.apps[this.name].topic_invitation_message
+				message: config.apps.topic_viewer.topic_invitation_message
 			}));
 		});
 	},
-	*/
 
 	showPreferencesDialog: function() {
 		import(
@@ -944,13 +990,15 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, ContainableSelectable,
 	//
 
 	onOpen: function(item) {
-		if (item.model instanceof Topic || 
+		if (item.model instanceof Topic ||
 			item.model instanceof Post) {
 			this.openModel(item.model);
 		} else if (item.model instanceof Directory) {
 			this.openDirectory(item.model);
 		} else if (item.model instanceof File) {
-			this.openFile(item.model);
+			this.openFile(item.model, {
+				collection: item.model.collection
+			});
 		}
 	},
 
@@ -965,10 +1013,7 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, ContainableSelectable,
 		// set initial search
 		//
 		if (this.options.search) {
-			let search = this.options.search;
-			this.options.search = null;
-			this.setSearch(search);
-			this.searchFor(search);
+			this.setSearch(this.options.search);
 		}
 
 		// call superclass method
@@ -1014,7 +1059,7 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, ContainableSelectable,
 		//
 		AppSplitView.prototype.onDeselect.call(this, item);
 	},
-	
+
 	//
 	// drag and drop event handling methods
 	//
@@ -1054,5 +1099,5 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, ContainableSelectable,
 	// static attributes
 	//
 
-	defaultTopic: new Topic(config.apps.topic_viewer.defaults.topic)
+	default_topic: new Topic(config.apps.topic_viewer.defaults.topic)
 });

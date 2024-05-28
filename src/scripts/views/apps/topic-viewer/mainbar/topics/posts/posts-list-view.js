@@ -32,24 +32,16 @@ export default CollectionView.extend(_.extend({}, SelectableContainable, {
 		<% if (collapsable) { %>
 		<div class="buttons">
 			<span class="expander">
-				<button type="button" class="expand btn btn-sm" data-toggle="tooltip" title="Expand">
+				<button type="button" class="expand btn-sm" data-toggle="tooltip" title="Expand">
 					<i class="fa fa-caret-down"></i>	
 				</button>
-				<button type="button" class="collapse btn btn-sm" data-toggle="tooltip" title="Collapse">
+				<button type="button" class="collapse btn-sm" data-toggle="tooltip" title="Collapse">
 					<i class="fa fa-caret-up"></i>
 				</button>
 			</span>
 		</div>
 		<% } %>
 	`),
-
-	// views
-	//
-	childView: PostView,
-	emptyView: BaseView.extend({
-		className: 'empty post panel',
-		template: template('No posts.')
-	}),
 
 	events: {
 
@@ -63,6 +55,16 @@ export default CollectionView.extend(_.extend({}, SelectableContainable, {
 		//
 		'tap': 'onTap'
 	},
+
+	//
+	// views
+	//
+
+	childView: PostView,
+	emptyView: BaseView.extend({
+		className: 'empty post panel',
+		template: template('No posts.')
+	}),
 
 	//
 	// constructor
@@ -150,10 +152,11 @@ export default CollectionView.extend(_.extend({}, SelectableContainable, {
 
 			// options
 			//
+			features: this.options.features,
 			preferences: this.options.preferences,
 			selected: this.options.selected,
 			collapsed: this.options.collapsed,
-			showElapsedTime: this.options.showElapsedTime,
+			show_elapsed_time: this.options.show_elapsed_time,
 
 			// capabilities
 			//

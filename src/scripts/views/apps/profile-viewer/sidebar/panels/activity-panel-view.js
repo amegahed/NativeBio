@@ -73,6 +73,17 @@ export default SideBarPanelView.extend({
 		};
 	},
 
+	showDefaultTopic: function() {
+		import(
+			'../../../../../views/apps/topic-viewer/topic-viewer-view.js'
+		).then((TopicViewerView) => {
+
+			// show default topic
+			//
+			application.showTopic(TopicViewerView.default.default_topic);
+		});
+	},
+
 	//
 	// mouse event handling methods
 	//
@@ -82,35 +93,14 @@ export default SideBarPanelView.extend({
 	},
 
 	onClickNumPosts: function() {
-		import(
-			'../../../../../views/apps/messenger/messenger-view.js'
-		).then((MessengerView) => {
-
-			// show default topic
-			//
-			application.showTopic(MessengerView.default.defaultTopic);
-		});
+		this.showDefaultTopic();
 	},
 
 	onClickNumComments: function() {
-		import(
-			'../../../../../views/apps/messenger/messenger-view.js'
-		).then((MessengerView) => {
-
-			// show default topic
-			//
-			application.showTopic(MessengerView.default.defaultTopic);
-		});
+		this.showDefaultTopic();
 	},
 
 	onClickNumChats: function() {
-		import(
-			'../../../../../views/apps/messenger/messenger-view.js'
-		).then((MessengerView) => {
-
-			// show default topic
-			//
-			application.showTopic(MessengerView.default.defaultTopic);
-		});
+		this.showDefaultTopic();
 	}
 });

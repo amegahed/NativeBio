@@ -13,7 +13,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|            Copyright (C) 2016-2020, Sharedigm, www.sharedigm.com             |
+|            Copyright (C) 2016-2024, Sharedigm, www.sharedigm.com             |
 \******************************************************************************/
 
 namespace App\Http\Controllers\Users\Accounts;
@@ -63,6 +63,19 @@ class UserAccountController extends Controller
 			if (UserAccount::emailInUse($userAccount->email)) {
 				return response(json_encode($errors), 409);
 			}
+
+		// if email matches current user, check username only
+		//
+		} else if ($currentUser && $userAccount->email == $currentUser->account->email) {
+
+			// check email validation
+			//
+			if (UserAccount::usernameInUse($userAccount->username)) {
+				return response(json_encode($errors), 409);
+			}
+
+		// check both username and email
+		//
 		} else {
 
 			// check account validation

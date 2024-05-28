@@ -73,7 +73,7 @@
 				<h3>Working With Images</h3>
 				<ol>
 					<li><a href="#help/working-with-images/previewing-images">Previewing Images</a></li>
-					<li><a href="#help/working-with-images/using-image-viewer">Using the Image Viewer</a></li>
+					<li><a href="#help/working-with-images/using-image-viewer">Using the <%= config.apps['image_viewer'].name %></a></li>
 					<li><a href="#help/working-with-images/viewing-exif-info">Viewing Photo Exif Information</a></li>
 					<li><a href="#help/working-with-images/searching-for-images">Searching for Images</a></li>
 				</ol>

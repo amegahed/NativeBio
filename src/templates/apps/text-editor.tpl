@@ -36,11 +36,11 @@
 
 	<h2><i class="fa fa-desktop"></i>Screen Shots</h2>
 	<div class="figure desktop-only">
-		<a href="images/info/apps/text-editor/text-editor.png" target="_blank" class="lightbox" title="Text"><img class="dialog" src="images/info/apps/text-editor/text-editor.png" /></a>
-		<div class="caption">Text</div>
+		<a href="images/info/apps/text-editor/text-editor.png" target="_blank" class="lightbox" title="<%= config.apps['text_editor'].name %>"><img class="dialog" src="images/info/apps/text-editor/text-editor.png" /></a>
+		<div class="caption"><%= config.apps['text_editor'].name %></div>
 	</div>
 	<div class="figure mobile-only">
-		<a href="images/info/apps/text-editor/mobile/mobile-text-editor.png" target="_blank" class="lightbox" title="Text"><img src="images/info/apps/text-editor/mobile/mobile-text-editor.png" /></a>
-		<div class="caption">Text</div>
+		<a href="images/info/apps/text-editor/mobile/mobile-text-editor.png" target="_blank" class="lightbox" title="<%= config.apps['text_editor'].name %>"><img src="images/info/apps/text-editor/mobile/mobile-text-editor.png" /></a>
+		<div class="caption"><%= config.apps['text_editor'].name %></div>
 	</div>
 </div>

@@ -30,7 +30,7 @@ export default _.extend({}, ItemDroppable, {
 
 		// prevent default drag behavior
 		//
-		this.block(event);
+		event.preventDefault();
 	},
 
 	onDragOver: function(event) {
@@ -40,7 +40,7 @@ export default _.extend({}, ItemDroppable, {
 
 		// prevent default drag behavior
 		//
-		this.block(event);
+		event.preventDefault();
 	},
 
 	onDragLeave: function(event) {
@@ -50,7 +50,7 @@ export default _.extend({}, ItemDroppable, {
 
 		// prevent default drag behavior
 		//
-		this.block(event);
+		event.preventDefault();
 	},
 
 	//
@@ -72,9 +72,23 @@ export default _.extend({}, ItemDroppable, {
 			}
 		}
 
+		// unhighlight
+		//
+		let itemsView = this.getParentView('items');
+		if (itemsView && itemsView.unhighlight) {
+			itemsView.unhighlight(true);
+		}
+
+		// clear dropzone
+		//
+		let dropzoneView = this.getParentView('dropzone');
+		if (dropzoneView) {
+			dropzoneView.hideDropzone();
+		}
+
 		// prevent default drop behavior
 		//
-		event.preventDefault();
+		this.block(event);
 	},
 
 	onDropIn: function(event) {
@@ -87,6 +101,10 @@ export default _.extend({}, ItemDroppable, {
 		} else {
 			this.onDropInFiles(dataTransfer.files);
 		}
+
+		// unhighlight contained items
+		//
+		this.unhighlight(true);
 	},
 
 	//
@@ -99,15 +117,15 @@ export default _.extend({}, ItemDroppable, {
 		//
 		if (this.options.ondropinitems) {
 			this.options.ondropinitems(items, this);
-		}	
+		}
 	},
 
 	onDropInFiles: function(files) {
-		
+
 		// perform callback
 		//
 		if (this.options.ondropinfiles) {
 			this.options.ondropinfiles(files, this);
-		}	
+		}
 	}
 });

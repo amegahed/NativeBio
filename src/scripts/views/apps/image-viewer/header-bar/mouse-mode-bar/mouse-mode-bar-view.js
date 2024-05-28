@@ -24,8 +24,7 @@ export default ToolbarView.extend({
 	// attributes
 	//
 
-	template: template(`<div class="mouse-mode"></div>
-	`),
+	template: template(`<div class="mouse-mode"></div>`),
 
 	regions: {
 		mouse_mode: '.mouse-mode'
@@ -45,7 +44,7 @@ export default ToolbarView.extend({
 	
 	setMouseMode: function(mouseMode) {
 
-		// enable / disble buttons
+		// enable / disable buttons
 		//
 		this.setItemsEnabled(mouseMode != undefined);
 

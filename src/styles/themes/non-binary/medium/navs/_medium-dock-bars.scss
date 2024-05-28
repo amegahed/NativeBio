@@ -27,7 +27,7 @@
 
 $background-color: colors.$very-very-light-grey;
 $border-color: colors.faded(lighten($background-color, 10%), 25%);
-$divider-color: colors.faded(black, 50%);
+$divider-color: colors.faded(colors.$medium-grey, 50%);
 $item-indicator-color: black;
 
 //

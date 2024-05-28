@@ -24,19 +24,21 @@ export default FormView.extend({
 	//
 
 	template: template(`
+		<% if (typeof id3 != 'undefined') { %>
 		<% let keys = Object.keys(id3); %>
 		<% for (let i = 0; i < keys.length; i++) { %>
 		<% let key = keys[i]; %>
-		<% let value = id3[key][0]; %>
+		<% let value = id3[key]; %>
 		<% if (typeof value == "string") { %>
 		<div class="form-group">
 			<label class="control-label"><%= key.replace(/_/g, ' ').toTitleCase() %></label>
 			<div class="controls">
 				<p class="form-control-static" style="word-break:break-all">
-					<%= id3[key][0] %>
+					<%= id3[key] %>
 				</p>
 			</div>
 		</div>
+		<% } %>
 		<% } %>
 		<% } %>
 	`)

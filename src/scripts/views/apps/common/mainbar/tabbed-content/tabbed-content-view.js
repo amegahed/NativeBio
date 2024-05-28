@@ -179,7 +179,14 @@ export default BaseView.extend({
 	},
 
 	setDirty: function(dirty) {
+
+		// update tab pane
+		//
 		this.getActiveTabView().setDirty(dirty);
+
+		// mark tab view
+		//
+		this.getChildView('tabs').setDirty();
 	},
 
 	//

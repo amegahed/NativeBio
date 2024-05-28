@@ -13,7 +13,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|            Copyright (C) 2016-2020, Sharedigm, www.sharedigm.com             |
+|            Copyright (C) 2016-2024, Sharedigm, www.sharedigm.com             |
 \******************************************************************************/
 
 namespace App\Utilities\Filters;
@@ -51,7 +51,7 @@ class RangeFilter
 			$query = $query->skip($from);
 		}
 		if ($to) {
-			$query = $query->take($to - $from);
+			$query = $query->take($to - $from + 1);
 		}
 
 		return $query;

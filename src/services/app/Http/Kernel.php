@@ -104,6 +104,6 @@ class Kernel extends HttpKernel
 
         // cloud storage middleware
         //
-        'verify.storage_access' => 'App\Http\Middleware\Files\VerifyStorageAccess',
+        'verify.storage_access' => 'App\Http\Middleware\Storage\VerifyStorageAccess',
     ];
 }

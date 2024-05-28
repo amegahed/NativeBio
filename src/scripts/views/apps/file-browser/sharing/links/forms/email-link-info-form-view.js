@@ -16,7 +16,7 @@
 \******************************************************************************/
 
 import UserPreferences from '../../../../../../models/preferences/user-preferences.js';
-import Items from '../../../../../../collections/files/items.js';
+import Items from '../../../../../../collections/storage/items.js';
 import InfoFormView from '../../../../../../views/apps/common/forms/info-form-view.js';
 import FilesView from '../../../../../../views/apps/file-browser/mainbar/files/files-view.js';
 import LinkExpirationFormView from '../../../../../../views/apps/file-browser/sharing/links/forms/link-expiration-form-view.js';
@@ -63,7 +63,10 @@ export default InfoFormView.extend({
 	`),
 
 	regions: {
-		item: '.item',
+		item: {
+			el: '.item',
+			replaceElement: true
+		},
 		expiration: '.link-expiration-form',
 		protection: '.link-password-form'
 	},

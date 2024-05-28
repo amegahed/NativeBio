@@ -69,8 +69,8 @@ body:not(.binary) {
 			border-color: $border-color;
 
 			&:focus {
-				border-color: colors.faded($focus-color, 75%) !important;
-				box-shadow: 1px 1px 10px 0 colors.faded($focus-color, 50%) !important;
+				border-color: colors.fade($focus-color, 75%) !important;
+				box-shadow: 1px 1px 10px 0 colors.fade($focus-color, 50%) !important;
 			}
 		}
 	}

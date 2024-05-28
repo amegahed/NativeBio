@@ -16,7 +16,7 @@
 \******************************************************************************/
 
 import Timestamped from '../../models/utilities/timestamped.js';
-import ImageFile from '../../models/files/image-file.js';
+import ImageFile from '../../models/storage/media/image-file.js';
 import Connection from '../../models/users/connections/connection.js';
 import Connections from '../../collections/users/connections/connections.js';
 import DateUtils from '../../utilities/time/date-utils.js';

@@ -16,7 +16,7 @@
 \******************************************************************************/
 
 import UserSettings from '../../models/settings/user-settings.js';
-import ImageFile from '../../models/files/image-file.js';
+import ImageFile from '../../models/storage/media/image-file.js';
 import Browser from '../../utilities/web/browser.js';
 
 export default UserSettings.extend({

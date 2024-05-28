@@ -88,6 +88,14 @@ export default {
 				});
 				break;
 
+			case 'communicator':
+				import(
+					'../../../communicator/forms/preferences/preferences-form-view.js'
+				).then((PrefsFormView) => {
+					done(PrefsFormView.default);
+				});
+				break;
+
 			case 'connection_manager':
 				import(
 					'../../../connection-manager/forms/preferences/preferences-form-view.js'
@@ -99,6 +107,14 @@ export default {
 			case 'contact_editor':
 				import(
 					'../../../contact-editor/forms/preferences/preferences-form-view.js'
+				).then((PrefsFormView) => {
+					done(PrefsFormView.default);
+				});
+				break;
+
+			case 'decibel_meter':
+				import(
+					'../../../decibel-meter/forms/preferences/preferences-form-view.js'
 				).then((PrefsFormView) => {
 					done(PrefsFormView.default);
 				});
@@ -141,14 +157,6 @@ export default {
 			case 'map_viewer':
 				import(
 					'../../../map-viewer/forms/preferences/preferences-form-view.js'
-				).then((PrefsFormView) => {
-					done(PrefsFormView.default);
-				});
-				break;
-
-			case 'messenger':
-				import(
-					'../../../messenger/forms/preferences/preferences-form-view.js'
 				).then((PrefsFormView) => {
 					done(PrefsFormView.default);
 				});
@@ -212,6 +220,14 @@ export default {
 				});
 				break;
 
+			case 'search_viewer':
+				import(
+					'../../../search-viewer/forms/preferences/preferences-form-view.js'
+				).then((PrefsFormView) => {
+					done(PrefsFormView.default);
+				});
+				break;
+
 			case 'settings_browser':
 				import(
 					'../../../settings-browser/forms/preferences/preferences-form-view.js'
@@ -260,6 +276,7 @@ export default {
 					done(PrefsFormView.default);
 				});
 				break;
+			*/
 
 			case 'timer':
 				import(
@@ -268,7 +285,6 @@ export default {
 					done(PrefsFormView.default);
 				});
 				break;
-			*/
 
 			case 'topic_browser':
 				import(

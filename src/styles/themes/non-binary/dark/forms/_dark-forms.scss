@@ -32,6 +32,7 @@ $input-background-color: colors.$very-very-very-dark-grey;
 $input-border-color: colors.$dark-grey;
 $input-addon-color: colors.$very-dark-grey;
 $input-focus-color: dark-branding.$primary-color;
+$content-background-color: colors.fade(colors.$very-very-dark-grey, 50%);
 
 //
 // styles

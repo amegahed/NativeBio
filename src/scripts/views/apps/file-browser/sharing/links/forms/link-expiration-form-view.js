@@ -25,6 +25,11 @@ export default FormView.extend({
 	//
 
 	template: template(`
+		<div class="well">
+			<i class="fa fa-info-circle"></i>
+			Links can be set to self destruct after which they can no longer be used.
+		</div>
+
 		<div class="limit form-group">
 			<label class="control-label"><i class="fa fa-step-forward"></i>Limit</label>
 			<div class="controls">
@@ -130,6 +135,17 @@ export default FormView.extend({
 				let date = new Date("UTC " + this.$el.find('.expiration .date input').val());
 				return date.format('yyyy-mm-dd');
 			}
+		}
+	},
+
+	getValue: function(kind) {
+		switch (kind) {
+			case 'limit':
+				return this.getLimit();
+			case 'create_date':
+				return this.getCreateDate();
+			case 'expiration_date':
+				return this.getExpirationDate();
 		}
 	},
 

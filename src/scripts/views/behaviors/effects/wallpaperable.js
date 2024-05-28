@@ -105,7 +105,7 @@ export default {
 
 		// set to custom color
 		//
-		if (color && color.startsWith('#')) {
+		if (color && (color.startsWith('#') || color.startsWith('rgb') || color.startsWith('hsl'))) {
 			element.css({
 				'background-color': color
 			});

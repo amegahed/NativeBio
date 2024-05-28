@@ -13,18 +13,16 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|            Copyright (C) 2016-2020, Sharedigm, www.sharedigm.com             |
+|            Copyright (C) 2016-2024, Sharedigm, www.sharedigm.com             |
 \******************************************************************************/
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Files\FileController;
-use App\Http\Controllers\Files\ArchiveFileController;
-use App\Http\Controllers\Files\AudioFileController;
-use App\Http\Controllers\Files\ImageFileController;
-use App\Http\Controllers\Files\VideoFileController;
-use App\Http\Controllers\Files\DirectoryController;
-use App\Http\Controllers\Files\VolumeController;
-use App\Http\Controllers\Files\AttachmentController;
+use App\Http\Controllers\Storage\FileController;
+use App\Http\Controllers\Storage\DirectoryController;
+use App\Http\Controllers\Storage\VolumeController;
+use App\Http\Controllers\Storage\FileIndexController;
+use App\Http\Controllers\Storage\Archives\ArchiveFileController;
+use App\Http\Controllers\Storage\Attachments\AttachmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +34,13 @@ use App\Http\Controllers\Files\AttachmentController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+//
+// public routes
+//
+
+Route::get('files/search', [FileIndexController::class, 'getSearch']);
+Route::get('files/search/num', [FileIndexController::class, 'getSearchNum']);
 
 //
 // protected routes
@@ -62,28 +67,6 @@ Route::group(['middleware' => 'verify.storage_access'], function() {
 	Route::post('file/place', [FileController::class, 'postPlace']);
 	Route::delete('file/place', [FileController::class, 'deletePlace']);
 	Route::delete('file', [FileController::class, 'delete']);
-
-	// archive file routes
-	//
-	Route::post('archive/extract', [ArchiveFileController::class, 'postExtract']);
-	Route::get('archive/contents', [ArchiveFileController::class, 'getContents']);
-	Route::get('archive/contents/all', [ArchiveFileController::class, 'getAllContents']);
-
-	// audio file routes
-	//
-	Route::get('audio', [AudioFileController::class, 'getAudio']);
-	Route::get('audio/id3', [AudioFileController::class, 'getId3']);
-
-	// image file routes
-	//
-	Route::get('image', [ImageFileController::class, 'getImage']);
-	Route::get('image/resolution', [ImageFileController::class, 'getResolution']);
-	Route::get('image/exif', [ImageFileController::class, 'getExif']);
-
-	// video file routes
-	//
-	Route::get('video', [VideoFileController::class, 'getVideo']);
-	Route::get('video/tags', [VideoFileController::class, 'getTags']);
 
 	// directory routes
 	//
@@ -140,10 +123,32 @@ Route::group(['middleware' => 'verify.storage_access'], function() {
 	Route::post('volume/place', [FileController::class, 'postPlace']);
 	Route::delete('volume', [FileController::class, 'delete']);
 
+	// archive file routes
+	//
+	Route::post('archive/extract', [ArchiveFileController::class, 'postExtract']);
+	Route::get('archive/contents', [ArchiveFileController::class, 'getContents']);
+	Route::get('archive/contents/all', [ArchiveFileController::class, 'getAllContents']);
+
 	// attachment routes
 	//
 	Route::get('attachments', [AttachmentController::class, 'getByPath']);
 	Route::get('attachments/num', [AttachmentController::class, 'getNumByPath']);
 	Route::get('attachments/invalid', [AttachmentController::class, 'getInvalid']);
 	Route::get('attachments/clean', [AttachmentController::class, 'getClean']);
+
+	// indexing routes
+	//
+	Route::get('directory/files/indexed', [FileIndexController::class, 'getIndexed']);
+	Route::get('directory/files/indexed/num', [FileIndexController::class, 'getNumIndexed']);
+	Route::get('directory/files/indexed/all', [FileIndexController::class, 'getAllIndexed']);
+	Route::get('directory/files/indexed/all/num', [FileIndexController::class, 'getNumAllIndexed']);
+
+	Route::get('directory/files/indexable', [FileIndexController::class, 'getIndexable']);
+	Route::get('directory/files/indexable/num', [FileIndexController::class, 'getNumIndexable']);
+	Route::get('directory/files/indexable/all', [FileIndexController::class, 'getAllIndexable']);
+	Route::get('directory/files/indexable/all/num', [FileIndexController::class, 'getNumAllIndexable']);
+
+	Route::post('file/index', [FileIndexController::class, 'postCreate']);
+	Route::delete('file/indices/{id}', [FileIndexController::class, 'deleteIndex']);
+	Route::delete('directory/indices', [FileIndexController::class, 'deleteIndices']);
 });

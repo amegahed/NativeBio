@@ -42,16 +42,16 @@ body.binary {
 				@include binary-colors.white;
 
 				> .contents {
-					@include binary-colors.grey();
+					@include binary-colors.grey;
 
 					//
 					// app sidebars
 					//
 
 					> .sidebar {
-						.panels {
-							background-color: white;
+						@include binary-colors.light-grey;
 
+						.panels {
 							.panel {
 								border-style: solid;
 								border-color: black;

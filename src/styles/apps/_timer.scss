@@ -46,7 +46,7 @@ $colon-font-size: 90px;
 				height: $size;
 			}
 
-			.digital.lcd.display {
+			.digital.display {
 				position: absolute;
 				display: flex;
 				width: calc($size - 10px);
@@ -97,7 +97,7 @@ body[device="tablet"] {
 [os="windows"] {
 	.timer.app {
 		.body .face {
-			.digital.lcd.display {
+			.digital.display {
 				padding: 0;
 			}
 		}

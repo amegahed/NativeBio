@@ -15,7 +15,7 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import File from '../../../../../models/files/file.js';
+import File from '../../../../../models/storage/files/file.js';
 import ButtonView from '../../../../../views/apps/common/toolbars/buttons/button-view.js';
 
 export default ButtonView.extend({

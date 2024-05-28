@@ -88,6 +88,10 @@ export default {
 		this.setTimeout(() => {
 			let modals = this.modals;
 
+			// hide dialog
+			//
+			this.$el.find('.modal-dialog').hide();
+
 			// unanimate
 			//
 			switch (ModalView.effects.minimize) {
@@ -115,10 +119,6 @@ export default {
 					view: this.modals.pluck(this)
 				})
 			);
-
-			// hide dialog
-			//
-			this.$el.find('.modal-dialog').hide();
 
 			// play minimize sound
 			//

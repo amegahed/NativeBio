@@ -16,7 +16,7 @@
 \******************************************************************************/
 
 import Timestamped from '../../models/utilities/timestamped.js';
-import ImageFile from '../../models/files/image-file.js';
+import ImageFile from '../../models/storage/media/image-file.js';
 import Connection from '../../models/users/connections/connection.js';
 import Connections from '../../collections/users/connections/connections.js';
 import DateUtils from '../../utilities/time/date-utils.js';
@@ -106,15 +106,18 @@ export default Timestamped.extend({
 	},
 
 	getThumbnailUrl: function(options) {
+		let path = this.get('icon_path');
+		let isShared = path && path.startsWith('/');
+		let isOwned = this.isOwnedBy(application.session.user);
 
-		// check if topic is owned by current user
+		// check if shared thumbnail or topic is owned by current user
 		//
-		if (this.isOwnedBy(application.session.user)) {
+		if (isShared || isOwned) {
 
 			// get image file thumbnail url
 			//
 			return new ImageFile({
-				path: this.get('icon_path')
+				path: path
 			}).getThumbnailUrl(options);
 
 		// get topic thumbnail url
@@ -146,17 +149,17 @@ export default Timestamped.extend({
 				return this.has(kind)? 'created ' + this.getDate(kind, dateFormat) : undefined;
 			case 'updated_at':
 				return this.has(kind)? 'updated ' + this.getDate(kind, dateFormat) : undefined;
-		}		
+		}
 	},
 
 	//
 	// attributes getting methods
 	//
 
-	getAttribute: function(attributeName, preferences) {		
+	getAttribute: function(attributeName, preferences) {
 		switch (attributeName) {
 			case 'members':
-				return 'member'.toPlural(this.get('num_members'));
+				return this.has('num_members')? 'member'.toPlural(this.get('num_members')) : undefined;
 			case 'posts':
 				return 'post'.toPlural(this.get('num_posts'));
 			case 'create_date':

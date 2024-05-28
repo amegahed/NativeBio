@@ -38,7 +38,8 @@ $rounded-border-radius: 5px;
 
 		img {
 			width: 100%;
-			height: 100%;
+			height: auto;
+			margin: auto;
 		}
 	}
 
@@ -160,5 +161,11 @@ $rounded-border-radius: 5px;
 	.images {
 		display: flex;
 		justify-content: center;
+	}
+}
+
+.gallery.inline {
+	.images a.jpictura.item.lightbox img {
+		margin: 10px 0;
 	}
 }

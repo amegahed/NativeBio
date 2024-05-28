@@ -115,17 +115,26 @@ export default SearchByView.extend({
 				// callbacks
 				//
 				success: () => {
+
+					// show dialog
+					//
 					this.showSelectConnectionsDialog();
 				},
 
 				error: () => {
+
+					// show error message
+					//
 					application.error({
 						message: "Could not fetch connections."
 					});
 				}
 			});
 		} else {
+
+			// show dialog
+			//
 			this.showSelectConnectionsDialog();
 		}
 	}
-		});
+});

@@ -27,25 +27,13 @@ export default FormView.extend({
 		<fieldset>
 			<legend>Personal info</legend>
 		
-			<div class="first-name form-group">
-				<label class="required control-label"><i class="fa fa-quote-left"></i>First name</label>
+			<div class="name form-group">
+				<label class="required control-label"><i class="fa fa-quote-left"></i>Name</label>
 				<div class="controls">
 					<div class="input-group">
-						<input type="text" class="required form-control" name="first-name" value="<%= first_name %>" />
+						<input type="text" class="required form-control" name="name" value="<%= name %>" />
 						<div class="input-group-addon">
-							<i class="active fa fa-question-circle" data-toggle="popover" title="First name" data-content="This is your first name or given name."></i>
-						</div>
-					</div>
-				</div>
-			</div>
-		
-			<div class="last-name form-group">
-				<label class="required control-label"><i class="fa fa-quote-right"></i>Last name</label>
-				<div class="controls">
-					<div class="input-group">
-						<input type="text" class="required form-control" name="last-name" value="<%= last_name %>" />
-						<div class="input-group-addon">
-							<i class="active fa fa-question-circle" data-toggle="popover" title="Last name" data-content="This is your family name or surname."></i>
+							<i class="active fa fa-question-circle" data-toggle="popover" title="Name" data-content="This is your full name."></i>
 						</div>
 					</div>
 				</div>
@@ -58,14 +46,8 @@ export default FormView.extend({
 	//
 
 	messages: {
-		'first-name': {
-			required: "Enter your given / first name."
-		},
-		'last-name': {
-			required: "Enter your family / last name."
-		},
-		'preferred-name': {
-			required: "Enter your preferred / nickname."
+		'name': {
+			required: "Enter your full name."
 		}
 	},
 
@@ -75,35 +57,71 @@ export default FormView.extend({
 
 	getValue: function(key) {
 		switch (key) {
-			case 'honorific':
-				return this.$el.find('.honorific option:selected').val();
-			case 'first_name':
-				return this.$el.find('.first-name input').val();
-			case 'preferred_name':
-				return this.$el.find('.preferred-name input').val();
-			case 'middle_name':
-				return this.$el.find('.middle-name input').val();
-			case 'last_name':
-				return this.$el.find('.last-name input').val();
-			case 'title':
-				return this.$el.find('.title option:selected').val();
+			case 'name':
+				return this.$el.find('.name input').val();
 		}
 	},
 
 	getValues: function() {
+
+		// split names into first, middle, last
+		//
+		let name = this.getValue('name');
+		let names = name.split(' ');
+		let first_name, preferred_name, middle_name, last_name;
+
+		// last name only
+		//
+		if (names.length == 1) {
+			last_name = names[length];
+
+		// first and last names
+		//
+		} else if (names.length == 2) {
+			first_name = names[0];
+			last_name = names[1];
+
+		// first, preferred or middle, and last names
+		//
+		} else if (names.length == 3) {
+			first_name = names[0];
+			if (names[1].startsWith('(')) {
+				preferred_name = names[1].replace('(', '').replace(')', '');
+			} else {
+				middle_name = names[1];
+			}
+			last_name = names[2];
+
+		// first, preferred, middle (multiple), and last names
+		//
+		} else {
+			first_name = names[0];
+			if (names[1].startsWith('(')) {
+				preferred_name = names[1].replace('(', '').replace(')', '');
+				middle_name = names.slice(2, -1).join(' ');
+			} else {
+				middle_name = names.slice(1, -1).join(' ');
+			}
+			last_name = names[names.length - 1];
+		}
+
 		return {
-			honorific: this.getValue('honorific'),
-			first_name: this.getValue('first_name'),
-			preferred_name: this.getValue('preferred_name'),
-			middle_name: this.getValue('middle_name'),
-			last_name: this.getValue('last_name'),
-			titles: this.getValue('title')
+			first_name: first_name,
+			preferred_name: preferred_name,
+			middle_name: middle_name,
+			last_name: last_name
 		};
 	},
 
 	//
 	// rendering methods
 	//
+
+	templateContext: function() {
+		return {
+			name: this.model.getFullName()
+		}
+	},
 
 	onRender: function() {
 

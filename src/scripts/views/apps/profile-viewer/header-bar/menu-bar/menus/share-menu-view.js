@@ -92,11 +92,11 @@ export default MenuView.extend({
 		<li role="separator" class="divider"></li>
 		
 		<li role="presentation">
-			<a class="share-by-post"><i class="fa fa-newspaper"></i>By Post</a>
+			<a class="share-by-topic"><i class="fa fa-newspaper"></i>By Discussion Topic</a>
 		</li>
 		
 		<li role="presentation">
-			<a class="share-by-message"><i class="fa fa-comments"></i>By Messsage</a>
+			<a class="share-by-message"><i class="fa fa-comments"></i>By Chat Messsage</a>
 		</li>
 		
 		<li role="separator" class="divider"></li>
@@ -124,7 +124,7 @@ export default MenuView.extend({
 		//
 		'click .share-message': 'onClickShareMessage',
 		'click .gesture': 'onClickShareGesture',
-		'click .share-by-post': 'onClickShareByPost',
+		'click .share-by-topic': 'onClickShareByTopic',
 		'click .share-by-message': 'onClickShareByMessage',
 
 		// share with anyone
@@ -152,7 +152,7 @@ export default MenuView.extend({
 
 			'share-message': !isCurrent,
 			'share-gesture': !isCurrent,
-			'share-by-post': !isCurrent,
+			'share-by-topic': !isCurrent,
 			'share-by-message': !isCurrent,
 
 			'share-by-link': !isCurrent,
@@ -197,8 +197,8 @@ export default MenuView.extend({
 		this.parent.app.shareGesture(kind);
 	},
 
-	onClickShareByPost: function() {
-		this.parent.app.shareByPost();
+	onClickShareByTopic: function() {
+		this.parent.app.shareByTopic();
 	},
 
 	onClickShareByMessage: function() {

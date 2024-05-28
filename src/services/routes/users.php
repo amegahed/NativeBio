@@ -1,7 +1,7 @@
 <?php
 /******************************************************************************\
 |                                                                              |
-|                                    api.php                                   |
+|                                   users.php                                  |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -13,7 +13,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|            Copyright (C) 2016-2020, Sharedigm, www.sharedigm.com             |
+|            Copyright (C) 2016-2024, Sharedigm, www.sharedigm.com             |
 \******************************************************************************/
 
 use Illuminate\Http\Request;
@@ -84,6 +84,7 @@ Route::group(['middleware' => 'verify.auth'], function() {
 	//
 	Route::group(['middleware' => 'verify.admin'], function() {
 		Route::get('users/all', [UserController::class, 'getAll']);
+		Route::get('users/{id}/delete', [UserController::class, 'deleteIndex']);
 	});
 	
 	// user routes

@@ -55,11 +55,16 @@ export default SideBarView.extend({
 	//
 
 	setSelected: function(model, options) {
-		this.getChildView('themes').setSelectedModel(model, options);
-		
-		// scroll into view
-		//
-		this.scrollToView(this.getChildView('themes').getSelected()[0]);
+		if (this.hasChildView('themes')) {
+			this.getChildView('themes').setSelectedModel(model, options);
+
+			// scroll into view
+			//
+			let selected = this.getChildView('themes').getSelected();
+			if (selected) {
+				this.scrollToView(selected[0]);
+			}
+		}
 	},
 
 	//

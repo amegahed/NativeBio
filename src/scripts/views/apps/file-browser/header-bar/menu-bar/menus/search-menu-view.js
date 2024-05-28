@@ -32,12 +32,22 @@ export default MenuView.extend({
 			<a class="search-by-kind"><i class="fa fa-check"></i><i class="fa fa-file"></i>By Kind</a>
 		</li>
 		
-		<li role="separator" class="divider"></li>
-		
 		<li role="presentation" type="search-by">
 			<a class="search-by-size"><i class="fa fa-check"></i><i class="fa fa-download"></i>By Size</a>
 		</li>
-		
+
+		<li role="separator" class="divider"></li>
+
+		<li role="presentation" type="search-by">
+			<a class="search-by-keyword"><i class="fa fa-check"></i><i class="fa fa-key"></i>By Keyword</a>
+		</li>
+
+		<li role="presentation" type="search-by">
+			<a class="search-by-meaning"><i class="fa fa-check"></i><i class="fa fa-lightbulb"></i>By Meaning</a>
+		</li>
+
+		<li role="separator" class="divider"></li>
+
 		<li role="presentation" class="dropdown dropdown-submenu">
 			<a class="search-by-date dropdown-toggle"><i class="fa fa-check"></i><i class="fa fa-calendar-alt"></i>By Date<i class="fa fa-caret-left"></i><i class="fa fa-caret-right"></i></a>
 		
@@ -127,6 +137,8 @@ export default MenuView.extend({
 			'search-by-name': searchKind == 'name',
 			'search-by-kind': searchKind == 'kind',
 			'search-by-size': searchKind == 'size',
+			'search-by-keyword': searchKind == 'keyword',
+			'search-by-meaning': searchKind == 'meaning',
 			'search-by-create-date': searchKind == 'create_date',
 			'search-by-modify-date': searchKind == 'modify_date',
 			'search-by-access-date': searchKind == 'access_date',

@@ -38,11 +38,11 @@
 
 	<h2><i class="fa fa-desktop"></i>Screen Shots</h2>
 	<div class="figure desktop-only">
-		<a href="images/info/apps/contact-editor/contact-editor.png" target="_blank" class="lightbox" title="Contacts"><img class="dialog" src="images/info/apps/contact-editor/contact-editor.png" /></a>
-		<div class="caption">Contacts</div>
+		<a href="images/info/apps/contact-editor/contact-editor.png" target="_blank" class="lightbox" title="<%= config.apps['contact_editor'].name %>"><img class="dialog" src="images/info/apps/contact-editor/contact-editor.png" /></a>
+		<div class="caption"><%= config.apps['contact_editor'].name %></div>
 	</div>
 	<div class="figure mobile-only">
-		<a href="images/info/apps/contact-editor/mobile/mobile-contact-editor.png" target="_blank" class="lightbox" title="Mobile Contacts"><img src="images/info/apps/contact-editor/mobile/mobile-contact-editor.png" /></a>
-		<div class="caption">Mobile Contacts</div>
+		<a href="images/info/apps/contact-editor/mobile/mobile-contact-editor.png" target="_blank" class="lightbox" title="<%= config.apps['contact_editor'].name %>"><img src="images/info/apps/contact-editor/mobile/mobile-contact-editor.png" /></a>
+		<div class="caption"><%= config.apps['contact_editor'].name %></div>
 	</div>
 </div>

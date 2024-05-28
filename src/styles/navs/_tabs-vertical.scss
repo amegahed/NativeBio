@@ -19,7 +19,6 @@
 // variables
 //
 
-$margin: 5px 0;
 $round-border-radius: 10px;
 $rounded-border-radius: 5px;
 
@@ -37,18 +36,17 @@ $rounded-border-radius: 5px;
 		border-bottom: none;
 		
 		li {
-			display: block;
 			white-space: nowrap;
 			border: none;
 			outline: none;
 			text-align: left;
 			cursor: pointer;
 			transition: 0.3s;
+			margin-bottom: 5px;
 
 			> a {
 				display: block;		
 				text-decoration: none;
-				margin: $margin;
 
 				i {
 					max-width: 14px;

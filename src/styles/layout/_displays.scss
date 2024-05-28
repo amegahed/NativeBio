@@ -23,9 +23,20 @@
 // LED displays
 //
 
-.led {
+.led.dot {
 	font-family: 'LED Dot Matrix';
 	font-weight: normal;
+}
+
+.led.display {
+	font-family: 'LCD';
+	color: red;
+	text-shadow: 0 0 10px;
+	background: black;
+
+	path {
+		filter: url('#glowing');
+	}
 }
 
 //

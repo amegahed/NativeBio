@@ -844,14 +844,24 @@
 				"icon": ["home-empty.svg", "home-full.svg"]
 			},
 
+			".git": {
+				"font": "fab fa-github",
+				"icon": ["git-empty.svg", "git-full.svg"]
+			},
+
 			".Clipboard": {
 				"font": "fa fa-clipboard",
 				"icon": ["clipboard-empty.svg", "clipboard-full.svg"]
 			},
 
-			".git": {
-				"font": "fab fa-github",
-				"icon": ["git-empty.svg", "git-full.svg"]
+			".Messages": {
+				"font": "fa fa-comment",
+				"icon": ["messages-empty.svg", "messages-full.svg"]
+			},
+
+			".News": {
+				"font": "fa fa-newspaper",
+				"icon": ["news-empty.svg", "news-full.svg"]
 			},
 
 			"Albums": {
@@ -1034,11 +1044,6 @@
 				"icon": ["maps-empty.svg", "maps-full.svg"]
 			},
 
-			"Messages": {
-				"font": "fa fa-comment",
-				"icon": ["messages-empty.svg", "messages-full.svg"]
-			},
-
 			"Microsoft": {
 				"font": "fab fa-windows",
 				"icon": ["microsoft-empty.svg", "microsoft-full.svg"]
@@ -1057,11 +1062,6 @@
 			"Music": {
 				"font": "fa fa-music",
 				"icon": ["music-empty.svg", "music-full.svg"]
-			},
-
-			"News": {
-				"font": "fa fa-newspaper",
-				"icon": ["news-empty.svg", "news-full.svg"]
 			},
 
 			"Notes": {

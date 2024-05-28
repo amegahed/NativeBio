@@ -18,6 +18,7 @@
 import HeaderBarView from '../../../../views/apps/common/header-bar/header-bar-view.js';
 import NavBarView from '../../../../views/apps/help-viewer/header-bar/nav-bar/nav-bar-view.js';
 import MenuBarView from '../../../../views/apps/help-viewer/header-bar/menu-bar/menu-bar-view.js';
+import PageBarView from '../../../../views/apps/help-viewer/header-bar/page-bar/page-bar-view.js';
 
 export default HeaderBarView.extend({
 
@@ -25,7 +26,7 @@ export default HeaderBarView.extend({
 	// attributes
 	//
 
-	toolbars: ['nav', 'menu'],
+	toolbars: ['nav', 'menu', 'page'],
 
 	//
 	// rendering methods
@@ -39,6 +40,9 @@ export default HeaderBarView.extend({
 			case 'menu':
 				this.showMenuBar();
 				break;
+			case 'page':
+				this.showPageBar();
+				break;
 		}
 	},
 
@@ -48,5 +52,10 @@ export default HeaderBarView.extend({
 
 	showMenuBar: function() {
 		this.showChildView('menu', new MenuBarView());
+	},
+
+	showPageBar: function() {
+		this.showChildView('page', new PageBarView());
+		this.getChildView('page').$el.addClass('desktop-app-only');
 	}
 });

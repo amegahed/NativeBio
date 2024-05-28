@@ -13,7 +13,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|            Copyright (C) 2016-2020, Sharedigm, www.sharedigm.com             |
+|            Copyright (C) 2016-2024, Sharedigm, www.sharedigm.com             |
 \******************************************************************************/
 
 namespace App\Models\Users\Auth;
@@ -29,11 +29,11 @@ class UserSession extends BaseModel
 	// attributes
 	//
 
-    /**
-     * Indicates if the model should be timestamped.
-     *
-     * @var bool
-     */
+	/**
+	 * Indicates if the model should be timestamped.
+	 *
+	 * @var bool
+	 */
 	public $timestamps = false;
 
 	/**

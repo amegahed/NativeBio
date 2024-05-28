@@ -56,11 +56,11 @@
 
 	<h2><i class="fa fa-desktop"></i>Screen Shots</h2>
 	<div class="figure desktop-only">
-		<a href="images/info/apps/image-viewer/image-viewer.png" target="_blank" class="lightbox" title="Images"><img class="dialog" src="images/info/apps/image-viewer/image-viewer.png" /></a>
-		<div class="caption">Images</div>
+		<a href="images/info/apps/image-viewer/image-viewer.png" target="_blank" class="lightbox" title="<%= config.apps['image_viewer'].name %>"><img class="dialog" src="images/info/apps/image-viewer/image-viewer.png" /></a>
+		<div class="caption"><%= config.apps['image_viewer'].name %></div>
 	</div>
 	<div class="figure mobile-only">
-		<a href="images/info/apps/image-viewer/mobile/mobile-image-viewer.png" target="_blank" class="lightbox" title="Images"><img src="images/info/apps/image-viewer/mobile/mobile-image-viewer.png" /></a>
-		<div class="caption">Images</div>
+		<a href="images/info/apps/image-viewer/mobile/mobile-image-viewer.png" target="_blank" class="lightbox" title="<%= config.apps['image_viewer'].name %>"><img src="images/info/apps/image-viewer/mobile/mobile-image-viewer.png" /></a>
+		<div class="caption"><%= config.apps['image_viewer'].name %></div>
 	</div>
 </div>

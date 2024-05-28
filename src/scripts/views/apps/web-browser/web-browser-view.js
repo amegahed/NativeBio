@@ -16,7 +16,7 @@
 \******************************************************************************/
 
 import BaseModel from '../../../models/base-model.js';
-import File from '../../../models/files/file.js';
+import File from '../../../models/storage/files/file.js';
 import AppSplitView from '../../../views/apps/common/app-split-view.js';
 import LinkShareable from '../../../views/apps/common/behaviors/sharing/link-shareable.js';
 import HeaderBarView from '../../../views/apps/web-browser/header-bar/header-bar-view.js';
@@ -421,8 +421,8 @@ export default AppSplitView.extend(_.extend({}, LinkShareable, {
 	// sharing methods
 	//
 
-	shareByPost: function(options) {
-		this.shareLinkByPost(this.getUrl(), _.extend({}, options, {
+	shareByTopic: function(options) {
+		this.shareLinkByTopic(this.getUrl(), _.extend({}, options, {
 			message: 'Check out this link: ' + '\n'
 		}));
 	},

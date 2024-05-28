@@ -17,9 +17,9 @@
 \******************************************************************************/
 
 import Post from '../../../models/topics/post.js'; 
-import Directory from '../../../models/files/directory.js';
-import File from '../../../models/files/file.js';
-import Item from '../../../models/files/item.js';
+import Directory from '../../../models/storage/directories/directory.js';
+import File from '../../../models/storage/files/file.js';
+import Item from '../../../models/storage/item.js';
 import ChatMessage from '../../../models/chats/chat-message.js';
 import Chats from '../../../collections/chats/chats.js';
 import AppSplitView from '../../../views/apps/common/app-split-view.js';
@@ -230,6 +230,42 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, ContainableSelectable,
 	// chat methods
 	//
 
+	openChat: function(chat, options) {
+		if (chat) {
+			this.openModel(chat);
+
+			// add chat to sidebar, if necessary
+			//
+			let chats = this.getChildView('sidebar chats').collection;
+			if (!chats.contains(chat)) {
+				chats.add(chat);
+			}
+		}
+
+		// set options
+		//
+		if (options && (options.message || options.items)) {
+			let activeView = this.getActiveView();
+			if (activeView) {
+				let formView = activeView.getChildView('form');
+				if (formView) {
+					if (options.message) {
+						formView.setValue('message', options.message);
+					}
+					if (options.items) {
+						formView.addAttachments(options.items);
+					}
+				}
+			}
+		}
+	},
+
+	openChats: function(chats, options) {
+		for (let i = 0; i < chats.length; i++) {
+			this.openChat(chats[i], options);
+		}
+	},
+
 	openSelectedChats: function() {
 		if (this.hasSelected()) {
 			this.openSelected();
@@ -420,8 +456,12 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, ContainableSelectable,
 			preferences: this.preferences,
 			message: this.options.message,
 			items: this.options.items,
-			check_in: this.options.check_in,
 			search: this.options.search,
+
+			// capabilities
+			//
+			features: this.options.features,
+			check_in: this.options.check_in,
 
 			// callbacks
 			//
@@ -517,6 +557,10 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, ContainableSelectable,
 				model: message,
 
 				// options
+				//
+				features: this.options.features,
+
+				// capabilities
 				//
 				preferences: this.preferences,
 

@@ -111,6 +111,8 @@ export default Timestamped.extend({
 				return this.get('preferred_name') || this.get('first_name');
 			case 'full':
 				return this.getFullName();
+			case 'single':
+				return this.get('preferred_name') || this.get('first_name') || this.get('last_name');
 			default:
 				return this.getShortName();
 		}
@@ -121,7 +123,7 @@ export default Timestamped.extend({
 
 		if (this.has('preferred_name') && this.get('preferred_name') != '') {
 			name += this.get('preferred_name').toTitleCase();
-		} else {
+		} else if (this.has('first_name')) {
 			name += this.get('first_name');
 		}
 		if (this.has('last_name')) {

@@ -15,10 +15,9 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import Directory from '../../../../../models/files/directory.js';
+import Directory from '../../../../../models/storage/directories/directory.js';
 import UserPreferences from '../../../../../models/preferences/user-preferences.js';
-import Items from '../../../../../collections/files/items.js';
-import BaseView from '../../../../../views/base-view.js';
+import Items from '../../../../../collections/storage/items.js';
 import SideBarPanelView from '../../../../../views/apps/common/sidebar/panels/sidebar-panel-view.js';
 import FilesView from '../../../../../views/apps/file-browser/mainbar/files/files-view.js';
 
@@ -57,11 +56,15 @@ export default SideBarPanelView.extend({
 	//
 
 	getSelected: function() {
-		return this.getChildView('items').getSelected();
+		if (this.hasChildView('items')) {
+			return this.getChildView('items').getSelected();
+		}
 	},
 
 	getSelectedModels: function() {
-		return this.getChildView('items').getSelectedModels();
+		if (this.hasChildView('items')) {
+			return this.getChildView('items').getSelectedModels();
+		}
 	},
 	
 	//
@@ -80,11 +83,15 @@ export default SideBarPanelView.extend({
 	},
 
 	setSelected: function(model, options) {
-		this.getChildView('items').setSelectedModels([model], options);
+		if (this.hasChildView('items')) {
+			this.getChildView('items').setSelectedModels([model], options);
+		}
 	},
 
 	setSelectedModel: function(model, options) {
-		this.getChildView('items').setSelectedModels([model], options);
+		if (this.hasChildView('items')) {
+			this.getChildView('items').setSelectedModels([model], options);
+		}
 	},
 
 	//
@@ -129,14 +136,11 @@ export default SideBarPanelView.extend({
 				view_kind: this.options.view_kind
 			}),
 			selected: new Items([this.model]),
+			empty: "No themes.",
 			viewFilter: (view) => {
-				return view.model instanceof Directory && !view.model.isHidden() || 
+				return view.model instanceof Directory && !view.model.isHidden() ||
 					extensions.contains(view.model.getFileExtension());
 			},
-			emptyView: BaseView.extend({
-				className: 'empty',
-				template: template("No themes.")
-			}),
 
 			// capabilities
 			//

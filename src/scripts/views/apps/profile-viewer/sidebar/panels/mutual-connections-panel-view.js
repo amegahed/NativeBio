@@ -17,7 +17,6 @@
 
 import UserPreferences from '../../../../../models/preferences/user-preferences.js';
 import Connections from '../../../../../collections/users/connections/connections.js';
-import BaseView from '../../../../../views/base-view.js';
 import SideBarPanelView from '../../../../../views/apps/common/sidebar/panels/sidebar-panel-view.js';
 import UsersView from '../../../../../views/apps/profile-browser/mainbar/users/users-view.js';
 
@@ -74,10 +73,7 @@ export default SideBarPanelView.extend({
 			preferences: new UserPreferences({
 				view_kind: this.options.view_kind
 			}),
-			emptyView: BaseView.extend({
-				className: 'empty',
-				template: template("No connections.")
-			}),
+			empty: "No connections.",
 
 			// capabilities
 			//

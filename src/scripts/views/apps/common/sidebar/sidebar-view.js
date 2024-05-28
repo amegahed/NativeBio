@@ -76,10 +76,13 @@ export default PanelsView.extend(_.extend({}, Scrollable, {
 
 	setViewKind: function(viewKind) {
 		this.options.view_kind = viewKind;
+
+		// set option on all panels except info or files
+		//
 		for (let i = 0; i < this.panels.length; i++) {
 			let panel = this.panels[i];
 
-			if (panel == 'info') {
+			if (panel == 'info' || panel == 'files') {
 				if (this.options.info_kind != 'auto') {
 					continue;
 				}
@@ -90,7 +93,24 @@ export default PanelsView.extend(_.extend({}, Scrollable, {
 				childView.setViewKind(viewKind);
 			}
 		}
+
 		this.app.preferences.set('sidebar_view_kind', viewKind);
+	},
+
+	setTileSize: function(tileSize) {
+		this.options.tile_size = tileSize;
+
+		// set option on all panels
+		//
+		for (let i = 0; i < this.panels.length; i++) {
+			let panel = this.panels[i];
+			let childView = this.getChildView(panel);
+			if (childView && childView.setTileSize) {
+				childView.setTileSize(tileSize);
+			}
+		}
+
+		this.app.preferences.set('sidebar_tile_size', tileSize);
 	},
 
 	//

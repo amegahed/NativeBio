@@ -16,9 +16,8 @@
 \******************************************************************************/
 
 import UserPreferences from '../../../../../models/preferences/user-preferences.js';
-import Directory from '../../../../../models/files/directory.js';
-import Items from '../../../../../collections/files/items.js';
-import BaseView from '../../../../../views/base-view.js';
+import Directory from '../../../../../models/storage/directories/directory.js';
+import Items from '../../../../../collections/storage/items.js';
 import SideBarPanelView from '../../../../../views/apps/common/sidebar/panels/sidebar-panel-view.js';
 import FilesView from '../../../../../views/apps/file-browser/mainbar/files/files-view.js';
 
@@ -111,14 +110,11 @@ export default SideBarPanelView.extend({
 				view_kind: 'trees'
 			}),
 			selected: new Items([this.model]),
+			empty: "No tunes.",
 			filter: (view) => {
 				return view.model instanceof Directory ||
 					view.model.get('path').endsWith('.abc');
 			},
-			emptyView: BaseView.extend({
-				className: 'empty',
-				template: template("No tunes.")
-			}),
 
 			// capabilities
 			//

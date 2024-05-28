@@ -15,18 +15,18 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import File from '../../../models/files/file.js';
-import Items from '../../../collections/files/items.js';
+import File from '../../../models/storage/files/file.js';
+import Items from '../../../collections/storage/items.js';
 import AppSplitView from '../../../views/apps/common/app-split-view.js';
 import Multifile from '../../../views/apps/common/behaviors/tabbing/multifile.js';
 import FindReplaceable from '../../../views/apps/common/behaviors/finding/find-replaceable.js';
-import ModelShareable from '../../../views/apps/common/behaviors/sharing/model-shareable.js';
+import ItemShareable from '../../../views/apps/common/behaviors/sharing/item-shareable.js';
 import HeaderBarView from '../../../views/apps/tune-editor/header-bar/header-bar-view.js';
 import SideBarView from '../../../views/apps/tune-editor/sidebar/sidebar-view.js';
 import TabbedContentView from '../../../views/apps/tune-editor/mainbar/tabbed-content/tabbed-content-view.js';
 import FooterBarView from '../../../views/apps/tune-editor/footer-bar/footer-bar-view.js';
 
-export default AppSplitView.extend(_.extend({}, Multifile, ModelShareable, FindReplaceable, {
+export default AppSplitView.extend(_.extend({}, Multifile, ItemShareable, FindReplaceable, {
 
 	//
 	// attributes

@@ -39,10 +39,10 @@ export default BaseView.extend(_.extend({}, Expandable, {
 			<div class="top buttons">
 				<% if (expandable) { %>
 				<div class="expander">
-					<button type="button" class="collapse btn btn-sm">
+					<button type="button" class="collapse btn-sm">
 						<i class="fa fa-caret-up"></i>
 					</button>
-					<button type="button" class="expand btn btn-sm">
+					<button type="button" class="expand btn-sm">
 						<i class="fa fa-caret-down"></i>	
 					</button>
 				</div>
@@ -151,10 +151,7 @@ export default BaseView.extend(_.extend({}, Expandable, {
 			//
 			countries: this.options.countries,
 			multicolumn: this.options.multicolumn,
-			emptyView: BaseView.extend({
-				className: 'empty content',
-				template: template("No schools.")
-			}),
+			empty: "No schools.",
 
 			// capabilities
 			//
@@ -163,7 +160,7 @@ export default BaseView.extend(_.extend({}, Expandable, {
 			draggable: this.options.draggable,
 			droppable: this.options.droppable,
 			editable: this.options.editable,
-			
+
 			// callbacks
 			//
 			onselect: this.options.onselect,

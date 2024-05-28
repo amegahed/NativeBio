@@ -15,7 +15,6 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import BaseView from '../../../../../views/base-view.js';
 import InfoFormView from '../../../../../views/apps/common/forms/info-form-view.js';
 import TopicIconView from '../../../../../views/apps/topic-browser/mainbar/topics/icons/topic-icon-view.js';
 import GeneralPaneView from '../../../../../views/apps/topic-browser/forms/info/panes/general-pane-view.js';
@@ -169,10 +168,7 @@ export default InfoFormView.extend({
 
 			// options
 			//
-			emptyView: BaseView.extend({
-				className: 'empty',
-				template: template("No members.")
-			}),
+			empty: "No members.",
 
 			// capabilities
 			//

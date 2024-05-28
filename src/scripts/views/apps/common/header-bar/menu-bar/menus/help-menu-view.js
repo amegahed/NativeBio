@@ -15,7 +15,7 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import File from '../../../../../../models/files/file.js';
+import File from '../../../../../../models/storage/files/file.js';
 import Topic from '../../../../../../models/topics/topic.js';
 import MenuView from '../../../../../../views/apps/common/header-bar/menu-bar/menus/menu-view.js';
 import AddressBar from '../../../../../../utilities/web/address-bar.js';
@@ -33,36 +33,38 @@ export default MenuView.extend({
 		
 		<li role="separator" class="divider"></li>
 		
-		<% if (show_documentation) { %>
+		<% if (show_app) { %>
 		<li role="presentation">
-			<a class="view-help-pages"><i class="fa fa-question-circle"></i>View Help Pages</a>
+			<a class="view-app"><i class="fa fa-question-circle"></i>View Help Pages</a>
 		</li>
 		<% } %>
-		
-		<% if (show_documentation) { %>
+
+		<% if (show_pdf) { %>
 		<li role="presentation">
-			<a class="view-documentation"><i class="fa fa-book"></i>View Documentation</a>
+			<a class="view-pdf"><i class="fa fa-book"></i>View Documentation</a>
 		</li>
 		<% } %>
-		
-		<% if (show_community_help) { %>
+
+		<% if (show_topic) { %>
 		<li role="presentation">
-			<a class="search-for-help"><i class="fa fa-newspaper"></i>Search Community Help</a>
+			<a class="view-topic"><i class="fa fa-newspaper"></i>Search Community Help</a>
 		</li>
 		<% } %>
-		
+
+		<% if (show_contact) { %>
 		<li role="separator" class="divider"></li>
-		
+
 		<li role="presentation">
 			<a class="contact-us"><i class="fa fa-envelope"></i>Contact Us</a>
 		</li>
+		<% } %>
 	`),
-	
+
 	events: {
 		'click .view-about-info': 'onClickViewAboutInfo',
-		'click .view-help-pages': 'onClickViewHelpPages',
-		'click .view-documentation': 'onClickViewDocumentation',
-		'click .search-for-help': 'onClickSearchForHelp',
+		'click .view-app': 'onClickViewApp',
+		'click .view-pdf': 'onClickViewPdf',
+		'click .view-topic': 'onClickViewTopic',
 		'click .contact-us': 'onClickContactUs'
 	},
 
@@ -95,9 +97,10 @@ export default MenuView.extend({
 	templateContext: function() {
 		return {
 			app_name: this.getAppName(),
-			show_help: config.defaults.help.show_app != false,
-			show_documentation: config.defaults.help.show_pdf != false,
-			show_community_help: config.defaults.help.show_topic != false
+			show_app: config.defaults.help.show_app,
+			show_pdf: config.defaults.help.show_pdf,
+			show_topic: config.defaults.help.show_topic,
+			show_contact: config.defaults.help.show_contact
 		};
 	},
 
@@ -111,11 +114,11 @@ export default MenuView.extend({
 		});
 	},
 
-	onClickViewHelpPages: function() {
+	onClickViewApp: function() {
 		application.launch('help_viewer');
 	},
-	
-	onClickViewDocumentation: function() {
+
+	onClickViewPdf: function() {
 		application.launch('pdf_viewer', {
 			model: new File({
 				path: config.defaults.help.docs
@@ -123,7 +126,7 @@ export default MenuView.extend({
 		});
 	},
 
-	onClickSearchForHelp: function() {
+	onClickViewTopic: function() {
 		application.launch('topic_viewer', {
 			topic: new Topic({
 				name: config.defaults.help.topic

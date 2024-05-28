@@ -15,11 +15,11 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import FormView from '../../../../../views/forms/form-view.js';
+import SettingsFormView from '../../../../../views/apps/common/forms/settings-form-view.js';
 import UserAccountView from '../../../../../views/users/accounts/user-account-view.js';
 import UserAccountHistoryView from '../../../../../views/users/accounts/user-account-history-view.js';
 
-export default FormView.extend({
+export default SettingsFormView.extend({
 
 	//
 	// attributes
@@ -39,51 +39,64 @@ export default FormView.extend({
 				</div>
 			</div>
 		</div>
-		
-		<h3><i class="fa fa-key"></i>Account Info</h3>
-		<p>The following is your account information which you entered when you initially created or previously edited your account.</p>
-		
-		<div class="account well">
-			<div style="text-align:center">
-				<i class="fa fa-spinner spinning" style="margin-right: 5px"></i>
-				<span>Loading...</span>
+
+		<ul class="nav nav-tabs" role="tablist">
+
+			<li role="presentation" class="general-tab<% if (tab == 'general' || !tab) { %> active<% } %>">
+				<a role="tab" data-toggle="tab" href=".general-settings">
+					<i class="fa fa-check"></i>
+					<label>General</label>
+				</a>
+			</li>
+
+			<li role="presentation" class="history-tab<% if (tab == 'history') { %> active<% } %>">
+				<a role="tab" data-toggle="tab" href=".history-settings">
+					<i class="fa fa-calendar"></i>
+					<label>History</label>
+				</a>
+			</li>
+		</ul>
+
+		<div class="tab-content">
+
+			<div role="tabpanel" class="general-settings tab-pane<% if (tab == 'general' || !tab) { %> active<% } %>">
+				<div class="account">
+					<div style="text-align:center">
+						<i class="fa fa-spinner spinning" style="margin-right: 5px"></i>
+						<span>Loading...</span>
+					</div>
+				</div>
+
+				<br />
+
+				<div class="buttons" style="text-align:center">
+					<button class="edit-account btn btn-primary">
+						<i class="fa fa-pencil-alt"></i>Edit Account
+					</button>
+					<button class="change-password btn">
+						<i class="fa fa-key"></i>Change Password
+					</button>
+					<button class="delete-account btn colored red">
+						<i class="fa fa-trash-alt"></i>Delete Account
+					</button>
+				</div>
 			</div>
-		</div>
-		
-		<div class="buttons" style="text-align:center">
-			<button class="edit-account btn btn-primary">
-				<i class="fa fa-pencil-alt"></i>Edit Account
-			</button>
-			<button class="change-password btn">
-				<i class="fa fa-key"></i>Change Password
-			</button>
-		</div>
-		
-		<h3><i class="fa fa-calendar"></i>Account History</h3>
-		<p>The following is a history of your account.</p>
-		
-		<div class="account-history well">
-			<div style="text-align:center">
-				<i class="fa fa-spinner spinning" style="margin-right: 5px"></i>
-				<span>Loading...</span>
+
+			<div role="tabpanel" class="history-settings tab-pane<% if (tab == 'history') { %> active<% } %>">
+				<div class="account-history">
+					<div style="text-align:center">
+						<i class="fa fa-spinner spinning" style="margin-right: 5px"></i>
+						<span>Loading...</span>
+					</div>
+				</div>
 			</div>
-		</div>
-		
-		<h3><i class="fa fa-trash-alt"></i>Delete Account</h3>
-		<p>Note: This will permanantly delete your account, your files and all of your data.   See our <a href="#policies/user-data-policy">User Data Policy</a> for details. </p>
-		
-		<div class="well buttons" style="text-align:center">
-			<button class="delete-account btn colored red" style="margin:0">
-				<i class="fa fa-trash-alt"></i>Delete Account
-			</button>
 		</div>
 	`),
 
 	events: {
 		'click .edit-account': 'onClickEditAccount',
 		'click .change-password': 'onClickChangePassword',
-		'click .delete-account': 'onClickDeleteAccount',
-		'click a': 'onClickLink'
+		'click .delete-account': 'onClickDeleteAccount'
 	},
 
 	regions: {
@@ -165,6 +178,12 @@ export default FormView.extend({
 	// rendering methods
 	//
 
+	templateContext: function() {
+		return {
+			tab: this.options.tab
+		};
+	},
+
 	onRender: function() {
 
 		// show child views
@@ -235,13 +254,5 @@ export default FormView.extend({
 
 	onClickDeleteAccount: function() {
 		this.deleteAccount();
-	},
-
-	onClickLink: function(event) {
-		application.showUrl(event.target.href);
-
-		// block event from parent
-		//
-		this.block(event);
 	}
 });

@@ -214,6 +214,7 @@ export default BaseView.extend(_.extend({}, Collapsable, {
 
 			// options
 			//
+			features: this.options.features,
 			preferences: this.options.preferences,
 			collapsed: this.options.collapsed,
 			selected: this.options.selected,
@@ -243,6 +244,7 @@ export default BaseView.extend(_.extend({}, Collapsable, {
 				// options
 				//
 				post: this.model,
+				features: this.options.features,
 				preferences: this.options.preferences,
 
 				// callbacks
@@ -261,8 +263,8 @@ export default BaseView.extend(_.extend({}, Collapsable, {
 			// options
 			//
 			focused: false,
-			// cancelable: this.collection.length > 0,
 			cancelable: true,
+			features: this.options.features,
 			preferences: this.options.preferences,
 
 			// callbacks

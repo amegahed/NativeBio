@@ -36,6 +36,10 @@ export default ViewMenuView.extend({
 			<a class="view-lists"><i class="fa fa-check"></i><i class="fa fa-list"></i>Lists</a>
 		</li>
 
+		<li role="presentation" class="hidden view-kind">
+			<a class="view-strips"><i class="fa fa-check"></i><i class="fa fa-columns"></i>Strips</a>
+		</li>
+
 		<li role="presentation" class="view-kind">
 			<a class="view-trees"><i class="fa fa-check"></i><i class="fa fa-tree"></i>Trees</a>
 		</li>
@@ -133,28 +137,42 @@ export default ViewMenuView.extend({
 
 		<li role="separator" class="divider"></li>
 
-		<li role="presentation" class="toolbars dropdown dropdown-submenu">
+		<li role="presentation" class="show-toolbars dropdown dropdown-submenu">
 			<a class="dropdown-toggle"><i class="fa fa-check"></i><i class="fa fa-wrench"></i>Toolbars<i class="fa fa-caret-left"></i><i class="fa fa-caret-right"></i></a>
 
-			<ul class="show-toolbars dropdown-menu" data-toggle="dropdown">
+			<ul class="show-toolbar dropdown-menu" data-toggle="dropdown">
 
 				<li role="presentation" class="option">
 					<a class="show-nav-bar"><i class="fa fa-check"></i><i class="fa fa-sitemap"></i>Nav</a>
 				</li>
+
+				<li role="presentation" class="option">
+					<a class="show-sharing-bar"><i class="fa fa-check"></i><i class="fa fa-share"></i>Sharing</a>
+				</li>
+
+				<% if (config.defaults.search && config.defaults.search.index) { %>
+				<li role="presentation" class="option">
+					<a class="show-indexing-bar"><i class="fa fa-check"></i><i class="fa fa-list"></i>Indexing</a>
+				</li>
+				<% } %>
 			</ul>
 		</li>
 
 		<li role="presentation" class="view-items dropdown dropdown-submenu">
-			<a class="dropdown-toggle"><i class="fa fa-check"></i><i class="fa fa-th"></i>Items<i class="fa fa-caret-left"></i><i class="fa fa-caret-right"></i></a>
+			<a class="dropdown-toggle"><i class="fa fa-check"></i><i class="fa fa-file"></i>Items<i class="fa fa-caret-left"></i><i class="fa fa-caret-right"></i></a>
 
 			<ul class="dropdown-menu" data-toggle="dropdown">
 
 				<li role="presentation">
-					<a class="show-hidden-files"><i class="fa fa-check"></i><i class="far fa-file"></i>Hidden Files<span class="command shortcut">.</span></a>
+					<a class="show-hidden-files"><i class="fa fa-check"></i><i class="far fa-file"></i>Hidden Files<span class="shift command shortcut">.</span></a>
 				</li>
 
 				<li role="presentation">
 					<a class="show-thumbnails"><i class="fa fa-check"></i><i class="fa fa-image"></i>Thumbnails</a>
+				</li>
+
+				<li role="presentation">
+					<a class="show-image-names"><i class="fa fa-check"></i><i class="fa fa-font"></i>Image Names</a>
 				</li>
 
 				<li role="presentation">
@@ -302,7 +320,7 @@ export default ViewMenuView.extend({
 						</li>
 
 						<li role="presentation" type="detail-kind">
-							<a class="view-bitrate"><i class="fa fa-check"></i><i class="fa fa-chart-bar"></i>Bit Rate</a>
+							<a class="view-bit-rate"><i class="fa fa-check"></i><i class="fa fa-chart-bar"></i>Bit Rate</a>
 						</li>
 					</ul>
 				</li>
@@ -356,7 +374,7 @@ export default ViewMenuView.extend({
 				</li>
 
 				<li role="presentation">
-					<a class="show-location-panel"><i class="fa fa-check"></i><i class="fa fa-folder"></i>Location</a>
+					<a class="show-files-panel"><i class="fa fa-check"></i><i class="fa fa-folder"></i>Files</a>
 				</li>
 
 				<li role="presentation">
@@ -368,25 +386,25 @@ export default ViewMenuView.extend({
 		<li role="presentation" class="dropdown dropdown-submenu">
 			<a class="dropdown-toggle"><i class="fa fa-check"></i><i class="fa fa-th"></i>Sidebar Items<i class="fa fa-caret-left"></i><i class="fa fa-caret-right"></i></a>
 
-			<ul class="dropdown-menu" data-toggle="dropdown">
+			<ul class="sidebar-view-kind dropdown-menu" data-toggle="dropdown">
 
-				<li role="presentation" class="sidebar-view-kind">
+				<li role="presentation">
 					<a class="view-sidebar-icons"><i class="fa fa-check"></i><i class="fa fa-th"></i>Icons</a>
 				</li>
 
-				<li role="presentation" class="sidebar-view-kind">
+				<li role="presentation">
 					<a class="view-sidebar-lists"><i class="fa fa-check"></i><i class="fa fa-list"></i>Lists</a>
 				</li>
 
-				<li role="presentation" class="sidebar-view-kind">
+				<li role="presentation">
 					<a class="view-sidebar-trees"><i class="fa fa-check"></i><i class="fa fa-tree"></i>Trees</a>
 				</li>
 
-				<li role="presentation" class="sidebar-view-kind">
+				<li role="presentation">
 					<a class="view-sidebar-cards"><i class="fa fa-check"></i><i class="fa fa-id-card"></i>Cards</a>
 				</li>
 
-				<li role="presentation" class="sidebar-view-kind">
+				<li role="presentation">
 					<a class="view-sidebar-tiles"><i class="fa fa-check"></i><i class="fa fa-th-large"></i>Tiles</a>
 				</li>
 			</ul>
@@ -429,7 +447,21 @@ export default ViewMenuView.extend({
 				<li role="presentation">
 					<a class="next-space"><i class="fa fa-chevron-right"></i>Next<span class="command shortcut">right arrow</span></a>
 				</li>
+			</ul>
+		</li>
 
+		<li role="presentation" class="desktop-app-only windows dropdown dropdown-submenu">
+			<a class="dropdown-toggle"><i class="fa fa-check"></i><i class="far fa-window-restore"></i>Windows<i class="fa fa-caret-left"></i><i class="fa fa-caret-right"></i></a>
+
+			<ul class="dropdown-menu" data-toggle="dropdown">
+
+				<li role="presentation">
+					<a class="minimize-all"><i class="fa fa-window-minimize"></i>Minimize All</a>
+				</li>
+
+				<li role="presentation">
+					<a class="unminimize-all"><i class="fa fa-window-restore"></i>Unminimize All</a>
+				</li>
 			</ul>
 		</li>
 
@@ -456,7 +488,8 @@ export default ViewMenuView.extend({
 
 		// toolbar options
 		//
-		'click .show-toolbars > a': 'onClickShowToolbar',
+		'click .show-toolbars > a': 'onClickShowToolbars',
+		'click .show-toolbar > li > a': 'onClickShowToolbar',
 
 		// detail options
 		//
@@ -464,6 +497,7 @@ export default ViewMenuView.extend({
 		'click li[type=date-format] > a': 'onClickDateFormat',
 		'click .show-hidden-files': 'onClickShowHiddenFiles',
 		'click .show-thumbnails': 'onClickOption',
+		'click .show-image-names': 'onClickOption',
 		'click .show-file-extensions': 'onClickOption',
 
 		// map options
@@ -483,16 +517,21 @@ export default ViewMenuView.extend({
 		// sidebar options
 		//
 		'click .show-sidebar': 'onClickOption',
-		'click .show-sidebar-panels > a': 'onClickShowSideBarPanel',
-		'click .sidebar-view-kind > a': 'onClickSideBarViewKind',
+		'click .show-sidebar-panels > li > a': 'onClickShowSideBarPanel',
+		'click .sidebar-view-kind > li > a': 'onClickSideBarViewKind',
 
 		// window options
 		//
 		'click .shrink-window': 'onClickShrinkWindow',
 		'click .grow-window': 'onClickGrowWindow',
 		'click .expand-window': 'onClickExpandWindow',
+
+		// desktop options
+		//
 		'click .prev-space': 'onClickPrevSpace',
 		'click .next-space': 'onClickNextSpace',
+		'click .minimize-all': 'onClickMinimizeAll',
+		'click .unminimize-all': 'onClickUnminimizeAll',
 		'click .view-full-screen': 'onClickViewFullScreen',
 
 		// preferences options
@@ -508,13 +547,13 @@ export default ViewMenuView.extend({
 		let numFiles = this.parent.app.model.get('num_files');
 
 		return {
-			'view-gallery': numFiles.image > 0,
+			'view-gallery': numFiles && numFiles.image > 0,
+			'view-audio': numFiles && numFiles.audio > 0,
+			'view-photo': numFiles && numFiles.image > 0,
+			'view-video': numFiles && numFiles.video > 0,
 			'view-maps': this.parent.app.hasGeolocatedItems(),
-			'view-audio': numFiles.audio > 0,
-			'view-photo': numFiles.image > 0,
-			'view-video': numFiles.video > 0,
 			'map-items': this.parent.app.hasGeolocatedItems(),
-			'toolbars': !this.parent.app.isDesktop()
+			'toolbars': true
 		};
 	},
 
@@ -575,7 +614,10 @@ export default ViewMenuView.extend({
 
 			// toolbar options
 			//
-			'show-nav-bar': toolbars.includes('nav') && !isDesktop,
+			'show-toolbars': toolbars.length > 0,
+			'show-nav-bar': toolbars.includes('nav'),
+			'show-sharing-bar': toolbars.includes('sharing'),
+			'show-indexing-bar': toolbars.includes('indexing'),
 
 			// map item options
 			//
@@ -608,14 +650,15 @@ export default ViewMenuView.extend({
 			'view-capture-date': detailKind == 'capture_date',
 			'show-hidden-files': preferences.get('show_hidden_files'),
 			'show-thumbnails': preferences.get('show_thumbnails'),
+			'show-image-names': preferences.get('show_image_names'),
 			'show-file-extensions': preferences.get('show_file_extensions'),
 
 			// sidebar options
 			//
-			'show-sidebar': this.parent.app.isDesktop()? preferences.get('show_desktop_sidebar') : preferences.get('show_sidebar'),
+			'show-sidebar': isDesktop? preferences.get('show_desktop_sidebar') : preferences.get('show_sidebar'),
 			'show-clipboard-panel': sidebarPanels.includes('clipboard'),
 			'show-favorites-panel': sidebarPanels.includes('favorites'),
-			'show-location-panel': sidebarPanels.includes('location'),
+			'show-files-panel': sidebarPanels.includes('files'),
 			'show-shared-panel': sidebarPanels.includes('shared'),
 
 			// sidebar item options
@@ -659,32 +702,6 @@ export default ViewMenuView.extend({
 	setMapMode: function(mapMode) {
 		this.$el.find('li.map-mode').removeClass('selected');
 		this.$el.find('li .view-' + mapMode).closest('li').addClass('selected');
-	},
-
-	setDetailKind: function(detailKind, detailValue) {
-		let classNames = this.$el.find('li[type=detail-kind]').map((index, element) => { 
-			return $(element).find('a').attr('class');
-		}).get();
-
-		detailKind = detailKind.replace(/_/g, '-');
-		detailValue = detailValue.replace(/_/g, '-');
-
-		// update menu
-		//
-		this.setItemsDeselected(classNames);
-		this.setItemSelected('view-' + detailKind, detailValue);
-		this.setItemSelected('view-details', detailValue);
-	},
-
-	setDateFormat: function(dateFormat) {
-		let classNames = this.$el.find('li[type=date-format]').map((index, element) => { 
-			return $(element).find('a').attr('class');
-		}).get();
-
-		// update menu
-		//
-		this.setItemsDeselected(classNames);
-		this.setItemSelected('view-' + dateFormat.replace(/_/g, '-'));
 	},
 
 	//
@@ -809,33 +826,6 @@ export default ViewMenuView.extend({
 		// update parent
 		//
 		this.parent.app.setOption('detail_kind', false);
-	},
-
-	onClickDetailKind: function(event) {
-		let className = $(event.currentTarget).attr('class');
-		let detailKind = className.replace('view-', '').replace(/-/g, '_');
-		let detailValue = this.toggled(this.parent.app.preferences.get('detail_kind'), detailKind);
-
-		// update menu
-		//
-		this.setDetailKind(detailKind, detailValue);
-		
-		// update parent
-		//
-		this.parent.app.setOption('detail_kind', detailValue);
-	},
-
-	onClickDateFormat: function(event) {
-		let className = $(event.currentTarget).attr('class');
-		let dateFormat = className.replace('view-', '').replace(/-/g, '_');
-
-		// update menu
-		//
-		this.setDateFormat(dateFormat);
-
-		// update parent
-		//
-		this.parent.app.setOption('date_format', dateFormat);
 	},
 
 	onClickShowHiddenFiles: function() {

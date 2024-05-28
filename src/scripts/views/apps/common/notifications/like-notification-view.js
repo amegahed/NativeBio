@@ -144,7 +144,7 @@ export default NotificationsListItemView.extend({
 			});
 		} else {
 
-			// show alert dialog
+			// show alert message
 			//
 			application.alert({
 				message: "Post not found."

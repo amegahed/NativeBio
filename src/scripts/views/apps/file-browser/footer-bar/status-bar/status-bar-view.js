@@ -15,7 +15,7 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import Items from '../../../../../collections/files/items.js';
+import Items from '../../../../../collections/storage/items.js';
 import BaseView from '../../../../../views/base-view.js';
 import Browser from '../../../../../utilities/web/browser.js';
 
@@ -25,7 +25,7 @@ export default BaseView.extend({
 	// attributes
 	//
 
-	className: "status-bar",
+	className: "status",
 
 	template: template(`
 		<% if (show_size_input) { %>
@@ -36,17 +36,23 @@ export default BaseView.extend({
 		
 		<% if (show_map) { %>
 		<div class="map-view toolbar">
-			<div class="show-map button btn-sm"<% if (showing_map) { %> style="display:none"<% } %> data-toggle="tooltip" title="Show Map" data-placement="top"><i class="fa fa-map"></i></div>
-		
-			<div class="hide-map button btn-sm"<% if (!showing_map) { %> style="display:none"<% } %> data-toggle="tooltip" title="Hide Map" data-placement="top"><i class="fa fa-th"></i></div>
+			<button class="show-map button btn-sm"<% if (showing_map) { %> style="display:none"<% } %> data-toggle="tooltip" title="Show Map" data-placement="top">
+				<i class="fa fa-map"></i>
+			</button>
+			<button class="hide-map button btn-sm"<% if (!showing_map) { %> style="display:none"<% } %> data-toggle="tooltip" title="Hide Map" data-placement="top">
+				<i class="fa fa-th"></i>
+			</button>
 		</div>
 		<% } %>
 		
 		<% if (show_magnify) { %>
 		<div class="icon-size toolbar desktop-only">
-			<div class="magnify button btn-sm"<% if (magnified) { %> style="display:none"<% } %> data-toggle="tooltip" title="Magnify" data-placement="top"><i class="fa fa-search-plus"></i></div>
-		
-			<div class="unmagnify button btn-sm"<% if (!magnified) { %> style="display:none"<% } %> data-toggle="tooltip" title="Unmagnify" data-placement="top"><i class="fa fa-search-minus"></i></div>
+			<button class="magnify button btn-sm"<% if (magnified) { %> style="display:none"<% } %> data-toggle="tooltip" title="Magnify" data-placement="top">
+				<i class="fa fa-search-plus"></i>
+			</button>
+			<button class="unmagnify button btn-sm"<% if (!magnified) { %> style="display:none"<% } %> data-toggle="tooltip" title="Unmagnify" data-placement="top">
+				<i class="fa fa-search-minus"></i>
+			</button>
 		</div>
 		<% } %>
 		

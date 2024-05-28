@@ -123,6 +123,7 @@ export default DialogView.extend({
 
 			// options
 			//
+			subscribed: this.options.subscribed,
 			selected: this.options.selected,
 			dialog: this,
 			hidden: {

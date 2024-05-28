@@ -80,6 +80,44 @@ export default SearchBarView.extend({
 		});
 	},
 
+	showSearchByKeyword: function() {
+		import(
+			'../../../../../views/apps/file-browser/header-bar/search-bar/searches/search-by-keyword-view.js'
+		).then((SearchByKeywordView) => {
+
+			// show search
+			//
+			this.showChildView('searches', new SearchByKeywordView.default({
+				model: this.model
+			}));
+
+			// perform callback
+			//
+			if (this.options.onshow) {
+				this.options.onshow();
+			}
+		});
+	},
+
+	showSearchByMeaning: function() {
+		import(
+			'../../../../../views/apps/file-browser/header-bar/search-bar/searches/search-by-meaning-view.js'
+		).then((SearchByMeaningView) => {
+
+			// show search
+			//
+			this.showChildView('searches', new SearchByMeaningView.default({
+				model: this.model
+			}));
+
+			// perform callback
+			//
+			if (this.options.onshow) {
+				this.options.onshow();
+			}
+		});
+	},
+
 	//
 	// date attribute searching methods
 	//
@@ -329,6 +367,15 @@ export default SearchBarView.extend({
 				break;
 			case 'size':
 				this.showSearchBySize();
+				break;
+
+			// content attributes
+			//
+			case 'keyword':
+				this.showSearchByKeyword();
+				break;
+			case 'meaning':
+				this.showSearchByMeaning();
 				break;
 
 			// date attributes

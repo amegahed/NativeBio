@@ -26,7 +26,7 @@ $color: white;
 $active-color: black;
 
 //
-// styles
+// desktop styles
 //
 
 body.binary {
@@ -35,7 +35,7 @@ body.binary {
 	// desktop scrollbars
 	//
 
-	@media (min-width: variables.$screen-xs-min) {
+	&[device="desktop"] {
 
 		//
 		// scrollbar thumb

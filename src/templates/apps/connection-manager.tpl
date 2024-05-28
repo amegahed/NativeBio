@@ -45,11 +45,11 @@
 	
 	<h2><i class="fa fa-desktop"></i>Screen Shots</h2>
 	<div class="figure desktop-only">
-		<a href="images/info/apps/connection-manager/connection-manager.png" target="_blank" class="lightbox" title="Connections"><img class="dialog" src="images/info/apps/connection-manager/connection-manager.png" /></a>
-		<div class="caption">Connections</div>
+		<a href="images/info/apps/connection-manager/connection-manager.png" target="_blank" class="lightbox" title="<%= config.apps['connection_manager'].name %>"><img class="dialog" src="images/info/apps/connection-manager/connection-manager.png" /></a>
+		<div class="caption"><%= config.apps['connection_manager'].name %></div>
 	</div>
 	<div class="figure mobile-only">
-		<a href="images/info/apps/connection-manager/mobile/mobile-connection-manager.png" target="_blank" class="lightbox" title="Connections"><img src="images/info/apps/connection-manager/mobile/mobile-connection-manager.png" /></a>
-		<div class="caption">Connections</div>
+		<a href="images/info/apps/connection-manager/mobile/mobile-connection-manager.png" target="_blank" class="lightbox" title="<%= config.apps['connection_manager'].name %>"><img src="images/info/apps/connection-manager/mobile/mobile-connection-manager.png" /></a>
+		<div class="caption"><%= config.apps['connection_manager'].name %></div>
 	</div>
 </div>

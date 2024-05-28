@@ -25,7 +25,7 @@ export default {
 
 	alert: function(options) {
 
-		// show alert dialog
+		// show alert message dialog
 		//
 		if (AlertDialogView.current) {
 			AlertDialogView.current.update(options);

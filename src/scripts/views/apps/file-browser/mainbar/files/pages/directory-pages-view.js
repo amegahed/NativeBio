@@ -15,9 +15,9 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import File from '../../../../../../models/files/file.js';
-import Directory from '../../../../../../models/files/directory.js';
-import Volume from '../../../../../../models/files/volume.js';
+import File from '../../../../../../models/storage/files/file.js';
+import Directory from '../../../../../../models/storage/directories/directory.js';
+import Volume from '../../../../../../models/storage/directories/volume.js';
 import PagesView from '../../../../../../views/items/pages/pages-view.js';
 import FilePageView from '../../../../../../views/apps/file-browser/mainbar/files/pages/file-page-view.js';
 import DirectoryPageView from '../../../../../../views/apps/file-browser/mainbar/files/pages/directory-page-view.js';

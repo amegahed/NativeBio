@@ -24,10 +24,10 @@ export default ViewMenuView.extend({
 	//
 
 	template: template(`
-		<li role="presentation" class="toolbars dropdown dropdown-submenu">
+		<li role="presentation" class="show-toolbars dropdown dropdown-submenu">
 			<a class="dropdown-toggle"><i class="fa fa-check"></i><i class="fa fa-wrench"></i>Toolbars<i class="fa fa-caret-left"></i><i class="fa fa-caret-right"></i></a>
 
-			<ul class="show-toolbars dropdown-menu" data-toggle="dropdown">
+			<ul class="show-toolbar dropdown-menu" data-toggle="dropdown">
 
 				<li role="presentation" class="option">
 					<a class="show-clip-bar"><i class="fa fa-check"></i><i class="fa fa-play"></i>Clip</a>
@@ -35,6 +35,10 @@ export default ViewMenuView.extend({
 
 				<li role="presentation" class="option">
 					<a class="show-volume-bar"><i class="fa fa-check"></i><i class="fa fa-volume-up"></i>Volume</a>
+				</li>
+
+				<li role="presentation" class="option">
+					<a class="show-video-bar"><i class="fa fa-check"></i><i class="fa fa-play"></i>Video</a>
 				</li>
 			</ul>
 		</li>
@@ -50,25 +54,44 @@ export default ViewMenuView.extend({
 			</ul>
 		</li>
 		
-		<li role="presentation" class="dropdown dropdown-submenu">
+		<li role="presentation" class="sidebar-view-kind dropdown dropdown-submenu">
 			<a class="dropdown-toggle"><i class="fa fa-check"></i><i class="fa fa-th"></i>Sidebar Items<i class="fa fa-caret-left"></i><i class="fa fa-caret-right"></i></a>
-		
+
 			<ul class="dropdown-menu" data-toggle="dropdown">
-		
-				<li role="presentation" class="sidebar-view-kind">
+
+				<li role="presentation">
 					<a class="view-sidebar-icons"><i class="fa fa-check"></i><i class="fa fa-th"></i>Icons</a>
 				</li>
-		
-				<li role="presentation" class="sidebar-view-kind">
+
+				<li role="presentation">
 					<a class="view-sidebar-lists"><i class="fa fa-check"></i><i class="fa fa-list"></i>Lists</a>
 				</li>
-		
-				<li role="presentation" class="sidebar-view-kind">
+
+				<li role="presentation">
 					<a class="view-sidebar-cards"><i class="fa fa-check"></i><i class="fa fa-id-card"></i>Cards</a>
 				</li>
-		
-				<li role="presentation" class="sidebar-view-kind">
+
+				<li role="presentation">
 					<a class="view-sidebar-tiles"><i class="fa fa-check"></i><i class="fa fa-th-large"></i>Tiles</a>
+				</li>
+			</ul>
+		</li>
+
+		<li role="presentation" class="sidebar-tile-size dropdown dropdown-submenu">
+			<a class="dropdown-toggle"><i class="fa fa-check"></i><i class="fa fa-th-large"></i>Sidebar Tile Size<i class="fa fa-caret-left"></i><i class="fa fa-caret-right"></i></a>
+
+			<ul class="sidebar-tile-size dropdown-menu" data-toggle="dropdown">
+
+				<li role="presentation">
+					<a class="small-tile-size"><i class="fa fa-check"></i><i class="fa fa-th"></i>Small</a>
+				</li>
+
+				<li role="presentation">
+					<a class="medium-tile-size"><i class="fa fa-check"></i><i class="fa fa-th-large"></i>Medium</a>
+				</li>
+
+				<li role="presentation">
+					<a class="large-tile-size"><i class="fa fa-check"></i><i class="fa fa-image"></i>Large</a>
 				</li>
 			</ul>
 		</li>
@@ -104,17 +127,31 @@ export default ViewMenuView.extend({
 		
 		<li role="presentation" class="desktop-app-only spaces dropdown dropdown-submenu">
 			<a class="dropdown-toggle"><i class="fa fa-check"></i><i class="far fa-window-maximize"></i>Spaces<i class="fa fa-caret-left"></i><i class="fa fa-caret-right"></i></a>
-		
+
 			<ul class="dropdown-menu" data-toggle="dropdown">
-		
+
 				<li role="presentation">
 					<a class="prev-space"><i class="fa fa-chevron-left"></i>Prev<span class="command shortcut">left arrow</span></a>
 				</li>
-		
+
 				<li role="presentation">
 					<a class="next-space"><i class="fa fa-chevron-right"></i>Next<span class="command shortcut">right arrow</span></a>
 				</li>
-		
+			</ul>
+		</li>
+
+		<li role="presentation" class="desktop-app-only windows dropdown dropdown-submenu">
+			<a class="dropdown-toggle"><i class="fa fa-check"></i><i class="far fa-window-restore"></i>Windows<i class="fa fa-caret-left"></i><i class="fa fa-caret-right"></i></a>
+
+			<ul class="dropdown-menu" data-toggle="dropdown">
+
+				<li role="presentation">
+					<a class="minimize-all"><i class="fa fa-window-minimize"></i>Minimize All</a>
+				</li>
+
+				<li role="presentation">
+					<a class="unminimize-all"><i class="fa fa-window-restore"></i>Unminimize All</a>
+				</li>
 			</ul>
 		</li>
 		
@@ -135,7 +172,8 @@ export default ViewMenuView.extend({
 
 		// toolbar options
 		//
-		'click .show-toolbars a': 'onClickShowToolbar',
+		'click .show-toolbars > a': 'onClickShowToolbars',
+		'click .show-toolbar > li > a': 'onClickShowToolbar',
 
 		// sidebar options
 		//
@@ -143,14 +181,20 @@ export default ViewMenuView.extend({
 		'click .show-video-info': 'onClickOption',
 		'click .show-sidebar-panels a': 'onClickShowSideBarPanel',
 		'click .sidebar-view-kind a': 'onClickSideBarViewKind',
+		'click .sidebar-tile-size a': 'onClickSideBarTileSize',
 
 		// window options
 		//
 		'click .shrink-window': 'onClickShrinkWindow',
 		'click .grow-window': 'onClickGrowWindow',
 		'click .expand-window': 'onClickExpandWindow',
+
+		// desktop options
+		//
 		'click .prev-space': 'onClickPrevSpace',
 		'click .next-space': 'onClickNextSpace',
+		'click .minimize-all': 'onClickMinimizeAll',
+		'click .unminimize-all': 'onClickUnminimizeAll',
 		'click .view-full-screen': 'onClickViewFullScreen',
 
 		// preferences options
@@ -167,23 +211,35 @@ export default ViewMenuView.extend({
 		let toolbars = preferences.get('toolbars') || [];
 		let sidebarPanels = preferences.get('sidebar_panels') || [];
 		let sidebarViewKind = preferences.get('sidebar_view_kind');
+		let sidebarTileSize = preferences.get('sidebar_tile_size');
 
 		return {
 
 			// toolbar options
 			//
+			'show-toolbars': toolbars.length > 0,
 			'show-clip-bar': toolbars.includes('clip'),
 			'show-volume-bar': toolbars.includes('volume'),
+			'show-video-bar': toolbars.includes('video'),
 
 			// sidebar options
 			//
 			'show-sidebar': preferences.get('show_sidebar'),
 			'show-videos-panel': sidebarPanels.includes('videos'),
-			'show-sidebar-icons': sidebarViewKind == 'icons',
-			'show-sidebar-lists': sidebarViewKind == 'lists',
-			'show-sidebar-cards': sidebarViewKind == 'cards',
-			'show-sidebar-tiles': sidebarViewKind == 'tiles',
-			'show-video-info': preferences.get('show_video_info')
+			'show-video-info': preferences.get('show_video_info'),
+
+			// sidebar item options
+			//
+			'view-sidebar-icons': sidebarViewKind == 'icons',
+			'view-sidebar-lists': sidebarViewKind == 'lists',
+			'view-sidebar-cards': sidebarViewKind == 'cards',
+			'view-sidebar-tiles': sidebarViewKind == 'tiles',
+
+			// sidebar tile sizes
+			//
+			'small-tile-size': sidebarTileSize == 'small',
+			'medium-tile-size': sidebarTileSize == 'medium',
+			'large-tile-size': sidebarTileSize == 'large'
 		};
 	}
 });

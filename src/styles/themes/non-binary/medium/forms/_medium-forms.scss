@@ -31,7 +31,8 @@ $input-color: text-colors.$dark-color;
 $input-background-color: white;
 $input-border-color: colors.$very-very-light-grey;
 $input-addon-color: colors.$very-very-very-light-grey;
-$input-focus-color: colors.$very-very-light-grey;
+$input-focus-color: var(--primary-color);
+$content-background-color: colors.fade(colors.$very-very-light-grey, 25%);
 
 //
 // styles
@@ -95,5 +96,12 @@ body:not(.binary) {
 
 	span.secondary {
 		color: $secondary-color;
+	}
+
+	.search-bar .input {
+		&:focus-within {
+			border-color: colors.fade($input-focus-color, 75%) !important;
+				box-shadow: 1px 1px 10px 0 colors.fade($input-focus-color, 50%) !important;
+		}
 	}
 }

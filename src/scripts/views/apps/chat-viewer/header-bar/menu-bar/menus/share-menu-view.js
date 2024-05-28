@@ -30,35 +30,49 @@ export default MenuView.extend({
 		
 		<li role="separator" class="divider"></li>
 		
+		<% if (features && features.files) { %>
 		<li role="presentation">
 			<a class="share-files"><i class="fa fa-file"></i>Files</a>
 		</li>
+		<% } %>
 		
+		<% if (features && features.audio) { %>
 		<li role="presentation">
 			<a class="share-audio"><i class="fa fa-volume-up"></i>Audio</a>
 		</li>
+		<% } %>
 		
+		<% if (features && features.music) { %>
 		<li role="presentation">
 			<a class="share-music"><i class="fa fa-music"></i>Music</a>
 		</li>
+		<% } %>
 		
+		<% if (features && features.pictures) { %>
 		<li role="presentation">
 			<a class="share-pictures"><i class="fa fa-image"></i>Pictures</a>
 		</li>
+		<% } %>
 		
+		<% if (features && features.video) { %>
 		<li role="presentation">
 			<a class="share-videos"><i class="fa fa-video"></i>Videos</a>
 		</li>
+		<% } %>
 		
+		<% if (features && features.maps) { %>
 		<li role="presentation">
 			<a class="share-maps"><i class="fa fa-map"></i>Maps</a>
 		</li>
+		<% } %>
 		
+		<% if (features && features.locations) { %>
 		<li role="separator" class="divider"></li>
 		
 		<li role="presentation">
 			<a class="share-location"><i class="fa fa-map-marker-alt"></i>Location</a>
 		</li>
+		<% } %>
 	`),
 
 	events: {
@@ -96,6 +110,16 @@ export default MenuView.extend({
 			'share-location': isSignedIn && hasChat,
 			'share-chat': isSignedIn && hasChat
 		};
+	},
+
+	//
+	// rendering methods
+	//
+
+	templateContext: function() {
+		return {
+			features: config.apps.chat_viewer.features
+		}
 	},
 
 	//

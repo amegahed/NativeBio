@@ -19,7 +19,7 @@ import Timestamped from '../../models/utilities/timestamped.js';
 import Topic from '../../models/topics/topic.js';
 import User from '../../models/users/user.js';
 import CheckIn from '../../models/places/check-in.js';
-import Items from '../../collections/files/items.js';
+import Items from '../../collections/storage/items.js';
 import Comments from '../../collections/comments/comments.js';
 
 export default Timestamped.extend({
@@ -111,7 +111,8 @@ export default Timestamped.extend({
 	getTopic: function() {
 		return new Topic({
 			id: this.get('topic_id'),
-			name: this.get('topic_name') || config.apps.topic_viewer.defaults.topic.name
+			name: this.get('topic_name') || config.apps.topic_viewer.defaults.topic.name,
+			icon_path: config.apps.topic_viewer.defaults.topic.icon_path
 		});
 	},
 

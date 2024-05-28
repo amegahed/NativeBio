@@ -56,7 +56,6 @@ body.binary.light .app {
 body.binary.light .app > .header-bar + .body {
   background: none;
   background-size: unset;
-  background-position: unset;
   background-repeat: unset;
   image-rendering: unset;
   background-color: white;
@@ -78,7 +77,6 @@ body.binary.light .modal .app > .body > .contents .mainbar {
 body.binary.light .modal .app > .body > .contents .mainbar form, body.binary.light .modal .app > .body > .contents .mainbar .tab-content {
   background: none;
   background-size: unset;
-  background-position: unset;
   background-repeat: unset;
   image-rendering: unset;
   background-color: white;
@@ -104,7 +102,6 @@ body.binary.light .calculator.app .keyboard .scientific,
 body.binary.light .calculator.app .keyboard .programmer {
   background: none;
   background-size: unset;
-  background-position: unset;
   background-repeat: unset;
   image-rendering: unset;
 }
@@ -150,9 +147,10 @@ body.binary.light .desktop.app > .body .app > .body {
 body.binary.light .desktop.app > .body .app > .body > .contents {
   background: none;
 }
-body.binary.light .desktop.app .selection {
+body.binary.light .desktop.app > .body .selection {
   color: black;
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAFklEQVQIHWNgIAQYkRT8B7GZkATATAAWcgED8+hADQAAAABJRU5ErkJggg==");
+  border-color: black;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
@@ -198,7 +196,7 @@ body.binary.light .desktop.preview {
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 body.binary.light .icon-grid .item.selected > .row:first-child .icon {
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=");
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAGklEQVQIHWNkQID/ICYTgo9ggWTAsiAhDBUAcKADAzZoyVUAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
@@ -270,7 +268,6 @@ body.binary.light .page .footer {
 body.binary.light .panel {
   background: none;
   background-size: unset;
-  background-position: unset;
   background-repeat: unset;
   image-rendering: unset;
   background-color: white;
@@ -318,7 +315,6 @@ body.binary.light .panel.selected {
 body.binary.light #dock-bar .shelf {
   background: none;
   background-size: unset;
-  background-position: unset;
   background-repeat: unset;
   image-rendering: unset;
   background-color: white;
@@ -492,7 +488,6 @@ body.binary.light .footer-bar .run-menu .dropup.open .dropdown-toggle > i {
 body.binary.light .footer-bar .run-menu .icon-grid {
   background: none;
   background-size: unset;
-  background-position: unset;
   background-repeat: unset;
   image-rendering: unset;
   background-color: white;

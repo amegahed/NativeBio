@@ -33,7 +33,7 @@ export default MenuView.extend({
 
 		// share with connections
 		//
-		'click .share-by-post': 'onClickShareByPost',
+		'click .share-by-topic': 'onClickShareByTopic',
 		'click .share-by-message': 'onClickShareByMessage',
 
 		// share with anyone
@@ -43,7 +43,7 @@ export default MenuView.extend({
 
 		// share with everyone
 		//
-		'click .share-by-public-post': 'onClickShareByPublicPost'
+		'click .share-by-public-topic': 'onClickShareByPublicTopic'
 	},
 
 	//
@@ -58,8 +58,8 @@ export default MenuView.extend({
 	// mouse event handling methods
 	//
 
-	onClickShareByPost: function() {
-		this.parent.app.shareByPost({
+	onClickShareByTopic: function() {
+		this.parent.app.shareByTopic({
 			privacy: 'connections'
 		});
 	},
@@ -76,8 +76,8 @@ export default MenuView.extend({
 		this.parent.app.shareByEmail();
 	},
 
-	onClickShareByPublicPost: function() {
-		this.parent.app.shareByPost({
+	onClickShareByPublicTopic: function() {
+		this.parent.app.shareByTopic({
 			privacy: 'public'
 		});
 	}

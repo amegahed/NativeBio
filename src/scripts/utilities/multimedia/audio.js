@@ -25,9 +25,41 @@ export default class Audio {
 		this.loaded = false;
 		this.elapsed_time = 0;
 
-		// unlock on first user interaction
+		// initialize audio system
 		//
-		this.unlock();
+		this.initialize();
+	}
+
+	initialize() {
+
+		// create new context
+		//
+		if (!this.context) {
+			this.context = Audio.AudioContext? new Audio.AudioContext() : undefined;
+		}
+	}
+
+	unlock(done) {
+
+		let unlock = () => {
+			this.intialize();
+
+			// done listening for user interaction
+			//
+			window.removeEventListener('mousedown', unlock);
+			window.removeEventListener('touchstart', unlock);
+			window.removeEventListener('touchend', unlock);
+
+			// finished
+			//
+			this.start(done);
+		};
+
+		// listen for user interaction
+		//
+		window.addEventListener('mousedown', unlock, false);
+		window.addEventListener('touchstart', unlock, false);
+		window.addEventListener('touchend', unlock, false);
 	}
 
 	//
@@ -88,8 +120,8 @@ export default class Audio {
 		return this.context && this.context.state === 'running';
 	}
 
-	/*
 	kickstart(done) {
+
 		// on iOS, we must play / decode a sound to kick start audio
 		//
 		this.load('sounds/tick.mp3', {
@@ -98,6 +130,7 @@ export default class Audio {
 			success: () => {
 				this.play('sounds/tick.mp3');
 				this.stop();
+
 				// perform callback
 				//
 				if (done) {
@@ -106,7 +139,6 @@ export default class Audio {
 			}
 		});
 	}
-	*/
 
 	start(done) {
 		if (!this.context) {
@@ -136,26 +168,6 @@ export default class Audio {
 		}
 	}
 
-	unlock(done) {
-		let unlock = () => {
-
-			// create new context
-			//
-			this.context = Audio.AudioContext? new Audio.AudioContext() : undefined;
-
-			// unsuspend context
-			//
-			this.start(done);
-			window.removeEventListener('mousedown', unlock);
-			window.removeEventListener('touchstart', unlock);
-			window.removeEventListener('touchend', unlock);
-		};
-
-		window.addEventListener('mousedown', unlock, false);
-		window.addEventListener('touchstart', unlock, false);
-		window.addEventListener('touchend', unlock, false);
-	}
-
 	//
 	// loading methods
 	//
@@ -177,31 +189,41 @@ export default class Audio {
 
 		// remove previous event listeners
 		//
-		$(this.el).off();
+		this.removeEventListeners();
 
 		// add new event listeners
 		//
+		this.addEventListeners(options);
+
+		// begin loading
+		//
+		this.el.setAttribute('src', src);
+		this.el.load();
+	}
+
+	addEventListeners(options) {
 		$(this.el).one('loadeddata', (event) => {
 			$(this.el).off();
 			if (!this.loaded) {
 				this.onLoad(event, options);
 			}
 		});
+
 		$(this.el).one('canplaythrough', (event) => {
 			$(this.el).off();
 			if (!this.loaded) {
 				this.onLoad(event, options);
 			}
 		});
+
 		$(this.el).one('error', (event) => {
 			$(this.el).off();
 			this.onError(event, options);
 		});
+	}
 
-		// begin loading
-		//
-		this.el.setAttribute('src', src);
-		this.el.load();
+	removeEventListeners() {
+		$(this.el).off();
 	}
 
 	//
@@ -292,6 +314,9 @@ export default class Audio {
 
 	onError(event, options) {
 		if (this.verbose) {
+
+			// show error message
+			//
 			application.error({
 				message: "Could not play audio."
 			});

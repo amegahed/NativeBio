@@ -19,7 +19,27 @@
 export default class Browser {
 
 	//
-	// browser detection methods
+	// querying methods
+	//
+
+	static isTouchEnabled() {
+		return ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0);
+	}
+
+	static isMobile() {
+		return ['phone', 'tablet'].includes(this.getDevice());
+	}
+
+	static isInIFrame() {
+		return window.location !== window.parent.location;
+	}
+
+	static isDarkModeEnabled() {
+		return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+	}
+
+	//
+	// getting methods
 	//
 
 	static getName() {
@@ -37,10 +57,6 @@ export default class Browser {
 		}
 	}
 
-	//
-	// device detection methods
-	//
-
 	static getDevice() {
 		let userAgent = navigator.userAgent || navigator.vendor || window.opera;
 		let platform = navigator.platform;
@@ -54,6 +70,11 @@ export default class Browser {
 		//
 		} else if (/iPad/.test(userAgent)) {
 			return 'tablet';
+
+		// check for iOS devices with misleading user agents
+		//
+		} else if (/Macintosh/.test(userAgent) && Browser.isTouchEnabled()) {
+			return $(window).width() < 480 || $(window).height() < 480? 'phone' : 'tablet';
 
 		// check for other branded tablets
 		//
@@ -71,22 +92,6 @@ export default class Browser {
 			return 'desktop';
 		}
 	}
-
-	static isTouchEnabled() {
-		return ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0) || this.isMobile();
-	}
-
-	static isMobile() {
-		return ['phone', 'tablet'].includes(this.getDevice());
-	}
-
-	static isInIFrame() {
-		return window.location !== window.parent.location;
-	}
-
-	//
-	// OS detection methods
-	//
 
 	static getOs() {
 		let userAgent = navigator.userAgent || navigator.vendor || window.opera;
@@ -111,6 +116,7 @@ export default class Browser {
 
 	static getMobileOs() {
 		let userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
 		// Windows Phone must come first because its UA also contains "Android"
 		//
 		if (/windows phone/i.test(userAgent)) {
@@ -125,16 +131,6 @@ export default class Browser {
 	//
 	// feature detection methods
 	//
-
-	static isDarkModeEnabled() {
-		return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-	}
-
-	static onChangeColorScheme(callback) {
-		window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-			callback(event.matches ? "dark" : "light")
-		});
-	}
 
 	static supportsCors() {
 		if ("withCredentials" in new XMLHttpRequest()) {
@@ -251,6 +247,16 @@ export default class Browser {
 				clearInterval(interval);
 			}
 		}, 300, urls);
+	}
+
+	//
+	// event handling methods
+	//
+
+	static onChangeColorScheme(callback) {
+		window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+			callback(event.matches ? "dark" : "light")
+		});
 	}
 
 	//

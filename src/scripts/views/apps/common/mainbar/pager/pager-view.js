@@ -27,25 +27,29 @@ export default BaseView.extend({
 
 	template: template(`
 		<div class="items-per-page">
-			<input class="title" size="2" <% if (items_per_page > 0) { %>value="<%= items_per_page %>"<% } %>>
+			<input class="title" size="<%= size %>" <% if (items_per_page > 0) { %>value="<%= items_per_page %>"<% } %>>
 			<label class="title"><%= item_type %> / page</label>
 		</div>
 		
 		<div class="btn-group">
-			<button type="button" class="first btn btn-sm" data-toggle="tooltip" title="First" data-placement="top"<% if (page_number == 1) { %> disabled<% } %>>
+			<button type="button" class="first btn" data-toggle="tooltip" title="First" data-placement="top"<% if (page_number == 1) { %> disabled<% } %>>
 				<i class="fa fa-fast-backward"></i>
 			</button>
 		
-			<button type="button" class="prev btn btn-sm" data-toggle="tooltip" title="Prev" data-placement="top"<% if (page_number == 1) { %> disabled<% } %>>
+			<button type="button" class="prev btn" data-toggle="tooltip" title="Prev" data-placement="top"<% if (page_number == 1) { %> disabled<% } %>>
 				<i class="fa fa-backward"></i>
 			</button>
 		
-			<span class="page-info">
-				<input class="page-number" value="<%= page_number %>" data-toggle="tooltip" title="Page #" data-placement="top">
-			</span>
+			<input class="page-number" size="<%= size %>" value="<%= page_number %>" data-toggle="tooltip" title="Page #" data-placement="top">
+
+			<input class="num-pages<% if (!num_pages) { %> hidden<% } %>" size="<%= size %>" value="/ <%= num_pages %>" readonly />
 		
-			<button type="button" class="next btn btn-sm" data-toggle="tooltip" title="Next" data-placement="top">
+			<button type="button" class="next btn" data-toggle="tooltip" title="Next" data-placement="top">
 				<i class="fa fa-forward"></i>
+			</button>
+
+			<button type="button" class="last btn<% if (!num_pages) { %> hidden<% } %>" data-toggle="tooltip" title="Last" data-placement="top">
+				<i class="fa fa-fast-forward"></i>
 			</button>
 		</div>
 	`),
@@ -59,14 +63,32 @@ export default BaseView.extend({
 		'click .last': 'onClickLast'
 	},
 
+	itemsPerPage: 10,
+	pageNumber: 1,
+	numPages: undefined,
+	itemType: 'items',
+	size: 4,
+
 	//
 	// constructor
 	//
 
 	initialize: function() {
-		this.itemsPerPage = this.options.itemsPerPage || 10;
-		this.pageNumber = this.options.pageNumber || 1;
-		this.itemType = this.options.itemType || 'items';
+
+		// set attributes
+		//
+		if (this.options.items_per_page != undefined) {
+			this.itemsPerPage = this.options.items_per_page;
+		}
+		if (this.options.page_number != undefined) {
+			this.pageNumber = this.options.page_number;
+		}
+		if (this.options.num_pages != undefined) {
+			this.numPages = this.options.num_pages;
+		}
+		if (this.options.item_type != undefined) {
+			this.itemType = this.options.item_type;
+		}
 	},
 
 	//
@@ -90,7 +112,7 @@ export default BaseView.extend({
 
 		return {
 			from: (pageNumber - 1) * itemsPerPage,
-			to: pageNumber * itemsPerPage
+			to: pageNumber * itemsPerPage - 1
 		};
 	},
 
@@ -98,20 +120,16 @@ export default BaseView.extend({
 	// setting methods
 	//
 
-	setNumItems: function(numItems) {
-		let range = this.getRange();
-		let num = range.to - range.from;
-		this.setNextDisabled(numItems < num);
-	},
-
 	setItemsPerPage: function(itemsPerPage) {
-		this.$el.find('.items-per-page input').val(itemsPerPage);	
+		this.itemsPerPage = itemsPerPage;
+		this.$el.find('.items-per-page input').val(itemsPerPage);
+		this.update();
 	},
 
 	setPageNumber: function(pageNumber) {
 		this.$el.find('.page-number').val(pageNumber);
 
-		// enable / disble buttons
+		// enable / disable buttons
 		//
 		this.update();
 
@@ -120,8 +138,25 @@ export default BaseView.extend({
 		this.onChange(pageNumber);
 	},
 
-	setNextDisabled: function(disabled) {
-		this.$el.find('.next').prop('disabled', disabled !== false);
+	setNumItems: function(numItems) {
+		this.numItems = numItems;
+		this.setNumPages(Math.ceil(numItems / this.itemsPerPage));
+		this.update();
+	},
+
+	setNumPages: function(numPages) {
+		this.numPages = numPages;
+		this.$el.find('.num-pages').val('/ ' + numPages);
+
+		// show num pages and last button
+		//
+		this.$el.find('.num-pages').removeClass('hidden');
+		this.$el.find('.last').removeClass('hidden');
+	},
+
+	setNumPageItems: function(numPageItems) {
+		this.$el.find('.next').prop('disabled', numPageItems < this.itemsPerPage);
+		this.$el.find('.last').prop('disabled', numPageItems < this.itemsPerPage);
 	},
 
 	//
@@ -130,13 +165,19 @@ export default BaseView.extend({
 
 	templateContext: function() {
 		return {
-			item_type: this.itemType,
 			items_per_page: this.itemsPerPage,
-			page_number: this.pageNumber
+			page_number: this.pageNumber,
+			num_pages: this.numPages,
+			item_type: this.itemType,
+			size: this.size
 		};
 	},
 
 	onRender: function() {
+		this.update();
+
+		// add tooltip triggers
+		//
 		this.addTooltips({
 			container: this.parent.$el
 		});
@@ -146,6 +187,22 @@ export default BaseView.extend({
 		let pageNumber = this.getPageNumber();
 		this.$el.find('.first').prop('disabled', pageNumber == 1);
 		this.$el.find('.prev').prop('disabled', pageNumber == 1);
+		this.$el.find('.next').prop('disabled', false);
+
+		// check if we know the number of pages
+		//
+		if (this.numPages != undefined) {
+			this.$el.find('.next').prop('disabled', pageNumber >= this.numPages);
+			this.$el.find('.last').prop('disabled', pageNumber == this.numPages);
+		}
+
+		// check if buttons should be hidden
+		//
+		if (this.numItems < this.itemsPerPage) {
+			this.$el.find('.btn-group').addClass('hidden');
+		} else {
+			this.$el.find('.btn-group').removeClass('hidden');
+		}
 	},
 
 	//
@@ -154,10 +211,6 @@ export default BaseView.extend({
 
 	onChange: function() {
 		this.removeTooltips();
-
-		// enable / disable next button
-		//
-		this.setNextDisabled(this.collection.length <= this.itemsPerPage);
 
 		// perform callback
 		//
@@ -168,12 +221,22 @@ export default BaseView.extend({
 
 	onChangeItemsPerPage: function() {
 		let itemsPerPage = this.getItemsPerPage();
+
+		// check validity
+		//
 		if (itemsPerPage <= 0) {
-			this.setItemsPerPage(1);
+			itemsPerPage = 1;
 		} else if (itemsPerPage > this.options.maxItemsPerPage) {
-			this.setItemsPerPage(this.options.maxItemsPerPage);
+			itemsPerPage = this.options.maxItemsPerPage;
 		} else if (isNaN(itemsPerPage)) {
-			this.setItemsPerPage(this.options.itemsPerPage);
+			itemsPerPage = this.itemsPerPage;
+		}
+
+		// update
+		//
+		this.setItemsPerPage(itemsPerPage);
+		if (this.numItems) {
+			this.setNumItems(this.numItems);
 		}
 		this.onChange();
 	},
@@ -197,5 +260,9 @@ export default BaseView.extend({
 
 	onClickNext: function() {
 		this.setPageNumber(this.getPageNumber() + 1);
-	}
+	},
+
+	onClickLast: function() {
+		this.setPageNumber(this.numPages);
+	},
 });

@@ -237,14 +237,16 @@ export default UserSettings.extend({
 		// set new highlight color
 		//
 		if (highlightColor && highlightColor != 'none') {
-			if (!highlightColor.startsWith('#')) {
+			if (highlightColor.startsWith('#') ||
+				highlightColor.startsWith('rgb') ||
+				highlightColor.startsWith('hsl')) {
+				$('body').css({
+					'--primary-color': highlightColor
+				});
+			} else {
 				$('body').addClass(highlightColor);
 				$('body').css({
 					'--primary-color': ''
-				});
-			} else {
-				$('body').css({
-					'--primary-color': highlightColor
 				});
 			}
 		}

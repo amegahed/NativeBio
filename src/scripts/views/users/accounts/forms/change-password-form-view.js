@@ -171,7 +171,7 @@ export default FormView.extend({
 			let length = event.currentTarget.value.length;
 			if (length >= maxlength) {
 
-				// show alert dialog
+				// show alert message
 				//
 				application.alert({
 					icon: '<i class="fa fa-key"></i>',

@@ -15,15 +15,15 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import VideoFile from '../../../models/files/video-file.js';
-import Directory from '../../../models/files/directory.js';
+import VideoFile from '../../../models/storage/media/video-file.js';
+import Directory from '../../../models/storage/directories/directory.js';
 import Contacts from '../../../collections/contacts/contacts.js';
 import UserPreferences from '../../../models/preferences/user-preferences.js';
-import Items from '../../../collections/files/items.js';
-import DialogView from '../../../views/dialogs/dialog-view.js';
+import Items from '../../../collections/storage/items.js';
+import ModalView from '../../../views/dialogs/modal-view.js';
 import GoogleContactsImportable from '../../../views/apps/common/behaviors/importing/google-contacts-importable.js';
 
-export default DialogView.extend(_.extend({}, GoogleContactsImportable, {
+export default ModalView.extend(_.extend({}, GoogleContactsImportable, {
 
 	//
 	// attributes
@@ -31,7 +31,7 @@ export default DialogView.extend(_.extend({}, GoogleContactsImportable, {
 
 	template: template(`
 		<div class="modal-dialog">
-		
+
 			<div class="modal-header">
 				<div class="heading">
 					<div class="icon">
@@ -42,28 +42,28 @@ export default DialogView.extend(_.extend({}, GoogleContactsImportable, {
 					</div>
 				</div>
 			</div>
-		
+
 			<div class="modal-content">
 				<div class="modal-body">
-		
+
 					<div style="text-align:center; margin-top:10px">
 						<div class="logo">
 							<img <% if (pixelated) { %>class="pixelated" <% } %>src="<%= logo_url %>" style="height:50px" />
 						</div>
 						<h3><%= greeting %></h3>
 					</div>
-		
-					<p style="text-align:center">
+
+					<p style="margin: 0 20px">
 						<%= message %>
 					</p>
-		
+
 					<div class="container" style="width:100%; overflow:auto">
 						<div class="row" style="text-align:center; margin-top:10px">
 							<% let keys = Object.keys(options); %>
 							<% for (let i = 0; i < keys.length; i++) { %>
 							<% let key = keys[i]; %>
 							<% let option = options[key]; %>
-		
+
 							<% if (option.enabled) { %>
 							<div class="well" style="display:inline-block; width:210px; text-align:center;  margin:5px; padding:10px">
 								<p style="display:inline-block; margin:auto; margin-bottom:5px; max-width:200px; height:3em"><%= option.message %></p>
@@ -73,12 +73,12 @@ export default DialogView.extend(_.extend({}, GoogleContactsImportable, {
 								</button>
 							</div>
 							<% } %>
-		
+
 							<% } %>
 						</div>
 					</div>
 				</div>
-		
+
 				<div class="modal-footer">
 					<div class="buttons">
 						<button class="ok btn btn-primary" data-dismiss="modal">
@@ -90,7 +90,9 @@ export default DialogView.extend(_.extend({}, GoogleContactsImportable, {
 		</div>
 	`),
 
-	events: _.extend({}, DialogView.prototype.events, {
+	width: 720,
+
+	events: _.extend({}, ModalView.prototype.events, {
 		'click .view-video': 'onClickViewVideo',
 		'click .view-slide-show': 'onClickViewSlideShow',
 		'click .set-theme': 'onClickSetTheme',
@@ -132,6 +134,9 @@ export default DialogView.extend(_.extend({}, GoogleContactsImportable, {
 			},
 
 			error: () => {
+
+				// show error message
+				//
 				application.error({
 					message: 'Slide show not found.'
 				});
@@ -161,6 +166,9 @@ export default DialogView.extend(_.extend({}, GoogleContactsImportable, {
 			},
 
 			error: () => {
+
+				// show error message
+				//
 				application.error({
 					message: 'Video not found.'
 				});

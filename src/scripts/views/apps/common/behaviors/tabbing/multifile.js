@@ -15,8 +15,8 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import File from '../../../../../models/files/file.js';
-import Directory from '../../../../../models/files/directory.js';
+import File from '../../../../../models/storage/files/file.js';
+import Directory from '../../../../../models/storage/directories/directory.js';
 import MultiDoc from '../../../../../views/apps/common/behaviors/tabbing/multidoc.js';
 import FileUtils from '../../../../../utilities/files/file-utils.js';
 import Browser from '../../../../../utilities/web/browser.js';
@@ -142,11 +142,15 @@ export default _.extend({}, MultiDoc, {
 
 	loadFile: function(file) {
 
+		// close help message
+		//
+		this.hideMessage();
+
 		// close sidebar
 		//
 		if (Browser.device == 'phone') {
 			this.getChildView('contents').closeSideBar();
-		}			
+		}
 
 		// set attributes
 		//
@@ -185,9 +189,9 @@ export default _.extend({}, MultiDoc, {
 				if (options && options.success) {
 					options.success();
 				}
-			}, 
+			},
 
-			error: (model, response) => {
+			error: (response) => {
 
 				// show error message
 				//
@@ -228,9 +232,9 @@ export default _.extend({}, MultiDoc, {
 						if (options && options.success) {
 							options.success();
 						}
-					}, 
+					},
 
-					error: (model, response) => {
+					error: (response) => {
 
 						// show error message
 						//
@@ -297,7 +301,7 @@ export default _.extend({}, MultiDoc, {
 										}
 									},
 
-									error: (model, response) => {
+									error: (response) => {
 
 										// show error message
 										//
@@ -355,7 +359,7 @@ export default _.extend({}, MultiDoc, {
 					// play delete sound
 					//
 					application.play('delete');
-					
+
 					// update menus
 					//
 					this.onChange();
@@ -393,14 +397,14 @@ export default _.extend({}, MultiDoc, {
 			//
 			if (this.dialog) {
 				this.dialog.close();
-			}		
+			}
 		}
 	},
 
 	closeFile: function(done) {
 		this.closeTab(this.getActiveIndex(), done);
 	},
-	
+
 	closeTab: function(index, done) {
 		if (index == undefined) {
 			index = this.getActiveIndex();
@@ -438,9 +442,9 @@ export default _.extend({}, MultiDoc, {
 								//
 								if (done) {
 									done();
-								}					
+								}
 							}
-						});	
+						});
 					} else {
 
 						// save existing file
@@ -454,9 +458,9 @@ export default _.extend({}, MultiDoc, {
 								//
 								if (done) {
 									done();
-								}					
+								}
 							}
-						});	
+						});
 					}
 				},
 
@@ -482,7 +486,7 @@ export default _.extend({}, MultiDoc, {
 			}
 		}
 	},
-	
+
 	closeAll: function() {
 
 		// close current item, if one exists
@@ -496,6 +500,37 @@ export default _.extend({}, MultiDoc, {
 					this.dialog.close();
 				}
 			});
+		}
+	},
+
+	//
+	// message rendering methods
+	//
+
+	showHelpMessage: function() {
+		this.showMessage("No files.", {
+			icon: '<i class="far fa-file"></i>',
+
+			// callbacks
+			//
+			onclick: () => this.showOpenDialog()
+		});
+	},
+
+	//
+	// event handling methods
+	//
+
+	onCloseTab: function() {
+
+		// call superclass method
+		//
+		MultiDoc.onCloseTab.call(this);
+
+		// show initial help message
+		//
+		if (!this.hasTabs()) {
+			this.showHelpMessage();
 		}
 	}
 });

@@ -68,7 +68,7 @@ export default ToolbarView.extend({
 		//
 		this.getChildView('current').setValue(Math.round(volume));
 
-		// enable / disble buttons
+		// enable / disable buttons
 		//
 		this.setItemsEnabled(!isNaN(volume));
 

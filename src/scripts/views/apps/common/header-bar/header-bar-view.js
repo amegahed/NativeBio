@@ -24,6 +24,8 @@ export default ToolbarContainerView.extend({
 	//
 
 	className: 'header-bar',
+	toolbars: ['menu'],
+	mandatory_toolbars: ['menu', 'status', 'search'],
 
 	//
 	// constructor
@@ -49,7 +51,7 @@ export default ToolbarContainerView.extend({
 
 					// add status bar as last bar
 					//
-					this.toolbars.push('status');	
+					this.toolbars.push('status');
 				}
 			} else {
 
@@ -69,7 +71,23 @@ export default ToolbarContainerView.extend({
 	//
 
 	isOptionalToolbarKind: function(toolbar) {
-		return toolbar != 'menu' && toolbar != 'status' && toolbar != 'search';
+		return !this.mandatory_toolbars.includes(toolbar);
+	},
+
+	//
+	// getting methods
+	//
+
+	getTrueKeys: function(object) {
+		let array = [];
+		let keys = Object.keys(object);
+		for (let i = 0; i < keys.length; i++) {
+			let key = keys[i];
+			if (keys[i]) {
+				array.push(key);
+			}
+		}
+		return keys;
 	},
 
 	//
@@ -79,12 +97,20 @@ export default ToolbarContainerView.extend({
 	setToolbarVisible: function(kind, value) {
 		if (value) {
 			if (this.hasChildView(kind)) {
-				this.getChildView(kind).setVisible(true);
+				this.setToolbarRegionVisible(kind, true);
 			} else {
 				this.showToolbar(kind);
 			}
 		} else if (this.hasChildView(kind)) {
-			this.getChildView(kind).setVisible(false);
+			this.setToolbarRegionVisible(kind, false);
+		}
+	},
+
+	setToolbarRegionVisible: function(kind, visible) {
+		if (visible) {
+			this.getRegion(kind).$el.removeClass('hidden');
+		} else {
+			this.getRegion(kind).$el.addClass('hidden');
 		}
 	},
 
@@ -121,13 +147,13 @@ export default ToolbarContainerView.extend({
 		let keys = Object.keys(visibility);
 		for (let i = 0; i < keys.length; i++) {
 			let toolbar = keys[i];
-			
+
 			// set visibility of optional toolbars
 			//
 			if (this.isOptionalToolbarKind(toolbar)) {
 				let isVisible = visibility[toolbar];
 				this.setToolbarVisible(toolbar, isVisible);
-			}	
+			}
 		}
 	},
 
@@ -139,20 +165,20 @@ export default ToolbarContainerView.extend({
 		this.getChildView(kind).setEnabled(value);
 	},
 
-	setToolbarsEnabled: function(enabled) {
-		if (enabled && enabled.length > 0) {
+	setToolbarsEnabled: function(toolbars) {
+		if (toolbars && toolbars.length > 0) {
 			for (let i = 0; i < this.toolbars.length; i++) {
 				let toolbar = this.toolbars[i];
 
 				// set visibility of optional toolbars
 				//
 				if (this.isOptionalToolbarKind(toolbar)) {
-					let isEnabled = enabled.includes(toolbar);
+					let isEnabled = toolbars.includes(toolbar);
 					this.setToolbarEnabled(toolbar, isEnabled);
 				}
 			}
 		} else {
-			this.setAllToolbarsEnabled(enabled);
+			this.setAllToolbarsEnabled(toolbars != false);
 		}
 	},
 
@@ -168,26 +194,28 @@ export default ToolbarContainerView.extend({
 		}
 	},
 
+	/*
 	setToolbarEnabling: function(enabling) {
 		let keys = Object.keys(enabling);
 		for (let i = 0; i < keys.length; i++) {
 			let toolbar = keys[i];
-			
+
 			// set visibility of optional toolbars
 			//
 			if (this.isOptionalToolbarKind(toolbar)) {
 				let isEnabled = enabling[toolbar];
 				this.setToolbarEnabled(toolbar, isEnabled);
-			}	
+			}
 		}
 	},
+	*/
 
 	//
 	// search methods
 	//
 
 	clearSearchBar: function() {
-		
+
 		// remove current search
 		//
 		this.getRegion('search').empty();
@@ -230,7 +258,7 @@ export default ToolbarContainerView.extend({
 
 	onRender: function() {
 		this.app = this.getParentView('app');
-		
+
 		// show child views
 		//
 		this.showToolbars();
@@ -238,13 +266,30 @@ export default ToolbarContainerView.extend({
 		// disable toolbars
 		//
 		if (this.enabled) {
-			this.setToolbarEnabling(_.result(this, 'enabled'));
+			let enabled = _.result(this, 'enabled');
+			this.setToolbarsEnabled(this.getTrueKeys(enabled));
 		}
 
 		// set initial toolbar visibility
 		//
 		if (this.app.preferences.has('toolbars')) {
-			this.setToolbarsVisible(this.app.preferences.get('toolbars'));
+			let toolbars = this.app.preferences.get('toolbars');
+
+			// find visible toolbars
+			//
+			let visible = _.result(this, 'visible');
+			if (visible) {
+				let selected = [];
+				for (let i = 0; i < toolbars.length; i++) {
+					let toolbar = toolbars[i];
+					if (visible[toolbar]) {
+						selected.push(toolbar);
+					}
+				}
+				toolbars = selected;
+			}
+
+			this.setToolbarsVisible(toolbars);
 		}
 	},
 
@@ -260,23 +305,26 @@ export default ToolbarContainerView.extend({
 		return regions;
 	},
 
-	showAppToolbar: function(kind) {
-		this.showToolbar(kind);
-
-		// set toolbar visibility
-		//
-		if (kind != 'menu') {
-			if (!this.app.preferences.get('toolbars') ||
-				!this.app.preferences.get('toolbars').includes(kind)) {
-				this.setToolbarVisible(kind, false);
-			}
-		}
-	},
-
 	showToolbars: function() {
 		let regionNames = Object.keys(this.regions);
+		let toolbars = this.app.preferences.get('toolbars');
+
 		for (let i = 0; i < regionNames.length; i++) {
-			this.showAppToolbar(regionNames[i]);
+
+			// show toolbar
+			//
+			let kind = regionNames[i];
+			this.showToolbar(kind);
+
+			// set toolbar visibility
+			//
+			if (this.isOptionalToolbarKind(kind)) {
+				if (typeof toolbars == 'boolean') {
+					this.setToolbarVisible(kind, toolbars);
+				} else if (toolbars && toolbars.length > 0) {
+					this.setToolbarVisible(kind, toolbars && toolbars.includes(kind));
+				}
+			}
 		}
 	}
 });

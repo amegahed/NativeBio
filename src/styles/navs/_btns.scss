@@ -150,7 +150,17 @@ body:not(.binary):not(.flat-buttons):not(.flat.auto-buttons) {
 	height: $small-size;
 	padding: 0;
 	margin: 0;
-    
+	
+	i {
+		margin: auto;
+	}
+}
+
+.btn-md {
+	min-width: $small-size;
+	height: $small-size;
+	margin: 0;
+	
 	i {
 		margin: auto;
 	}
@@ -171,8 +181,6 @@ body:not(.binary):not(.flat-buttons):not(.flat.auto-buttons) {
 //
 
 .buttons {
-	margin-bottom: -5px;
-
 	&:empty {
 		display: none;
 	}
@@ -199,21 +207,6 @@ table + .buttons {
 .row .content {
 	> div > form > .buttons {
 		float: right;
-	}
-}
-
-//
-// desktop buttons
-//
-
-body[device="desktop"] {
-
-	//
-	// button size
-	//
-
-	.btn-lg {
-		height: $large-size;
 	}
 }
 
@@ -248,16 +241,15 @@ body[device="phone"], body[device="tablet"] {
 	// button groups
 	//
 
-	.buttons {	
-		text-align: center;
-		margin-bottom: 0;
-		
-		.btn:not(.btn-sm) {
-			width: 100%;
-			margin-top: 10px;
-			font-size: initial;
-			padding: 10px 20px;
-			margin-left: 0;
+	.modal-footer {
+		.buttons {
+			.btn:not(.btn-sm) {
+				width: 100%;
+				margin-top: 10px;
+				font-size: initial;
+				padding: 10px 20px;
+				margin-left: 0;
+			}
 		}
 	}
 

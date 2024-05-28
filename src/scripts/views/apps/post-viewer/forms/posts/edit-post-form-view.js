@@ -94,9 +94,9 @@ export default PostFormView.extend({
 
 			// options
 			//
-			attachable: this.options.attachable,
-			uploadable: this.options.uploadable,
 			submitable: this.options.submitable,
+			cancelable: true,
+			features: this.options.features,
 			preferences: this.options.preferences,
 
 			// callbacks

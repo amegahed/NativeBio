@@ -29,7 +29,7 @@
 
 		<li>
 			<h2><i class="fa fa-comment"></i>Chats Sidebar Panel</h2>
-			<p>A list of your current chat sessions is shown in the sidebar.  When you click on a chat icon, the <a href="#apps/text-messenger">Text Messenger</a> will switch to that particular chat. </p>
+			<p>A list of your current chat sessions is shown in the sidebar.  When you click on a chat icon, the <a href="#apps/chat-viewer">Text <%= config.apps['communicator'].name %></a> will switch to that particular chat. </p>
 
 			<div class="figure">
 				<img src="images/help/sharing-messages/viewing-chats/chats-sidebar.png" />

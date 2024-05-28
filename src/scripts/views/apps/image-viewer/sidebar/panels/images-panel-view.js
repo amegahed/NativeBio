@@ -16,9 +16,8 @@
 \******************************************************************************/
 
 import UserPreferences from '../../../../../models/preferences/user-preferences.js';
-import Items from '../../../../../collections/files/items.js';
-import ImageFile from '../../../../../models/files/image-file.js';
-import BaseView from '../../../../../views/base-view.js';
+import Items from '../../../../../collections/storage/items.js';
+import ImageFile from '../../../../../models/storage/media/image-file.js';
 import SideBarPanelView from '../../../../../views/apps/common/sidebar/panels/sidebar-panel-view.js';
 import FilesView from '../../../../../views/apps/file-browser/mainbar/files/files-view.js';
 
@@ -97,17 +96,14 @@ export default SideBarPanelView.extend({
 			// options
 			//
 			preferences: UserPreferences.create('file_browser', {
-				view_kind: this.options.view_kind
+				view_kind: this.options.view_kind,
+				tile_size: this.options.tile_size
 			}),
-			emptyView: BaseView.extend({
-				className: 'empty',
-				template: template("No images.")
-			}),
+			selected: new Items([this.model]),
+			empty: "No images.",
 			filter: function(item) {
 				return item.model instanceof ImageFile;
 			},
-			selected: new Items([this.model]),
-			// letterboxed: true,
 
 			// capabilities
 			//

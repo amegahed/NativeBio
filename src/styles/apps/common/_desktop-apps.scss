@@ -107,6 +107,7 @@ $rounded-desktop-info-bar-border-radius: 7px;
 						// single tabs
 						//
 
+						/*
 						ul.nav-tabs {
 							> li:only-child {
 								> a, > a:focus {
@@ -122,6 +123,7 @@ $rounded-desktop-info-bar-border-radius: 7px;
 								}
 							}
 						}
+						*/
 
 						//
 						// destop tabs
@@ -141,6 +143,8 @@ $rounded-desktop-info-bar-border-radius: 7px;
 
 		> .app-launcher,
 		> .file-browser .mainbar .tab-pane {
+			background: none !important;
+
 			> .items:not(.overlay), .carousel-cell {
 
 				//
@@ -181,21 +185,25 @@ $rounded-desktop-info-bar-border-radius: 7px;
 			
 		> div {
 			margin-top: -1px;
-			border: none;
+		}
+
+		> div:not(.desktop-info-bar) {
+			border: none !important;
 		}
 
 		.desktop-info-bar {
 			display: inline-flex;
-			height: 31px;
-			margin-bottom: -1px;
 			flex-shrink: 0;
-			margin: -1px 0;
 			border-width: 1px;
 			border-style: solid;
+			height: 30px;
+
+			&:not(.empty) {
+				padding: 0 5px;
+			}
 
 			> div {
 				display: inline-flex;
-				margin-top: -1px;
 
 				.toolbar {
 					display: inline-flex;
@@ -387,61 +395,58 @@ body[device="phone"], body[device="tablet"] {
 body[device="desktop"] {
 
 	.desktop.app {
-
 		> .body > .app > .header-bar {
 			.address-bar {
 				width: 50%;
 			}
 		}
-
-		> .footer-bar {
-			.desktop-info-bar {
-				padding: 0 5px;
-			}
-		}
 	}
+}
+
+:not(:-webkit-full-screen) {
 
 	//
-	// small desktop styles
+	// desktop card grids
 	//
 
-	@media (min-width: variables.$screen-sm-min) and (max-width: variables.$screen-sm-max) {
-		.desktop.app > .body > .file-browser.app {
-			.mainbar {
-				> .items {
-					.cards {
+	body[device="desktop"] {
+
+		//
+		// small desktop card grids
+		//
+
+		@media (min-width: variables.$screen-sm-min) and (max-width: variables.$screen-sm-max) {
+			.desktop.app > .body > .file-browser.app {
+				.mainbar {
+					.multi-column.card-grid .cards {
 						column-count: 3;
 					}
 				}
 			}
 		}
-	}
 
-	//
-	// medium desktop styles
-	//
+		//
+		// medium desktop card grids
+		//
 
-	@media (min-width: variables.$screen-md-min) and (max-width: variables.$screen-md-max) {
-		.desktop.app > .body > .file-browser.app {
-			.mainbar {
-				> .items {
-					.cards {
+		@media (min-width: variables.$screen-md-min) and (max-width: variables.$screen-md-max) {
+			.desktop.app > .body > .file-browser.app {
+				.mainbar {
+					.multi-column.card-grid .cards {
 						column-count: 4;
 					}
 				}
 			}
 		}
-	}
 
-	//
-	// large desktop styles
-	//
+		//
+		// large desktop card grids
+		//
 
-	@media (min-width: variables.$screen-lg-min) {
-		.desktop.app > .body > .file-broser.app {
-			.mainbar {
-				> .items {
-					.cards {
+		@media (min-width: variables.$screen-lg-min) {
+			.desktop.app > .body > .file-browser.app {
+				.mainbar {
+					.multi-column.card-grid .cards {
 						column-count: 5;
 					}
 				}
@@ -454,16 +459,22 @@ body[device="desktop"] {
 // desktop app visibility
 //
 
-.desktop-app-only {
-	display: none;
-}
-
-body[device="desktop"] .desktop.app > .body {
-	.desktop-app-only {
-		display: block;
+body[device="desktop"] {
+	.modals {
+		.desktop-app-only {
+			display: none !important;
+		}
 	}
 
+	.app.desktop > .body {
+		.windowed-app-only {
+			display: none !important;
+		}
+	}
+}
+
+body[device="phone"], body[device="tablet"] {
 	.windowed-app-only {
-		display: none;
+		display: none !important;
 	}
 }

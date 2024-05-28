@@ -27,7 +27,7 @@ export default FormView.extend({
 		<div class="create-date form-group">
 			<label class="control-label"><i class="fa fa-calendar-alt"></i>Created</label>
 			<div class="controls">
-				<p class="form-control-static"><%= created_at.format('mediumDate') %></p>
+				<p class="form-control-static"><%= created_at %></p>
 			</div>
 		</div>
 
@@ -35,9 +35,20 @@ export default FormView.extend({
 		<div class="update-date form-group">
 			<label class="control-label"><i class="fa fa-calendar-alt"></i>Updated</label>
 			<div class="controls">
-				<p class="form-control-static"><%= updated_at.format('mediumDate') %></p>
+				<p class="form-control-static"><%= updated_at %></p>
 			</div>
 		</div>
 		<% } %>
-	`)
+	`),
+
+	//
+	// rendering methods
+	//
+
+	templateContext: function() {
+		return {
+			created_at: this.model.get('created_at').format('mediumDate'),
+			updated_at: this.model.get('updated_at').format('mediumDate')
+		};
+	}
 });

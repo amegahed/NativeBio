@@ -22,7 +22,7 @@
 				<ul>
 					<li>Quickly access and keep track of favorites using the Favorites sidebar.</li>
 					<li>Use navigations controls to navigate through your browsing history.</li>
-					<li>View web page source code using the View Source menu option, which will open up HTML in the <a href="#apps/code-editor">Code Editor</a>.</li>
+					<li>View web page source code using the View Source menu option, which will open up HTML in the <a href="#apps/code-editor"><%= config.apps['code_editor'].name %></a>.</li>
 				</ul>
 			</div>
 			<div class="col-sm-6">
@@ -37,11 +37,11 @@
 
 	<h2><i class="fa fa-desktop"></i>Screen Shots</h2>
 	<div class="figure desktop-only">
-		<a href="images/info/apps/web-browser/web-browser.png" target="_blank" class="lightbox" title="Web Browser"><img class="dialog" src="images/info/apps/web-browser/web-browser.png" /></a>
-		<div class="caption">Web Browser</div>
+		<a href="images/info/apps/web-browser/web-browser.png" target="_blank" class="lightbox" title="<%= config.apps['web_browser'].name %>"><img class="dialog" src="images/info/apps/web-browser/web-browser.png" /></a>
+		<div class="caption"><%= config.apps['web_browser'].name %></div>
 	</div>
 	<div class="figure mobile-only">
-		<a href="images/info/apps/web-browser/mobile/mobile-web-browser.png" target="_blank" class="lightbox" title="Web Browser"><img src="images/info/apps/web-browser/mobile/mobile-web-browser.png" /></a>
-		<div class="caption">Web Browser</div>
+		<a href="images/info/apps/web-browser/mobile/mobile-web-browser.png" target="_blank" class="lightbox" title="<%= config.apps['web_browser'].name %>"><img src="images/info/apps/web-browser/mobile/mobile-web-browser.png" /></a>
+		<div class="caption"><%= config.apps['web_browser'].name %></div>
 	</div>
 </div>

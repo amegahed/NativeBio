@@ -15,11 +15,11 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import FormView from '../../../../../views/forms/form-view.js';
+import SettingsFormView from '../../../../../views/apps/common/forms/settings-form-view.js';
 import SoundSettingsListView from '../../../../../views/apps/settings-manager/mainbar/sound-settings-list/sound-settings-list-view.js';
 import RangeInputView from '../../../../../views/forms/inputs/range-input-view.js';
 
-export default FormView.extend({
+export default SettingsFormView.extend({
 
 	//
 	// attributes
@@ -39,28 +39,52 @@ export default FormView.extend({
 				</div>
 			</div>
 		</div>
-		
-		<div class="mute-sounds form-group">
-			<label class="control-label"><i class="fa fa-volume-mute"></i>Mute</label>
-			<div class="controls">
-				<div class="checkbox-inline">
-					<input type="checkbox"<% if (mute_sounds) { %> checked<% } %> />
+
+		<ul class="nav nav-tabs" role="tablist">
+
+			<li role="presentation" class="general-tab<% if (tab == 'general' || !tab) { %> active<% } %>">
+				<a role="tab" data-toggle="tab" href=".general-settings">
+					<i class="fa fa-check"></i>
+					<label>General</label>
+				</a>
+			</li>
+
+			<li role="presentation" class="events-tab<% if (tab == 'events') { %> active<% } %>">
+				<a role="tab" data-toggle="tab" href=".events-settings">
+					<i class="fa fa-exclamation-triangle"></i>
+					<label>Events</label>
+				</a>
+			</li>
+		</ul>
+
+		<div class="tab-content">
+
+			<div role="tabpanel" class="general-settings tab-pane<% if (tab == 'general' || !tab) { %> active<% } %>">
+				<div class="mute-sounds form-group">
+					<label class="control-label"><i class="fa fa-volume-mute"></i>Mute</label>
+					<div class="controls">
+						<div class="checkbox-inline">
+							<input type="checkbox"<% if (mute_sounds) { %> checked<% } %> />
+						</div>
+					</div>
+				</div>
+
+				<div class="volume form-group">
+					<label class="control-label"><i class="fa fa-volume-up"></i>Volume</label>
+					<div class="controls">
+						<div class="range-input"></div>
+
+						<div class="control-inline">
+							<i class="active fa fa-question-circle" data-toggle="popover" title="Volume" data-content="This is the volume to use for system sounds."></i>
+						</div>
+					</div>
 				</div>
 			</div>
-		</div>
-		
-		<div class="volume form-group">
-			<label class="control-label"><i class="fa fa-volume-up"></i>Volume</label>
-			<div class="controls">
-				<div class="range-input"></div>
-		
-				<div class="control-inline">
-					<i class="active fa fa-question-circle" data-toggle="popover" title="Volume" data-content="This is the volume to use for system sounds."></i>
-				</div>
+
+			<div role="tabpanel" class="events-settings tab-pane<% if (tab == 'events') { %> active<% } %>">
+				<div class="list"></div>
 			</div>
 		</div>
-		
-		<div class="list"></div>
 	`),
 
 	regions: {
@@ -86,6 +110,7 @@ export default FormView.extend({
 
 	templateContext: function() {
 		return {
+			tab: this.options.tab,
 			mute_sounds: application.isMuted()
 		};
 	},

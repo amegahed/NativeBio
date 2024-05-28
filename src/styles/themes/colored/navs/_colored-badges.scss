@@ -22,7 +22,7 @@
 // colors
 //
 
-$color: colors.$medium-blue;
+$color: var(--primary-color);
 $success-color: colored-forms.$success-color;
 $caution-color: colored-forms.$caution-color;
 $warning-color: colored-forms.$warning-color;

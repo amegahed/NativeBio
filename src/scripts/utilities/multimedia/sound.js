@@ -128,7 +128,9 @@ export default class Sound {
 		// make sure that audio context is ready
 		//
 		if (!this.audio.ready()) {
-			this.audio.start(() => this.play(this.audio));
+			this.audio.start(() => {
+				this.play(this.audio);
+			});
 			return;
 		}
 		if (this.isPlaying() && this.isPaused()) {
@@ -301,6 +303,9 @@ export default class Sound {
 
 	onError(message, options) {
 		if (this.verbose) {
+
+			// show error message
+			//
 			application.error({
 				message: message
 			});

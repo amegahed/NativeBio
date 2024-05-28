@@ -15,7 +15,6 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import BaseView from '../../../../views/base-view.js';
 import CollectionView from '../../../../views/collections/collection-view.js';
 import ConnectionRequestsListItemView from '../../../../views/users/connection-requests/lists/connection-requests-list-item-view.js';
 
@@ -27,20 +26,24 @@ export default CollectionView.extend({
 
 	tagName: 'ul',
 	className: 'connection-requests panels',
+	empty: "No connection requests.",
+	emptyClassName: 'empty panel',
 
+	//
 	// views
 	//
+
 	childView: ConnectionRequestsListItemView,
-	emptyView: BaseView.extend({
-		className: 'empty panel',
-		template: template("No connection requests.")
-	}),
 
 	//
 	// constructor
 	//
 
 	initialize: function() {
+
+		// call superclass constructor
+		//
+		CollectionView.prototype.initialize.call(this);
 
 		// set optional parameter defaults
 		//

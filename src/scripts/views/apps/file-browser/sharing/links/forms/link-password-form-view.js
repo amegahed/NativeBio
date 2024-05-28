@@ -24,6 +24,11 @@ export default FormView.extend({
 	//
 
 	template: template(`
+		<div class="well">
+			<i class="fa fa-info-circle"></i>
+			Links can be be protected so that the user of a link must provide a password.
+		</div>
+
 		<div class="password form-group">
 			<label class="required control-label"><i class="fa fa-key"></i>Password</label>
 			<div class="controls">
@@ -63,6 +68,13 @@ export default FormView.extend({
 		let password = this.$el.find('.password input').val();
 		if (password && password != '') {
 			return password;
+		}
+	},
+
+	getValue: function(kind) {
+		switch (kind) {
+			case 'password':
+				return this.getPassword();
 		}
 	},
 

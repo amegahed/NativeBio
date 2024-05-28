@@ -40,18 +40,11 @@ export default SideBarView.extend({
 	//
 
 	hasSelected: function() {
-		/*
-		if (this.hasChildView('settings') && this.hasChildView('preferences')) {
-			return this.getChildView('settings').hasSelected() || this.getChildView('preferences').hasSelected();
-		}
-		*/
-
 		switch (this.category) {
 			case 'settings':
 				return this.hasChildView('setttings') && this.getChildView('settings').hasSelected();
-
 			case 'preferences':
-				return this.hasChildView('preferences') && this.getChildView('preferences').hasSelected();	
+				return this.hasChildView('preferences') && this.getChildView('preferences').hasSelected();
 		}
 	},
 
@@ -63,9 +56,8 @@ export default SideBarView.extend({
 		switch (this.category) {
 			case 'settings':
 				return this.getChildView('settings').getSelected();
-
 			case 'preferences':
-				return this.getChildView('preferences').getSelected();	
+				return this.getChildView('preferences').getSelected();
 		}
 	},
 
@@ -73,9 +65,8 @@ export default SideBarView.extend({
 		switch (this.category) {
 			case 'settings':
 				return this.getChildView('settings').getSelectedChildView(which);
-
 			case 'preferences':
-				return this.getChildView('preferences').getSelectedChildView(which);	
+				return this.getChildView('preferences').getSelectedChildView(which);
 		}
 	},
 
@@ -88,9 +79,8 @@ export default SideBarView.extend({
 			case 'settings':
 				this.getChildView('settings').setSelectedIndex(index);
 				break;
-
 			case 'preferences':
-				this.getChildView('preferences').setSelectedIndex(index);	
+				this.getChildView('preferences').setSelectedIndex(index);
 				break;
 		}
 	},
@@ -103,7 +93,6 @@ export default SideBarView.extend({
 				this.getChildView('preferences').deselectAll();
 				selectedView = this.getChildView('settings').selectByName(name);
 				break;
-
 			case 'preferences':
 				this.getChildView('settings').deselectAll();
 				selectedView = this.getChildView('preferences').selectByName(name);	

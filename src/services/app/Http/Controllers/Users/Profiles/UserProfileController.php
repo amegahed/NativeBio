@@ -13,7 +13,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|            Copyright (C) 2016-2020, Sharedigm, www.sharedigm.com             |
+|            Copyright (C) 2016-2024, Sharedigm, www.sharedigm.com             |
 \******************************************************************************/
 
 namespace App\Http\Controllers\Users\Profiles;
@@ -21,11 +21,11 @@ namespace App\Http\Controllers\Users\Profiles;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Session;
-use App\Models\Files\ImageFile;
+use App\Models\Storage\Media\ImageFile;
 use App\Models\Users\User;
 use App\Models\Users\Accounts\UserAccount;
 use App\Models\Users\Profiles\UserProfile;
-use App\Models\Files\Sharing\Share;
+use App\Models\Storage\Sharing\Share;
 use App\Http\Controllers\Controller;
 use App\Utilities\Strings\StringUtils;
 
@@ -111,14 +111,14 @@ class UserProfileController extends Controller
 
 				// admin profile photos
 				//
-				$imageFile = new ImageFile([
+				$file = new ImageFile([
 					'path' => $userProfile->profile_photo_path,
 				]);
 			} else if ($share) {
 
 				// shared profile photos
 				//
-				$imageFile = new ImageFile([
+				$file = new ImageFile([
 					'path' => $userProfile->profile_photo_path,
 					'share_id' => $share->id
 				]);	
@@ -126,12 +126,12 @@ class UserProfileController extends Controller
 
 				// user profile photos
 				//
-				$imageFile = new ImageFile([
+				$file = new ImageFile([
 					'path' => $userAccount->username . '/' . $userProfile->profile_photo_path
 				]);				
 			}
 		} else {
-			$imageFile = new ImageFile([
+			$file = new ImageFile([
 				'path' => substr($userProfile->profile_photo_path, 1),
 				'share_id' => $share? $share->id : null
 			]);		
@@ -139,19 +139,19 @@ class UserProfileController extends Controller
 
 		// check if file exists
 		//
-		if (!$imageFile->exists()) {
-			return response("File '" . $imageFile->path . "' not found.", 404);
+		if (!$file->exists()) {
+			return response("File '" . $file->getPath() . "' not found.", 404);
 		}
 
 		// return existing image
 		//
-		if ($imageFile->getExtension() == 'svg') {
-			return $imageFile->response('svg');
+		if ($file->getExtension() == 'svg') {
+			return $file->response('svg');
 		}
 
 		// return / resize image
 		//
-		return $imageFile->getThumbnail($minSize, $maxSize);
+		return $file->getThumbnail($minSize, $maxSize);
 	}
 
 	/**
@@ -208,14 +208,14 @@ class UserProfileController extends Controller
 
 				// admin cover photos
 				//
-				$imageFile = new ImageFile([
+				$file = new ImageFile([
 					'path' => $userProfile->cover_photo_path
 				]);
 			} else if ($share) {
 
 				// shared cover photos
 				//
-				$imageFile = new ImageFile([
+				$file = new ImageFile([
 					'path' => $userProfile->cover_photo_path,
 					'share_id' => $share->id
 				]);	
@@ -223,25 +223,25 @@ class UserProfileController extends Controller
 
 				// user cover photos
 				//
-				$imageFile = new ImageFile([
+				$file = new ImageFile([
 					'path' => $userAccount->username . '/' . $userProfile->cover_photo_path
 				]);
 			}
 		} else {
-			$imageFile = new ImageFile([
+			$file = new ImageFile([
 				'path' => $userProfile->cover_photo_path
 			]);
 		}
 
 		// check if file exists
 		//
-		if (!$imageFile->exists()) {
-			return response("File '" . $imageFile->path . "' not found.", 404);
+		if (!$file->exists()) {
+			return response("File '" . $file->getPath() . "' not found.", 404);
 		}
 
 		// get file extension
 		//
-		$extension = $imageFile->getExtension();
+		$extension = $file->getExtension();
 		$responseType = ImageFile::getResponseType($extension);
 		
 		// find if we are resizing or reformatting the image
@@ -250,9 +250,9 @@ class UserProfileController extends Controller
 		$reformat = (strtolower($extension) != $responseType);
 
 		if ($resize || $reformat) {
-			return $imageFile->readImage($width, $height, $minSize, $maxSize)->response($responseType);
+			return $file->readImage($width, $height, $minSize, $maxSize)->response($responseType);
 		} else {
-			return $imageFile->response($responseType);
+			return $file->response($responseType);
 		}
 	}
 

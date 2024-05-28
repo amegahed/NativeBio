@@ -10,7 +10,6 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import BaseView from '../../../../../../views/base-view.js';
 import SortableTableListView from '../../../../../../views/collections/tables/sortable-table-list-view.js';
 import ChatInvitationsListItemView from '../../../../../../views/apps/chat-browser/forms/invitations/lists/chat-invitations-list-item-view.js';
 
@@ -74,13 +73,13 @@ export default SortableTableListView.extend({
 		sortList: [[0, 0]]
 	},
 
+	empty: "No chat invitations.",
+
+	//
 	// views
 	//
+
 	childView: ChatInvitationsListItemView,
-	emptyView: BaseView.extend({
-		className: 'empty',
-		template: template("No chat invitations.")
-	}),
 	
 	//
 	// constructor

@@ -65,7 +65,7 @@ body:not(.binary) {
 		box-shadow: none !important;
 
 		i {
-			color: text-colors.$dark-color !important;
+			color: text-colors.$dark-color;
 		}
 	}
 
@@ -73,7 +73,7 @@ body:not(.binary) {
 		> .info {
 			.expander .btn {
 				i {
-					color: white !important;
+					color: white;
 				}
 			}
 		}

@@ -42,6 +42,34 @@ body:not(.binary) {
 		border-color: white;
 	}
 
+	.item .rating {
+		i:not(.active) {
+			color: colors.$very-light-grey !important;
+		}
+	}
+
+	.item .meter {
+		i {
+			color: colors.$very-light-grey !important;
+
+			&:nth-child(1).active {
+				color: cornflowerblue !important;
+			}
+			&:nth-child(2).active {
+				color: darkturquoise !important;
+			}
+			&:nth-child(3).active {
+				color: limegreen !important;
+			}
+			&:nth-child(4).active {
+				color: orange !important;
+			}
+			&:nth-child(5).active {
+				color: red !important;
+			}
+		}
+	}
+
 	.icon-grid {
 		.icon {
 			> img {

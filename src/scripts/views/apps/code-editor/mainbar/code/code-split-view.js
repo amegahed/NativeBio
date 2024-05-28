@@ -65,7 +65,11 @@ export default SplitView.extend({
 
 			// options
 			//
-			preferences: this.options.preferences
+			preferences: this.options.preferences,
+
+			// callbacks
+			//
+			onchange: this.options.onchange
 		});
 	}
 });

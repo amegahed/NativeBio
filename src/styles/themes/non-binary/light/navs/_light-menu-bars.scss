@@ -81,7 +81,7 @@ body:not(.binary).light {
 								> a, > a:focus, > a:hover, > a:active {
 									color: $text-color;
 									background: $transparent-menu-bar-item-color;
-									border-color: $transparent-menu-bar-item-color;
+									border-color: transparent;
 								}
 							}
 						}

@@ -15,9 +15,9 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import ImageFile from '../../models/files/image-file.js';
-import VideoFile from '../../models/files/video-file.js';
-import Directory from '../../models/files/directory.js';
+import ImageFile from '../../models/storage/media/image-file.js';
+import VideoFile from '../../models/storage/media/video-file.js';
+import Directory from '../../models/storage/directories/directory.js';
 import UserPreferences from '../../models/preferences/user-preferences.js';
 import BaseView from '../../views/base-view.js';
 import CrawlerView from '../../views/welcome/crawler-view.js';
@@ -57,38 +57,22 @@ export default BaseView.extend({
 						<% if (branding.welcome.splash.brand.logotype) { %>
 						<% if (branding.welcome.splash.brand.logotype.href) { %><a href="<%= branding.welcome.splash.brand.logotype.href %>"><% } %>
 						<div class="brand">
-				
-							<% if (branding.welcome.splash.brand.logotype.prefix) { %>
-							<span class="prefix"><% if (branding.welcome.splash.brand.logotype.prefix.text) { %><%= branding.welcome.splash.brand.logotype.prefix.text.replace(' ', '&nbsp') %><% } %></span>
-							<% } %>
-				
-							<% if (branding.welcome.splash.brand.logotype.first) { %>
-							<span class="first"><% if (branding.welcome.splash.brand.logotype.first.text) { %><%= branding.welcome.splash.brand.logotype.first.text.replace(' ', '&nbsp') %><% } %></span>
-							<% } %>
-				
-							<% if (branding.welcome.splash.brand.logotype.middle) { %>
-							<span class="middle"><% if (branding.welcome.splash.brand.logotype.middle.text) { %><%= branding.welcome.splash.brand.logotype.middle.text.replace(' ', '&nbsp') %><% } %></span>
-							<% } %>
-				
-							<% if (branding.welcome.splash.brand.logotype.last) { %>
-							<span class="last"><% if (branding.welcome.splash.brand.logotype.last.text) { %><%= branding.welcome.splash.brand.logotype.last.text.replace(' ', '&nbsp') %><% } %></span>
-							<% } %>
-				
-							<% if (branding.welcome.splash.brand.logotype.suffix) { %>
-							<span class="suffix"><% if (branding.welcome.splash.brand.logotype.suffix.text) { %><%= branding.welcome.splash.brand.logotype.suffix.text.replace(' ', '&nbsp') %><% } %></span>
+							<% if (branding.welcome.splash.brand.logotype.names) { %>
+							<% let names = branding.welcome.splash.brand.logotype.names; %>
+							<% for (let i = 0; i < names.length; i++) { %><% let name = names[i]; %><span><% if (name.text) { %><%= name.text.replace(' ', '&nbsp') %></span><% } %><% } %>
 							<% } %>
 						</div>
 						<% if (branding.welcome.splash.brand.logotype.href) { %></a><% } %>
 						<% } %>
-				
+
 						<% if (branding.welcome.splash.tagline && branding.welcome.splash.tagline.text) { %>
 						<div class="tagline"><%= branding.welcome.splash.tagline.text %></div>
 						<% } %>
-				
+
 						<% if (branding.welcome.splash.description && branding.welcome.splash.description.text) { %>
 						<div class="description"><%= branding.welcome.splash.description.text %></div>
 						<% } %>
-				
+
 						<% if (branding.links) { %>
 						<div class="links">
 							<% for (let i=0; i < branding.links.length; i++) { %>
@@ -101,21 +85,18 @@ export default BaseView.extend({
 							<% } %>
 						</div>
 						<% } %>
-						
+
 						<% if (config.defaults.search && !config.defaults.search.hidden) { %>
 						<div class="search row">
 							<div class="input-group">
-								<div class="input-group-addon btn" data-toggle="tooltip" data-container="body" title="Search <%= application.name %> public community">
-									<i class="active fa fa-newspaper"></i>
-								</div>	
 								<input type="text" class="form-control" placeholder="<%= config.defaults.search.placeholder || 'Search' %>">
-								<div class="input-group-addon btn">
+								<div class="input-group-addon btn" data-toggle="tooltip" title="Search <%= application.name %>">
 									<i class="active fa fa-search"></i>
-								</div>			
+								</div>
 							</div>
 						</div>
 						<% } %>
-				
+
 						<div class="buttons">
 							<% if (show_video) { %>
 							<button class="show-video btn btn-lg desktop-only">
@@ -152,7 +133,7 @@ export default BaseView.extend({
 		},
 		details: {
 			el: '.details',
-			replaceElement: true 
+			replaceElement: true
 		}
 	},
 
@@ -195,34 +176,14 @@ export default BaseView.extend({
 			application.loadFont(logotype.font);
 		}
 
-		// load fonts for logotype components
+		// load fonts for logotype names
 		//
-		if (logotype.prefix && logotype.prefix.font) {
-			application.loadFont(logotype.prefix.font);
-		}
-		if (logotype.first && logotype.first.font) {
-			application.loadFont(logotype.first.font);
-		}
-		if (logotype.middle && logotype.middle.font) {
-			application.loadFont(logotype.middle.font);
-		}
-		if (logotype.last && logotype.last.font) {
-			application.loadFont(logotype.last.font);
-		}
-		if (logotype.suffix && logotype.suffix.font) {
-			application.loadFont(logotype.suffix.font);
-		}
-	},
-
-	//
-	// querying methods
-	//
-
-	isMultiline(logotype) {
-		if (logotype) {
-			return logotype.first && logotype.first.text.includes(' ') ||
-				logotype.middle && logotype.middle.text.includes(' ') ||
-				logotype.last && logotype.last.text.includes(' ');
+		if (logotype.names) {
+			for (let i = 0; i < logotype.names.length; i++) {
+				if (logotype.names[i].font) {
+					application.loadFont(logotype.names[i].font);
+				}
+			}
 		}
 	},
 
@@ -243,20 +204,12 @@ export default BaseView.extend({
 	getLogoTypeLength: function(logotype) {
 		let length = 0;
 
-		if (logotype.prefix && logotype.prefix.text) {
-			length += logotype.prefix.text.length;
-		}
-		if (logotype.first && logotype.first.text) {
-			length += logotype.first.text.length;
-		}
-		if (logotype.middle && logotype.middle.text) {
-			length += logotype.middle.text.length;
-		}
-		if (logotype.last && logotype.last.text) {
-			length += logotype.last.text.length;
-		}
-		if (logotype.suffix && logotype.suffix.text) {
-			length += logotype.suffix.text.length;
+		if (logotype.names) {
+			for (let i = 0; i < logotype.names.length; i++) {
+				if (logotype.names[i].text && !logotype.names[i].text.startsWith('.')) {
+					length += logotype.names[i].text.length;
+				}
+			}
 		}
 
 		return length;
@@ -333,12 +286,15 @@ export default BaseView.extend({
 		}
 		if (logo.border == 'rounded') {
 			this.$el.find('.splash .logo').addClass('rounded');
-		} 
+		}
 		if (logo.sound) {
 			this.$el.find('.splash .logo').addClass('active');
 		}
 		if (logo.class) {
 			this.$el.find('.splash .logo').addClass(logo.class);
+		}
+		if (logo.size) {
+			this.$el.find('.splash .logo').addClass(logo.size);
 		}
 	},
 
@@ -364,10 +320,10 @@ export default BaseView.extend({
 	},
 
 	setLogoTypeStyles: function(logotype) {
-		if (this.isMultiline(logotype)) {
-			this.$el.find('.brand').addClass('multiline');
+		if (this.getLogoTypeLength(logotype) < 8 || logotype.short) {
+			this.$el.find('.brand').addClass('short');
 		}
-		if (this.getLogoTypeLength(logotype) > 12) {
+		if (this.getLogoTypeLength(logotype) > 15 || logotype.long) {
 			this.$el.find('.brand').addClass('long');
 		}
 		if (logotype.color) {
@@ -375,29 +331,34 @@ export default BaseView.extend({
 				color: logotype.color
 			});
 		}
-		if (logotype.font) {
+
+		// set font styles
+		//
+		if (logotype.font && config.fonts[logotype.font]) {
 			this.$el.find('.brand').css({
-				'font-family': config.fonts[logotype.font]['font-family'],
-				'font-size': config.fonts[logotype.font]['font-size'] + 'px',
+				'font-family': config.fonts[logotype.font]['font-family']
 			});
 		}
+		if (logotype.font_variant) {
+			this.$el.find('.brand').css('font-variant', logotype.font_variant);
+		}
+		if (logotype.font_size) {
+			this.$el.find('.brand').css('font-size', logotype.font_size);
+		}
+		if (logotype.text_transform) {
+			this.$el.find('.brand').css('text-transform', logotype.text_transform);
+		}
+		if (logotype.text_shadow) {
+			this.$el.find('.brand').css('text-shadow', logotype.text_shadow);
+		}
 
-		// set logotype component styles
+		// set logotype name styles
 		//
-		if (logotype.prefix) {
-			this.setTextElementStyles(this.$el.find('.brand .prefix'), logotype.prefix);
-		}
-		if (logotype.first) {
-			this.setTextElementStyles(this.$el.find('.brand .first'), logotype.first);
-		}
-		if (logotype.middle) {
-			this.setTextElementStyles(this.$el.find('.brand .middle'), logotype.middle);
-		}
-		if (logotype.last) {
-			this.setTextElementStyles(this.$el.find('.brand .last'), logotype.last);
-		}
-		if (logotype.suffix) {
-			this.setTextElementStyles(this.$el.find('.brand .suffix'), logotype.suffix);
+		if (logotype.names) {
+			let elements = this.$el.find('.brand > span');
+			for (let i = 0; i < logotype.names.length; i++) {
+				this.setTextElementStyles($(elements[i]), logotype.names[i]);
+			}
 		}
 	},
 
@@ -532,6 +493,11 @@ export default BaseView.extend({
 				'background-image': 'url("' + overlay.background_image + '")'
 			});
 		}
+		if (overlay.opacity) {
+			this.$el.find('.overlay').css({
+				opacity: overlay.opacity
+			});
+		}
 	},
 
 	showDetails: function(address, done) {
@@ -648,6 +614,9 @@ export default BaseView.extend({
 			},
 
 			error: () => {
+
+				// show error message
+				//
 				application.error({
 					message: 'Video not found.'
 				});

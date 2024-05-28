@@ -92,6 +92,7 @@ table {
 		> .empty {
 			padding: 5px 10px;
 			pointer-events: none;
+			white-space: nowrap;
 		}
 
 		//
@@ -393,7 +394,7 @@ table.numbered {
 	tr:not(.ui-sorplaceholder):not(.unnumbered) {
 		td:first-child {
 			&::before {
-				content: counter(row-number) + '.';
+				content: counter(row-number) ".";
 				counter-increment: row-number;
 				display: inline-block;
 				min-width: 25px;

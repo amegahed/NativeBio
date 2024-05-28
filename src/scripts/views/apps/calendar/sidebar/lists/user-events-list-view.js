@@ -15,7 +15,6 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import BaseView from '../../../../../views/base-view.js';
 import ListView from '../../../../../views/items/lists/list-view.js';
 import UserEventsListItemView from '../../../../../views/apps/calendar/sidebar/lists/user-events-list-item-view.js';
 
@@ -25,9 +24,11 @@ export default ListView.extend({
 	// attributes
 	//
 
-	childView: UserEventsListItemView,
-	emptyView: BaseView.extend({
-		className: 'empty',
-		template: template("No events.")
-	})
+	empty: "No events.",
+
+	//
+	// views
+	//
+
+	childView: UserEventsListItemView
 });

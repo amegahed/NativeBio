@@ -141,7 +141,7 @@ export default UserNotificationsView.extend(_.extend({}, Timeable, {
 
 			error: (model, response) => {
 
-				// show error view
+				// show error message
 				//
 				application.error({
 					message: "Could not get notifications.",
@@ -233,11 +233,7 @@ export default UserNotificationsView.extend(_.extend({}, Timeable, {
 
 	showNotificationsList: function(collection) {
 		this.showChildView('notifications', new NotificationsListView({
-			collection: collection,
-
-			// options
-			//
-			emptyView: null
+			collection: collection
 		}));
 	},
 

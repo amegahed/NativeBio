@@ -117,6 +117,54 @@ body:not(.binary).light ul.panels > li:hover {
 
 /******************************************************************************\
 |                                                                              |
+|                                 _lighting.scss                               |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                               _flat-glass.scss                               |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                             _frosted-glass.scss                              |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
 |                            _medium-branding.scss                             |
 |                                                                              |
 |******************************************************************************|
@@ -162,6 +210,9 @@ body:not(.binary) .app .header-bar .app-bar .button.selected i, body:not(.binary
 body:not(.binary) .app .header-bar .app-bar .button:hover i, body:not(.binary) .app .header-bar .info-bar .button:hover i, body:not(.binary) .app .header-bar .address-bar .button:hover i, body:not(.binary) .app .header-bar .toolbar .button:hover i, body:not(.binary) .app .footer-bar .app-bar .button:hover i, body:not(.binary) .app .footer-bar .info-bar .button:hover i, body:not(.binary) .app .footer-bar .address-bar .button:hover i, body:not(.binary) .app .footer-bar .toolbar .button:hover i {
   color: inherit;
 }
+body:not(.binary) .app .header-bar .app-bar .btn-primary i, body:not(.binary) .app .header-bar .info-bar .btn-primary i, body:not(.binary) .app .header-bar .address-bar .btn-primary i, body:not(.binary) .app .header-bar .toolbar .btn-primary i, body:not(.binary) .app .footer-bar .app-bar .btn-primary i, body:not(.binary) .app .footer-bar .info-bar .btn-primary i, body:not(.binary) .app .footer-bar .address-bar .btn-primary i, body:not(.binary) .app .footer-bar .toolbar .btn-primary i {
+  color: white;
+}
 body:not(.binary) .app .header-bar .address-bar .breadcrumb a, body:not(.binary) .app .footer-bar .address-bar .breadcrumb a {
   color: #272740;
 }
@@ -185,6 +236,9 @@ body:not(.binary) .app .body > .contents > .split.sidebar .header, body:not(.bin
 }
 body:not(.binary) .app .body .help.message, body:not(.binary) .app .body-region .help.message {
   color: #8080b3;
+  background: rgba(160, 160, 198, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 body:not(.binary) .app .body .help.message i, body:not(.binary) .app .body-region .help.message i {
   color: #8080b3;
@@ -234,8 +288,8 @@ body:not(.binary).light .app .header-bar .app-bar i, body:not(.binary).light .ap
 body:not(.binary).light .app .header-bar .app-bar .button.selected i, body:not(.binary).light .app .header-bar .app-bar .input-group-addon.btn i, body:not(.binary).light .app .header-bar .info-bar .button.selected i, body:not(.binary).light .app .header-bar .info-bar .input-group-addon.btn i, body:not(.binary).light .app .header-bar .address-bar .button.selected i, body:not(.binary).light .app .header-bar .address-bar .input-group-addon.btn i, body:not(.binary).light .app .header-bar .toolbar .button.selected i, body:not(.binary).light .app .header-bar .toolbar .input-group-addon.btn i, body:not(.binary).light .app .footer-bar .app-bar .button.selected i, body:not(.binary).light .app .footer-bar .app-bar .input-group-addon.btn i, body:not(.binary).light .app .footer-bar .info-bar .button.selected i, body:not(.binary).light .app .footer-bar .info-bar .input-group-addon.btn i, body:not(.binary).light .app .footer-bar .address-bar .button.selected i, body:not(.binary).light .app .footer-bar .address-bar .input-group-addon.btn i, body:not(.binary).light .app .footer-bar .toolbar .button.selected i, body:not(.binary).light .app .footer-bar .toolbar .input-group-addon.btn i {
   color: inherit;
 }
-body:not(.binary).light .app .header-bar .app-bar .button:hover i, body:not(.binary).light .app .header-bar .info-bar .button:hover i, body:not(.binary).light .app .header-bar .address-bar .button:hover i, body:not(.binary).light .app .header-bar .toolbar .button:hover i, body:not(.binary).light .app .footer-bar .app-bar .button:hover i, body:not(.binary).light .app .footer-bar .info-bar .button:hover i, body:not(.binary).light .app .footer-bar .address-bar .button:hover i, body:not(.binary).light .app .footer-bar .toolbar .button:hover i {
-  color: inherit;
+body:not(.binary).light .app .header-bar .app-bar .btn-primary i, body:not(.binary).light .app .header-bar .info-bar .btn-primary i, body:not(.binary).light .app .header-bar .address-bar .btn-primary i, body:not(.binary).light .app .header-bar .toolbar .btn-primary i, body:not(.binary).light .app .footer-bar .app-bar .btn-primary i, body:not(.binary).light .app .footer-bar .info-bar .btn-primary i, body:not(.binary).light .app .footer-bar .address-bar .btn-primary i, body:not(.binary).light .app .footer-bar .toolbar .btn-primary i {
+  color: white;
 }
 body:not(.binary).light .app .body, body:not(.binary).light .app .body-region {
   border-color: white;
@@ -286,60 +340,6 @@ body:not(.binary).light.sidebar-panels .app .body .contents > .sidebar .panel, b
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                                 _lighting.scss                               |
-|                                                                              |
-|******************************************************************************|
-|                                                                              |
-|        This defines various CSS styles used in this application.             |
-|                                                                              |
-|        Author(s): Abe Megahed                                                |
-|                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.txt', which is part of this source code distribution.        |
-|                                                                              |
-|******************************************************************************|
-|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
-\******************************************************************************/
-:root {
-  --light-direction: to bottom;
-  --ambient-color: rgb(0, 0, 127);
-  --light-color: white;
-}
-
-/******************************************************************************\
-|                                                                              |
-|                               _flat-glass.scss                               |
-|                                                                              |
-|******************************************************************************|
-|                                                                              |
-|        This defines the dom and svg visual styles for this application.      |
-|                                                                              |
-|        Author(s): Abe Megahed                                                |
-|                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.txt', which is part of this source code distribution.        |
-|                                                                              |
-|******************************************************************************|
-|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
-\******************************************************************************/
-/******************************************************************************\
-|                                                                              |
-|                             _frosted-glass.scss                              |
-|                                                                              |
-|******************************************************************************|
-|                                                                              |
-|        This defines the dom and svg visual styles for this application.      |
-|                                                                              |
-|        Author(s): Abe Megahed                                                |
-|                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.txt', which is part of this source code distribution.        |
-|                                                                              |
-|******************************************************************************|
-|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
-\******************************************************************************/
-/******************************************************************************\
-|                                                                              |
 |                         _medium-desktop-apps.scss                            |
 |                                                                              |
 |******************************************************************************|
@@ -354,6 +354,9 @@ body:not(.binary).light.sidebar-panels .app .body .contents > .sidebar .panel, b
 |******************************************************************************|
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
+body:not(.binary) .desktop.app > .body > .app {
+  border: none;
+}
 body:not(.binary) .desktop.app > .body > .app .header-bar {
   color: #272740;
   background-color: #f0f0f6;
@@ -371,14 +374,14 @@ body:not(.binary) .desktop.app > .body > .app .header-bar .clock .icon > i {
 body:not(.binary) .desktop.app > .body > .app .mainbar {
   background-color: white;
 }
-body:not(.binary) .desktop.app > .body > .app-launcher,
-body:not(.binary) .desktop.app > .body > .app .mainbar,
-body:not(.binary) .desktop.app > .body > .app .sidebar .panel {
-  /*
-  > .tabbed-content {
-  	background-color: white
-  }
-  */
+body:not(.binary) .desktop.app > .body > .app .mainbar .items + .dropzone {
+  color: white;
+}
+body:not(.binary) .desktop.app > .body > .file-browser .mainbar .help.message {
+  color: #c0c0d9 !important;
+}
+body:not(.binary) .desktop.app > .body > .file-browser .mainbar .help.message i {
+  color: #c0c0d9 !important;
 }
 body:not(.binary) .desktop.app > .body > .app-launcher > .body > .contents::after,
 body:not(.binary) .desktop.app > .body > .app .mainbar > .body > .contents::after,
@@ -390,38 +393,8 @@ body:not(.binary) .desktop.app > .body > .app .mainbar .heading h1,
 body:not(.binary) .desktop.app > .body > .app .sidebar .panel .heading h1 {
   color: white;
 }
-body:not(.binary) .desktop.app > .body > .app {
-  border: none;
-}
-body:not(.binary) .desktop.app > .body > .app .mainbar .items + .dropzone {
-  color: white;
-}
-body:not(.binary) .desktop.app > .body > .app .mainbar .help.message {
-  color: #e0e0ec;
-  background: rgba(160, 160, 198, 0.25);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-body:not(.binary) .desktop.app > .body > .app .mainbar .help.message i {
-  color: #e0e0ec;
-}
 body:not(.binary).transparent .desktop.app > .body > .app > .header-bar, body:not(.binary).translucent .desktop.app > .body > .app > .header-bar {
-  background: linear-gradient(to bottom, rgba(240, 240, 246, 0.9) 0%, transparent 100%) no-repeat, rgba(240, 240, 246, 0.8);
-}
-body:not(.binary).transparent .desktop.app > .body > .app > .header-bar .app-bar, body:not(.binary).translucent .desktop.app > .body > .app > .header-bar .app-bar {
-  color: #272740;
-}
-body:not(.binary).transparent .desktop.app > .body > .app > .header-bar .app-bar > i, body:not(.binary).translucent .desktop.app > .body > .app > .header-bar .app-bar > i {
-  color: #6060a0;
-}
-body:not(.binary).transparent .desktop.app > .body > .app > .header-bar .toolbar .icon i, body:not(.binary).translucent .desktop.app > .body > .app > .header-bar .toolbar .icon i {
-  color: #6060a0;
-}
-body:not(.binary).transparent .desktop.app > .body > .app > .header-bar .toolbar .button:not(.selected):not(:hover) > i, body:not(.binary).translucent .desktop.app > .body > .app > .header-bar .toolbar .button:not(.selected):not(:hover) > i {
-  color: #6060a0;
-}
-body:not(.binary).transparent .desktop.app > .body > .app > .header-bar .clock .icon > i, body:not(.binary).translucent .desktop.app > .body > .app > .header-bar .clock .icon > i {
-  color: #6060a0;
+  background: linear-gradient(to bottom, rgba(240, 240, 246, 0.75) 0%, transparent 100%) no-repeat, rgba(240, 240, 246, 0.75);
 }
 body:not(.binary).opaque #desktop.auto-sidebars .desktop.app > .body .contents > .sidebar, body:not(.binary).opaque #desktop.auto-sidebars .desktop.app > .body-region .contents > .sidebar,
 body:not(.binary) #desktop.opaque-sidebars .desktop.app > .body .contents > .sidebar,
@@ -516,9 +489,6 @@ body:not(.binary).light .desktop.app > .body > .app .header-bar {
   background-color: white;
   border-color: #d0d0e3;
 }
-body:not(.binary).light .desktop.app > .body > .app .header-bar .app-bar {
-  color: #272740;
-}
 body:not(.binary).light .desktop.app > .body > .app .header-bar .app-bar > i {
   color: #8080b3;
 }
@@ -540,7 +510,7 @@ body:not(.binary).light.light #desktop .desktop.app > .body > .app .mainbar {
 body:not(.binary).light.transparent.light #desktop .desktop.app > .body > .app > .header-bar,
 body:not(.binary).light.transparent #desktop.light .desktop.app > .body > .app > .header-bar, body:not(.binary).light.translucent.light #desktop .desktop.app > .body > .app > .header-bar,
 body:not(.binary).light.translucent #desktop.light .desktop.app > .body > .app > .header-bar {
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9) 0%, transparent 100%) no-repeat, rgba(255, 255, 255, 0.8);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.75) 0%, transparent 100%) no-repeat, rgba(255, 255, 255, 0.75);
 }
 body:not(.binary).light.opaque #desktop.auto-sidebars .desktop.app > .body .contents > .sidebar, body:not(.binary).light.opaque #desktop.auto-sidebars .desktop.app > .body-region .contents > .sidebar,
 body:not(.binary).light #desktop.opaque-sidebars .desktop.app > .body .contents > .sidebar,
@@ -809,11 +779,11 @@ body:not(.binary) .modals .modal.focused .modal-dialog .modal-header .title h1 {
 }
 body:not(.binary) .modals .modal.focused .modal-dialog .modal-content {
   background-color: white;
-  border-color: white;
+  border-color: #d0d0e3;
 }
 body:not(.binary) .modals .modal.focused .modal-dialog .modal-content .modal-footer {
   background-color: #f0f0f6;
-  border-color: #f0f0f6;
+  border-color: #d0d0e3;
 }
 body:not(.binary) .modals .modal:not(.focused) .modal-dialog {
   border-color: #b0b0d0;
@@ -836,20 +806,20 @@ body:not(.binary) .modals .modal:not(.focused) .modal-dialog .modal-header .titl
 }
 body:not(.binary) .modals .modal:not(.focused) .modal-dialog .modal-content {
   background-color: #e6e6e6;
-  border-color: #e6e6e6;
+  border-color: #b0b0d0;
 }
 body:not(.binary) .modals .modal:not(.focused) .modal-dialog .modal-content .modal-footer {
   background-color: #d0d0e3;
-  border-color: #d0d0e3;
+  border-color: #b0b0d0;
 }
 body:not(.binary).transparent .modals .modal:not(.full-screen) .modal-dialog:not(.maximized) {
   background: transparent !important;
 }
 body:not(.binary).transparent .modals .modal:not(.full-screen).focused .modal-dialog .modal-content {
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9) 0%, transparent 100%) no-repeat, rgba(255, 255, 255, 0.8);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.75) 0%, transparent 100%) no-repeat, rgba(255, 255, 255, 0.75);
 }
 body:not(.binary).transparent .modals .modal:not(.full-screen):not(.focused) .modal-dialog .modal-content {
-  background: linear-gradient(to bottom, rgba(230, 230, 230, 0.9) 0%, transparent 100%) no-repeat, rgba(230, 230, 230, 0.8);
+  background: linear-gradient(to bottom, rgba(230, 230, 230, 0.75) 0%, transparent 100%) no-repeat, rgba(230, 230, 230, 0.75);
 }
 body:not(.binary).translucent .modals .modal:not(.full-screen) .modal-dialog.maximized {
   background: white;
@@ -858,16 +828,20 @@ body:not(.binary).translucent .modals .modal:not(.full-screen) .modal-dialog:not
   background: transparent;
 }
 body:not(.binary).translucent .modals .modal:not(.full-screen).focused .modal-dialog .modal-content {
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, transparent 100%) no-repeat, rgba(255, 255, 255, 0.6);
+  background: transparent;
+}
+body:not(.binary).translucent .modals .modal:not(.full-screen).focused .modal-dialog .modal-content > .modal-body, body:not(.binary).translucent .modals .modal:not(.full-screen).focused .modal-dialog .modal-content .app .body {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.75) 0%, transparent 100%) no-repeat, rgba(255, 255, 255, 0.66);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  overflow: visible;
 }
 body:not(.binary).translucent .modals .modal:not(.full-screen):not(.focused) .modal-dialog .modal-content {
-  background: linear-gradient(to bottom, rgba(230, 230, 230, 0.7) 0%, transparent 100%) no-repeat, rgba(230, 230, 230, 0.6);
+  background: transparent;
+}
+body:not(.binary).translucent .modals .modal:not(.full-screen):not(.focused) .modal-dialog .modal-content > .modal-body, body:not(.binary).translucent .modals .modal:not(.full-screen):not(.focused) .modal-dialog .modal-content .app .body {
+  background: linear-gradient(to bottom, rgba(230, 230, 230, 0.75) 0%, transparent 100%) no-repeat, rgba(230, 230, 230, 0.66);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  overflow: visible;
 }
 
 /******************************************************************************\
@@ -910,11 +884,11 @@ body:not(.binary).light .modals .modal.focused .modal-dialog .modal-header .titl
 }
 body:not(.binary).light .modals .modal.focused .modal-dialog .modal-content {
   background-color: white;
-  border-color: white;
+  border-color: #e6e6e6;
 }
 body:not(.binary).light .modals .modal.focused .modal-dialog .modal-content .modal-footer {
   background-color: white;
-  border-color: white;
+  border-color: #e6e6e6;
 }
 body:not(.binary).light .modals .modal:not(.focused) .modal-dialog {
   border-color: #cccccc;
@@ -937,20 +911,20 @@ body:not(.binary).light .modals .modal:not(.focused) .modal-dialog .modal-header
 }
 body:not(.binary).light .modals .modal:not(.focused) .modal-dialog .modal-content {
   background-color: #e6e6e6;
-  border-color: #e6e6e6;
+  border-color: #cccccc;
 }
 body:not(.binary).light .modals .modal:not(.focused) .modal-dialog .modal-content .modal-footer {
   background-color: #e6e6e6;
-  border-color: #e6e6e6;
+  border-color: #cccccc;
 }
 body:not(.binary).light.transparent .modals .modal:not(.full-screen) .modal-dialog:not(.maximized) {
   background: transparent !important;
 }
 body:not(.binary).light.transparent .modals .modal:not(.full-screen).focused .modal-dialog .modal-content {
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9) 0%, transparent 100%) no-repeat, rgba(255, 255, 255, 0.8);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.75) 0%, transparent 100%) no-repeat, rgba(255, 255, 255, 0.75);
 }
 body:not(.binary).light.transparent .modals .modal:not(.full-screen):not(.focused) .modal-dialog .modal-content {
-  background: linear-gradient(to bottom, rgba(230, 230, 230, 0.9) 0%, transparent 100%) no-repeat, rgba(230, 230, 230, 0.8);
+  background: linear-gradient(to bottom, rgba(230, 230, 230, 0.75) 0%, transparent 100%) no-repeat, rgba(230, 230, 230, 0.75);
 }
 body:not(.binary).light.translucent .modals .modal:not(.full-screen) .modal-dialog.maximized {
   background: white;
@@ -959,12 +933,18 @@ body:not(.binary).light.translucent .modals .modal:not(.full-screen) .modal-dial
   background: transparent;
 }
 body:not(.binary).light.translucent .modals .modal:not(.full-screen).focused .modal-dialog .modal-content {
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, transparent 100%) no-repeat, rgba(255, 255, 255, 0.6);
+  background: transparent;
+}
+body:not(.binary).light.translucent .modals .modal:not(.full-screen).focused .modal-dialog .modal-content > .modal-body, body:not(.binary).light.translucent .modals .modal:not(.full-screen).focused .modal-dialog .modal-content .app .body {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.75) 0%, transparent 100%) no-repeat, rgba(255, 255, 255, 0.66);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
 body:not(.binary).light.translucent .modals .modal:not(.full-screen):not(.focused) .modal-dialog .modal-content {
-  background: linear-gradient(to bottom, rgba(230, 230, 230, 0.7) 0%, transparent 100%) no-repeat, rgba(230, 230, 230, 0.6);
+  background: transparent;
+}
+body:not(.binary).light.translucent .modals .modal:not(.full-screen):not(.focused) .modal-dialog .modal-content > .modal-body, body:not(.binary).light.translucent .modals .modal:not(.full-screen):not(.focused) .modal-dialog .modal-content .app .body {
+  background: linear-gradient(to bottom, rgba(230, 230, 230, 0.75) 0%, transparent 100%) no-repeat, rgba(230, 230, 230, 0.66);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
@@ -1234,9 +1214,6 @@ body:not(.binary).light .item .marker {
 .smooth img {
   image-rendering: auto !important;
 }
-.smooth img .fancybox-image img {
-  image-rendering: auto !important;
-}
 
 .thumbnail {
   margin: 0;
@@ -1340,7 +1317,7 @@ body:not(.binary).light .item .marker {
 
 .thumbnail.photo {
   border-radius: 0;
-  background-size: cover !important;
+  background-size: cover;
 }
 .thumbnail.photo:after {
   border-radius: 0;
@@ -1387,57 +1364,18 @@ outlined.photo {
   mix-blend-mode: normal;
 }
 
-.inline.gallery > .images .item {
-  display: block;
-  max-width: 100%;
-  margin: 50px;
-  /*
-  &:first-child,
-  & + .item {
-  	margin-top: 50px;
-  }
-  &:last-child {
-  	margin-bottom: 50px;
-  }
-  */
-}
-.inline.gallery > .images .item img {
-  max-width: 100%;
-}
-
-.fancybox-skin {
-  box-shadow: none !important;
-  -webkit-box-shadow: none !important;
-  background: none !important;
-  filter: drop-shadow(5px 5px 20px black);
-}
-.fancybox-skin .fancybox-outer {
-  background: none;
-}
-.fancybox-skin .fancybox-outer .fancybox-inner {
-  background: none;
-}
-.fancybox-skin .fancybox-outer .fancybox-inner .fancybox-image {
-  background: none;
-}
-.fancybox-skin .fancybox-title {
-  font: unset;
-}
-
-.round .fancybox-skin .fancybox-image {
-  border-radius: 15px;
-}
-
-.rounded .fancybox-skin .fancybox-image {
-  border-radius: 7px;
-}
-
 body[browser=firefox] img.pixelated {
   image-rendering: -moz-crisp-edges;
 }
 
 [browser=safari] .icon > svg, [browser=safari] .icon .thumbnail, [browser=safari] .tile > svg, [browser=safari] .tile .thumbnail {
   transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  perspective: 1000;
 }
 [browser=safari].tilted.left .icon > svg, [browser=safari].tilted.left .icon .thumbnail, [browser=safari].tilted.left .tile > svg, [browser=safari].tilted.left .tile .thumbnail, [browser=safari].tilted .left .icon > svg, [browser=safari].tilted .left .icon .thumbnail, [browser=safari].tilted .left .tile > svg, [browser=safari].tilted .left .tile .thumbnail {
   transform: skewX(7.5deg) translateZ(0);
@@ -1637,6 +1575,27 @@ body:not(.binary) .item .marker {
   color: white;
   background: #4d4d80;
   border-color: white;
+}
+body:not(.binary) .item .rating i:not(.active) {
+  color: #a0a0c6 !important;
+}
+body:not(.binary) .item .meter i {
+  color: #a0a0c6 !important;
+}
+body:not(.binary) .item .meter i:nth-child(1).active {
+  color: cornflowerblue !important;
+}
+body:not(.binary) .item .meter i:nth-child(2).active {
+  color: darkturquoise !important;
+}
+body:not(.binary) .item .meter i:nth-child(3).active {
+  color: limegreen !important;
+}
+body:not(.binary) .item .meter i:nth-child(4).active {
+  color: orange !important;
+}
+body:not(.binary) .item .meter i:nth-child(5).active {
+  color: red !important;
 }
 body:not(.binary) .icon-grid .icon > img + i {
   display: none;
@@ -2482,8 +2441,16 @@ body > svg {
   transform: translate(-50%, -50%);
 }
 
+.left.aligned {
+  text-align: left;
+}
+
 .center.aligned {
   text-align: center;
+}
+
+.right.aligned {
+  text-align: right;
 }
 
 .middle.aligned {
@@ -2622,12 +2589,12 @@ body:not(.icon-spinning) .user-profile-header .alternate.buttons {
 }
 
 .well {
-  padding: 10px 20px;
-  margin: 20px 0;
+  padding: 10px;
   border-width: 1px;
   border-style: solid;
   box-shadow: none;
   -webkit-box-shadow: none;
+  margin-bottom: 10px;
 }
 .well.emphasis {
   width: 75%;
@@ -2756,6 +2723,7 @@ table tbody tr:not(:last-child) th {
 table tbody > .empty {
   padding: 5px 10px;
   pointer-events: none;
+  white-space: nowrap;
 }
 table tbody tr.selected {
   background: black;
@@ -2777,8 +2745,8 @@ table tbody tr td:not(:last-child) {
   border-right-width: 0;
 }
 table tbody tr td.error {
-  color: hsl(0, 66%, 50%);
-  outline: 2px solid hsl(0, 66%, 50%);
+  color: hsl(0, 80%, 60%);
+  outline: 2px solid hsl(0, 80%, 60%);
   outline-offset: -2px;
   background: white;
 }
@@ -2893,7 +2861,7 @@ table.numbered {
   counter-reset: row-number;
 }
 table.numbered tr:not(.ui-sorplaceholder):not(.unnumbered) td:first-child::before {
-  content: counter(row-number).;
+  content: counter(row-number) ".";
   counter-increment: row-number;
   display: inline-block;
   min-width: 25px;
@@ -3248,63 +3216,6 @@ body:not(.binary):not(.colored).light .desktop.app:not(.focused) > .body .items-
 }
 /******************************************************************************\
 |                                                                              |
-|                              _light-badges.scss                              |
-|                                                                              |
-|******************************************************************************|
-|                                                                              |
-|        This defines various CSS styles used in this application.             |
-|                                                                              |
-|        Author(s): Abe Megahed                                                |
-|                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.txt', which is part of this source code distribution.        |
-|                                                                              |
-|******************************************************************************|
-|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
-\******************************************************************************/
-body:not(.binary).light .badge {
-  color: white;
-  background-color: #6060a0;
-  border-color: white !important;
-}
-body:not(.binary).light .badge i {
-  color: white;
-}
-
-/******************************************************************************\
-|                                                                              |
-|                           _light-chalk-badges.scss                           |
-|                                                                              |
-|******************************************************************************|
-|                                                                              |
-|        This defines various CSS styles used in this application.             |
-|                                                                              |
-|        Author(s): Abe Megahed                                                |
-|                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.txt', which is part of this source code distribution.        |
-|                                                                              |
-|******************************************************************************|
-|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
-\******************************************************************************/
-body:not(.binary).light.flat .badge {
-  background-color: #6060a0;
-  border-color: #6060a0;
-}
-body:not(.binary).light.flat .badge.round {
-  background-color: #6060a0;
-  border-color: #6060a0;
-}
-body:not(.binary).light.flat .badge.rounded {
-  background-color: #6060a0;
-  border-color: #6060a0;
-}
-body:not(.binary).light.flat .badge.long.round {
-  background-color: #6060a0;
-}
-
-/******************************************************************************\
-|                                                                              |
 |                               _flat-btns.scss                                |
 |                                                                              |
 |******************************************************************************|
@@ -3461,8 +3372,8 @@ button {
 }
 button > svg, button > img {
   display: inline-block;
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   margin: 0 auto;
 }
 button i {
@@ -3472,6 +3383,11 @@ button i {
 }
 button:disabled:hover {
   cursor: not-allowed;
+}
+
+.expander button {
+  border: none;
+  background: none;
 }
 
 .round-buttons button,
@@ -4488,28 +4404,6 @@ body:not(.binary).light.flat #desktop.task-bar-minimized:not(.colorful) .task-ba
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                          _light-chalk-badges.scss                            |
-|                                                                              |
-|******************************************************************************|
-|                                                                              |
-|        This defines various CSS styles used in this application.             |
-|                                                                              |
-|        Author(s): Abe Megahed                                                |
-|                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.txt', which is part of this source code distribution.        |
-|                                                                              |
-|******************************************************************************|
-|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
-\******************************************************************************/
-body:not(.binary).light.chalk .badge {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 25%, transparent 100%) no-repeat, linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, transparent 50%, rgba(0, 0, 0, 0.1) 100%) no-repeat;
-  background-color: #6060a0;
-  border-color: #56569d;
-}
-
-/******************************************************************************\
-|                                                                              |
 |                               _chalk-btns.scss                               |
 |                                                                              |
 |******************************************************************************|
@@ -4820,17 +4714,6 @@ body:not(.binary).light.chalk .progress .bar {
   .thick-scrollbars ::-webkit-scrollbar-thumb {
     border-width: 0;
   }
-  ::-webkit-track {
-    background: white;
-  }
-  ::-webkit-track:vertical {
-    -webkit-border-radius: 0;
-    margin: 0;
-  }
-  ::-webkit-track:horizontal {
-    -webkit-border-radius: 0;
-    margin: 0;
-  }
 }
 /******************************************************************************\
 |                                                                              |
@@ -4904,6 +4787,7 @@ body:not(.binary).light.chalk-scrollbars ::-webkit-scrollbar-thumb:active:vertic
 \******************************************************************************/
 .input {
   display: flex;
+  height: 100%;
 }
 .input .input-group {
   display: flex;
@@ -5276,28 +5160,6 @@ body:not(.binary).light.chalk #desktop.task-bar-minimized:not(.colorful) .task-b
 |******************************************************************************|
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
-/******************************************************************************\
-|                                                                              |
-|                         _light-plastic-badges.scss                           |
-|                                                                              |
-|******************************************************************************|
-|                                                                              |
-|        This defines various CSS styles used in this application.             |
-|                                                                              |
-|        Author(s): Abe Megahed                                                |
-|                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.txt', which is part of this source code distribution.        |
-|                                                                              |
-|******************************************************************************|
-|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
-\******************************************************************************/
-body:not(.binary).light.plastic .badge {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, white 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), rgba(255, 255, 255, 0.1) 0%, transparent 50%, rgba(0, 0, 0, 0.1) 100%) no-repeat;
-  background-color: #6060a0;
-  border-color: #56569d;
-}
-
 /******************************************************************************\
 |                                                                              |
 |                              _plastic-btns.scss                              |
@@ -5797,28 +5659,6 @@ body:not(.binary).light.plastic #desktop.task-bar-minimized:not(.colorful) .task
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                          _light-glass-badges.scss                            |
-|                                                                              |
-|******************************************************************************|
-|                                                                              |
-|        This defines various CSS styles used in this application.             |
-|                                                                              |
-|        Author(s): Abe Megahed                                                |
-|                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.txt', which is part of this source code distribution.        |
-|                                                                              |
-|******************************************************************************|
-|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
-\******************************************************************************/
-body:not(.binary).light.glass .badge {
-  background: radial-gradient(ellipse 25% 12% at 50% 10%, white 25%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.5) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 50% at 50% 85%, #dfdfec 0%, #7070aa 50%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 33%, rgba(96, 96, 160, 0.5) 100%) no-repeat;
-  background-color: #434396;
-  border-color: #434396;
-}
-
-/******************************************************************************\
-|                                                                              |
 |                               _glass-btns.scss                               |
 |                                                                              |
 |******************************************************************************|
@@ -6007,34 +5847,34 @@ body:not(.binary).light.glass #desktop.medium .desktop.app > .footer-bar .deskto
 |******************************************************************************|
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
-body:not(.binary) .glass.modals .modal.focused .modal-dialog .modal-header, body:not(.binary).glass .auto-material.modals .modal.focused .modal-dialog .modal-header {
+body:not(.binary) .light.glass.modals .modal.focused .modal-dialog .modal-header, body:not(.binary).light.glass .auto-material.modals .modal.focused .modal-dialog .modal-header {
   background: linear-gradient(var(--light-direction), white 0%, transparent 10%) no-repeat, linear-gradient(var(--light-direction), rgba(255, 255, 255, 0.25) 0%, transparent 25%) no-repeat, linear-gradient(var(--light-direction), transparent 50%, white 100%) no-repeat;
   background-color: rgba(0, 0, 0, 0);
   border-color: #e6e6f2;
 }
-body:not(.binary) .glass.modals .modal:not(.focused) .modal-dialog .modal-header, body:not(.binary).glass .auto-material.modals .modal:not(.focused) .modal-dialog .modal-header {
+body:not(.binary) .light.glass.modals .modal:not(.focused) .modal-dialog .modal-header, body:not(.binary).light.glass .auto-material.modals .modal:not(.focused) .modal-dialog .modal-header {
   background: linear-gradient(var(--light-direction), white 0%, transparent 10%) no-repeat, linear-gradient(var(--light-direction), rgba(255, 255, 255, 0.25) 0%, transparent 25%) no-repeat, linear-gradient(var(--light-direction), transparent 50%, #e9e9e9 100%) no-repeat;
   background-color: rgba(0, 0, 0, 0);
   border-color: #cfcfdc;
 }
-body:not(.binary).transparent .glass.modals .modal.focused .modal-dialog .modal-header, body:not(.binary).transparent.glass .auto-material.modals .modal.focused .modal-dialog .modal-header {
+body:not(.binary).transparent .light.glass.modals .modal.focused .modal-dialog .modal-header, body:not(.binary).transparent.light.glass .auto-material.modals .modal.focused .modal-dialog .modal-header {
   background: linear-gradient(var(--light-direction), white 0%, transparent 10%) no-repeat, linear-gradient(var(--light-direction), rgba(255, 255, 255, 0.25) 0%, transparent 25%) no-repeat, linear-gradient(var(--light-direction), transparent 50%, white 100%) no-repeat;
   background-color: rgba(204, 204, 229, 0.8);
   border-color: #e6e6f2;
 }
-body:not(.binary).transparent .glass.modals .modal:not(.focused) .modal-dialog .modal-header, body:not(.binary).transparent.glass .auto-material.modals .modal:not(.focused) .modal-dialog .modal-header {
+body:not(.binary).transparent .light.glass.modals .modal:not(.focused) .modal-dialog .modal-header, body:not(.binary).transparent.light.glass .auto-material.modals .modal:not(.focused) .modal-dialog .modal-header {
   background: linear-gradient(var(--light-direction), white 0%, transparent 10%) no-repeat, linear-gradient(var(--light-direction), rgba(255, 255, 255, 0.25) 0%, transparent 25%) no-repeat, linear-gradient(var(--light-direction), transparent 50%, #e9e9e9 100%) no-repeat;
   background-color: rgba(184, 184, 209, 0.8);
   border-color: #cfcfdc;
 }
-body:not(.binary).translucent .glass.modals .modal.focused .modal-dialog .modal-header, body:not(.binary).translucent.glass .auto-material.modals .modal.focused .modal-dialog .modal-header {
+body:not(.binary).translucent .light.glass.modals .modal.focused .modal-dialog .modal-header, body:not(.binary).translucent.light.glass .auto-material.modals .modal.focused .modal-dialog .modal-header {
   background: linear-gradient(var(--light-direction), white 0%, transparent 10%) no-repeat, linear-gradient(var(--light-direction), rgba(255, 255, 255, 0.25) 0%, transparent 25%) no-repeat, linear-gradient(var(--light-direction), transparent 50%, white 100%) no-repeat;
   background-color: rgba(204, 204, 229, 0.7);
   border-color: #e6e6f2;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
-body:not(.binary).translucent .glass.modals .modal:not(.focused) .modal-dialog .modal-header, body:not(.binary).translucent.glass .auto-material.modals .modal:not(.focused) .modal-dialog .modal-header {
+body:not(.binary).translucent .light.glass.modals .modal:not(.focused) .modal-dialog .modal-header, body:not(.binary).translucent.light.glass .auto-material.modals .modal:not(.focused) .modal-dialog .modal-header {
   background: linear-gradient(var(--light-direction), white 0%, transparent 10%) no-repeat, linear-gradient(var(--light-direction), rgba(255, 255, 255, 0.25) 0%, transparent 25%) no-repeat, linear-gradient(var(--light-direction), transparent 50%, #e9e9e9 100%) no-repeat;
   background-color: rgba(184, 184, 209, 0.7);
   border-color: #cfcfdc;
@@ -6341,28 +6181,6 @@ body:not(.binary).light.glass #desktop.task-bar-minimized:not(.colorful) .task-b
 |******************************************************************************|
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
-/******************************************************************************\
-|                                                                              |
-|                          _light-metal-badges.scss                            |
-|                                                                              |
-|******************************************************************************|
-|                                                                              |
-|        This defines various CSS styles used in this application.             |
-|                                                                              |
-|        Author(s): Abe Megahed                                                |
-|                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.txt', which is part of this source code distribution.        |
-|                                                                              |
-|******************************************************************************|
-|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
-\******************************************************************************/
-body:not(.binary).light.metal .badge {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, rgba(255, 255, 255, 0.75) 0%, rgba(128, 128, 179, 0.75) 50%, rgba(0, 0, 0, 0) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, #6060a0 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, rgba(96, 96, 160, 0.5) 66%, #9090bd 100%) no-repeat;
-  background-color: #303090;
-  border-color: #434396;
-}
-
 /******************************************************************************\
 |                                                                              |
 |                               _metal-btns.scss                               |
@@ -7175,7 +6993,7 @@ body:not(.binary).light ul.panels li {
   border-color: #e6e6e6;
 }
 body:not(.binary).light.transparent .dropdown-menu, body:not(.binary).light.transparent .menu-content {
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9) 0%, transparent 100%) no-repeat, rgba(255, 255, 255, 0.8);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.75) 0%, transparent 100%) no-repeat, rgba(255, 255, 255, 0.75);
 }
 body:not(.binary).light.transparent .dropdown-menu .panel, body:not(.binary).light.transparent .dropdown-menu ul.panels > li:not(:hover), body:not(.binary).light.transparent .menu-content .panel, body:not(.binary).light.transparent .menu-content ul.panels > li:not(:hover) {
   background: none;
@@ -7184,7 +7002,7 @@ body:not(.binary).light.transparent .dropdown-menu .dropdown-menu, body:not(.bin
   background-color: white;
 }
 body:not(.binary).light.translucent .dropdown-menu, body:not(.binary).light.translucent .menu-content {
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, transparent 100%) no-repeat, rgba(255, 255, 255, 0.6);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.75) 0%, transparent 100%) no-repeat, rgba(255, 255, 255, 0.66);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
@@ -7279,7 +7097,7 @@ body:not(.binary).light.translucent.menu-margins #desktop.light .header-bar .men
 body:not(.binary).light.translucent.menu-margins #desktop.light .header-bar .menu-bar > ul.nav-menus > li.open > a:active {
   color: #272740;
   background: rgba(96, 96, 160, 0.25);
-  border-color: rgba(96, 96, 160, 0.25);
+  border-color: transparent;
 }
 
 /******************************************************************************\
@@ -7318,7 +7136,7 @@ body:not(.binary).light .navbar-inverse:not(.colored) .navbar-nav > li:not(.acti
   color: #6060a0;
 }
 body:not(.binary).light .navbar-inverse:not(.colored) .navbar-nav > li.active {
-  background-color: #8080b3;
+  background-color: var(--primary-color);
 }
 body:not(.binary).light .navbar-inverse:not(.colored) .navbar-nav > li.active > a, body:not(.binary).light .navbar-inverse:not(.colored) .navbar-nav > li.active > a:focus {
   color: white;
@@ -7327,7 +7145,7 @@ body:not(.binary).light .navbar-inverse:not(.colored) .navbar-nav > li.active > 
   color: white;
 }
 body:not(.binary).light .navbar-inverse:not(.colored) .navbar-nav > li.open {
-  background-color: #8080b3;
+  background-color: var(--primary-color);
 }
 body:not(.binary).light .navbar-inverse:not(.colored) .navbar-nav > li.open > a, body:not(.binary).light .navbar-inverse:not(.colored) .navbar-nav > li.open > a:focus {
   color: white;

@@ -19,8 +19,8 @@ import Connection from '../../../models/users/connections/connection.js';
 import Post from '../../../models/topics/post.js';
 import UserProfile from '../../../models/users/profile/user-profile.js';
 import Gesture from '../../../models/gestures/gesture.js';
-import File from '../../../models/files/file.js';
-import Directory from '../../../models/files/directory.js';
+import File from '../../../models/storage/files/file.js';
+import Directory from '../../../models/storage/directories/directory.js';
 import Place from '../../../models/places/place.js';
 import CheckIn from '../../../models/places/check-in.js';
 import Connections from '../../../collections/users/connections/connections.js';
@@ -182,33 +182,43 @@ export default AppSplitView.extend(_.extend({}, Openable, ConnectionShareable, L
 	},
 
 	deleteItems: function() {
-		if (this.model.is(application.session.user)) {
-			switch (this.tab) {
-				case 'profile':
-				case 'posts': {
-					let selected = this.getSelected();
-					for (let i = 0; i < selected.length; i++) {
-						selected[i].delete({
-							confirm: true
-						});
-					}
-					break;
-				}
-				case 'connections': {
-					if (this.hasSelected()) {
-						this.deleteConnections(this.getSelectedModels(), {
-							confirm: true
-						});
-					}
-					break;
-				}
-			}
-		} else {
+
+		// check if current user
+		//
+		if (!this.model.is(application.session.user)) {
+
+			// show alert message
+			//
 			application.alert({
 				icon: '<i class="fa fa-lock"></i>',
 				title: "Permissions Error",
 				message: "You do not have permission to delete these items."
 			});
+
+			return;
+		}
+
+		// delete selected
+		//
+		switch (this.tab) {
+			case 'profile':
+			case 'posts': {
+				let selected = this.getSelected();
+				for (let i = 0; i < selected.length; i++) {
+					selected[i].delete({
+						confirm: true
+					});
+				}
+				break;
+			}
+			case 'connections': {
+				if (this.hasSelected()) {
+					this.deleteConnections(this.getSelectedModels(), {
+						confirm: true
+					});
+				}
+				break;
+			}
 		}
 	},
 
@@ -350,8 +360,8 @@ export default AppSplitView.extend(_.extend({}, Openable, ConnectionShareable, L
 		});
 	},
 
-	shareByPost: function(options) {
-		this.shareLinkByPost(this.model.getUrl(), _.extend({}, options, {
+	shareByTopic: function(options) {
+		this.shareLinkByTopic(this.model.getUrl(), _.extend({}, options, {
 			message: this.model.get('short_name') + ': ' + '\n'
 		}));
 	},
@@ -388,7 +398,7 @@ export default AppSplitView.extend(_.extend({}, Openable, ConnectionShareable, L
 
 	editName: function() {
 		import(
-			'../../../views/apps/profile-viewer/mainbar/profile/dialogs/edit/edit-user-name-dialog-view.js'
+			'../../../views/apps/profile-viewer/dialogs/profile/edit-user-name-dialog-view.js'
 		).then((EditUserNameDialogView) => {
 			
 			// show edit dialog

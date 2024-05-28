@@ -17,6 +17,7 @@
 
 @use "../../../../../colors/colors";
 @use "../../../../../colors/text-colors";
+@use "../../../../../materials/glass/frosted-glass";
 @use "../../colors/medium-branding";
 
 //
@@ -25,6 +26,7 @@
 
 $background-color: colors.$ultra-light-grey;
 $message-color: colors.$light-grey;
+$message-background-color: colors.faded(colors.$very-light-grey, 25%);
 $border-color: darken($background-color, 10%);
 
 $sidebar-color: $background-color;
@@ -65,6 +67,12 @@ body:not(.binary) {
 					i {
 						color: inherit;
 					}
+				}
+
+				.btn-primary {
+					i {
+						color: white;
+					}		
 				}
 			}
 
@@ -112,6 +120,8 @@ body:not(.binary) {
 
 			.help.message {
 				color: $message-color;
+				background: $message-background-color;
+				@include frosted-glass.frosted();
 
 				i {
 					color: $message-color;

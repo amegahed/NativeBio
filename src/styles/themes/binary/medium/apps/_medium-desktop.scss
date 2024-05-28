@@ -35,6 +35,7 @@ body.binary {
 
 	#desktop {
 		@include binary-colors.grey;
+		background-position: 0 0 !important;
 	}
 
 	//
@@ -60,18 +61,16 @@ body.binary {
 					}
 				}
 			}
-		}
 
-		//
-		// selection boxes
-		//
+			//
+			// selection boxes
+			//
 
-		.selection {
-			color: white;
-			@include binary-colors.lighten-less;
-		}
-
-		> .body {
+			.selection {
+				color: white;
+				border-color: black;
+				@include binary-colors.lighten-less-alt;
+			}
 
 			//
 			// file browser icons

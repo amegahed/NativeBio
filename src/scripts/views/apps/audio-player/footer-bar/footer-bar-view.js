@@ -16,7 +16,7 @@
 \******************************************************************************/
 
 import FooterBarView from '../../../../views/apps/common/footer-bar/footer-bar-view.js';
-import NavBarView from '../../../../views/apps/audio-player/footer-bar/nav-bar/nav-bar-view.js';
+import AudioBarView from '../../../../views/apps/audio-player/footer-bar/audio-bar/audio-bar-view.js';
 import StatusBarView from '../../../../views/apps/audio-player/footer-bar/status-bar/status-bar-view.js';
 
 export default FooterBarView.extend({
@@ -25,14 +25,14 @@ export default FooterBarView.extend({
 	// attributes
 	//
 
-	toolbars: ['window', 'nav', 'status'],
+	toolbars: ['window', 'audio', 'status'],
 
 	//
 	// getting methods
 	//
 
-	getNavBarView: function() {
-		return new NavBarView({
+	getAudioBarView: function() {
+		return new AudioBarView({
 			trackNumber: this.collection? this.collection.indexOf(this.model) + 1 : undefined,
 			numTracks: 	this.collection? this.collection.length : undefined
 		});
@@ -43,5 +43,36 @@ export default FooterBarView.extend({
 			model: this.model,
 			status: 'Not Playing'
 		});
+	},
+
+	//
+	// rendering methods
+	//
+
+	showToolbar: function(kind) {
+		switch (kind) {
+			case 'window':
+				this.showWindowBar();
+				break;
+			case 'audio':
+				this.showAudioBar();
+				break;
+			case 'status':
+				this.showStatusBar();
+				break;
+		}
+	},
+
+	showWindowBar: function() {
+		this.showChildView('window', this.getWindowBarView());
+	},
+
+	showAudioBar: function() {
+		this.showChildView('audio', this.getAudioBarView());
+		this.getChildView('audio').$el.addClass('windowed-app-only');
+	},
+
+	showStatusBar: function() {
+		this.showChildView('status', this.getStatusBarView());
 	}
 });

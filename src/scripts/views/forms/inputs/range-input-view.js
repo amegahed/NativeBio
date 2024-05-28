@@ -85,6 +85,9 @@ export default NumberInputView.extend({
 		if (this.options.selectable == undefined) {
 			this.options.selectable = true;
 		}
+		if (this.options.size == undefined) {
+			this.options.size = Math.max(this.numChars(this.options.max || this.max - 1) + 0.5, 2);
+		}
 
 		// set atributes
 		//
@@ -145,7 +148,7 @@ export default NumberInputView.extend({
 
 		return value;
 	},
-	
+
 	//
 	// setting methods
 	//
@@ -160,7 +163,7 @@ export default NumberInputView.extend({
 	},
 
 	setNumber: function(value) {
-		this.$el.find('input[type="number"]').val(Math.round(value));
+		this.$el.find('input[type="number"]').val(value);
 	},
 
 	setRange: function(value) {
@@ -185,7 +188,7 @@ export default NumberInputView.extend({
 	// converting methods
 	//
 
-	valueToRange: function(value) {	
+	valueToRange: function(value) {
 		switch (this.scale) {
 			case 'linear':
 				return value;
@@ -194,7 +197,7 @@ export default NumberInputView.extend({
 				let max = Math.log(this.max);
 				return this.min + (Math.log(value) - min) / (max - min) * (this.max - this.min);
 			}
-		}		
+		}
 	},
 
 	rangeToValue: function(range) {
@@ -229,7 +232,7 @@ export default NumberInputView.extend({
 			step: this.step || 'any',
 			value: this.valueToInput(this.value),
 			range: this.valueToRange(this.value),
-			size: Math.max(this.numChars(this.max), 2),
+			size: this.options.size,
 			values: this.options.values,
 			slider: this.options.slider,
 			input: this.options.input,

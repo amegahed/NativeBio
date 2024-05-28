@@ -41,11 +41,11 @@
 	
 	<h2><i class="fa fa-desktop"></i>Screen Shots</h2>
 	<div class="figure desktop-only">
-		<a href="images/info/apps/settings-browser/settings-browser.png" target="_blank" class="lightbox" title="Settings"><img class="dialog" src="images/info/apps/settings-browser/settings-browser.png" /></a>
-		<div class="caption">Settings</div>
+		<a href="images/info/apps/settings-browser/settings-browser.png" target="_blank" class="lightbox" title="<%= config.apps['settings_browser'].name %>"><img class="dialog" src="images/info/apps/settings-browser/settings-browser.png" /></a>
+		<div class="caption"><%= config.apps['settings_browser'].name %></div>
 	</div>
 	<div class="figure mobile-only">
-		<a href="images/info/apps/settings-browser/mobile/mobile-settings-browser.png" target="_blank" class="lightbox" title="Settings"><img src="images/info/apps/settings-browser/mobile/mobile-settings-browser.png" /></a>
-		<div class="caption">Settings</div>
+		<a href="images/info/apps/settings-browser/mobile/mobile-settings-browser.png" target="_blank" class="lightbox" title="<%= config.apps['settings_browser'].name %>"><img src="images/info/apps/settings-browser/mobile/mobile-settings-browser.png" /></a>
+		<div class="caption"><%= config.apps['settings_browser'].name %></div>
 	</div>
 </div>

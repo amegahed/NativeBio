@@ -70,7 +70,7 @@ body:not(.binary) {
 						// hover state
 						//
 
-						&:not(.colored):hover {
+						&:hover:not(.colored) {
 							color: $hover-color;
 
 							i, label {
@@ -101,7 +101,7 @@ body:not(.binary) {
 				// open state
 				//
 
-				&.open {
+				&.open:not(.colored) {
 					background-color: $active-background-color;
 
 					> a, > a:focus {

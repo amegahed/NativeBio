@@ -29,7 +29,7 @@ export default BaseView.extend({
 
 	template: template(`
 		<div class="content">
-			<ul class="nav nav-tabs" role="tablist">
+			<ul class="nav nav-tabs auto-width" role="tablist">
 				<li role="presentation" class="notifications-tab active">
 					<a role="tab" data-toggle="tab" href=".notifications-panel">
 						<i class="fa fa-exclamation-triangle"></i>

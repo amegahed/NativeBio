@@ -36,14 +36,14 @@
 	<h2><i class="fa fa-desktop"></i>Screen Shots</h2>
 	<div class="figure desktop-only">
 		<div class="figure col-sm-6">
-			<a href="images/info/apps/timer/timer.png" target="_blank" class="lightbox" title="Timer"><img class="dialog" src="images/info/apps/timer/timer.png" style="width:auto; height:300px" /></a>
-			<div class="caption">Timer</div>
+			<a href="images/info/apps/timer/timer.png" target="_blank" class="lightbox" title="<%= config.apps['timer'].name %>"><img class="dialog" src="images/info/apps/timer/timer.png" style="width:auto; height:300px" /></a>
+			<div class="caption"><%= config.apps['timer'].name %></div>
 		</div>
 	</div>
 	<div class="figure row mobile-only">
 		<div class="figure col-sm-6">
-			<a href="images/info/apps/timer/mobile/mobile-timer.png" target="_blank" class="lightbox" title="Timer"><img src="images/info/apps/timer/mobile/mobile-timer.png" /></a>
-			<div class="caption">Timer</div>
+			<a href="images/info/apps/timer/mobile/mobile-timer.png" target="_blank" class="lightbox" title="<%= config.apps['timer'].name %>"><img src="images/info/apps/timer/mobile/mobile-timer.png" /></a>
+			<div class="caption"><%= config.apps['timer'].name %></div>
 		</div>
 	</div>
 </div>

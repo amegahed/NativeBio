@@ -34,10 +34,10 @@ export default CollectionView.extend(_.extend({}, SelectableContainable, TreeCon
 		<div class="info">
 			
 			<span class="expander">
-				<button type="button" class="expand btn btn-sm">
+				<button type="button" class="expand btn-sm">
 					<i class="fa fa-caret-right"></i>	
 				</button>
-				<button type="button" class="collapse btn btn-sm">
+				<button type="button" class="collapse btn-sm">
 					<i class="fa fa-caret-down"></i>
 				</button>
 			</span>
@@ -167,7 +167,15 @@ export default CollectionView.extend(_.extend({}, SelectableContainable, TreeCon
 	},
 
 	getItemView: function(model, options) {
-		// return this.children.findByModel(model);
+
+		// check root
+		//
+		if (this.model.is(model)) {
+			return this;
+		}
+
+		// check children
+		//
 		for (let i = 0; i < this.children.length; i++) {
 			let childView = this.children.findByIndex(i);
 			if (childView.model.is(model)) {
@@ -218,7 +226,7 @@ export default CollectionView.extend(_.extend({}, SelectableContainable, TreeCon
 	// selecting methods
 	//
 
-	selectItem: function(model) {
+	selectItem: function(model, options) {
 
 		// deselect previously selected items
 		//
@@ -232,18 +240,24 @@ export default CollectionView.extend(_.extend({}, SelectableContainable, TreeCon
 			recursive: true
 		});
 
+		// check if we found a child view
+		//
+		if (!itemView) {
+			return;
+		}
+
 		// expand parent of child
 		//
-		if (itemView) {
+		if (!itemView.isTop()) {
 			let directoryView = itemView.parent;
 			if (directoryView) {
 				directoryView.expand();
 			}
-
-			// select child view
-			//
-			itemView.select();
 		}
+
+		// select child view
+		//
+		itemView.select(options);
 	},
 
 	//
@@ -270,7 +284,7 @@ export default CollectionView.extend(_.extend({}, SelectableContainable, TreeCon
 	},
 
 	update: function() {
-		
+
 		// update item details
 		//
 		this.$el.find('> .info .icon').html(this.getIcon());
@@ -288,9 +302,9 @@ export default CollectionView.extend(_.extend({}, SelectableContainable, TreeCon
 
 	updateIcon: function() {
 		this.$el.find('> .info > .icon').empty();
-		this.$el.find('> .info > .icon').html(this.getIcon());	
+		this.$el.find('> .info > .icon').html(this.getIcon());
 	},
-	
+
 	//
 	// expand / collapse methods
 	//
@@ -298,7 +312,7 @@ export default CollectionView.extend(_.extend({}, SelectableContainable, TreeCon
 	isCollapsed: function() {
 		return this.$el.hasClass('collapsed');
 	},
-	
+
 	expand: function() {
 
 		// expand parent(s)
@@ -357,6 +371,7 @@ export default CollectionView.extend(_.extend({}, SelectableContainable, TreeCon
 		// deselect previously selected items
 		//
 		if (this.options.deselectable != false) {
+			this.deselect();
 			this.deselectAll(null, {
 				silent: true
 			});

@@ -17,7 +17,7 @@
 
 import Task from '../../../../../models/projects/task.js';
 import Tasks from '../../../../../collections/projects/tasks.js';
-import Items from '../../../../../collections/files/items.js';
+import Items from '../../../../../collections/storage/items.js';
 import BaseView from '../../../../../views/base-view.js';
 import SelectableContainable from '../../../../../views/behaviors/containers/selectable-containable.js';
 import TasksView from '../../../../../views/apps/project-viewer/mainbar/projects/tasks/tasks-view.js';

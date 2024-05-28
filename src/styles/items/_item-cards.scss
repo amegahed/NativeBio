@@ -27,7 +27,7 @@
 $icon-size: 50px;
 $font-size: 35px;
 $round-border-radius: 15px;
-$rounded-border-radius: 10px;
+$rounded-border-radius: 5px;
 $round-icon-text-border-radius: item-icons.$round-icon-text-border-radius;
 $rounded-icon-text-border-radius: item-icons.$rounded-icon-text-border-radius;
 
@@ -59,6 +59,7 @@ $rounded-icon-text-border-radius: item-icons.$rounded-icon-text-border-radius;
 
 		.item {
 			pointer-events: none;
+			min-height: 80px;
 
 			.card {
 				display: inline-flex;
@@ -107,15 +108,6 @@ $rounded-icon-text-border-radius: item-icons.$rounded-icon-text-border-radius;
 							font-size: 14px;
 							color: white;
 							filter: none !important;
-						}
-
-						&.fa-map-marker + .fa-info-circle {
-							margin-top: -7px;
-						}
-
-						&.fa-map-pin + .fa-info-circle {
-							margin-left: 2px;
-							margin-top: -15px
 						}
 					}
 
@@ -283,13 +275,37 @@ $rounded-icon-text-border-radius: item-icons.$rounded-icon-text-border-radius;
 }
 
 //
+// expandable cards
+//
+
+.cards .expandable.item > .card {
+	display: inline-block;
+
+	.icon {
+		float: left;
+	}
+}
+
+//
+// page cards
+//
+
+@media (min-width: variables.$screen-sm-min) {
+	.page {
+		.card-grid {
+			column-count: 2;
+		}
+	}
+}
+
+//
 // card borders
 //
 
 .round-icons .card-grid,
 .round.auto-corner-icons .card-grid {
 	.cards {
-		border-radius: 5px;
+		border-radius: $round-border-radius;
 
 		.item {
 			.card {
@@ -313,13 +329,17 @@ $rounded-icon-text-border-radius: item-icons.$rounded-icon-text-border-radius;
 				}
 			}
 		}
+
+		.empty {
+			border-radius: $round-border-radius;
+		}
 	}
 }
 
 .rounded-icons .card-grid,
 .rounded.auto-corner-icons .card-grid {
 	.cards {
-		border-radius: 3px;
+		border-radius: $rounded-border-radius;
 
 		.item {
 			.card {
@@ -343,6 +363,10 @@ $rounded-icon-text-border-radius: item-icons.$rounded-icon-text-border-radius;
 				}
 			}
 		}
+
+		.empty {
+			border-radius: $rounded-border-radius;
+		}
 	}
 }
 
@@ -364,6 +388,10 @@ $rounded-icon-text-border-radius: item-icons.$rounded-icon-text-border-radius;
 					}
 				}
 			}
+		}
+
+		.empty {
+			border-radius: 0;
 		}
 	}
 }

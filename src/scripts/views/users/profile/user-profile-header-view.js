@@ -15,7 +15,7 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import Directory from '../../../models/files/directory.js';
+import Directory from '../../../models/storage/directories/directory.js';
 import BaseView from '../../../views/base-view.js';
 
 export default BaseView.extend({

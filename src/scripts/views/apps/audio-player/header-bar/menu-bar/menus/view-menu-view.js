@@ -25,6 +25,10 @@ export default ViewMenuView.extend({
 
 	template: template(`
 		<li role="presentation" type="detail-kind">
+			<a class="view-name-only"><i class="fa fa-check"></i><i class="fa fa-font"></i>Name Only</a>
+		</li>
+
+		<li role="presentation" type="detail-kind">
 			<a class="view-album"><i class="fa fa-check"></i><i class="fa fa-folder"></i>Album</a>
 		</li>
 		
@@ -66,10 +70,10 @@ export default ViewMenuView.extend({
 		
 		<li role="separator" class="divider"></li>
 
-		<li role="presentation" class="toolbars dropdown dropdown-submenu">
+		<li role="presentation" class="show-toolbars dropdown dropdown-submenu">
 			<a class="dropdown-toggle"><i class="fa fa-check"></i><i class="fa fa-wrench"></i>Toolbars<i class="fa fa-caret-left"></i><i class="fa fa-caret-right"></i></a>
 		
-			<ul class="show-toolbars dropdown-menu" data-toggle="dropdown">
+			<ul class="show-toolbar dropdown-menu" data-toggle="dropdown">
 		
 				<li role="presentation" class="option">
 					<a class="show-track-bar"><i class="fa fa-check"></i><i class="fa fa-play"></i>Track</a>
@@ -77,6 +81,10 @@ export default ViewMenuView.extend({
 		
 				<li role="presentation" class="option">
 					<a class="show-volume-bar"><i class="fa fa-check"></i><i class="fa fa-volume-up"></i>Volume</a>
+				</li>
+
+				<li role="presentation" class="option">
+					<a class="show-audio-bar"><i class="fa fa-check"></i><i class="fa fa-play"></i>Audio</a>
 				</li>
 			</ul>
 		</li>
@@ -127,17 +135,31 @@ export default ViewMenuView.extend({
 		
 		<li role="presentation" class="desktop-app-only spaces dropdown dropdown-submenu">
 			<a class="dropdown-toggle"><i class="fa fa-check"></i><i class="far fa-window-maximize"></i>Spaces<i class="fa fa-caret-left"></i><i class="fa fa-caret-right"></i></a>
-		
+
 			<ul class="dropdown-menu" data-toggle="dropdown">
-		
+
 				<li role="presentation">
 					<a class="prev-space"><i class="fa fa-chevron-left"></i>Prev<span class="command shortcut">left arrow</span></a>
 				</li>
-		
+
 				<li role="presentation">
 					<a class="next-space"><i class="fa fa-chevron-right"></i>Next<span class="command shortcut">right arrow</span></a>
 				</li>
-		
+			</ul>
+		</li>
+
+		<li role="presentation" class="desktop-app-only windows dropdown dropdown-submenu">
+			<a class="dropdown-toggle"><i class="fa fa-check"></i><i class="far fa-window-restore"></i>Windows<i class="fa fa-caret-left"></i><i class="fa fa-caret-right"></i></a>
+
+			<ul class="dropdown-menu" data-toggle="dropdown">
+
+				<li role="presentation">
+					<a class="minimize-all"><i class="fa fa-window-minimize"></i>Minimize All</a>
+				</li>
+
+				<li role="presentation">
+					<a class="unminimize-all"><i class="fa fa-window-restore"></i>Unminimize All</a>
+				</li>
 			</ul>
 		</li>
 		
@@ -158,11 +180,12 @@ export default ViewMenuView.extend({
 
 		// view options
 		//
-		'click li[type="detail-kind"]': 'onClickDetailKind',
+		'click li[type="detail-kind"] a': 'onClickDetailKind',
 
 		// toolbar options
 		//
-		'click .show-toolbars a': 'onClickShowToolbar',
+		'click .show-toolbars > a': 'onClickShowToolbars',
+		'click .show-toolbar > li > a': 'onClickShowToolbar',
 
 		// sidebar options
 		//
@@ -175,8 +198,13 @@ export default ViewMenuView.extend({
 		'click .shrink-window': 'onClickShrinkWindow',
 		'click .grow-window': 'onClickGrowWindow',
 		'click .expand-window': 'onClickExpandWindow',
+
+		// desktop options
+		//
 		'click .prev-space': 'onClickPrevSpace',
 		'click .next-space': 'onClickNextSpace',
+		'click .minimize-all': 'onClickMinimizeAll',
+		'click .unminimize-all': 'onClickUnminimizeAll',
 		'click .view-full-screen': 'onClickViewFullScreen',
 
 		// preferences options
@@ -198,6 +226,7 @@ export default ViewMenuView.extend({
 
 			// detail options
 			//
+			'view-name-only': !detailKind,
 			'view-album': detailKind == 'album',
 			'view-artist': detailKind == 'artist',
 			'view-band': detailKind == 'band',
@@ -210,8 +239,10 @@ export default ViewMenuView.extend({
 
 			// toolbar options
 			//
+			'show-toolbars': toolbars.length > 0,
 			'show-track-bar': toolbars.includes('track'),
 			'show-volume-bar': toolbars.includes('volume'),
+			'show-audio-bar': toolbars.includes('audio'),
 
 			// sidebar options
 			//
@@ -220,6 +251,18 @@ export default ViewMenuView.extend({
 			'show-track-info-panel': sidebarPanels.includes('track_info'),
 			'show-analyser': preferences.get('show_analyser')
 		};	
+	},
+
+	//
+	// setting methods
+	//
+
+	setDetailKind: function(detailKind) {
+
+		// update menu
+		//
+		this.$el.find('li[type=detail-kind].selected').removeClass('selected');
+		this.$el.find('.view-' + detailKind).closest('li').addClass('selected');
 	},
 
 	//
@@ -237,18 +280,14 @@ export default ViewMenuView.extend({
 	//
 
 	onClickDetailKind: function(event) {
-		let className = $(event.target).closest('li').find('a').attr('class');
-		let detailKind = className.replace('view-', '').replace('-', '_');
-		let classNames = this.$el.find('li[type=detail-kind]').map((index, element) => { 
-			return $(element).find('a').attr('class');
-		}).get();
+		let className = $(event.currentTarget).attr('class');
+		let detailKind = className.replace('view-', '').replace(/-/g, '_');
 
 		// update menu
 		//
-		this.setItemsDeselected(classNames);
-		this.toggleMenuItem(className);
+		this.setDetailKind(detailKind);
 
-		// update app
+		// update parent
 		//
 		this.parent.app.setOption('detail_kind', detailKind);
 	},

@@ -15,7 +15,7 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import Items from '../../../../../collections/files/items.js';
+import Items from '../../../../../collections/storage/items.js';
 import FileIterable from '../../../../../views/apps/file-browser/mainbar/behaviors/file-iterable.js';
 import ProgressDialogView from '../../../../../views/dialogs/monitoring/progress-dialog-view.js';
 import FileUtils from '../../../../../utilities/files/file-utils.js';
@@ -26,6 +26,23 @@ import FileUtils from '../../../../../utilities/files/file-utils.js';
 let verbose = false;
 let check_file_type = false;
 
+//
+// upload throttling
+//
+
+let max_uploads = 10;
+let num_uploads = 0;
+
+const until = (condition, checkInterval=100) => {
+	return new Promise(resolve => {
+		let interval = setInterval(() => {
+			if (!condition()) return;
+			clearInterval(interval);
+			resolve();
+		}, checkInterval)
+	})
+}
+
 export default _.extend({}, FileIterable, {
 
 	//
@@ -33,18 +50,19 @@ export default _.extend({}, FileIterable, {
 	//
 
 	uploadable: true,
-	progressBarDelay: 1000,
-	uploadWarningCount: 500,
-	
+	progress_bar_delay: 1000,
+	upload_warning_count: 500,
+
 	//
 	// uploading methods
 	//
 
-	uploadFile: function(file, directory, options) {
+	uploadFile: async function(file, directory, options) {
 		let self = this;
 		let path = options? options.path : null;
-		let timeout, progressBar, cancelled = false, errors = 0;
 		let upload;
+		let timeout, progressBar;
+		let cancelled = false, errors = 0;
 
 		function showProgressBar() {
 			progressBar = self.showProgressBar({
@@ -77,7 +95,7 @@ export default _.extend({}, FileIterable, {
 			// show progress bar after delay
 			//
 			if (options && options.show_progress) {
-				timeout = window.setTimeout(() => showProgressBar(), self.progressBarDelay);
+				timeout = window.setTimeout(() => showProgressBar(), self.progress_bar_delay);
 			}
 		}
 
@@ -85,10 +103,12 @@ export default _.extend({}, FileIterable, {
 		//
 		if (!directory.isWritable()) {
 
-			// show error message
+			// show alert message
 			//
-			application.error({
-				message: "Permissions error - directory is not writable.",
+			application.alert({
+				icon: '<i class="fa fa-lock"></i>',
+				title: "Permissions Error",
+				message: "You do not have permission to write to this directory."
 			});
 
 			return;
@@ -97,11 +117,28 @@ export default _.extend({}, FileIterable, {
 		// make sure directory is loaded
 		//
 		if (!directory.loaded) {
+
+			// wait for resources
+			//
+			await until(() => {
+				return num_uploads < max_uploads || cancelled;
+			});
+			num_uploads++;
+
+			// create directory
+			//
 			directory.create({
 
 				// callbacks
 				//
 				success: () => {
+
+					// free resources
+					//
+					num_uploads--;
+
+					// upload directory contents
+					//
 					this.uploadFile(file, directory, options);
 				},
 
@@ -115,7 +152,7 @@ export default _.extend({}, FileIterable, {
 					});
 				}
 			});
-			
+
 			return;
 		}
 
@@ -126,7 +163,7 @@ export default _.extend({}, FileIterable, {
 				icon: '<i class="fa fa-upload"></i>',
 				title: "Confirm Upload",
 				message: "This location already contains a file named '" + file.name + "'.  Would you like to replace it?",
-				
+
 				// callbacks
 				//
 				accept: () => {
@@ -146,6 +183,10 @@ export default _.extend({}, FileIterable, {
 				}
 			});
 		} else {
+			await until(() => {
+				return num_uploads < max_uploads || cancelled;
+			});
+			num_uploads++;
 			start();
 
 			// get form data
@@ -164,7 +205,7 @@ export default _.extend({}, FileIterable, {
 			if (verbose) {
 				console.log("Uploading file " + file.name);
 			}
-			upload = newFile.uploadTo(directory, _.extend(_.extend({}, options), {
+			return newFile.uploadTo(directory, _.extend(_.extend({}, options), {
 				path: path,
 				data: formData,
 
@@ -181,6 +222,7 @@ export default _.extend({}, FileIterable, {
 				},
 
 				success: (model) => {
+					num_uploads--;
 
 					// cancel progress bar
 					//
@@ -199,7 +241,7 @@ export default _.extend({}, FileIterable, {
 					if (progressBar) {
 						progressBar.close();
 					}
-						
+
 					// perform callback
 					//
 					if (options && options.success) {
@@ -229,25 +271,27 @@ export default _.extend({}, FileIterable, {
 						}
 						errors++;
 					}
-				}	
+				}
 			}));
-
-			return upload;
 		}
 	},
 
-	uploadFiles: function(files, directory, options) {
+	uploadFiles: async function(files, directory, options) {
 		let self = this;
 		let uploads = [], uploaded = [];
-		let timeout, progressBar, errors = 0;
+		let timeout, progressBar;
+		let cancelled = false, errors = 0;
 
 		function abort() {
 			if (uploads.length > 0) {
 				for (let i = 0; i < uploads.length; i++) {
-					uploads[i].abort();
+					uploads[i].then((upload) => {
+						upload.abort();
+					});
 				}
 			}
 			uploads = [];
+			num_uploads = 0;
 		}
 
 		function showProgressBar() {
@@ -262,6 +306,7 @@ export default _.extend({}, FileIterable, {
 				// callbacks
 				//
 				cancel: function() {
+					cancelled = true;
 
 					// abort all uploads
 					//
@@ -281,7 +326,7 @@ export default _.extend({}, FileIterable, {
 			// show progress bar after delay
 			//
 			if (options && options.show_progress) {
-				timeout = window.setTimeout(() => showProgressBar(), self.progressBarDelay);
+				timeout = window.setTimeout(() => showProgressBar(), self.progress_bar_delay);
 			}
 		}
 
@@ -313,7 +358,7 @@ export default _.extend({}, FileIterable, {
 		function uploadFile(file) {
 			return self.uploadFile(file, directory, _.extend({}, options, {
 				show_progress: false,
-				
+
 				// callbacks
 				//
 				success: (file) => {
@@ -351,10 +396,12 @@ export default _.extend({}, FileIterable, {
 		//
 		if (!directory.isWritable()) {
 
-			// show error message
+			// show alert message
 			//
-			application.error({
-				message: "Permissions error - directory is not writable.",
+			application.alert({
+				icon: '<i class="fa fa-lock"></i>',
+				title: "Permissions Error",
+				message: "You do not have permission to write to this directory."
 			});
 
 			return;
@@ -363,11 +410,28 @@ export default _.extend({}, FileIterable, {
 		// make sure directory is loaded
 		//
 		if (!directory.loaded) {
+
+			// wait for resources
+			//
+			await until(() => {
+				return num_uploads < max_uploads || cancelled;
+			});
+			num_uploads++;
+
+			// create directory
+			//
 			directory.create({
 
 				// callbacks
 				//
 				success: () => {
+
+					// free resources
+					//
+					num_uploads--;
+
+					// upload directory contents
+					//
 					this.uploadFiles(files, directory, options);
 				},
 
@@ -381,7 +445,7 @@ export default _.extend({}, FileIterable, {
 					});
 				}
 			});
-			
+
 			return;
 		}
 
@@ -394,39 +458,46 @@ export default _.extend({}, FileIterable, {
 			// check for errors
 			//
 			if (!errors) {
-				if (!check_file_type || file.type != '') {
-					uploads.push(uploadFile(file));
-				} else {
+				if (check_file_type && file.type == '') {
 
-					// show alert dialog
+					// show alert message
 					//
 					application.alert({
 						icon: '<i class="fa fa-upload"></i>',
 						title: "Upload Error",
 						message: "The current version of your web browser can not upload folders.  Please try installing a newer version or using different type of web browser."
 					});
-					break;
+
+					return;
 				}
+
+				// add file to uploads
+				//
+				uploads.push(uploadFile(file));
 			} else {
 				break;
 			}
 		}
 	},
 
-	uploadDirectory: function(directoryEntry, directory, options) {
+	uploadDirectory: async function(directoryEntry, directory, options) {
 		let self = this;
 		let completed = 0, numItems;
 		let path = options? options.path : null;
-		let timeout, progressBar, cancelled = false, errors = 0;
 		let uploads = [];
+		let timeout, progressBar;
+		let cancelled = false, errors = 0;
 
 		function abort() {
 			if (uploads.length > 0) {
 				for (let i = 0; i < uploads.length; i++) {
-					uploads[i].abort();
+					uploads[i].then((upload) => {
+						upload.abort();
+					});
 				}
 			}
 			uploads = [];
+			num_uploads = 0;
 		}
 
 		function showProgressBar() {
@@ -475,7 +546,7 @@ export default _.extend({}, FileIterable, {
 			// show progress bar after delay
 			//
 			if (options && options.show_progress) {
-				timeout = window.setTimeout(() => showProgressBar(), self.progressBarDelay);
+				timeout = window.setTimeout(() => showProgressBar(), self.progress_bar_delay);
 			}
 		}
 
@@ -505,7 +576,7 @@ export default _.extend({}, FileIterable, {
 					options.error(model, response);
 				}
 				errors++;
-			}							
+			}
 		}
 
 		function finish(model) {
@@ -521,7 +592,7 @@ export default _.extend({}, FileIterable, {
 			if (progressBar) {
 				progressBar.close();
 			}
-							
+
 			// perform callback
 			//
 			if (options && options.success) {
@@ -529,9 +600,16 @@ export default _.extend({}, FileIterable, {
 			}
 		}
 
-		function uploadSubDirectory(directoryEntry, directory, options) {
-	
-			// create new directory
+		async function uploadSubDirectory(directoryEntry, directory, options) {
+
+			// wait for resources
+			//
+			await until(() => {
+				return num_uploads < max_uploads || cancelled;
+			});
+			num_uploads++;
+
+			// create directory
 			//
 			let dirname = directory.path? directory.path + directoryEntry.name + '/': directoryEntry.name + '/';
 			return directory.createDirectory(FileUtils.getDirectoryName(dirname), {
@@ -544,6 +622,10 @@ export default _.extend({}, FileIterable, {
 				// callbacks
 				//
 				success: (directory) => {
+
+					// free resources
+					//
+					num_uploads--;
 
 					// upload directory contents
 					//
@@ -586,7 +668,7 @@ export default _.extend({}, FileIterable, {
 						//
 						progress: progress,
 						success: finish,
-						error: error			
+						error: error
 					}));
 				});
 			} else {
@@ -602,10 +684,17 @@ export default _.extend({}, FileIterable, {
 			}
 		}
 
-		function startUpload() {
+		async function startUpload() {
 			start();
 
-			// create new directory
+			// wait for resources
+			//
+			await until(() => {
+				return num_uploads < max_uploads || cancelled;
+			});
+			num_uploads++;
+
+			// create directory
 			//
 			if (verbose) {
 				console.log("Uploading directory " + directoryEntry.name);
@@ -621,6 +710,10 @@ export default _.extend({}, FileIterable, {
 				// callbacks
 				//
 				success: (directory) => {
+
+					// free resources
+					//
+					num_uploads--;
 
 					// upload directory contents
 					//
@@ -651,10 +744,12 @@ export default _.extend({}, FileIterable, {
 		//
 		if (!directory.isWritable()) {
 
-			// show error message
+			// show alert message
 			//
-			application.error({
-				message: "Permissions error - directory is not writable.",
+			application.alert({
+				icon: '<i class="fa fa-lock"></i>',
+				title: "Permissions Error",
+				message: "You do not have permission to write to this directory."
 			});
 
 			return;
@@ -663,11 +758,28 @@ export default _.extend({}, FileIterable, {
 		// make sure directory is loaded
 		//
 		if (!directory.loaded) {
+
+			// wait for resources
+			//
+			await until(() => {
+				return num_uploads < max_uploads || cancelled;
+			});
+			num_uploads++;
+
+			// create directory
+			//
 			directory.create({
 
 				// callbacks
 				//
 				success: () => {
+
+					// free resources
+					//
+					num_uploads--;
+
+					// upload directory contents
+					//
 					this.uploadDirectory(directoryEntry, directory, options);
 				},
 
@@ -681,7 +793,7 @@ export default _.extend({}, FileIterable, {
 					});
 				}
 			});
-			
+
 			return;
 		}
 
@@ -692,7 +804,7 @@ export default _.extend({}, FileIterable, {
 				icon: '<i class="fa fa-upload"></i>',
 				title: "Confirm Upload",
 				message: "This location already contains a file named '" + directoryEntry.name + "'.  Would you like to replace it?",
-				
+
 				// callbacks
 				//
 				accept: () => {
@@ -717,12 +829,12 @@ export default _.extend({}, FileIterable, {
 			//
 			this.countDirectoryItems(directoryEntry, (num) => {
 				numItems = num;
-				if (numItems > self.uploadWarningCount) {
+				if (numItems > self.upload_warning_count) {
 					application.confirm({
 						icon: '<i class="fa fa-upload"></i>',
 						title: "Confirm Upload",
 						message: "This directory contains " + numItems + " items. When uploading large numbers of files, it may be quicker to compress them first and upload them as a single large compressed file.",
-						
+
 						// callbacks
 						//
 						accept: () => startUpload()
@@ -734,11 +846,12 @@ export default _.extend({}, FileIterable, {
 		}
 	},
 
-	uploadMultipleItems: function(items, directory, options) {
+	uploadMultipleItems: async function(items, directory, options) {
 		let self = this;
 		let completed = 0, numItems,  percentCompleted = 0;
-		let timeout, progressBar, cancelled = false, errors = 0;
 		let entries = [], uploads = [], uploadedItems = [];
+		let timeout, progressBar;
+		let cancelled = false, errors = 0;
 
 		function abort() {
 			if (uploads.length > 0) {
@@ -773,7 +886,7 @@ export default _.extend({}, FileIterable, {
 		function updateProgressBar() {
 			if (progressBar) {
 				progressBar.setFraction(completed, numItems);
-			}	
+			}
 		}
 
 		function progress(percent, options) {
@@ -785,7 +898,7 @@ export default _.extend({}, FileIterable, {
 			if (!upload) {
 				return;
 			}
-			
+
 			// find change in progress in upload
 			//
 			if (upload.progress) {
@@ -811,7 +924,7 @@ export default _.extend({}, FileIterable, {
 			// show progress bar after delay
 			//
 			if (options && options.show_progress) {
-				timeout = window.setTimeout(() => showProgressBar(), self.progressBarDelay);
+				timeout = window.setTimeout(() => showProgressBar(), self.progress_bar_delay);
 			}
 		}
 
@@ -841,7 +954,7 @@ export default _.extend({}, FileIterable, {
 					options.error(model, response);
 				}
 				errors++;
-			}								
+			}
 		}
 
 		function finish() {
@@ -865,9 +978,16 @@ export default _.extend({}, FileIterable, {
 			}
 		}
 
-		function uploadSubDirectory(directoryEntry, directory, options) {
-	
-			// create new directory
+		async function uploadSubDirectory(directoryEntry, directory, options) {
+
+			// wait for resources
+			//
+			await until(() => {
+				return num_uploads < max_uploads || cancelled;
+			});
+			num_uploads++;
+
+			// create directory
 			//
 			let dirname = directory.path? directory.path + directoryEntry.name + '/': directoryEntry.name + '/';
 			return directory.createDirectory(FileUtils.getDirectoryName(dirname), {
@@ -880,6 +1000,13 @@ export default _.extend({}, FileIterable, {
 				// callbacks
 				//
 				success: (directory) => {
+
+					// free resources
+					//
+					num_uploads--;
+
+					// upload directory contents
+					//
 					update();
 					self.iterateDirectoryItems(directoryEntry, (entry, options) => {
 						uploadEntry(entry, directory, () => {
@@ -918,7 +1045,7 @@ export default _.extend({}, FileIterable, {
 						//
 						progress: progress,
 						success: finish,
-						error: error			
+						error: error
 					}));
 				});
 			} else {
@@ -947,7 +1074,7 @@ export default _.extend({}, FileIterable, {
 				completed++;
 				if (completed == numEntries && finish) {
 					finish();
-				}	
+				}
 			}
 
 			start();
@@ -960,10 +1087,12 @@ export default _.extend({}, FileIterable, {
 		//
 		if (!directory.isWritable()) {
 
-			// show error message
+			// show alert message
 			//
-			application.error({
-				message: "Permissions error - directory is not writable.",
+			application.alert({
+				icon: '<i class="fa fa-lock"></i>',
+				title: "Permissions Error",
+				message: "You do not have permission to write to this directory."
 			});
 
 			return;
@@ -972,11 +1101,28 @@ export default _.extend({}, FileIterable, {
 		// make sure directory is loaded
 		//
 		if (!directory.loaded) {
+
+			// wait for resources
+			//
+			await until(() => {
+				return num_uploads < max_uploads || cancelled;
+			});
+			num_uploads++;
+
+			// create directory
+			//
 			directory.create({
 
 				// callbacks
 				//
 				success: () => {
+
+					// free resources
+					//
+					num_uploads--;
+
+					// upload directory contents
+					//
 					this.uploadMultipleItems(items, directory, options);
 				},
 
@@ -990,7 +1136,7 @@ export default _.extend({}, FileIterable, {
 					});
 				}
 			});
-			
+
 			return;
 		}
 
@@ -1004,12 +1150,12 @@ export default _.extend({}, FileIterable, {
 		//
 		this.countItems(items, (num) => {
 			numItems = num;
-			if (numItems > self.uploadWarningCount) {
+			if (numItems > self.upload_warning_count) {
 				application.confirm({
 					icon: '<i class="fa fa-upload"></i>',
 					title: "Confirm Upload",
 					message: "This directory contains " + numItems + " items. When uploading large numbers of files, it may be quicker to compress them first and upload them as a single large compressed file.",
-					
+
 					// callbacks
 					//
 					accept: () => uploadEntries(entries, finish)
@@ -1020,16 +1166,31 @@ export default _.extend({}, FileIterable, {
 		});
 	},
 
-	uploadItems: function(items, directory, options) {
+	uploadItems: async function(items, directory, options) {
 
 		// make sure directory is loaded
 		//
 		if (!directory.loaded) {
+
+			// wait for resources
+			//
+			await until(() => {
+				return num_uploads < max_uploads;
+			});
+			num_uploads++;
+
 			directory.create({
 
 				// callbacks
 				//
 				success: () => {
+
+					// free resources
+					//
+					// num_uploads--;
+
+					// upload directory items
+					//
 					this.uploadItems(items, directory, options);
 				},
 

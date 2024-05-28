@@ -26,7 +26,7 @@ $color: var(--primary-color);
 //
 
 body:not(.binary).colored.colored {
-	.pie:not(.lcd) {
+	.pie:not(.led):not(.lcd) {
 		.slice {
 
 			&.full {

@@ -35,6 +35,18 @@ export default ToolbarView.extend({
 	},
 
 	//
+	// setting methods
+	//
+
+	setVisible: function(visible) {
+		if (visible) {
+			this.$el.closest('.search-bar').removeClass('hidden');
+		} else {
+			this.$el.closest('.search-bar').addClass('hidden')
+		}
+	},
+
+	//
 	// rendering methods
 	//
 
@@ -46,10 +58,6 @@ export default ToolbarView.extend({
 
 		// hide / show search bar
 		//
-		if (this.options.kind) {
-			this.$el.closest('.search-bar').show();
-		} else {
-			this.$el.closest('.search-bar').hide();
-		}
+		this.setVisible(this.options.kind != undefined);
 	}
 });

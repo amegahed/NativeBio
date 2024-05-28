@@ -95,6 +95,13 @@ body.binary.dark .app > .header-bar + .body > .contents {
   image-rendering: pixelated;
   background-color: white;
 }
+body.binary.dark .app > .header-bar + .body > .contents > .sidebar {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHElEQVQIHWNkYGD4D8RwwARnQRksSAKMIDaGCgBBbgEKSB2J0wAAAABJRU5ErkJggg==");
+  background-size: 2px 2px;
+  background-repeat: repeat;
+  image-rendering: pixelated;
+  background-color: white;
+}
 body.binary.dark .app > .header-bar + .body + .footer-bar {
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=");
   background-size: 2px 2px;
@@ -108,10 +115,12 @@ body.binary.dark .app .map pattern svg path {
 }
 body.binary.dark .app .selection {
   color: white;
+  border-color: black;
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAE0lEQVQIHWP4DwUMUMAEYxBPAwD6vQf7PKBWsAAAAABJRU5ErkJggg==");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
+  background-position: 0 0;
 }
 body.binary.dark .modals .app > .body > .contents .mainbar > .items,
 body.binary.dark .modals .app > .body > .contents .mainbar .tab-pane > .items,
@@ -121,6 +130,8 @@ body.binary.dark .modals .app > .body > .contents .mainbar .tab-pane .tab-pane f
   background-repeat: repeat;
   image-rendering: pixelated;
   background-color: white;
+  background-position: 1px 1px;
+  background-attachment: fixed;
 }
 body.binary.dark[device=desktop] .modals .modal-dialog .app .body:not(.last) {
   border-color: transparent;
@@ -177,7 +188,6 @@ body.binary.dark .code-editor.app .body > .contents .mainbar .tabbed-content .ta
 body.binary.dark .code-editor.app .body > .contents .mainbar .tabbed-content .tab-content .ace_editor {
   background: none;
   background-size: unset;
-  background-position: unset;
   background-repeat: unset;
   image-rendering: unset;
   background-color: black;
@@ -243,14 +253,15 @@ body.binary.dark .desktop.app > .body .app > .body > .contents {
 body.binary.dark .desktop.app > .body .app > .body > .contents .mainbar > .items {
   background: none;
 }
-body.binary.dark .desktop.app .selection {
+body.binary.dark .desktop.app > .body .selection {
   color: white;
+  border-color: white;
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgIAQYYQr+AwGIzQQTgNEAXioEANQxRWMAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
 }
-body.binary.dark .desktop.app .drag-image {
+body.binary.dark .desktop.app > .body .drag-image {
   border-color: white;
 }
 body.binary.dark .desktop.app .footer-bar {
@@ -374,7 +385,7 @@ body.binary.dark .icon-grid .item.selected > .row:first-child .icon {
   image-rendering: pixelated;
   background-color: white;
 }
-body.binary.dark .desktop.app .file-browser .mainbar .items > .icon-grid .item:not(.selected):not(.highlighted) {
+body.binary.dark .desktop.app .body .file-browser .mainbar .items > .icon-grid .item:not(.selected):not(.highlighted) {
   /*
   > .row:nth-child(2) {
   	.name {
@@ -391,10 +402,10 @@ body.binary.dark .desktop.app .file-browser .mainbar .items > .icon-grid .item:n
   }
   */
 }
-body.binary.dark .desktop.app .file-browser .mainbar .items > .icon-grid .item:not(.selected):not(.highlighted) > .row:first-child .icon i {
+body.binary.dark .desktop.app .body .file-browser .mainbar .items > .icon-grid .item:not(.selected):not(.highlighted) > .row:first-child .icon i {
   color: white;
 }
-body.binary.dark .desktop.app .file-browser .mainbar .items > .icon-grid .item.selected {
+body.binary.dark .desktop.app .body .file-browser .mainbar .items > .icon-grid .item.selected {
   /*
   > .row:nth-child(2) {
   	.name {
@@ -411,7 +422,7 @@ body.binary.dark .desktop.app .file-browser .mainbar .items > .icon-grid .item.s
   }
   */
 }
-body.binary.dark .desktop.app .file-browser .mainbar .items > .icon-grid .item.selected > .row:first-child .icon {
+body.binary.dark .desktop.app .body .file-browser .mainbar .items > .icon-grid .item.selected > .row:first-child .icon {
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
@@ -506,7 +517,6 @@ body.binary.dark .desktop .mainbar .item-list {
 body.binary.dark .mainbar .tile-grid .item:not(.selected) > .tile > .name:not([contenteditable=true]) {
   background: none;
   background-size: unset;
-  background-position: unset;
   background-repeat: unset;
   image-rendering: unset;
   background-color: white;
@@ -563,7 +573,7 @@ body.binary.dark .desktop .mainbar .item-tree > .info {
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 body.binary.dark .mainbar > .items {
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=");
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHElEQVQIHWNkYGD4D8RwwARnQRksSAKMIDaGCgBBbgEKSB2J0wAAAABJRU5ErkJggg==");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;
@@ -642,7 +652,6 @@ body.binary.dark .panel {
 body.binary.dark .panel .panel {
   background: none;
   background-size: unset;
-  background-position: unset;
   background-repeat: unset;
   image-rendering: unset;
   background-color: white;
@@ -833,6 +842,30 @@ body.binary.dark[device=desktop] ::-webkit-scrollbar-thumb:active {
 }
 body.binary.dark[device=desktop] ::-webkit-scrollbar-track {
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=");
+  background-size: 2px 2px;
+  background-repeat: repeat;
+  image-rendering: pixelated;
+  background-color: white;
+}
+
+/******************************************************************************\
+|                                                                              |
+|                              _dark-tabs.scss                                 |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body.binary.dark ul.nav-tabs.flush {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;

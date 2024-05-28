@@ -26,10 +26,12 @@ export default {
 
 	getBounds: function() {
 		let rect = this.getBoundingElement().getBoundingClientRect();
+
+		// convert bounding rect to bounds
+		//
 		return new Bounds2(
 			new Bounds(rect.left, rect.right),
 			new Bounds(rect.top, rect.bottom)
 		);
-		// return new Bounds2(new Vector2(rect.left, rect.top), new Vector2(rect.right, rect.bottom));
 	}
 };

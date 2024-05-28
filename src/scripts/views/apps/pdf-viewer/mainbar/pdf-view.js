@@ -150,24 +150,35 @@ export default BaseView.extend(_.extend({}, ScrollableContainable, Loadable, {
 		//
 		this.showSpinner();
 
-		// read file
+		// get file info
 		//
-		file.readBinary({
-			processData: 'false',
+		file.fetch({
+			details: 'size',
 
-			success: (data) => {
+			// callbacks
+			//
+			success: (file) => {
 
-				// hide loading spinner
+				// read file
 				//
-				this.hideSpinner();
+				file.readBinary({
+					processData: 'false',
 
-				// render pdf
-				//
-				this.showPdf(data);
-			},
+					success: (data) => {
 
-			error: () => {
-				this.onError('Could not read pdf file.');
+						// hide loading spinner
+						//
+						this.hideSpinner();
+
+						// render pdf
+						//
+						this.showPdf(data);
+					},
+
+					error: () => {
+						this.onError('Could not read pdf file.');
+					}
+				});
 			}
 		});
 	},
@@ -210,6 +221,33 @@ export default BaseView.extend(_.extend({}, ScrollableContainable, Loadable, {
 		//
 		request.send();
 		return request;
+	},
+
+	find: function(pattern) {
+		/*
+		if (pattern) {
+			return false;
+		} else {
+			return undefined;
+		}
+		*/
+
+		/*
+		return this.pdf.eventBus.dispatch('find', {
+			query: pattern,
+			caseSensitive: false,
+			highlightAll: true,
+			findPrevious: true
+		});
+		*/
+
+		this.pdf.pdfFindController.executeCommand('find', {
+			caseSensitive: false,
+			findPrevious: undefined,
+			highlightAll: true,
+			phraseSearch: true,
+			query: pattern
+		});
 	},
 
 	//

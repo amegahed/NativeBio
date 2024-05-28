@@ -20,6 +20,7 @@
 $color: text-colors.$dark-color;
 $stroke-color: colors.$medium-grey;
 $dark-color: white;
+$dark-stroke-color: colors.$very-very-very-light-grey;
 
 //
 // styles
@@ -47,6 +48,14 @@ body:not(.binary) {
 	&.dark .viewport.auto {
 		.annotation {
 			fill: $dark-color;
+
+			//
+			// line annotations
+			//
+
+			.line, .arc, .arrow {
+				stroke: $dark-stroke-color;
+			}
 		}
 	}
 }

@@ -317,7 +317,6 @@ export default AppSplitView.extend(_.extend({}, SelectableContainable, MultiSele
 			preferences: this.preferences,
 			selected: this.getSelectedModels(),
 			multicolumn: true,
-			emptyView: null,
 
 			// capabilities
 			//

@@ -29,8 +29,8 @@ export default {
 		return AddressBar.get('location').contains('?');
 	},
 
-	hasParam: function(name, options) {
-		return (this.getParam(name, options) != undefined);
+	has: function(key, options) {
+		return (this.value(key, options) != undefined);
 	},
 
 	//
@@ -48,7 +48,7 @@ export default {
 		}
 	},
 
-	getParam: function(name, options) {
+	value: function(key, options) {
 		let queryString;
 
 		// get query string
@@ -72,22 +72,22 @@ export default {
 			// split key value pair by first equal sign
 			//
 			let equalSign = term.indexOf('=');
-			let key = term.substr(0, equalSign);
-			let value = term.substr(equalSign + 1, term.length);
+			let before = term.substr(0, equalSign);
+			let after = term.substr(equalSign + 1, term.length);
 
-			// check if key matches name
+			// check if key matches
 			//
-			if (key == name) {
-				return value;
+			if (before == key) {
+				return decodeURIComponent(decodeURIComponent(after));
 			}
 		}
 		
 		return undefined;
 	},
 
-	getParams: function(name, options) {
+	values: function(key, options) {
 		let queryString;
-		let params = [];
+		let values = [];
 
 		// get query string
 		//
@@ -110,17 +110,17 @@ export default {
 			// split key value pair by first equal sign
 			//
 			let equalSign = term.indexOf('=');
-			let key = term.substr(0, equalSign);
-			let value = term.substr(equalSign + 1, term.length);
+			let before = term.substr(0, equalSign);
+			let after = term.substr(equalSign + 1, term.length);
 
-			// check if key matches name
+			// check if key matches
 			//
-			if (key == name) {
-				params.push(value);
+			if (before == key) {
+				values.push(decodeURIComponent(after));
 			}
 		} 
 		
-		return params;
+		return values;
 	},
 
 	//
@@ -133,6 +133,12 @@ export default {
 		} else {
 			AddressBar.set(AddressBar.get('base'), options);
 		}
+	},
+
+	delete: function(key) {
+		let values = this.toObject();
+		delete values[key];
+		this.set(this.encode(values));
 	},
 
 	clear: function(options) {
@@ -207,9 +213,9 @@ export default {
 						data[array] = [value];
 					}
 				} else {
-					if (value == "true") {
+					if (value == 'true') {
 						value = true;
-					} else if (value == "false") {
+					} else if (value == 'false') {
 						value = false;
 					}
 					data[key] = value;

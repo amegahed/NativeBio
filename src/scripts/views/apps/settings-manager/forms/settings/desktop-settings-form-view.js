@@ -15,10 +15,10 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import FormView from '../../../../../views/forms/form-view.js';
+import SettingsFormView from '../../../../../views/apps/common/forms/settings-form-view.js';
 import AppPagerView from '../../../../../views/apps/settings-manager/mainbar/app-pages/app-pager-view.js';
 
-export default FormView.extend({
+export default SettingsFormView.extend({
 
 	//
 	// attributes
@@ -40,19 +40,34 @@ export default FormView.extend({
 				</div>
 			</div>
 		</div>
-		
-		<div class="buttons" style="margin-top:-15px">
-			<button class="add-before btn btn-sm" data-toggle="tooltip" title="Add App Before" data-placement="bottom"><i class="fa fa-plus"></i></button>
-		
-			<button class="edit btn btn-sm" data-toggle="tooltip" title="Change App" data-placement="bottom"><i class="fa fa-pencil-alt"></i></button>
-		
-			<button class="remove btn btn-sm" data-toggle="tooltip" title="Remove App" data-placement="bottom"><i class="fa fa-minus"></i></button>
-			
-			<button class="add-after btn btn-primary btn-sm" data-toggle="tooltip" title="Add App After" data-placement="bottom"><i class="fa fa-plus"></i></button>
-		</div>
-		
-		<div class="desktop-app form-group">
-			<div class="items"></div>
+
+		<ul class="nav nav-tabs" role="tablist">
+
+			<li role="presentation" class="apps-tab<% if (tab == 'apps' || !tab) { %> active<% } %>">
+				<a role="tab" data-toggle="tab" href=".apps-settings">
+					<i class="fa fa-rocket"></i>
+					<label>Apps</label>
+				</a>
+			</li>
+		</ul>
+
+		<div class="tab-content">
+
+			<div role="tabpanel" class="apps-settings tab-pane<% if (tab == 'apps' || !tab) { %> active<% } %>">
+				<div class="buttons">
+					<button class="add-before btn btn-sm" data-toggle="tooltip" title="Add App Before" data-placement="bottom"><i class="fa fa-plus"></i></button>
+
+					<button class="edit btn btn-sm" data-toggle="tooltip" title="Change App" data-placement="bottom"><i class="fa fa-pencil-alt"></i></button>
+
+					<button class="remove btn btn-sm" data-toggle="tooltip" title="Remove App" data-placement="bottom"><i class="fa fa-minus"></i></button>
+
+					<button class="add-after btn btn-primary btn-sm" data-toggle="tooltip" title="Add App After" data-placement="bottom"><i class="fa fa-plus"></i></button>
+				</div>
+
+				<div class="desktop-app form-group">
+					<div class="items"></div>
+				</div>
+			</div>
 		</div>
 	`),
 
@@ -160,6 +175,12 @@ export default FormView.extend({
 	//
 	// rendering methods
 	//
+
+	templateContext: function() {
+		return {
+			tab: this.options.tab
+		};
+	},
 
 	onRender: function() {
 

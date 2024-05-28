@@ -95,11 +95,11 @@ body:not(.binary).light {
 
 			.modal-content {
 				background-color: $background-color;
-				border-color: $background-color;
+				border-color: $border-color;
 
 				.modal-footer {
 					background-color: $footer-color;
-					border-color: $footer-color;
+					border-color: $border-color;
 				}
 			}
 		}
@@ -146,11 +146,11 @@ body:not(.binary).light {
 
 			.modal-content {
 				background-color: $unfocused-background-color;
-				border-color: $unfocused-background-color;
+				border-color: $unfocused-border-color;
 
 				.modal-footer {
 					background-color: $unfocused-footer-color;
-					border-color: $unfocused-footer-color;
+					border-color: $unfocused-border-color;
 				}
 			}
 		}
@@ -200,13 +200,21 @@ body:not(.binary).light {
 
 			&.focused .modal-dialog {
 				.modal-content {
-					@include frosted-plate-glass.shaded($background-color);
+					background: transparent;
+
+					> .modal-body, .app .body {
+						@include frosted-plate-glass.shaded($background-color);
+					}
 				}
 			}
 
 			&:not(.focused) .modal-dialog {
 				.modal-content {
-					@include frosted-plate-glass.shaded($unfocused-background-color);
+					background: transparent;
+
+					> .modal-body, .app .body {
+						@include frosted-plate-glass.shaded($unfocused-background-color);
+					}
 				}
 			}
 		}

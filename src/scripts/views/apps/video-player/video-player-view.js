@@ -15,18 +15,18 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import VideoFile from '../../../models/files/video-file.js';
-import Directory from '../../../models/files/directory.js';
-import Items from '../../../collections/files/items.js';
+import VideoFile from '../../../models/storage/media/video-file.js';
+import Directory from '../../../models/storage/directories/directory.js';
+import Items from '../../../collections/storage/items.js';
 import AppSplitView from '../../../views/apps/common/app-split-view.js';
-import ModelShareable from '../../../views/apps/common/behaviors/sharing/model-shareable.js';
+import ItemShareable from '../../../views/apps/common/behaviors/sharing/item-shareable.js';
 import HeaderBarView from '../../../views/apps/video-player/header-bar/header-bar-view.js';
 import SideBarView from '../../../views/apps/video-player/sidebar/sidebar-view.js';
 import VideoSplitView from '../../../views/apps/video-player/mainbar/video-split-view.js';
 import FooterBarView from '../../../views/apps/video-player/footer-bar/footer-bar-view.js';
 import Browser from '../../../utilities/web/browser.js';
 
-export default AppSplitView.extend(_.extend({}, ModelShareable, {
+export default AppSplitView.extend(_.extend({}, ItemShareable, {
 
 	//
 	// attributes
@@ -252,7 +252,7 @@ export default AppSplitView.extend(_.extend({}, ModelShareable, {
 
 		// update user interface
 		//
-		this.getChildView('footer nav').setClipNumber(clipNumber);
+		this.setClipIndex(clipNumber);
 	},
 
 	setClipTime: function(time) {
@@ -260,26 +260,12 @@ export default AppSplitView.extend(_.extend({}, ModelShareable, {
 		this.getVideoView().setTime(time);
 	},
 
-	setOption: function(key, value) {
-		switch (key) {
-
-			// mainbar options
-			//
-			case 'show_video_info':
-				if (this.hasChildView('content') && this.getChildView('content').setSideBarVisibility) {
-					this.getChildView('content').setSideBarVisibility(value);
-				}
-				break;
-			case 'info_bar_size':
-				this.getChildView('content').setSideBarSize(value);
-				break;
-
-			default:
-
-				// call superclass method
-				//
-				AppSplitView.prototype.setOption.call(this, key, value);
-				break;
+	setClipIndex: function(clipNumber) {
+		if (this.hasChildView('header nav')) {
+			this.getChildView('header nav').setClipNumber(clipNumber);
+		}
+		if (this.hasChildView('footer nav')) {
+			this.getChildView('footer nav').setClipNumber(clipNumber);
 		}
 	},
 
@@ -467,16 +453,10 @@ export default AppSplitView.extend(_.extend({}, ModelShareable, {
 		// show initial help message
 		//
 		if (!this.model) {
-			this.showMessage("Click to open a video file to view.", {
-				icon: '<i class="far fa-file-video"></i>',
-
-				// callbacks
-				//
-				onclick: () => this.showOpenDialog()
-			});
+			this.showHelpMessage();
 			this.onLoad();
 		}
-		
+
 		// add tooltip triggers
 		//
 		this.addTooltips();
@@ -503,7 +483,7 @@ export default AppSplitView.extend(_.extend({}, ModelShareable, {
 			//
 			panels: this.preferences.get('sidebar_panels'),
 			view_kind: this.preferences.get('sidebar_view_kind'),
-			selected: new Items([this.model])
+			tile_size: this.preferences.get('sidebar_tile_size')
 		});
 	},
 
@@ -523,13 +503,27 @@ export default AppSplitView.extend(_.extend({}, ModelShareable, {
 			onclick: () => this.onClickVideo()
 		});
 	},
-	
+
 	//
 	// footer bar rendering methods
 	//
 
 	getFooterBarView: function() {
 		return new FooterBarView();
+	},
+
+	//
+	// message rendering methods
+	//
+
+	showHelpMessage: function() {
+		this.showMessage("No videos.", {
+			icon: '<i class="far fa-file-video"></i>',
+
+			// callbacks
+			//
+			onclick: () => this.showOpenDialog()
+		});
 	},
 
 	//
@@ -603,7 +597,9 @@ export default AppSplitView.extend(_.extend({}, ModelShareable, {
 		// update child views
 		//
 		this.getChildView('header').onLoad();
-		this.getChildView('footer').onLoad();
+		if (this.hasChildView('footer')) {
+			this.getChildView('footer').onLoad();
+		}
 
 		// perform callback
 		//

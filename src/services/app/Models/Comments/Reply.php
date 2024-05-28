@@ -13,7 +13,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|            Copyright (C) 2016-2020, Sharedigm, www.sharedigm.com             |
+|            Copyright (C) 2016-2024, Sharedigm, www.sharedigm.com             |
 \******************************************************************************/
 
 namespace App\Models\Comments;
@@ -204,7 +204,7 @@ class Reply extends Comment
 	 * @return \Illuminate\Database\Eloquent\Relations\Relation
 	 */
 	public function attachments() {
-		return $this->hasMany('App\Models\Files\Attachments\ReplyAttachment', 'reply_id');
+		return $this->hasMany('App\Models\Storage\Attachments\ReplyAttachment', 'reply_id');
 	}
 
 	/**

@@ -47,7 +47,11 @@ export default MenuView.extend({
 		<li role="presentation">
 			<a class="delete"><i class="fa fa-trash-alt"></i>Delete<span class="shortcut">delete</span></a>
 		</li>
-		
+
+		<li role="presentation">
+			<a class="destroy"><i class="fa fa-xmark"></i>Destroy<span class="shift command shortcut">delete</span></a>
+		</li>
+
 		<li role="separator" class="divider"></li>
 		
 		<li role="presentation">
@@ -66,6 +70,7 @@ export default MenuView.extend({
 		'click .put': 'onClickPut',
 		'click .duplicate': 'onClickDuplicate',
 		'click .delete': 'onClickDelete',
+		'click .destroy': 'onClickDestroy',
 		'click .show-clipboard': 'onClickShowClipboard',
 		'click .clear-clipboard': 'onClickClearClipboard'
 	},
@@ -85,6 +90,7 @@ export default MenuView.extend({
 			'put': hasClipboardContents,
 			'duplicate': hasSelected,
 			'delete': hasSelected,
+			'destroy': hasSelected,
 			'show-clipboard': true,
 			'clear-clipboard': hasClipboardContents
 		};
@@ -99,6 +105,23 @@ export default MenuView.extend({
 		// delete and update
 		//
 		this.parent.app.deleteSelected(_.extend({}, options, {
+
+			// callbacks
+			//
+			success: () => {
+
+				// update menu item
+				//
+				this.parent.getChildView('file').setItemEnabled('empty-trash');
+			}
+		}));
+	},
+
+	destroySelected: function(options) {
+
+		// destroy and update
+		//
+		this.parent.app.destroySelected(_.extend({}, options, {
 
 			// callbacks
 			//
@@ -181,9 +204,18 @@ export default MenuView.extend({
 
 	onClickDelete: function(event) {
 
-		// delete selected with confirmation
+		// delete selected with or without confirmation
 		//
 		this.deleteSelected({
+			confirm: !(event.metaKey || event.ctrlKey)
+		});
+	},
+
+	onClickDestroy: function(event) {
+
+		// destroy selected with or without confirmation
+		//
+		this.destroySelected({
 			confirm: !(event.metaKey || event.ctrlKey)
 		});
 	},

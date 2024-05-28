@@ -29,15 +29,15 @@ export default BaseView.extend({
 	template: template(`
 		<div class="pie"></div>
 		
-		<div class="digital lcd display">
+		<div class="digital display">
 			<div class="digits">
-				<div class="hours">00</div>
+				<div class="hours"><%= hours %></div>
 				<div class="middle">
-					<div class="minutes">00</div>
+					<div class="minutes"><%= minutes %></div>
 					<div class="colons">:</div>
-					<div class="seconds">00</div>
+					<div class="seconds"><%= seconds %></div>
 				</div>
-				<div class="hundredths">00</div>
+				<div class="hundredths"><%= hundredths %></div>
 			</div>
 		</div>
 	`),
@@ -50,23 +50,45 @@ export default BaseView.extend({
 	},
 
 	//
-	// timer methods
+	// conversion methods
+	//
+
+	toString: function(number) {
+		function pad(string) {
+			return string.length == 1? '0' + string : string;
+		}
+
+		return pad(number.toString());
+	},
+
+	//
+	// getting methods
+	//
+
+	getAngle: function(seconds) {
+		return 360 * (seconds / 60);
+	},
+
+	//
+	// setting methods
 	//
 
 	setTime: function(time) {
 		let hours = time.hours;
 		let minutes = time.minutes;
-		let wholeSeconds = Math.floor(time.seconds);
-		let hundredths = Math.floor((time.seconds - wholeSeconds) * 100);
+		let seconds = Math.floor(time.seconds);
+		let hundredths = Math.floor((time.seconds - seconds) * 100);
 
-		function pad(string) {
-			return string.length == 1? '0' + string : string;
-		}
+		// update digital display
+		//
+		this.$el.find('.hours').html(this.toString(hours));
+		this.$el.find('.minutes').html(this.toString(minutes));
+		this.$el.find('.seconds').html(this.toString(seconds));
+		this.$el.find('.hundredths').html(this.toString(hundredths));
 
-		this.$el.find('.hours').html(pad(hours.toString()));
-		this.$el.find('.minutes').html(pad(minutes.toString()));
-		this.$el.find('.seconds').html(pad(wholeSeconds.toString()));
-		this.$el.find('.hundredths').html(pad(hundredths.toString()));
+		// update analog display
+		//
+		this.setAngle(this.getAngle(time.seconds));
 	},
 
 	setAngle: function(angle) {
@@ -77,10 +99,32 @@ export default BaseView.extend({
 	// rendering methods
 	//
 
+	templateContext: function() {
+		return {
+			hours: this.toString(this.options.hours || 0),
+			minutes: this.toString(this.options.minutes || 0),
+			seconds: this.toString(this.options.seconds || 0),
+			hundredths: this.toString(this.options.hundredths || 0)
+		};
+	},
+
 	onRender: function() {
 		this.showChildView('pie', new PieView({
-			className: 'lcd pie',
-			angle: 0
+			className: 'pie',
+			angle: this.getAngle(this.options.seconds)
 		}));
+
+		// set display type
+		//
+		if (this.options.display) {
+			this.$el.find('.pie').addClass(this.options.display);
+			this.$el.find('.digital.display').addClass(this.options.display);
+		}
+		if (!this.options.show_hours) {
+			this.$el.find('.digital.display .hours').css('visibility', 'hidden')
+		}
+		if (!this.options.show_hundredths) {
+			this.$el.find('.digital.display .hundredths').css('visibility', 'hidden')
+		}
 	}
 });

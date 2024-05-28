@@ -42,13 +42,13 @@ $diffuse-size: 50%;
 		//
 		linear-gradient(var(--light-direction),
 			colors.fade(white, $highlight-strength) 0%,
-			colors.fade(white, 0%) $highlight-size) no-repeat,
+			transparent $highlight-size) no-repeat,
 
 		// specular
 		//
 		linear-gradient(var(--light-direction),
 			colors.fade(white, $specular-strength) 0%,
-			colors.fade(white, 0%) $specular-size) no-repeat,
+			transparent $specular-size) no-repeat,
 
 		// diffuse
 		//
@@ -103,13 +103,13 @@ $diffuse-size: 50%;
 			//
 			linear-gradient(var(--light-direction),
 				colors.fade(white, $highlight-strength) 0%,
-				colors.fade(white, 0%) $highlight-size) no-repeat,
+				transparent $highlight-size) no-repeat,
 
 			// specular
 			//
 			linear-gradient(var(--light-direction),
 				colors.fade(white, $specular-strength) 0%,
-				colors.fade(white, 0%) $specular-size) no-repeat;
+				transparent $specular-size) no-repeat;
 	}
 
 	// borders

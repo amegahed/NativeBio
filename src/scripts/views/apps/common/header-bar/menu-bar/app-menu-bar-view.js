@@ -20,19 +20,6 @@ import MenuBarView from '../../../../../views/apps/common/header-bar/menu-bar/me
 export default MenuBarView.extend({
 
 	//
-	// getting methods
-	//
-
-	getMenus: function() {
-		let menus = [];
-		let keys = Object.keys(this.regions);
-		for (let i = 0; i < keys.length; i++) {
-			menus.push(this.getChildView(keys[i]));
-		}
-		return menus;
-	},
-
-	//
 	// rendering methods
 	//
 
@@ -47,6 +34,21 @@ export default MenuBarView.extend({
 		//
 		if (!isSignedIn) {
 			this.$el.find('.share.dropdown').addClass('disabled');
+		}
+	},
+
+	//
+	// updating methods
+	//
+
+	updateEnabled: function() {
+
+		// set enabled / disabled
+		//
+		if (this.enabled != undefined) {
+			this.setEnabled(_.result(this, 'enabled'));
+		} else if (this.disabled != undefined) {
+			this.setDisabled(_.result(this, 'disabled'));
 		}
 	},
 
@@ -74,6 +76,20 @@ export default MenuBarView.extend({
 		}
 	},
 
+	onSave: function() {
+		let menus = this.getMenus();
+		for (let i = 0; i < menus.length; i++) {
+			let menu = menus[i];
+			if (menu && menu.onSave) {
+				menu.onSave();
+			}
+		}
+	},
+
+	//
+	// tab event handling methods
+	//
+
 	onChangeTab: function() {
 		let menus = this.getMenus();
 		for (let i = 0; i < menus.length; i++) {
@@ -84,12 +100,12 @@ export default MenuBarView.extend({
 		}
 	},
 
-	onSave: function() {
+	onCloseTab: function() {
 		let menus = this.getMenus();
 		for (let i = 0; i < menus.length; i++) {
 			let menu = menus[i];
-			if (menu && menu.onSave) {
-				menu.onSave();
+			if (menu && menu.onChangeTab) {
+				menu.onCloseTab();
 			}
 		}
 	},

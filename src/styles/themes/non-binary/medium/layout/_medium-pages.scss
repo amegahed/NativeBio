@@ -28,10 +28,11 @@ $attention-color: white;
 $attention-icon-color: medium-branding.$secondary-color;
 $attention-background-color: colors.$very-light-grey;
 $footer-info-color: text-colors.$dark-color;
-$footer-background-color: colors.$very-very-light-grey;
-$footer-info-background-color: colors.$very-very-very-light-grey;
-$odd-section-background-color: colors.$very-very-very-light-grey;
+$footer-background-color: colors.$very-light-grey;
+$footer-info-background-color: colors.$ultra-light-grey;
+$odd-section-background-color: colors.$ultra-light-grey;
 $iframe-border-color: colors.$light-grey;
+$items-border-color: colors.$very-very-very-light-grey;
 
 //
 // styles
@@ -68,11 +69,15 @@ body:not(.binary) {
 			}
 
 			//
-			// iframes
+			// borders
 			//
 
 			iframe {
 				border-color: $iframe-border-color;
+			}
+
+			.items {
+				border-color: $items-border-color;
 			}
 		}
 		

@@ -25,7 +25,7 @@ body.binary.dark {
 
 	.mainbar {
 		> .items {
-			@include binary-colors.grey;
+			@include binary-colors.dark-grey;
 		}
 	}
 }

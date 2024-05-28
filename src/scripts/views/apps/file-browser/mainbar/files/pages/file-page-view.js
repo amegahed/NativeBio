@@ -15,7 +15,7 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import ImageFile from '../../../../../../models/files/image-file.js';
+import ImageFile from '../../../../../../models/storage/media/image-file.js';
 import ItemPageView from '../../../../../../views/apps/file-browser/mainbar/files/pages/item-page-view.js';
 
 export default ItemPageView.extend({

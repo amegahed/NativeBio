@@ -25,11 +25,26 @@ export default TabView.extend({
 	// getting methods
 	//
 
+	getTopicIcon: function() {
+		let icon = this.model.getIcon({
+			max_size: Math.floor(this.thumbnailSize * (window.devicePixelRatio || 1))
+		});
+		if (icon) {
+			return icon;
+		} else {
+			return '<i class="fa fa-hashtag"></i>';
+		}
+	},
+
+	getPostIcon: function() {
+		return '<i class="fa fa-newspaper"></i>';
+	},
+
 	getIcon: function() {
 		if (this.model instanceof Topic) {
-			return '<i class="fa fa-hashtag"></i>';
+			return this.getTopicIcon();
 		} else if (this.model instanceof Post) {
-			return '<i class="fa fa-newspaper"></i>';
+			return this.getPostIcon();
 		}
 	}
 });

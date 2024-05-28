@@ -518,14 +518,6 @@ export default BaseView.extend({
 	// toggling methods
 	//
 
-	toggled: function(value, newValue) {
-		if (value == newValue) {
-			return false;
-		} else {
-			return newValue;
-		}
-	},
-
 	toggleAttribute: function(attributes, name, value) {
 		if (attributes[name] == value) {
 			attributes[name] = false;
@@ -720,9 +712,9 @@ export default BaseView.extend({
 
 		// set visible / hidden
 		//
-		if (this.visible) {
+		if (this.visible != undefined) {
 			this.setVisible(_.result(this, 'visible'));
-		} else if (this.hidden) {
+		} else if (this.hidden != undefined) {
 			this.setHidden(_.result(this, 'hidden'));
 		}
 	},
@@ -731,9 +723,9 @@ export default BaseView.extend({
 
 		// set enabled / disabled
 		//
-		if (this.enabled) {
+		if (this.enabled != undefined) {
 			this.setEnabled(_.result(this, 'enabled'));
-		} else if (this.disabled) {
+		} else if (this.disabled != undefined) {
 			this.setDisabled(_.result(this, 'disabled'));
 		}
 	},
@@ -742,9 +734,9 @@ export default BaseView.extend({
 
 		// set selected / deselected
 		//
-		if (this.selected) {
+		if (this.selected != undefined) {
 			this.setSelected(_.result(this, 'selected'));
-		} else if (this.deselected) {
+		} else if (this.deselected != undefined) {
 			this.setDeselected(_.result(this, 'deselected'));
 		}
 	},
@@ -785,6 +777,12 @@ export default BaseView.extend({
 	},
 
 	onChangeTab: function() {
+		if (this.loaded) {
+			this.update();
+		}
+	},
+
+	onCloseTab: function() {
 		if (this.loaded) {
 			this.update();
 		}

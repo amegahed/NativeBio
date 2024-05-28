@@ -17,7 +17,6 @@
 
 @use "../../../../colors/colors";
 @use "../../../../colors/text-colors";
-@use "../colors/dark-branding";
 
 //
 // colors
@@ -28,7 +27,7 @@ $hover-color: white;
 $active-color: white;
 $brand-color: white;
 $background-color: colors.$ultra-dark-grey;
-$active-background-color: dark-branding.$primary-color;
+$active-background-color: var(--primary-color);
 $border-color: colors.$medium-grey;
 $indicator-background-color: $background-color;
 $indicator-border-color: $border-color;

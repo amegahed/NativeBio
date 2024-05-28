@@ -62,7 +62,7 @@ export default ToolbarView.extend({
 
 		// show child views
 		//
-		if (config.apps.theme_picker) {
+		if (config.apps.theme_picker && !config.apps.theme_picker.disabled) {
 			this.showChildView('theme', new ThemeButtonView());
 		}
 		this.showChildView('brightness', new BrightnessButtonView());

@@ -15,7 +15,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|            Copyright (C) 2016-2020, Sharedigm, www.sharedigm.com             |
+|            Copyright (C) 2016-2024, Sharedigm, www.sharedigm.com             |
 \******************************************************************************/
 
 namespace App\Models\Users\Accounts;
@@ -26,20 +26,30 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\TimeStamps\TimeStamped;
 use App\Models\Users\UserOwned;
 use App\Models\Users\User;
-use App\Models\Users\Connections\Group;
 use App\Models\Users\Accounts\PasswordReset;
 use App\Models\Users\Accounts\EmailVerification;
 use App\Models\Users\Auth\UserIdentity;
-use App\Models\Files\Directory;
-use App\Models\Files\Traits\ItemSizeConvertable;
-use App\Utilities\Files\UserStorage;
+use App\Models\Users\Connections\Group;
+use App\Models\Topics\Topic;
+use App\Models\Topics\UserTopic;
+use App\Models\Storage\Directory;
+use App\Models\Storage\Traits\ItemSizeConvertable;
+use App\Utilities\Storage\UserStorage;
 use App\Utilities\Security\Password;
 use App\Utilities\Uuids\Guid;
 
 class UserAccount extends TimeStamped
 {
+	/**
+	 * The traits that are inherited.
+	 *
+	 */
 	use UserOwned;
 	use ItemSizeConvertable;
+
+	//
+	// constants
+	//
 
 	const INVALID_USERNAMES = [
 		'temp',
@@ -172,8 +182,12 @@ class UserAccount extends TimeStamped
 	 * @return string
 	 */
 	public function getDiskUsageAttribute(): string {
-		$output = shell_exec('du -sh ' . UserStorage::root() . '/' . UserStorage::current());
-		return explode("\t", $output)[0];
+		if (UserStorage::isLocal()) {
+			$output = shell_exec('du -sh "' . UserStorage::root() . '/' . UserStorage::current() . '"');
+			return explode("\t", $output)[0];
+		} else {
+			return '0G';
+		}
 	}
 
 	/**
@@ -376,15 +390,52 @@ class UserAccount extends TimeStamped
 		//
 		Storage::makeDirectory($this->username);
 
-		// create new default folders
+		// create new default items
+		//
+		$this->createDefaultFolders();
+		$this->createDefaultGroups();
+		$this->createDefaultTopics();
+	}
+
+	/**
+	 * Create new default home directory folders.
+	 *
+	 * @return void
+	 */
+	public function createDefaultFolders() {
+
+		// check if default folders exist
+		//
+		if (!config('app.default_folders')) {
+			return;
+		}
+
+		// create default folders
 		//
 		foreach (config('app.default_folders') as $folder) {
 			Storage::makeDirectory($this->username . '/' . $folder);
 		}
+	}
 
-		// create new default groups
+	/**
+	 * Create new default groups.
+	 *
+	 * @return void
+	 */
+	public function createDefaultGroups() {
+
+		// check if default groups exists
+		//
+		if (!config('app.default_groups')) {
+			return;
+		}
+
+		// create default groups
 		//
 		foreach (config('app.default_groups') as $key => $value) {
+
+			// create new group
+			//
 			$group = new Group([
 				'id' => Guid::create(),
 				'name' => $key,
@@ -392,6 +443,41 @@ class UserAccount extends TimeStamped
 				'user_id' => $this->user_id
 			]);
 			$group->save();
+		}
+	}
+
+	/**
+	 * Create new default topic memberships.
+	 *
+	 * @return void
+	 */
+	public function createDefaultTopics() {
+
+		// check if default topics exists
+		//
+		if (!config('app.default_topics')) {
+			return;
+		}
+
+		// create default topics
+		//
+		foreach (config('app.default_topics') as $key => $value) {
+
+			// find topic by name
+			//
+			$topic = Topic::where('name', '=', $key)
+				->where('user_id', '=', $value)->first();
+
+			// create topic membership
+			//
+			if ($topic) {
+				$userTopic = new UserTopic([
+					'id' => Guid::create(),
+					'user_id' => $this->user_id,
+					'topic_id' => $topic->id
+				]);
+				$userTopic->save();
+			}
 		}
 	}
 

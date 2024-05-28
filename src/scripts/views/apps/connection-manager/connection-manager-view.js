@@ -15,8 +15,8 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import File from '../../../models/files/file.js'; 
-import Directory from '../../../models/files/directory.js'; 
+import File from '../../../models/storage/files/file.js';
+import Directory from '../../../models/storage/directories/directory.js';
 import Connection from '../../../models/users/connections/connection.js';
 import Group from '../../../models/users/connections/group.js';
 import Member from '../../../models/users/connections/member.js';
@@ -387,7 +387,7 @@ export default AppSplitView.extend(_.extend({}, SelectableContainable, MultiSele
 		// show message
 		//
 		if (this.collection.length == 0) {
-			this.showMessage("Click to find connections.", {
+			this.showMessage("No connections.", {
 				icon: '<i class="fa fa-user-friends"></i>',
 				
 				// callbacks
@@ -556,9 +556,9 @@ export default AppSplitView.extend(_.extend({}, SelectableContainable, MultiSele
 		});
 	},
 
-	shareSelectedByPost: function(options) {
+	shareSelectedByTopic: function(options) {
 		let connection = this.getSelectedModel();
-		this.shareLinkByPost(connection.getUrl(), _.extend({}, options, {
+		this.shareLinkByTopic(connection.getUrl(), _.extend({}, options, {
 			message: connection.get('short_name') + ': ' + '\n'
 		}));
 	},
@@ -609,7 +609,7 @@ export default AppSplitView.extend(_.extend({}, SelectableContainable, MultiSele
 				// show message
 				//
 				if (!this.options.search_kind && collection.length == 0) {
-					this.showMessage("Click to find connections.", {
+					this.showMessage("No connections.", {
 						icon: '<i class="fa fa-user-friends"></i>',
 						
 						// callbacks
@@ -731,7 +731,7 @@ export default AppSplitView.extend(_.extend({}, SelectableContainable, MultiSele
 					icon: '<i class="fa fa-user-friends"></i>'
 				});
 			} else {
-				this.showMessage("Click to find connections.", {
+				this.showMessage("No connections.", {
 					icon: '<i class="fa fa-user-friends"></i>',
 					
 					// callbacks

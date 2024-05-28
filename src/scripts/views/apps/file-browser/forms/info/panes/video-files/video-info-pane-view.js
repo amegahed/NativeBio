@@ -24,18 +24,20 @@ export default FormView.extend({
 	//
 
 	template: template(`
+		<% if (typeof resolution != 'undefined' && resolution) { %>
 		<div class="form-group">
 			<label class="control-label"><i class="fa fa-arrows-alt"></i>Resolution</label>
 			<div class="controls">
 				<p class="form-control-static">
-					<% if (typeof resolution != 'undefined') { %>
-					<%= resolution.width %> x <%= resolution.height %> px
+					<% if (resolution.length > 1) { %>
+					<%= resolution[0] %> x <%= resolution[1] %> px
 					<% } else { %>
-					No info
+					unknown
 					<% } %>
 				</p>
 			</div>
 		</div>
+		<% } %>
 		
 		<div class="form-group">
 			<label class="control-label"><i class="fa fa-clock"></i>Duration</label>
@@ -44,7 +46,7 @@ export default FormView.extend({
 					<% if (typeof duration != 'undefined') { %>
 					<%= duration %> sec
 					<% } else { %>
-					No info
+					unknown
 					<% } %>
 				</p>
 			</div>
@@ -57,7 +59,7 @@ export default FormView.extend({
 					<% if (typeof bit_rate != 'undefined') { %>
 					<%= bit_rate %> bps
 					<% } else { %>
-					No info
+					unknown
 					<% } %>
 				</p>
 			</div>
@@ -69,6 +71,13 @@ export default FormView.extend({
 	//
 
 	templateContext: function() {
-		return this.model.get('tags');
+		let resolution = this.model.get('resolution');
+		let tags = this.model.get('tags');
+
+		return {
+			resolution: resolution,
+			duration: tags? tags.duration : undefined,
+			bit_rate: tags? tags.bit_rate : undefined
+		};
 	}
 });

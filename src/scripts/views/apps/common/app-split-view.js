@@ -247,6 +247,11 @@ export default AppView.extend({
 				this.getChildView('sidebar').setViewKind(value);
 				break;
 
+			case 'sidebar_tile_size':
+				this.sidebar_tile_size = value;
+				this.getChildView('sidebar').setTileSize(value);
+				break;
+
 			// window options
 			//		
 			case 'window_size':
@@ -267,6 +272,14 @@ export default AppView.extend({
 		// call superclass method
 		//
 		AppView.prototype.setOption.call(this, key, value);
+	},
+
+	setMainToolbarVisible: function(visible) {
+		if (visible) {
+			this.$el.find('.mainbar .toolbar').show();
+		} else {
+			this.$el.find('.mainbar .toolbar').hide();
+		}
 	},
 
 	//

@@ -17,7 +17,6 @@
 
 import UserPreferences from '../../../../../models/preferences/user-preferences.js';
 import Chats from '../../../../../collections/chats/chats.js';
-import BaseView from '../../../../../views/base-view.js';
 import SideBarPanelView from '../../../../../views/apps/common/sidebar/panels/sidebar-panel-view.js';
 import ContainableSelectable from '../../../../../views/behaviors/containers/containable-selectable.js';
 import ChatsView from '../../../../../views/apps/chat-browser/mainbar/chats/chats-view.js';
@@ -32,7 +31,7 @@ export default SideBarPanelView.extend(_.extend({}, ContainableSelectable, {
 
 	template: template(`
 		<div class="header">
-			<label><i class="fa fa-comments"></i>Chats</label>
+			<label><i class="fa fa-comment"></i>Chats</label>
 			
 			<div class="buttons">
 				<button type="button" class="add-chat success btn btn-sm" data-toggle="tooltip" title="Add Chat">
@@ -129,10 +128,7 @@ export default SideBarPanelView.extend(_.extend({}, ContainableSelectable, {
 				view_kind: this.options.view_kind
 			}),
 			selected: [this.model],
-			emptyView: BaseView.extend({
-				className: 'empty',
-				template: template("No chats.")
-			}),
+			empty: "No chats",
 
 			// capabilities
 			//

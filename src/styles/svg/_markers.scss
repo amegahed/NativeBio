@@ -43,6 +43,14 @@ svg.viewport {
 		}
 
 		//
+		// selected markers
+		//
+
+		&.selected {
+			fill: var(--primary-color);
+		}
+
+		//
 		// outlined marhers
 		//
 

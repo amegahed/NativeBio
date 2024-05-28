@@ -46,8 +46,41 @@ export default SideBarPanelView.extend({
 
 		// show child views
 		//
+		this.showTrackInfo();
+
+		// load id3 if not loaded
+		//
+		if (this.model && !this.model.has('id3')) {
+			this.update();
+		}
+	},
+
+	showTrackInfo: function() {
 		this.showChildView('info', new TrackInfoView({
 			model: this.model
 		}));
+	},
+
+	update: function() {
+		if (!this.model.has('id3')) {
+
+			// load exif info
+			//
+			this.model.fetchId3({
+
+				// callbacks
+				//
+				success: () => {
+
+					// update view
+					//
+					if (!this.isDestroyed()) {
+						this.showTrackInfo();
+					}
+				}
+			});
+		} else {
+			this.showTrackInfo();
+		}
 	}
 });

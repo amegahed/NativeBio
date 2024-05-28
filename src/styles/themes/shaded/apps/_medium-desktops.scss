@@ -29,7 +29,7 @@ $run-menu-text-color: white;
 //
 
 @mixin desktop-color ($color: colors.$medium-blue) {
-	background: darken($color, 15%);
+	background: colors.blend($color, #303030, 50%);
 }
 
 //

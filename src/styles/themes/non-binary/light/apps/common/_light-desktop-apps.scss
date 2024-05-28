@@ -56,9 +56,7 @@ body:not(.binary).light {
 					background-color: $header-bar-background-color;
 					border-color: $header-bar-border-color;
 
-					.app-bar {
-						color: text-colors.$dark-color;
-						
+					.app-bar {						
 						> i {
 							color: $header-bar-icon-color;
 						}				

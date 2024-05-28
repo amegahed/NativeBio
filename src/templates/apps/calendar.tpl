@@ -37,11 +37,11 @@
 
 	<h2><i class="fa fa-desktop"></i>Screen Shots</h2>
 	<div class="figure desktop-only">
-		<a href="images/info/apps/calendar/calendar.png" target="_blank" class="lightbox" title="Calendar"><img class="dialog" src="images/info/apps/calendar/calendar.png" /></a>
-		<div class="caption">Calendar</div>
+		<a href="images/info/apps/calendar/calendar.png" target="_blank" class="lightbox" title="<%= config.apps['calendar'].name %>"><img class="dialog" src="images/info/apps/calendar/calendar.png" /></a>
+		<div class="caption"><%= config.apps['calendar'].name %></div>
 	</div>
 	<div class="figure mobile-only">
-		<a href="images/info/apps/calendar/mobile/mobile-calendar.png" target="_blank" class="lightbox" title="Calendar"><img src="images/info/apps/calendar/mobile/mobile-calendar.png" /></a>
-		<div class="caption">Calendar</div>
+		<a href="images/info/apps/calendar/mobile/mobile-calendar.png" target="_blank" class="lightbox" title="<%= config.apps['calendar'].name %>"><img src="images/info/apps/calendar/mobile/mobile-calendar.png" /></a>
+		<div class="caption"><%= config.apps['calendar'].name %></div>
 	</div>
 </div>

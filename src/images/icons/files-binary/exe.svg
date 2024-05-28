@@ -37,8 +37,6 @@
 	<polygon class="file-corner" points="37.5, 0.151 37.5, 12 49.349, 12" stroke-linejoin="round" />
 	<g class="file-type">
 		<path d="M48.037, 56H7.963C7.155, 56, 6.5, 55.345, 6.5, 54.537V39h43v15.537C49.5, 55.345, 48.845, 56, 48.037, 56z" />
-		<text>
-			<tspan x="16" y="52.5">EXE</tspan>
-		</text>
+		<text x="16" y="52.5">EXE</text>
 	</g>
 </svg>

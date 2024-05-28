@@ -26,7 +26,7 @@
 body:not(.binary) {
 	&.metal.colored {
 		.badge {
-			@include round-metal.shaded(colored-badges.$color);
+			@include round-metal.shade(colored-badges.$color);
 
 			//
 			// metal special badges

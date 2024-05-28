@@ -118,12 +118,6 @@ body:not(.binary).monochrome #desktop.light .desktop.app > .footer-bar .run-menu
 |******************************************************************************|
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
-:root {
-  --light-direction: to bottom;
-  --ambient-color: rgb(0, 0, 127);
-  --light-color: white;
-}
-
 /******************************************************************************\
 |                                                                              |
 |                                 _flat.scss                                   |
@@ -580,21 +574,21 @@ body:not(.binary).monochrome.light.glass #desktop.medium .desktop.app > .footer-
 body:not(.binary).monochrome.light.metal #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle,
 body:not(.binary).monochrome.light.metal #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle,
 body:not(.binary).monochrome.light.metal #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, #8080b3) 75%, transparent) 50%, color-mix(in srgb, #8080b3 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, #8080b3 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, #8080b3 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, #8080b3) 100%) no-repeat;
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, #8080b3) 75%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, #8080b3 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, #8080b3 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, #8080b3) 100%) no-repeat;
   background-color: color-mix(in srgb, var(--ambient-color) 50%, #8080b3);
   border-color: color-mix(in srgb, var(--ambient-color) 30%, #8080b3);
 }
 body:not(.binary).monochrome.light.metal #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover,
 body:not(.binary).monochrome.light.metal #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover,
 body:not(.binary).monochrome.light.metal #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:hover {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, color-mix(in srgb, rgb(0, 0, 127) 10%, #8080b3)) 75%, transparent) 50%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 10%, #8080b3) 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 10%, #8080b3) 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 10%, #8080b3) 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, color-mix(in srgb, rgb(0, 0, 127) 10%, #8080b3)) 100%) no-repeat;
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, color-mix(in srgb, rgb(0, 0, 127) 10%, #8080b3)) 75%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 10%, #8080b3) 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 10%, #8080b3) 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, color-mix(in srgb, rgb(0, 0, 127) 10%, #8080b3)) 100%) no-repeat;
   background-color: color-mix(in srgb, var(--ambient-color) 50%, color-mix(in srgb, rgb(0, 0, 127) 10%, #8080b3));
   border-color: color-mix(in srgb, var(--ambient-color) 30%, color-mix(in srgb, rgb(0, 0, 127) 10%, #8080b3));
 }
 body:not(.binary).monochrome.light.metal #desktop .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active,
 body:not(.binary).monochrome.light.metal #desktop.auto .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active,
 body:not(.binary).monochrome.light.metal #desktop.medium .desktop.app > .footer-bar .run-menu .menu-bar .dropdown-toggle:active {
-  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, color-mix(in srgb, rgb(0, 0, 127) 20%, #8080b3)) 75%, transparent) 50%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 20%, #8080b3) 0%, transparent) 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 20%, #8080b3) 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 20%, #8080b3) 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, color-mix(in srgb, rgb(0, 0, 127) 20%, #8080b3)) 100%) no-repeat;
+  background: radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, white 75%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--light-color) 20%, color-mix(in srgb, rgb(0, 0, 127) 20%, #8080b3)) 75%, transparent) 50%, transparent 100%) no-repeat, radial-gradient(ellipse 50% 25% at 50% 10%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 20%, #8080b3) 100%, transparent) 0%, transparent 100%) no-repeat, linear-gradient(var(--light-direction), transparent 25%, color-mix(in srgb, color-mix(in srgb, rgb(0, 0, 127) 20%, #8080b3) 50%, transparent) 66%, color-mix(in srgb, var(--light-color) 30%, color-mix(in srgb, rgb(0, 0, 127) 20%, #8080b3)) 100%) no-repeat;
   background-color: color-mix(in srgb, var(--ambient-color) 50%, color-mix(in srgb, rgb(0, 0, 127) 20%, #8080b3));
   border-color: color-mix(in srgb, var(--ambient-color) 30%, color-mix(in srgb, rgb(0, 0, 127) 20%, #8080b3));
 }

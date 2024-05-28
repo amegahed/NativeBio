@@ -50,6 +50,12 @@ export default ItemTileView.extend({
 		}
 		name += 'file item';
 
+		// add formatting
+		//
+		if (this.isPdf()) {
+			name += ' letterboxed';
+		}
+
 		// add preview tag
 		//
 		if (this.model.hasThumbnail()) {
@@ -66,6 +72,18 @@ export default ItemTileView.extend({
 	// querying methods
 	//
 
+	isVector: function() {
+		return this.model.getFileExtension() == 'svg';
+	},
+
+	isPdf: function() {
+		return this.model.getFileExtension() == 'pdf';
+	},
+
+	isLetterboxed: function() {
+		return this.parent.options.letterboxed || this.isPdf();
+	},
+
 	hasThumbnail: function() {
 		return (!this.options.preferences || this.options.preferences.get('show_thumbnails')) && this.model.hasThumbnail();
 	},
@@ -75,7 +93,7 @@ export default ItemTileView.extend({
 		if (size != undefined) {
 			let maxSize = config.apps.file_browser.max_thumbnail_file_size;
 			
-			if (this.model.getFileExtension() == 'svg') {
+			if (this.isVector()) {
 				let maxSvgSize = config.apps.file_browser.max_thumbnail_svg_file_size;
 				if (size > maxSvgSize) {
 					return false;
@@ -100,7 +118,7 @@ export default ItemTileView.extend({
 
 	getThumbnailUrl: function() {
 		let tileSize = this.parent.options.preferences? this.parent.options.preferences.get('tile_size') : undefined;
-		if (this.parent.options.letterboxed) {
+		if (this.isLetterboxed()) {
 			return this.model.getThumbnailUrl({
 				max_size: Math.floor(this.constructor.getTileResolution(tileSize) * (window.devicePixelRatio || 1))
 			});

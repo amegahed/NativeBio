@@ -101,24 +101,33 @@ export default SelectableCollectionView.extend({
 				this.$el.addClass('little');
 				this.$el.removeClass('medium');
 				this.$el.removeClass('large');
+				this.$el.removeClass('extra-large');
 				break;
 			case 'medium':
 				this.$el.removeClass('little');
 				this.$el.addClass('medium');
 				this.$el.removeClass('large');
+				this.$el.removeClass('extra-large');
 				break;
 			case 'large':
 				this.$el.removeClass('little');
 				this.$el.removeClass('medium');
 				this.$el.addClass('large');
+				this.$el.removeClass('extra-large');
+				break;
+			case 'extra_large':
+				this.$el.removeClass('little');
+				this.$el.removeClass('medium');
+				this.$el.removeClass('large');
+				this.$el.addClass('extra-large');
 				break;
 		}
 	},
-	
+
 	//
 	// cloning methods
 	//
-	
+
 	cloneElements: function(selected, offset, options) {
 		let elements = [];
 		for (let i = 0; i < selected.length; i++) {
@@ -127,7 +136,7 @@ export default SelectableCollectionView.extend({
 			// create element
 			//
 			let element = item.clone();
-			
+
 			// position element
 			//
 			if (options && options.position) {
@@ -195,6 +204,9 @@ export default SelectableCollectionView.extend({
 	},
 
 	onRender: function() {
+
+		// set styles
+		//
 		if (this.options.letterboxed) {
 			this.$el.addClass('letterboxed');
 		}
@@ -203,26 +215,6 @@ export default SelectableCollectionView.extend({
 		//
 		if (this.options.tile_size || this.options.preferences) {
 			this.setTileSize(this.options.tile_size || this.options.preferences.get('tile_size'));
-		}
-	},
-
-	updateTileSize: function(tileSize) {
-		switch (tileSize) {
-			case 'small':
-				this.$el.addClass('little');
-				this.$el.removeClass('medium');
-				this.$el.removeClass('large');
-				break;
-			case 'medium':
-				this.$el.removeClass('little');
-				this.$el.addClass('medium');
-				this.$el.removeClass('large');
-				break;
-			case 'large':
-				this.$el.removeClass('little');
-				this.$el.removeClass('medium');
-				this.$el.addClass('large');
-				break;
 		}
 	},
 
@@ -244,8 +236,8 @@ export default SelectableCollectionView.extend({
 
 		// update tile size
 		//
-		if (this.options.preferences) {
-			this.updateTileSize(this.options.preferences.get('tile_size'));
+		if (this.options.tile_size || this.options.preferences) {
+			this.setTileSize(this.options.tile_size || this.options.preferences.get('tile_size'));
 		}
 	}
 });

@@ -25,7 +25,7 @@ export default {
 
 	// this determines whether to revalidate on losing focus
 	//
-	onfocusout: false,
+	onfocusout: undefined,
 
 	//
 	// validating methods

@@ -23,14 +23,12 @@
 
 body.binary {
 
-	.page {
-		h1, h2, h3 {
-			color: black !important;
-			@include binary-text.outline;
+	h1, h2, h3 {
+		color: black !important;
+		@include binary-text.outline;
 
-			i {
-				color: black !important;
-			}
+		i {
+			color: black !important;
 		}
 	}
 

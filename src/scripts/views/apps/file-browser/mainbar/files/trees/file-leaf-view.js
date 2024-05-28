@@ -37,7 +37,9 @@ export default LeafView.extend(_.extend({}, DirectoryTreeViewable, {
 			<div class="name" spellcheck="false"><%= name %></div>
 			
 			<div class="specifics">
-		
+				<div class="badges"></div>
+				<div class="details"><%= details %></div>
+
 				<% if (owner) { %>
 				<div class="owner small tile" data-toggle="tooltip" data-html="true" title="shared by <%= owner.getName() %>">
 					<% if (owner.hasProfilePhoto()) { %>
@@ -52,9 +54,6 @@ export default LeafView.extend(_.extend({}, DirectoryTreeViewable, {
 					<% } %>
 				</div>
 				<% } %>
-				
-				<div class="badges"></div>
-				<div class="details"><%= details %></div>
 			</div>
 		</div>
 	`),

@@ -18,7 +18,7 @@
 import Connection from '../../../models/users/connections/connection.js';
 import Reply from '../../../models/comments/reply.js';
 import UserPreferences from '../../../models/preferences/user-preferences.js';
-import Items from '../../../collections/files/items.js';
+import Items from '../../../collections/storage/items.js';
 import ModelView from '../../../views/items/model-view.js';
 import Collapsable from '../../../views/behaviors/expanders/collapsable.js';
 import Selectable from '../../../views/behaviors/selection/selectable.js';
@@ -103,10 +103,10 @@ export default ModelView.extend(_.extend({}, Collapsable, Selectable, FileDownlo
 				<div class="options buttons">
 					<% if (collapsable) { %>
 					<span class="expander">
-						<button type="button" class="expand btn btn-sm" data-toggle="tooltip" title="Expand">
+						<button type="button" class="expand btn-sm" data-toggle="tooltip" title="Expand">
 							<i class="fa fa-caret-down"></i>	
 						</button>
-						<button type="button" class="collapse btn btn-sm" data-toggle="tooltip" title="Collapse">
+						<button type="button" class="collapse btn-sm" data-toggle="tooltip" title="Collapse">
 							<i class="fa fa-caret-up"></i>
 						</button>
 					</span>
@@ -577,6 +577,7 @@ export default ModelView.extend(_.extend({}, Collapsable, Selectable, FileDownlo
 
 				// options
 				//
+				features: this.options.features,
 				preferences: this.options.preferences,
 				collapsed: this.options.collapsed,
 				selected: this.options.selected,
@@ -617,6 +618,7 @@ export default ModelView.extend(_.extend({}, Collapsable, Selectable, FileDownlo
 
 				// options
 				//
+				features: this.options.features,
 				preferences: this.options.preferences,
 
 				// callbacks
@@ -638,6 +640,7 @@ export default ModelView.extend(_.extend({}, Collapsable, Selectable, FileDownlo
 				// options
 				//
 				comment: this.model,
+				features: this.options.features,
 				preferences: this.options.preferences,
 
 				// callbacks
@@ -679,6 +682,7 @@ export default ModelView.extend(_.extend({}, Collapsable, Selectable, FileDownlo
 
 			// options
 			//
+			features: this.options.features,
 			preferences: this.options.preferences,
 
 			// callbacks

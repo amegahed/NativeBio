@@ -101,60 +101,70 @@ export default {
 			return;
 		}
 
-		// check for shift clicking or multi-select
+		// perform selection
 		//
-		if (event.shiftKey && this.multi_selectable != false) {
+		if (this.selectable != false) {
 
-			// handle multiple selection
+			// check for shift clicking or multi-select
 			//
-			this.toggleSelect();
+			if (!event.shiftKey && !event.metaKey && !this.multi_selectable) {
 
-			// disable text selection
-			//
-			this.$el.addClass('unselectable');
-		} else if (event.metaKey && this.multi_selectable != false) {
-
-			// select range
-			//
-			if (this.parent.selectRange) {
-				let from = this.parent.getSelected()[0];
-				let to = this;
-				this.parent.selectRange(from, to);
-			}
-
-			// disable text selection
-			//
-			this.$el.addClass('unselectable');
-		} else {
-
-			// perform selection
-			//
-			if (!this.isSelected()) {
-				let parent = this.getTop? this.getTop() : this.parent;
-
-				// deselect previously selected items
+				// perform selection
 				//
-				if (parent && parent.deselectAll) {
-					parent.deselectAll();
-				} else if (this.deselectAll) {
-					this.deselectAll();
+				if (!this.isSelected()) {
+					let top = this.getTop? this.getTop() : this.parent;
+
+					// deselect previously selected items
+					//
+					if (top) {
+						if (top.deselect) {
+							top.deselect();
+						}
+						if (top.deselectAll) {
+							top.deselectAll();
+						}
+					} else if (this.deselectAll) {
+						this.deselectAll();
+					}
+
+					// select this item
+					//
+					this.select();
+				} else if ((Browser.is_touch_enabled || this.double_clickable) && (!this.isEditing || !this.isEditing())) {
+
+					// open this item
+					//
+					if (this.open) {
+						this.open();
+					}
 				}
 
-				// select this item
+				// enable text selection
 				//
-				this.select();
-			} else if ((Browser.is_touch_enabled || this.double_clickable) && (!this.isEditing || !this.isEditing())) {
+				this.$el.removeClass('unselectable');
+			} else if (event.metaKey) {
 
-				// open this item
+				// select range
 				//
-				if (this.open) {
-					this.open();
+				if (this.parent.selectRange) {
+					let from = this.parent.getSelected()[0];
+					let to = this;
+					this.parent.selectRange(from, to);
 				}
-			}
 
-			// enable text selection
-			//
-			this.$el.removeClass('unselectable');
+				// disable text selection
+				//
+				this.$el.addClass('unselectable');
+			} else if (!event.target.isContentEditable) {
+
+				// handle multiple selection
+				//
+				this.toggleSelect();
+
+				// disable text selection
+				//
+				this.$el.addClass('unselectable');
+			}
 		}
 	},
 

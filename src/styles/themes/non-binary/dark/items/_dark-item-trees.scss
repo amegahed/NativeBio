@@ -23,20 +23,23 @@
 
 body:not(.binary).dark {
 	.item-tree {
-		> .info {
 
-			//
-			// expanders
-			//
-			
-			.expander {
-				button i {
-					color: white;
+		&:not(.selected):not(.highlighted) {
+			> .info {
+
+				//
+				// expanders
+				//
+				
+				.expander {
+					button i {
+						color: white;
+					}
 				}
-			}
 
-			.name {
-				color: text-colors.$light-color;
+				.name {
+					color: text-colors.$light-color;
+				}
 			}
 		}
 	}

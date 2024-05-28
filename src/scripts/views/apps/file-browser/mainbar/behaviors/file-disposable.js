@@ -369,7 +369,7 @@ export default _.extend({}, FileMovable, {
 
 						error: (model, response) => {
 
-							// show error message
+							// show error
 							//
 							application.error({
 								icon: '<i class="fa fa-trash-alt"></i>',

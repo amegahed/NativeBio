@@ -30,6 +30,7 @@ $side-head-sort-fill-color: darken($side-head-fill-color, 10%);
 $side-head-outline-color: $side-head-fill-color;
 
 $body-color: text-colors.$dark-color;
+$body-icon-color: colors.$light-grey;
 $body-fill-color: colors.faded(white, 25%);
 
 $row-border-color: darken(colors.$very-very-very-light-grey, 5%);
@@ -154,6 +155,18 @@ body:not(.binary) {
 			tr:nth-of-type(even), tr.even {
 				border-color: $row-even-fill-color;
 				background-color: $row-even-fill-color;
+			}
+
+			//
+			// icons
+			//
+
+			i {
+				color: $body-icon-color;
+			}
+
+			.icon svg {
+				fill: $body-icon-color;
 			}
 
 			//

@@ -57,7 +57,7 @@ export default ToolbarView.extend({
 		this.rotation = rotation;
 		this.parent.app.setRotation(rotation);
 
-		// enable / disble buttons
+		// enable / disable buttons
 		//
 		this.setItemsEnabled(!isNaN(rotation));
 	},

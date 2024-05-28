@@ -15,7 +15,7 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import Items from '../../../../../collections/files/items.js';
+import Items from '../../../../../collections/storage/items.js';
 import FolderLinkView from '../../../../../views/apps/file-browser/sharing/links/folder-link-view.js';
 import ImageGalleryView from '../../../../../views/apps/file-browser/mainbar/files/galleries/image-gallery-view.js';
 import Browser from '../../../../../utilities/web/browser.js';
@@ -103,7 +103,7 @@ export default FolderLinkView.extend({
 			//
 			inline: true,
 			lightbox: true,
-			max_size: 600,
+			max_size: 512,
 			defaults: {
 				layout: {
 					itemSpacing: 10,

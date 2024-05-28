@@ -15,7 +15,7 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import BaseView from '../../../../../views/base-view.js';
+import UserPreferences from '../../../../../models/preferences/user-preferences.js';
 import SideBarPanelView from '../../../../../views/apps/common/sidebar/panels/sidebar-panel-view.js';
 import PageTilesView from '../../../../../views/apps/pdf-viewer/sidebar/pages/tiles/page-tiles-view.js';
 
@@ -90,11 +90,12 @@ export default SideBarPanelView.extend({
 
 			// options
 			//
-			emptyView: BaseView.extend({
-				className: 'empty',
-				template: template("No pages.")
+			preferences: UserPreferences.create('file_browser', {
+				view_kind: this.options.view_kind,
+				tile_size: this.options.tile_size
 			}),
 			selected: this.collection.at(0),
+			empty: "No pages.",
 			letterboxed: true,
 
 			// capabilities

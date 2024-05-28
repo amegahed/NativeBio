@@ -17,8 +17,8 @@
 
 import Connection from '../../../../models/users/connections/connection.js';
 import Post from '../../../../models/topics/post.js';
-import Directory from '../../../../models/files/directory.js';
-import File from '../../../../models/files/file.js';
+import Directory from '../../../../models/storage/directories/directory.js';
+import File from '../../../../models/storage/files/file.js';
 import UserProfile from '../../../../models/users/profile/user-profile.js';
 import BaseView from '../../../../views/base-view.js';
 import UserPanelsView from '../../../../views/apps/profile-viewer/mainbar/user-panels-view.js';

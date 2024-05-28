@@ -95,7 +95,8 @@ export default SideBarView.extend({
 
 			// options
 			//
-			view_kind: this.options.view_kind
+			view_kind: this.options.view_kind,
+			tile_size: this.options.tile_size
 		}));		
 	},
 

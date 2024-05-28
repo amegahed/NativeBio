@@ -19,7 +19,7 @@ import Topic from '../../../../models/topics/topic.js';
 import Post from '../../../../models/topics/post.js';
 import SideBarView from '../../../../views/apps/common/sidebar/sidebar-view.js';
 import TopicInfoPanelView from '../../../../views/apps/topic-viewer/sidebar/panels/topic-info-panel-view.js';
-import PostInfoPanelView from '../../../../views/apps/topic-viewer/sidebar/panels/post-info-panel-view.js';
+import PostInfoPanelView from '../../../../views/apps/post-viewer/sidebar/panels/post-info-panel-view.js';
 import TopicsPanelView from '../../../../views/apps/topic-viewer/sidebar/panels/topics-panel-view.js';
 
 export default SideBarView.extend({
@@ -123,21 +123,13 @@ export default SideBarView.extend({
 
 	showTopicInfoPanel: function() {
 		this.showChildView('info', new TopicInfoPanelView({
-			model: this.model,
-
-			// options
-			//
-			view_kind: this.options.view_kind
+			model: this.model
 		}));		
 	},
 
 	showPostInfoPanel: function() {
 		this.showChildView('info', new PostInfoPanelView({
-			model: this.model,
-
-			// options
-			//
-			view_kind: this.options.view_kind
+			model: this.model
 		}));		
 	},
 

@@ -81,7 +81,7 @@ body.binary {
 					outline-color: black;
 
 					> .icon {
-						@include binary-colors.dark-grey();
+						@include binary-colors.dark-grey;
 
 						.thumbnail { 
 							outline-color: 2px;

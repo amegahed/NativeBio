@@ -13,7 +13,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|            Copyright (C) 2016-2020, Sharedigm, www.sharedigm.com             |
+|            Copyright (C) 2016-2024, Sharedigm, www.sharedigm.com             |
 \******************************************************************************/
 
 namespace App\Http\Controllers\Comments;
@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Session;
 use App\Models\Users\User;
 use App\Models\Comments\Comment;
 use App\Models\Comments\Reply;
-use App\Models\Files\Attachments\ReplyAttachment;
+use App\Models\Storage\Attachments\ReplyAttachment;
 use App\Notifications\ReplyNotification;
 use App\Notifications\LikeNotification;
 use App\Http\Controllers\Comments\CommentsController;

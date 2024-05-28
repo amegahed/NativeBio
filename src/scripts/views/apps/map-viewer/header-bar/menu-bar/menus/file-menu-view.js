@@ -30,15 +30,15 @@ export default FileMenuView.extend({
 			<ul class="dropdown-menu" data-toggle="dropdown">
 
 				<li role="presentation">
-					<a class="new-window"><i class="far fa-window-maximize"></i>New Window<span class="command shortcut">enter</span></a>
-				</li>
-
-				<li role="presentation">
 					<a class="new-map"><i class="fa fa-map"></i>New Map<span class="command shortcut">M</span></a>
 				</li>
 
 				<li role="presentation">
 					<a class="new-folder"><i class="fa fa-folder"></i>New Folder<span class="command shortcut">enter</span></a>
+				</li>
+
+				<li role="presentation">
+					<a class="new-window"><i class="far fa-window-maximize"></i>New Window<span class="shift command shortcut">enter</span></a>
 				</li>
 			</ul>
 		</li>
@@ -87,9 +87,9 @@ export default FileMenuView.extend({
 	`),
 	
 	events: {
-		'click .new-window': 'onClickNewWindow',
 		'click .new-map': 'onClickNewMap',
 		'click .new-folder': 'onClickNewFolder',
+		'click .new-window': 'onClickNewWindow',
 		'click .open-item': 'onClickOpenItem',
 		'click .show-info': 'onClickShowInfo',
 		'click .save-map': 'onClickSaveMap',
@@ -105,15 +105,15 @@ export default FileMenuView.extend({
 	//
 
 	enabled: function() {
+		let isSignedIn = application.isSignedIn();
+		let hasTabs = this.parent.app.hasTabs();
 		let file = this.parent.app.getActiveModel();
 		let directory = file? file.parent : undefined;
 		let isSaved = file && file.isSaved();
-		let isSignedIn = application.isSignedIn();
 		let hasSelectedItems = this.parent.app.hasSelectedItems();
 		let isWritable = file? file.isWritableBy(application.session.user) : false;
 		let isDirectoryWritable = directory? directory.isWritableBy(application.session.user) : isSignedIn;
 		let hasSelected = this.parent.app.hasSelected();
-		let hasMultiple = this.parent.app.hasMultipleTabs();
 		let isDesktop = this.parent.app.isDesktop();
 
 		return {
@@ -123,10 +123,10 @@ export default FileMenuView.extend({
 			'open-item': true,
 			'show-info': isSaved || hasSelected,
 			'save-map': isSaved && isWritable,
-			'save-as': true,
+			'save-as': hasTabs,
 			'download-items': isSaved,
 			'delete-items': hasSelectedItems === true && isDirectoryWritable,
-			'close-tab': hasMultiple,
+			'close-tab': hasTabs,
 			'close-window': !isDesktop
 		};
 	},
@@ -144,7 +144,7 @@ export default FileMenuView.extend({
 	//
 
 	onClickNewMap: function() {
-		this.parent.app.newMap();
+		this.parent.app.newFile();
 	},
 
 	onClickNewFolder: function() {

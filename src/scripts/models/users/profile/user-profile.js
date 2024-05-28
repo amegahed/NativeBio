@@ -16,7 +16,7 @@
 \******************************************************************************/
 
 import Timestamped from '../../../models/utilities/timestamped.js';
-import ImageFile from '../../../models/files/image-file.js';
+import ImageFile from '../../../models/storage/media/image-file.js';
 import UserHomes from '../../../collections/users/profile/user-homes.js';
 import UserJobs from '../../../collections/users/profile/user-jobs.js';
 import UserPublications from '../../../collections/users/profile/user-publications.js';

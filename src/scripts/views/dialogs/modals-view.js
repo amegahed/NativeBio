@@ -282,6 +282,21 @@ export default BaseView.extend({
 	},
 
 	//
+	// minimizing methods
+	//
+
+	minimizeAll: function() {
+		if (this.numModals() > 0) {
+			for (let i = 0; i < this.stack.length; i++) {
+				let modal = this.stack[i];
+				if (modal.minimize) {
+					modal.minimize();
+				}
+			}
+		}
+	},
+
+	//
 	// offsetting / parallax-shift methods
 	//
 
@@ -308,7 +323,7 @@ export default BaseView.extend({
 		//
 		for (let i = 0; i < this.stack.length; i++) {
 			let modalView = this.stack[i];
-			let depth = i + 1;
+			let depth = 0.5 + (i / 2);
 			let modal = modalView.$el.find('.modal-dialog')[0];
 
 			// offset modal

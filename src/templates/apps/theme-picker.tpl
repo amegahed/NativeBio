@@ -40,11 +40,11 @@
 
 	<h2><i class="fa fa-desktop"></i>Screen Shots</h2>
 	<div class="figure desktop-only">
-		<a href="images/info/apps/theme-picker/theme-picker.png" target="_blank" class="lightbox" title="Theme Picker"><img class="dialog" src="images/info/apps/theme-picker/theme-picker.png" /></a>
-		<div class="caption">Theme Picker</div>
+		<a href="images/info/apps/theme-picker/theme-picker.png" target="_blank" class="lightbox" title="<%= config.apps['theme_picker'].name %>"><img class="dialog" src="images/info/apps/theme-picker/theme-picker.png" /></a>
+		<div class="caption"><%= config.apps['theme_picker'].name %></div>
 	</div>
 	<div class="figure mobile-only">
-		<a href="images/info/apps/theme-picker/mobile/mobile-theme-picker.png" target="_blank" class="lightbox" title="Theme Picker"><img src="images/info/apps/theme-picker/mobile/mobile-theme-picker.png" /></a>
-		<div class="caption">Theme Picker</div>
+		<a href="images/info/apps/theme-picker/mobile/mobile-theme-picker.png" target="_blank" class="lightbox" title="<%= config.apps['theme_picker'].name %>"><img src="images/info/apps/theme-picker/mobile/mobile-theme-picker.png" /></a>
+		<div class="caption"><%= config.apps['theme_picker'].name %></div>
 	</div>
 </div>

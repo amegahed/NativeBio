@@ -15,14 +15,14 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import File from '../../../models/files/file.js';
-import Directory from '../../../models/files/directory.js';
-import Items from '../../../collections/files/items.js';
+import File from '../../../models/storage/files/file.js';
+import Directory from '../../../models/storage/directories/directory.js';
+import Items from '../../../collections/storage/items.js';
 import AppSplitView from '../../../views/apps/common/app-split-view.js';
 import Multifile from '../../../views/apps/common/behaviors/tabbing/multifile.js';
 import ContainableSelectable from '../../../views/behaviors/containers/containable-selectable.js';
 import MultiSelectable from '../../../views/behaviors/selection/multi-selectable.js';
-import ModelShareable from '../../../views/apps/common/behaviors/sharing/model-shareable.js';
+import ItemShareable from '../../../views/apps/common/behaviors/sharing/item-shareable.js';
 import GoogleContactsImportable from '../../../views/apps/common/behaviors/importing/google-contacts-importable.js';
 import ItemInfoShowable from '../../../views/apps/file-browser/dialogs/info/behaviors/item-info-showable.js';
 import HeaderBarView from '../../../views/apps/contact-editor/header-bar/header-bar-view.js';
@@ -31,7 +31,7 @@ import TabbedContentView from '../../../views/apps/contact-editor/mainbar/tabbed
 import FooterBarView from '../../../views/apps/contact-editor/footer-bar/footer-bar-view.js';
 import Browser from '../../../utilities/web/browser.js';
 
-export default AppSplitView.extend(_.extend({}, Multifile, ContainableSelectable, MultiSelectable, ModelShareable, GoogleContactsImportable, ItemInfoShowable, {
+export default AppSplitView.extend(_.extend({}, Multifile, ContainableSelectable, MultiSelectable, ItemShareable, GoogleContactsImportable, ItemInfoShowable, {
 
 	//
 	// attributes

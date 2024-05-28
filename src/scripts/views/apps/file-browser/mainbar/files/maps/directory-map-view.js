@@ -15,7 +15,7 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import Items from '../../../../../../collections/files/items.js';
+import Items from '../../../../../../collections/storage/items.js';
 import ItemsMapView from '../../../../../../views/maps/items-map-view.js';
 import GeolocatableFilesView from '../../../../../../views/maps/items/geolocatable-files-view.js';
 

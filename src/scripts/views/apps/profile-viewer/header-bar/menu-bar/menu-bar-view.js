@@ -81,6 +81,6 @@ export default MenuBarView.extend({
 
 		// hide edit dropdown if not current user
 		//
-		this.setDropdownHidden('edit', !this.parent.app.model.is(application.session.user));
+		this.setMenuHidden('edit', !this.parent.app.model.is(application.session.user));
 	}
 });

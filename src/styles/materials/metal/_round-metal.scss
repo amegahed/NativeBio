@@ -53,7 +53,7 @@ $reflection-voffset: 0%;
 		radial-gradient(ellipse $highlight-width $highlight-height at $highlight-hoffset $highlight-voffset,
 			colors.fade(white, $highlight-strength) 0%,
 			colors.fade(lighting.lighten($color, 20%), $highlight-strength) $highlight-size,
-			colors.fade($color, 0%) 100%) no-repeat,
+			transparent 100%) no-repeat,
 
 		// specular
 		//

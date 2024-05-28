@@ -156,8 +156,16 @@ body {
 	transform: translate(-50%, -50%);
 }
 
+.left.aligned {
+	text-align: left;
+}
+
 .center.aligned {
 	text-align: center;
+}
+
+.right.aligned {
+	text-align: right;
 }
 
 .middle.aligned {
@@ -351,12 +359,12 @@ body:not(.icon-spinning) {
 //
 
 .well {
-	padding: 10px 20px;
-	margin: 20px 0;
+	padding: 10px;
 	border-width: 1px;
 	border-style: solid;
 	box-shadow: none;
 	-webkit-box-shadow: none;
+	margin-bottom: 10px;
 
 	&.emphasis {
 		width: 75%;

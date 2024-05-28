@@ -106,10 +106,7 @@ export default SideBarPanelView.extend(_.extend({}, Openable, {
 				preferences: UserPreferences.create('file_browser', {
 					view_kind: this.options.view_kind
 				}),
-				emptyView: BaseView.extend({
-					className: 'empty',
-					template: template('No items.')
-				}),
+				empty: "No items.",
 
 				// capabilities
 				//

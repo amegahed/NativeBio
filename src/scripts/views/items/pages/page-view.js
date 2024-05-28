@@ -65,7 +65,7 @@ export default ItemView.extend({
 	// image attributes
 	//
 	multi_selectable: true,
-	thumbnailSize: 600,
+	thumbnailSize: 512,
 
 	//
 	// selecting methods

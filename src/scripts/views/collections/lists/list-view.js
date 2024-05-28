@@ -15,30 +15,26 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import BaseView from '../../../views/base-view.js';
 import SelectableCollectionView from '../../../views/collections/selectable-collection-view.js';
 import ListItemView from '../../../views/collections/lists/list-item-view.js';
 
 export default SelectableCollectionView.extend({
 
 	//
-	// attributes
-	//
-
 	// views
 	//
-	childView: ListItemView,
 
-	emptyView: BaseView.extend({
-		className: 'empty',
-		template: template("No items.")
-	}),
+	childView: ListItemView,
 
 	//
 	// constructor
 	//
 
 	initialize: function() {
+
+		// call superclass constructor
+		//
+		SelectableCollectionView.prototype.initialize.call(this);
 
 		// watch collection
 		//

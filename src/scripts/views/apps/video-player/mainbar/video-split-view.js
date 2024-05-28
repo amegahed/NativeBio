@@ -30,6 +30,27 @@ export default SplitView.extend({
 	flipped: true,
 
 	//
+	// setting methods
+	//
+
+	setOption: function(key, value) {
+		switch (key) {
+
+			// mainbar options
+			//
+			case 'show_video_info':
+				this.setSideBarVisibility(value);
+				break;
+			case 'info_bar_size':
+				this.setSideBarSize(value);
+				break;
+
+			default:
+				this.getChildView('mainbar').setOption(key, value);
+		}
+	},
+
+	//
 	// rendering methods
 	//
 

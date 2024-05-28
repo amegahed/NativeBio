@@ -51,10 +51,10 @@ export default CardView.extend(_.extend({}, Expandable, {
 		
 					<% if (expandable) { %>
 					<div class="expander">
-						<button type="button" class="collapse btn btn-sm">
+						<button type="button" class="collapse btn-sm">
 							<i class="fa fa-caret-up"></i>
 						</button>
-						<button type="button" class="expand btn btn-sm">
+						<button type="button" class="expand btn-sm">
 							<i class="fa fa-caret-down"></i>	
 						</button>
 					</div>

@@ -31,11 +31,13 @@ export default BaseView.extend({
 	className: 'split-view',
 
 	template1: template(`
-		<div class="split sidebar"></div><div class="split mainbar"></div>
+		<div class="split sidebar"></div>
+		<div class="split mainbar"></div>
 	`),
 
 	template2: template(`
-		<div class="split mainbar"></div><div class="split sidebar"></div>
+		<div class="split mainbar"></div>
+		<div class="split sidebar"></div>
 	`),
 
 	regions: {
@@ -109,6 +111,14 @@ export default BaseView.extend({
 		}
 	},
 
+	isHorizontal: function() {
+		return this.orientation == 'horizontal';
+	},
+
+	isVertical: function() {
+		return this.orientation == 'vertical';
+	},
+
 	//
 	// getting methods
 	//
@@ -150,7 +160,7 @@ export default BaseView.extend({
 			case 'vertical':
 				this.$el.find('> .split').removeClass('split-horizontal').addClass('split-vertical');
 				break;
-		}		
+		}
 	},
 
 	setSideBarSize: function(sidebarSize) {
@@ -193,7 +203,7 @@ export default BaseView.extend({
 				case 'vertical':
 					this.$el.find('.mainbar').css('min-height', min_sizes[1] + 'px');
 					break;
-			}	
+			}
 		}
 	},
 
@@ -204,7 +214,7 @@ export default BaseView.extend({
 			this.hideSideBar();
 		}
 	},
-	
+
 	resetSideBar: function() {
 		this.splitter.setSizes(this.options.sizes || this.sizes);
 		this.onResize();
@@ -313,11 +323,20 @@ export default BaseView.extend({
 		// show splitter
 		//
 		this.showSplitter();
-		
+
 		// show child views
 		//
 		this.showSidebarView();
 		this.showMainbarView();
+
+		// add classes
+		//
+		if (this.flipped) {
+			this.$el.addClass('flipped');
+		}
+		if (!this.isSideBarOpen()) {
+			this.$el.addClass('closed');
+		}
 
 		// set initial state
 		//
@@ -338,16 +357,16 @@ export default BaseView.extend({
 		//
 		this.setOrientation(this.orientation);
 
-		// create splitter 
+		// create splitter
 		//
 		this.splitter = Split(!this.flipped? [
-			this.$el.find('> .sidebar')[0], 
+			this.$el.find('> .sidebar')[0],
 			this.$el.find('> .mainbar')[0]
 		] : [
 			this.$el.find('> .mainbar')[0],
 			this.$el.find('> .sidebar')[0]
 		], {
-			
+
 			// options
 			//
 			direction: this.orientation,
@@ -361,6 +380,20 @@ export default BaseView.extend({
 				this.onResize();
 			}
 		});
+
+		// add icon
+		//
+		if (Browser.is_mobile) {
+			let $button = $('<button class="expander btn btn-sm"></button>');
+			if (this.isVertical()) {
+				$button.append($('<i class="fa fa-caret-up"></i>'));
+				$button.append($('<i class="fa fa-caret-down"></i>'));
+			} else {
+				$button.append($('<i class="fa fa-caret-left"></i>'));
+				$button.append($('<i class="fa fa-caret-right"></i>'));
+			}
+			this.$el.find('.gutter').append($button);
+		}
 
 		// set min sizes
 		//
@@ -444,7 +477,7 @@ export default BaseView.extend({
 				this.$el.find('> .mainbar').css({
 					width: 'calc(100% - ' + gutterSize + 'px)'
 				});
-			}						
+			}
 		}
 	},
 
@@ -467,7 +500,7 @@ export default BaseView.extend({
 				this.$el.find('> .mainbar').css({
 					height: 'calc(100% - ' + gutterSize + 'px)'
 				});
-			}	
+			}
 		} else {
 
 			// adjust sidebar
@@ -484,7 +517,7 @@ export default BaseView.extend({
 				this.$el.find('> .mainbar').css({
 					height: 'calc(100% - ' + gutterSize + 'px)'
 				});
-			}			
+			}
 		}
 	},
 
@@ -493,7 +526,7 @@ export default BaseView.extend({
 		// adjust widths and height for completely open or closed sidebar
 		//
 		switch (this.orientation) {
-			
+
 			case "horizontal":
 				this.adjustWidths();
 				break;
@@ -515,7 +548,7 @@ export default BaseView.extend({
 		if (this.isDestroyed()) {
 			return;
 		}
-		
+
 		// apply to child views
 		//
 		if (this.hasChildView('sidebar') && this.getChildView('sidebar').onLoad) {
@@ -526,15 +559,15 @@ export default BaseView.extend({
 		}
 	},
 
-	onChange: function() {
+	onChange: function(attribute) {
 
 		// apply to child views
 		//
 		if (this.hasChildView('sidebar') && this.getChildView('sidebar').onChange) {
-			this.getChildView('sidebar').onChange();
+			this.getChildView('sidebar').onChange(attribute);
 		}
 		if (this.hasChildView('mainbar') && this.getChildView('mainbar').onChange) {
-			this.getChildView('mainbar').onChange();
+			this.getChildView('mainbar').onChange(attribute);
 		}
 	},
 
@@ -542,14 +575,26 @@ export default BaseView.extend({
 	// mouse event handling methods
 	//
 
-	onDoubleClickGutter: function() {
+	onDoubleClickGutter: function(event) {
 		this.resetSideBar();
+
+		// block event from parent
+		//
+		this.block(event);
 	},
 
-	onTapGutter: function() {
+	onTapGutter: function(event) {
 		if (Browser.is_mobile) {
 			this.toggleSideBar();
 		}
+
+		// play tap sound
+		//
+		application.play('tap');
+
+		// block event from parent
+		//
+		this.block(event);
 	},
 
 	//
@@ -573,7 +618,15 @@ export default BaseView.extend({
 	//
 
 	onResize: function(event) {
-		
+
+		// update closed flag
+		//
+		if (this.isSideBarOpen()) {
+			this.$el.removeClass('closed');
+		} else {
+			this.$el.addClass('closed');
+		}
+
 		// apply to child views
 		//
 		if (this.hasChildView('sidebar') && this.getChildView('sidebar').onResize) {

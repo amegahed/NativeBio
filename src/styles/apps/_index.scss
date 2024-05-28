@@ -22,7 +22,9 @@
 @use "calendar";
 @use "clock";
 @use "code-editor";
+@use "communicator";
 @use "contact-editor";
+@use "decibel-meter";
 @use "desktop";
 @use "chat-browser";
 @use "chat-viewer";
@@ -30,7 +32,6 @@
 @use "help-viewer";
 @use "image-viewer";
 @use "map-viewer";
-@use "messenger";
 @use "post-viewer";
 @use "notification-center";
 @use "pdf-viewer";
@@ -38,6 +39,7 @@
 @use "profile-viewer";
 @use "project-browser";
 @use "project-viewer";
+@use "search-viewer";
 @use "settings-browser";
 @use "settings-manager";
 @use "terminal";

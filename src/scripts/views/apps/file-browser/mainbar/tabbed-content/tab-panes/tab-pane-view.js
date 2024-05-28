@@ -32,6 +32,22 @@ export default TabPaneView.extend(_.extend({}, ContainableSelectable, {
 	},
 
 	//
+	// querying methods
+	//
+
+	hasDetails: function() {
+		return this.options.preferences? this.options.preferences.has('detail_kind') : false;
+	},
+
+	//
+	// getting methods
+	//
+
+	getDetails: function() {
+		return this.options.preferences? this.options.preferences.get('detail_kind') : null;
+	},
+
+	//
 	// setting methods
 	//
 
@@ -56,7 +72,7 @@ export default TabPaneView.extend(_.extend({}, ContainableSelectable, {
 	},
 
 	onRender: function() {
-		if (!this.model.loaded) {
+		if (!this.model.loaded || this.hasDetails()) {
 
 			// show loading message
 			//
@@ -64,7 +80,10 @@ export default TabPaneView.extend(_.extend({}, ContainableSelectable, {
 				icon: '<i class="fa fa-spin fa-spinner"></i>',
 			});
 
+			// load directory content
+			//
 			this.request = this.model.load({
+				details: this.getDetails(),
 
 				// callbacks
 				//

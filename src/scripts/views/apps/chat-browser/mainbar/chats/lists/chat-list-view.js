@@ -26,7 +26,9 @@ export default ListView.extend({
 
 	editable: false,
 
+	//
 	// views
 	//
+
 	childView: ChatListItemView
 });

@@ -87,7 +87,7 @@ export default BaseView.extend(_.extend({}, Positionable, Draggable, Stackable, 
 	numDialogs: function() {
 		return $('.modals .modal').length;
 	},
-	
+
 	//
 	// getting methods
 	//
@@ -247,11 +247,11 @@ export default BaseView.extend(_.extend({}, Positionable, Draggable, Stackable, 
 
 		// set window size
 		//
-		if (this.options.width) {
-			this.$el.find('.modal-dialog').css('width', this.options.width + 'px');
+		if (this.width) {
+			this.$el.find('.modal-dialog').css('width', this.width + 'px');
 		}
-		if (this.options.height) {
-			this.$el.find('.modal-dialog').css('height', this.options.height + 'px');
+		if (this.height) {
+			this.$el.find('.modal-dialog').css('height', this.height + 'px');
 		}
 
 		// set dialog maximum height
@@ -348,11 +348,13 @@ export default BaseView.extend(_.extend({}, Positionable, Draggable, Stackable, 
 
 		// close when parent closes
 		//
+		/*
 		if (this.parent) {
 			this.listenTo(this.parent, 'destroy', () => {
 				this.close();
 			});
 		}
+		*/
 	},
 
 	onShown: function() {
@@ -501,7 +503,7 @@ export default BaseView.extend(_.extend({}, Positionable, Draggable, Stackable, 
 	// static attributes
 	//
 
-	transitionDuration: 300,
+	transitionDuration: 250,
 
 	effects: {
 		open: null,

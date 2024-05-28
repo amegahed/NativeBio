@@ -24,5 +24,11 @@ export default CardsView.extend({
 	// attributes
 	//
 
+	editable: false,
+
+	//
+	// views
+	//
+
 	childView: ChatCardView
 });

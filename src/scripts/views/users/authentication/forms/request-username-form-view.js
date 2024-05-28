@@ -100,7 +100,7 @@ export default FormView.extend({
 			this.requestUsernameByEmail(email);
 		} else {
 
-			// show alert dialog
+			// show alert message
 			//
 			application.alert({
 				icon: '<i class="fa fa-user"></i>',

@@ -46,13 +46,3 @@ $ambient-color: var(--ambient-color);
 @function darkened($color, $amount) {
 	@return mix(rgb(0, 0, 127), $color, $amount);
 }
-
-//
-// styles
-//
-
-:root {
-	--light-direction: to bottom;
-	--ambient-color: rgb(0, 0, 127);
-	--light-color: white;
-}

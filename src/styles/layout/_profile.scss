@@ -21,36 +21,51 @@
 // variables
 //
 
-$profile-photo-small-size: 150px;
+$profile-photo-small-size: 200px;
 $profile-photo-medium-size: 200px;
-$profile-photo-large-size: 250px;
+$profile-photo-large-size: 200px;
 $profile-photo-size:$profile-photo-medium-size;
 
 //
 // styles
 //
 
-.profile.photo {
-	position: relative;
-	background-color: black;
-	background-size: cover; 
-	background-position: 50% 50%;
-	background-repeat: no-repeat;
-	width: $profile-photo-medium-size;
-	height: $profile-photo-medium-size;
-	image-rendering: auto;
-	margin: -10px auto;
+.user-profile-header {
+	.profile.photo {
+		position: relative;
+		background-color: black;
+		background-size: cover; 
+		background-position: 50% 50%;
+		background-repeat: no-repeat;
+		width: $profile-photo-medium-size;
+		height: $profile-photo-medium-size;
+		image-rendering: auto;
+		margin: -10px auto;
 
-	.thumbnail.missing i {
-		font-size: $profile-photo-medium-size;
+		.thumbnail.missing i {
+			font-size: $profile-photo-medium-size;
+		}
+
+		.buttons {
+			margin-top: 5px;
+		}
+
+		&.rounded {
+			border-radius: 15px;
+		}
 	}
+}
 
-	.buttons {
-		margin-top: 5px;
-	}
-
-	&.rounded {
-		border-radius: 15px;
+table {
+	td {
+		.profile.thumbnail {
+			width: 25px;
+			height: 25px;
+			background-size: cover; 
+			float: left; 
+			margin: -2px;
+			margin-right: 10px; 
+		}
 	}
 }
 

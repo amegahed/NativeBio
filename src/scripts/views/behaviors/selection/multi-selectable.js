@@ -49,8 +49,8 @@ export default {
 
 		// update
 		//
-		if (this.onChangeSelection) {
-			this.onChangeSelection();
+		if (this.onChangeSelect) {
+			this.onChangeSelect();
 		}
 	}
 };

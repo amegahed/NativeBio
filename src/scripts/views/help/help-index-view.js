@@ -90,9 +90,9 @@ export default BaseView.extend({
 					item.expand();
 				} 
 
-				// goto page
+				// show in new page
 				//
-				window.location = item.model.get('url');
+				application.showUrl(item.model.get('url'))
 			}
 		}));
 

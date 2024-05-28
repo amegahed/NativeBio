@@ -46,7 +46,7 @@ export default BaseView.extend({
 		<% if (key == 'track_number') { icon = 'fa fa-list'; } %>
 		<% if (key == 'year') { icon = 'fa fa-calendar-alt'; } %>
 		
-		<% let value = id3[key][0]; %>
+		<% let value = id3[key]; %>
 		<% if (typeof value == 'string' && value.length < 64) { %>
 		<div class="item">
 			<div class="info">

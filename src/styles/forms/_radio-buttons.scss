@@ -53,6 +53,10 @@ form {
 			border-color: $selected-border-color !important;
 			outline: none;
 		}
+
+		&:disabled {
+			border: none;
+		}
 	}
 }
 

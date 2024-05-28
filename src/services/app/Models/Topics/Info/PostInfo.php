@@ -13,13 +13,14 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|            Copyright (C) 2016-2020, Sharedigm, www.sharedigm.com             |
+|            Copyright (C) 2016-2024, Sharedigm, www.sharedigm.com             |
 \******************************************************************************/
 
 namespace App\Models\Topics\Info;
 
 use Illuminate\Support\Collection;
 use App\Models\BaseModel;
+use App\Models\Topics\Post;
 use App\Models\Users\Info\UserInfo;
 
 class PostInfo extends BaseModel
@@ -58,6 +59,9 @@ class PostInfo extends BaseModel
 		'id',
 		'user',
 		'message',
+		'public',
+		'num_likes',
+		'num_comments',
 
 		// timestamps
 		//
@@ -72,7 +76,9 @@ class PostInfo extends BaseModel
 	 * @var array
 	 */
 	protected $appends = [
-		'user'
+		'user',
+		'num_likes',
+		'num_comments'
 	];
 
 	//
@@ -86,5 +92,36 @@ class PostInfo extends BaseModel
 	 */
 	public function getUserAttribute(): UserInfo {
 		return UserInfo::find($this->user_id);
+	}
+
+	/**
+	 * Get this post's num likes attribute.
+	 *
+	 * @return int
+	 */
+	public function getNumLikesAttribute(): int {
+		return $this->post->num_likes;
+	}
+
+	/**
+	 * Get this post's num comments attribute.
+	 *
+	 * @return int
+	 */
+	public function getNumCommentsAttribute(): int {
+		return $this->post->num_comments;
+	}
+
+	//
+	// relationship methods
+	//
+
+	/**
+	 * Get this attachment's relationship to its item.
+	 *
+	 * @return \Illuminate\Database\Eloquent\Relations\Relation
+	 */
+	public function post() {
+		return $this->belongsTo('App\Models\Topics\Post', 'id');
 	}
 }

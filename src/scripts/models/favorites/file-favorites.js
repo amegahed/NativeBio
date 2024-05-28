@@ -16,7 +16,7 @@
 \******************************************************************************/
 
 import UserFavorites from '../../models/favorites/user-favorites.js';
-import Items from '../../collections/files/items.js';
+import Items from '../../collections/storage/items.js';
 
 export default UserFavorites.extend({
 

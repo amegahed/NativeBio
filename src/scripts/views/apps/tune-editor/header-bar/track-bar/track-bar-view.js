@@ -121,8 +121,8 @@ export default ToolbarView.extend(_.extend({}, Timeable, {
 
 	replay: function() {
 		this.setTime(0);
-		this.parent.setTrackTime(0);
-		this.parent.pause();
+		this.app.setTrackTime(0);
+		this.app.pause();
 	},
 	
 	//

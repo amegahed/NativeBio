@@ -26,10 +26,10 @@ export default BaseView.extend({
 	className: 'status-bar',
 
 	template: template(`
-		<div class="player-info info-bar hidden-xs">
+		<div class="player-info info-bar">
 			<i class="fa fa-info-circle"></i><span class="status">Not Playing</span>
 		</div>
-		<div class="file-info info-bar hidden-xs" style="display:none"></div>
+		<div class="file-info info-bar" style="display:none"></div>
 	`),
 
 	//

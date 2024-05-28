@@ -17,7 +17,7 @@
 
 import Project from '../../../models/projects/project.js';
 import Task from '../../../models/projects/task.js';
-import Item from '../../../models/files/item.js';
+import Item from '../../../models/storage/item.js';
 import BaseCollection from '../../../collections/base-collection.js';
 import AppSplitView from '../../../views/apps/common/app-split-view.js';
 import MultiDoc from '../../../views/apps/common/behaviors/tabbing/multidoc.js';
@@ -549,6 +549,20 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, ContainableSelectable,
 	getFooterBarView: function() {
 		return new FooterBarView({
 			collection: this.collection
+		});
+	},
+
+	//
+	// message rendering methods
+	//
+
+	showHelpMessage: function() {
+		this.showMessage("No projects.", {
+			icon: '<i class="far fa-clipboard"></i>',
+
+			// callbacks
+			//
+			onclick: () => this.showOpenProjectsDialog()
 		});
 	},
 

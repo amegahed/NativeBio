@@ -49,6 +49,14 @@ body.binary.dark {
 
 				> .contents {
 					@include binary-colors.dark-grey;
+
+					//
+					// app sidebars
+					//
+
+					> .sidebar {
+						@include binary-colors.dark-grey;
+					}
 				}
 
 				//
@@ -76,7 +84,9 @@ body.binary.dark {
 
 		.selection {
 			color: white;
+			border-color: black;
 			@include binary-colors.lighten-less;
+			background-position: 0 0;
 		}
 	}
 
@@ -97,6 +107,8 @@ body.binary.dark {
 						.tab-pane > .items,
 						.tab-pane .tab-pane form {
 							@include binary-colors.grey;
+							background-position: 1px 1px;
+							background-attachment: fixed;
 						}
 					}
 				}

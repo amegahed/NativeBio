@@ -98,6 +98,8 @@ export default BaseView.extend({
 
 		// set styles
 		//
-		this.setFooterStyles(config.branding.footer);
+		if (config.branding.footer) {
+			this.setFooterStyles(config.branding.footer);
+		}
 	}
 });

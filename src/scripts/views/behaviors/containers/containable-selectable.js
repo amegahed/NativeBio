@@ -234,9 +234,13 @@ export default _.extend({}, Containable, {
 		});
 	},
 
-	setSelectedModels: function(selected, options) {
+	setSelectedModel: function(model, options) {
+		this.setSelectedModels([model], options);
+	},
+
+	setSelectedModels: function(models, options) {
 		this.each((child) => {
-			if (selected && selected.contains && selected.contains(child.model)) {
+			if (models && models.contains && models.contains(child.model)) {
 				child.select(options);
 			} else {
 				child.deselect(options);

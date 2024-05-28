@@ -23,11 +23,13 @@
 //
 
 $content-padding: 50px;
-$font-size: 1em;
-$line-height: 1.5em;
+$font-size: 16px;
+$content-font-size: 18px;
+$line-height: 2em;
 $half-width-figure-height: 250px;
 $mobile-content-padding: 25px;
 $footer-font-size: 14px;
+$footer-logo-size: 60px;
 
 //
 // styles
@@ -40,6 +42,17 @@ $footer-font-size: 14px;
 	overflow-y: auto;
 	overflow-x: hidden;
 	min-height: 100%;
+	line-height: $line-height;
+
+	//
+	// page paragraphs
+	//
+
+	p {
+		&:last-child {
+			margin: 0;
+		}
+	}
 
 	//
 	// page buttons
@@ -141,19 +154,6 @@ $footer-font-size: 14px;
 			}
 
 			//
-			// paragraph text
-			//
-
-			p {
-				font-size: $font-size;
-				line-height: $line-height;
-
-				&:last-child {
-					margin: 0;
-				}
-			}
-
-			//
 			// tables of contents
 			//
 
@@ -198,6 +198,15 @@ $footer-font-size: 14px;
 					}
 				}
 			}
+		}
+
+		//
+		// wells
+		//
+
+		.well {
+			padding: 10px 20px;
+			margin: 20px 0;
 		}
 
 		//
@@ -384,7 +393,7 @@ $footer-font-size: 14px;
 			line-height: 2em;
 
 			.logo {
-				height: 60px;
+				height: $footer-logo-size;
 				padding: 5px;
 				margin-bottom: 30px;
 			}
@@ -467,7 +476,7 @@ $footer-font-size: 14px;
 			border-radius: 100px;
 		}
 
-		iframe {
+		iframe, .items {
 			border-radius: 10px;
 		}
 	}
@@ -479,7 +488,7 @@ $footer-font-size: 14px;
 			border-radius: 50px;
 		}
 
-		iframe {
+		iframe, .items {
 			border-radius: 5px;
 		}
 	}
@@ -517,7 +526,7 @@ $footer-font-size: 14px;
 
 @media (min-width: variables.$screen-xs-min) {
 	.page {
-		font-size: 16px;
+		font-size: $font-size;
 
 		> .contents {
 
@@ -526,6 +535,7 @@ $footer-font-size: 14px;
 			//
 
 			.content {
+				font-size: $content-font-size;
 
 				.cover.photo {
 					margin: 0 (-$content-padding);

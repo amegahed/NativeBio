@@ -23,7 +23,8 @@
 //
 
 $color: text-colors.$dark-color;
-$background-color: colors.$very-very-very-light-grey;
+$icon-color: colors.$light-grey;
+$background-color: colors.$ultra-light-grey;
 $border-color: darken($background-color, 5%);
 
 //
@@ -35,5 +36,9 @@ body:not(.binary) {
 		color: $color;
 		background-color: $background-color;
 		border-color: $border-color;
+
+		i {
+			color: $icon-color;
+		}
 	}
 }

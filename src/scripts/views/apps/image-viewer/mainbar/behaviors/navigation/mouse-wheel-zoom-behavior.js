@@ -51,7 +51,7 @@ export default class MouseWheelZoomBehavior extends MouseWheelBehavior {
 	//
 
 	onZoom(factor) {
-		let zoom = this.viewer.getChildView('header zoom').getZoom();
+		let zoom = this.viewer.getZoom();
 
 		// update zoom
 		//

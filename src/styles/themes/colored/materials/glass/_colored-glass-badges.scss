@@ -26,7 +26,7 @@
 body:not(.binary) {
 	&.glass.colored {
 		.badge {
-			@include round-glass.shaded(colored-badges.$color);
+			@include round-glass.shade(colored-badges.$color);
 
 			//
 			// glass special badges

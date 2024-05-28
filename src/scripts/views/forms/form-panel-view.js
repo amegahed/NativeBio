@@ -20,5 +20,4 @@ export default FormView.extend({
 	//
 
 	className: 'panel'
-	// className: 'form-horizontal panel'
 });

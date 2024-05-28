@@ -23,7 +23,7 @@ export default BaseView.extend({
 	// attributes
 	//
 
-	className: 'status-bar',
+	className: 'status',
 
 	template: template(`
 		<div class="info-bar">

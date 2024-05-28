@@ -15,8 +15,7 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import Directory from '../../../../../models/files/directory.js';
-import BaseView from '../../../../../views/base-view.js';
+import Directory from '../../../../../models/storage/directories/directory.js';
 import SideBarPanelView from '../../../../../views/apps/common/sidebar/panels/sidebar-panel-view.js';
 import EditableFilesView from '../../../../../views/apps/file-browser/mainbar/files/editable-files-view.js';
 
@@ -130,10 +129,7 @@ export default SideBarPanelView.extend({
 			// options
 			//
 			view_kind: this.options.view_kind,
-			emptyView: BaseView.extend({
-				className: 'empty',
-				template: template("No maps.")
-			}),
+			empty: "No maps.",
 
 			// capabilities
 			//
@@ -142,7 +138,7 @@ export default SideBarPanelView.extend({
 			editable: true,
 			draggable: true,
 			droppable: true,
-	
+
 			// callbacks
 			//
 			onselect: (item) => this.onSelect(item),
@@ -169,7 +165,7 @@ export default SideBarPanelView.extend({
 	//
 
 	onClickNewMap: function() {
-		this.app.newMap();
+		this.app.newFile();
 	},
 
 	//

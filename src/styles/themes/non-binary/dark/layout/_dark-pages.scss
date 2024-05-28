@@ -27,6 +27,7 @@ $attention-color: white;
 $attention-background-color: dark-branding.$primary-color;
 $odd-section-background-color: colors.$very-very-dark-grey;
 $iframe-border-color: colors.$dark-grey;
+$items-border-color: colors.$very-very-very-dark-grey;
 $footer-info-background-color: colors.$very-very-dark-grey;
 
 //
@@ -71,11 +72,15 @@ body:not(.binary).dark {
 			}
 
 			//
-			// dark iframes
+			// dark frames
 			//
 
 			iframe {
 				border-color: $iframe-border-color;
+			}
+
+			.items {
+				border-color: $items-border-color;
 			}
 		}
 

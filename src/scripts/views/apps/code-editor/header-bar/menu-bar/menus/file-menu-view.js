@@ -25,11 +25,11 @@ export default FileMenuView.extend({
 
 	template: template(`
 		<li role="presentation">
-			<a class="new-window"><i class="far fa-window-maximize"></i>New Window<span class="command shortcut">enter</span></a>
+			<a class="new-file"><i class="fa fa-file-code"></i>New File<span class="command shortcut">enter</span></a>
 		</li>
 
 		<li role="presentation">
-			<a class="new-file"><i class="fa fa-file-code"></i>New File<span class="shift command shortcut">enter</span></a>
+			<a class="new-window"><i class="far fa-window-maximize"></i>New Window<span class="shift command shortcut">enter</span></a>
 		</li>
 		
 		<li role="presentation">
@@ -72,8 +72,8 @@ export default FileMenuView.extend({
 	`),
 
 	events: {
-		'click .new-window': 'onClickNewWindow',
 		'click .new-file': 'onClickNewFile',
+		'click .new-window': 'onClickNewWindow',
 		'click .open-file': 'onClickOpenFile',
 		'click .show-info': 'onClickShowInfo',
 		'click .save-file': 'onClickSaveFile',
@@ -88,25 +88,25 @@ export default FileMenuView.extend({
 	//
 
 	enabled: function() {
+		let isSignedIn = application.isSignedIn();
+		let hasTabs = this.parent.app.hasTabs();
 		let file = this.parent.app.model;
 		let directory = file? file.parent : null;
-		let isSignedIn = application.isSignedIn();
 		let isDirectoryReadable = directory? directory.isReadableBy(application.session.user) : isSignedIn;
 		let isWritable = file? file.isWritableBy(application.session.user) : false;
 		let hasSelectedItems = this.parent.app.hasSelectedItems();
-		let isDirty = this.parent.app.isDirty();
-		let hasMultiple = this.parent.app.hasOpenFiles();
+		let isDirty = hasTabs && this.parent.app.isDirty();
 		let isDesktop = this.parent.app.isDesktop();
 
 		return {
-			'new-window': true,
 			'new-file': true,
+			'new-window': true,
 			'open-file': isDirectoryReadable,
 			'show-info': file != undefined && !file.isNew(),
 			'save-file': isSignedIn && isDirty && isWritable,
-			'save-as': isSignedIn,
+			'save-as': hasTabs && isSignedIn,
 			'delete-items': isSignedIn && hasSelectedItems,
-			'close-tab': hasMultiple,
+			'close-tab': hasTabs,
 			'close-window': !isDesktop
 		};
 	},

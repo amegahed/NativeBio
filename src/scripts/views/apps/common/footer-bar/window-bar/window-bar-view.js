@@ -26,7 +26,14 @@ export default BaseView.extend({
 	className: 'window-size toolbar visible-desktop-only',
 
 	template: template(`
-		<div class="shrink-window button btn-sm" data-toggle="tooltip" title="Shrink" data-placement="top"><i class="fa fa-minus"></i></div>
-		<div class="grow-window button btn-sm" data-toggle="tooltip" title="Grow" data-placement="top"><i class="fa fa-plus"></i></div>
-		<div class="expand-window button btn-sm" data-toggle="tooltip" title="Expand" data-placement="top"><i class="fa fa-expand"></i></div>`)
+		<button class="shrink-window button btn-sm" data-toggle="tooltip" title="Shrink">
+			<i class="fa fa-minus"></i>
+		</button>
+		<button class="grow-window button btn-sm" data-toggle="tooltip" title="Grow">
+			<i class="fa fa-plus"></i>
+		</button>
+		<button class="expand-window button btn-sm" data-toggle="tooltip" title="Expand">
+			<i class="fa fa-expand"></i>
+		</button>
+	`)
 });

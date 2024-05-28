@@ -18,6 +18,8 @@
 import HeaderBarView from '../../../../views/apps/common/header-bar/header-bar-view.js';
 import NavBarView from '../../../../views/apps/file-browser/header-bar/nav-bar/nav-bar-view.js';
 import MenuBarView from '../../../../views/apps/file-browser/header-bar/menu-bar/menu-bar-view.js';
+import SharingBarView from '../../../../views/apps/file-browser/header-bar/sharing-bar/sharing-bar-view.js';
+import IndexingBarView from '../../../../views/apps/file-browser/header-bar/indexing-bar/indexing-bar-view.js';
 import SearchBarView from '../../../../views/apps/file-browser/header-bar/search-bar/search-bar-view.js';
 
 export default HeaderBarView.extend({
@@ -26,21 +28,7 @@ export default HeaderBarView.extend({
 	// attributes
 	//
 
-	toolbars: ['nav', 'menu', 'search'],
-
-	//
-	// attribute methods
-	//
-
-	enabled: function() {
-		let isDesktop = this.app.isDesktop();
-
-		return {
-			'nav': !isDesktop,
-			'menu': true,
-			'search': true
-		};
-	},
+	toolbars: ['nav', 'menu', 'sharing', 'indexing', 'search'],
 
 	//
 	// rendering methods
@@ -54,8 +42,14 @@ export default HeaderBarView.extend({
 			case 'menu':
 				this.showMenuBar();
 				break;
+			case 'sharing':
+				this.showSharingBar();
+				break;
+			case 'indexing':
+				this.showIndexingBar();
+				break;
 			case 'search':
-				this.showSearch();
+				this.showSearchBar();
 				break;
 		}
 	},
@@ -74,6 +68,14 @@ export default HeaderBarView.extend({
 
 	showMenuBar: function() {
 		this.showChildView('menu', new MenuBarView());
+	},
+
+	showSharingBar: function() {
+		this.showChildView('sharing', new SharingBarView());
+	},
+
+	showIndexingBar: function() {
+		this.showChildView('indexing', new IndexingBarView());
 	},
 
 	showSearchBar: function(kind, value) {

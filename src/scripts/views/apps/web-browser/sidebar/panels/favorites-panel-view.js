@@ -17,7 +17,6 @@
 
 import WebFavorites from '../../../../../models/favorites/web-favorites.js';
 import BaseCollection from '../../../../../collections/base-collection.js';
-import BaseView from '../../../../../views/base-view.js';
 import SideBarPanelView from '../../../../../views/apps/common/sidebar/panels/sidebar-panel-view.js';
 import UrlListView from '../../../../../views/apps/web-browser/sidebar/lists/url-list-view.js';
 
@@ -212,10 +211,7 @@ export default SideBarPanelView.extend({
 
 			// options
 			//
-			emptyView: BaseView.extend({
-				className: 'empty',
-				template: template("No favorites.")
-			}),
+			empty: "No favorites.",
 
 			// capabilities
 			//

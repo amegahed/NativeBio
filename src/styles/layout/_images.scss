@@ -48,12 +48,6 @@ $tilt-down: skewY($tilt-3d-angle);
 
 .smooth img {
 	image-rendering: auto !important;
-
-	.fancybox-image {
-		img {
-			image-rendering: auto !important;
-		}
-	}
 }
 
 //
@@ -290,7 +284,7 @@ $tilt-down: skewY($tilt-3d-angle);
 
 .thumbnail.photo {
 	border-radius: 0;
-	background-size: cover !important;
+	background-size: cover;
 	
 	&:after {
 		border-radius: 0;
@@ -355,73 +349,6 @@ outlined.photo {
 			rgba(black, 15%) 90%,
 			rgba(black, 50%) 100%);
 	mix-blend-mode: normal;
-}
-
-//
-// fancybox image lightbox
-//
-
-.inline.gallery {
-	> .images {
-		.item {
-			display: block;
-			max-width: 100%;
-			margin: 50px;
-
-			img {
-				max-width: 100%;
-			}
-
-			/*
-			&:first-child,
-			& + .item {
-				margin-top: 50px;
-			}
-			&:last-child {
-				margin-bottom: 50px;
-			}
-			*/
-		}
-	}
-}
-
-.fancybox-skin {
-	box-shadow: none !important;
-	-webkit-box-shadow: none !important;
-	background: none !important;
-	filter: drop-shadow(5px 5px 20px black);
-
-	.fancybox-outer {
-		background: none;
-
-		.fancybox-inner {
-			background: none;
-
-			.fancybox-image {
-				background: none;
-			}
-		}
-	}
-
-	.fancybox-title {
-		font: unset;
-	}
-}
-
-.round {
-	.fancybox-skin {
-		.fancybox-image {
-			border-radius: $round-border-radius;
-		}
-	}
-}
-
-.rounded {
-	.fancybox-skin {
-		.fancybox-image {
-			border-radius: $rounded-border-radius;
-		}
-	}
 }
 
 //

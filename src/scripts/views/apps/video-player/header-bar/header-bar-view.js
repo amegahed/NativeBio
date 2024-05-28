@@ -19,6 +19,7 @@ import HeaderBarView from '../../../../views/apps/common/header-bar/header-bar-v
 import MenuBarView from '../../../../views/apps/video-player/header-bar/menu-bar/menu-bar-view.js';
 import ClipBarView from '../../../../views/apps/video-player/header-bar/clip-bar/clip-bar-view.js';
 import VolumeBarView from '../../../../views/apps/video-player/header-bar/volume-bar/volume-bar-view.js';
+import VideoBarView from '../../../../views/apps/video-player/header-bar/video-bar/video-bar-view.js';
 import Browser from '../../../../utilities/web/browser.js';
 
 export default HeaderBarView.extend({
@@ -27,7 +28,7 @@ export default HeaderBarView.extend({
 	// attributes
 	//
 
-	toolbars: ['menu', 'clip', 'volume'],
+	toolbars: ['menu', 'clip', 'volume', 'video'],
 
 	//
 	// rendering methods
@@ -43,6 +44,9 @@ export default HeaderBarView.extend({
 				break;
 			case 'volume':
 				this.showVolumeBar();
+				break;
+			case 'video':
+				this.showVideoBar();
 				break;
 		}
 	},
@@ -90,5 +94,10 @@ export default HeaderBarView.extend({
 			//
 			onchange: (volume) => this.parent.getVideoView().setVolume(volume / 10)
 		}));
-	}
+	},
+
+	showVideoBar: function() {
+		this.showChildView('video', new VideoBarView());
+		this.getChildView('video').$el.addClass('desktop-app-only');
+	},
 });

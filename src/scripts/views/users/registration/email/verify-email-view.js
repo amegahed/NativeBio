@@ -28,7 +28,7 @@ export default BaseView.extend({
 		<h1>Verify Email Address</h1>
 		
 		<div class="content">
-			<p>Dear <%= user.get('preferred_name') || user.get('first_name') %>,</p>
+			<p>Dear <%= user.getName('single') %>, </p>
 			<p>To complete your registration, press the button below.  Once you have done this, you may log in using your username and password.
 			</p>
 		</div>

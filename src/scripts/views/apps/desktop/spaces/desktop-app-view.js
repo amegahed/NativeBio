@@ -91,6 +91,12 @@ export default AppView.extend(_.extend({}, Wallpaperable, AppLoadable, {
 		return Browser.is_mobile || appName != 'file_browser';
 	},
 
+	hasTabs: function() {
+		if (this.hasChildView('body')) {
+			return this.getChildView('body contents mainbar').hasTabs();
+		}
+	},
+
 	//
 	// counting methods
 	//
@@ -100,7 +106,7 @@ export default AppView.extend(_.extend({}, Wallpaperable, AppLoadable, {
 			return this.getChildView('body').numSelected();
 		}
 	},
-	
+
 	//
 	// getting methods
 	//
@@ -120,7 +126,7 @@ export default AppView.extend(_.extend({}, Wallpaperable, AppLoadable, {
 			return application.session.user;
 		}
 	},
-		
+
 	//
 	// setting methods
 	//
@@ -260,14 +266,26 @@ export default AppView.extend(_.extend({}, Wallpaperable, AppLoadable, {
 
 			// update view
 			//
-			this.showApp(appName);	
+			this.showApp(appName);
 		}
 	},
 
 	showApp: function(appName) {
 		this.loadAppView(appName, (AppView) => {
-			let defaults = config.apps[appName];
 
+			// check for app
+			//
+			if (!AppView) {
+
+				// show error message
+				//
+				application.error({
+					message: "The app '" + appName.replace('_', ' ') + "'' could not be loaded."
+				});
+			}
+
+			// show app in desktop body
+			//
 			this.showChildView('body', new AppView({
 
 				// options
@@ -292,10 +310,11 @@ export default AppView.extend(_.extend({}, Wallpaperable, AppLoadable, {
 
 			// append app name to header bar
 			//
+			let defaults = config.apps[appName];
 			if (this.options.show_app_name) {
-				let name = $('<div class="app-bar hidden-xs">' + 
+				let name = $('<div class="app-bar hidden-xs">' +
 					'<i class="' + defaults.icon + '"></i>' +
-					(defaults.alias || defaults.name) + 
+					(defaults.alias || defaults.name) +
 					'</div>');
 				this.$el.find('.body > .app > .header-bar').prepend(name);
 			}
@@ -328,7 +347,7 @@ export default AppView.extend(_.extend({}, Wallpaperable, AppLoadable, {
 		// apply dialog styles
 		//
 		application.settings.dialogs.apply();
-		
+
 		// set initial focus
 		//
 		this.focus();
@@ -340,7 +359,7 @@ export default AppView.extend(_.extend({}, Wallpaperable, AppLoadable, {
 		//
 		this.showFooterBar();
 		if (launcherStyle != 'taskbar') {
-			this.$el.find('.footer-bar').hide();
+			this.getChildView('footer').$el.hide();
 		}
 
 		// update menu bar if launcher style changes
@@ -394,13 +413,13 @@ export default AppView.extend(_.extend({}, Wallpaperable, AppLoadable, {
 		//
 		if (this.hasChildView('footer')) {
 			this.getChildView('footer').showStatusBar();
-		}	
+		}
 	},
 
 	update: function() {
 		this.showHeaderStatusBar();
 	},
-	
+
 	//
 	// event handling methods
 	//
@@ -416,11 +435,11 @@ export default AppView.extend(_.extend({}, Wallpaperable, AppLoadable, {
 		// show status in header bar
 		//
 		this.showHeaderStatusBar();
-		
+
 		// show status in footer bar
 		//
 		this.showFooterStatusBar();
-			
+
 		// load footer bar
 		//
 		if (this.hasChildView('footer')) {
@@ -430,7 +449,37 @@ export default AppView.extend(_.extend({}, Wallpaperable, AppLoadable, {
 		// make header and footer bar flick draggable
 		//
 		if (application.desktop.settings.get('desktop_apps').length > 1) {
-			this.$el.find('.header-bar, .footer-bar').addClass('flickable');
+			this.getChildView('body header').$el.addClass('flickable');
+			this.getChildView('footer').$el.addClass('flickable');
+		}
+
+		// enable menu bars
+		//
+		if (this.hasChildView('body header menu')) {
+			this.getChildView('body header menu').setEnabled(true);
+		}
+	},
+
+	onCloseTab: function() {
+
+		// call superclass method
+		//
+		AppView.prototype.onCloseTab.call(this);
+
+		// check if we are closing the last tab
+		//
+		if (!this.hasTabs()) {
+
+			// open new tab
+			//
+			if (this.getChildView('body').newTab) {
+				this.getChildView('body').newTab();
+
+			// update menu bar
+			//
+			} else if (this.hasChildView('body header menu')) {
+				this.getChildView('body header menu').onLoad(false);
+			}
 		}
 	},
 

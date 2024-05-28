@@ -17,8 +17,7 @@
 
 import UserPreferences from '../../../../../models/preferences/user-preferences.js';
 import Connections from '../../../../../collections/users/connections/connections.js';
-import ShareRequests from '../../../../../collections/files/sharing/share-requests.js';
-import BaseView from '../../../../../views/base-view.js';
+import ShareRequests from '../../../../../collections/storage/sharing/share-requests.js';
 import InfoFormView from '../../../../../views/apps/common/forms/info-form-view.js';
 import UserIconView from '../../../../../views/apps/profile-browser/mainbar/users/icons/user-icon-view.js';
 import UsersView from '../../../../../views/apps/profile-browser/mainbar/users/users-view.js';
@@ -266,10 +265,7 @@ export default InfoFormView.extend({
 				view_kind: 'icons',
 				detail_kind: null
 			}),
-			emptyView: BaseView.extend({
-				className: 'empty',
-				template: template("No mutual connections with " + this.model.getName() + ".")
-			}),
+			empty: "No mutual connections with " + this.model.getName() + ".",
 
 			// capabilities
 			//

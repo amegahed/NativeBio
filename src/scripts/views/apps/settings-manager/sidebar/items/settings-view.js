@@ -38,10 +38,7 @@ export default ItemsView.extend({
 		}
 	},
 
-	emptyView: ItemsView.extend({
-		className: 'empty',
-		template: template("No apps")
-	}),
+	empty: "No apps",
 
 	//
 	// constructor

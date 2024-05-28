@@ -17,7 +17,6 @@
 
 import FileInfoView from '../../../../../views/apps/file-browser/forms/info/file-info-view.js';
 import VideoInfoPaneView from '../../../../../views/apps/file-browser/forms/info/panes/video-files/video-info-pane-view.js';
-import VideoExifPaneView from '../../../../../views/apps/file-browser/forms/info/panes/video-files/video-exif-pane-view.js';
 
 export default FileInfoView.extend({
 
@@ -41,7 +40,7 @@ export default FileInfoView.extend({
 				</a>
 			</li>
 		
-			<% if (typeof tags != 'undefined' && tags) { %>
+			<% if (tags) { %>
 			<li role="presentation" class="video tab<% if (tab == 'video') { %> active<% } %>">
 				<a role="tab" data-toggle="tab" href=".video.tab-pane">
 					<i class="fa fa-video"></i>
@@ -49,16 +48,7 @@ export default FileInfoView.extend({
 				</a>
 			</li>
 			<% } %>
-		
-			<% if (typeof exif != 'undefined') { %>
-			<li role="presentation" class="info tab<% if (tab == 'info') { %> active<% } %>">
-				<a role="tab" data-toggle="tab" href=".info.tab-pane">
-					<i class="fa fa-table"></i>
-					<label>Info</label>
-				</a>
-			</li>
-			<% } %>
-		
+
 			<% if (show_meta_info) { %>
 			<li role="presentation" class="history tab<% if (tab == 'history') { %> active<% } %>">
 				<a role="tab" data-toggle="tab" href=".history.tab-pane">
@@ -67,7 +57,7 @@ export default FileInfoView.extend({
 				</a>
 			</li>
 			<% } %>
-		
+
 			<% if (show_meta_info) { %>
 			<li role="presentation" class="permissions tab<% if (tab == 'permissions') { %> active<% } %>">
 				<a role="tab" data-toggle="tab" href=".permissions.tab-pane">
@@ -76,7 +66,7 @@ export default FileInfoView.extend({
 				</a>
 			</li>
 			<% } %>
-		
+
 			<% if (show_meta_info) { %>
 			<li role="presentation" class="sharing tab<% if (tab == 'sharing') { %> active<% } %>">
 				<a role="tab" data-toggle="tab" href=".sharing.tab-pane">
@@ -85,7 +75,7 @@ export default FileInfoView.extend({
 				</a>
 			</li>
 			<% } %>
-		
+
 			<% if (show_meta_info) { %>
 			<li role="presentation" class="links tab<% if (tab == 'links') { %> active<% } %>">
 				<a role="tab" data-toggle="tab" href=".links.tab-pane">
@@ -95,27 +85,27 @@ export default FileInfoView.extend({
 			</li>
 			<% } %>
 		</ul>
-		
+
 		<div class="tab-content">
-		
+
 			<div role="tabpanel" class="general tab-pane<% if (tab == 'general') { %> active<% } %>">
 			</div>
-		
+
 			<div role="tabpanel" class="video tab-pane<% if (tab == 'video') { %> active<% } %>">
 			</div>
-		
+
 			<div role="tabpanel" class="info tab-pane<% if (tab == 'info') { %> active<% } %>">
 			</div>
-			
+
 			<div role="tabpanel" class="history tab-pane<% if (tab == 'history') { %> active<% } %>">
 			</div>
-		
+
 			<div role="tabpanel" class="permissions tab-pane<% if (tab == 'permissions') { %> active<% } %>">
 			</div>
-		
+
 			<div role="tabpanel" class="sharing tab-pane<% if (tab == 'sharing') { %> active<% } %>">
 			</div>
-		
+
 			<div role="tabpanel" class="links tab-pane<% if (tab == 'links') { %> active<% } %>">
 			</div>
 		</div>
@@ -125,7 +115,6 @@ export default FileInfoView.extend({
 		item: '.icon-grid',
 		general: '.general.tab-pane',
 		video: '.video.tab-pane',
-		info: '.info.tab-pane',
 		history: '.history.tab-pane',
 		permissions: '.permissions.tab-pane',
 		sharing: '.sharing.tab-pane',
@@ -136,19 +125,26 @@ export default FileInfoView.extend({
 	// rendering methods
 	//
 
-	onRender: function() {
+	templateContext: function() {
+		return {
+			index: this.options.index,
+			tab: this.options.tab || 'general',
+			tags: this.model.get('tags'),
+			exif: this.model.get('exif'),
+			show_meta_info: !this.model.isAttached(),
+			size: this.model.getSize({
+				detailed: true
+			})
+		};
+	},
 
-		// call superclass method
-		//
-		FileInfoView.prototype.onRender.call(this);
-
-		// show video info
-		//
-		if (this.$el.find('.video.tab').length > 0) {
-			this.showVideoInfo();
-		}
-		if (this.$el.find('.info.tab').length > 0) {
-			this.showExifInfo();
+	showRegion: function(name) {
+		switch (name) {
+			case 'video':
+				this.showVideoInfo();
+				break;
+			default:
+				FileInfoView.prototype.showRegion.call(this, name);
 		}
 	},
 
@@ -156,11 +152,5 @@ export default FileInfoView.extend({
 		this.showChildView('video', new VideoInfoPaneView({
 			model: this.model
 		}));
-	},
-
-	showExifInfo: function() {
-		this.showChildView('info', new VideoExifPaneView({
-			model: this.model
-		}));
-	},
+	}
 });

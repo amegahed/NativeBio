@@ -15,12 +15,12 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import File from '../../../models/files/file.js';
-import ArchiveFile from '../../../models/files/archive-file.js';
-import Directory from '../../../models/files/directory.js';
-import Volume from '../../../models/files/volume.js';
+import File from '../../../models/storage/files/file.js';
+import ArchiveFile from '../../../models/storage/files/archive-file.js';
+import Directory from '../../../models/storage/directories/directory.js';
+import Volume from '../../../models/storage/directories/volume.js';
 import BaseCollection from '../../../collections/base-collection.js';
-import Items from '../../../collections/files/items.js';
+import Items from '../../../collections/storage/items.js';
 import AppSplitView from '../../../views/apps/common/app-split-view.js';
 import MultiDoc from '../../../views/apps/common/behaviors/tabbing/multidoc.js';
 import SelectableContainable from '../../../views/behaviors/containers/selectable-containable.js';
@@ -28,7 +28,7 @@ import MultiSelectable from '../../../views/behaviors/selection/multi-selectable
 import Openable from '../../../views/apps/common/behaviors/launching/openable.js';
 import FileCopyable from '../../../views/apps/file-browser/mainbar/behaviors/file-copyable.js';
 import FileDownloadable from '../../../views/apps/file-browser/mainbar/behaviors/file-downloadable.js';
-import SelectableShareable from '../../../views/apps/common/behaviors/sharing/selectable-shareable.js';
+import ItemShareable from '../../../views/apps/common/behaviors/sharing/item-shareable.js';
 import ItemInfoShowable from '../../../views/apps/file-browser/dialogs/info/behaviors/item-info-showable.js';
 import DropboxUploadable from '../../../views/apps/file-browser/mainbar/behaviors/dropbox-uploadable.js';
 import GDriveUploadable from '../../../views/apps/file-browser/mainbar/behaviors/gdrive-uploadable.js';
@@ -43,7 +43,7 @@ import Browser from '../../../utilities/web/browser.js';
 import Url from '../../../utilities/web/url.js';
 import '../../../utilities/scripting/array-utils.js';
 
-export default AppSplitView.extend(_.extend({}, MultiDoc, SelectableContainable, MultiSelectable, Openable, FileCopyable, FileDownloadable, SelectableShareable, ItemInfoShowable, DropboxUploadable, GDriveUploadable, {
+export default AppSplitView.extend(_.extend({}, MultiDoc, SelectableContainable, MultiSelectable, Openable, FileCopyable, FileDownloadable, ItemShareable, ItemInfoShowable, DropboxUploadable, GDriveUploadable, {
 
 	//
 	// attributes
@@ -81,6 +81,10 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, SelectableContainable,
 		}
 		if (!this.collection) {
 			this.collection = new BaseCollection([this.model]);	
+
+			// force reload
+			//
+			this.model.loaded = false;
 		}
 		
 		// set optional parameters
@@ -175,10 +179,6 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, SelectableContainable,
 			}
 		}
 		return true;
-	},
-
-	isHome: function() {
-		return this.model && this.model instanceof Directory && this.model.isHome();
 	},
 
 	hasTop: function() {
@@ -430,6 +430,14 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, SelectableContainable,
 	},
 
 	//
+	// expansion methods
+	//
+
+	expandSelected: function() {
+		this.expandFile(this.getSelectedModels()[0]);
+	},
+
+	//
 	// file downloading methods
 	//
 
@@ -586,9 +594,9 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, SelectableContainable,
 		//
 		if (!this.isWritableBy(items, application.session.user)) {
 
-			// show notification
+			// show alert message
 			//
-			application.notify({
+			application.alert({
 				icon: '<i class="fa fa-lock"></i>',
 				title: "Permissions Error",
 				message: "You do not have permissions to delete " + (items.length == 1? '"' + items[0].getName() + '"' : "these " + items.length + " items") + ".",
@@ -651,6 +659,92 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, SelectableContainable,
 		this.deleteItems(this.getSelectedModels(), options);
 	},
 
+	destroyItems: function(items, options) {
+
+		// check if there are items to delete
+		//
+		if (items.length == 0) {
+
+			// show notification
+			//
+			application.notify({
+				icon: '<i class="fa fa-xmark"></i>',
+				title: "Destroy Error",
+				message: "No items selected."
+			});
+
+			return;
+		}
+
+		// check if items can be destroyed
+		//
+		if (!this.isWritableBy(items, application.session.user)) {
+
+			// show alert message
+			//
+			application.alert({
+				icon: '<i class="fa fa-lock"></i>',
+				title: "Permissions Error",
+				message: "You do not have permissions to destroy " + (items.length == 1? '"' + items[0].getName() + '"' : "these " + items.length + " items") + ".",
+			});
+
+			return;
+		}
+
+		// check if we need to confirm
+		//
+		if (!options || options.confirm != false) {
+
+			// confirm destroy
+			//
+			application.confirm({
+				icon: '<i class="fa fa-xmark"></i>',
+				title: "Destroy",
+				message: "Are you sure you want to destroy (delete without recycling) " + (items.length == 1? '"' + items[0].getName() + '"' : "these " + items.length + " items") + "?",
+
+				// callbacks
+				//
+				accept: () => {
+					this.destroyItems(items, _.extend({}, options, {
+						confirm: false
+					}));
+				}
+			});
+		} else {
+
+			// add shrink effect
+			//
+			for (let i = 0; i < items.length; i++) {
+				let itemView = this.getItemView(items[i]);
+				if (itemView && itemView.shrink) {
+					itemView.shrink();
+				}
+			}
+
+			this.getActiveView().destroyItems(items, {
+
+				// callbacks
+				//
+				success: () => {
+
+					// play remove sound
+					//
+					application.play('remove');
+
+					// enable empty trash menu item
+					//
+					if (this.hasChildView('header menu file')) {
+						this.getChildView('header menu file').setItemEnabled('empty-trash');
+					}
+				}
+			});
+		}
+	},
+
+	destroySelected: function(options) {
+		this.destroyItems(this.getSelectedModels(), options);
+	},
+
 	emptyTrash: function() {
 		this.getActiveView().emptyTrash({
 
@@ -676,8 +770,7 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, SelectableContainable,
 	//
 
 	createNewDirectory: function() {
-		let directoryName = this.model.getUniqueName(Directory.defaultName);
-		this.model.createDirectory(directoryName, {
+		this.model.newDirectory({
 
 			// callbacks
 			//
@@ -734,6 +827,21 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, SelectableContainable,
 			options.filename = 'Untitled.txt';
 		}
 
+		// make sure that directory is writable
+		//
+		if (!this.model.isWritable()) {
+
+			// show alert message
+			//
+			application.alert({
+				icon: '<i class="fa fa-lock"></i>',
+				title: "Permissions Error",
+				message: "You do not have permission to write to this directory."
+			});
+
+			return;
+		}
+
 		// create new text file
 		//
 		this.model.add(new File({
@@ -772,7 +880,7 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, SelectableContainable,
 						}
 					}, 
 
-					error: (model, response) => {
+					error: (response) => {
 
 						// show error message
 						//
@@ -798,6 +906,21 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, SelectableContainable,
 		}
 
 		delete(attributes.type);
+
+		// make sure that directory is writable
+		//
+		if (!this.model.isWritable()) {
+
+			// show alert message
+			//
+			application.alert({
+				icon: '<i class="fa fa-lock"></i>',
+				title: "Permissions Error",
+				message: "You do not have permission to write to this directory."
+			});
+
+			return;
+		}
 
 		// create new volume
 		//
@@ -827,7 +950,7 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, SelectableContainable,
 						if (itemView.grow) {
 
 							// edit directory name after grow
-							//			
+							//
 							itemView.grow(() => itemView.setEditable());
 						} else {
 
@@ -835,7 +958,7 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, SelectableContainable,
 							//
 							itemView.setEditable();
 						}
-					}, 
+					},
 
 					error: (model, response) => {
 
@@ -900,8 +1023,6 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, SelectableContainable,
 			for (let i = 0; i < directories.length; i++) {
 				this.collection.add(directories[i]);
 			}
-
-			// this.setDirectory(directories[directories.length - 1]);
 		} else {
 
 			// open directories in same or new window
@@ -924,8 +1045,10 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, SelectableContainable,
 		// call attention to selected items
 		//
 		this.each((item) => {
-			if (item.isSelected()) {
-				item.showEffect(effect);
+			if (item.isSelected && item.isSelected()) {
+				if (item.showEfect) {
+					item.showEffect(effect);
+				}
 			}
 		});
 
@@ -1114,6 +1237,14 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, SelectableContainable,
 			this.contents = this.model.contents.models.clone();
 		}
 
+		// show searching message
+		//
+		this.showMessage("Searching folder...", {
+			icon: '<i class="fa fa-spin fa-spinner"></i>',
+		});
+
+		// start search
+		//
 		this.model.load({
 			search: search,
 			recursive: true,
@@ -1121,6 +1252,13 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, SelectableContainable,
 			// callbacks
 			//
 			success: () => {
+
+				// end searching
+				//
+				this.hideMessage();
+
+				// update view
+				//
 				this.showStatusMessage();
 			}
 		});
@@ -1344,8 +1482,10 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, SelectableContainable,
 		// call attention to selected items 
 		//
 		this.each((item) => {
-			if (item.isSelected()) {
-				item.showEffect(effect);
+			if (item.isSelected && item.isSelected()) {
+				if (item.showEffect) {
+					item.showEffect(effect);
+				}
 			}
 		});
 

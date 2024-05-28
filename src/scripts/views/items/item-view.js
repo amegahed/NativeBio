@@ -39,6 +39,7 @@ export default ModelView.extend(_.extend({}, Selectable, DragSelectable, Highlig
 		// mouse events
 		//
 		'dblclick': 'onDoubleClick',
+		'click .owner': 'onClickOwner',
 
 		// touch events
 		//
@@ -122,7 +123,7 @@ export default ModelView.extend(_.extend({}, Selectable, DragSelectable, Highlig
 	},
 
 	getDefs: function() {
-		return $(this.parent.$el.find('defs')[0] || $('defs')[0]);
+		return this.parent.$el.find('defs')[0] || $('defs')[0];
 	},
 
 	getSvg: function(path, id) {
@@ -144,7 +145,7 @@ export default ModelView.extend(_.extend({}, Selectable, DragSelectable, Highlig
 			// add svg to defs
 			//
 			let defs = this.getDefs();
-			let def = defs.find('#' + id)[0];
+			let def = $(defs).find('#' + id)[0];
 			if (!def) {
 				this.fetchSvg(path, {
 
@@ -168,7 +169,7 @@ export default ModelView.extend(_.extend({}, Selectable, DragSelectable, Highlig
 
 						// add svg to defs
 						//
-						defs.append(svg);
+						$(defs).append(svg);
 					}
 				});
 			}
@@ -207,7 +208,7 @@ export default ModelView.extend(_.extend({}, Selectable, DragSelectable, Highlig
 	//
 
 	setIcon: function(icon) {
-		this.$el.find('.icon').html($(icon));
+		this.$el.find('.info .icon:not(.status)').html($(icon));
 	},
 
 	setEditable: function() {
@@ -442,6 +443,10 @@ export default ModelView.extend(_.extend({}, Selectable, DragSelectable, Highlig
 			//
 			this.block(event);
 		}	
+	},
+
+	onClickOwner: function() {
+		application.showUser(this.get('owner'));
 	},
 
 	//

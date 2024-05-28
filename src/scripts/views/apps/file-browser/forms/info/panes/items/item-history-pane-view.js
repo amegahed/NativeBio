@@ -28,7 +28,7 @@ export default FormView.extend({
 			<label class="control-label"><i class="fa fa-magic"></i>Created</label>
 			<div class="controls">
 				<p class="form-control-static">
-					<%= created_at && created_at.format? created_at.format() : created_at %>
+					<%= created_at %>
 				</p>
 			</div>
 		</div>
@@ -37,7 +37,7 @@ export default FormView.extend({
 			<label class="control-label"><i class="fa fa-pencil-alt"></i>Modified</label>
 			<div class="controls">
 				<p class="form-control-static">
-					<%= modified_at && modified_at.format? modified_at.format() : modified_at %>
+					<%= modified_at %>
 				</p>
 			</div>
 		</div>
@@ -46,9 +46,21 @@ export default FormView.extend({
 			<label class="control-label"><i class="fa fa-eye"></i>Accessed</label>
 			<div class="controls">
 				<p class="form-control-static">
-					<%= accessed_at && accessed_at.format? accessed_at.format() : accessed_at %>
+					<%= accessed_at %>
 				</p>
 			</div>
 		</div>
-	`)
+	`),
+
+	//
+	// rendering methods
+	//
+
+	templateContext: function() {
+		return {
+			created_at: this.formatDate(this.model.getCreateDate()),
+			modified_at: this.formatDate(this.model.getModifyDate()),
+			accessed_at: this.formatDate(this.model.getAccessDate()),
+		};
+	}
 });

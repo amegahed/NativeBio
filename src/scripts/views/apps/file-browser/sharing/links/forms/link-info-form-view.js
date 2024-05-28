@@ -15,14 +15,14 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import File from '../../../../../../models/files/file.js';
-import Directory from '../../../../../../models/files/directory.js';
-import Volume from '../../../../../../models/files/volume.js';
+import File from '../../../../../../models/storage/files/file.js';
+import Directory from '../../../../../../models/storage/directories/directory.js';
+import Volume from '../../../../../../models/storage/directories/volume.js';
 import InfoFormView from '../../../../../../views/apps/common/forms/info-form-view.js';
 import FileIconView from '../../../../../../views/apps/file-browser/mainbar/files/icons/file-icon-view.js';
 import DirectoryIconView from '../../../../../../views/apps/file-browser/mainbar/files/icons/directory-icon-view.js';
 import VolumeIconView from '../../../../../../views/apps/file-browser/mainbar/files/icons/volume-icon-view.js';
-import LinkMessageFormView from '../../../../../../views/apps/file-browser/sharing/links/forms/link-message-form-view.js';
+import LinkAttributesFormView from '../../../../../../views/apps/file-browser/sharing/links/forms/link-attributes-form-view.js';
 import LinkExpirationFormView from '../../../../../../views/apps/file-browser/sharing/links/forms/link-expiration-form-view.js';
 import LinkPasswordFormView from '../../../../../../views/apps/file-browser/sharing/links/forms/link-password-form-view.js';
 
@@ -39,10 +39,10 @@ export default InfoFormView.extend({
 
 		<ul class="nav nav-tabs" role="tablist">
 		
-			<li role="presentation" class="protection-tab active">
-				<a role="tab" data-toggle="tab" href=".message-panel">
-					<i class="fa fa-quote-left"></i>
-					<label>Message</label>
+			<li role="presentation" class="general-tab active">
+				<a role="tab" data-toggle="tab" href=".general-panel">
+					<i class="fa fa-info-circle"></i>
+					<label>General</label>
 				</a>
 			</li>
 		
@@ -63,18 +63,15 @@ export default InfoFormView.extend({
 		
 		<div class="tab-content">
 		
-			<div role="tabpanel" class="message-panel tab-pane active">
-				<p>To the link recipient: </p>
-				<div class="link-message-form"></div>
+			<div role="tabpanel" class="general-panel tab-pane active">
+				<div class="link-attributes-form"></div>
 			</div>
 		
 			<div role="tabpanel" class="expiration-panel tab-pane">
-				<p>Links can be set to self destruct after which they can no longer be used. </p>
 				<div class="link-expiration-form"></div>
 			</div>
 		
 			<div role="tabpanel" class="protection-panel tab-pane">
-				<p>Links can be be protected so that the user of a link must provide a password. </p>
 				<div class="link-password-form"></div>
 			</div>
 		</div>
@@ -82,7 +79,7 @@ export default InfoFormView.extend({
 
 	regions: {
 		item: '.icon-grid',
-		message: '.link-message-form',
+		attributes: '.link-attributes-form',
 		expiration: '.link-expiration-form',
 		protection: '.link-password-form'
 	},
@@ -93,10 +90,11 @@ export default InfoFormView.extend({
 
 	getData: function() {
 		return {
-			message: this.getChildView('message').getMessage(),
-			limit: this.getChildView('expiration').getLimit(),
-			expiration_date: this.getChildView('expiration').getExpirationDate(),
-			password: this.getChildView('protection').getPassword()
+			editable: this.getChildView('attributes').getValue('role') == 'editor',
+			message: this.getChildView('attributes').getValue('message'),
+			limit: this.getChildView('expiration').getValue('limit'),
+			expiration_date: this.getChildView('expiration').getValue('expiration_date'),
+			password: this.getChildView('protection').getValue('password')
 		};
 	},
 
@@ -119,8 +117,8 @@ export default InfoFormView.extend({
 			case 'item':
 				this.showItem();
 				break;
-			case 'message':
-				this.showMessage();
+			case 'attributes':
+				this.showAttributes();
 				break;
 			case 'expiration':
 				this.showExpiration();
@@ -144,8 +142,8 @@ export default InfoFormView.extend({
 		}));
 	},
 
-	showMessage: function() {
-		this.showChildView('message', new LinkMessageFormView({
+	showAttributes: function() {
+		this.showChildView('attributes', new LinkAttributesFormView({
 			model: this.model
 		}));
 	},

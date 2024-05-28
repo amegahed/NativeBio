@@ -15,7 +15,7 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import Directory from '../../../../../models/files/directory.js';
+import Directory from '../../../../../models/storage/directories/directory.js';
 import UserPreferences from '../../../../../models/preferences/user-preferences.js';
 import SideBarPanelView from '../../../../../views/apps/common/sidebar/panels/sidebar-panel-view.js';
 import FilesView from '../../../../../views/apps/file-browser/mainbar/files/files-view.js';

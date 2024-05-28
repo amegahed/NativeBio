@@ -32,11 +32,10 @@ export default UserAgreementView.extend({
 			<p>In order to create an account and to use the service, you must first agree to the following terms and conditions. </p>
 		
 			<div class="provider-policy"></div>
-			<br />
 			<div class="terms-of-use"></div>
 			<div class="form"></div>
 		</div>
-		
+
 		<div class="buttons">
 			<button class="next btn btn-lg btn-primary" disabled>
 				<i class="fa fa-arrow-right"></i>Sign Up with <%= provider.toTitleCase() %>
@@ -53,7 +52,7 @@ export default UserAgreementView.extend({
 
 	getProviderName: function() {
 		if (this.options.provider == 'cilogon') {
-			return decodeURI(QueryString.getParam('name'));
+			return decodeURI(QueryString.value('name'));
 		} else {
 			return this.options.provider.toTitleCase();
 		}
@@ -77,12 +76,14 @@ export default UserAgreementView.extend({
 
 	showProviderPolicy: function() {
 		fetch('templates/policies/provider-policy.tpl').then((response) => response.text()).then((text) => {
+			text = text.replace(/<h1/g, '<h2');
 			this.$el.find('.provider-policy').html(text);
 		});
 	},
 
 	showTermsOfUse: function() {
 		fetch('templates/policies/terms-of-use.tpl').then((response) => response.text()).then((text) => {
+			text = text.replace(/<h1/g, '<h2');
 			this.$el.find('.terms-of-use').html(text);
 		});
 	},

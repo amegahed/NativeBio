@@ -28,12 +28,15 @@ export default BaseView.extend({
 	className: 'web',
 	tagName: 'iframe',
 	template: template(''),
+	referrerpolicy: 'no-referrer',
+	sandbox: 'allow-downloads allow-forms allow-modals allow-pointer-lock allow-popups allow-presentation allow-same-origin allow-scripts',
 
 	//
 	// browser attributes
 	//
 
 	use_proxy: true,
+	check_iframes: false,
 
 	//
 	// constructor
@@ -79,7 +82,11 @@ export default BaseView.extend({
 
 		// check headers to see if iframes are allowed
 		//
-		this.checkIFrames(url);
+		if (this.check_iframes) {
+			this.checkIFrames(url);
+		} else {
+			this.loadFrame(url);
+		}
 	},
 
 	loadFrame: function(src) {

@@ -94,10 +94,10 @@ export default CommentView.extend({
 				<div class="options buttons">
 					<% if (collapsable) { %>
 					<span class="expander">
-						<button type="button" class="expand btn btn-sm" data-toggle="tooltip" title="Expand">
+						<button type="button" class="expand btn-sm" data-toggle="tooltip" title="Expand">
 							<i class="fa fa-caret-down"></i>	
 						</button>
-						<button type="button" class="collapse btn btn-sm" data-toggle="tooltip" title="Collapse">
+						<button type="button" class="collapse btn-sm" data-toggle="tooltip" title="Collapse">
 							<i class="fa fa-caret-up"></i>
 						</button>
 					</span>
@@ -281,6 +281,7 @@ export default CommentView.extend({
 
 				// options
 				//
+				features: this.options.features,
 				preferences: this.options.preferences,
 
 				// callbacks
@@ -396,6 +397,7 @@ export default CommentView.extend({
 
 			// options
 			//
+			features: this.options.features,
 			preferences: this.options.preferences,
 
 			// callbacks

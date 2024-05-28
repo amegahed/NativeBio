@@ -137,17 +137,31 @@ export default ViewMenuView.extend({
 		
 		<li role="presentation" class="desktop-app-only spaces dropdown dropdown-submenu">
 			<a class="dropdown-toggle"><i class="fa fa-check"></i><i class="far fa-window-maximize"></i>Spaces<i class="fa fa-caret-left"></i><i class="fa fa-caret-right"></i></a>
-		
+
 			<ul class="dropdown-menu" data-toggle="dropdown">
-		
+
 				<li role="presentation">
 					<a class="prev-space"><i class="fa fa-chevron-left"></i>Prev<span class="command shortcut">left arrow</span></a>
 				</li>
-		
+
 				<li role="presentation">
 					<a class="next-space"><i class="fa fa-chevron-right"></i>Next<span class="command shortcut">right arrow</span></a>
 				</li>
-		
+			</ul>
+		</li>
+
+		<li role="presentation" class="desktop-app-only windows dropdown dropdown-submenu">
+			<a class="dropdown-toggle"><i class="fa fa-check"></i><i class="far fa-window-restore"></i>Windows<i class="fa fa-caret-left"></i><i class="fa fa-caret-right"></i></a>
+
+			<ul class="dropdown-menu" data-toggle="dropdown">
+
+				<li role="presentation">
+					<a class="minimize-all"><i class="fa fa-window-minimize"></i>Minimize All</a>
+				</li>
+
+				<li role="presentation">
+					<a class="unminimize-all"><i class="fa fa-window-restore"></i>Unminimize All</a>
+				</li>
 			</ul>
 		</li>
 		
@@ -183,8 +197,13 @@ export default ViewMenuView.extend({
 		'click .shrink-window': 'onClickShrinkWindow',
 		'click .grow-window': 'onClickGrowWindow',
 		'click .expand-window': 'onClickExpandWindow',
+
+		// desktop options
+		//
 		'click .prev-space': 'onClickPrevSpace',
 		'click .next-space': 'onClickNextSpace',
+		'click .minimize-all': 'onClickMinimizeAll',
+		'click .unminimize-all': 'onClickUnminimizeAll',
 		'click .view-full-screen': 'onClickViewFullScreen',
 
 		// preferences options
@@ -237,21 +256,6 @@ export default ViewMenuView.extend({
 	},
 
 	//
-	// setting methods
-	//
-
-	setDateFormat: function(dateFormat) {
-		let classNames = this.$el.find('li[type=date-format]').map((index, element) => { 
-			return $(element).find('a').attr('class');
-		}).get();
-
-		// update menu
-		//
-		this.setItemsDeselected(classNames);
-		this.setItemSelected('view-' + dateFormat.replace(/_/g, '-'));
-	},
-
-	//
 	// mouse event handling methods
 	//
 
@@ -283,37 +287,5 @@ export default ViewMenuView.extend({
 		// update parent
 		//
 		this.parent.app.setOption('detail_kind', false);
-	},
-
-	onClickDetailKind: function(event) {
-		let className = $(event.currentTarget).attr('class');
-		let detailKind = className.replace('view-', '').replace(/-/g, '_');
-		let detailValue = this.toggled(this.parent.app.preferences.get('detail_kind'), detailKind);
-		let classNames = this.$el.find('li[type=detail-kind]').map((index, element) => { 
-			return $(element).find('a').attr('class');
-		}).get();
-
-		// update menu
-		//
-		this.setItemsDeselected(classNames);
-		this.setItemSelected(className, detailValue);
-		this.setItemSelected('view-details', detailValue);
-		
-		// update parent
-		//
-		this.parent.app.setOption('detail_kind', detailValue);
-	},
-
-	onClickDateFormat: function(event) {
-		let className = $(event.currentTarget).attr('class');
-		let dateFormat = className.replace('view-', '').replace(/-/g, '_');
-
-		// update menu
-		//
-		this.setDateFormat(dateFormat);
-
-		// update parent
-		//
-		this.parent.app.setOption('date_format', dateFormat);
 	}
 });

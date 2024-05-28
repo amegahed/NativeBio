@@ -42,21 +42,6 @@ export default Timestamped.extend({
 	// querying methods
 	//
 
-	hasUser: function(user) {
-		return this.has('members')? this.get('members').contains(user) : false;
-	},
-	
-	hasFirstOtherMember: function() {
-		let members = this.get('members');
-		for (let i = 0; i < members.length; i++) {
-			let member = members.at(i);
-			if (!member.is(application.session.user)) {
-				return true;
-			}
-		}
-		return false;
-	},
-
 	isOnline: function() {
 
 		// get online status of first member
@@ -69,6 +54,28 @@ export default Timestamped.extend({
 		// get active status of first member
 		//
 		return this.getFirstOtherMember().isActive();
+	},
+
+	hasUser: function(user) {
+		return this.has('members')? this.get('members').contains(user) : false;
+	},
+
+	hasFirstOtherMember: function() {
+		let members = this.get('members');
+		for (let i = 0; i < members.length; i++) {
+			let member = members.at(i);
+			if (!member.is(application.session.user)) {
+				return true;
+			}
+		}
+		return false;
+	},
+
+	hasProfilePhoto: function() {
+
+		// has profile photo of first member
+		//
+		return this.getFirstOtherMember().hasProfilePhoto();
 	},
 
 	//
@@ -90,7 +97,7 @@ export default Timestamped.extend({
 
 	getMemberName: function(member, options) {
 		if (member) {
-			let name = options && options.short? member.get('first_name') : member.get('short_name');
+			let name = options && options.short? member.getShortName() : member.getName();
 			let numMembers = this.get('members').length;
 			let numOthers = numMembers - 2;
 
@@ -126,7 +133,7 @@ export default Timestamped.extend({
 		let invitations = this.get('invitations');
 		for (let i = 0; i < invitations.length; i++) {
 			return invitations.at(i).get('connection');
-		}	
+		}
 	},
 
 	getProfilePhotoUrl: function() {
@@ -134,6 +141,14 @@ export default Timestamped.extend({
 		// get profile photo of first member
 		//
 		return this.getFirstOtherMember().getProfilePhotoUrl();
+	},
+
+	getIcon: function(options) {
+		if (this.hasProfilePhoto()) {
+			return '<div class="thumbnail" style="background-image:url(' + this.getProfilePhotoUrl(options) + ')"></div>';
+		} else {
+			return '<i class="fa fa-comments"></i>';
+		}
 	},
 
 	getDate: function(kind, dateFormat) {
@@ -149,9 +164,9 @@ export default Timestamped.extend({
 			case 'name':
 				return this.getName();
 			case 'members':
-				return 'member'.toPlural(this.get('members').length);
+				return this.has('members')? 'member'.toPlural(this.get('members').length) : undefined;
 			case 'messages':
-				return 'message'.toPlural(this.get('num_messages'));
+				return 'message'.toPlural(this.get('num_messages') || 0);
 			case 'create_date':
 				return this.getDate('created_at', preferences? preferences.get('date_format') : undefined);
 			case 'modify_date':

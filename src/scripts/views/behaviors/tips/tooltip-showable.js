@@ -130,7 +130,7 @@ export default {
 	},
 
 	removeTooltips: function() {
-		$('.tooltip').remove();
+		$('.tooltip:not(.permanant)').remove();
 	},
 
 	//

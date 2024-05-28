@@ -14,7 +14,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|          Copyright (C) 2012 - 2020, Morgridge Institute for Research         |
+|            Copyright (C) 2016-2024, Sharedigm, www.sharedigm.com             |
 \******************************************************************************/
 
 namespace App\Http\Controllers\Auth;
@@ -30,7 +30,7 @@ use App\Models\Users\Auth\UserIdentity;
 use App\Models\Users\User;
 use App\Models\Users\Accounts\UserAccount;
 use App\Models\Users\Profiles\UserProfile;
-use App\Models\Files\File;
+use App\Models\Storage\File;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Auth\AuthController;
 use App\Utilities\Uuids\Guid;

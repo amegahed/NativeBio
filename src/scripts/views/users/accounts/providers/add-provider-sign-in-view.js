@@ -62,7 +62,7 @@ export default BaseView.extend({
 
 	getProviderName: function() {
 		if (this.options.provider == 'cilogon') {
-			return QueryString.getParam('name');
+			return QueryString.value('name');
 		} else {
 			return this.options.provider.toTitleCase();
 		}

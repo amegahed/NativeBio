@@ -16,8 +16,8 @@
 \******************************************************************************/
 
 import SideBarView from '../../../../views/apps/common/sidebar/sidebar-view.js';
-import TopicInfoPanelView from '../../../../views/apps/post-viewer/sidebar/panels/topic-info-panel-view.js';
-import TopicsPanelView from '../../../../views/apps/post-viewer/sidebar/panels/topics-panel-view.js';
+import TopicInfoPanelView from '../../../../views/apps/topic-viewer/sidebar/panels/topic-info-panel-view.js';
+import TopicsPanelView from '../../../../views/apps/topic-viewer/sidebar/panels/topics-panel-view.js';
 
 export default SideBarView.extend({
 
@@ -104,7 +104,7 @@ export default SideBarView.extend({
 	showTopicsPanel: function() {
 		this.showChildView('topics', new TopicsPanelView({
 			post: this.options.post,
-			defaultTopic: this.options.defaultTopic,
+			defaultTopic: this.app.getDefaultTopic(),
 			collection: this.collection,
 
 			// options

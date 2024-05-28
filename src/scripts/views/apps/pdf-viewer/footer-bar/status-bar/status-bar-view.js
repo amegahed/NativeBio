@@ -26,7 +26,7 @@ export default BaseView.extend({
 	className: 'status-bar',
 
 	template: template(`
-		<div class="document-size info-bar hidden-xs" style="display:none>
+		<div class="document-size info-bar" style="display:none>
 			<i class="fa fa-arrows-alt"></i><span class="size"></span>
 		</div>
 		

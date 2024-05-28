@@ -45,6 +45,22 @@ export default BaseView.extend({
 	},
 
 	//
+	// methods
+	//
+
+	unminimizeAll: function() {
+		let collection = this.getChildView('tasks').collection;
+		let modals = [];
+		for (let i = 0; i < collection.length; i++) {
+			let task = collection.at(i);
+			modals.push(task.get('view'));
+		}
+		for (let i = 0; i < modals.length; i++) {
+			modals[i].unminimize();
+		}
+	},
+
+	//
 	// rendering methods
 	//
 

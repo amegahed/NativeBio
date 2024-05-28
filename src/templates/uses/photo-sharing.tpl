@@ -45,8 +45,8 @@
 
 	<div class="figure row desktop-only">
 		<div class="figure col-sm-6">
-			<a href="images/info/apps/image-viewer/image-viewer.png" target="_blank" class="lightbox" title="Image Viewer"><img class="dialog" src="images/info/apps/image-viewer/image-viewer.png" /></a>
-			<div class="caption">Image Viewer</div>
+			<a href="images/info/apps/image-viewer/image-viewer.png" target="_blank" class="lightbox" title="<%= config.apps['image_viewer'].name %>"><img class="dialog" src="images/info/apps/image-viewer/image-viewer.png" /></a>
+			<div class="caption"><%= config.apps['image_viewer'].name %></div>
 		</div>
 		<div class="figure col-sm-6">
 			<a href="images/info/sharing/share-gallery-by-link.png" target="_blank" class="lightbox" title="Sharing Photos By Link"><img class="dialog" src="images/info/sharing/share-gallery-by-link.png" /></a>
@@ -55,8 +55,8 @@
 	</div>
 	<div class="figure row mobile-only">
 		<div class="figure col-sm-6">
-			<a href="images/info/apps/image-viewer/mobile/mobile-image-viewer.png" target="_blank" class="lightbox" title="Mobile Image Viewer"><img class="dialog" src="images/info/apps/image-viewer/mobile/mobile-image-viewer.png" /></a>
-			<div class="caption">Mobile Image Viewer</div>
+			<a href="images/info/apps/image-viewer/mobile/mobile-image-viewer.png" target="_blank" class="lightbox" title="<%= config.apps['image_viewer'].name %>"><img class="dialog" src="images/info/apps/image-viewer/mobile/mobile-image-viewer.png" /></a>
+			<div class="caption"><%= config.apps['image_viewer'].name %></div>
 		</div>
 		<div class="figure col-sm-6">
 			<a href="images/info/sharing/mobile/mobile-share-photos-by-link.png" target="_blank" class="lightbox" title="Receive Photos Shared by Link"><img class="dialog" src="images/info/sharing/mobile/mobile-share-photos-by-link.png" /></a>

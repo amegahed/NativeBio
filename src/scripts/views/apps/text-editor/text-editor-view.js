@@ -15,16 +15,16 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import File from '../../../models/files/file.js';
+import File from '../../../models/storage/files/file.js';
 import AppView from '../../../views/apps/common/app-view.js';
 import FindReplaceable from '../../../views/apps/common/behaviors/finding/find-replaceable.js';
-import ModelShareable from '../../../views/apps/common/behaviors/sharing/model-shareable.js';
+import ItemShareable from '../../../views/apps/common/behaviors/sharing/item-shareable.js';
 import HeaderBarView from '../../../views/apps/text-editor/header-bar/header-bar-view.js';
 import EditableTextView from '../../../views/apps/text-editor/mainbar/editable-text-view.js';
 import FooterBarView from '../../../views/apps/text-editor/footer-bar/footer-bar-view.js';
 import FileUtils from '../../../utilities/files/file-utils.js';
 
-export default AppView.extend(_.extend({}, FindReplaceable, ModelShareable, {
+export default AppView.extend(_.extend({}, FindReplaceable, ItemShareable, {
 
 	//
 	// attributes

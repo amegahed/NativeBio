@@ -56,6 +56,7 @@ export default SearchByQuantityView.extend({
 			</div>
 		</div>
 	`),
+
 	quantity: 'size',
 
 	//

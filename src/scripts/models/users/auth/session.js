@@ -17,7 +17,7 @@
 
 import BaseModel from '../../../models/base-model.js';
 import User from '../../../models/users/user.js';
-import Directory from '../../../models/files/directory.js';
+import Directory from '../../../models/storage/directories/directory.js';
 
 export default BaseModel.extend({
 

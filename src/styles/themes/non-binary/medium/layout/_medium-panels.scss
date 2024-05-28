@@ -48,6 +48,16 @@ body:not(.binary) {
 		border-color: $border-color;
 
 		//
+		// panel list items
+		//
+
+		&.panel {
+			color: $color;
+			background-color: $background-color;
+			border-color: $border-color;
+		}
+
+		//
 		// panel labels
 		//
 

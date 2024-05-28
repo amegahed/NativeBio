@@ -36,7 +36,11 @@ export default PreferencesFormView.extend({
 				<div class="show-thumbnails checkbox-inline">
 					<label><input type="checkbox"<% if (show_thumbnails) { %> checked<% } %>>Thumbnails</label>
 				</div>
-		
+
+				<div class="show-image-names checkbox-inline">
+					<label><input type="checkbox"<% if (show_image_names) { %> checked<% } %>>Image Names</label>
+				</div>
+
 				<div class="show-file-extensions checkbox-inline">
 					<label><input type="checkbox"<% if (show_file_extensions) { %> checked<% } %>>File Extensions</label>
 				</div>
@@ -80,6 +84,8 @@ export default PreferencesFormView.extend({
 				return this.$el.find('.show-hidden-files input').is(':checked');
 			case 'show_thumbnails':
 				return this.$el.find('.show-thumbnails input').is(':checked');
+			case 'show_image_names':
+				return this.$el.find('.show-image-names input').is(':checked');
 			case 'show_file_extensions':
 				return this.$el.find('.show-file-extensions input').is(':checked');
 			case 'show_clipboard_confirm':
@@ -91,6 +97,7 @@ export default PreferencesFormView.extend({
 		return {
 			show_hidden_files: this.getValue('show_hidden_files'),
 			show_thumbnails: this.getValue('show_thumbnails'),
+			show_image_names: this.getValue('show_image_names'),
 			show_file_extensions: this.getValue('show_file_extensions'),
 			show_clipboard_confirm: this.getValue('show_clipboard_confirm')
 		};
@@ -106,6 +113,10 @@ export default PreferencesFormView.extend({
 
 	onChangeShowThumbnails: function() {
 		this.onChangeValue('show_thumbnails', this.getValue('show_thumbnails'));
+	},
+
+	onChangeShowImageNames: function() {
+		this.onChangeValue('show_image_names', this.getValue('show_image_names'));
 	},
 
 	onChangeShowFileExtensions: function() {

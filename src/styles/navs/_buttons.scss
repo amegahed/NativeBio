@@ -25,6 +25,7 @@
 $small-size: 25px;
 $large-size: 30px;
 $mobile-min-width: 50px;
+$icon-image-size: 20px;
 $shadow: 2px 2px 7px rgba(black, 25%);
 $active-shadow: 1px 1px 5px rgba(black, 50%);
 $round-border-radius: 15px;
@@ -39,8 +40,8 @@ button {
 
 	> svg, > img {
 		display: inline-block;
-		width: 18px;
-		height: 18px;
+		width: $icon-image-size;
+		height: $icon-image-size;
 		margin: 0 auto;
 	}
 
@@ -59,6 +60,15 @@ button {
 			cursor: not-allowed;
 		}
 	}
+}
+
+//
+// expander buttons
+//
+
+.expander button {
+	border: none;
+	background: none;
 }
 
 //

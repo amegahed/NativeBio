@@ -15,7 +15,7 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import Link from '../../../../../../models/files/sharing/link.js';
+import Link from '../../../../../../models/storage/sharing/link.js';
 import DialogView from '../../../../../../views/dialogs/dialog-view.js';
 import EmailFormView from '../../../../../../views/apps/file-browser/sharing/mail/forms/email-form-view.js';
 import EmailLinkInfoFormView from '../../../../../../views/apps/file-browser/sharing/links/forms/email-link-info-form-view.js';

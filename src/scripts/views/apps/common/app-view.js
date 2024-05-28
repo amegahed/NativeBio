@@ -15,8 +15,8 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import Item from '../../../models/files/item.js';
-import Directory from '../../../models/files/directory.js';
+import Item from '../../../models/storage/item.js';
+import Directory from '../../../models/storage/directories/directory.js';
 import UserPreferences from '../../../models/preferences/user-preferences.js';
 import BaseView from '../../../views/base-view.js';
 import Keyboard from '../../../views/keyboard/keyboard.js';
@@ -97,6 +97,9 @@ export default BaseView.extend(_.extend({}, ItemDroppable, Highlightable, Timeab
 
 		// set optional parameter defaults
 		//
+		if (this.options.features == undefined) {
+			this.options.features = config.apps[this.name].features;
+		}
 		if (this.options.show_header_bar == undefined) {
 			this.options.show_header_bar = true;
 		}
@@ -163,6 +166,10 @@ export default BaseView.extend(_.extend({}, ItemDroppable, Highlightable, Timeab
 
 	isRoot: function() {
 		return this.parent == undefined;
+	},
+
+	isHome: function() {
+		return this.model && this.model instanceof Directory && this.model.isHome();
 	},
 
 	isDesktop: function() {
@@ -318,7 +325,12 @@ export default BaseView.extend(_.extend({}, ItemDroppable, Highlightable, Timeab
 	//
 
 	setToolbarVisible: function(toolbar, isVisible) {
-		this.getChildView('header').setToolbarVisible(toolbar, isVisible);
+		if (this.hasChildView('header')) {
+			this.getChildView('header').setToolbarVisible(toolbar, isVisible);
+		}
+		if (this.hasChildView('footer')) {
+			this.getChildView('footer').setToolbarVisible(toolbar, isVisible);
+		}
 	},
 
 	setToolbarsVisible: function(visible) {
@@ -326,7 +338,12 @@ export default BaseView.extend(_.extend({}, ItemDroppable, Highlightable, Timeab
 		// show selected toolbars
 		//
 		if (visible.length !== undefined) {
-			this.getChildView('header').setToolbarsVisible(visible);
+			if (this.hasChildView('header')) {
+				this.getChildView('header').setToolbarsVisible(visible);
+			}
+			if (this.hasChildView('footer')) {
+				this.getChildView('footer').setToolbarsVisible(visible);
+			}
 
 		// show / hide all toolbars
 		//
@@ -336,12 +353,11 @@ export default BaseView.extend(_.extend({}, ItemDroppable, Highlightable, Timeab
 	},
 
 	setAllToolbarsVisible: function(isVisible) {
-		let toolbars = this.getChildView('header').toolbars;
-		for (let i = 0; i < toolbars.length; i++) {
-			let toolbar = toolbars[i];
-			if (this.isOptionalToolbarKind(toolbar)) {
-				this.setToolbarVisible(toolbar, isVisible);
-			}
+		if (this.hasChildView('header')) {
+			this.getChildView('header').setAllToolbarsVisible(isVisible);
+		}
+		if (this.hasChildView('footer')) {
+			this.getChildView('footer').setAllToolbarsVisible(isVisible);
 		}
 
 		if (isVisible) {
@@ -631,8 +647,9 @@ export default BaseView.extend(_.extend({}, ItemDroppable, Highlightable, Timeab
 	//
 
 	getMessage: function(message, options) {
-		let helpMessage = $('<div class="full-size message overlay"><div class="help message"></div></div>');
-		helpMessage.find('.help.message').html((options.icon? '<div class="icon">' + options.icon + '</div>': '') + message);
+		let overlay = $('<div class="full-size message overlay"><div class="help message"></div></div>');
+		let helpMessage = overlay.find('.help.message');
+		helpMessage.html((options.icon? '<div class="icon">' + options.icon + '</div>': '') + message);
 
 		// add callback
 		//
@@ -641,7 +658,7 @@ export default BaseView.extend(_.extend({}, ItemDroppable, Highlightable, Timeab
 			helpMessage.addClass('clickable');
 		}
 
-		return helpMessage;
+		return overlay;
 	},
 
 	addContentElement: function(element) {
@@ -769,7 +786,7 @@ export default BaseView.extend(_.extend({}, ItemDroppable, Highlightable, Timeab
 		// close app dialog
 		//
 		if (this.dialog) {
-			if (this.dialog.isMaximized()) {
+			if (this.dialog.isMaximized() && !this.dialog.isFullScreen()) {
 				this.dialog.unmaximize();
 			}
 
@@ -838,6 +855,9 @@ export default BaseView.extend(_.extend({}, ItemDroppable, Highlightable, Timeab
 		//
 		if (this.hasChildView('header') && this.getChildView('header').onChange) {
 			this.getChildView('header').onChange(attribute);
+		}
+		if (this.hasChildView('contents') && this.getChildView('contents').onChange) {
+			this.getChildView('contents').onChange(attribute);
 		}
 		if (this.hasChildView('footer') && this.getChildView('footer').onChange) {
 			this.getChildView('footer').onChange(attribute);

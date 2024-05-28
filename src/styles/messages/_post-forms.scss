@@ -172,8 +172,12 @@ body.rounded {
 body[device="desktop"] {
 
 	.new-post, .new-comment, .new-reply, .new-message, .new-task {
-		.buttons + .buttons {
-			margin-left: 5px;
+		.buttons {
+			margin-bottom: -5px;
+
+			& + .buttons {
+				margin-left: 5px;
+			}
 		}
 	}
 
@@ -242,16 +246,6 @@ body[device="phone"], body[device="tablet"] {
 			&:not(.focused).empty {
 				.options, .attachments {
 					display: none;
-				}
-			}
-
-			.buttons .btn:not(.btn-sm) {
-				display: inline-block;
-				width: calc(50% - 10px);
-				padding: 5px 15px;
-
-				& + .btn {
-					margin-left: 10px;
 				}
 			}
 		}

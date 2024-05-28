@@ -13,7 +13,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|            Copyright (C) 2016-2020, Sharedigm, www.sharedigm.com             |
+|            Copyright (C) 2016-2024, Sharedigm, www.sharedigm.com             |
 \******************************************************************************/
 
 namespace App\Http\Controllers\Chats;
@@ -23,11 +23,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Session;
 use App\Models\Chats\ChatMessage;
-use App\Models\Files\Attachments\ChatAttachment;
+use App\Models\Storage\Attachments\ChatAttachment;
 use App\Models\Places\CheckIn;
 use App\Http\Controllers\Controller;
 use App\Utilities\Filters\MessageFilter;
-use App\Utilities\Filters\DateFilters;
+use App\Utilities\Filters\DateFilter;
 use App\Utilities\Filters\RangeFilter;
 use App\Utilities\Uuids\Guid;
 
@@ -131,7 +131,7 @@ class ChatMessageController extends Controller
 		// add search filters
 		//
 		MessageFilter::applyTo($request, $query);
-		DateFilters::applyTo($request, $query);
+		DateFilter::applyTo($request, $query);
 		RangeFilter::applyTo($request, $query);
 
 		// apply filter and sort
@@ -165,7 +165,7 @@ class ChatMessageController extends Controller
 		// add search filters
 		//
 		MessageFilter::applyTo($request, $query);
-		DateFilters::applyTo($request, $query);
+		DateFilter::applyTo($request, $query);
 		RangeFilter::applyTo($request, $query);
 
 		// apply filter and sort
@@ -199,7 +199,7 @@ class ChatMessageController extends Controller
 		// add search filters
 		//
 		MessageFilter::applyTo($request, $query);
-		DateFilters::applyTo($request, $query);
+		DateFilter::applyTo($request, $query);
 		RangeFilter::applyTo($request, $query);
 
 		// get updated messages associated with a particular chat and current user

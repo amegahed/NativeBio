@@ -13,7 +13,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|            Copyright (C) 2016-2020, Sharedigm, www.sharedigm.com             |
+|            Copyright (C) 2016-2024, Sharedigm, www.sharedigm.com             |
 \******************************************************************************/
 
 namespace App\Models\Users\Profiles;
@@ -37,10 +37,14 @@ use App\Models\Places\CheckIn;
 use App\Models\Topics\Post;
 use App\Models\Comments\Comment;
 use App\Models\Chats\ChatMembership;
-use App\Models\Files\Sharing\Share;
+use App\Models\Storage\Sharing\Share;
 
 class UserProfile extends TimeStamped
 {
+	/**
+	 * The traits that are inherited.
+	 *
+	 */
 	use UserOwned;
 
 	//

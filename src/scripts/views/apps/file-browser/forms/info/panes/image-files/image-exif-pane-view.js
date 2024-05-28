@@ -51,5 +51,15 @@ export default FormView.extend({
 			</div>
 			<% } %>
 		</div>
-	`)
+	`),
+
+	//
+	// rendering methods
+	//
+
+	templateContext: function() {
+		return {
+			exif: this.model.get('exif')
+		};
+	}
 });

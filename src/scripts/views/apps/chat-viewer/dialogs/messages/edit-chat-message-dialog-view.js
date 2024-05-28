@@ -90,10 +90,10 @@ export default FormDialogView.extend({
 
 			// options
 			//
-			preferences: this.options.preferences,
-			attachable: true,
-			uploadable: true,
 			submitable: false,
+			cancelable: false,
+			features: this.options.features,
+			preferences: this.options.preferences,
 			placement: 'bottom',
 
 			// callbacks

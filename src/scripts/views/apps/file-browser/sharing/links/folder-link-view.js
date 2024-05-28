@@ -15,8 +15,8 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import Directory from '../../../../../models/files/directory.js';
-import Items from '../../../../../collections/files/items.js';
+import Directory from '../../../../../models/storage/directories/directory.js';
+import Items from '../../../../../collections/storage/items.js';
 import LinkView from '../../../../../views/apps/file-browser/sharing/links/link-view.js';
 import HtmlUtils from '../../../../../utilities/web/html-utils.js';
 import Url from '../../../../../utilities/web/url.js';
@@ -42,14 +42,14 @@ export default LinkView.extend({
 			<% } %>
 		
 			<div class="buttons">
-				<button class="open-folder btn btn-primary btn-lg">
-					<i class="fa fa-folder"></i>Open Folder
-				</button>
-				<button class="open-images btn btn-lg" style="display:none">
+				<button class="view-images btn btn-lg" style="display:none">
 					<i class="fa fa-image"></i>View Images
 				</button>
-				<button class="open-map btn btn-lg" style="display:none">
+				<button class="view-map btn btn-lg" style="display:none">
 					<i class="fa fa-map"></i>View Map
+				</button>
+				<button class="open-folder btn btn-lg btn-primary">
+					<i class="fa fa-folder"></i>Open Folder
 				</button>
 				<button class="download-folder btn btn-lg">
 					<i class="fa fa-cloud-download-alt"></i>Download Folder
@@ -59,9 +59,9 @@ export default LinkView.extend({
 	`),
 
 	events: {
+		'click .view-images': 'onClickViewImages',
+		'click .view-map': 'onClickViewMap',
 		'click .open-folder': 'onClickOpenFolder',
-		'click .open-images': 'onClickOpenImages',
-		'click .open-map': 'onClickOpenMap',
 		'click .download-folder': 'onClickDownloadFolder'
 	},
 
@@ -69,7 +69,7 @@ export default LinkView.extend({
 	// rendering methods
 	//
 
-	templateContext: function() {			
+	templateContext: function() {
 		return {
 			username: this.model.get('user').getName('short'),
 			message: HtmlUtils.encode(this.model.get('message')),
@@ -110,7 +110,7 @@ export default LinkView.extend({
 		link.download({
 			icon: options && options.icon? options.icon : '<i class="fa fa-cloud-download"></i>',
 			title: options && options.title? options.title : "Downloading Folder",
-			
+
 			// callbacks
 			//
 			success: () => {
@@ -193,22 +193,40 @@ export default LinkView.extend({
 	onLoad: function(directory) {
 		this.directory = directory;
 
-		// show images button
-		//
-		if (this.directory.hasItems(Items.filters.is_image)) {
-			this.$el.find('.open-images').show();
-		}
-
 		// show map button
 		//
 		if (this.directory.hasItems(Items.filters.is_geolocated)) {
-			this.$el.find('.open-map').show();
+			this.$el.find('.view-map').show();
+			this.$el.find('.buttons .btn-primary').removeClass('btn-primary');
+			this.$el.find('.view-map').addClass('btn-primary');
+		}
+
+		// show images button
+		//
+		if (this.directory.hasItems(Items.filters.is_image)) {
+			this.$el.find('.view-images').show();
+			this.$el.find('.buttons .btn-primary').removeClass('btn-primary');
+			this.$el.find('.view-images').addClass('btn-primary');
 		}
 	},
 
 	//
 	// mouse event handling methods
 	//
+
+	onClickViewImages: function() {
+
+		// show image viewer
+		//
+		this.showImageViewer(this.directory.contents.filter(Items.filters.is_image)[0]);
+	},
+
+	onClickViewMap: function() {
+
+		// show map viewer
+		//
+		this.showMapViewer(this.directory.contents.filter(Items.filters.is_geolocated));
+	},
 
 	onClickOpenFolder: function() {
 
@@ -217,20 +235,6 @@ export default LinkView.extend({
 		this.showFileBrowser(new Directory({
 			link: this.model
 		}));
-	},
-
-	onClickOpenImages: function() {
-
-		// show image viewer
-		//
-		this.showImageViewer(this.directory.contents.filter(Items.filters.is_image)[0]);
-	},
-
-	onClickOpenMap: function() {
-
-		// show map viewer
-		//
-		this.showMapViewer(this.directory.contents.filter(Items.filters.is_geolocated));
 	},
 
 	onClickDownloadFolder: function() {

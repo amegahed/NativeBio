@@ -40,7 +40,7 @@ export default FileInfoView.extend({
 				</a>
 			</li>
 			
-			<% if (typeof id3 != 'undefined' && id3) { %>
+			<% if (id3) { %>
 			<li role="presentation" class="audio tab<% if (tab == 'audio') { %> active<% } %>">
 				<a role="tab" data-toggle="tab" href=".audio.tab-pane">
 					<i class="fa fa-volume-up"></i>
@@ -135,16 +135,26 @@ export default FileInfoView.extend({
 	// rendering methods
 	//
 
-	onRender: function() {
+	templateContext: function() {
+		return {
+			index: this.options.index,
+			tab: this.options.tab || 'general',
+			id3: this.model.get('id3'),
+			show_info: false,
+			show_meta_info: !this.model.isAttached(),
+			size: this.model.getSize({
+				detailed: true
+			})
+		};
+	},
 
-		// call superclass method
-		//
-		FileInfoView.prototype.onRender.call(this);
-
-		// show audio info
-		//
-		if (this.$el.find('.audio.tab').length > 0) {
-			this.showAudioInfo();
+	showRegion: function(name) {
+		switch (name) {
+			case 'audio':
+				this.showAudioInfo();
+				break;
+			default:
+				FileInfoView.prototype.showRegion.call(this, name);
 		}
 	},
 

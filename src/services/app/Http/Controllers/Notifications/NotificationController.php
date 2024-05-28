@@ -13,7 +13,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|            Copyright (C) 2016-2020, Sharedigm, www.sharedigm.com             |
+|            Copyright (C) 2016-2024, Sharedigm, www.sharedigm.com             |
 \******************************************************************************/
 
 namespace App\Http\Controllers\Notifications;
@@ -26,14 +26,14 @@ use App\Models\Users\User;
 use App\Models\Comments\Info\LikeInfo;
 use App\Models\Comments\Info\CommentInfo;
 use App\Models\Comments\Info\ReplyInfo;
-use App\Models\Files\Sharing\Info\ShareRequestInfo;
+use App\Models\Storage\Sharing\Info\ShareRequestInfo;
 use App\Models\Topics\Sharing\Info\TopicInvitationInfo;
 use App\Models\Chats\Sharing\Info\ChatInvitationInfo;
 use App\Models\Gestures\Info\GestureInfo;
 use App\Notifications\BaseNotification;
 use App\Http\Controllers\Controller;
 use App\Utilities\Filters\MessageFilter;
-use App\Utilities\Filters\DateFilters;
+use App\Utilities\Filters\DateFilter;
 use App\Utilities\Filters\RangeFilter;
 use App\Utilities\Strings\StringUtils;
 

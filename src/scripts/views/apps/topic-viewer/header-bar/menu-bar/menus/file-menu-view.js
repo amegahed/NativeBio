@@ -15,7 +15,7 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import Item from '../../../../../../models/files/item.js';
+import Item from '../../../../../../models/storage/item.js';
 import FileMenuView from '../../../../../../views/apps/common/header-bar/menu-bar/menus/file-menu-view.js';
 
 export default FileMenuView.extend({
@@ -112,6 +112,7 @@ export default FileMenuView.extend({
 
 	enabled: function() {
 		let isSignedIn = application.isSignedIn();
+		let hasTabs = this.parent.app.hasTabs();
 		let hasOpenItem = this.parent.app.hasOpenItem();
 		let hasSelectedTopic = this.parent.app.hasSelectedTopic();
 		let hasSelectedPost = this.parent.app.hasSelectedPost();
@@ -119,7 +120,6 @@ export default FileMenuView.extend({
 		let isTopicRequired = hasSelectedTopic && selectedTopic.isRequired();
 		let isTopicOwned = hasSelectedTopic && selectedTopic.isOwnedBy(application.session.user);
 		let hasSelectedItem = this.parent.app.selected && this.parent.app.selected.model instanceof Item;
-		let hasMultiple = this.parent.app.hasOpenItems();
 
 		return {
 			'new-window': true,
@@ -129,8 +129,8 @@ export default FileMenuView.extend({
 			'remove-topic': isSignedIn && hasSelectedTopic && !hasSelectedItem && !hasSelectedPost && !isTopicOwned && !isTopicRequired,
 			'show-info': hasOpenItem || hasSelectedTopic,
 			'download-item': hasSelectedItem,
-			'close-topic': hasMultiple,
-			'close-post': hasMultiple,
+			'close-topic': hasTabs,
+			'close-post': hasTabs,
 			'close-window': true
 		};
 	},

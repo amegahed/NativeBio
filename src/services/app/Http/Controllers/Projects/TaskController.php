@@ -13,7 +13,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|            Copyright (C) 2016-2020, Sharedigm, www.sharedigm.com             |
+|            Copyright (C) 2016-2024, Sharedigm, www.sharedigm.com             |
 \******************************************************************************/
 
 namespace App\Http\Controllers\Projects;
@@ -23,13 +23,13 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Session;
 use App\Models\Users\User;
 use App\Models\Projects\Task;
-use App\Models\Files\Attachments\TaskAttachment;
+use App\Models\Storage\Attachments\TaskAttachment;
 use App\Models\Places\CheckIn;
 use App\Http\Controllers\Controller;
 use App\Utilities\Filters\RangeFilter;
 use App\Utilities\Filters\PublicFilter;
 use App\Utilities\Filters\MessageFilter;
-use App\Utilities\Filters\DateFilters;
+use App\Utilities\Filters\DateFilter;
 use App\Utilities\Uuids\Guid;
 use App\Utilities\Strings\StringUtils;
 
@@ -139,7 +139,7 @@ class TaskController extends Controller
 		//
 		PublicFilter::applyTo($request, $query);
 		MessageFilter::applyTo($request, $query);
-		DateFilters::applyTo($request, $query);
+		DateFilter::applyTo($request, $query);
 
 		// apply filter and sort
 		//
@@ -168,7 +168,7 @@ class TaskController extends Controller
 		//
 		PublicFilter::applyTo($request, $query);
 		MessageFilter::applyTo($request, $query);
-		DateFilters::applyTo($request, $query);
+		DateFilter::applyTo($request, $query);
 
 		// apply filter and sort
 		//

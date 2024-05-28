@@ -211,7 +211,7 @@ export default {
 			}
 		}
 
-		function iterateEntries(iterable, entries) {
+		async function iterateEntries(iterable, entries, condition) {
 			let count = 0;
 
 			function onIterate() {
@@ -227,11 +227,14 @@ export default {
 			// iterate through entries
 			//
 			for (let i = 0; i < entries.length; i++) {
+				if (condition) {
+					await condition();
+				}
 				iterateEntry(iterable, entries[i], onIterate);
 			}
 		}
 
-		function readEntries(iterable) {
+		async function readEntries(iterable, condition) {
 			dirReader.readEntries((entries) => {
 
 				// check if done
@@ -239,17 +242,17 @@ export default {
 				if (entries.length == 0 && options && options.success) {
 					options.success();
 				} else {
-					iterateEntries(iterable, entries);
+					iterateEntries(iterable, entries, condition);
 				}
 			});
 		}
 
 		// process next set of entries
 		//
-		readEntries(this);
+		readEntries(this, options? options.condition : undefined);
 	},
 	
-	iterateItems: function(items, callback, options) {
+	iterateItems: async function(items, callback, options) {
 
 		//
 		// local functions
@@ -369,7 +372,7 @@ export default {
 			}
 		}
 
-		function iterateItems(iterable, items, finish) {
+		async function iterateItems(iterable, items, finish) {
 			let count = 0, numItems = items.length;
 
 			function onIterate() {
@@ -383,6 +386,9 @@ export default {
 			}
 
 			for (let i = 0; i < items.length; i++) {
+				if (options && options.condition) {
+					await options.condition();
+				}
 				iterateEntry(iterable, items[i].webkitGetAsEntry(), onIterate);
 			}
 		}

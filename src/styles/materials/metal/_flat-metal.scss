@@ -39,20 +39,20 @@ $specular-size: 75%;
 		//
 		linear-gradient(var(--light-direction),
 			colors.fade(lighting.lighten($color, 30%), $highlight-strength) 0%,
-			colors.fade($color, 0%) 3px) no-repeat,
+			transparent 3px) no-repeat,
 
 		// specular
 		//
 		linear-gradient(var(--light-direction),
 			colors.fade(lighting.lighten($color, 30%), $specular-strength) 0%,
-			colors.fade($color, 0%) 20%) no-repeat,
+			transparent 20%) no-repeat,
 
 		// reflected
 		//
 		linear-gradient(to right,
-			colors.fade($color, 0%) 0%,
+			transparent 0%,
 			colors.fade($color, 50%) 50%,
-			colors.fade($color, 0%) 100%),
+			transparent 100%),
 		linear-gradient(to bottom,
 			$color 0%,
 			lighting.darken($color, 50%) 10%,

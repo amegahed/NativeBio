@@ -23,6 +23,8 @@
 
 $background: colors.$very-light-grey;
 $shadow: drop-shadow(4px 4px 2px rgba(black, 50%));
+$digit-font-size: 60px;
+$colon-font-size: 90px;
 
 //
 // styles
@@ -65,13 +67,13 @@ $shadow: drop-shadow(4px 4px 2px rgba(black, 50%));
 
 					.hours, .minutes, .colons, .am-pm, .dow, .seconds {
 						display: inline-block;
-						font-size: 60px;
+						font-size: $digit-font-size;
 						line-height: 55px;
 					}
 
 					.colons {
 						display: inline-block;
-						font-size: 90px;
+						font-size: $colon-font-size;
 						vertical-align: super;
 						line-height: 0;
 					}

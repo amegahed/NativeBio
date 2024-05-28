@@ -33,8 +33,8 @@ export default SplitView.extend({
 	//
 
 	hasSelected: function() {
-		if (this.hasChildView('content')) {
-			return this.getChildView('content').hasSelected();
+		if (this.hasChildView('mainbar')) {
+			return this.getChildView('mainbar').hasSelected();
 		}
 	},
 
@@ -43,14 +43,14 @@ export default SplitView.extend({
 	//
 
 	getSelected: function() {
-		if (this.hasChildView('content')) {
-			return this.getChildView('content').getSelected();
+		if (this.hasChildView('mainbar')) {
+			return this.getChildView('mainbar').getSelected();
 		}
 	},
 	
 	getSelectedModels: function() {
-		if (this.hasChildView('content')) {
-			return this.getChildView('content').getSelectedModels();
+		if (this.hasChildView('mainbar')) {
+			return this.getChildView('mainbar').getSelectedModels();
 		}
 	},
 	
@@ -59,8 +59,8 @@ export default SplitView.extend({
 	//
 
 	setOption: function(key, value) {
-		if (this.hasChildView('content')) {
-			this.getChildView('content').setOption(key, value);
+		if (this.hasChildView('mainbar')) {
+			this.getChildView('mainbar').setOption(key, value);
 		}
 	},
 
@@ -126,31 +126,18 @@ export default SplitView.extend({
 	},
 
 	//
-	// window event handling methods
-	//
-
-	//
-	// focus methods
+	// focus event handling methods
 	//
 
 	onFocus: function() {
-		if (this.hasChildView('content') && this.getChildView('content').onFocus) {
-			this.getChildView('content').onFocus();
+		if (this.hasChildView('mainbar') && this.getChildView('mainbar').onFocus) {
+			this.getChildView('mainbar').onFocus();
 		}
 	},
 
 	onBlur: function() {
-		if (this.hasChildView('content') && this.getChildView('content').onBlur) {
-			this.getChildView('content').onBlur();
+		if (this.hasChildView('mainbar') && this.getChildView('mainbar').onBlur) {
+			this.getChildView('mainbar').onBlur();
 		}
-	},
-
-	onResize: function(event) {
-
-		// apply to child views
-		//
-		if (this.hasChildView('sidebar')) {
-			this.getChildView('sidebar').onResize(event);
-		}
-	},
+	}
 });

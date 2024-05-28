@@ -24,6 +24,7 @@ import HeaderBarView from '../../../views/apps/topic-browser/header-bar/header-b
 import SideBarView from '../../../views/apps/topic-browser/sidebar/sidebar-view.js';
 import TopicsView from '../../../views/apps/topic-browser/mainbar/topics/topics-view.js';
 import FooterBarView from '../../../views/apps/topic-browser/footer-bar/footer-bar-view.js';
+import TopicViewerView from '../../../views/apps/topic-viewer/topic-viewer-view.js';
 
 export default AppSplitView.extend(_.extend({}, SelectableContainable, MultiSelectable, TopicInfoShowable, {
 
@@ -43,11 +44,11 @@ export default AppSplitView.extend(_.extend({}, SelectableContainable, MultiSele
 	//
 
 	initialize: function() {
-	
+
 		// call superclass constructor
 		//
 		AppSplitView.prototype.initialize.call(this);
-		
+
 		// set attributes
 		//
 		this.collection = new Topics();
@@ -103,7 +104,7 @@ export default AppSplitView.extend(_.extend({}, SelectableContainable, MultiSele
 				icon: '<i class="fa fa-hashtag"></i>'
 			});
 		} else {
-			this.hideMessage();	
+			this.hideMessage();
 		}
 
 		// update footer bar
@@ -133,7 +134,7 @@ export default AppSplitView.extend(_.extend({}, SelectableContainable, MultiSele
 			this.getChildView('info').onChange();
 		}
 	},
-	
+
 	//
 	// selecting methods
 	//
@@ -259,7 +260,7 @@ export default AppSplitView.extend(_.extend({}, SelectableContainable, MultiSele
 		// call superclass method
 		//
 		AppSplitView.prototype.onRender.call(this);
-		
+
 		// show child views
 		//
 		this.showHeaderBar();
@@ -277,7 +278,7 @@ export default AppSplitView.extend(_.extend({}, SelectableContainable, MultiSele
 		} else {
 			this.$el.find('.footer-bar').remove();
 		}
-		
+
 		// show initial help message
 		//
 		this.showMessage("Loading topics...", {
@@ -291,9 +292,19 @@ export default AppSplitView.extend(_.extend({}, SelectableContainable, MultiSele
 			// callbacks
 			//
 			success: (collection) => {
+
+				// add default topic
+				//
+				if (this.options.subscribed) {
+					collection.add(TopicViewerView.default_topic);
+				}
+
+				// set topics
+				//
 				if (!this.topics) {
 					this.topics = collection.clone();
 				}
+
 				this.showContents();
 				this.onLoad();
 			}, 
@@ -355,7 +366,6 @@ export default AppSplitView.extend(_.extend({}, SelectableContainable, MultiSele
 			preferences: this.preferences,
 			selected: this.getSelectedModels(),
 			multicolumn: true,
-			emptyView: null,
 
 			// capabilities
 			//

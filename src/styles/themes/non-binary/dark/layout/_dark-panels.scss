@@ -45,6 +45,7 @@ $dark-nested-panel-color: colors.$very-very-dark-grey;
 body:not(.binary).dark {
 	.panel, ul.panels > li {
 		color: text-colors.$light-color;
+		background-color: $background-color;
 
 		//
 		// panel list items

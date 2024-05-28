@@ -14,7 +14,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|            Copyright (C) 2016-2020, Sharedigm, www.sharedigm.com             |
+|            Copyright (C) 2016-2024, Sharedigm, www.sharedigm.com             |
 \******************************************************************************/
 
 namespace App\Http\Controllers\Gestures;
@@ -25,7 +25,7 @@ use App\Models\Users\User;
 use App\Models\Gestures\Gesture;
 use App\Notifications\GestureNotification;
 use App\Http\Controllers\Controller;
-use App\Utilities\Filters\DateFilters;
+use App\Utilities\Filters\DateFilter;
 use App\Utilities\Filters\RangeFilter;
 use App\Utilities\Uuids\Guid;
 

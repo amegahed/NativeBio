@@ -16,8 +16,8 @@
 \******************************************************************************/
 
 import UserPreferences from '../../../../../../models/preferences/user-preferences.js';
-import ShareRequests from '../../../../../../collections/files/sharing/share-requests.js';
-import Items from '../../../../../../collections/files/items.js';
+import ShareRequests from '../../../../../../collections/storage/sharing/share-requests.js';
+import Items from '../../../../../../collections/storage/items.js';
 import Connections from '../../../../../../collections/users/connections/connections.js';
 import FormView from '../../../../../../views/forms/form-view.js';
 import FilesView from '../../../../../../views/apps/file-browser/mainbar/files/files-view.js';

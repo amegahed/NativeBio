@@ -43,11 +43,11 @@
 	
 	<h2><i class="fa fa-desktop"></i>Screen Shots</h2>
 	<div class="figure desktop-only">
-		<a href="images/info/apps/profile-browser/profile-browser.png" target="_blank" class="lightbox" title="People"><img class="dialog" src="images/info/apps/profile-browser/profile-browser.png" /></a>
-		<div class="caption">People</div>
+		<a href="images/info/apps/profile-browser/profile-browser.png" target="_blank" class="lightbox" title="<%= config.apps['profile_browser'].name %>"><img class="dialog" src="images/info/apps/profile-browser/profile-browser.png" /></a>
+		<div class="caption"><%= config.apps['profile_browser'].name %></div>
 	</div>
 	<div class="figure mobile-only">
-		<a href="images/info/apps/profile-browser/mobile/mobile-profile-browser.png" target="_blank" class="lightbox" title="People"><img class="dialog" src="images/info/apps/profile-browser/mobile/mobile-profile-browser.png" /></a>
-		<div class="caption">People</div>
+		<a href="images/info/apps/profile-browser/mobile/mobile-profile-browser.png" target="_blank" class="lightbox" title="<%= config.apps['profile_browser'].name %>"><img class="dialog" src="images/info/apps/profile-browser/mobile/mobile-profile-browser.png" /></a>
+		<div class="caption"><%= config.apps['profile_browser'].name %></div>
 	</div>
 </div>

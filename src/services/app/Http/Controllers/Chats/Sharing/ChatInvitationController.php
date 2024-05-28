@@ -14,7 +14,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|            Copyright (C) 2016-2020, Sharedigm, www.sharedigm.com             |
+|            Copyright (C) 2016-2024, Sharedigm, www.sharedigm.com             |
 \******************************************************************************/
 
 namespace App\Http\Controllers\Chats\Sharing;
@@ -25,7 +25,7 @@ use App\Models\Chats\ChatMembership;
 use App\Models\Chats\Sharing\ChatInvitation;
 use App\Notifications\ChatInvitationNotification;
 use App\Http\Controllers\Controller;
-use App\Utilities\Filters\DateFilters;
+use App\Utilities\Filters\DateFilter;
 use App\Utilities\Uuids\Guid;
 
 class ChatInvitationController extends Controller

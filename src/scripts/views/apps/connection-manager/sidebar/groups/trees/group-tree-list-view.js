@@ -1,6 +1,6 @@
 /******************************************************************************\
 |                                                                              |
-|                           groups-tree-list-view.js                           |
+|                            group-tree-list-view.js                           |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -15,7 +15,6 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import BaseView from '../../../../../../views/base-view.js';
 import ListView from '../../../../../../views/items/lists/list-view.js';
 import TreeContainable from '../../../../../../views/behaviors/containers/tree-containable.js';
 import GroupTreeView from '../../../../../../views/apps/connection-manager/sidebar/groups/trees/group-tree-view.js';
@@ -26,13 +25,13 @@ export default ListView.extend(_.extend({}, TreeContainable, {
 	// attributes
 	//
 
+	empty: "No groups.",
+
+	//
 	// views
 	//
+
 	childView: GroupTreeView,
-	emptyView: BaseView.extend({
-		className: 'empty',
-		template: template("No groups.")
-	}),
 
 	//
 	// constructor

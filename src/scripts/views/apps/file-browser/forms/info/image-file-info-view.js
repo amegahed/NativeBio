@@ -142,6 +142,7 @@ export default FileInfoView.extend({
 		return {
 			index: this.options.index,
 			tab: this.options.tab || 'general',
+			exif: this.model.get('exif'),
 			show_info: false,
 			show_meta_info: !this.model.isAttached(),
 			size: this.model.getSize({
@@ -150,19 +151,16 @@ export default FileInfoView.extend({
 		};
 	},
 
-	onRender: function() {
-
-		// call superclass method
-		//
-		FileInfoView.prototype.onRender.call(this);
-
-		// show photo info
-		//
-		if (this.$el.find('.photo.tab').length > 0) {
-			this.showPhotoInfo();
-		}
-		if (this.$el.find('.info.tab').length > 0) {
-			this.showExifInfo();
+	showRegion: function(name) {
+		switch (name) {
+			case 'photo':
+				this.showPhotoInfo();
+				break;
+			case 'info':
+				this.showExifInfo();
+				break;
+			default:
+				FileInfoView.prototype.showRegion.call(this, name);
 		}
 	},
 
@@ -178,7 +176,7 @@ export default FileInfoView.extend({
 		}));
 	},
 
-	showFileHistory: function() {
+	showHistoryInfo: function() {
 		this.showChildView('history', new ImageFileHistoryPaneView({
 			model: this.model
 		}));

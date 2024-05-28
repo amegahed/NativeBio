@@ -75,7 +75,7 @@ export default ToolbarView.extend(_.extend({}, Timeable, {
 	},
 
 	replay: function() {
-		this.parent.setTrackTime(0);
+		this.app.setTrackTime(0);
 		if (this.isPlaying()) {
 			this.play();
 		} else {

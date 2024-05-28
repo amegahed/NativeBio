@@ -37,7 +37,13 @@ export default FileMenuView.extend({
 		<li role="presentation">
 			<a class="show-info"><i class="fa fa-info-circle"></i>Show Info<span class="command shortcut">I</span></a>
 		</li>
-		
+
+		<li role="separator" class="divider"></li>
+
+		<li role="presentation">
+			<a class="save-as"><i class="fa fa-save"></i>Save As<span class="shift command shortcut">S</span></a>
+		</li>
+
 		<li role="separator" class="divider"></li>
 		
 		<li role="presentation">
@@ -61,6 +67,7 @@ export default FileMenuView.extend({
 		'click .new-window': 'onClickNewWindow',
 		'click .open-file': 'onClickOpenFile',
 		'click .show-info': 'onClickShowInfo',
+		'click .save-as': 'onClickSaveAs',
 		'click .download-file': 'onClickDownloadFile',
 		'click .close-file': 'onClickCloseFile',
 	},
@@ -76,6 +83,7 @@ export default FileMenuView.extend({
 			'new-window': true,
 			'open-file': isSignedIn,
 			'show-info': this.parent.app.model != null,
+			'save-as': isSignedIn,
 			'download-file': this.parent.app.model != null,
 			'close-file': true
 		};
@@ -92,7 +100,11 @@ export default FileMenuView.extend({
 	onClickShowInfo: function() {
 		this.parent.app.showInfoDialog();
 	},
-	
+
+	onClickSaveAs: function() {
+		this.parent.app.saveAs();
+	},
+
 	onClickDownloadFile: function() {
 		this.parent.app.downloadFile();
 	},

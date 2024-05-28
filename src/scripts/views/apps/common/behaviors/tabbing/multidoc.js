@@ -151,5 +151,36 @@ export default _.extend({}, Tabbed, {
 			//
 			this.onCloseTab();	
 		}
+	},
+
+	//
+	// message rendering methods
+	//
+
+	showHelpMessage: function() {
+		this.showMessage("No documents.", {
+			icon: '<i class="far fa-file"></i>',
+
+			// callbacks
+			//
+			onclick: () => this.showOpenDialog()
+		});
+	},
+
+	//
+	// document event handling methods
+	//
+
+	onCloseTab: function() {
+
+		// call mixin method
+		//
+		Tabbed.onCloseTab.call(this);
+
+		// check to see if all tabs are closed
+		//
+		if (!this.hasTabs()) {
+			this.showHelpMessage();
+		}
 	}
 });

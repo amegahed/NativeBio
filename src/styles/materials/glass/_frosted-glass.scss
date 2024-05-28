@@ -33,6 +33,11 @@ $blur: 10px;
 	-webkit-backdrop-filter: blur($blur);
 }
 
+@mixin unfrosted() {
+	backdrop-filter: none;
+	-webkit-backdrop-filter: none;
+}
+
 @mixin polished {
 	backdrop-filter: none;
 	-webkit-backdrop-filter: none;

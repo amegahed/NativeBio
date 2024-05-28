@@ -53,6 +53,18 @@
 	}
 
 	//
+	// image file names
+	//
+
+	&.hide-image-names {
+		.png.file, .jpg.file {
+			.name {
+				display: none !important;
+			}
+		}
+	}
+
+	//
 	// selecting
 	//
 
@@ -65,17 +77,19 @@
 			//
 			position: relative;
 		}
+	}
 
-		// allow a bit of extra space without scroll bars
-		//
-		> .icon-grid {
-			padding-right: 0;	
-		}
+	//
+	// allow a bit of extra space without scroll bars
+	//
 
-		> .tile-grid {
-			padding-right: 0;
-			padding-bottom: 0;
-		}
+	> .icon-grid {
+		padding-right: 0;	
+	}
+
+	> .tile-grid {
+		padding-right: 0;
+		padding-bottom: 0;
 	}
 
 	// remove original item when dragging, still show drag image
@@ -96,6 +110,8 @@
 
 	.owner {
 		background: none !important;
+		pointer-events: auto;
+		cursor: pointer;
 	}
 }
 
@@ -141,6 +157,12 @@
 			vertical-align: top;
 			text-align: center;
 			margin: 2px;
+		}
+	}
+
+	.badges {
+		.badge {
+			min-width: 30px;
 		}
 	}
 }

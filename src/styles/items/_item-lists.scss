@@ -25,12 +25,13 @@
 $icon-size: 14px;
 $round-border-radius: 7px;
 $rounded-border-radius: 5px;
+$thumbnail-size: 25px;
 
 //
 // styles
 //
 
-.item-list {
+.item-list, .item-tree {
 	list-style-type: none;
 	counter-reset: row;
 	padding: 0;
@@ -54,98 +55,90 @@ $rounded-border-radius: 5px;
 
 	.item {
 		pointer-events: none;
+	}
 
-		> .info {
-			display: flex;
-			vertical-align: middle;
-			pointer-events: none;
-			padding: 1px;
+	.info {
+		display: flex;
+		vertical-align: middle;
+		overflow: hidden;
+		padding: 5px;
+		pointer-events: none;
 
-			// text size
-			//
-			font-size: 90%;
-			line-height: 15px;
+		// text size
+		//
+		font-size: 90%;
+		line-height: 15px;
 
-			> input[type="checkbox"] {
-				margin: 5px;
-				pointer-events: auto;
-			}
+		> input[type="checkbox"] {
+			margin: 5px;
+			pointer-events: auto;
+		}
 
-			> .icon, > .tile {
-				position: relative;
-				width: 25px;
-				height: 25px;
-				text-align: center;
-				flex-shrink: 0;
-				pointer-events: auto;
+		> .icon, > .tile {
+			position: relative;
+			width: 25px;
+			height: 25px;
+			text-align: center;
+			flex-shrink: 0;
+			pointer-events: auto;
 
-				.thumbnail {
-					max-width: 20px;
-					max-height: 20px;
-					margin: 0;
+			.thumbnail {
+				max-width: $thumbnail-size;
+				max-height: $thumbnail-size;
+				margin: 0;
 
-					&:not(.photo):not(.pdf) {
-						width: 100%;
-						height: 100%;
-						background-size: cover;
-					}
-				}
-
-				> img:not(.thumbnail.photo) {
-					filter: images.$thumbnail-shadow;
-				}
-
-				.thumbnail.photo {
-					box-shadow: images.$thumbnail-box-shadow;
-				}
-			}
-					
-			> .icon, > .status {
-				width: 20px;
-				height: 20px;
-				margin: auto 3px;
-
-				i {
-					font-size: $icon-size;
-					line-height: 20px;
+				&:not(.photo):not(.pdf) {
+					width: 100%;
+					height: 100%;
+					background-size: cover;
 				}
 			}
 
-			> .status {
-				float: left;
-				width: 30px;
-				height: 25px;
-				flex-shrink: 0;
-				padding-left: 5px;
-				cursor: pointer;
-				pointer-events: auto;
-
-				i {
-					margin: auto;
-				}
+			> img:not(.thumbnail.photo) {
+				filter: images.$thumbnail-shadow;
 			}
 
-			> .icon {
-				position: relative;
+			.thumbnail.photo {
+				box-shadow: images.$thumbnail-box-shadow;
+			}
+		}
 				
-				i.fa-spinner {
-					display: none;
-				}
+		> .icon, > .status {
+			width: 25px;
+			height: 25px;
 
-				.thumbnail {
-					position: relative;
-					margin: auto;
-					filter: images.$thumbnail-shadow;
+			i {
+				font-size: $icon-size;
+				line-height: 25px;
+			}
+		}
 
-					&::after {
-						position: absolute;
-						content: '';
-						top: 0;
-						left: 0;
-						width: 100%;
-						height: 100%;
-					}
-				}
+		> .status {
+			float: left;
+			width: 30px;
+			height: 25px;
+			margin: 0;
+			flex-shrink: 0;
+			padding-left: 5px;
+			cursor: pointer;
+			pointer-events: auto;
+
+			i {
+				margin: auto;
+			}
+		}
+
+		> .icon {
+			position: relative;
+			
+			i.fa-spinner {
+				display: none;
+			}
+
+			.thumbnail {
+				position: relative;
+				margin: auto;
+				filter: images.$thumbnail-shadow;
 
 				&::after {
 					position: absolute;
@@ -157,18 +150,88 @@ $rounded-border-radius: 5px;
 				}
 			}
 
-			> .name {
-				display: inline-block;
-				word-break: break-word;
-				vertical-align: middle;
-				padding: 0 5px;
-				margin: 5px 0;
-				pointer-events: auto;
-				cursor: default;
+			&::after {
+				position: absolute;
+				content: '';
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+			}
+		}
 
-				&:empty {
-					display: none;
+		> .name {
+			display: inline-block;
+			word-break: break-word;
+			vertical-align: middle;
+			padding: 0 5px;
+			margin: 5px 0;
+			pointer-events: auto;
+			cursor: default;
+
+			&:empty {
+				display: none;
+			}
+
+			// keep on one line
+			//
+			white-space: nowrap;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 1;
+
+			// show overflow using ellipsis
+			//
+			overflow: hidden;
+			text-overflow: ellipsis;
+			hyphens: auto;
+
+			//
+			// editable names
+			//
+
+			&[contenteditable="true"] {
+				overflow: visible;
+				white-space: normal;
+				-webkit-line-clamp: none;
+
+				border-radius: 0;
+				outline-width: 2px;
+				outline-style: solid;
+				cursor: text;
+
+				// enable text selection
+				//
+				@include selection.text-selectable;
+			}
+		}
+
+		.specifics {
+			display: inline-flex;
+			flex-grow: 1;
+			flex-shrink: 0;
+			justify-content: flex-end;
+			white-space: nowrap;
+			max-height: 25px;
+			overflow: hidden;
+
+			> div {
+				display: inline-block;
+			}
+
+			.badges {
+				margin-right: 5px;
+				line-height: 25px;
+
+				.badge {
+					pointer-events: auto;
 				}
+			}
+
+			.details {
+				display: inline-block;
+				max-width: 100%;
+				padding: 0 5px;
+				margin: 5px;
 
 				// keep on one line
 				//
@@ -182,83 +245,22 @@ $rounded-border-radius: 5px;
 				text-overflow: ellipsis;
 				hyphens: auto;
 
-				//
-				// editable names
-				//
+				&:empty {
+					display: none;
+				}
+				
+				i {
+					pointer-events: auto;
+					text-align: center;
+				}
 
-				&[contenteditable="true"] {
-					overflow: visible;
-					white-space: normal;
-					-webkit-line-clamp: none;
-
-					border-radius: 0;
-					outline-width: 2px;
-					outline-style: solid;
-					cursor: text;
-
-					// enable text selection
-					//
-					@include selection.text-selectable;
+				&:empty {
+					display: none;
 				}
 			}
 
-			.specifics {
-				display: inline-flex;
-				flex-grow: 1;
-				flex-shrink: 0;
-				justify-content: flex-end;
-				white-space: nowrap;
-				max-height: 25px;
-				overflow: hidden;
-
-				> div {
-					display: inline-block;
-				}
-
-				.badges {
-					margin-right: 5px;
-					line-height: 25px;
-
-					.badge {
-						pointer-events: auto;
-					}
-				}
-
-				.details {
-					display: inline-block;
-					max-width: 100%;
-					padding: 0 5px;
-					margin: 5px;
-
-					// keep on one line
-					//
-					white-space: nowrap;
-					-webkit-box-orient: vertical;
-					-webkit-line-clamp: 1;
-
-					// show overflow using ellipsis
-					//
-					overflow: hidden;
-					text-overflow: ellipsis;
-					hyphens: auto;
-
-					&:empty {
-						display: none;
-					}
-					
-					i {
-						pointer-events: auto;
-						text-align: center;
-					}
-
-					&:empty {
-						display: none;
-					}
-				}
-
-				.priority {
-					padding: 5px;
-				}
+			.priority {
+				padding: 5px;
 			}
 		}
 
@@ -284,6 +286,7 @@ $rounded-border-radius: 5px;
 
 				.name {
 					color: white;
+					background: black;
 
 					// don't draw text ellipsis if highlighted or selected
 					//
@@ -345,6 +348,28 @@ $rounded-border-radius: 5px;
 		// disable default selection
 		//
 		@include selection.unselectable;
+	}
+}
+
+.multiline.item-list {
+	.item {
+		.info {
+			> .name {
+				white-space: normal;
+			}
+		}
+	}
+}
+
+.panel .item-list {
+	.item {
+		.info {
+			padding: 1px;
+
+			> .icon, > .status {
+				margin: 0;
+			}
+		}
 	}
 }
 

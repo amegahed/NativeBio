@@ -29,8 +29,7 @@ $background: colors.faded(colors.$very-light-grey, 25%);
 $grid-color: white;
 $grid-background-color: colors.$ultra-dark-grey;
 $name-color: text-colors.$dark-color;
-$name-background-color: colors.faded(white, 50%);
-$highlighted-border-color: colors.$very-light-grey;
+$name-background-color: colors.faded(colors.$very-very-light-grey, 50%);$highlighted-border-color: colors.$very-light-grey;
 $selected-border-color: colors.$very-light-grey;
 $highlight-angle: 150deg;
 $page-thumbnail-shadow: 5px 5px 20px colors.faded(black, 25%);
@@ -55,12 +54,16 @@ body:not(.binary) {
 					> canvas {
 						box-shadow: $page-thumbnail-shadow;
 					}
+
+					> .thumbnail {
+						border-color: $background;
+					}
 				}
 
 				.name {
 					color: $name-color;
 					background-color: $name-background-color;
-					@include frosted-glass.frosted(5px);
+					// @include frosted-glass.frosted(5px);
 
 					//
 					// editable names
@@ -95,6 +98,7 @@ body:not(.binary) {
 				}
 
 				.name {
+					@include frosted-glass.unfrosted();
 
 					//
 					// uneditable names
@@ -130,6 +134,7 @@ body:not(.binary) {
 				}
 
 				.name {
+					@include frosted-glass.unfrosted();
 
 					//
 					// uneditable names

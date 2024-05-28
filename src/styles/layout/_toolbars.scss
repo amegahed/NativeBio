@@ -31,14 +31,18 @@ $box-shadow: 5px 5px 20px rgba(black, 10%);
 	display: inline-flex;
 	cursor: default;
 
-	&:empty, &.disabled {
+	&:empty {
 		display: none !important;
+	}
+
+	&.multiline {
+		flex-wrap: wrap;
 	}
 
 	> .icon {
 		width: 25px;
 		height: 25px;
-		margin: 3px;
+		margin: 2px;
 		text-align: center;
 
 		i {
@@ -82,7 +86,6 @@ $box-shadow: 5px 5px 20px rgba(black, 10%);
 	}
 
 	.input {
-		margin: 2px;
 
 		//
 		// slider inputs
@@ -101,6 +104,7 @@ $box-shadow: 5px 5px 20px rgba(black, 10%);
 			height: 25px;
 			min-width: 25px;
 			line-height: 15px;
+			margin: auto;
 		}
 
 		&.selectable {
@@ -119,11 +123,15 @@ $box-shadow: 5px 5px 20px rgba(black, 10%);
 
 		input[type="number"] {
 			 -moz-appearance: textfield;
+			padding: 0;
+		}
 
-			&::-webkit-outer-spin-button,
-			&::-webkit-inner-spin-button {
-				-webkit-appearance: none;
-			}
+		input[type="number"]::-webkit-inner-spin-button, 
+		input[type="number"]::-webkit-outer-spin-button {
+
+			// hide spinners
+			//
+			display: none;
 		}
 
 		//
@@ -178,18 +186,37 @@ $box-shadow: 5px 5px 20px rgba(black, 10%);
 	// toolbar buttons
 	//
 
-	.button {
+	button {
 		cursor: pointer;
 		text-align: center;
-		width: 25px;
-		height: 25px;
-		margin: 3px;
 		padding: 1px;
+		margin: 2px;
 		border-width: 1px;
 		border-style: solid;
 		border-color: transparent;
 		background-color: transparent;
-		
+
+		//
+		// toolbar button spacing
+		//
+
+		& + button {
+			margin-left: 2px !important;
+		}
+
+		//
+		// toolbar button size
+		//
+
+		&.btn {
+			line-height: inherit;
+		}
+
+		&:not(.wide) {
+			width: 25px;
+			height: 25px;
+		}
+
 		//
 		// toolbar button icons
 		//
@@ -211,10 +238,33 @@ $box-shadow: 5px 5px 20px rgba(black, 10%);
 			background: black;
 			color: white;
 
+			i {
+				color: white;
+			}
+
 			svg {
 				fill: white;
 			}
 		}
+
+		//
+		// wide buttons
+		//
+
+		&.wide {
+			width: auto;
+			padding-left: 7px;
+			padding-right: 7px;
+			white-space: nowrap;
+
+			i {
+				margin-right: 5px;
+			}
+		}
+	}
+
+	.input-group button {
+		margin: 0;	
 	}
 
 	//
@@ -253,7 +303,8 @@ $box-shadow: 5px 5px 20px rgba(black, 10%);
 	}
 
 	.current + .tools {
-		margin-top: -31px;
+		margin-top: -30px;
+		margin-left: -1px;
 
 		> div {
 
@@ -273,18 +324,6 @@ $box-shadow: 5px 5px 20px rgba(black, 10%);
 	.disabled {
 		opacity: 0.5;
 		pointer-events: none;
-	}
-}
-
-//
-// footer bar toolbars
-//
-
-.footer-bar .toolbar {
-	margin: auto;
-	
-	.num-items.info-bar:not(:empty) {
-		padding-left: 0 !important;
 	}
 }
 
@@ -331,6 +370,7 @@ $box-shadow: 5px 5px 20px rgba(black, 10%);
 
 			.current + .tools {
 				margin-top: -27px;
+				margin-left: 0px;
 			}
 		}
 	}
@@ -587,7 +627,7 @@ body[device="phone"], body[device="tablet"] {
 			// mobile toolbar buttons
 			//
 
-			.button {
+			.button:not(.wide) {
 				width: buttons.$mobile-min-width;
 
 				span {
@@ -596,18 +636,20 @@ body[device="phone"], body[device="tablet"] {
 			}
 		}
 	}
-}
 
-body[device="desktop"] {
-	.toolbar {
-		.button {
-			&.wide {
-				width: auto;
-				padding: 0 5px;
+	.mainbar .toolbar {
 
-				span {
-					margin-left: 5px;
-				}
+		//
+		// mobile toolbar controls
+		//
+
+		.controls {
+			width: 50px;
+		}
+
+		&.vertical {
+			.tools {
+				margin-left: 54px;
 			}
 		}
 	}
@@ -619,9 +661,11 @@ body[device="phone"] {
 	// hide mobile mainbar toolbars
 	//
 
+	/*
 	.mainbar .toolbar {
 		display: none;
 	}
+	*/
 }
 
 //

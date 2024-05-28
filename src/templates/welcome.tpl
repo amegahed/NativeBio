@@ -25,7 +25,7 @@
 		</div>
 		<div class="col-sm-6">
 			<div class="figure">
-				<img src="images/logos/native-biodata-icon.png" />
+				<img src="images/logos/icon.png" />
 			</div>
 		</div>
 	</div>

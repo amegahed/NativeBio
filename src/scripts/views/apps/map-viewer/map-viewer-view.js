@@ -16,15 +16,15 @@
 \******************************************************************************/
 
 import Place from '../../../models/places/place.js';
-import Item from '../../../models/files/item.js';
-import File from '../../../models/files/file.js';
-import MapFile from '../../../models/files/map-file.js';
-import ImageFile from '../../../models/files/image-file.js';
-import VideoFile from '../../../models/files/video-file.js';
-import Directory from '../../../models/files/directory.js';
+import Item from '../../../models/storage/item.js';
+import File from '../../../models/storage/files/file.js';
+import MapFile from '../../../models/storage/files/map-file.js';
+import ImageFile from '../../../models/storage/media/image-file.js';
+import VideoFile from '../../../models/storage/media/video-file.js';
+import Directory from '../../../models/storage/directories/directory.js';
 import User from '../../../models/users/user.js';
 import Places from '../../../collections/places/places.js';
-import Items from '../../../collections/files/items.js';
+import Items from '../../../collections/storage/items.js';
 import USCensusGeocoding from '../../../views/maps/behaviors/geocoding/us-census-geocoding.js';
 import GoogleGeocoding from '../../../views/maps/behaviors/geocoding/google-geocoding.js';
 import AppSplitView from '../../../views/apps/common/app-split-view.js';
@@ -32,8 +32,7 @@ import Multifile from '../../../views/apps/common/behaviors/tabbing/multifile.js
 import Openable from '../../../views/apps/common/behaviors/launching/openable.js';
 import SelectableContainable from '../../../views/behaviors/containers/selectable-containable.js';
 import MultiSelectable from '../../../views/behaviors/selection/multi-selectable.js';
-import ModelShareable from '../../../views/apps/common/behaviors/sharing/model-shareable.js';
-import SelectableShareable from '../../../views/apps/common/behaviors/sharing/selectable-shareable.js';
+import ItemShareable from '../../../views/apps/common/behaviors/sharing/item-shareable.js';
 import ItemInfoShowable from '../../../views/apps/file-browser/dialogs/info/behaviors/item-info-showable.js';
 import ConnectionInfoShowable from '../../../views/apps/connection-manager/dialogs/info/behaviors/connection-info-showable.js';
 import FileDownloadable from '../../../views/apps/file-browser/mainbar/behaviors/file-downloadable.js';
@@ -53,7 +52,7 @@ import TabbedContentView from '../../../views/apps/map-viewer/mainbar/tabbed-con
 import FooterBarView from '../../../views/apps/map-viewer/footer-bar/footer-bar-view.js';
 import ContextMenuView from '../../../views/apps/map-viewer/context-menus/context-menu-view.js';
 
-export default AppSplitView.extend(_.extend({}, FileDownloadable, FileUploadable, FileDisposable, Openable, Multifile, SelectableContainable, MultiSelectable, ModelShareable, SelectableShareable, ItemInfoShowable, ConnectionInfoShowable, PhotoMappable, VideoMappable, OverlayMappable, PersonMappable, PlaceMappable, FavoriteMappable, DropboxUploadable, GDriveUploadable, {
+export default AppSplitView.extend(_.extend({}, FileDownloadable, FileUploadable, FileDisposable, Openable, Multifile, SelectableContainable, MultiSelectable, ItemShareable, ItemInfoShowable, ConnectionInfoShowable, PhotoMappable, VideoMappable, OverlayMappable, PersonMappable, PlaceMappable, FavoriteMappable, DropboxUploadable, GDriveUploadable, {
 
 	//
 	// attributes
@@ -484,10 +483,14 @@ export default AppSplitView.extend(_.extend({}, FileDownloadable, FileUploadable
 
 		// show / hide main toolbar
 		//
-		if (visible.includes('map')) {
-			this.$el.find('.mainbar .toolbar').show();
+		if (visible == true) {
+			this.setMainToolbarVisible(true);
+		} else if (visible == false) {
+			this.setMainToolbarVisible(false);
+		} else if (visible.includes('map')) {
+			this.setMainToolbarVisible(true);
 		} else {
-			this.$el.find('.mainbar .toolbar').hide();
+			this.setMainToolbarVisible(false);
 		}
 	},
 
@@ -622,7 +625,11 @@ export default AppSplitView.extend(_.extend({}, FileDownloadable, FileUploadable
 	// map creating methods
 	//
 
-	newMap: function() {
+	newTab: function() {
+		this.newFile();
+	},
+
+	newFile: function() {
 
 		// open new file
 		//
@@ -630,8 +637,7 @@ export default AppSplitView.extend(_.extend({}, FileDownloadable, FileUploadable
 	},
 
 	newFolder: function() {
-		let directoryName = this.directory.getUniqueName(Directory.defaultName);
-		this.directory.createDirectory(directoryName, {
+		this.directory.newDirectory({
 
 			// callbacks
 			//
@@ -1319,6 +1325,9 @@ export default AppSplitView.extend(_.extend({}, FileDownloadable, FileUploadable
 						zoom_level: this.maxZoom - 1
 					}), options);
 				} else {
+
+					// show error message
+					//
 					application.error({
 						message: 'This address could not be found.'
 					});
@@ -1326,6 +1335,9 @@ export default AppSplitView.extend(_.extend({}, FileDownloadable, FileUploadable
 			},
 
 			error: () => {
+
+				// show error message
+				//
 				application.error({
 					message: 'Could not geocode this address.'
 				});
@@ -1344,14 +1356,14 @@ export default AppSplitView.extend(_.extend({}, FileDownloadable, FileUploadable
 		}
 	},
 
-	showPlaceByPost: function(place) {
+	showPlaceByTopic: function(place) {
 		import(
-			'../../../views/apps/messenger/messenger-view.js'
-		).then((MessengerView) => {
+			'../../../views/apps/topic-viewer/topic-viewer-view.js'
+		).then((TopicViewerView) => {
 
 			// show default topic
 			//
-			application.showTopic(MessengerView.default.defaultTopic, {
+			application.showTopic(TopicViewerView.default.default_topic, {
 				check_in: place
 			});
 		});
@@ -1381,7 +1393,7 @@ export default AppSplitView.extend(_.extend({}, FileDownloadable, FileUploadable
 	// place sharing methods
 	//
 
-	sharePlaceByPost: function() {
+	sharePlaceByTopic: function() {
 		let latLon = this.getLatLon();
 		let zoomLevel = this.getZoomLevel();
 
@@ -1395,7 +1407,7 @@ export default AppSplitView.extend(_.extend({}, FileDownloadable, FileUploadable
 			// callbacks
 			//
 			onSubmit: function(place) {
-				this.showPlaceByPost(place);
+				this.showPlaceByTopic(place);
 			}
 		});
 	},
@@ -1601,6 +1613,20 @@ export default AppSplitView.extend(_.extend({}, FileDownloadable, FileUploadable
 
 	getFooterBarView: function() {
 		return new FooterBarView();
+	},
+
+	//
+	// message rendering methods
+	//
+
+	showHelpMessage: function() {
+		this.showMessage("No maps.", {
+			icon: '<i class="far fa-map"></i>',
+
+			// callbacks
+			//
+			onclick: () => this.showOpenDialog()
+		});
 	},
 
 	//

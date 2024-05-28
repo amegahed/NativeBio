@@ -28,6 +28,7 @@ export default ItemsView.extend({
 	//
 
 	className: 'items',
+	empty: "No apps.",
 
 	template: template(`
 		<div class="items"></div>
@@ -39,11 +40,6 @@ export default ItemsView.extend({
 			replaceElement: true
 		}
 	},
-
-	emptyView: ItemsView.extend({
-		className: 'empty',
-		template: template("No apps")
-	}),
 
 	//
 	// constructor

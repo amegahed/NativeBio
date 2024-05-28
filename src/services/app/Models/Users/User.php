@@ -15,7 +15,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|            Copyright (C) 2016-2020, Sharedigm, www.sharedigm.com             |
+|            Copyright (C) 2016-2024, Sharedigm, www.sharedigm.com             |
 \******************************************************************************/
 
 namespace App\Models\Users;
@@ -31,19 +31,24 @@ use App\Models\Users\Connections\GroupMember;
 use App\Models\Users\Profiles\UserProfile;
 use App\Models\Users\Profiles\UserLocation;
 use App\Models\Users\Profiles\UserJob;
-use App\Models\Files\Linking\Link;
-use App\Models\Files\Sharing\Share;
-use App\Models\Files\Sharing\ShareRequest;
+use App\Models\Storage\Sharing\Link;
+use App\Models\Storage\Sharing\Share;
+use App\Models\Storage\Sharing\ShareRequest;
 use App\Models\Settings\UserSetting;
 use App\Models\Settings\UserFavorite;
 use App\Models\Settings\UserPreference;
 use App\Models\Topics\Post;
 use App\Models\Topics\Topic;
+use App\Models\Topics\UserTopic;
 use App\Notifications\Traits\Notifiable;
 use App\Utilities\Uuids\Guid;
 
 class User extends TimeStamped
 {
+	/**
+	 * The traits that are inherited.
+	 *
+	 */
 	use Notifiable;
 	
 	//
@@ -357,7 +362,7 @@ class User extends TimeStamped
 	 * @return \Illuminate\Database\Eloquent\Relations\Relation
 	 */
 	public function incomingShareRequests() {
-		return $this->hasMany('App\Models\Files\Sharing\ShareRequest', 'connection_id');
+		return $this->hasMany('App\Models\Storage\Sharing\ShareRequest', 'connection_id');
 	}
 
 	/**
@@ -366,7 +371,7 @@ class User extends TimeStamped
 	 * @return \Illuminate\Database\Eloquent\Relations\Relation
 	 */
 	public function outgoingShareRequests() {
-		return $this->hasMany('App\Models\Files\Sharing\ShareRequest');
+		return $this->hasMany('App\Models\Storage\Sharing\ShareRequest');
 	}
 
 	/**
@@ -522,7 +527,10 @@ class User extends TimeStamped
 			$name .= $this->first_name;
 		}
 		if ($this->last_name) {
-			$name .= ' ' . $this->last_name;
+			if ($name) {
+				$name .= ' ';
+			}
+			$name .= $this->last_name;
 		}
 
 		return ucwords($name);
@@ -537,22 +545,37 @@ class User extends TimeStamped
 		$name = '';
 
 		if ($this->honorific) {
-			$name .= $this->honorific . ' ';
+			$name .= $this->honorific;
 		}
 		if ($this->first_name) {
+			if ($name) {
+				$name .= ' ';
+			}
 			$name .= $this->first_name;
 		}
 		if ($this->preferred_name) {
-			$name .= ' (' . $this->preferred_name . ')';
+			if ($name) {
+				$name .= ' ';
+			}
+			$name .= '(' . $this->preferred_name . ')';
 		}
 		if ($this->middle_name) {
-			$name .= ' ' . $this->middle_name;
+			if ($name) {
+				$name .= ' ';
+			}
+			$name .= $this->middle_name;
 		}
 		if ($this->last_name) {
-			$name .= ' ' . $this->last_name;
+			if ($name) {
+				$name .= ' ';
+			}
+			$name .= $this->last_name;
 		}
 		if ($this->titles) {
-			$name .= ' ' . $this->titles;
+			if ($name) {
+				$name .= ' ';
+			}
+			$name .= $this->titles;
 		}
 		
 		return ucwords($name);
@@ -856,6 +879,9 @@ class User extends TimeStamped
 		});
 		Topic::where('user_id', '=', $this->id)->get()->each(function($topic) {
 			$topic->delete();
+		});
+		UserTopic::where('user_id', '=', $this->id)->get()->each(function($userTopic) {
+			$userTopic->delete();
 		});
 
 		// delete user account

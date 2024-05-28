@@ -31,13 +31,9 @@ $header-bar-background-color: colors.$ultra-light-grey;
 $header-bar-border-color: medium-apps.$border-color;
 $header-bar-opacity: plate-glass.$opacity;
 $sidebar-panels-color: colors.faded(white, 50%);
-$mainbar-background-color: white;
 $preview-border-color: colors.$very-light-grey;
-$message-color: colors.$very-very-very-light-grey;
-$message-background-color: colors.faded(colors.$very-light-grey, 25%);
+$mainbar-background-color: white;
 
-$transparent-header-bar-color: text-colors.$dark-color;
-$transparent-header-bar-icon-color: colors.$medium-grey;
 $transparent-header-bar-background-color: colors.$ultra-light-grey;
 $transparent-sidebar-color: colors.faded(white, 75%);
 $transparent-sidebar-label-color: white;
@@ -50,7 +46,13 @@ $transparent-sidebar-panel-color: colors.faded(medium-apps.$background-color, me
 body:not(.binary) {
 	.desktop.app {
 		> .body {
+
+			//
+			// desktop apps
+			//
+
 			> .app {
+				border: none;
 
 				//
 				// desktop header bars
@@ -86,6 +88,34 @@ body:not(.binary) {
 
 				.mainbar {
 					background-color: $mainbar-background-color;
+
+					.items {
+
+						//
+						// drop zone
+						//
+
+						& + .dropzone {
+							color: white;
+						}
+					}
+				}
+			}
+
+			> .file-browser {
+				.mainbar {
+
+					//
+					// desktop app help messages
+					//
+
+					.help.message {
+						color: text-colors.$light-color !important;
+
+						i {
+							color: text-colors.$light-color !important;
+						}
+					}
 				}
 			}
 
@@ -108,51 +138,6 @@ body:not(.binary) {
 				.heading h1 {
 					color: white;
 				}
-
-				//
-				// desktop tabbed content
-				//
-
-				/*
-				> .tabbed-content {
-					background-color: white
-				}
-				*/
-			}
-
-			//
-			// desktop apps
-			//
-
-			> .app {
-				border: none;
-
-				.mainbar {
-					.items {
-
-						//
-						// drop zone
-						//
-
-						& + .dropzone {
-							color: white;
-						}
-					}
-
-					//
-					// desktop app help messages
-					//
-
-					.help.message {
-						color: $message-color;
-						background: $message-background-color;
-						@include frosted-glass.frosted();
-
-						i {
-							color: $message-color;
-						}
-					}
-				}
 			}
 		}
 	}
@@ -167,46 +152,6 @@ body:not(.binary) {
 			> .header-bar {
 				@include plate-glass.shaded($header-bar-background-color,
 				$header-bar-opacity);
-			}
-		}
-	}
-
-	//
-	// transparent desktops
-	//
-
-	&.transparent, &.translucent {
-		.desktop.app > .body > .app {
-
-			> .header-bar {
-
-				.app-bar {
-					color: text-colors.$dark-color;
-
-					> i {
-						color: $transparent-header-bar-icon-color;
-					}				
-				}
-
-				.toolbar {
-					.icon i {
-						color: $transparent-header-bar-icon-color;
-					}
-
-					.button:not(.selected):not(:hover) {
-						> i {
-							color: $transparent-header-bar-icon-color;
-						}
-					}
-				}
-
-				.clock {
-					.icon {
-						> i {
-							color: $transparent-header-bar-icon-color;
-						}		
-					}
-				}
 			}
 		}
 	}

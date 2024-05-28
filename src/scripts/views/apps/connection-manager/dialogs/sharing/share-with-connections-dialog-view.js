@@ -15,7 +15,7 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import ShareRequests from '../../../../../collections/files/sharing/share-requests.js';
+import ShareRequests from '../../../../../collections/storage/sharing/share-requests.js';
 import Users from '../../../../../collections/users/users.js';
 import FormDialogView from '../../../../../views/forms/dialogs/form-dialog-view.js';
 import FileBrowserView from '../../../../../views/apps/file-browser/file-browser-view.js';

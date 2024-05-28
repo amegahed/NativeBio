@@ -8,31 +8,30 @@
 
 		"brand": {
 			"logo": {
-				"src": "images/logos/native-biodata-icon.png",
+				"src": "images/logos/icon.png",
 				"border": "rounded",
 				"height": 60
 			},
 
 			"logotype": {
-				"first": {
-					"text": "Native ",
-					"font_weight": "bold"
-				},
-				"middle": {
-					"text": "Bio",
-					"color": "rgb(0, 153, 204)",
-					"font_weight": "bold"
-				},
-				"last": {
-					"text": "Data",
-					"color": "rgb(0, 153, 204)",
-					"font_weight": "bold"
-				},
-				"suffix": {
-					"text": "consortium",
-					"font_size": 10,
-					"font_weight": "bold"
-				}
+				"names": [
+					{
+						"text": "Native ",
+						"font_weight": "bold"
+					}, {
+						"text": "Bio",
+						"color": "rgb(0, 153, 204)",
+						"font_weight": "bold"
+					}, {
+						"text": "Data",
+						"color": "rgb(0, 153, 204)",
+						"font_weight": "bold"
+					}, {
+						"text": "consortium",
+						"font_size": 10,
+						"font_weight": "bold"
+					}
+				]
 			}
 		},
 
@@ -41,6 +40,12 @@
 				"text": "About",
 				"icon": "fa fa-info-circle",
 				"href": "#about"
+			},
+			"contact": {
+				"text": "Contact Us",
+				"icon": "fa fa-envelope",
+				"href": "#contact",
+				"platform": "desktop-only"
 			}
 		},
 
@@ -68,27 +73,25 @@
 
 			"brand": {
 				"logo": {
-					"src": "images/logos/native-biodata-icon.png",
+					"src": "images/logos/icon.png",
 					"border": "rounded"
 				},
 
 				"logotype": {
-					"first": {
-						"text": "Native "
-					},
-					"middle": {
-						"text": "Bio",
-						"color": "rgb(0, 153, 204)"
-					},
-					"last": {
-						"text": "Data",
-						"color": "rgb(0, 153, 204)"
-					},
-					"suffix": {
-						"text": "<div>consortium</div>",
-						"font_size": 35
-					},
-					"multiline": true
+					"names": [
+						{
+							"text": "Native "
+						}, {
+							"text": "Bio",
+							"color": "rgb(0, 153, 204)"
+						}, {
+							"text": "Data",
+							"color": "rgb(0, 153, 204)"
+						}, {
+							"text": "<div>consortium</div>",
+							"font_size": 35
+						}
+					]
 				}
 			},
 
@@ -159,7 +162,7 @@
 			"color": "rgb(145, 145, 145)",
 
 			"logo": {
-				"src": "images/logos/native-biodata-icon.png",
+				"src": "images/logos/icon.png",
 				"height": 100
 			},
 

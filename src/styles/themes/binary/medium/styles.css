@@ -165,9 +165,6 @@
 .smooth img {
   image-rendering: auto !important;
 }
-.smooth img .fancybox-image img {
-  image-rendering: auto !important;
-}
 
 .thumbnail {
   margin: 0;
@@ -271,7 +268,7 @@
 
 .thumbnail.photo {
   border-radius: 0;
-  background-size: cover !important;
+  background-size: cover;
 }
 .thumbnail.photo:after {
   border-radius: 0;
@@ -318,57 +315,18 @@ outlined.photo {
   mix-blend-mode: normal;
 }
 
-.inline.gallery > .images .item {
-  display: block;
-  max-width: 100%;
-  margin: 50px;
-  /*
-  &:first-child,
-  & + .item {
-  	margin-top: 50px;
-  }
-  &:last-child {
-  	margin-bottom: 50px;
-  }
-  */
-}
-.inline.gallery > .images .item img {
-  max-width: 100%;
-}
-
-.fancybox-skin {
-  box-shadow: none !important;
-  -webkit-box-shadow: none !important;
-  background: none !important;
-  filter: drop-shadow(5px 5px 20px black);
-}
-.fancybox-skin .fancybox-outer {
-  background: none;
-}
-.fancybox-skin .fancybox-outer .fancybox-inner {
-  background: none;
-}
-.fancybox-skin .fancybox-outer .fancybox-inner .fancybox-image {
-  background: none;
-}
-.fancybox-skin .fancybox-title {
-  font: unset;
-}
-
-.round .fancybox-skin .fancybox-image {
-  border-radius: 15px;
-}
-
-.rounded .fancybox-skin .fancybox-image {
-  border-radius: 7px;
-}
-
 body[browser=firefox] img.pixelated {
   image-rendering: -moz-crisp-edges;
 }
 
 [browser=safari] .icon > svg, [browser=safari] .icon .thumbnail, [browser=safari] .tile > svg, [browser=safari] .tile .thumbnail {
   transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  perspective: 1000;
 }
 [browser=safari].tilted.left .icon > svg, [browser=safari].tilted.left .icon .thumbnail, [browser=safari].tilted.left .tile > svg, [browser=safari].tilted.left .tile .thumbnail, [browser=safari].tilted .left .icon > svg, [browser=safari].tilted .left .icon .thumbnail, [browser=safari].tilted .left .tile > svg, [browser=safari].tilted .left .tile .thumbnail {
   transform: skewX(7.5deg) translateZ(0);
@@ -620,10 +578,10 @@ body.binary .split-view .gutter .handle {
   background-image: url("../../../../images/splitters/black-grip.png");
 }
 body.binary .split-view .gutter.gutter-horizontal .handle {
-  background-image: url("../../../../images/splitters/black-horizontal-grip.png");
+  background-image: url("../../../../images/splitters/horizontal-grip.png");
 }
 body.binary .split-view .gutter.gutter-vertical .handle {
-  background-image: url("../../../../images/splitters/black-vertical-grip.png");
+  background-image: url("../../../../images/splitters/vertical-grip.png");
 }
 
 /******************************************************************************\
@@ -677,6 +635,33 @@ body.binary table.tablesorter thead tr .tablesorter-headerDesc:not(.sorter-false
 
 /******************************************************************************\
 |                                                                              |
+|                            _medium-toolbars.scss                             |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the SVG DOM element styles for this application.         |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+body.binary .toolbar .handle {
+  border-color: transparent;
+  image-rendering: pixelated;
+}
+body.binary .toolbar.horizontal .handle {
+  background-image: url("../../../../images/splitters/horizontal-grip.png");
+}
+body.binary .toolbar.vertical .handle {
+  background-image: url("../../../../images/splitters/vertical-grip.png");
+}
+
+/******************************************************************************\
+|                                                                              |
 |                          _medium-typography.scss                             |
 |                                                                              |
 |******************************************************************************|
@@ -691,11 +676,11 @@ body.binary table.tablesorter thead tr .tablesorter-headerDesc:not(.sorter-false
 |******************************************************************************|
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
-body.binary .page h1, body.binary .page h2, body.binary .page h3 {
+body.binary h1, body.binary h2, body.binary h3 {
   color: black !important;
   text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
 }
-body.binary .page h1 i, body.binary .page h2 i, body.binary .page h3 i {
+body.binary h1 i, body.binary h2 i, body.binary h3 i {
   color: black !important;
 }
 body.binary hr {
@@ -794,7 +779,9 @@ body.binary .button:active svg, body.binary .button.selected svg {
   fill: white;
 }
 body.binary .btn {
+  color: black;
   background: white;
+  border-color: black;
 }
 body.binary .btn:active {
   color: white;
@@ -1258,44 +1245,42 @@ body.binary .footer-bar .run-menu .dropdown-menu .divider {
 |******************************************************************************|
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
-@media (min-width: 480px) {
-  body.binary ::-webkit-scrollbar-thumb {
-    background-color: white;
-    border-color: transparent;
-  }
-  body.binary ::-webkit-scrollbar-thumb:hover {
-    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=");
-    background-size: 2px 2px;
-    background-repeat: repeat;
-    image-rendering: pixelated;
-    background-color: white;
-  }
-  body.binary ::-webkit-scrollbar-thumb:active {
-    background-color: black;
-  }
-  body.binary.thick-scrollbars ::-webkit-scrollbar-thumb {
-    border-width: 1px;
-    border-color: black;
-  }
-  body.binary.thick-scrollbars .sidebar > ::-webkit-scrollbar-thumb:vertical, body.binary.thick-scrollbars .mainbar > ::-webkit-scrollbar-thumb:vertical {
-    border-right: none;
-  }
-  body.binary.thick-scrollbars .sidebar > ::-webkit-scrollbar-thumb:horizontal, body.binary.thick-scrollbars .mainbar > ::-webkit-scrollbar-thumb:horizontal {
-    border-bottom: none;
-  }
-  body.binary ::-webkit-scrollbar-track {
-    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=");
-    background-size: 2px 2px;
-    background-repeat: repeat;
-    image-rendering: pixelated;
-    background-color: white;
-  }
-  body.binary ::-webkit-scrollbar-track:vertical {
-    border-left: 1px solid black;
-  }
-  body.binary ::-webkit-scrollbar-track:horizontal {
-    border-top: 1px solid black;
-  }
+body.binary[device=desktop] ::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-color: transparent;
+}
+body.binary[device=desktop] ::-webkit-scrollbar-thumb:hover {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAHUlEQVQIHWNgYGD4D8VAioGBCUwiEYxIbJBKTBUAklwDA2Q5bmQAAAAASUVORK5CYII=");
+  background-size: 2px 2px;
+  background-repeat: repeat;
+  image-rendering: pixelated;
+  background-color: white;
+}
+body.binary[device=desktop] ::-webkit-scrollbar-thumb:active {
+  background-color: black;
+}
+body.binary[device=desktop].thick-scrollbars ::-webkit-scrollbar-thumb {
+  border-width: 1px;
+  border-color: black;
+}
+body.binary[device=desktop].thick-scrollbars .sidebar > ::-webkit-scrollbar-thumb:vertical, body.binary[device=desktop].thick-scrollbars .mainbar > ::-webkit-scrollbar-thumb:vertical {
+  border-right: none;
+}
+body.binary[device=desktop].thick-scrollbars .sidebar > ::-webkit-scrollbar-thumb:horizontal, body.binary[device=desktop].thick-scrollbars .mainbar > ::-webkit-scrollbar-thumb:horizontal {
+  border-bottom: none;
+}
+body.binary[device=desktop] ::-webkit-scrollbar-track {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=");
+  background-size: 2px 2px;
+  background-repeat: repeat;
+  image-rendering: pixelated;
+  background-color: white;
+}
+body.binary[device=desktop] ::-webkit-scrollbar-track:vertical {
+  border-left: 1px solid black;
+}
+body.binary[device=desktop] ::-webkit-scrollbar-track:horizontal {
+  border-top: 1px solid black;
 }
 
 /******************************************************************************\
@@ -1337,10 +1322,16 @@ body.binary.show-tab-close-buttons ul.nav-tabs > li.active i.fa-times:hover, bod
 body.binary.show-tab-close-buttons ul.nav-tabs > li.active i.fa-times:hover svg, body.binary.show-tab-close-buttons ul.nav-tabs > li.active i.fa-xmark:hover svg {
   fill: black;
 }
+body.binary ul.nav-tabs.flush {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=");
+  background-size: 2px 2px;
+  background-repeat: repeat;
+  image-rendering: pixelated;
+  background-color: white;
+}
 body.binary ul.nav-tabs.flush > li:not(.active) a {
   background: none;
   background-size: unset;
-  background-position: unset;
   background-repeat: unset;
   image-rendering: unset;
   background-color: white;
@@ -1753,6 +1744,7 @@ body.binary .icon-grid .item:not(.selected):not(.highlighted) > .row:first-child
   border-color: black;
 }
 body.binary .icon-grid .item:not(.selected):not(.highlighted) > .row:first-child .icon > i {
+  color: black;
   text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
 }
 body.binary .icon-grid .item:not(.selected):not(.highlighted) > .row:first-child .icon > svg {
@@ -1783,7 +1775,7 @@ body.binary .icon-grid .item.selected > .row:first-child .icon {
   background-repeat: repeat;
   image-rendering: pixelated;
   background-color: white;
-  background-position: 0 1px;
+  background-position: 1px 1px;
 }
 body.binary .icon-grid .item.selected > .row:first-child .icon svg {
   filter: invert(1);
@@ -2331,7 +2323,6 @@ body.binary .app {
 body.binary .app > .header-bar {
   background: none;
   background-size: unset;
-  background-position: unset;
   background-repeat: unset;
   image-rendering: unset;
   background-color: white;
@@ -2339,7 +2330,6 @@ body.binary .app > .header-bar {
 body.binary .app > .header-bar + .body {
   background: none;
   background-size: unset;
-  background-position: unset;
   background-repeat: unset;
   image-rendering: unset;
   background-color: white;
@@ -2351,7 +2341,11 @@ body.binary .app > .header-bar + .body > .contents {
   image-rendering: pixelated;
   background-color: white;
 }
-body.binary .app > .header-bar + .body > .contents > .sidebar .panels {
+body.binary .app > .header-bar + .body > .contents > .sidebar {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgYGD4D8VAioGBCUySRAAAfC4CAeyfPysAAAAASUVORK5CYII=");
+  background-size: 2px 2px;
+  background-repeat: repeat;
+  image-rendering: pixelated;
   background-color: white;
 }
 body.binary .app > .header-bar + .body > .contents > .sidebar .panels .panel {
@@ -2369,7 +2363,6 @@ body.binary .app > .header-bar + .body > .contents > .mainbar > form {
 body.binary .app .footer-bar {
   background: none;
   background-size: unset;
-  background-position: unset;
   background-repeat: unset;
   image-rendering: unset;
   background-color: white;
@@ -2392,7 +2385,6 @@ body.binary .modals .app > .body > .contents .mainbar .tab-pane > .items,
 body.binary .modals .app > .body > .contents .mainbar .tab-pane .tab-pane form {
   background: none;
   background-size: unset;
-  background-position: unset;
   background-repeat: unset;
   image-rendering: unset;
   background-color: white;
@@ -2450,7 +2442,6 @@ body.binary .app-launcher.app .icon-grid .item > .row:first-child .icon,
 body.binary .app-icons .item > .row:first-child .icon {
   background: none;
   background-size: unset;
-  background-position: unset;
   background-repeat: unset;
   image-rendering: unset;
   background-color: white;
@@ -2545,6 +2536,7 @@ body.binary #desktop {
   background-repeat: repeat;
   image-rendering: pixelated;
   background-color: white;
+  background-position: 0 0 !important;
 }
 body.binary .desktop.app {
   background: none;
@@ -2561,9 +2553,10 @@ body.binary .desktop.app > .body .app > .body {
 body.binary .desktop.app > .body .app > .body > .contents {
   background: none;
 }
-body.binary .desktop.app .selection {
+body.binary .desktop.app > .body .selection {
   color: white;
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAE0lEQVQIHWP4DwUMUMAEYxBPAwD6vQf7PKBWsAAAAABJRU5ErkJggg==");
+  border-color: black;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAF0lEQVQIHWNgIAQYYQr+AwGIzQQTgNEAXioEANQxRWMAAAAASUVORK5CYII=");
   background-size: 2px 2px;
   background-repeat: repeat;
   image-rendering: pixelated;

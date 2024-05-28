@@ -86,10 +86,20 @@ body[device="phone"], body[device="tablet"] {
 @media (max-width: variables.$screen-xs-min) {
 	.app {
 		.footer-bar {
+			.window-size.toolbar {
+				display: none;
+			}
+
+			.status-bar {
+				margin-left: auto;
+			}
+
+			/*
 			.window-size.toolbar,
 			.toolbar:not(:first-child):not([style="display: none;"]) + .status-bar {
 				display: none;
 			}
+			*/
 		}
 	}
 }

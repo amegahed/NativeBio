@@ -15,17 +15,17 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-$medium-red:			hsl(0, 66%, 50%);
-$medium-raspberry:		hsl(-30, 75%, 50%);
-$medium-red-orange:		hsl(15, 75%, 50%);
-$medium-orange:			hsl(30, 75%, 50%);
-$medium-yellow:			hsl(60, 50%, 50%);
+$medium-red:			hsl(0, 80%, 60%);
+$medium-raspberry:		hsl(-30, 80%, 60%);
+$medium-red-orange:		hsl(15, 80%, 60%);
+$medium-orange:			hsl(30, 80%, 60%);
+$medium-yellow:			hsl(60, 50%, 60%);
 $medium-lime:			hsl(90, 50%, 50%);
 $medium-green: 			hsl(135, 33%, 50%);
 $medium-teal:			hsl(180, 50%, 40%);
 $medium-aqua:			hsl(200, 50%, 50%);
 $medium-cyan:			hsl(200, 100%, 66%);
-$medium-blue:			hsl(220, 75%, 50%);
+$medium-blue:			hsl(220, 100%, 66%);
 $medium-indigo:			hsl(230, 75%, 50%);
 $medium-violet:			hsl(250, 33%, 50%);
 $medium-plum:			hsl(270, 25%, 50%);
@@ -78,7 +78,7 @@ $dark-white:			darken($medium-white, 10%);
 
 $medium-copper:			$medium-orange;
 $medium-silver:			#e0e0e0;
-$medium-gold:			hsl(45, 75%, 50%);
+$medium-gold:			hsl(45, 75%, 60%);
 
 $light-copper:			lighten($medium-copper, 10%);
 $light-silver:			lighten($medium-silver, 10%);

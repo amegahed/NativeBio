@@ -22,7 +22,6 @@ import ReplyNotification from '../../../../../models/notifications/reply-notific
 import TopicInvitationNotification from '../../../../../models/notifications/topic-invitation-notification.js';
 import ChatInvitationNotification from '../../../../../models/notifications/chat-invitation-notification.js';
 import GestureNotification from '../../../../../models/notifications/gesture-notification.js';
-import BaseView from '../../../../../views/base-view.js';
 import CollectionView from '../../../../../views/collections/collection-view.js';
 import ShareRequestNotificationView from '../../../../../views/apps/common/notifications/share-request-notification-view.js';
 import LikeNotificationView from '../../../../../views/apps/common/notifications/like-notification-view.js';
@@ -40,19 +39,18 @@ export default CollectionView.extend({
 
 	tagName: 'ul',
 	className: 'notifications panels',
-
-	// views
-	//
-	emptyView: BaseView.extend({
-		className: 'empty panel',
-		template: template("No notifications.")
-	}),
+	empty: "No notifications.",
+	emptyClassName: 'empty panel',
 
 	//
 	// constructor
 	//
 
 	initialize: function() {
+
+		// call superclass constructor
+		//
+		CollectionView.prototype.initialize.call(this);
 
 		// set optional parameter defaults
 		//

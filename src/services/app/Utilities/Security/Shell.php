@@ -13,13 +13,13 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|            Copyright (C) 2016-2020, Sharedigm, www.sharedigm.com             |
+|            Copyright (C) 2016-2024, Sharedigm, www.sharedigm.com             |
 \******************************************************************************/
 
 namespace App\Utilities\Security;
 
 use App\Models\Users\User;
-use App\Utilities\Files\UserStorage;
+use App\Utilities\Storage\UserStorage;
 
 class Shell
 {

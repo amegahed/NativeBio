@@ -15,6 +15,7 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
+import BaseView from '../../views/base-view.js';
 import Boundable from '../../views/behaviors/layout/boundable.js';
 import Hideable from '../../views/behaviors/layout/hideable.js';
 import TooltipShowable from '../../views/behaviors/tips/tooltip-showable.js';
@@ -23,10 +24,25 @@ import CursorSettable from '../../views/behaviors/effects/cursor-settable.js';
 export default Marionette.CollectionView.extend(_.extend({}, Boundable, Hideable, TooltipShowable, CursorSettable, {
 
 	//
+	// attributes
+	//
+
+	emptyClassName: 'empty',
+
+	//
 	// constructor
 	//
 
 	initialize: function(options) {
+
+		// set attributes
+		//
+		if (this.options.empty || this.empty) {
+			this.emptyView = BaseView.extend({
+				className: this.emptyClassName,
+				template: template(this.options.empty || this.empty)
+			});
+		}
 
 		// set attributes
 		//

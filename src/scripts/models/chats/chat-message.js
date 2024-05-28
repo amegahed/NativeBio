@@ -18,7 +18,7 @@
 import Timestamped from '../../models/utilities/timestamped.js';
 import User from '../../models/users/user.js';
 import CheckIn from '../../models/places/check-in.js';
-import Items from '../../collections/files/items.js';
+import Items from '../../collections/storage/items.js';
 
 export default Timestamped.extend({
 

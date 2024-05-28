@@ -35,29 +35,29 @@
 
 	<h2><i class="fa fa-desktop"></i>Screen Shots</h2>
 	<div class="figure desktop-only">
-		<a href="images/info/apps/audio-player/audio-player.png" target="_blank" class="lightbox" title="Audio Player"><img class="dialog" src="images/info/apps/audio-player/audio-player.png" /></a>
-		<div class="caption">Audio Player</div>
+		<a href="images/info/apps/audio-player/audio-player.png" target="_blank" class="lightbox" title="<%= config.apps['audio_player'].name %>"><img class="dialog" src="images/info/apps/audio-player/audio-player.png" /></a>
+		<div class="caption"><%= config.apps['audio_player'].name %></div>
 	</div>
 	<div class="figure row desktop-only">
 		<div class="figure col-sm-6">
-			<a href="images/info/apps/video-player/video-player.png" target="_blank" class="lightbox" title="Video Player"><img class="dialog" src="images/info/apps/video-player/video-player.png" /></a>
-			<div class="caption">Video Player</div>
+			<a href="images/info/apps/video-player/video-player.png" target="_blank" class="lightbox" title="<%= config.apps['video_player'].name %>"><img class="dialog" src="images/info/apps/video-player/video-player.png" /></a>
+			<div class="caption"><%= config.apps['video_player'].name %></div>
 		</div>
 		<div class="figure col-sm-6">
-			<a href="images/info/apps/tune-editor/tune-editor.png" target="_blank" class="lightbox" title="Tune Editor"><img class="dialog" src="images/info/apps/tune-editor/tune-editor.png" /></a>
-			<div class="caption">Tune Editor</div>
-		</div>
-	</div>
-	<div class="figure row mobile-only">
-		<div class="figure col-sm-6">
-			<a href="images/info/apps/audio-player/mobile/mobile-audio-player.png" target="_blank" class="lightbox" title="Mobile Audio Player"><img class="dialog" src="images/info/apps/audio-player/mobile/mobile-audio-player.png" /></a>
-			<div class="caption">Mobile Audio Player</div>
+			<a href="images/info/apps/tune-editor/tune-editor.png" target="_blank" class="lightbox" title="<%= config.apps['tune_editor'].name %>"><img class="dialog" src="images/info/apps/tune-editor/tune-editor.png" /></a>
+			<div class="caption"><%= config.apps['tune_editor'].name %></div>
 		</div>
 	</div>
 	<div class="figure row mobile-only">
 		<div class="figure col-sm-6">
-			<a href="images/info/apps/video-player/mobile/mobile-video-player.png" target="_blank" class="lightbox" title="Mobile Video Player"><img class="dialog" src="images/info/apps/video-player/mobile/mobile-video-player.png" /></a>
-			<div class="caption">Mobile Video Player</div>
+			<a href="images/info/apps/audio-player/mobile/mobile-audio-player.png" target="_blank" class="lightbox" title="<%= config.apps['audio_player'].name %>"><img class="dialog" src="images/info/apps/audio-player/mobile/mobile-audio-player.png" /></a>
+			<div class="caption"><%= config.apps['audio_player'].name %></div>
+		</div>
+	</div>
+	<div class="figure row mobile-only">
+		<div class="figure col-sm-6">
+			<a href="images/info/apps/video-player/mobile/mobile-video-player.png" target="_blank" class="lightbox" title="<%= config.apps['video_player'].name %>"><img class="dialog" src="images/info/apps/video-player/mobile/mobile-video-player.png" /></a>
+			<div class="caption"><%= config.apps['video_player'].name %></div>
 		</div>
 	</div>
 </div>

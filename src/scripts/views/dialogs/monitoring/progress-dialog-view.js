@@ -104,7 +104,7 @@ export default DialogView.extend({
 	},
 
 	setPercent: function(percent) {
-		this.setPercentAmount(percent);
+		this.setPercentAmount(Math.round(percent));
 		this.setBarPercent(percent);
 	},
 

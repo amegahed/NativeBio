@@ -16,7 +16,7 @@
 \******************************************************************************/
 
 import Notification from '../../models/notifications/notification.js';
-import ShareRequest from '../../models/files/sharing/share-request.js';
+import ShareRequest from '../../models/storage/sharing/share-request.js';
 
 export default Notification.extend({
 

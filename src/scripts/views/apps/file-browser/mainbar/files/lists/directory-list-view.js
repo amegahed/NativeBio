@@ -15,9 +15,9 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import File from '../../../../../../models/files/file.js';
-import Directory from '../../../../../../models/files/directory.js';
-import Volume from '../../../../../../models/files/volume.js';
+import File from '../../../../../../models/storage/files/file.js';
+import Directory from '../../../../../../models/storage/directories/directory.js';
+import Volume from '../../../../../../models/storage/directories/volume.js';
 import ListView from '../../../../../../views/items/lists/list-view.js';
 import ContainableMappable from '../../../../../../views/maps/behaviors/containable-mappable.js';
 import DirectoryItemView from '../../../../../../views/apps/file-browser/mainbar/files/lists/directory-item-view.js';

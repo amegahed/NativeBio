@@ -563,6 +563,9 @@ export default AppSplitView.extend(_.extend({}, PrefsLoadable, {
 			},
 
 			error: () => {
+
+				// show error message
+				//
 				application.error({
 					message: "Could not fetch application preferences."
 				});

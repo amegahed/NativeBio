@@ -51,11 +51,11 @@ export default ContextMenuView.extend({
 				<li role="separator" class="divider"></li>
 		
 				<li role="presentation">
-					<a class="share-by-post"><i class="fa fa-newspaper"></i>By Post</a>
+					<a class="share-by-topic"><i class="fa fa-newspaper"></i>By Discussion Topic</a>
 				</li>
 		
 				<li role="presentation">
-					<a class="share-by-message"><i class="fa fa-comments"></i>By Messsage</a>
+					<a class="share-by-message"><i class="fa fa-comments"></i>By Chat Messsage</a>
 				</li>
 		
 				<li role="separator" class="divider"></li>
@@ -144,8 +144,8 @@ export default ContextMenuView.extend({
 
 		// share with connections
 		//
-		'click .share-with-connections': 'onClickShareWithConnections',
-		'click .share-by-post': 'onClickShareByPost',
+		'click .share-by-invitation': 'onClickShareByInvitation',
+		'click .share-by-topic': 'onClickShareByTopic',
 		'click .share-by-message': 'onClickShareByMessage',
 
 		// share with anyone
@@ -222,7 +222,7 @@ export default ContextMenuView.extend({
 	//
 
 	onClickNewMap: function() {
-		this.parent.newMap();
+		this.parent.newFile();
 	},
 
 	onClickOpenItem: function() {
@@ -233,12 +233,12 @@ export default ContextMenuView.extend({
 		this.parent.showInfoDialog();
 	},
 
-	onClickShareWithConnections: function() {
+	onClickShareByInvitation: function() {
 		this.parent.shareWithConnections();
 	},
 
-	onClickShareByPost: function() {
-		this.parent.shareByPost();
+	onClickShareByTopic: function() {
+		this.parent.shareByTopic();
 	},
 
 	onClickShareByMessage: function() {

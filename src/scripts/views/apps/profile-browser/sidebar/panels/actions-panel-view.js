@@ -73,6 +73,9 @@ export default SideBarPanelView.extend({
 
 		// hide / show actions
 		//
+		if (!this.options.invite_google_contacts) {
+			this.$el.find('.invite-google-contacts').hide();
+		}
 		if (this.options.hidden && this.options.hidden['add-connections']) {
 			this.$el.find('.add-connections').hide();
 		}

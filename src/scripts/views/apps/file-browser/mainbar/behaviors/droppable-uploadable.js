@@ -72,7 +72,7 @@ export default _.extend({}, Highlightable, FileDroppable, {
 
 		// prevent default drop behavior
 		//
-		event.preventDefault();
+		this.block(event);
 	},
 
 	onDragOver: function(event) {
@@ -92,7 +92,7 @@ export default _.extend({}, Highlightable, FileDroppable, {
 
 		// prevent default drop behavior
 		//
-		event.preventDefault();
+		this.block(event);
 	},
 
 	onDragLeave: function(event) {
@@ -110,7 +110,7 @@ export default _.extend({}, Highlightable, FileDroppable, {
 
 		// prevent default drop behavior
 		//
-		event.preventDefault();
+		this.block(event);
 	},
 
 	onDrop: function(event) {

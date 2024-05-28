@@ -15,7 +15,6 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import BaseView from '../../../../views/base-view.js';
 import CollectionView from '../../../../views/collections/collection-view.js';
 import SelectableContainable from '../../../../views/behaviors/containers/selectable-containable.js';
 import MouseDragSelectBehavior from '../../../../views/behaviors/mouse/mouse-drag-select-behavior.js';
@@ -29,14 +28,13 @@ export default CollectionView.extend(_.extend({}, SelectableContainable, {
 
 	tagName: 'ul',
 	className: 'users selectable panels',
+	empty: "No connections.",
 
+	//
 	// views
 	//
+
 	childView: ConnectionsListItemView,
-	emptyView: BaseView.extend({
-		className: 'empty',
-		template: template("No connections.")
-	}),
 
 	//
 	// constructor

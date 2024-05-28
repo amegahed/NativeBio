@@ -35,7 +35,7 @@ export default TableListItemView.extend({
 		<% if (!hidden['recipient']) { %>
 		<td class="recipient">
 			<% if (connection) { %>
-			<div class="profile-photo" style="width:20px; height:20px; background-size:cover; float:left; margin-right:10px; background-image:url(<%= connection.getProfilePhotoUrl({min_size: 50}) %>)">
+			<div class="profile thumbnail" style="background-image:url(<%= connection.getProfilePhotoUrl({min_size: 50}) %>)">
 			</div>
 			<div class="hidden-xs"><%= connection.getName() %></div>
 			<% } %>

@@ -17,7 +17,7 @@
 
 import Timestamped from '../../models/utilities/timestamped.js';
 import User from '../../models/users/user.js';
-import Items from '../../collections/files/items.js';
+import Items from '../../collections/storage/items.js';
 import Replies from '../../collections/comments/replies.js';
 
 export default Timestamped.extend({

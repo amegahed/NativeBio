@@ -13,7 +13,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|            Copyright (C) 2016-2020, Sharedigm, www.sharedigm.com             |
+|            Copyright (C) 2016-2024, Sharedigm, www.sharedigm.com             |
 \******************************************************************************/
 
 namespace App\Models\Users\Sharing;
@@ -137,7 +137,6 @@ class UserInvitation extends TimeStamped
 				'app_name' => config('app.name'),
 				'client_url' => config('app.client_url')
 			], function($message) use ($inviter, $inviteeEmail) {
-				// $message->from($inviter->getEmail(), $inviter->getFullName());	
 				$message->to($inviteeEmail);
 				$message->subject('Connection Invitation');
 			});

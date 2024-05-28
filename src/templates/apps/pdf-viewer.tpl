@@ -39,11 +39,11 @@
 
 	<h2><i class="fa fa-desktop"></i>Screen Shots</h2>
 	<div class="figure desktop-only">
-		<a href="images/info/apps/pdf-viewer/pdf-viewer.png" target="_blank" class="lightbox" title="PDF"><img class="dialog" src="images/info/apps/pdf-viewer/pdf-viewer.png" /></a>
-		<div class="caption">PDF</div>
+		<a href="images/info/apps/pdf-viewer/pdf-viewer.png" target="_blank" class="lightbox" title="<%= config.apps['pdf_viewer'].name %>"><img class="dialog" src="images/info/apps/pdf-viewer/pdf-viewer.png" /></a>
+		<div class="caption"><%= config.apps['pdf_viewer'].name %></div>
 	</div>
 	<div class="figure mobile-only">
-		<a href="images/info/apps/pdf-viewer/mobile/mobile-pdf-viewer.png" target="_blank" class="lightbox" title="PDF"><img src="images/info/apps/pdf-viewer/mobile/mobile-pdf-viewer.png" /></a>
-		<div class="caption">PDF</div>
+		<a href="images/info/apps/pdf-viewer/mobile/mobile-pdf-viewer.png" target="_blank" class="lightbox" title="<%= config.apps['pdf_viewer'].name %>"><img src="images/info/apps/pdf-viewer/mobile/mobile-pdf-viewer.png" /></a>
+		<div class="caption"><%= config.apps['pdf_viewer'].name %></div>
 	</div>
 </div>

@@ -15,7 +15,6 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import BaseView from '../../../../../views/base-view.js';
 import SideBarPanelView from '../../../../../views/apps/common/sidebar/panels/sidebar-panel-view.js';
 import PlacesView from '../../../../../views/apps/map-viewer/mainbar/places/places-view.js';
 
@@ -121,10 +120,7 @@ export default SideBarPanelView.extend({
 			// options
 			//
 			view_kind: this.options.view_kind,
-			emptyView: BaseView.extend({
-				className: 'empty',
-				template: template("No favorites.")
-			}),
+			empty: "No favorites.",
 
 			// capabilities
 			//

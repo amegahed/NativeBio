@@ -13,7 +13,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|            Copyright (C) 2016-2020, Sharedigm, www.sharedigm.com             |
+|            Copyright (C) 2016-2024, Sharedigm, www.sharedigm.com             |
 \******************************************************************************/
 
 namespace App\Notifications\Traits;
@@ -23,7 +23,15 @@ use Illuminate\Notifications\Notifiable as BaseNotifiable;
 
 trait Notifiable
 {
+	/**
+	 * The traits that are inherited.
+	 *
+	 */
 	use BaseNotifiable;
+
+	//
+	// methods
+	//
 
 	/**
 	 * Get the entity's notifications.

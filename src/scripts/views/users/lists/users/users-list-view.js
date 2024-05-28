@@ -15,7 +15,6 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import BaseView from '../../../../views/base-view.js';
 import CollectionView from '../../../../views/collections/collection-view.js';
 import UsersListItemView from '../../../../views/users/lists/users/users-list-item-view.js';
 
@@ -27,14 +26,13 @@ export default CollectionView.extend({
 
 	tagName: 'ul',
 	className: 'users panels',
+	empty: "No users.",
 
+	//
 	// views
 	//
+
 	childView: UsersListItemView,
-	emptyView: BaseView.extend({
-		className: 'empty',
-		template: template("No users.")
-	}),
 
 	//
 	// constructor

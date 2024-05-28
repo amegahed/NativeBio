@@ -13,7 +13,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|            Copyright (C) 2016-2020, Sharedigm, www.sharedigm.com             |
+|            Copyright (C) 2016-2024, Sharedigm, www.sharedigm.com             |
 \******************************************************************************/
 
 namespace App\Http\Controllers\Users;
@@ -29,10 +29,10 @@ use App\Models\Users\Profiles\UserProfile;
 use App\Models\Users\Accounts\PasswordReset;
 use App\Models\Users\Connections\ConnectionRequest;
 use App\Models\Users\Sharing\UserInvitation;
-use App\Models\Files\Directory;
+use App\Models\Storage\Directory;
 use App\Http\Controllers\Controller;
 use App\Utilities\Uuids\Guid;
-use App\Utilities\Filters\DateFilters;
+use App\Utilities\Filters\DateFilter;
 use App\Utilities\Filters\LimitFilter;
 
 class UserController extends Controller
@@ -208,7 +208,7 @@ class UserController extends Controller
 
 		// add filters
 		//
-		$query = DateFilters::applyTo($request, $query);
+		$query = DateFilter::applyTo($request, $query);
 		$query = LimitFilter::applyTo($request, $query);
 
 		// execute query

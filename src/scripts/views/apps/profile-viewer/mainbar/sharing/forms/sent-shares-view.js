@@ -15,7 +15,7 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import Shares from '../../../../../../collections/files/sharing/shares.js';
+import Shares from '../../../../../../collections/storage/sharing/shares.js';
 import BaseView from '../../../../../../views/base-view.js';
 import SentSharesListView from '../../../../../../views/apps/file-browser/sharing/shares/sent-list/sent-shares-list-view.js';
 

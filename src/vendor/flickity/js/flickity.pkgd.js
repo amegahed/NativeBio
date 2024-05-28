@@ -1061,11 +1061,6 @@ proto.setTranslateX = function(x) {
 			this.slider.style.transform = 'translateX(' + translateX + ')';
 		}
 
-		// these two lines improve performance on Chrome dramatically!
-		//
-		this.slider.style.webkitBackfaceVisibility = 'hidden';
-		this.slider.style.webkitPerspective = 1000;
-
 		this.usingTransform = true;
 
 		// clear margin
@@ -2558,33 +2553,28 @@ var clickTypes = {
 };
 
 // dismiss inputs with text fields. flickity#403, flickity#404
-/*
 proto.okayPointerDown = function( event ) {
 	var isCursorNode = cursorNodes[ event.target.nodeName ];
 	var isClickType = clickTypes[ event.target.type ];
-	var isFlickable = event.target.closest('.flickable') != null;
-	// var unflickable = event.target.closest('.unflickable');
-	// var isUnflickable = event.currentTarget.contains(unflickable);
-	var isContentEditable = event.target.isContentEditable;
-	var isOkay = isFlickable && !isContentEditable && !isCursorNode || isClickType;
-	if ( !isOkay ) {
-		this._pointerReset();
-	}
-	return isOkay;
-};
-*/
 
-// dismiss inputs with text fields. flickity#403, flickity#404
-proto.okayPointerDown = function( event ) {
-	var isCursorNode = cursorNodes[ event.target.nodeName ];
-	var isClickType = clickTypes[ event.target.type ];
+	var flickable = event.target.closest('.flickity-slider');
 	var unflickable = event.target.closest('.unflickable');
-	var isUnflickable = event.currentTarget.contains(unflickable);
+	var isUnflickable = (unflickable != null) && !unflickable.contains(flickable);
 	var isContentEditable = event.target.isContentEditable;
 	var isOkay = !isUnflickable && !isContentEditable && !isCursorNode || isClickType;
+
 	if ( !isOkay ) {
+
+		// skip handling of event for non-flickable regions
+		//
 		this._pointerReset();
+	} else {
+
+		// only allow top carousel to process events
+		//
+		event.stopPropagation();
 	}
+
 	return isOkay;
 };
 

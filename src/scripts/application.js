@@ -35,7 +35,7 @@ import '../vendor/flickity/js/flickity.pkgd.js';
 import Router from './router.js';
 import Session from './models/users/auth/session.js';
 import App from './models/apps/app.js';
-import Directory from './models/files/directory.js';
+import Directory from './models/storage/directories/directory.js';
 import FileAssociations from './models/settings/file-associations.js';
 import SystemSettings from './models/settings/system-settings.js';
 import DesktopSettings from './models/settings/desktop-settings.js';
@@ -45,6 +45,15 @@ import DialogSettings from './models/settings/dialog-settings.js';
 import NotificationSettings from './models/settings/notification-settings.js';
 import SoundSettings from './models/settings/sound-settings.js';
 import Apps from './collections/apps/apps.js';
+import AppLauchable from './behaviors/app-launchable.js';
+import Authenticatable from './behaviors/authenticatable.js';
+import Registerable from './behaviors/registerable.js';
+import SoundPlayable from './behaviors/sound-playable.js';
+import UserShowable from './behaviors/user-showable.js';
+import ChatShowable from './behaviors/chat-showable.js';
+import TopicShowable from './behaviors/topic-showable.js';
+import PostShowable from './behaviors/post-showable.js';
+import ProjectShowable from './behaviors/project-showable.js';
 import FullScreenable from './views/behaviors/layout/full-screenable.js';
 import AppLoadable from './views/apps/common/behaviors/loading/app-loadable.js';
 import Openable from './views/apps/common/behaviors/launching/openable.js';
@@ -53,12 +62,10 @@ import MainView from './views/layout/main-view.js';
 import PageView from './views/layout/page-view.js';
 import ModalView from './views/dialogs/modal-view.js';
 import Keyboard from './views/keyboard/keyboard.js';
-import Audio from './utilities/multimedia/audio.js';
-import Sound from './utilities/multimedia/sound.js';
 import Browser from './utilities/web/browser.js';
 import CssUtils from './utilities/web/css-utils.js';
 
-export default Marionette.Application.extend(_.extend({}, FullScreenable, AppLoadable, Openable, Alertable, {
+export default Marionette.Application.extend(_.extend({}, AppLauchable, Authenticatable, Registerable, SoundPlayable, UserShowable, ChatShowable, TopicShowable, PostShowable, ProjectShowable, FullScreenable, AppLoadable, Openable, Alertable, {
 
 	//
 	// attributes
@@ -95,7 +102,6 @@ export default Marionette.Application.extend(_.extend({}, FullScreenable, AppLoa
 	},
 	
 	defaults: config.defaults,
-	sounds: [],
 
 	//
 	// constructor
@@ -140,6 +146,10 @@ export default Marionette.Application.extend(_.extend({}, FullScreenable, AppLoa
 		// listen for keyboard events
 		//
 		this.listenTo(this.keyboard, 'keydown', this.onKeyDown);
+
+		// allow cross domain requests
+		//
+		$.support.cors = true;
 
 		// ensure all session information is forwarded by default 
 		// and watch for expired or fraudluent sessions
@@ -199,15 +209,6 @@ export default Marionette.Application.extend(_.extend({}, FullScreenable, AppLoa
 		this.createSounds(Object.keys(config.sounds));
 	},
 
-	createSounds: function(names) {
-		for (let i = 0; i < names.length; i++) {
-			let name = names[i];
-			this.sounds[name] = new Sound({
-				url: config.sounds[name]
-			});
-		}
-	},
-
 	//
 	// querying methods
 	//
@@ -222,10 +223,6 @@ export default Marionette.Application.extend(_.extend({}, FullScreenable, AppLoa
 
 	isBinaryTheme: function() {
 		return Browser.is_firefox && !($('body').hasClass('colored'));
-	},
-
-	isMuted: function() {
-		return this.settings.system.get('mute_sounds');
 	},
 
 	hasDirectory: function(name) {
@@ -346,23 +343,6 @@ export default Marionette.Application.extend(_.extend({}, FullScreenable, AppLoa
 		});
 	},
 
-	getSound: function(kind) {
-		if (this.settings.sound && this.settings.sound.has(kind)) {
-			let name = this.settings.sound.get(kind);
-			if (name && this.sounds[name]) {
-				return this.sounds[name];
-			}
-		}
-	},
-
-	getMuted: function() {
-		return this.settings.system.get('mute_sounds');
-	},
-
-	getVolume: function() {
-		return this.settings.system.get('volume');
-	},
-
 	getActiveView: function() {
 
 		// get focused modal
@@ -418,24 +398,6 @@ export default Marionette.Application.extend(_.extend({}, FullScreenable, AppLoa
 				this.loadUserSettings(user, done);
 			});
 		}
-	},
-
-	setMuted: function(muted) {
-
-		// save muted setting
-		//
-		this.settings.system.save({
-			mute_sounds: muted
-		});
-	},
-
-	setVolume: function(volume) {
-
-		// save volume setting
-		//
-		this.settings.system.save({
-			volume: volume
-		});
 	},
 
 	//
@@ -649,81 +611,6 @@ export default Marionette.Application.extend(_.extend({}, FullScreenable, AppLoa
 		this.session.user = undefined;
 	},
 
-	login: function(done) {
-
-		// get user information
-		//
-		this.session.getUser('current', {
-
-			// callbacks
-			//
-			success: (model) => {
-
-				// set current user
-				//
-				this.setUser(model, () => {
-					if (done) {
-						done();
-					} else {
-						this.onSignIn();
-					}
-				});
-
-				// get current url fragment
-				//
-				/*
-				let fragment = AddressBar.get('fragment');
-				if (fragment == 'sign-in') {
-					fragment = null;
-				}
-
-				// reload existing view
-				//
-				application.navigate(fragment || '#home', {
-					trigger: true,
-					reset: true
-				});
-				*/
-			}
-		});
-	},
-
-	logout: function() {
-
-		// end session
-		//
-		this.session.logout({
-
-			// callbacks
-			//
-			success: () => {
-
-				// update header
-				//
-				if (this.getView().options.show_header) {
-					this.getView().showHeader();
-				}
-
-				// call event handler
-				//
-				this.onSignOut();
-
-				// reset application
-				//
-				this.reset();
-			},
-			
-			error: (jqxhr, textstatus, errorThrown) => {
-
-				// show error message
-				//
-				this.error({
-					message: "Could not log out: " + errorThrown + "."
-				});
-			}
-		});
-	},
-
 	//
 	// rendering methods
 	//
@@ -924,202 +811,6 @@ export default Marionette.Application.extend(_.extend({}, FullScreenable, AppLoa
 	},
 
 	//
-	// user showing methods
-	//
-
-	showUser: function(user) {
-		if (this.desktop) {
-			this.launch('profile_viewer', {
-				model: user
-			});
-		} else {
-			window.location = user.getUrl();
-		}
-	},
-
-	showUsers: function(users) {
-		for (let i = 0; i < users.length; i++) {
-			this.showUser(users[i]);
-		}
-	},
-
-	//
-	// social showing methods
-	//
-
-	showChat: function(chat, options) {
-		if (this.desktop) {
-			if (this.desktop.hasApp('messenger')) {
-
-				// open in desktop
-				//
-				this.desktop.setApp('messenger', () => {
-					this.desktop.getAppView('messenger').openChat(chat, options);	
-				});
-			} else {
-
-				// open in new window
-				//
-				this.launch('messenger', _.extend({}, options, {
-					model: chat
-				}));
-			}
-		} else {
-
-			// open in new page
-			//
-			window.location = chat.getUrl();
-		}
-	},
-
-	showChats: function(chats, options) {
-		if (this.desktop) {
-			if (this.desktop.hasApp('messenger')) {
-
-				// open in desktop
-				//
-				this.desktop.setApp('messenger', () => {
-					this.desktop.getAppView('messenger').openChats(chats, options);
-				});
-			} else {
-
-				// open in new window
-				//		
-				import(
-					'./collections/chats/chats.js'
-				).then((Chats) => {
-					this.launch('messenger', _.extend({}, options, {
-						collection: new Chats.default(chats)
-					}));
-				});
-			}
-		}
-	},
-
-	showPost: function(post, options) {
-		if (this.desktop) {
-			if (this.desktop.hasApp('messenger')) {
-
-				// open in desktop
-				//
-				this.desktop.setApp('messenger', () => {
-					this.desktop.getAppView('messenger').openPost(post, options);
-				});
-			} else {
-
-				// open in new window
-				//
-				this.launch('messenger', _.extend({}, options, {
-					model: post
-				}));
-			}
-		} else {
-
-			// open in new page
-			//
-			window.location = post.getUrl();
-		}
-	},
-
-	showTopic: function(topic, options) {
-		if (this.desktop) {
-			if (this.desktop.hasApp('messenger')) {
-
-				// open in desktop
-				//
-				this.desktop.setApp('messenger', () => {
-					this.desktop.getAppView('messenger').openTopic(topic, options);
-				});
-			} else {
-
-				// open in new window
-				//
-				this.launch('messenger', _.extend({}, options, {
-					model: topic
-				}));
-			}
-		} else {
-
-			// open in new page
-			//
-			window.location = topic.getUrl();
-		}
-	},
-
-	showTopics: function(topics, options) {
-		if (this.desktop.hasApp('messenger')) {
-
-			// open in desktop
-			//
-			this.desktop.setApp('messenger', () => {
-				this.desktop.getAppView('messenger').openTopics(topics, options);		
-			});
-		} else {
-
-			// open in new window
-			//
-			import(
-				'./collections/topics/topics.js'
-			).then((Topics) => {
-				this.launch('messenger', _.extend({}, options, {
-					collection: new Topics.default(topics)
-				}));
-			});
-		}
-	},
-
-	//
-	// project showing methods
-	//
-
-	showProject: function(project, options) {
-		if (this.desktop) {
-			if (this.desktop.hasApp('project_viewer')) {
-
-				// open in desktop
-				//
-				this.desktop.setApp('project_viewer', () => {
-					this.desktop.getAppView('project_viewer').openProject(project, options);	
-				});
-			} else {
-
-				// open in new window
-				//
-				this.launch('project_viewer', _.extend({}, options, {
-					model: project
-				}));
-			}
-		} else {
-
-			// open in new page
-			//
-			window.location = project.getUrl();
-		}
-	},
-
-	showProjects: function(projects, options) {
-		if (this.desktop.hasApp('project_viewer')) {
-
-			// open in desktop
-			//
-			this.desktop.setApp('project_viewer', () => {
-				this.desktop.getAppView('project_viewer').openProjects(projects, options);		
-			});
-		} else {
-
-			// open in new window
-			//
-			import(
-				'./collections/projects/projects.js'
-			).then((Projects) => {
-				this.launch('project_viewer', _.extend({}, options, {
-					collection: new Projects.default(projects)
-				}));
-			});
-		}
-	},
-
-	//
 	// browser showing methods
 	//
 
@@ -1138,155 +829,6 @@ export default Marionette.Application.extend(_.extend({}, FullScreenable, AppLoa
 	},
 
 	//
-	// launching methods
-	//
-
-	launch: function(appName, options, launchOptions) {
-		this.loadAppView(appName.replace(/-/g, '_'), (AppView) => {
-
-			// check if app was found
-			//
-			if (!AppView) {
-
-				// show alert dialog
-				//
-				this.alert({
-					message: "Application " + appName +  " not found."
-				});
-
-				// perform callback
-				//
-				if (launchOptions && launchOptions.error) {
-					launchOptions.error();
-				}
-
-			// launch app
-			//
-			} else {
-				this.launchApp(appName, AppView, options, launchOptions);
-			}
-		});
-	},
-
-	launchApp(appName, AppView, options, launchOptions) {
-		if (this.isEmbedded()) {
-
-			// show app formatted for iframe
-			//
-			this.openEmbedded(AppView, options, launchOptions);
-
-		// check if application is already open
-		//
-		} else if (AppView.current && AppView.current.dialog) {
-
-			// activate current app dialog
-			//
-			this.activateDialog(AppView.current, options);
-
-			// open items
-			//
-			if (options) {
-				this.activateApp(AppView.current, options);
-			}
-
-		// open in desktop
-		//
-		} else if (this.desktop && this.desktop.isOpenableApp(appName, options) && 
-			!(launchOptions && launchOptions.new_window)) {
-
-			if (!this.desktop.isCurrentApp(appName)) {
-				this.openInDesktop(appName, options, launchOptions);
-			} else {
-				let name = config.apps[appName].name;
-				this.notify({
-					message: "The " + name + " application is already open on your desktop."
-				});
-			}
-
-		// open new app dialog
-		//
-		} else {
-			this.openInDialog(appName, AppView, options, launchOptions);
-		}
-	},
-
-	activateApp: function(appView, options) {
-		if (options.collection) {
-			appView.openItems(options.collection.models, options);
-		} else if (appView.openItem) {
-			appView.openItem(options.model, options);			
-		} else if (appView.addItem && options.model) {
-			appView.addItem(options.model, options);
-		}
-	},
-
-	openEmbedded: function(AppView, options, launchOptions) {
-		$('#header').remove();
-
-		// display app in application region
-		//
-		this.show(new AppView(_.extend({}, options, launchOptions, {
-			show_sidebar: false,
-			show_tabs: false
-		})));
-
-		// format for iframe
-		//
-		$('.header-bar').css({
-			'display': 'flex',
-			'justify-content': 'center'
-		});
-		$('.menu-bar').hide();
-		$('.footer-bar').hide();
-	},
-
-	openInDesktop: function(appName, options, launchOptions) {
-		let appView = this.desktop.getAppView(appName);
-
-		// slide to this app
-		//
-		this.desktop.setApp(appName);
-
-		window.setTimeout(() => {
-
-			// open items
-			//
-			if (options) {
-				this.activateApp(appView, options);
-			}
-
-			// perform callback
-			//
-			if (launchOptions && launchOptions.success) {
-				launchOptions.success(appView);
-			}	
-		}, 500);
-	},
-
-	openInDialog: function(appName, AppView, options, launchOptions) {
-
-		// add full screen option
-		//
-		if (config.apps && config.apps[appName]) {
-			let preferences = config.apps[appName].preferences;
-			if (preferences && preferences.full_screen) {
-				launchOptions = _.extend({
-					maximized: true,
-					full_screen: true
-				}, launchOptions);
-			}
-		}
-
-		let appView = new AppView(options).launch(launchOptions);
-
-		// perform callback
-		//
-		if (launchOptions && launchOptions.success) {
-			launchOptions.success(appView);
-		}
-	},
-
-	//
 	// navigating methods
 	//
 
@@ -1301,143 +843,6 @@ export default Marionette.Application.extend(_.extend({}, FullScreenable, AppLoa
 		// navigate to route
 		//
 		this.router.navigate(url, options);
-	},
-
-	//
-	// playing methods
-	//
-
-	play: function(kind) {
-		if (this.isMuted()) {
-			return;
-		}
-
-		// create new audio context
-		//
-		if (!this.audio) {
-			this.audio = new Audio();
-		}
-
-		// find sound
-		//
-		let sound = this.getSound(kind);
-		if (sound) {
-
-			// play sound
-			//
-			sound.setVolume(this.getVolume() / 10);
-			sound.play(this.audio);
-		}
-	},
-
-	//
-	// authenticating methods
-	//
-
-	localSignIn: function(done) {
-		import(
-			'./views/users/authentication/dialogs/sign-in-dialog-view.js'
-		).then((SignInDialogView) => {
-			if (!SignInDialogView.default.current) {
-
-				// show sign in dialog
-				//
-				application.show(new SignInDialogView.default({
-
-					// callbacks
-					//
-					success: () => this.login(done)
-				}));
-			}
-		});
-	},
-
-	providerSignIn: function(done) {
-		import(
-			'./views/users/authentication/providers/dialogs/provider-sign-in-dialog-view.js'
-		).then((ProviderSignInDialogView) => {
-
-			// show sign in dialog
-			//
-			application.show(new ProviderSignInDialogView.default({
-
-				// callbacks
-				//
-				success: () => this.login(done)
-			}));
-		});
-	},
-
-	signIn: function(done) {
-		let config = application.session.get('config');
-		if (config && config.identity_providers && config.identity_providers.length > 0) {
-			this.providerSignIn(done);
-		} else {
-			this.localSignIn(done);
-		}
-	},
-
-	register: function() {
-		application.navigate('#register', {
-			trigger: true
-		});
-	},
-
-	providerSignUp: function() {
-		import(
-			'./views/users/registration/providers/dialogs/provider-sign-up-dialog-view.js'
-		).then((ProviderSignUpDialogView) => {
-			if (!ProviderSignUpDialogView.default.current) {
-
-				// show provider sign up dialog
-				//
-				application.show(new ProviderSignUpDialogView.default({
-
-					// callbacks
-					//
-					success: () => this.login()
-				}));
-			}
-		});
-	},
-
-	signUp: function() {
-		let config = application.session.get('config');
-		if (config && config.identity_providers && config.identity_providers.length > 0) {
-			this.providerSignUp();
-		} else {
-			this.register();
-		}
-	},
-
-	//
-	// event handlers
-	//
-
-	onSignIn: function() {
-
-		// go to home view
-		//
-		this.navigate('#home', {
-			trigger: true
-		});
-
-		// play login sound
-		//
-		this.play('login');
-	},
-
-	onSignOut: function() {
-
-		// go to welcome view
-		//
-		this.navigate('#', {
-			trigger: true
-		});
-
-		// play logout sound
-		//
-		this.play('logout');
 	},
 
 	//

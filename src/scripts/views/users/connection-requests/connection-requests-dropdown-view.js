@@ -80,7 +80,7 @@ export default ConnectionRequestsView.extend({
 
 			error: (model, response) => {
 
-				// show error view
+				// show error message
 				//
 				application.error({
 					message: "Could not get connection requests.",
@@ -174,11 +174,7 @@ export default ConnectionRequestsView.extend({
 
 	showConnectionRequestsList: function(collection) {
 		this.showChildView('connection_requests', new ConnectionRequestsListView({
-			collection: collection,
-
-			// options
-			//
-			emptyView: null
+			collection: collection
 		}));
 	},
 

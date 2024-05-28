@@ -15,7 +15,7 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import File from '../../../../../models/files/file.js';
+import File from '../../../../../models/storage/files/file.js';
 import ItemsView from '../../../../../views/items/items-view.js';
 import FileCopyable from '../../../../../views/apps/file-browser/mainbar/behaviors/file-copyable.js';
 import DirectoryIconsView from '../../../../../views/apps/file-browser/mainbar/files/icons/directory-icons-view.js';
@@ -41,6 +41,33 @@ export default ItemsView.extend(_.extend({}, FileCopyable, {
 		}
 		if (this.options.show_controls == undefined) {
 			this.options.show_controls = true;
+		}
+	},
+
+	//
+	// setting methods
+	//
+
+	setOption: function(key, value) {
+		switch (key) {
+			case 'detail_kind':
+				if (value && this.model && this.model.load) {
+					this.model.load({
+						details: value
+					});
+				} else {
+
+					// call superclass method
+					//
+					ItemsView.prototype.setOption.call(this, key, value);
+				}
+				break;
+
+			default:
+
+				// call superclass method
+				//
+				ItemsView.prototype.setOption.call(this, key, value);
 		}
 	},
 
@@ -223,6 +250,7 @@ export default ItemsView.extend(_.extend({}, FileCopyable, {
 			// options
 			//
 			filter: this.options.filter || this.filter,
+			tile_size: this.options.preferences? this.options.preferences.get('tile_size') : undefined,
 
 			// callbacks
 			//

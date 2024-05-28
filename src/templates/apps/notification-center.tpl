@@ -37,12 +37,12 @@
 	<h2><i class="fa fa-desktop"></i>Screen Shots</h2>
 	<div class="figure desktop-only">
 		<div class="figure col-sm-6">
-			<a href="images/info/apps/notification-center/notification-center.png" target="_blank" class="lightbox" title="Notifications"><img class="dialog" src="images/info/apps/notification-center/notification-center.png" style="width:300px" /></a>
-			<div class="caption">Notifications</div>
+			<a href="images/info/apps/notification-center/notification-center.png" target="_blank" class="lightbox" title="<%= config.apps['notification_center'].name %>"><img class="dialog" src="images/info/apps/notification-center/notification-center.png" style="width:300px" /></a>
+			<div class="caption"><%= config.apps['notification_center'].name %></div>
 		</div>
 	</div>
 	<div class="figure mobile-only">
-		<a href="images/info/apps/notification-center/mobile/mobile-notification-center.png" target="_blank" class="lightbox" title="Notifications"><img src="images/info/apps/notification-center/mobile/mobile-notification-center.png" /></a>
-		<div class="caption">Notifications</div>
+		<a href="images/info/apps/notification-center/mobile/mobile-notification-center.png" target="_blank" class="lightbox" title="<%= config.apps['notification_center'].name %>"><img src="images/info/apps/notification-center/mobile/mobile-notification-center.png" /></a>
+		<div class="caption"><%= config.apps['notification_center'].name %></div>
 	</div>
 </div>

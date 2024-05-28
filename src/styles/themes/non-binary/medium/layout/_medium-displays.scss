@@ -16,7 +16,11 @@
 // colors
 //
 
-$lcd-light-color: colors.$very-light-grey;
+$led-color: red;
+$led-glow: 0 0 10px red, 0 0 20px red;
+$led-dot-glow: 0 0 3px lighten(red, 20%);
+
+$lcd-light-color: colors.$light-grey;
 $lcd-dark-color: black;
 
 //
@@ -30,15 +34,31 @@ body:not(.binary) {
 	//
 
 	.led {
-		color: lighten(red, 20%);
-		text-shadow: 0 0 3px lighten(red, 20%);
+		color: $led-color;
+		text-shadow: $led-glow;
+
+		&.dot {
+			text-shadow: $led-dot-glow;
+		}
 	}
 
-	&.dark,
-	.dark {
-		.led {
-			color: lighten(red, 20%);
-			text-shadow: 0 0 3px red, 0 0 5px red, 0 0 10px red, 0 0 20px red;
+
+	.led.pie {	
+		.slice {
+
+			&.empty {
+				background: $lcd-light-color;
+			}
+
+			&.full {
+				background: $lcd-dark-color;
+			}
+
+			&.half-full {
+				background-image: linear-gradient(to right,
+					transparent 50%,
+					$led-color 0%) !important;
+			}
 		}
 	}
 

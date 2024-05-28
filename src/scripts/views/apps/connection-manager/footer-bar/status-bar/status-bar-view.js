@@ -35,9 +35,13 @@ export default BaseView.extend({
 		
 		<% if (show_map) { %>
 		<div class="map-view toolbar">
-			<div class="show-map button btn-sm"<% if (showing_map) { %> style="display:none"<% } %> data-toggle="tooltip" title="Show Map" data-placement="top"><i class="fa fa-map"></i></div>
-		
-			<div class="hide-map button btn-sm"<% if (!showing_map) { %> style="display:none"<% } %> data-toggle="tooltip" title="Hide Map" data-placement="top"><i class="fa fa-th"></i></div>
+			<button class="show-map button btn-sm"<% if (showing_map) { %> style="display:none"<% } %> data-toggle="tooltip" title="Show Map">
+				<i class="fa fa-map"></i>
+			</button>
+
+			<button class="hide-map button btn-sm"<% if (!showing_map) { %> style="display:none"<% } %> data-toggle="tooltip" title="Hide Map">
+				<i class="fa fa-th"></i>
+			</button>
 		</div>
 		<% } %>
 		

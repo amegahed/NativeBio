@@ -28,7 +28,7 @@ export default BaseView.extend({
 	template: template(`
 		<a href="#tab-pane<%= count %>-<%= index %>" aria-controls="tab-pane<%= count %>-<%= index %>" role="tab" data-toggle="tab">
 			<span class="icon"><%= icon %></span>
-			<span class="name"><%= name %></span>
+			<label class="name"><%= name %></label>
 			<% if (closeable) { %>
 			<i class="fas fa-xmark"></i>
 			<% } %>
@@ -43,6 +43,8 @@ export default BaseView.extend({
 		'click': 'onClick',
 		'click i.fa-xmark': 'onClickClose'
 	},
+
+	thumbnailSize: 20,
 
 	//
 	// constructor

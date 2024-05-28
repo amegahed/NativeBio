@@ -36,24 +36,24 @@
 
 	<div class="figure desktop-only">
 		<div class="figure">
-			<a href="images/info/apps/clock/analog-clock.png" target="_blank" class="lightbox" title="Clock"><img class="dialog" src="images/info/apps/clock/analog-clock.png" style="width:300px" /></a>
-			<div class="caption">Analog Clock</div>
+			<a href="images/info/apps/clock/analog-clock.png" target="_blank" class="lightbox" title="Analog <%= config.apps['clock'].name %>"><img class="dialog" src="images/info/apps/clock/analog-clock.png" style="width:300px" /></a>
+			<div class="caption">Analog <%= config.apps['clock'].name %></div>
 		</div>
 	</div>
 	<div class="figure desktop-only">
 		<div class="figure">
-			<a href="images/info/apps/clock/digital-clock.png" target="_blank" class="lightbox" title="Digital Clock"><img class="dialog" src="images/info/apps/clock/digital-clock.png" style="width:300px" /></a>
-			<div class="caption">Digital Clock</div>
+			<a href="images/info/apps/clock/digital-clock.png" target="_blank" class="lightbox" title="Digital <%= config.apps['clock'].name %>"><img class="dialog" src="images/info/apps/clock/digital-clock.png" style="width:300px" /></a>
+			<div class="caption">Digital <%= config.apps['clock'].name %></div>
 		</div>
 	</div>
 	<div class="figure row mobile-only">	
 		<div class="figure col-sm-6" style="float:none">
-			<a href="images/info/apps/clock/mobile/mobile-analog-clock.png" target="_blank" class="lightbox" title="Mobile Analog Clock"><img class="dialog" src="images/info/apps/clock/mobile/mobile-analog-clock.png" /></a>
-			<div class="caption">Mobile Analog Clock</div>
+			<a href="images/info/apps/clock/mobile/mobile-analog-clock.png" target="_blank" class="lightbox" title="Analog <%= config.apps['clock'].name %>"><img class="dialog" src="images/info/apps/clock/mobile/mobile-analog-clock.png" /></a>
+			<div class="caption">Analog <%= config.apps['clock'].name %></div>
 		</div>
 		<div class="figure col-sm-6" style="float:none">
-			<a href="images/info/apps/clock/mobile/mobile-digital-clock.png" target="_blank" class="lightbox" title="Mobile Digital Clock"><img class="dialog" src="images/info/apps/clock/mobile/mobile-digital-clock.png" /></a>
-			<div class="caption">Mobile Digital Clock</div>
+			<a href="images/info/apps/clock/mobile/mobile-digital-clock.png" target="_blank" class="lightbox" title="Digital <%= config.apps['clock'].name %>"><img class="dialog" src="images/info/apps/clock/mobile/mobile-digital-clock.png" /></a>
+			<div class="caption">Digital <%= config.apps['clock'].name %></div>
 		</div>
 	</div>
 </div>

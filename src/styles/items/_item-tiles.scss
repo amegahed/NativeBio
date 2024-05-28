@@ -25,12 +25,18 @@
 $small-size: 75px;
 $medium-size: 100px;
 $large-size: 150px;
+$extra-large-size: 256px;
 $size: $medium-size;
 $small-font-size: 35px;
 $medium-font-size: 50px;
 $large-font-size: 75px;
+$extra-large-font-size: 100px;
 $round-border-radius: 15px;
 $rounded-border-radius: 10px;
+$small-tile-border-width: 2px;
+$medium-tile-border-width: 2px;
+$large-tile-border-width: 3px;
+$extra-large-tile-border-width: 4px;
 
 //
 // styles
@@ -90,8 +96,8 @@ $rounded-border-radius: 10px;
 				}
 
 				> img, > svg, > .thumbnail {
-					width: $medium-size;
-					height: $medium-size;
+					width: 100%;
+					height: 100%;
 					margin: auto;
 					box-shadow: none;
 						
@@ -106,6 +112,8 @@ $rounded-border-radius: 10px;
 
 				> canvas {
 					margin: auto;
+					max-width: 100%;
+					max-height: 100%;
 				}
 
 				//
@@ -140,7 +148,8 @@ $rounded-border-radius: 10px;
 					background-position: center;
 					background-repeat: no-repeat;
 					background-repeat: no-repeat;
-					border: none;
+					// border-width: 2px;
+					// border-style: solid;
 
 					// no tilt
 					//
@@ -251,16 +260,20 @@ $rounded-border-radius: 10px;
 			}
 		}
 
-		.details {
-			display: inline-block;
+		.specifics {
 			max-width: $size;
-			line-height: 1.25em;
-			padding: 0 5px;
-			margin: 4px 0;
-			border-radius: 7px;
+			text-align: center;
 
-			&:empty {
-				display: none;
+			.details {
+				display: inline-block;
+				line-height: 1.25em;
+				padding: 0 5px;
+				margin: 2px 0;
+				border-radius: 7px;
+
+				&:empty {
+					display: none;
+				}
 			}
 		}
 	}
@@ -346,8 +359,21 @@ $rounded-border-radius: 10px;
 // letterboxing
 //
 
-.tile-grid.letterboxed {
-	.item {
+.tile-grid {
+
+	&.letterboxed {
+		.item {
+			> .tile {
+				> .icon {
+					> .thumbnail {
+						background-size: contain !important;
+					}
+				}
+			}
+		}
+	}
+
+	.item.letterboxed {
 		> .tile {
 			> .icon {
 				> .thumbnail {
@@ -384,16 +410,10 @@ $rounded-border-radius: 10px;
 					&.fa-info-circle {
 						font-size: 15px;
 					}
+				}
 
-					&.fa-map-marker + .fa-info-circle {
-						left: 28px;
-						top: 3px;
-					}
-
-					&.fa-map-pin + .fa-info-circle {
-						left: 29px;
-						top: 0px;
-					}
+				&:after {
+					border-width: $small-tile-border-width;
 				}
 			}
 
@@ -443,6 +463,10 @@ $rounded-border-radius: 10px;
 						top: 2px;
 					}
 				}
+
+				&:after {
+					border-width: $medium-tile-border-width;
+				}
 			}
 		}
 	}
@@ -481,12 +505,67 @@ $rounded-border-radius: 10px;
 						top: 4px;
 					}
 				}
+
+				&:after {
+					border-width: $large-tile-border-width;
+				}
 			}
 
 			.profile-photo {
 				width: 36px;
 				height: 36px;
 			}
+		}
+	}
+}
+
+.extra-large.tile-grid {
+	.item {		
+		> .tile {
+			width: $extra-large-size;
+			height: $extra-large-size;
+				
+			>.icon {
+				width: $extra-large-size;
+				height: $extra-large-size;
+
+				> img, > .thumbnail {
+					width: $extra-large-size;
+					height: $extra-large-size;
+				}
+
+				> i, > .thumbnail i {
+					font-size: $extra-large-font-size;
+					margin-top: 75px;
+
+					&.fa-info-circle {
+						font-size: 30px;
+					}
+
+					&.fa-map-marker + .fa-info-circle {
+						left: 57px;
+						top: 10px;
+					}
+
+					&.fa-map-pin + .fa-info-circle {
+						left: 60px;
+						top: 4px;
+					}
+				}
+
+				&:after {
+					border-width: $extra-large-tile-border-width;
+				}
+			}
+
+			.profile-photo {
+				width: 48px;
+				height: 48px;
+			}
+		}
+
+		.badges {
+			transform: scale(1.5);
 		}
 	}
 }
@@ -500,24 +579,6 @@ body[device="phone"], body[device="tablet"] {
 		padding-left: 0 !important;
 		padding-right: 0 !important;
 		text-align: center;
-	}
-}
-
-//
-// small mobile tiles
-//
-
-@media (max-width: 360px) {
-	.tile-grid {
-
-		//
-		// file and directory icons
-		//
-
-		.item {
-			margin: 2px;
-			margin-bottom: 30px;
-		}
 	}
 }
 

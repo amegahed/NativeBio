@@ -340,9 +340,15 @@ export default {
 	copyContents: function(directory, destDirectory, options) {
 		if (directory.loaded) {
 
+			// skip thumbnail directories
+			//
+			let items = directory.contents.toArray().filter((item) => {
+				return item.getName() != '.Thumbs';
+			});
+
 			// copy directory contents
 			//
-			this.copyItems(directory.contents.toArray(), destDirectory, options);
+			this.copyItems(items, destDirectory, options);
 		} else {
 
 			// load directory contents
@@ -416,7 +422,7 @@ export default {
 					});
 				} else {
 
-					// show alert dialog
+					// show alert message
 					//
 					application.alert({
 						icon: '<i class="fa fa-copy"></i>',
@@ -473,7 +479,7 @@ export default {
 					});
 				} else {
 
-					// show alert dialog
+					// show alert message
 					//
 					application.alert({
 						icon: '<i class="fa fa-copy"></i>',
@@ -562,7 +568,7 @@ export default {
 
 						error: (model, response) => {
 
-							// show error message
+							// show error
 							//
 							application.error({
 								message: "Could not create new clipboard directory.",
@@ -572,7 +578,7 @@ export default {
 					});
 				} else {
 
-					// show alert dialog
+					// show alert message
 					//
 					application.alert({
 						icon: '<i class="fa fa-copy"></i>',

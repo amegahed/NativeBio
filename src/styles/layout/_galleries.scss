@@ -33,7 +33,6 @@ $max-image-height: 450px;
 	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
-	text-align: center;
 	image-rendering: auto;
 	overflow: hidden;
 
@@ -42,62 +41,40 @@ $max-image-height: 450px;
 	}
 
 	.images {
-		// margin-right: -20px;
+		text-align: center;
 		overflow: hidden;
-	}
-	
-	//
-	// single items
-	//
 
-	> img, 
-	> video {
-		max-width: $max-image-width;;
-		cursor: pointer;
-	}
-
-	> img.horizontal, 
-	> video.horizontal {
-		width: 100%;
-		height: auto;
-	}
-
-	> img.vertical, 
-	> video.vertical {
-		width: 100%;
-		max-width: calc($max-image-width * 2 / 3);
-		height: auto;
-	}
-
-	> video {
-		outline: none;
-
-		// use hardware acceleration
 		//
-		@include performance.acceleration;
-	}
+		// single items
+		//
 
-	//
-	// multiple items
-	//
-
-	/*
-	.item {
-		> a > img, 
-		> a > video {
+		> img, 
+		> video {
+			max-width: $max-image-width;;
 			cursor: pointer;
-			// max-height: $max-image-height;
 		}
 
-		> a > img {
-			position: absolute;
+		> img.horizontal, 
+		> video.horizontal {
+			width: 100%;
+			height: auto;
 		}
-		
-		> a > video {
-			max-width: 100%;
+
+		> img.vertical, 
+		> video.vertical {
+			width: 100%;
+			max-width: calc($max-image-width * 2 / 3);
+			height: auto;
+		}
+
+		> video {
+			outline: none;
+
+			// use hardware acceleration
+			//
+			@include performance.acceleration;
 		}
 	}
-	*/
 
 	//
 	// show tooltips

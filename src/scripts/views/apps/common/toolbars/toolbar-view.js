@@ -290,6 +290,12 @@ export default BaseView.extend({
 			this.setVisible(false);
 		}
 
+		// allow wrapping
+		//
+		if (this.multiline) {
+			this.$el.addClass('multiline');
+		}
+
 		// add tooltip triggers
 		//
 		this.addTooltips();

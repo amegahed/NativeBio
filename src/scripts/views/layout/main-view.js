@@ -77,13 +77,13 @@ export default BaseView.extend({
 
 		<!-- glow effect filters -->
 
-		<filter id="glowing" x="-500%" y="-500%" width="1000%" height="1000%" primitiveUnits="objectBoundingBox">
+		<filter id="glowing" x="-400%" y="-400%" width="800%" height="800%" primitiveUnits="objectBoundingBox">
 			<feGaussianBlur in="SourceGraphic" stdDeviation="0.5" result="blur"/>
 			<feColorMatrix type="matrix" in="blur" result="blur" values=
-				"2  0  0  0  0
-				 0  2  0  0  0
-				 0  0  2  0  0
-				 0  0  0  2  0"/>
+				"1.5  0  0  0  0
+				 0  1.5  0  0  0
+				 0  0  1.5  0  0
+				 0  0  0  1.5  0"/>
 			<feMerge> 
 				<feMergeNode in="blur"/>
 				<feMergeNode in="SourceGraphic"/> 

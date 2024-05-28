@@ -1,26 +1,34 @@
 {
+	"colors": [
+		"red", "orange", "gold", "yellow", "green", "teal", "aqua", "cyan", "blue", "violet",
+		"magenta", "brown", "grey"
+	],
+
+	"contact": {
+		"description": "For questions and comments, please fill out the contact form below: ",
+		"subjects": [
+			"Question",
+			"Comment",
+			"Feature Request",
+			"Upgrading My Account",
+			"Setting Up My Own Instance",
+			"Bug Report",
+			"Security Incident",
+			"Other"
+		],
+		"label": "Submit Question"
+	},
+
 	"desktop": {
 		"show_app_launcher": true,
 		"preferences": {
 			"desktop_apps": {
 				"phone": ["app_launcher"],
 				"tablet": ["app_launcher"],
-				"desktop": ["file_browser", "messenger", "map_viewer"]
+				"desktop": ["file_browser", "communicator", "map_viewer"]
 			},
 			"pinned_apps": []
 		}
-	},
-
-	"search": {
-		"directory": "/Shared/Documents/",
-		"placeholder": "Search",
-		"hidden": true
-	},
-
-	"settings": {
-		"enable_notifications": true,
-		"mute_sounds": false,
-		"volume": 5
 	},
 
 	"dialogs": {
@@ -34,10 +42,24 @@
 		"margin": [100, 100]
 	},
 
-	"colors": [
-		"red", "orange", "gold", "yellow", "green", "teal", "aqua", "cyan", "blue", "violet",
-		"magenta", "brown", "grey"
-	],
+	"help": {
+		"show_app": true,
+		"show_pdf": false,
+		"show_topic": true,
+		"show_contact": true
+	},
+
+	"search": {
+		"directory": "/Shared",
+		"placeholder": "Search",
+		"hidden": true
+	},
+
+	"settings": {
+		"enable_notifications": true,
+		"mute_sounds": false,
+		"volume": 5
+	},
 
 	"text": {
 
@@ -69,25 +91,5 @@
 		"headings": [
 			"h1", "h2", "h3"
 		]
-	},
-
-	"help": {
-		"docs": false,
-		"topic": "DSI"
-	},
-
-	"contact": {
-		"description": "For questions and comments, please fill out the contact form below: ",
-		"subjects": [
-			"Question",
-			"Comment",
-			"Feature Request",
-			"Upgrading My Account",
-			"Setting Up My Own Instance",
-			"Bug Report",
-			"Security Incident",
-			"Other"
-		],
-		"label": "Submit Question"
 	}
 }

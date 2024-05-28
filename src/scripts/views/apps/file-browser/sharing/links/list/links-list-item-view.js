@@ -33,6 +33,10 @@ export default TableListItemView.extend({
 		</td>
 		<% } %>
 		
+		<td class="editable">
+			<span><%= editable? 'yes' : 'no' %></span>
+		</td>
+
 		<td class="message">
 			<span data-toggle="tooltip" title="<%= message %>" data-placement="right"><%= message? 'yes' : 'no' %></span>
 		</td>
@@ -67,7 +71,7 @@ export default TableListItemView.extend({
 			<% } %>
 		</td>
 		
-		<% if (editable) { %>
+		<% if (deletable) { %>
 		<td class="delete">
 			<button type="button" class="btn btn-sm" data-toggle="tooltip" title="Delete" tabindex="-1">
 				<i class="fa fa-xmark"></i>
@@ -151,7 +155,8 @@ export default TableListItemView.extend({
 
 			// capabilities
 			//
-			editable: this.options.editable
+			editable: this.model.get('editable'),
+			deletable: this.options.editable
 		};
 	},
 	

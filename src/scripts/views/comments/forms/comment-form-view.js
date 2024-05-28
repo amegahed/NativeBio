@@ -50,38 +50,40 @@ export default PostFormView.extend({
 		<div class="options">
 			<div class="spacer hidden-xs"></div>
 			<div class="buttons">
-				<% if (show_emoji) { %>
+
+				<% if (features && features.emoji) { %>
 				<button class="add-emoji btn btn-sm" data-toggle="tooltip" title="Add Emoji">
 					<i class="fa fa-grin"></i>
 				</button>
 				<% } %>
-		
-				<% if (attachable) { %>
+
+				<% if (features && features.pictures) { %>
 				<button class="add-pictures btn btn-sm" data-toggle="tooltip" title="Add Pictures">
 					<i class="fa fa-image"></i>
 				</button>
+				<% } %>
+
+				<% if (features && features.files) { %>
 				<button class="add-files btn btn-sm" data-toggle="tooltip" title="Add Files">
 					<i class="fa fa-file"></i>
 				</button>
 				<% } %>
 		
-				<% if (uploadable) { %>
+				<% if (features && features.uploads) { %>
 				<button class="upload-file btn btn-sm" data-toggle="tooltip" title="Upload File">
 					<i class="fa fa-upload"></i><input type="file" multiple style="display:none"/>
 				</button>
 				<% } %>
 				
-				<% if (attachable || uploadable) { %>
+				<% if (features && (features.pictures || features.files || features.uploads)) { %>
 				<button class="remove warning btn btn-sm" data-toggle="tooltip" title="Remove Items" style="display:none">
-					<i class="active fa fa-trash-alt"></i>
+					<i class="active fa fa-file-circle-xmark"></i>
 				</button>
 				<% } %>
 		
-				<% if (submitable) { %>
 				<button class="submit btn btn-primary" disabled>
 					<i class="active fa fa-comment"></i>Comment
 				</button>
-				<% } %>
 		
 				<% if (cancelable) { %>
 				<button class="cancel btn">
@@ -160,12 +162,8 @@ export default PostFormView.extend({
 			thumbnail_url: this.getThumbnailUrl(),
 			thumbnail_size: this.thumbnailSize + 'px',
 			message: HtmlUtils.textToHtml(this.model.get('message')),
-			show_emoji: this.options.show_emoji,
-			attachable: this.options.attachable,
-			uploadable: this.options.uploadable,
-			geolocatable: this.options.geolocatable,
+			features: this.options.features,
 			cancelable: this.options.cancelable,
-			submitable: this.options.submitable,
 			privacy: this.model.get('public')? 'public' : 'connections'
 		};
 	},

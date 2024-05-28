@@ -1,7 +1,7 @@
 <?php
 /******************************************************************************\
 |                                                                              |
-|                                   sharing.php                                |
+|                                 sharing.php                                  |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -13,13 +13,13 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|            Copyright (C) 2016-2020, Sharedigm, www.sharedigm.com             |
+|            Copyright (C) 2016-2024, Sharedigm, www.sharedigm.com             |
 \******************************************************************************/
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Files\Linking\LinkController;
-use App\Http\Controllers\Files\Sharing\ShareRequestController;
-use App\Http\Controllers\Files\Sharing\ShareController;
+use App\Http\Controllers\Storage\Sharing\LinkController;
+use App\Http\Controllers\Storage\Sharing\ShareRequestController;
+use App\Http\Controllers\Storage\Sharing\ShareController;
 
 /*
 |--------------------------------------------------------------------------

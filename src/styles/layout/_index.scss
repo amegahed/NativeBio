@@ -15,9 +15,11 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
+@use "brand";
 @use "charts";
 @use "collapsable";
 @use "crawler";
+@use "dark-mode";
 @use "displays";
 @use "documents";
 @use "emoji";
@@ -28,6 +30,7 @@
 @use "images";
 @use "jqplot";
 @use "layout";
+@use "lightboxes";
 @use "pages";
 @use "panels";
 @use "profile";

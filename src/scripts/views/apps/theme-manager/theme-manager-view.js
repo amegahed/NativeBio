@@ -15,8 +15,8 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import File from '../../../models/files/file.js';
-import Directory from '../../../models/files/directory.js';
+import File from '../../../models/storage/files/file.js';
+import Directory from '../../../models/storage/directories/directory.js';
 import UserSettings from '../../../models/settings/user-settings.js';
 import DesktopSettings from '../../../models/settings/desktop-settings.js';
 import ThemeSettings from '../../../models/settings/theme-settings.js';
@@ -280,12 +280,11 @@ export default AppSplitView.extend({
 	},
 
 	setSelected: function(model) {
+
+		// select sidebar item
+		//
 		if (this.hasChildView('sidebar')) {
-		
-			// select sidebar item
-			//
-			let sidebar = this.getChildView('sidebar');
-			sidebar.setSelected(model, {
+			this.getChildView('sidebar').setSelected(model, {
 				silent: true
 			});
 		}
@@ -746,9 +745,11 @@ export default AppSplitView.extend({
 
 		// close sidebar
 		//
+		/*
 		if (Browser.device == 'phone') {
 			this.getChildView('contents').closeSideBar();
 		}
+		*/
 		
 		// call superclass method
 		//

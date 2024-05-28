@@ -121,7 +121,7 @@ export default _.extend({}, Selectable, DragSelectable, Highlightable, Draggable
 	},
 
 	getBoundingElement: function() {
-		return this.$el.find(this.nameSelector)[0];
+		return this.$el.find('.info')[0];
 	},
 
 	getDragImage: function() {
@@ -324,6 +324,10 @@ export default _.extend({}, Selectable, DragSelectable, Highlightable, Draggable
 		if (this.isTop()) {
 			this.$el.addClass('top');
 			this.$el.removeClass('collapsed');
+
+			if (this.options.show_root) {
+				this.$el.addClass('show-root');
+			}
 		}
 		
 		// set inital selection

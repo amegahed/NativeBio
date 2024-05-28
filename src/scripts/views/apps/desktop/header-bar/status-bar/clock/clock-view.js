@@ -119,9 +119,9 @@ export default BaseView.extend(_.extend({}, Timeable, {
 		// set LED style
 		//
 		if (showLEDTime) {
-			this.$el.find('.digits').addClass('led');
+			this.$el.find('.digits').addClass('led').addClass('dot');
 		} else {
-			this.$el.find('.digits').removeClass('led');
+			this.$el.find('.digits').removeClass('led').addClass('dot');
 		}
 	},
 

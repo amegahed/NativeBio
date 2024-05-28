@@ -19,6 +19,12 @@
 @use "../navs/dark-menus";
 
 //
+// colors
+//
+
+$transparent-menu-bar-item-color: colors.faded(white, 25%);
+
+//
 // styles
 //
 
@@ -35,10 +41,14 @@ body:not(.binary).dark {
 					> i {
 						color: dark-menus.$icon-color;
 					}
+				}
 
-					&:hover, &:active {
-						> i {
-							@include colors.glow();
+				&:not(.disabled) {
+					> a {
+						&:hover, &:active {
+							> i {
+								@include colors.glow();
+							}
 						}
 					}
 				}
@@ -66,17 +76,22 @@ body:not(.binary).dark {
 	//
 
 	&.transparent, &.translucent {
-		&.menu-margins #desktop {
-			.header-bar {
-				.menu-bar {
-					> ul.nav-menus {
+		&.menu-margins {
+			&.dark #desktop,
+			#desktop.dark {
+				.header-bar {
+					.menu-bar {
+						> ul.nav-menus {
 
-						> li.open {
-							> a, > a:focus, > a:hover, > a:active {
-								color: white;
-
-								i {
+							> li.open {
+								> a, > a:focus, > a:hover, > a:active {
 									color: white;
+									background: $transparent-menu-bar-item-color;
+									border-color: transparent;
+
+									i {
+										color: white;
+									}
 								}
 							}
 						}

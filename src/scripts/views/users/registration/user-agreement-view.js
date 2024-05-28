@@ -128,7 +128,6 @@ export default BaseView.extend({
 			// insert text
 			//
 			this.$el.find('.terms-of-use').html(text);
-			this.$el.find('.content').removeClass('content');
 
 			// reapply styles
 			//

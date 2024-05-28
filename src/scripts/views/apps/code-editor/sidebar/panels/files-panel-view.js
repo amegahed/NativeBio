@@ -15,10 +15,9 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import File from '../../../../../models/files/file.js';
+import File from '../../../../../models/storage/files/file.js';
 import UserPreferences from '../../../../../models/preferences/user-preferences.js';
-import Items from '../../../../../collections/files/items.js';
-import BaseView from '../../../../../views/base-view.js';
+import Items from '../../../../../collections/storage/items.js';
 import SideBarPanelView from '../../../../../views/apps/common/sidebar/panels/sidebar-panel-view.js';
 import EditableFilesView from '../../../../../views/apps/file-browser/mainbar/files/editable-files-view.js';
 
@@ -179,11 +178,8 @@ export default SideBarPanelView.extend({
 				view_kind: this.options.view_kind,
 				show_file_extensions: true
 			}),
-			emptyView: BaseView.extend({
-				className: 'empty',
-				template: template("No files.")
-			}),
 			selected: new Items([this.model]),
+			empty: "No files.",
 
 			// capabilities
 			//

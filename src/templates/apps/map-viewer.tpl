@@ -55,11 +55,11 @@
 
 	<h2><i class="fa fa-desktop"></i>Screen Shots</h2>
 	<div class="figure desktop-only">
-		<a href="images/info/apps/map-viewer/map-viewer.png" target="_blank" class="lightbox" title="Maps"><img class="dialog" src="images/info/apps/map-viewer/map-viewer.png" /></a>
-		<div class="caption">Maps</div>
+		<a href="images/info/apps/map-viewer/map-viewer.png" target="_blank" class="lightbox" title="<%= config.apps['map_viewer'].name %>"><img class="dialog" src="images/info/apps/map-viewer/map-viewer.png" /></a>
+		<div class="caption"><%= config.apps['map_viewer'].name %></div>
 	</div>
 	<div class="figure mobile-only">
-		<a href="images/info/apps/map-viewer/mobile/mobile-map-viewer.png" target="_blank" class="lightbox" title="Maps"><img src="images/info/apps/map-viewer/mobile/mobile-map-viewer.png" /></a>
-		<div class="caption">Maps</div>
+		<a href="images/info/apps/map-viewer/mobile/mobile-map-viewer.png" target="_blank" class="lightbox" title="<%= config.apps['map_viewer'].name %>"><img src="images/info/apps/map-viewer/mobile/mobile-map-viewer.png" /></a>
+		<div class="caption"><%= config.apps['map_viewer'].name %></div>
 	</div>
 </div>

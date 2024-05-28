@@ -19,6 +19,7 @@ import HeaderBarView from '../../../../views/apps/common/header-bar/header-bar-v
 import MenuBarView from '../../../../views/apps/audio-player/header-bar/menu-bar/menu-bar-view.js';
 import TrackBarView from '../../../../views/apps/audio-player/header-bar/track-bar/track-bar-view.js';
 import VolumeBarView from '../../../../views/apps/audio-player/header-bar/volume-bar/volume-bar-view.js';
+import AudioBarView from '../../../../views/apps/audio-player/header-bar/audio-bar/audio-bar-view.js';
 import Browser from '../../../../utilities/web/browser.js';
 
 export default HeaderBarView.extend({
@@ -27,7 +28,7 @@ export default HeaderBarView.extend({
 	// attributes
 	//
 
-	toolbars: ['menu', 'track', 'volume'],
+	toolbars: ['menu', 'track', 'volume', 'audio'],
 
 	//
 	// rendering methods
@@ -43,6 +44,9 @@ export default HeaderBarView.extend({
 				break;
 			case 'volume':
 				this.showVolumeBar();
+				break;
+			case 'audio':
+				this.showAudioBar();
 				break;
 		}
 	},
@@ -85,5 +89,10 @@ export default HeaderBarView.extend({
 			//
 			onchange: (volume) => this.app.onChangeVolume(volume)
 		}));
+	},
+
+	showAudioBar: function() {
+		this.showChildView('audio', new AudioBarView());
+		this.getChildView('audio').$el.addClass('desktop-app-only');
 	}
 });

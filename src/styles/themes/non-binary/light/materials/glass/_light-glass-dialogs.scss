@@ -17,15 +17,16 @@
 
 @use "../../../../../materials/glass/flat-glass";
 @use "../../../../../materials/glass/opaque-glass";
-@use "../../../../../materials/glass/frosted-glass";@use "../../dialogs/light-dialogs";
+@use "../../../../../materials/glass/frosted-glass";
+@use "../../dialogs/light-dialogs";
 
 //
 // styles
 //
 
 body:not(.binary) {
-	.glass.modals,
-	&.glass .auto-material.modals {
+	.light.glass.modals,
+	&.light.glass .auto-material.modals {
 
 		//
 		// glass focused dialogs
@@ -52,8 +53,8 @@ body:not(.binary) {
 	// transparent dialogs
 	//
 
-	&.transparent .glass.modals,
-	&.transparent.glass .auto-material.modals {
+	&.transparent .light.glass.modals,
+	&.transparent.light.glass .auto-material.modals {
 
 		//
 		// transparent focused dialogs
@@ -80,8 +81,8 @@ body:not(.binary) {
 	// translucent dialogs
 	//
 
-	&.translucent .glass.modals,
-	&.translucent.glass .auto-material.modals {
+	&.translucent .light.glass.modals,
+	&.translucent.light.glass .auto-material.modals {
 
 		//
 		// translucent focused dialogs

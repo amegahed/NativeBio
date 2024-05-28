@@ -137,6 +137,7 @@ div:not(.buttons) {
 		> button.collapse, > button.expand {
 			cursor: pointer;
 			pointer-events: auto;
+			color: inherit !important;
 			background: transparent !important;
 			border-color: transparent !important;
 			box-shadow: none !important;

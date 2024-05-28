@@ -56,7 +56,7 @@ export default TabView.extend({
 	//
 
 	getName: function() {
-		return this.model.getName() + (this.isDirty()? '*' : '');
+		return (this.isDirty()? '*' : '') + this.model.getName();
 	},
 
 	//

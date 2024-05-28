@@ -29,6 +29,8 @@ $page-dot-shadow: 2px 2px 5px rgba(black, 50%);
 //
 
 .flickity-slider.animating {
+	@include performance.acceleration;
+
 	.carousel-cell {
 
 		// use hardware acceleration

@@ -15,7 +15,7 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import Directory from '../../../../../models/files/directory.js';
+import Directory from '../../../../../models/storage/directories/directory.js';
 import InfoDialogView from '../../../../../views/apps/common/dialogs/info/info-dialog-view.js';
 import FileUtils from '../../../../../utilities/files/file-utils.js';
 
@@ -89,9 +89,11 @@ export default InfoDialogView.extend({
 						<button class="copy-link btn" style="display:none" disabled>
 							<i class="fa fa-copy"></i>Copy Link
 						</button>
+						<% if (false) { %>
 						<button class="view-link btn" style="display:none" disabled>
 							<i class="fa fa-eye"></i>View Link
 						</button>
+						<% } %>
 						<button class="delete-links btn" style="display:none" disabled>
 							<i class="fa fa-trash-alt"></i>Delete Links
 						</button>
@@ -353,6 +355,29 @@ export default InfoDialogView.extend({
 		};
 	},
 
+	onRender: function() {
+
+		// call superclass method
+		//
+		InfoDialogView.prototype.onRender.call(this);
+
+		// fetch model to get metadata
+		//
+		if (this.model) {
+			this.model.fetch({
+
+				// callbacks
+				//
+				success: () => {
+
+					// show form
+					//
+					this.showForm();
+				}
+			});
+		}
+	},
+
 	showForm: function() {
 		this.showChildView('form', this.form({
 			tab: this.options.tab,
@@ -560,6 +585,13 @@ export default InfoDialogView.extend({
 		});
 	},
 
+	showLink: function() {
+
+		// show link in browser
+		//
+		application.showUrl(this.getSelectedLinks()[0].getUrl());
+	},
+
 	//
 	// event handling methods
 	//
@@ -628,10 +660,7 @@ export default InfoDialogView.extend({
 	},
 
 	onClickViewLink: function() {
-
-		// show link in browser
-		//
-		application.showUrl(this.getSelectedLinks()[0].getUrl());
+		this.showLink();
 	},
 
 	onClickDeleteLinks: function() {

@@ -41,8 +41,8 @@
 		</li>
 
 		<li>
-			<h2><i class="fa fa-image"></i>Viewing Exif Info in Image Viewer</h2>
-			<p>In order to view the complete set of EXIF information associated with an image, open the image in the <a href="#apps/image-viewer">Image Viewer</a> app, then select Sidebar > Image Info on the View menu. </p>
+			<h2><i class="fa fa-image"></i>Viewing Exif Info in <%= config.apps['image_viewer'].name %></h2>
+			<p>In order to view the complete set of EXIF information associated with an image, open the image in the <a href="#apps/image-viewer"><%= config.apps['image_viewer'].name %></a> app, then select Sidebar > Image Info on the View menu. </p>
 
 			<div class="figure">
 				<img class="nested dropdown menu" src="images/help/working-with-images/viewing-exif-info/view-image-info-menu-item@2x.png" />

@@ -24,6 +24,6 @@
 $success-color:			saturate(colors.$light-green, 20%);
 $caution-color:			saturate(mix(colors.$light-gold, colors.$light-orange), 20%);
 $warning-color: 		saturate(mix(colors.$light-orange, colors.$light-red), 20%);
-$error-color: 			saturate(lighten(colors.$light-red, 10%), 20%);
+$error-color: 			saturate(colors.$light-red, 20%);
 $highlight-color: 		colors.$very-light-grey;
 $disabled-color: 		fade(colors.$very-light-grey, 50%);

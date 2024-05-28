@@ -16,10 +16,10 @@
 \******************************************************************************/
 
 import UserIdentities from '../../../../../collections/users/auth/user-identities.js';
-import FormView from '../../../../../views/forms/form-view.js';
+import SettingsFormView from '../../../../../views/apps/common/forms/settings-form-view.js';
 import UserIdentitiesListView from '../../../../../views/users/accounts/providers/list/user-identities-list-view.js';
 
-export default FormView.extend({
+export default SettingsFormView.extend({
 
 	//
 	// attributes
@@ -39,16 +39,28 @@ export default FormView.extend({
 				</div>
 			</div>
 		</div>
-		
-		<h3><i class="fa fa-cloud"></i>Identity Providers</h3>
-		<p>Identity providers are services that manage your identity information and allow you to sign to this application without re-entering and verifying your identity information.</p>
-		
-		<div class="identities"></div>
-		
-		<div class="buttons">
-			<button class="add-sign-in btn">
-				<i class="fa fa-plus"></i>Add Sign In
-			</button>
+
+		<ul class="nav nav-tabs" role="tablist">
+			<li role="presentation" class="general-tab<% if (tab == 'general' || !tab) { %> active<% } %>">
+				<a role="tab" data-toggle="tab" href=".general-settings">
+					<i class="fa fa-check"></i>
+					<label>General</label>
+				</a>
+			</li>
+		</ul>
+
+		<div class="tab-content">
+			<div role="tabpanel" class="general-settings tab-pane<% if (tab == 'general' || !tab) { %> active<% } %>">
+				<p>Identity providers are services that manage your identity information and allow you to sign to this application without entering a password.</p>
+
+				<div class="identities"></div>
+
+				<div class="buttons">
+					<button class="add-sign-in btn">
+						<i class="fa fa-plus"></i>Add Sign In
+					</button>
+				</div>
+			</div>
 		</div>
 	`),
 
@@ -83,6 +95,12 @@ export default FormView.extend({
 	//
 	// rendering methods
 	//
+
+	templateContext: function() {
+		return {
+			tab: this.options.tab
+		};
+	},
 
 	onRender: function() {
 

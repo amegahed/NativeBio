@@ -39,21 +39,15 @@ export default BaseView.extend({
 		
 						<% if (branding.header.brand.logotype) { %>
 						<div class="logotype">
-							<% if (branding.header.brand.logotype.prefix && branding.header.brand.logotype.prefix.text) { %>
-							<span class="prefix"><%= branding.header.brand.logotype.prefix.text.replace(' ', '&nbsp') %></span><% } %>
-							<% if (branding.header.brand.logotype.first && branding.header.brand.logotype.first.text) { %>
-							<span class="first"><%= branding.header.brand.logotype.first.text.replace(' ', '&nbsp') %></span><% } %>
-							<% if (branding.header.brand.logotype.middle && branding.header.brand.logotype.middle.text) { %>
-							<span class="middle"><%= branding.header.brand.logotype.middle.text.replace(' ', '&nbsp') %></span><% } %>
-							<% if (branding.header.brand.logotype.last && branding.header.brand.logotype.last.text) { %>
-							<span class="last"><%= branding.header.brand.logotype.last.text.replace(' ', '&nbsp') %></span><% } %>
-							<% if (branding.header.brand.logotype.suffix && branding.header.brand.logotype.suffix.text) { %>
-							<span class="suffix"><%= branding.header.brand.logotype.suffix.text.replace(' ', '&nbsp') %></span><% } %>
+							<% if (branding.header.brand.logotype.names) { %>
+							<% let names = branding.header.brand.logotype.names; %>
+							<% for (let i = 0; i < names.length; i++) { %><% let name = names[i]; %><% if (name.text) { %><span><%= name.text.replace(' ', '&nbsp') %></span><% } %><% } %>
+							<% } %>
 						</div>
 						<% } %>
 					</div>
 				</div>
-		
+
 				<!-- standard navbar -->
 				<% if (branding.header.nav) { %>
 				<ul class="nav heading navbar-nav">
@@ -72,8 +66,8 @@ export default BaseView.extend({
 					<% } %>
 				</ul>
 				<% } %>
-		
-				<ul class="navbar-nav navbar-right hidden-xs">		
+
+				<ul class="navbar-nav navbar-right hidden-xs">
 					<div class="navbar-form">
 						<div class="buttons">
 							<% if (show_sign_in) { %>
@@ -81,7 +75,7 @@ export default BaseView.extend({
 								<i class="fa fa-sign-in-alt"></i>Sign In
 							</button>
 							<% } %>
-							
+
 							<% if (show_sign_up) { %>
 							<button class="sign-up btn btn-lg">
 								<i class="fa fa-pencil-alt"></i>Sign Up
@@ -118,22 +112,14 @@ export default BaseView.extend({
 			application.loadFont(logotype.font);
 		}
 
-		// load fonts for logotype components
+		// load fonts for logotype names
 		//
-		if (logotype.prefix && logotype.prefix.font) {
-			application.loadFont(logotype.prefix.font);
-		}
-		if (logotype.first && logotype.first.font) {
-			application.loadFont(logotype.first.font);
-		}
-		if (logotype.middle && logotype.middle.font) {
-			application.loadFont(logotype.middle.font);
-		}
-		if (logotype.last && logotype.last.font) {
-			application.loadFont(logotype.last.font);
-		}
-		if (logotype.suffix && logotype.suffix.font) {
-			application.loadFont(logotype.suffix.font);
+		if (logotype.names) {
+			for (let i = 0; i < logotype.names.length; i++) {
+				if (logotype.names[i].font) {
+					application.loadFont(logotype.names[i].font);
+				}
+			}
 		}
 	},
 
@@ -182,32 +168,37 @@ export default BaseView.extend({
 		if (logotype.color) {
 			this.$el.find('.brand .logotype').css('color', logotype.color);
 		}
+
+		// set font styles
+		//
 		if (logotype.font && config.fonts[logotype.font]) {
 			this.$el.find('.brand .logotype').css({
-				'font-family': config.fonts[logotype.font]['font-family'],
-				'font-size': config.fonts[logotype.font]['font-size'] + 'px',
+				'font-family': config.fonts[logotype.font]['font-family']
 			});
 		}
 		if (logotype.font_size) {
 			this.$el.find('.brand .logotype').css('font-size', logotype.font_size);
 		}
+		if (logotype.font_variant) {
+			this.$el.find('.brand').css('font-variant', logotype.font_variant);
+		}
+		if (logotype.font_size) {
+			this.$el.find('.brand').css('font-size', logotype.font_size);
+		}
+		if (logotype.font_weight) {
+			this.$el.find('.brand').css('font-weight', logotype.font_weight);
+		}
+		if (logotype.text_transform) {
+			this.$el.find('.brand').css('text-transform', logotype.text_transform);
+		}
 
-		// set logotype component styles
+		// set logotype name styles
 		//
-		if (logotype.prefix) {
-			this.setTextElementStyles(this.$el.find('.brand .logotype .prefix'), logotype.prefix);
-		}
-		if (logotype.first) {
-			this.setTextElementStyles(this.$el.find('.brand .logotype .first'), logotype.first);
-		}
-		if (logotype.middle) {
-			this.setTextElementStyles(this.$el.find('.brand .logotype .middle'), logotype.middle);
-		}
-		if (logotype.last) {
-			this.setTextElementStyles(this.$el.find('.brand .logotype .last'), logotype.last);
-		}
-		if (logotype.suffix) {
-			this.setTextElementStyles(this.$el.find('.brand .logotype .suffix'), logotype.suffix);
+		if (logotype.names) {
+			let elements = this.$el.find('.brand .logotype span');
+			for (let i = 0; i < logotype.names.length; i++) {
+				this.setTextElementStyles($(elements[i]), logotype.names[i]);
+			}
 		}
 	},
 

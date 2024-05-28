@@ -22,6 +22,7 @@ import Wallpaperable from '../../../views/behaviors/effects/wallpaperable.js';
 import AppView from '../../../views/apps/common/app-view.js';
 import SpacesView from '../../../views/apps/desktop/spaces/spaces-view.js';
 import DockView from '../../../views/apps/desktop/dock/dock-view.js';
+import Browser from '../../../utilities/web/browser.js';
 
 export default AppView.extend(_.extend({}, Wallpaperable, {
 
@@ -85,7 +86,7 @@ export default AppView.extend(_.extend({}, Wallpaperable, {
 	},
 
 	hasClock: function() {
-		return this.settings.has('show_clock') && 
+		return this.settings.has('show_clock') &&
 			(this.settings.get('show_day') ||
 			this.settings.get('show_date') ||
 			this.settings.get('show_time'));
@@ -131,9 +132,16 @@ export default AppView.extend(_.extend({}, Wallpaperable, {
 		return this.getChildView('spaces').getChildViewAt(index).getChildView('body');
 	},
 
+	getPlatform: function() {
+		return Browser.is_mobile? 'mobile' : 'desktop';
+	},
+
 	getApps: function(platform) {
-		return new Apps(application.apps.filter((model) => {
-			return [platform || 'desktop', 'all'].contains(model.get('platform'));
+		if (!platform) {
+			platform = this.getPlatform();
+		}
+		return new Apps(application.apps.filter((app) => {
+			return [platform, 'all'].contains(app.get('platform'));
 		}));
 	},
 
@@ -639,7 +647,7 @@ export default AppView.extend(_.extend({}, Wallpaperable, {
 		// add parallax shift to modals
 		//
 		let modalsView = application.desktop.getCurrentApp().modals;
-		modalsView.setStackedOffset(offset * 0.25);
+		modalsView.setStackedOffset(offset);
 	},
 
 	show: function(view, options) {

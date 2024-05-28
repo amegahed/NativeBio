@@ -187,7 +187,7 @@ export default ToolbarView.extend({
 			});
 		}
 
-		// enable / disble buttons
+		// enable / disable buttons
 		//
 		this.setItemsEnabled(true);
 	},

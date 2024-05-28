@@ -15,8 +15,9 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import File from '../../../../../../models/files/file.js';
-import Directory from '../../../../../../models/files/directory.js';
+import File from '../../../../../../models/storage/files/file.js';
+import ArchiveFile from '../../../../../../models/storage/files/archive-file.js';
+import Directory from '../../../../../../models/storage/directories/directory.js';
 import FileMenuView from '../../../../../../views/apps/common/header-bar/menu-bar/menus/file-menu-view.js';
 
 export default FileMenuView.extend({
@@ -32,19 +33,19 @@ export default FileMenuView.extend({
 			<ul class="dropdown-menu" data-toggle="dropdown">
 
 				<li role="presentation">
-					<a class="new-window"><i class="far fa-window-maximize"></i>New Window<span class="command shortcut">enter</span></a>
+					<a class="new-folder"><i class="fa fa-folder"></i>New Folder<span class="command shortcut">enter</span></a>
 				</li>
 
 				<li role="presentation">
-					<a class="new-folder"><i class="fa fa-folder"></i>New Folder<span class="shift command shortcut">enter</span></a>
+					<a class="new-volume"><i class="fa fa-database"></i>New Volume<span class="shift command shortcut">L</span></a>
 				</li>
 
 				<li role="presentation">
-					<a class="new-volume"><i class="fa fa-database"></i>New Volume</a>
+					<a class="new-text-file"><i class="fa fa-file-alt"></i>New Text File<span class="command shortcut">T</span></a>
 				</li>
 
 				<li role="presentation">
-					<a class="new-text-file"><i class="fa fa-file-alt"></i>New Text File</a>
+					<a class="new-window"><i class="far fa-window-maximize"></i>New Window<span class="shift command shortcut">enter</span></a>
 				</li>
 			</ul>
 		</li>
@@ -143,6 +144,10 @@ export default FileMenuView.extend({
 		<li role="presentation">
 			<a class="compress-items"><i class="fa fa-compress"></i>Compress<span class="shift command shortcut">Z</span></a>
 		</li>
+
+		<li role="presentation">
+			<a class="expand-item"><i class="fa fa-expand"></i>Expand<span class="shift command shortcut">X</span></a>
+		</li>
 		
 		<li role="presentation">
 			<a class="download-items"><i class="fa fa-download"></i>Download<span class="shift command shortcut">D</span></a>
@@ -151,16 +156,18 @@ export default FileMenuView.extend({
 		<li role="separator" class="divider"></li>
 		
 		<li role="presentation">
-			<a class="empty-trash"><i class="fa fa-trash-alt"></i>Empty Trash<span class="command shortcut">E</span></a>
-		</li>
-		
-		<li role="separator" class="divider"></li>
-		
-		<li role="presentation">
 			<a class="close-tab"><i class="fa fa-xmark"></i>Close Tab<span class="command shortcut">L</span></a>
 		</li>
-		
+
+		<li role="separator" class="divider"></li>
+
+		<li role="presentation">
+			<a class="empty-trash"><i class="fa fa-trash-alt"></i>Empty Trash<span class="command shortcut">E</span></a>
+		</li>
+
 		<% if (!is_desktop) { %>
+		<li role="separator" class="divider"></li>
+
 		<li role="presentation">
 			<a class="close-window"><i class="fa fa-circle-xmark"></i>Close<span class="command shortcut">L</span></a>
 		</li>
@@ -168,10 +175,10 @@ export default FileMenuView.extend({
 	`),
 
 	events: {
-		'click .new-window': 'onClickNewWindow',
 		'click .new-folder': 'onClickNewFolder',
 		'click .new-volume': 'onClickNewVolume',
 		'click .new-text-file': 'onClickNewTextFile',
+		'click .new-window': 'onClickNewWindow',
 		'click .open-item': 'onClickOpenItem',
 		'click .open-with': 'onClickOpenWith',
 		'click .open-in-new-window': 'onClickOpenInNewWindow',
@@ -189,6 +196,7 @@ export default FileMenuView.extend({
 		'click .show-on-map': 'onClickShowOnMap',
 		'click .rename-item': 'onClickRenameItem',
 		'click .compress-items': 'onClickCompressItems',
+		'click .expand-item': 'onClickExpandItem',
 		'click .download-items': 'onClickDownloadItems',
 		'click .empty-trash': 'onClickEmptyTrash',
 		'click .close-tab': 'onClickCloseTab',
@@ -201,7 +209,7 @@ export default FileMenuView.extend({
 
 	visible: function() {
 		let isSignedIn = application.isSignedIn();
-		let hasMultiple = this.parent.app.hasOpenFolders();
+		let hasOpenFolders = this.parent.app.hasOpenFolders();
 		let isDesktop = this.parent.app.isDesktop();
 
 		return {
@@ -226,26 +234,29 @@ export default FileMenuView.extend({
 			'show-on-map': true,
 			'rename-item': true,
 			'compress-items': true,
+			'expand-item': true,
 			'download-items': true,
 			'empty-trash': true,
-			'close-tab': hasMultiple,
+			'close-tab': hasOpenFolders,
 			'close-window': !isDesktop
 		};
 	},
 
 	enabled: function() {
 		let isSignedIn = application.isSignedIn();
+		let hasTabs = this.parent.app.hasTabs();
 		let preferences = this.parent.app.preferences;
 		let numSelected = this.parent.app.numSelected();
 		let hasSelected = numSelected != 0;
-		let hasSelectedFile = this.parent.app.getSelectedModels()[0] instanceof File;
-		let hasSelectedFolder = this.parent.app.getSelectedModels()[0] instanceof Directory;
+		let selectedModel = this.parent.app.getSelectedModels()[0];
+		let hasSelectedFile = selectedModel instanceof File;
+		let hasSelectedFolder = selectedModel instanceof Directory;
+		let hasSelectedArchive = selectedModel instanceof ArchiveFile;
 		let hasSelectedGeolocated = this.parent.app.hasSelectedGeolocated();
 		let hasSelectedFavorites = this.parent.app.hasSelectedFavorites();
 		let viewingMap = preferences.get('view_kind') == 'maps';
 		let isDialog = this.parent.app.dialog != undefined;
 		let isTrashEmpty = this.parent.app.isTrashEmpty();
-		let hasMultiple = this.parent.app.hasOpenFolders();
 		let isDesktop = this.parent.app.isDesktop();
 
 		return {
@@ -270,9 +281,10 @@ export default FileMenuView.extend({
 			'show-on-map': hasSelectedGeolocated,
 			'rename-item': numSelected == 1,
 			'compress-items': hasSelected,
+			'expand-item': hasSelectedArchive,
 			'download-items': hasSelected,
 			'empty-trash': !isTrashEmpty,
-			'close-tab': hasMultiple,
+			'close-tab': hasTabs,
 			'close-window': !isDesktop
 		};
 	},
@@ -390,6 +402,13 @@ export default FileMenuView.extend({
 		// compress selected items
 		//
 		this.parent.app.compress();
+	},
+
+	onClickExpandItem: function() {
+
+		// expand selected items
+		//
+		this.parent.app.expandSelected();
 	},
 
 	onClickDownloadItems: function() {

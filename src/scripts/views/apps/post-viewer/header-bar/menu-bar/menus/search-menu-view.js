@@ -76,17 +76,17 @@ export default MenuView.extend({
 	onClickSearchBy: function(event) {
 		let className = $(event.currentTarget).attr('class');
 		let searchKind = className.replace('search-by-', '').replace(/-/g, '_');
-		let searchKindValue = this.toggled(this.parent.app.preferences.get('search_kind'), searchKind);
+		let searchValue = searchKind == this.parent.app.preferences.get('search_kind')? searchKind : false;
 
 		// update menu
 		//	
 		this.setItemsDeselected(this.$el.find('li[type=search-by]').map((index, element) => { 
 			return $(element).find('a').attr('class');
 		}).get());
-		this.setItemSelected(className, searchKindValue != false);
+		this.setItemSelected(className, searchValue != false);
 		
 		// update search options
 		//
-		this.parent.app.setSearchKind(searchKindValue);
+		this.parent.app.setSearchKind(searchValue);
 	}
 });

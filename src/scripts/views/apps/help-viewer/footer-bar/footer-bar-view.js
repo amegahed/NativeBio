@@ -16,7 +16,7 @@
 \******************************************************************************/
 
 import FooterBarView from '../../../../views/apps/common/footer-bar/footer-bar-view.js';
-import NavBarView from '../../../../views/apps/help-viewer/footer-bar/nav-bar/nav-bar-view.js';
+import PageBarView from '../../../../views/apps/help-viewer/footer-bar/page-bar/page-bar-view.js';
 import StatusBarView from '../../../../views/apps/help-viewer/footer-bar/status-bar/status-bar-view.js';
 
 export default FooterBarView.extend({
@@ -25,7 +25,7 @@ export default FooterBarView.extend({
 	// attributes
 	//
 
-	toolbars: ['window', 'nav', 'status'],
+	toolbars: ['window', 'page', 'status'],
 
 	//
 	// getting methods
@@ -44,8 +44,8 @@ export default FooterBarView.extend({
 			case 'window':
 				this.showWindowBar();
 				break;
-			case 'nav':
-				this.showNavBar();
+			case 'page':
+				this.showPageBar();
 				break;
 			case 'status':
 				this.showStatusBar();
@@ -53,10 +53,11 @@ export default FooterBarView.extend({
 		}
 	},
 
-	showNavBar: function() {
-		this.showChildView('nav', new NavBarView({
+	showPageBar: function() {
+		this.showChildView('page', new PageBarView({
 			numPages: this.parent.index.length
 		}));
+		this.getChildView('page').$el.addClass('windowed-app-only');
 	},
 
 	showStatusBar: function() {

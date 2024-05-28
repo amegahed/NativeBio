@@ -763,6 +763,25 @@ body:not(.binary):not(.flat-menus):not(.flat.auto-menus) {
 }
 
 //
+// scrollbar track corners
+//
+
+.round-scrollbars .dropdown-menu::-webkit-scrollbar-track,
+.round.auto-corner-scrollbars .dropdown-menu::-webkit-scrollbar-track {
+	-webkit-border-radius: $round-border-radius;
+}
+
+.rounded-scrollbars .dropdown-menu::-webkit-scrollbar-track,
+.rounded.auto-corner-scrollbars .dropdown-menu::-webkit-scrollbar-track {
+	-webkit-border-radius: $rounded-border-radius;
+}
+
+.square-scrollbars .dropdown-menu::-webkit-scrollbar-track,
+.square.auto-corner-scrollbars .dropdown-menu::-webkit-scrollbar-track {
+	-webkit-border-radius: 0;
+}
+
+//
 // mobile styles
 //
 

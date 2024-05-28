@@ -57,7 +57,7 @@ export default ModalView.extend({
 
 		// disable save button
 		//
-		this.$el.find('.save').prop('disabled', true);
+		this.setDisabled(true);
 
 		// save changes
 		//

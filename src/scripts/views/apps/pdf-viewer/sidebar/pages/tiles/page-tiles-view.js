@@ -15,6 +15,7 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
+import UserPreferences from '../../../../../../models/preferences/user-preferences.js';
 import TilesView from '../../../../../../views/items/tiles/tiles-view.js';
 import PageTileView from '../../../../../../views/apps/pdf-viewer/sidebar/pages/tiles/page-tile-view.js';
 
@@ -40,7 +41,11 @@ export default TilesView.extend({
 
 			// options
 			//
-			preferences: this.options.preferences,
+			// preferences: this.options.preferences,
+			preferences: new UserPreferences({
+				view_kind: this.options.preferences.get('view_kind'),
+				tile_size: this.options.preferences.get('tile_size')
+			}),
 			selected: model && model.is(this.options.selected),
 
 			// capabilities

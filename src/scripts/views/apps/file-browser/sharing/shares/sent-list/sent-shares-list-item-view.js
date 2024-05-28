@@ -36,7 +36,7 @@ export default TableListItemView.extend({
 		<td class="recipient">
 			<% if (user) { %>
 			<a>
-				<div class="profile-photo" style="width:20px; height:20px; background-size:cover; float:left; margin-right:10px; background-image:url(<%= user.getProfilePhotoUrl({min_size: 50}) %>)">
+				<div class="profile thumbnail" style="background-image:url(<%= user.getProfilePhotoUrl({min_size: 50}) %>)">
 				</div>
 				<div class="hidden-xs"><%= user.getName() %></div>
 			</a>

@@ -58,8 +58,14 @@ export default BaseView.extend({
 	//
 
 	setModel: function(model) {
+
+		// set attributes
+		//
 		this.model = model;
-		this.render();
+
+		// update view
+		//
+		this.update();
 	},
 
 	//
@@ -70,5 +76,37 @@ export default BaseView.extend({
 		return {
 			exif: this.model? this.model.get('exif') : null
 		};
+	},
+
+	onRender: function() {
+
+		// load exif if not loaded
+		//
+		if (this.model && !this.model.has('exif')) {
+			this.update();
+		}
+	},
+
+	update: function() {
+
+		// load exif info
+		//
+		this.model.fetchExif({
+
+			// callbacks
+			//
+			success: (data) => {
+
+				// update model
+				//
+				this.model.set('exif', data, {
+					silent: true
+				});
+
+				// update view
+				//
+				this.render();
+			}
+		});
 	}
 });

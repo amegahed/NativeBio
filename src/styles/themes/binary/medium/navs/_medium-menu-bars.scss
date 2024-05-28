@@ -92,7 +92,7 @@ body.binary {
 
 				&.disabled {
 					a {
-						@include binary-colors.grey();
+						@include binary-colors.grey;
 					}
 				}
 			}

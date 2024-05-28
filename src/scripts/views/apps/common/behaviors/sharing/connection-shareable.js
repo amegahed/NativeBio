@@ -4,8 +4,7 @@
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines a behavior for views that deal with sharable items       |
-|        (files and directories).                                              |
+|        This is a behavior that allows sharing of connections.                |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |
@@ -16,10 +15,10 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import ItemsShareable from '../../../../../views/apps/common/behaviors/sharing/items-shareable.js';
+import ItemShareable from '../../../../../views/apps/common/behaviors/sharing/item-shareable.js';
 import Browser from '../../../../../utilities/web/browser.js';
 
-export default _.extend({}, ItemsShareable, {
+export default _.extend({}, ItemShareable, {
 
 	//
 	// connection sharing methods

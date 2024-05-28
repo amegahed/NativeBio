@@ -15,7 +15,7 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import Items from '../../../collections/files/items.js';
+import Items from '../../../collections/storage/items.js';
 import SelectableCollectionView from '../../../views/collections/selectable-collection-view.js';
 import GalleryItemView from '../../../views/items/galleries/gallery-item-view.js';
 import '../../../../vendor/jpictura/js/jpictura.js';
@@ -56,7 +56,7 @@ export default SelectableCollectionView.extend({
 			applyRowPadding: true,
 			itemSpacing: 10,
 			applyItemSpacing: true,
-			idealRowHeight: 200,
+			idealRowHeight: 256,
 			minWidthHeightRatio: 1 / 3,
 			maxWidthHeightRatio: 3,
 			stretchImages: false,

@@ -14,7 +14,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|            Copyright (C) 2016-2020, Sharedigm, www.sharedigm.com             |
+|            Copyright (C) 2016-2024, Sharedigm, www.sharedigm.com             |
 \******************************************************************************/
 
 namespace App\Notifications;
@@ -22,7 +22,7 @@ namespace App\Notifications;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Messages\NexmoMessage;
 use App\Notifications\BaseNotification;
-use App\Models\Files\Sharing\ShareRequest;
+use App\Models\Storage\Sharing\ShareRequest;
 use App\Models\Settings\UserSetting;
 use App\Utilities\Uuids\Guid;
 

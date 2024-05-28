@@ -39,10 +39,11 @@ export default CollectionView.extend(_.extend({}, SelectableContainable, {
 			//
 			preferences: this.options.preferences,
 			selected: this.options.selected,
-			showElapsedTime: this.options.showElapsedTime,
+			show_elapsed_time: this.options.show_elapsed_time,
 
 			// capabilities
 			//
+			features: this.options.features,
 			editable: this.options.editable,
 
 			// callbacks

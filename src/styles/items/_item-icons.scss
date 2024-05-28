@@ -25,7 +25,7 @@
 $icon-size: 100px;
 $icon-image-size: 70px;
 $icon-thumbnail-size: 50px;
-$icon-font-size: 35px;
+$icon-font-size: 50px;
 $icon-text-spacing: 2px;
 $icon-margin: 2px;
 $icon-h-spacing: 0;
@@ -78,6 +78,7 @@ $rounded-icon-text-border-radius: 3px;
 				position: relative;
 				width: $icon-image-size;
 				height: $icon-image-size;
+				pointer-events: none;
 
 				// center contents
 				//
@@ -90,7 +91,6 @@ $rounded-icon-text-border-radius: 3px;
 				padding: 8px 0;
 				border-width: 0;
 				border-style: solid;
-				pointer-events: auto;
 
 				//
 				// icons
@@ -100,22 +100,11 @@ $rounded-icon-text-border-radius: 3px;
 					margin: 0;
 					font-size: $icon-font-size;
 					text-align: center;
+					pointer-events: auto;
 
-					+ .fa-info-circle {
-						position: absolute;
-						font-size: 14px;
-						color: white;
-						filter: none !important;
-					}
-
-					&.fa-map-marker + .fa-info-circle {
-						margin-top: -7px;
-					}
-
-					&.fa-map-pin + .fa-info-circle {
-						margin-left: 2px;
-						margin-top: -15px
-					}
+					// make icons clickable
+					//
+					pointer-events: auto;
 				}
 				
 				//
@@ -128,9 +117,9 @@ $rounded-icon-text-border-radius: 3px;
 					background-size: contain;
 					background-position: center;
 
-					// let icon handle events
+					// make images clickable
 					//
-					pointer-events: none;
+					pointer-events: auto;
 				}
 
 				//
@@ -165,6 +154,9 @@ $rounded-icon-text-border-radius: 3px;
 				right: 0;
 				max-width: 100%;
 				max-height: 100%;
+
+				// make badges clickable
+				//
 				pointer-events: auto;
 			}
 
@@ -189,8 +181,11 @@ $rounded-icon-text-border-radius: 3px;
 				word-break: break-word;
 				padding: 0 4px;
 				margin-bottom: -4px;
-				pointer-events: auto;
 				cursor: default;
+
+				// make names clickable
+				//
+				pointer-events: auto;
 
 				// hyphenation does not work on Chrome
 				//
@@ -299,6 +294,19 @@ $rounded-icon-text-border-radius: 3px;
 
 			&::after {
 				border: none;
+			}
+		}
+
+		&.selected {
+			> .row:first-child {
+				.icon {
+					pointer-events: auto;
+
+					> i, > .thumbnail i,
+					> img, > svg, > .thumbnail {
+						pointer-events: none;
+					}
+				}
 			}
 		}
 

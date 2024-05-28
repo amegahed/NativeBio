@@ -16,7 +16,6 @@
 \******************************************************************************/
 
 import ToolbarView from '../../../../../views/apps/common/toolbars/toolbar-view.js';
-import ZoomModeView from '../../../../../views/apps/image-viewer/header-bar/zoom-bar/buttons/zoom-mode-view.js';
 import ZoomInButtonView from '../../../../../views/apps/image-viewer/header-bar/zoom-bar/buttons/zoom-in-button-view.js';
 import ZoomOutButtonView from '../../../../../views/apps/image-viewer/header-bar/zoom-bar/buttons/zoom-out-button-view.js';
 import ZoomInputView from '../../../../../views/apps/image-viewer/header-bar/zoom-bar/inputs/zoom-input-view.js';
@@ -28,14 +27,12 @@ export default ToolbarView.extend({
 	//
 
 	template: template(`
-		<div class="zoom-mode"></div>
 		<div class="zoom-out" data-toggle="tooltip" title="Zoom Out" data-placement="bottom"></div>
 		<div class="zoom-in" data-toggle="tooltip" title="Zoom In" data-placement="bottom"></div>
 		<div class="zoom-amount" data-toggle="tooltip" title="Zoom" data-placement="bottom"></div>
 	`),
 
 	regions: {
-		zoom_mode: '.zoom-mode',
 		zoom_in: '.zoom-in',
 		zoom_out: '.zoom-out',
 		zoom_amount: '.zoom-amount'
@@ -64,7 +61,7 @@ export default ToolbarView.extend({
 
 	initialize: function() {
 
-		// set attribtes
+		// set attributes
 		//
 		this.minZoom = this.zoomLevels[0];
 		this.maxZoom = this.zoomLevels[this.zoomLevels.length - 1];
@@ -73,10 +70,6 @@ export default ToolbarView.extend({
 	//
 	// getting methods
 	//
-
-	getZoomMode: function() {
-		return this.getChildView('zoom_mode').getValue();
-	},
 
 	getZoom: function() {
 		let zoom = this.getChildView('zoom_amount').getValue();
@@ -134,7 +127,7 @@ export default ToolbarView.extend({
 
 		// set selected zoom mode button
 		//
-		this.getChildView('zoom_mode').setValue(zoomMode);
+		this.parent.getChildView('zoom_mode').setValue(zoomMode);
 
 		// update zoom value
 		//
@@ -152,8 +145,8 @@ export default ToolbarView.extend({
 
 		// set selected zoom mode button
 		//
-		this.getChildView('zoom_mode').setValue(zoom == 100? 'actual_size' : undefined);
-		
+		this.parent.getChildView('zoom_mode').setValue(zoom == 100? 'actual_size' : undefined);
+
 		// update zoom value
 		//
 		zoom = Math.clamp(zoom, this.minZoom, this.maxZoom);
@@ -235,10 +228,6 @@ export default ToolbarView.extend({
 
 		// show child views
 		//
-		this.showChildView('zoom_mode', new ZoomModeView({
-			model: this.model,
-			selected: this.options.zoom
-		}));
 		this.showChildView('zoom_in', new ZoomInButtonView({
 			model: this.model
 		}));
@@ -273,7 +262,7 @@ export default ToolbarView.extend({
 		//
 		this.setZoomMode('fit_size');
 
-		// enable / disble buttons
+		// enable / disable buttons
 		//
 		this.setItemsEnabled(true);
 	},

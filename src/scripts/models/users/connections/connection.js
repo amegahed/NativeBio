@@ -81,7 +81,7 @@ export default User.extend({
 			case 'join_date':
 				return this.has('created_at')? 'joined ' + this.get('created_at').format(this.getFormatString(preferences)) : undefined;
 			case 'connect_date':
-				return this.has('accepted_at')? 'connected since ' + this.get('accepted_at').format(this.getFormatString(preferences)) : undefined;
+				return this.has('accepted_at')? 'connected ' + this.get('accepted_at').format(this.getFormatString(preferences)) : undefined;
 			default:
 				return this.get(attributeName);
 		}

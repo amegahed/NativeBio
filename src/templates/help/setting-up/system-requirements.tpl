@@ -22,8 +22,8 @@
 			<h2><i class="fa fa-laptop"></i>Platform Requirements</h2>
 			<p>You will need the following.</p>
 			<ul>
-				<li>PHP >= 7.2.5</li>
-				<li>Must be able to run the PHP Framework, <a href="https://laravel.com/docs/7.x#server-requirements" target="_blank">Laravel 7.2</a>
+				<li>PHP >= 8.1</li>
+				<li>Must be able to run the PHP Framework, <a href="https://laravel.com/docs/7.x#server-requirements" target="_blank">Laravel 10</a>
 				</li>
 			</ul>
 		</li>

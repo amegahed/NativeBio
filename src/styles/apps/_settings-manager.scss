@@ -48,34 +48,42 @@ $pie-size: 100px;
 					flex-direction: column;
 					display: flex;
 
-					.buttons {
-						width: 100%;
-						text-align: center;
-					}
-
-					.desktop-app {
+					.tab-content {
 						height: 100%;
-						margin: 0;
-						flex-grow: 1;
-						overflow: hidden;
 
-						.items {
-							.pager {
+						.apps-settings {
+							height: 100%;
+
+							.buttons {
 								width: 100%;
-								padding: 0;
-								margin: auto;
+								text-align: center;
+							}
 
-								.pages {
-									.row {
-										.desktop.preview {
-											min-width: $min-desktop-preview-width;
-											max-width: $max-desktop-preview-width;
-											aspect-ratio: 1.5;
-											pointer-events: auto;
-											
-											i {
-												font-size: $desktop-preview-icon-size;
-												margin: auto;
+							.desktop-app {
+								height: calc(100% - 20px);
+								margin: 0;
+								flex-grow: 1;
+								overflow: hidden;
+
+								.items {
+									.pager {
+										width: 100%;
+										padding: 0;
+										margin: auto;
+
+										.pages {
+											.row {
+												.desktop.preview {
+													min-width: $min-desktop-preview-width;
+													max-width: $max-desktop-preview-width;
+													aspect-ratio: 1.5;
+													pointer-events: auto;
+													
+													i {
+														font-size: $desktop-preview-icon-size;
+														margin: auto;
+													}
+												}
 											}
 										}
 									}
@@ -83,6 +91,14 @@ $pie-size: 100px;
 							}
 						}
 					}
+				}
+
+				.pages {
+					height: calc(100% - 30px);
+				}
+
+				.nav-bar {
+					margin-top: -50px;
 				}
 
 				.pie {

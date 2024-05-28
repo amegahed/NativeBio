@@ -81,19 +81,19 @@ export default FormView.extend({
 				<label class="required control-label"><i class="fa fa-envelope"></i>Email</label>
 				<div class="controls">
 					<div class="input-group">
-						<input type="text" class="required form-control" name="email" placeholder="name@domain" value="<%= email %>">
+						<input type="text" class="required email form-control" name="email" placeholder="name@domain" value="<%= email %>">
 						<div class="input-group-addon">
 							<i class="active fa fa-question-circle" data-toggle="popover" title="Email" data-content="A valid email address is required and will be used for your account registration and for password recovery."></i>
 						</div>
 					</div>
 				</div>
 			</div>
-		
+
 			<div class="confirm-email form-group">
 				<label class="required control-label"><i class="fa fa-redo"></i>Confirm email</label>
 				<div class="controls">
 					<div class="input-group">
-						<input type="text" class="required form-control" name="confirm-email" placeholder="name@domain" value="<%= email %>">
+						<input type="text" class="required confirm-email form-control" name="confirm-email" placeholder="name@domain" value="<%= email %>">
 						<div class="input-group-addon">
 							<i class="active fa fa-question-circle" data-toggle="popover" title="Confirm email address" data-content="Please retype your previously entered email address for verification."></i>
 						</div>
@@ -233,7 +233,6 @@ export default FormView.extend({
 	},
 
 	onBlurUsername: function(event) {
-		let element = $(event.currentTarget);
 		let username = event.currentTarget.value;
 		if (username !== '' && username !== ' ') {
 
@@ -248,16 +247,13 @@ export default FormView.extend({
 				error: (response) => {
 					let error = JSON.parse(response.responseText)[0];
 					error = error.substr(0,1).toUpperCase() + error.substr(1);
-					element.closest('.form-group').removeClass('success').addClass('error');
-					element.closest('.form-group').find('.error').removeClass('valid');
-					element.closest('.form-group').find('label.error').html(error);
+					this.$el.validate().showLabel($('.username input')[0], error);
 				}
 			});
 		}
 	},
 
 	onBlurEmail: function(event) {
-		let element = $(event.currentTarget);
 		let email = event.currentTarget.value;
 		if (email !== '' && email !== ' ') {
 
@@ -272,9 +268,7 @@ export default FormView.extend({
 				error: (response) => {
 					let error = JSON.parse(response.responseText)[0];
 					error = error.substr(0,1).toUpperCase() + error.substr(1);
-					element.closest('.form-group').removeClass('success').addClass('error');
-					element.closest('.form-group').find('.error').removeClass('valid');
-					element.closest('.form-group').find('label.error').html(error);
+					this.$el.validate().showLabel($('.email input')[0], error);
 				}
 			});
 		}

@@ -110,7 +110,7 @@ export default FormView.extend({
 
 	setIconPath: function() {
 		import(
-			'../../../../../models/files/directory.js'
+			'../../../../../models/storage/directories/directory.js'
 		).then((Directory) => {
 
 			// load pictures directory

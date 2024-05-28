@@ -51,11 +51,11 @@
 
 	<h2><i class="fa fa-desktop"></i>Screen Shots</h2>
 	<div class="figure desktop-only">
-		<a href="images/info/apps/audio-player/audio-player.png" target="_blank" class="lightbox" title="Audio"><img class="dialog" src="images/info/apps/audio-player/audio-player.png" /></a>
-		<div class="caption">Audio</div>
+		<a href="images/info/apps/audio-player/audio-player.png" target="_blank" class="lightbox" title="<%= config.apps['audio_player'].name %>"><img class="dialog" src="images/info/apps/audio-player/audio-player.png" /></a>
+		<div class="caption"><%= config.apps['audio_player'].name %></div>
 	</div>
 	<div class="figure mobile-only">
-		<a href="images/info/apps/audio-player/mobile/mobile-audio-player.png" target="_blank" class="lightbox" title="Audio"><img src="images/info/apps/audio-player/mobile/mobile-audio-player.png" /></a>
-		<div class="caption">Audio</div>
+		<a href="images/info/apps/audio-player/mobile/mobile-audio-player.png" target="_blank" class="lightbox" title="<%= config.apps['audio_player'].name %>"><img src="images/info/apps/audio-player/mobile/mobile-audio-player.png" /></a>
+		<div class="caption"><%= config.apps['audio_player'].name %></div>
 	</div>
 </div>

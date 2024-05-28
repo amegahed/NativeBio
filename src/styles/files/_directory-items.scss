@@ -21,6 +21,12 @@
 // styles
 //
 
+.file-type {
+	text {
+		font-size: 14px;
+	}
+}
+
 body:not(.binary):not(.flat-icons):not(.auto-icons), 
 body:not(.binary):not(.flat).auto-icons {
 

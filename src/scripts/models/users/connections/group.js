@@ -16,7 +16,7 @@
 \******************************************************************************/
 
 import Timestamped from '../../../models/utilities/timestamped.js';
-import ImageFile from '../../../models/files/image-file.js';
+import ImageFile from '../../../models/storage/media/image-file.js';
 import Member from '../../../models/users/connections/member.js';
 import Members from '../../../collections/users/connections/members.js';
 

@@ -47,10 +47,7 @@ export default BaseView.extend(_.extend({}, SelectableContainable, Scrollable, {
 		}
 	},
 
-	emptyView:  BaseView.extend({
-		className: 'empty',
-		template: template("No items")
-	}),
+	empty: 'No items',
 
 	//
 	// constructor
@@ -145,6 +142,18 @@ export default BaseView.extend(_.extend({}, SelectableContainable, Scrollable, {
 				this.setViewKind(value);
 				break;
 
+			case 'tile_size':
+				this.setTileSize(value);
+				break;
+
+			case 'show_image_names':
+				if (value) {
+					this.$el.removeClass('hide-image-names');
+				} else {
+					this.$el.addClass('hide-image-names');
+				}
+				break;
+
 			case 'map_mode':
 				if (this.hasChildView('items') && this.getChildView('items').setMapMode) {
 					this.getChildView('items').setMapMode(value);
@@ -163,15 +172,27 @@ export default BaseView.extend(_.extend({}, SelectableContainable, Scrollable, {
 		}
 	},
 
+	setTileSize: function(tileSize) {
+		if (this.options.tile_size != tileSize) {
+			this.options.tile_size = tileSize;
+
+			// update child view
+			//
+			if (this.getChildView('items').setTileSize) {
+				this.getChildView('items').setTileSize(tileSize);
+			}
+		}
+	},
+
 	//
 	// behavior setting methods
 	//
 
 	addBehaviors: function() {
-		
+
 		// add behaviors
 		//
-		if (this.options.selectable) {
+		if (this.options.selectable && this.options.deselectable !== false) {
 
 			// add drag behavior
 			//
@@ -202,7 +223,7 @@ export default BaseView.extend(_.extend({}, SelectableContainable, Scrollable, {
 
 	addDragSelectBehavior: function() {
 		let numSelected = 0;
-		
+
 		// add drag select behavior
 		//
 		this.dragSelectBehavior = new MouseDragSelectBehavior(this, {
@@ -245,7 +266,7 @@ export default BaseView.extend(_.extend({}, SelectableContainable, Scrollable, {
 	//
 
 	sortItemsBy: function(sortKind, sortOrder) {
-		
+
 		function reverseSortBy(sortByFunction) {
 			return function(left, right) {
 				let l = sortByFunction(left);
@@ -293,6 +314,12 @@ export default BaseView.extend(_.extend({}, SelectableContainable, Scrollable, {
 		//
 		this.sortItems();
 		this.showItems();
+
+		// show / hide image names
+		//
+		if (this.options.preferences && !this.options.preferences.get('show_image_names')) {
+			this.$el.addClass('hide-image-names');
+		}
 	},
 
 	showItems: function() {

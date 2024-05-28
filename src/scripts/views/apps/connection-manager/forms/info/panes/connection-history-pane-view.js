@@ -29,7 +29,7 @@ export default FormView.extend({
 			<label class="control-label"><i class="fa fa-birthday-cake"></i>Birth Date</label>
 			<div class="controls">
 				<p class="form-control-static">
-					<%= birth_date? birth_date.format() : 'unknown' %>
+					<%= birth_date %>
 				</p>
 			</div>
 		</div>
@@ -40,7 +40,7 @@ export default FormView.extend({
 			<label class="control-label"><i class="fa fa-pencil-alt"></i>Join Date</label>
 			<div class="controls">
 				<p class="form-control-static">
-					<%= created_at? created_at.format() : 'unknown' %>
+					<%= created_at %>
 				</p>
 			</div>
 		</div>
@@ -51,7 +51,7 @@ export default FormView.extend({
 			<label class="control-label"><i class="fa fa-user-friends"></i>Connect Date</label>
 			<div class="controls">
 				<p class="form-control-static">
-					<%= accepted_at? accepted_at.format() : 'unknown' %>
+					<%= accepted_at %>
 				</p>
 			</div>
 		</div>
@@ -62,10 +62,23 @@ export default FormView.extend({
 			<label class="control-label"><i class="fa fa-keyboard"></i>Last Login Date</label>
 			<div class="controls">
 				<p class="form-control-static">
-					<%= last_login_at? last_login_at.format() : 'unknown' %>
+					<%= last_login_at %>
 				</p>
 			</div>
 		</div>
 		<% } %>
-	`)
+	`),
+
+	//
+	// rendering methods
+	//
+
+	templateContext: function() {
+		return {
+			birth_date: this.model.has('birth_date')? this.model.get('birth_date').format() : 'unknown',
+			created_at: this.model.has('created_at')? this.model.get('created_at').format() : 'unknown',
+			accepted_at: this.model.has('accepted_at')? this.model.get('accepted_at').format() : 'unknown',
+			last_login_at: this.model.has('last_login_at')? this.model.get('last_login_at').format() : 'unknown'
+		};
+	}
 });

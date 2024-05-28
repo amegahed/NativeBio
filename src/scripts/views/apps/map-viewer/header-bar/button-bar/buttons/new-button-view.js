@@ -33,6 +33,6 @@ export default ButtonView.extend({
 
 		// perform action
 		//
-		this.parent.parent.app.newMap();
+		this.parent.parent.app.newFile();
 	}
 });

@@ -13,13 +13,14 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|            Copyright (C) 2016-2020, Sharedigm, www.sharedigm.com             |
+|            Copyright (C) 2016-2024, Sharedigm, www.sharedigm.com             |
 \******************************************************************************/
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Topics\TopicController;
 use App\Http\Controllers\Topics\Sharing\TopicInvitationController;
 use App\Http\Controllers\Topics\PostController;
+use App\Http\Controllers\Topics\PostAttachmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,10 +83,6 @@ Route::group(['middleware' => 'verify.auth'], function() {
 		Route::put('topics/{id}/posts/update', [PostController::class, 'updateByTopic']);
 		Route::delete('posts/{id}', [PostController::class, 'deleteIndex']);	
 	});
-
-	// attachment routes
-	//
-	Route::get('posts/attachments', [PostController::class, 'getAttachments']);
 });
 
 //
@@ -97,4 +94,5 @@ Route::get('topics/{id}', [TopicController::class, 'getIndex']);
 Route::get('topics/{id}/posts', [PostController::class, 'getByTopic']);
 Route::get('topics/{id}/thumb', [TopicController::class, 'getThumbnail']);
 Route::get('posts/public', [PostController::class, 'getPublic']);
+Route::get('posts/attachments/public', [PostAttachmentController::class, 'getPublic']);
 Route::get('posts/{id}', [PostController::class, 'getIndex']);

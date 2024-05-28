@@ -35,14 +35,14 @@ export default ModalView.extend({
 						<i class="fa fa-info-circle"></i>
 					</div>
 					<div class="title">
-						About <%= branding.welcome.splash.brand.logotype.first.text + (branding.welcome.splash.brand.logotype.middle? branding.welcome.splash.brand.logotype.middle.text : '') + (branding.welcome.splash.brand.logotype.last? branding.welcome.splash.brand.logotype.last.text : '') %>
+						About <%= branding.name %>
 					</div>
 				</div>
 			</div>
 		
 			<div class="modal-content welcome">
 				<div class="modal-body" style="text-align:center">
-					<div class="logo" style="display:inline-block; text-align:center; padding:10px">
+					<div class="logo" style="display:inline-block; text-align:center; padding:10px; margin: 0 auto">
 						<% if (branding.about && branding.about.logo) { %>
 						<img height="150" src="<%= branding.about.logo.src %>" data-toggle="tooltip" title="<%= branding.about.logo.tooltip %>" />
 						<% } else if (branding.welcome.splash.brand.logo) { %>
@@ -57,28 +57,12 @@ export default ModalView.extend({
 					<div style="text-align:center">
 		
 						<% if (branding.welcome.splash.brand.logotype) { %>
-						<h2 class="brand" style="display:inline-flex; margin:10px">
-		
-							<% if (branding.welcome.splash.brand.logotype.prefix) { %>
-							<span class="prefix"><%= branding.welcome.splash.brand.logotype.prefix.text %></span>
+						<h1 class="brand" style="display:inline-flex; margin:10px">
+							<% if (branding.welcome.splash.brand.logotype.names) { %>
+							<% let names = branding.welcome.splash.brand.logotype.names; %>
+							<% for (let i = 0; i < names.length; i++) { %><% let name = names[i]; %><span><% if (name.text) { %><%= name.text.replace(' ', '&nbsp') %></span><% } %><% } %>
 							<% } %>
-		
-							<% if (branding.welcome.splash.brand.logotype.first) { %>
-							<span class="first"><%= branding.welcome.splash.brand.logotype.first.text.replace(' ', '&nbsp') %></span>
-							<% } %>
-		
-							<% if (branding.welcome.splash.brand.logotype.middle) { %>
-							<span class="middle"><%= branding.welcome.splash.brand.logotype.middle.text.replace(' ', '&nbsp') %></span>
-							<% } %>
-		
-							<% if (branding.welcome.splash.brand.logotype.last) { %>
-							<span class="last"><%= branding.welcome.splash.brand.logotype.last.text.replace(' ', '&nbsp') %></span>
-							<% } %>
-		
-							<% if (branding.welcome.splash.brand.logotype.suffix) { %>
-							<span class="suffix"><%= branding.welcome.splash.brand.logotype.suffix.text.replace(' ', '&nbsp') %></span>
-							<% } %>
-						</h2>
+						</h1>
 						<% } %>
 		
 						<% if (branding.welcome.splash.tagline && branding.welcome.splash.tagline.text) { %>
@@ -168,34 +152,36 @@ export default ModalView.extend({
 
 	setLogoTypeStyles: function(logotype) {
 
-		// set logotype component styles
+		// set font styles
 		//
-		if (logotype.prefix) {
-			this.setTextElementStyles(this.$el.find('.brand .prefix'), logotype.prefix);
+		if (logotype.font) {
+			this.$el.find('.brand').css({
+				'font-family': config.fonts[logotype.font]['font-family']
+			});
 		}
-		if (logotype.first) {
-			this.setTextElementStyles(this.$el.find('.brand .first'), logotype.first);
+		if (logotype.font_variant) {
+			this.$el.find('.brand').css('font-variant', logotype.font_variant);
 		}
-		if (logotype.middle) {
-			this.setTextElementStyles(this.$el.find('.brand .middle'), logotype.middle);
+		if (logotype.text_transform) {
+			this.$el.find('.brand').css('text-transform', logotype.text_transform);
 		}
-		if (logotype.last) {
-			this.setTextElementStyles(this.$el.find('.brand .last'), logotype.last);
-		}
-		if (logotype.suffix) {
-			this.setTextElementStyles(this.$el.find('.brand .suffix'), logotype.suffix);
+
+		// set logotype name styles
+		//
+		if (logotype.names) {
+			let elements = this.$el.find('.brand > span');
+			for (let i = 0; i < logotype.names.length; i++) {
+				this.setTextElementStyles($(elements[i]), logotype.names[i]);
+			}
 		}
 	},
 
 	setTextElementStyles: function(element, attributes) {
-		if (attributes.color) {
+		if (attributes.color && attributes.color != 'white') {
 			$(element).css('color', attributes.color);
 		}
 		if (attributes.font && config.fonts[attributes.font]) {
 			$(element).css('font-family', config.fonts[attributes.font]['font-family']);
-		}
-		if (attributes.font_size) {
-			$(element).css('font-size', attributes.font_size);
 		}
 		if (attributes.font_style) {
 			$(element).css('font-style', attributes.font_style);
@@ -241,7 +227,7 @@ export default ModalView.extend({
 		// set styles
 		//
 		this.setDialogStyles(config.branding.welcome.splash);
-		this.setDialogLogoStyles(config.branding.header.brand);
+		this.setDialogLogoStyles(config.branding.welcome.splash.brand);
 	},
 
 	//

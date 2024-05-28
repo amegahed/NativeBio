@@ -63,7 +63,6 @@ export default FormDialogView.extend({
 	// dialog attributes
 	//
 
-	size: config.defaults.dialogs.sizes.tiny,
 	resizable: false,
 	minimizable: false,
 	maximizable: false,

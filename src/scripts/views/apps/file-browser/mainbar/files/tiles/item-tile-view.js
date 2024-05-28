@@ -63,6 +63,7 @@ export default TileView.extend(_.extend({}, Mappable, {
 			<span class="details"><%= details %></span>
 		</div>
 	`),
+
 	ownerThumbnailSize: 25,
 
 	regions: {

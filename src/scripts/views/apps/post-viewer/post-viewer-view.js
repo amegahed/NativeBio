@@ -17,8 +17,8 @@
 
 import Topic from '../../../models/topics/topic.js';
 import Topics from '../../../collections/topics/topics.js';
-import Directory from '../../../models/files/directory.js'; 
-import File from '../../../models/files/file.js';
+import Directory from '../../../models/storage/directories/directory.js';
+import File from '../../../models/storage/files/file.js';
 import AppSplitView from '../../../views/apps/common/app-split-view.js';
 import Openable from '../../../views/apps/common/behaviors/launching/openable.js';
 import LinkShareable from '../../../views/apps/common/behaviors/sharing/link-shareable.js';
@@ -47,8 +47,6 @@ export default AppSplitView.extend(_.extend({}, Openable, LinkShareable, {
 		'tap .post': 'onTapPost'
 	},
 
-	defaultTopic: new Topic(config.apps.topic_viewer.defaults.topic),
-	
 	//
 	// constructor
 	//
@@ -103,7 +101,7 @@ export default AppSplitView.extend(_.extend({}, Openable, LinkShareable, {
 	getDefaultTopic: function() {
 		let name = this.preferences.get('default_topic');
 		if (!name || name == '' || name == config.apps.topic_viewer.defaults.topic.name) {
-			return this.constructor.defaultTopic;
+			return this.constructor.default_topic;
 		} else {
 			return this.getTopicByName(name);
 		}
@@ -124,7 +122,7 @@ export default AppSplitView.extend(_.extend({}, Openable, LinkShareable, {
 		// update view
 		//
 		switch (key) {
-		
+
 			// mainbar options
 			//
 			case 'show_options':
@@ -153,7 +151,7 @@ export default AppSplitView.extend(_.extend({}, Openable, LinkShareable, {
 				title: 'Move Post',
 				message: "Are you sure that you would like to move this post from #" +
 					this.topic.get('name') + " to #" + topic.get('name') + "?",
-				
+
 				// callbacks
 				//
 				accept: () => {
@@ -207,7 +205,7 @@ export default AppSplitView.extend(_.extend({}, Openable, LinkShareable, {
 	deselectAll: function() {
 		this.getChildView('content').deselect();
 	},
-	
+
 	//
 	// posting methods
 	//
@@ -244,8 +242,8 @@ export default AppSplitView.extend(_.extend({}, Openable, LinkShareable, {
 		});
 	},
 
-	shareByPost: function(options) {
-		this.shareLinkByPost(this.model.getUrl(), _.extend({}, options, {
+	shareByTopic: function(options) {
+		this.shareLinkByTopic(this.model.getUrl(), _.extend({}, options, {
 			message: 'Check out this post: ' + '\n'
 		}));
 	},
@@ -294,7 +292,7 @@ export default AppSplitView.extend(_.extend({}, Openable, LinkShareable, {
 	getSideBarView: function() {
 		return new SideBarView({
 			post: this.model,
-			defaultTopic: this.defaultTopic,
+			defaultTopic: this.constructor.default_topic,
 
 			// options
 			//
@@ -373,7 +371,7 @@ export default AppSplitView.extend(_.extend({}, Openable, LinkShareable, {
 			}));
 		});
 	},
-	
+
 	showPreferencesDialog: function() {
 		import(
 			'../../../views/apps/post-viewer/dialogs/preferences/preferences-dialog-view.js'
@@ -399,7 +397,7 @@ export default AppSplitView.extend(_.extend({}, Openable, LinkShareable, {
 			this.options.onchange();
 		}
 	},
-	
+
 	//
 	// file event handling methods
 	//
@@ -456,7 +454,7 @@ export default AppSplitView.extend(_.extend({}, Openable, LinkShareable, {
 	//
 	// touch event handling methods
 	//
-	
+
 	onTapPost: function(event) {
 
 		// skip touch events if not touch enabled
@@ -465,6 +463,13 @@ export default AppSplitView.extend(_.extend({}, Openable, LinkShareable, {
 			return;
 		}
 
-		this.onClickPost(event);		
+		this.onClickPost(event);
 	}
-}));
+}), {
+
+	//
+	// static attributes
+	//
+
+	default_topic: new Topic(config.apps.topic_viewer.defaults.topic),
+});

@@ -47,6 +47,19 @@ export default BaseView.extend({
 		}
 	},
 
+	setTileSize: function(tileSize) {
+
+		// set options
+		//
+		this.options.tile_size = tileSize;
+
+		// update
+		//
+		if (this.hasChildView('items') && this.getChildView('items').setTileSize) {
+			this.getChildView('items').setTileSize(tileSize);
+		}
+	},
+
 	//
 	// rendering methods
 	//

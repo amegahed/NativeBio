@@ -15,10 +15,10 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import DialogView from '../../../views/dialogs/dialog-view.js';
+import FormDialogView from '../../../views/forms/dialogs/form-dialog-view.js';
 import CommentFormView from '../../../views/comments/forms/comment-form-view.js';
 
-export default DialogView.extend({
+export default FormDialogView.extend({
 
 	//
 	// attributes
@@ -58,56 +58,45 @@ export default DialogView.extend({
 	`),
 
 	regions: {
-		form: '.new-comment'
+		form: {
+			el: '.new-comment',
+			replaceElement: false
+		}
 	},
 
-	events: _.extend({}, DialogView.prototype.events, {
+	events: _.extend({}, FormDialogView.prototype.events, {
 		'click .submit': 'onClickSubmit'
 	}),
 
 	//
-	// rendering methods
+	// setting methods
 	//
 
 	setSubmitDisabled: function(disabled) {
 		this.$el.find('.submit').prop('disabled', disabled !== false);
 	},
 
-	onRender: function() {
+	//
+	// rendering methods
+	//
 
-		// call superclass method
-		//
-		DialogView.prototype.onRender.call(this);
-
-		// show child views
-		//
-		this.showChildView('form', new CommentFormView({
+	form: function() {
+		return new CommentFormView({
 			model: this.model,
 			collection: this.model.get('attachments'),
 
 			// options
 			//
-			attachable: true,
-			uploadable: true,
 			submitable: false,
+			cancelable: false,
+			features: this.options.features,
 			preferences: this.options.preferences,
 
 			// callbacks
 			//
 			onvalidate: (valid) => this.setSubmitDisabled(!valid),
 			onsubmit: () => this.onSubmit()
-		}));
-	},
-
-	onShow: function() {
-
-		// call superclass method
-		//
-		DialogView.prototype.onShow.call(this);
-
-		// handle form
-		//
-		this.getChildView('form').onShow();
+		});
 	},
 
 	//

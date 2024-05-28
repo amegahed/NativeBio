@@ -83,6 +83,14 @@ $flickable-active-cursor: grabbing;
 				}
 			}
 		}
+
+		.flickity-slider.animating {
+
+			// these two lines improve performance on Chrome dramatically!
+			//
+			-webkit-backface-visibility: hidden;
+			-webkit-perspective: 1000;
+		}
 	}
 
 	//

@@ -81,6 +81,8 @@ body:not(.binary).dark {
 			}
 
 			> a:hover,  > a:active {
+				overflow: visible;
+				
 				i {
 					@include colors.glow();
 				}

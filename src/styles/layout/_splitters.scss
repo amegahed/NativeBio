@@ -235,14 +235,138 @@ body.wide-splitter-handles {
 // mobile styles
 //
 
-/*
-body[device="phone"] {
-	.gutter.gutter-vertical {
-		padding: 2px;
+body[device="phone"], body[device="tablet"] {
+	.split-view {
+		> .gutter {
 
-		.handle {
-			width: 90%;
+			.handle {
+				background-image: none !important;
+			}
+
+			button.btn-sm {
+				position: absolute;
+				z-index: 1;
+			}
+
+			&.gutter-horizontal {
+				button.btn-sm {
+
+					// position
+					//
+					top: 50%;
+					margin-top: -25px;
+
+					// size
+					//
+					height: 50px;
+					width: 30px;
+					min-width: 0;
+				}
+			}
+
+			&.gutter-vertical {
+				button.btn-sm {
+
+					// position
+					//
+					left: 50%;
+					margin-left: -25px;
+
+					// size
+					//
+					max-width: none;
+				}
+			}
+		}
+
+		//
+		// button icons
+		//
+
+		&:not(.flipped) {
+			&.closed {
+				> .gutter-vertical {
+					button {
+						i.fa-caret-up {
+							display: none;
+						}
+					}
+				}
+				> .gutter-horizontal {
+					button {
+						i.fa-caret-left {
+							display: none;
+						}
+					}
+				}
+			}
+			&:not(.closed) {
+				> .gutter-vertical {
+					button {
+						margin-top: -10px;
+						i.fa-caret-down {
+							display: none;
+						}
+					}
+				}
+				> .gutter-horizontal {
+					button {
+						i.fa-caret-right {
+							display: none;
+						}
+					}
+				}
+			}
+		}
+
+		&.flipped {
+			&.closed {
+				> .gutter-vertical {
+					button {
+						margin-top: -10px;
+						i.fa-caret-down {
+							display: none;
+						}
+					}
+				}
+				> .gutter-horizontal {
+					button {
+						i.fa-caret-right {
+							display: none;
+						}
+					}
+				}
+			}
+			&:not(.closed) {
+				> .gutter-vertical {
+					button {
+						i.fa-caret-up {
+							display: none;
+						}
+					}
+				}
+				> .gutter-horizontal {
+					button {
+						i.fa-caret-left {
+							display: none;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	//
+	// inactive splitter buttons
+	//
+
+	.tab-pane:not(.active) {
+		.split-view {
+			> .gutter {
+				button {
+					display: none;
+				}
+			}
 		}
 	}
 }
-*/

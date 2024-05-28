@@ -15,13 +15,13 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import FormView from '../../../../../views/forms/form-view.js';
+import SettingsFormView from '../../../../../views/apps/common/forms/settings-form-view.js';
 import PieView from '../../../../../views/forms/outputs/pie-view.js';
 import '../../../../../utilities/scripting/string-utils.js';
 import '../../../../../utilities/time/date-utils.js';
 import '../../../../../utilities/time/time-utils.js';
 
-export default FormView.extend({
+export default SettingsFormView.extend({
 
 	//
 	// attributes
@@ -43,34 +43,62 @@ export default FormView.extend({
 				</div>
 			</div>
 		</div>
-		
-		<h3><i class="fa fa-database"></i>Disk Space</h3>
-		<p>You are currently allocated a total of <%= disk_quota? disk_quota + ' of': 'unlimited' %> disk space.</p>
-		<div class="panel">
-			<div class="pie"></div>
-		
-			<div class="disk-used form-group">
-				<label class="form-label">Used</label>
-				<p class="form-control-static">
-					<%= disk_used %> / <%= disk_quota %> = <%= percent_disk_used %>%
-				</p>
+
+		<ul class="nav nav-tabs" role="tablist">
+
+			<li role="presentation" class="general-tab<% if (tab == 'general' || !tab) { %> active<% } %>">
+				<a role="tab" data-toggle="tab" href=".general-settings">
+					<i class="fa fa-check"></i>
+					<label>General</label>
+				</a>
+			</li>
+
+			<li role="presentation" class="graph-tab<% if (tab == 'graph') { %> active<% } %>">
+				<a role="tab" data-toggle="tab" href=".graph-settings">
+					<i class="fa fa-chart-pie"></i>
+					<label>Graph</label>
+				</a>
+			</li>
+		</ul>
+
+		<div class="tab-content">
+
+			<div role="tabpanel" class="general-settings tab-pane<% if (tab == 'general' || !tab) { %> active<% } %>">
+				<div class="disk-quota form-group">
+					<label class="form-label">Quota</label>
+					<p class="form-control-static">
+						You are allocated <%= disk_quota? disk_quota + ' of': 'unlimited' %> storage.
+					</p>
+				</div>
+				<div class="disk-used form-group">
+					<label class="form-label">Used</label>
+					<p class="form-control-static">
+						<%= disk_used %> / <%= disk_quota %> = <%= percent_disk_used %>%
+					</p>
+				</div>
+				<div class="disk-free form-group">
+					<label class="form-label">Free</label>
+					<p class="form-control-static">
+						<%= disk_free %> / <%= disk_quota %> = <%= percent_disk_free %>%
+					</p>
+				</div>
+
+				<% if (show_upgrade_account) { %>
+				<div class="buttons" style="text-align:center">
+					<button class="upgrade-account btn">
+						<i class="fa fa-arrow-up"></i>Upgrade Account
+					</button>
+				</div>
+				<% } %>
 			</div>
-		
-			<div class="disk-free form-group">
-				<label class="form-label">Free</label>
-				<p class="form-control-static">
-					<%= disk_free %> / <%= disk_quota %> = <%= percent_disk_free %>%
-				</p>
+
+			<div role="tabpanel" class="graph-settings tab-pane<% if (tab == 'graph') { %> active<% } %>">
+				<div class="pie"></div>
+				<div class="center aligned">
+					<label>Used Storage</label>
+				</div>
 			</div>
 		</div>
-		
-		<% if (show_upgrade_account) { %>
-		<div class="buttons" style="text-align:center">
-			<button class="upgrade-account btn">
-				<i class="fa fa-arrow-up"></i>Upgrade Account
-			</button>
-		</div>
-		<% } %>
 	`),
 
 	regions: {
@@ -90,6 +118,7 @@ export default FormView.extend({
 
 	templateContext: function() {
 		return {
+			tab: this.options.tab,
 			disk_used: this.model.getDiskUsed(),
 			disk_free: this.model.getDiskFree(),
 			percent_disk_used: Math.round(this.model.getPercentDiskUsed()),

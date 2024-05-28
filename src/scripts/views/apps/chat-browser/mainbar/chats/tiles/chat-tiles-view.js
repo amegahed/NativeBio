@@ -24,6 +24,11 @@ export default TilesView.extend({
 	// attributes
 	//
 
-	childView: ChatTileView,
-	editable: false
+	editable: false,
+
+	//
+	// views
+	//
+
+	childView: ChatTileView
 });

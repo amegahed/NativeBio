@@ -13,13 +13,13 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|            Copyright (C) 2016-2020, Sharedigm, www.sharedigm.com             |
+|            Copyright (C) 2016-2024, Sharedigm, www.sharedigm.com             |
 \******************************************************************************/
 
 namespace App\Utilities\Filters;
 
 use Illuminate\Http\Request;
-use App\Models\Files\File;
+use App\Models\Storage\File;
 use App\Utilities\Strings\StringUtils;
 
 class ItemFilters

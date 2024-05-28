@@ -152,6 +152,15 @@ export default AppSplitView.extend(_.extend({}, LinkShareable, {
 		this.setAddress(this.index[pageNumber - 1].get('url'));
 	},
 
+	setPageIndex: function(pageIndex) {
+		if (this.hasChildView('header page')) {
+			this.getChildView('header page').setPageNumber(pageIndex);
+		}
+		if (this.hasChildView('footer page')) {
+			this.getChildView('footer page').setPageNumber(pageIndex);
+		}
+	},
+
 	setAddress: function(url, options) {
 		let itemView;
 
@@ -198,7 +207,7 @@ export default AppSplitView.extend(_.extend({}, LinkShareable, {
 
 		// update address bar
 		//
-		if (!this.dialog) {
+		if (!application.desktop) {
 			AddressBar.set(AddressBar.get('base') + this.url.replace('#apps', '#help/apps'));
 		}
 	},
@@ -377,13 +386,11 @@ export default AppSplitView.extend(_.extend({}, LinkShareable, {
 
 		// set page number in footer bar
 		//
-		if (this.hasChildView('footer nav')) {
-			this.getChildView('footer nav').setPageNumber(itemView.model.get('index'));
-		}
+		this.setPageIndex(itemView.model.get('index'));
 
 		// update address bar
 		//
-		if (!this.dialog) {
+		if (!application.desktop) {
 			AddressBar.set(AddressBar.get('base') + this.url.replace('#apps', '#help/apps'));
 		}
 	},

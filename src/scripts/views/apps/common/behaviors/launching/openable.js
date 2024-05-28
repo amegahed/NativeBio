@@ -15,11 +15,11 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import File from '../../../../../models/files/file.js';
-import Directory from '../../../../../models/files/directory.js';
-import Volume from '../../../../../models/files/volume.js';
-import ArchiveFile from '../../../../../models/files/archive-file.js';
-import Items from '../../../../../collections/files/items.js';
+import File from '../../../../../models/storage/files/file.js';
+import Directory from '../../../../../models/storage/directories/directory.js';
+import Volume from '../../../../../models/storage/directories/volume.js';
+import ArchiveFile from '../../../../../models/storage/files/archive-file.js';
+import Items from '../../../../../collections/storage/items.js';
 
 export default {
 
@@ -65,7 +65,7 @@ export default {
 			}, options);
 		} else {
 
-			// show alert dialog
+			// show alert message
 			//
 			application.alert({
 				icon: '<i class="fa fa-file"></i>',
@@ -123,7 +123,7 @@ export default {
 			}
 		} else {
 
-			// show alert dialog
+			// show alert message
 			//
 			application.alert({
 				icon: '<i class="fa fa-file"></i>',
@@ -176,7 +176,7 @@ export default {
 			}
 		} else {
 
-			// show alert dialog
+			// show alert message
 			//
 			application.alert({
 				icon: '<i class="fa fa-file"></i>',

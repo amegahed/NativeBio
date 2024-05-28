@@ -34,8 +34,8 @@ $background-hover-color: rgba(colors.$light-grey, 25%);
 
 .emoji.selector {
 	max-width: $max-width;
-	margin-right: -10px;
 	cursor: default;
+	pointer-events: auto;
 
 	.tab-content {
 		max-height: $max-height;

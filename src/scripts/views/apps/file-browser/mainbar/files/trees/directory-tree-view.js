@@ -15,9 +15,9 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import File from '../../../../../../models/files/file.js';
-import Directory from '../../../../../../models/files/directory.js';
-import Volume from '../../../../../../models/files/volume.js';
+import File from '../../../../../../models/storage/files/file.js';
+import Directory from '../../../../../../models/storage/directories/directory.js';
+import Volume from '../../../../../../models/storage/directories/volume.js';
 import TreeView from '../../../../../../views/items/trees/tree-view.js';
 import DirectoryTreeViewable from '../../../../../../views/apps/file-browser/mainbar/files/trees/directory-tree-viewable.js';
 import FileDroppable from '../../../../../../views/apps/file-browser/mainbar/behaviors/file-droppable.js';
@@ -36,10 +36,10 @@ export default TreeView.extend(_.extend({}, DirectoryTreeViewable, FileDroppable
 		<div class="info">
 			
 			<span class="expander">
-				<button type="button" class="expand btn btn-sm">
+				<button type="button" class="expand btn-sm">
 					<i class="fa fa-caret-right"></i>	
 				</button>
-				<button type="button" class="collapse btn btn-sm">
+				<button type="button" class="collapse btn-sm">
 					<i class="fa fa-caret-down"></i>
 				</button>
 			</span>
@@ -51,7 +51,9 @@ export default TreeView.extend(_.extend({}, DirectoryTreeViewable, FileDroppable
 			<div class="name" spellcheck="false"><%= name %></div>
 			
 			<div class="specifics">
-		
+				<div class="badges"></div>
+				<div class="details"><%= details %></div>
+
 				<% if (owner) { %>
 				<div class="owner small tile" data-toggle="tooltip" data-html="true" title="shared by <%= owner.getName() %>">
 					<% if (owner.hasProfilePhoto()) { %>
@@ -66,9 +68,6 @@ export default TreeView.extend(_.extend({}, DirectoryTreeViewable, FileDroppable
 					<% } %>
 				</div>
 				<% } %>
-				
-				<div class="badges"></div>
-				<div class="details"><%= details %></div>
 			</div>
 		</div>
 		

@@ -35,6 +35,7 @@ export default DirectoryListItemView.extend(_.extend({}, FileDroppable, {
 			
 			<div class="specifics">
 				<div class="badges"></div>
+				<div class="details"><%= details %></div>
 
 				<% if (owner) { %>
 				<div class="owner small tile" data-toggle="tooltip" data-html="true" title="shared by <%= owner.getName() %>">
@@ -50,8 +51,6 @@ export default DirectoryListItemView.extend(_.extend({}, FileDroppable, {
 					<% } %>
 				</div>
 				<% } %>
-
-				<div class="details"><%= details %></div>
 			</div>
 		</div>
 	`),

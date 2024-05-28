@@ -15,6 +15,7 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
+@use "../bootstrap/variables";
 @use "../navs/buttons";
 
 //
@@ -30,10 +31,9 @@ $input-border-radius: 5px;
 
 .pager {
 	margin: 0;
+	line-height: 1.5em;
 
 	.items-per-page {
-		float: left;
-
 		input {
 			padding: $input-padding;
 			border-radius: $input-border-radius;
@@ -41,28 +41,38 @@ $input-border-radius: 5px;
 	}
 
 	.btn-group {
-		.page-info {
-			display: inline-block;
-			width: 2em;
-			height: buttons.$small-size;
-			float: left;
-			border: none;
+		display: inline-flex;
 
-			.page-number {
-				width: 2em;
-				height: buttons.$small-size;
-				border-width: 1px;
-				padding: 0;
-				text-align: center;
-			}
+		input {
+			border-width: 2px;
+			border-radius: 0;
+			padding: 0 5px;
+			text-align: center;
 		}
-	}
 
-	.items-per-page + .btn-group {
-		float: right;
+		.num-pages {
+			pointer-events: none;
+		}
 	}
 
 	.toolbar {
 		background: none !important;
+	}
+}
+
+//
+// non-small styles
+//
+
+@media (min-width: variables.$screen-xs-max) {
+	.pager {
+
+		.items-per-page {
+			float: left;
+		}
+
+		.btn-group {
+			float: right;
+		}
 	}
 }

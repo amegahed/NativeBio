@@ -31,17 +31,17 @@ export default {
 
 	setVisible: function(visibility) {
 		if (visibility) {
-			this.show();
+			this.$el.removeClass('hidden');
 		} else {
-			this.hide();
+			this.$el.addClass('hidden');
 		}
 	},
 
 	setVisibility: function(selector, visibility) {
 		if (visibility) {
-			this.$el.find(selector).show();
+			this.$el.find(selector).removeClass('hidden');
 		} else {
-			this.$el.find(selector).hide();
+			this.$el.find(selector).addClass('hidden');
 		}
 	},
 

@@ -16,7 +16,7 @@
 \******************************************************************************/
 
 import BaseView from '../../../../../views/base-view.js';
-import PreferencesPanelView from '../../../../../views/apps/settings-browser/mainbar/preferences-panel/preferences-panel-view.js';
+import PreferencesPanelView from '../../../../../views/apps/settings-browser/mainbar/panels/preferences-panel-view.js';
 
 export default BaseView.extend({
 

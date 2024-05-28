@@ -26,7 +26,7 @@ export default BaseView.extend({
 	className: 'status-bar',
 
 	template: template(`
-		<div class="clip-info info-bar hidden-xs" style="display:none">
+		<div class="clip-info info-bar" style="display:none">
 			<i class="fa fa-info-circle"></i><span class="info"></span>
 		</div>
 		

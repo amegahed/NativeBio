@@ -67,19 +67,20 @@ body.binary.dark {
 					}
 				}
 			}
-		}
 
-		//
-		// selection boxes
-		//
+			//
+			// selection boxes
+			//
 
-		.selection {
-			color: white;
-			@include binary-colors.lighten-less-alt;
-		}
+			.selection {
+				color: white;
+				border-color: white;
+				@include binary-colors.lighten-less-alt;
+			}
 
-		.drag-image {
-			border-color: white;
+			.drag-image {
+				border-color: white;
+			}
 		}
 
 		.footer-bar {
@@ -98,6 +99,6 @@ body.binary.dark {
 	}
 
 	.desktop.preview {
-		@include binary-colors.dark-grey();
+		@include binary-colors.dark-grey;
 	}
 }

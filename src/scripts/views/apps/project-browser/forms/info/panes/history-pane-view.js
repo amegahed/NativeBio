@@ -28,9 +28,7 @@ export default FormView.extend({
 			<label class="control-label"><i class="fa fa-magic"></i>Created</label>
 			<div class="controls">
 				<p class="form-control-static">
-					<% if (typeof created_at != 'undefined') { %>
-					<%= created_at && created_at.format? created_at.format() : created_at %>
-					<% } %>
+					<%= created_at %>
 				</p>
 			</div>
 		</div>
@@ -39,11 +37,16 @@ export default FormView.extend({
 			<label class="control-label"><i class="fa fa-pencil-alt"></i>Updated</label>
 			<div class="controls">
 				<p class="form-control-static">
-					<% if (typeof updated_at != 'undefined') { %> 
-					<%= updated_at && updated_at.format? updated_at.format() : updated_at %>
-					<% } %>
+					<%= updated_at %>
 				</p>
 			</div>
 		</div>
-	`)
+	`),
+
+	templateContext: function() {
+		return {
+			created_at: this.model.has('created_at')? this.model.get('created_at').format() : 'unknown',
+			updated_at: this.model.has('updated_at')? this.model.get('updated_at').format() : 'unknown'
+		};
+	}
 });

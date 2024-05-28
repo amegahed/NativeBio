@@ -15,10 +15,9 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import Directory from '../../../../../models/files/directory.js';
+import Directory from '../../../../../models/storage/directories/directory.js';
 import UserPreferences from '../../../../../models/preferences/user-preferences.js';
-import Items from '../../../../../collections/files/items.js';
-import BaseView from '../../../../../views/base-view.js';
+import Items from '../../../../../collections/storage/items.js';
 import SideBarPanelView from '../../../../../views/apps/common/sidebar/panels/sidebar-panel-view.js';
 import FilesView from '../../../../../views/apps/file-browser/mainbar/files/files-view.js';
 
@@ -177,14 +176,8 @@ export default SideBarPanelView.extend({
 			preferences: UserPreferences.create('contact_editor', {
 				view_kind: this.options.view_kind,
 			}),
-			emptyView: BaseView.extend({
-				className: 'empty',
-				template: template("No contacts.")
-			}),
-			viewFilter: function(view) {
-				return view.model instanceof Directory && !view.model.isHidden() || view.model.getFileExtension() == 'vcf';
-			},
 			selected: new Items([this.app.model]),
+			empty: "No contacts.",
 
 			// capabilities
 			//
@@ -193,6 +186,12 @@ export default SideBarPanelView.extend({
 			editable: false,
 			draggable: true,
 			droppable: true,
+
+			// views
+			//
+			viewFilter: function(view) {
+				return view.model instanceof Directory && !view.model.isHidden() || view.model.getFileExtension() == 'vcf';
+			},
 
 			// callbacks
 			//

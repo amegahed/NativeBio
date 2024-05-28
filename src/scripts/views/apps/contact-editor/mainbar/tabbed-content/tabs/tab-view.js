@@ -15,8 +15,8 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import ImageFile from '../../../../../../models/files/image-file.js';
-import Directory from '../../../../../../models/files/directory.js';
+import ImageFile from '../../../../../../models/storage/media/image-file.js';
+import Directory from '../../../../../../models/storage/directories/directory.js';
 import EditableTabView from '../../../../../../views/apps/common/mainbar/tabbed-content/tabs/editable-tab-view.js';
 
 export default EditableTabView.extend({

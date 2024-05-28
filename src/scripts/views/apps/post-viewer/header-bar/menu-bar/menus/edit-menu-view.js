@@ -90,16 +90,28 @@ export default MenuView.extend({
 	onClickEditItem: function() {
 		if (this.parent.app.selected) {
 			let model = this.parent.app.selected.model;
-			let editable = model.isOwnedBy(application.session.user);
-			if (editable) {
-				this.parent.app.selected.edit();
-			} else {
+
+			// check permissions
+			//
+			if (!model.isOwnedBy(application.session.user)) {
+
+				// show alert message
+				//
 				application.alert({
 					icon: '<i class="fa fa-lock"></i>',
 					title: "Permissions Error",
 					message: "You do not have permission to edit this item."
 				});
+
+				return;
 			}
+
+			// edit item
+			//
+			this.parent.app.selected.edit();
+
+		// edit post
+		//
 		} else {
 			this.parent.app.editPost();
 		}
@@ -108,16 +120,28 @@ export default MenuView.extend({
 	onClickDeleteItem: function() {
 		if (this.parent.app.selected) {
 			let model = this.parent.app.selected.model;
-			let editable = model.isOwnedBy(application.session.user);
-			if (editable) {
-				this.parent.app.selected.delete();
-			} else {
+
+			// check permissions
+			//
+			if (!model.isOwnedBy(application.session.user)) {
+
+				// show alert message
+				//
 				application.alert({
 					icon: '<i class="fa fa-lock"></i>',
 					title: "Permissions Error",
 					message: "You do not have permission to delete this item."
 				});
+
+				return;
 			}
+
+			// delete item
+			//
+			this.parent.app.selected.delete();
+
+		// delete post
+		//
 		} else {
 			this.parent.app.deletePost();
 		}

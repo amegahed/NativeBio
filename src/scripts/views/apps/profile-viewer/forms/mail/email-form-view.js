@@ -16,7 +16,7 @@
 \******************************************************************************/
 
 import UserPreferences from '../../../../../models/preferences/user-preferences.js';
-import Items from '../../../../../collections/files/items.js';
+import Items from '../../../../../collections/storage/items.js';
 import FormView from '../../../../../views/forms/form-view.js';
 import UsersView from '../../../../../views/apps/profile-browser/mainbar/users/users-view.js';
 

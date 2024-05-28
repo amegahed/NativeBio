@@ -87,6 +87,7 @@ $small-prompt-width: 300px;
 
 						.modal-footer {
 							.buttons {
+								display: inline-flex;
 								width: 100%;
 								flex-direction: row;
 

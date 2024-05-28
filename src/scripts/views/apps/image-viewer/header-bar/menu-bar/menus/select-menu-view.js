@@ -53,13 +53,13 @@ export default SelectMenuView.extend({
 	//
 
 	enabled: function() {
-		let hasMultiple = this.parent.app.hasImages();
+		let hasImages = this.parent.app.hasImages();
 
 		return {
-			'select-first': hasMultiple,
-			'select-prev': hasMultiple,
-			'select-next': hasMultiple,
-			'select-last': hasMultiple
+			'select-first': hasImages,
+			'select-prev': hasImages,
+			'select-next': hasImages,
+			'select-last': hasImages
 		};
 	},
 	

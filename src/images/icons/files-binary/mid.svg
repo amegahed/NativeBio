@@ -34,8 +34,6 @@
 	<polygon class="file-corner" points="37.5, 0.151 37.5, 12 49.349, 12" stroke-linejoin="round" />
 	<g class="file-type">
 		<path d="M 48.037, 56H 7.963 C 7.155, 56, 6.5, 55.345, 6.5, 54.537V 39h 43v 15.537 C 49.5, 55.345, 48.845, 56, 48.037, 56 z" />
-		<text>
-			<tspan x="14" y="52.5">MID</tspan>
-		</text>
+		<text x="14" y="52.5">MID</text>
 	</g>
 </svg>

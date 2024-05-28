@@ -62,6 +62,23 @@ export default SideBarPanelView.extend({
 	},
 
 	//
+	// constructor
+	//
+
+	initialize: function() {
+
+		// call superclass method
+		//
+		SideBarPanelView.prototype.initialize.call(this);
+
+		// set defaults
+		//
+		if (this.options.view_kind == undefined) {
+			this.options.view_kind = 'icons';
+		}
+	},
+
+	//
 	// setting methods
 	//
 

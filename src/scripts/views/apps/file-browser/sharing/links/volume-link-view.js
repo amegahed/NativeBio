@@ -15,7 +15,7 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import Volume from '../../../../../models/files/volume.js';
+import Volume from '../../../../../models/storage/directories/volume.js';
 import LinkView from '../../../../../views/apps/file-browser/sharing/links/link-view.js';
 import HtmlUtils from '../../../../../utilities/web/html-utils.js';
 
@@ -142,10 +142,5 @@ export default LinkView.extend({
 		// show file browser
 		//
 		this.showFileBrowser(this.volume);
-		/*
-		this.showFileBrowser(new Volume({
-			link: this.model
-		}));
-		*/
 	}
 });

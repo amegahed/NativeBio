@@ -56,7 +56,7 @@ export default BaseView.extend({
 
 			error: (model, response) => {
 
-				// show error view
+				// show error message
 				//
 				application.error({
 					message: "Could not get notifications.",

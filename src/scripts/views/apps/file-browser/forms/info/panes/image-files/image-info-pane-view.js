@@ -24,18 +24,22 @@ export default FormView.extend({
 	//
 
 	template: template(`
-		<% if (typeof resolution != 'undefined' && resolution) { %>
+		<% if (resolution) { %>
 		<div class="resolution form-group">
 			<label class="control-label"><i class="fa fa-arrows-alt"></i>Resolution</label>
 			<div class="controls">
 				<p class="form-control-static">
+					<% if (resolution.length > 1) { %>
 					<%= resolution[0] %> x <%= resolution[1] %> px
+					<% } else { %>
+					<%= resolution %>
+					<% } %>
 				</p>
 			</div>
 		</div>
 		<% } %>
 		
-		<% if (typeof dimensions != 'undefined' && dimensions) { %>
+		<% if (dimensions && dimensions.length > 1) { %>
 		<div class="dimensions form-group">
 			<label class="control-label"><i class="fa fa-arrows-alt"></i>Dimensions</label>
 			<div class="controls">
@@ -50,7 +54,7 @@ export default FormView.extend({
 		</div>
 		<% } %>
 		
-		<% if (typeof exposure != 'undefined') { %>
+		<% if (exposure) { %>
 		<div class="form-group">
 			<label class="control-label"><i class="fa fa-clock"></i>Exposure</label>
 			<div class="controls">
@@ -61,7 +65,7 @@ export default FormView.extend({
 		</div>
 		<% } %>
 		
-		<% if (typeof aperture != 'undefined') { %>
+		<% if (aperture) { %>
 		<div class="form-group">
 			<label class="control-label"><i class="fa fa-dot-circle"></i>Aperture</label>
 			<div class="controls">
@@ -72,7 +76,7 @@ export default FormView.extend({
 		</div>
 		<% } %>
 		
-		<% if (typeof iso != 'undefined') { %>
+		<% if (iso) { %>
 		<div class="form-group">
 			<label class="control-label"><i class="fa fa-film"></i>ISO</label>
 			<div class="controls">
@@ -83,7 +87,7 @@ export default FormView.extend({
 		</div>
 		<% } %>
 		
-		<% if (typeof focal_length != 'undefined') { %>
+		<% if (focal_length) { %>
 		<div class="form-group">
 			<label class="control-label"><i class="fa fa-arrows-alt-h"></i>Focal Length</label>
 			<div class="controls">
@@ -94,7 +98,7 @@ export default FormView.extend({
 		</div>
 		<% } %>
 		
-		<% if (typeof make_model != 'undefined') { %>
+		<% if (make_model) { %>
 		<div class="form-group">
 			<label class="control-label"><i class="fa fa-camera"></i>Make / Model</label>
 			<div class="controls">
@@ -105,7 +109,7 @@ export default FormView.extend({
 		</div>
 		<% } %>
 
-		<% if (typeof upper_left != 'undefined') { %>
+		<% if (upper_left) { %>
 		<div class="form-group">
 			<label class="control-label"><i class="fa fa-globe-americas"></i>Upper Left</label>
 			<div class="controls">
@@ -116,7 +120,7 @@ export default FormView.extend({
 		</div>
 		<% } %>
 
-		<% if (typeof upper_right != 'undefined') { %>
+		<% if (upper_right) { %>
 		<div class="form-group">
 			<label class="control-label"><i class="fa fa-globe-americas"></i>Upper Right</label>
 			<div class="controls">
@@ -127,7 +131,7 @@ export default FormView.extend({
 		</div>
 		<% } %>
 
-		<% if (typeof lower_left != 'undefined') { %>
+		<% if (lower_left) { %>
 		<div class="form-group">
 			<label class="control-label"><i class="fa fa-globe-americas"></i>Lower Left</label>
 			<div class="controls">
@@ -138,7 +142,7 @@ export default FormView.extend({
 		</div>
 		<% } %>
 
-		<% if (typeof lower_right != 'undefined') { %>
+		<% if (lower_right) { %>
 		<div class="form-group">
 			<label class="control-label"><i class="fa fa-globe-americas"></i>Lower Right</label>
 			<div class="controls">
@@ -156,6 +160,8 @@ export default FormView.extend({
 
 	templateContext: function() {
 		return {
+			resolution: this.model.get('resolution'),
+			dimensions: this.model.get('dimensions'),
 			exposure: this.model.getAttribute('exposure'),
 			aperture: this.model.getAttribute('aperture'),
 			iso: this.model.getAttribute('iso'),

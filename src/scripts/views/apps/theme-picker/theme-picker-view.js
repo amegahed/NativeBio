@@ -15,8 +15,8 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import File from '../../../models/files/file.js';
-import Items from '../../../collections/files/items.js';
+import File from '../../../models/storage/files/file.js';
+import Items from '../../../collections/storage/items.js';
 import AppView from '../../../views/apps/common/app-view.js';
 import FilesView from '../../../views/apps/file-browser/mainbar/files/files-view.js';
 

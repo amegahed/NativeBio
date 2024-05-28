@@ -39,8 +39,14 @@ export default TabPaneView.extend(_.extend({}, ContainableSelectable, {
 	//
 
 	getContentView: function() {
+
+		// show topic
+		//
 		if (this.model instanceof Topic) {
 			return new TopicView(this.options);
+
+		// show post
+		//
 		} else if (this.model instanceof Post) {
 			return new PostView(this.options);
 		}

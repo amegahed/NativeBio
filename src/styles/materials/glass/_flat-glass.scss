@@ -82,7 +82,7 @@ $reflected-size: 50%;
 		// reflected
 		//
 		linear-gradient(var(--light-direction),
-			colors.fade($color, 0%) 50%,
+			transparent 50%,
 			lighting.lighten($color, 10%) 100%) no-repeat;
 
 	&:after {

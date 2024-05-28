@@ -41,11 +41,11 @@
 
 	<h2><i class="fa fa-desktop"></i>Screen Shots</h2>
 	<div class="figure desktop-only">
-		<a href="images/info/apps/chat-browser/chat-browser.png" target="_blank" class="lightbox" title="Chats"><img class="dialog" src="images/info/apps/chat-browser/chat-browser.png" /></a>
-		<div class="caption">Chats</div>
+		<a href="images/info/apps/chat-browser/chat-browser.png" target="_blank" class="lightbox" title="<%= config.apps['chat_browser'].name %>"><img class="dialog" src="images/info/apps/chat-browser/chat-browser.png" /></a>
+		<div class="caption"><%= config.apps['chat_browser'].name %></div>
 	</div>
 	<div class="figure mobile-only">
-		<a href="images/info/apps/chat-browser/mobile/mobile-chat-browser.png" target="_blank" class="lightbox" title="Chats"><img src="images/info/apps/chat-browser/mobile/mobile-chat-browser.png" /></a>
-		<div class="caption">Chats</div>
+		<a href="images/info/apps/chat-browser/mobile/mobile-chat-browser.png" target="_blank" class="lightbox" title="<%= config.apps['chat_browser'].name %>"><img src="images/info/apps/chat-browser/mobile/mobile-chat-browser.png" /></a>
+		<div class="caption"><%= config.apps['chat_browser'].name %></div>
 	</div>
 </div>

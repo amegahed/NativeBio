@@ -15,8 +15,8 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import Directory from '../../../../../../models/files/directory.js'; 
-import ImageFile from '../../../../../../models/files/image-file.js';
+import Directory from '../../../../../../models/storage/directories/directory.js';
+import ImageFile from '../../../../../../models/storage/media/image-file.js';
 import FormPanelView from '../../../../../../views/forms/form-panel-view.js';
 import RangeInputView from '../../../../../../views/forms/inputs/range-input-view.js';
 

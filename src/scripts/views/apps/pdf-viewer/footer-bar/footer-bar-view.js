@@ -16,7 +16,7 @@
 \******************************************************************************/
 
 import FooterBarView from '../../../../views/apps/common/footer-bar/footer-bar-view.js';
-import NavBarView from '../../../../views/apps/pdf-viewer/footer-bar/nav-bar/nav-bar-view.js';
+import PageBarView from '../../../../views/apps/pdf-viewer/footer-bar/page-bar/page-bar-view.js';
 import StatusBarView from '../../../../views/apps/pdf-viewer/footer-bar/status-bar/status-bar-view.js';
 
 export default FooterBarView.extend({
@@ -25,17 +25,48 @@ export default FooterBarView.extend({
 	// attributes
 	//
 
-	toolbars: ['window', 'nav', 'status'],
+	toolbars: ['window', 'page', 'status'],
 
 	//
 	// getting methods
 	//
 
-	getNavBarView: function() {
-		return new NavBarView();
+	getPageBarView: function() {
+		return new PageBarView();
 	},
 
 	getStatusBarView: function() {
 		return new StatusBarView();
+	},
+
+	//
+	// rendering methods
+	//
+
+	showToolbar: function(kind) {
+		switch (kind) {
+			case 'window':
+				this.showWindowBar();
+				break;
+			case 'page':
+				this.showPageBar();
+				break;
+			case 'status':
+				this.showStatusBar();
+				break;
+		}
+	},
+
+	showWindowBar: function() {
+		this.showChildView('window', this.getWindowBarView());
+	},
+
+	showPageBar: function() {
+		this.showChildView('page', this.getPageBarView());
+		this.getChildView('page').$el.addClass('windowed-app-only');
+	},
+
+	showStatusBar: function() {
+		this.showChildView('status', this.getStatusBarView());
 	}
 });

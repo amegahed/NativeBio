@@ -10,7 +10,6 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import BaseView from '../../../../../../views/base-view.js';
 import SortableTableListView from '../../../../../../views/collections/tables/sortable-table-list-view.js';
 import LinksListItemView from '../../../../../../views/apps/file-browser/sharing/links/list/links-list-item-view.js';
 
@@ -34,7 +33,12 @@ export default SortableTableListView.extend({
 					<label>Path</label>
 				</th>
 				<% } %>
-		
+
+				<th class="editable">
+					<i class="fa fa-pencil"></i>
+					<label>Editable</label>
+				</th>
+
 				<th class="message">
 					<i class="fa fa-quote-left"></i>
 					<label>Message</label>
@@ -89,13 +93,13 @@ export default SortableTableListView.extend({
 		sortList: [[0, 1]]
 	},
 
+	empty: "No links.",
+
+	//
 	// views
 	//
+
 	childView: LinksListItemView,
-	emptyView: BaseView.extend({
-		className: 'empty',
-		template: template("No links.")
-	}),
 	
 	//
 	// constructor

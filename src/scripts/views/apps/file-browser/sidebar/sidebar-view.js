@@ -19,7 +19,7 @@ import SideBarView from '../../../../views/apps/common/sidebar/sidebar-view.js';
 import FileCopyable from '../../../../views/apps/file-browser/mainbar/behaviors/file-copyable.js';
 import ClipboardPanelView from '../../../../views/apps/file-browser/sidebar/panels/clipboard-panel-view.js';
 import FavoritesPanelView from '../../../../views/apps/file-browser/sidebar/panels/favorites-panel-view.js';
-import LocationPanelView from '../../../../views/apps/file-browser/sidebar/panels/location-panel-view.js';
+import FilesPanelView from '../../../../views/apps/file-browser/sidebar/panels/files-panel-view.js';
 import SharedPanelView from '../../../../views/apps/file-browser/sidebar/panels/shared-panel-view.js';
 
 export default SideBarView.extend({
@@ -28,7 +28,7 @@ export default SideBarView.extend({
 	// attributes
 	//
 
-	panels: ['clipboard', 'favorites', 'location', 'shared'],
+	panels: ['clipboard', 'favorites', 'files', 'shared'],
 
 	//
 	// attribute methods
@@ -41,7 +41,7 @@ export default SideBarView.extend({
 		return {
 			'clipboard': isSignedIn && !isInClipboardDirectory,
 			'favorites': isSignedIn,
-			'location': isSignedIn,
+			'files': isSignedIn,
 			'shared': isSignedIn
 		};
 	},
@@ -59,8 +59,8 @@ export default SideBarView.extend({
 	//
 
 	selectItem: function(item) {
-		if (this.hasChildView('location')) {
-			this.getChildView('location').selectItem(item);
+		if (this.hasChildView('files')) {
+			this.getChildView('files').selectItem(item);
 		}	
 	},
 
@@ -79,8 +79,8 @@ export default SideBarView.extend({
 			case 'favorites':
 				this.showFavoritesPanel();
 				break;
-			case 'location':
-				this.showLocationPanel();
+			case 'files':
+				this.showFilesPanel();
 				break;
 			case 'shared':
 				this.showSharedPanel();
@@ -116,8 +116,8 @@ export default SideBarView.extend({
 		}));		
 	},
 
-	showLocationPanel: function() {	
-		this.showChildView('location', new LocationPanelView({
+	showFilesPanel: function() {
+		this.showChildView('files', new FilesPanelView({
 
 			// options
 			//
@@ -149,6 +149,12 @@ export default SideBarView.extend({
 	//
 
 	onChange: function() {
+
+		// update panels
+		//
+		if (this.hasChildView('files')) {
+			this.getChildView('files').update();
+		}
 		
 		// perform callback
 		//

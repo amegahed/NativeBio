@@ -15,11 +15,11 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import AudioFile from '../../../models/files/audio-file.js';
-import Directory from '../../../models/files/directory.js';
-import Items from '../../../collections/files/items.js';
+import AudioFile from '../../../models/storage/media/audio-file.js';
+import Directory from '../../../models/storage/directories/directory.js';
+import Items from '../../../collections/storage/items.js';
 import AppSplitView from '../../../views/apps/common/app-split-view.js';
-import ModelShareable from '../../../views/apps/common/behaviors/sharing/model-shareable.js';
+import ItemShareable from '../../../views/apps/common/behaviors/sharing/item-shareable.js';
 import HeaderBarView from '../../../views/apps/audio-player/header-bar/header-bar-view.js';
 import SideBarView from '../../../views/apps/audio-player/sidebar/sidebar-view.js';
 import AudioSplitView from '../../../views/apps/audio-player/mainbar/audio-split-view.js';
@@ -27,7 +27,7 @@ import FooterBarView from '../../../views/apps/audio-player/footer-bar/footer-ba
 import Audio from '../../../utilities/multimedia/audio.js';
 import Browser from '../../../utilities/web/browser.js';
 
-export default AppSplitView.extend(_.extend({}, ModelShareable, {
+export default AppSplitView.extend(_.extend({}, ItemShareable, {
 
 	//
 	// attributes
@@ -61,6 +61,12 @@ export default AppSplitView.extend(_.extend({}, ModelShareable, {
 			this.collection = new Items([this.model]);
 		} else {
 			this.collection = new Items();
+		}
+
+		// set directory
+		//
+		if (this.collection.length > 0) {
+			this.directory = this.collection.at(0).collection.directory;
 		}
 
 		// for embedded apps, allow analyser to take up a majority of the space
@@ -276,7 +282,34 @@ export default AppSplitView.extend(_.extend({}, ModelShareable, {
 			case 'volume':
 				this.setVolume(value);
 				break;
-		
+
+			case 'detail_kind':
+				if (value) {
+					let count = 0;
+					for (let i = 0; i < this.collection.length; i++) {
+						this.collection.at(i).fetchId3({
+
+							// callbacks
+							//
+							success: () => {
+								count++;
+								if (count == this.collection.length) {
+
+									// call superclass method
+									//
+									AppSplitView.prototype.setOption.call(this, 'detail_kind', value);
+								}
+							}
+						});
+					}
+				} else {
+
+					// call superclass method
+					//
+					AppSplitView.prototype.setOption.call(this, key, value);
+				}
+				break;
+
 			// analyser options
 			//
 			case 'show_analyser':
@@ -505,7 +538,7 @@ export default AppSplitView.extend(_.extend({}, ModelShareable, {
 		if (this.model) {
 			let volume = this.getVolume();
 
-			this.model.load(this.audio, {
+			this.model.loadAudio(this.audio, {
 				volume: (volume != undefined? volume : 5) / 10,
 
 				// callbacks
@@ -553,6 +586,9 @@ export default AppSplitView.extend(_.extend({}, ModelShareable, {
 	//
 
 	play: function() {
+
+		// play track
+		//
 		this.getChildView('header track').play();
 	},
 
@@ -645,7 +681,7 @@ export default AppSplitView.extend(_.extend({}, ModelShareable, {
 		// start loading model
 		//
 		if (this.model) {
-			this.model.load(this.audio, {
+			this.model.loadAudio(this.audio, {
 
 				// callbacks
 				//
@@ -661,6 +697,9 @@ export default AppSplitView.extend(_.extend({}, ModelShareable, {
 				},
 
 				error: () => {
+
+					// show error message
+					//
 					application.error({
 						message: "Could not load this audio track."
 					});
@@ -673,13 +712,7 @@ export default AppSplitView.extend(_.extend({}, ModelShareable, {
 		// show initial help message
 		//
 		if (!this.model) {
-			this.showMessage("Click to open an audio file or album to play.", {
-				icon: '<i class="far fa-file-audio"></i>',
-				
-				// callbacks
-				//
-				onclick: () => this.showOpenDialog()
-			});
+			this.showHelpMessage();
 		}
 
 		// add tooltip triggers
@@ -744,7 +777,7 @@ export default AppSplitView.extend(_.extend({}, ModelShareable, {
 			ondropout: (items) => this.onDropOut(items)
 		});
 	},
-	
+
 	//
 	// footer bar rendering methods
 	//
@@ -757,6 +790,20 @@ export default AppSplitView.extend(_.extend({}, ModelShareable, {
 		if (this.hasChildView('footer status')) {
 			this.getChildView('footer status').showPlayerStatus(status);
 		}
+	},
+
+	//
+	// message rendering methods
+	//
+
+	showHelpMessage: function() {
+		this.showMessage("No audio.", {
+			icon: '<i class="far fa-file-audio"></i>',
+
+			// callbacks
+			//
+			onclick: () => this.showOpenDialog()
+		});
 	},
 
 	//
@@ -948,6 +995,9 @@ export default AppSplitView.extend(_.extend({}, ModelShareable, {
 	},
 
 	onError: function() {
+
+		// show error message
+		//
 		application.error({
 			message: "Could not play this audio track."
 		});

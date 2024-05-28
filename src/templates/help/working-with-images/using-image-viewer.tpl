@@ -1,28 +1,28 @@
-<h1><i class="fa fa-image"></i>Using Image Viewer</h1>
+<h1><i class="fa fa-image"></i>Using the <%= config.apps['image_viewer'].name %></h1>
 
 <ol class="breadcrumb">
 	<li><a href="#help"><i class="fa fa-question-circle"></i>Help</a></li>
 	<li><a href="#help/working-with-images"><i class="fa fa-image"></i>Working with Images</a></li>
-	<li><i class="fa fa-image"></i>Using Image Viewer</li>
+	<li><i class="fa fa-image"></i>Using the <%= config.apps['image_viewer'].name %></li>
 </ol>
 
 <div class="content">
-	<p>The <a href="#apps/image-viewer">Image Viewer</a> app can be used to view images in detail. </p>
+	<p>The <a href="#apps/image-viewer"><%= config.apps['image_viewer'].name %></a> app can be used to view images in detail. </p>
 
 	<ol>
 		<li>
-			<h2><i class="fa fa-image"></i>The Image Viewer App</h2>
-			<p>To open an image file using the <a href="#apps/image-viewer">Image Viewer</a> app, simply double-click on the image file to view.  In the main view, you will see the current image.  In the sidebar view, you will see a list of thumbnails of each of the image files in the same directory as the current image. </p>
+			<h2><i class="fa fa-image"></i>The <%= config.apps['image_viewer'].name %> App</h2>
+			<p>To open an image file using the <a href="#apps/image-viewer"><%= config.apps['image_viewer'].name %></a> app, simply double-click on the image file to view.  In the main view, you will see the current image.  In the sidebar view, you will see a list of thumbnails of each of the image files in the same directory as the current image. </p>
 			
 			<div class="figure">
-				<a href="images/help/working-with-images/using-image-viewer/image-viewer.png" target="_blank" class="lightbox" title="The Image Viewer App"><img class="dialog" src="images/help/working-with-images/using-image-viewer/image-viewer.png" /></a>
-				<div class="caption">The Image Viewer App</div>
+				<a href="images/help/working-with-images/using-image-viewer/image-viewer.png" target="_blank" class="lightbox" title="The <%= config.apps['image_viewer'].name %> App"><img class="dialog" src="images/help/working-with-images/using-image-viewer/image-viewer.png" /></a>
+				<div class="caption">The <%= config.apps['image_viewer'].name %> App</div>
 			</div>
 		</li>
 
 		<li>
 			<h2><i class="fa fa-hand-grab"></i>Mouse Mode Controls</h2>
-			<p>The <a href="#apps/image-viewer">Image Viewer</a> app includes a set of controls that allow you to use the mouse to pan, zoom, zoom to rect, and to measure size in pixels. <p>
+			<p>The <a href="#apps/image-viewer"><%= config.apps['image_viewer'].name %></a> app includes a set of controls that allow you to use the mouse to pan, zoom, zoom to rect, and to measure size in pixels. <p>
 
 			<div class="figure">
 				<img src="images/help/working-with-images/using-image-viewer/zoom-to-rect-mouse-mode.png" />

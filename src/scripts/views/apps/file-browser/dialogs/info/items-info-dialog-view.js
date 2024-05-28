@@ -16,9 +16,9 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import File from '../../../../../models/files/file.js';
-import ImageFile from '../../../../../models/files/image-file.js';
-import Directory from '../../../../../models/files/directory.js';
+import File from '../../../../../models/storage/files/file.js';
+import ImageFile from '../../../../../models/storage/media/image-file.js';
+import Directory from '../../../../../models/storage/directories/directory.js';
 import ItemInfoDialogView from '../../../../../views/apps/file-browser/dialogs/info/item-info-dialog-view.js';
 import TabsView from '../../../../../views/apps/file-browser/forms/info/tabs/tabs-view.js';
 import FileInfoView from '../../../../../views/apps/file-browser/forms/info/file-info-view.js';
@@ -30,7 +30,6 @@ export default ItemInfoDialogView.extend({
 	//
 	// attributes
 	//
-	
 
 	template: template(`
 		<div class="modal-dialog">
@@ -85,6 +84,12 @@ export default ItemInfoDialogView.extend({
 	regions: {
 		tabs: '.tabs'
 	},
+
+	//
+	// dialog attributes
+	//
+
+	size: config.defaults.dialogs.sizes.small,
 
 	//
 	// constructor
@@ -164,6 +169,33 @@ export default ItemInfoDialogView.extend({
 		return {
 			index: this.index
 		};
+	},
+
+	onRender: function() {
+
+		// call superclass method
+		//
+		ItemInfoDialogView.prototype.onRender.call(this);
+
+		// fetch collection models to get metadata
+		//
+		let count = 0;
+		for (let i = 0; i < this.collection.length; i++) {
+			this.collection.at(i).fetch({
+
+				// callbacks
+				//
+				success: () => {
+					count++;
+					if (count == this.collection.length) {
+
+						// show form
+						//
+						this.showForm();
+					}
+				}
+			});
+		}
 	},
 
 	showForm: function() {

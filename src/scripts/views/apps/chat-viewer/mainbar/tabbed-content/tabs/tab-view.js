@@ -24,6 +24,6 @@ export default TabView.extend({
 	//
 
 	getIcon: function() {
-		return '<i class="fa fa-comments"></i>';
+		return '<i class="fa fa-comment"></i>';
 	}
 });

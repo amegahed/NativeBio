@@ -139,10 +139,7 @@ export default BaseView.extend(_.extend({}, Expandable, {
 			//
 			countries: this.options.countries,
 			multicolumn: this.options.multicolumn,
-			emptyView: BaseView.extend({
-				className: 'empty content',
-				template: template("No family members.")
-			}),
+			empty: "No family members.",
 
 			// capabilities
 			//
@@ -151,7 +148,7 @@ export default BaseView.extend(_.extend({}, Expandable, {
 			draggable: this.options.draggable,
 			droppable: this.options.droppable,
 			editable: this.options.editable,
-			
+
 			// callbacks
 			//
 			onselect: this.options.onselect,

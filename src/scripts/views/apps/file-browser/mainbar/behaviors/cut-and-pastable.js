@@ -239,7 +239,7 @@ export default _.extend({}, FileCopyable, {
 					});
 				} else {
 
-					// show alert dialog
+					// show alert message
 					//
 					application.alert({
 						icon: '<i class="fa fa-clipboard"></i>',
@@ -294,7 +294,7 @@ export default _.extend({}, FileCopyable, {
 					});
 				} else {
 
-					// show alert dialog
+					// show alert message
 					//
 					application.alert({
 						icon: '<i class="fa fa-clipboard"></i>',

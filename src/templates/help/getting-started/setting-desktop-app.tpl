@@ -65,11 +65,11 @@
 
 				<li>
 					<h3><span class="icon"><i class="fa fa-newspaper"></i></span>Messeges</h3>
-					<p>The <a href="#apps/messenger">Messenger</a> app allows you to read and write posts and direct messages with your friends and colleagues.  This mode is used most often by social media users or by office groups where communication and collaboration is a priority. </p>
+					<p>The <a href="#apps/communicator"><%= config.apps['communicator'].name %></a> app allows you to read and write posts and direct messages with your friends and colleagues.  This mode is used most often by social media users or by office groups where communication and collaboration is a priority. </p>
 
 					<div class="figure">
-						<a href="images/help/getting-started/setting-desktop-app/desktop-messenger.png" target="_blank" class="lightbox" title="Desktop Messenger"><img src="images/help/getting-started/setting-desktop-app/desktop-messenger.png" /></a>
-						<div class="caption">Desktop Messenger</div>
+						<a href="images/help/getting-started/setting-desktop-app/desktop-communicator.png" target="_blank" class="lightbox" title="Desktop <%= config.apps['communicator'].name %>"><img src="images/help/getting-started/setting-desktop-app/desktop-communicator.png" /></a>
+						<div class="caption">Desktop <%= config.apps['communicator'].name %></div>
 					</div>
 				</li>
 			</ol>

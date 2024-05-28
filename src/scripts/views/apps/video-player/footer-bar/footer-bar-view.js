@@ -16,7 +16,7 @@
 \******************************************************************************/
 
 import FooterBarView from '../../../../views/apps/common/footer-bar/footer-bar-view.js';
-import NavBarView from '../../../../views/apps/video-player/footer-bar/nav-bar/nav-bar-view.js';
+import VideoBarView from '../../../../views/apps/video-player/footer-bar/video-bar/video-bar-view.js';
 import StatusBarView from '../../../../views/apps/video-player/footer-bar/status-bar/status-bar-view.js';
 
 export default FooterBarView.extend({
@@ -25,17 +25,48 @@ export default FooterBarView.extend({
 	// attributes
 	//
 
-	toolbars: ['window', 'nav', 'status'],
+	toolbars: ['window', 'video', 'status'],
 
 	//
 	// getting methods
 	//
 
-	getNavBarView: function() {
-		return new NavBarView();
+	getVideoBarView: function() {
+		return new VideoBarView();
 	},
 
 	getStatusBarView: function() {
 		return new StatusBarView();
+	},
+
+	//
+	// rendering methods
+	//
+
+	showToolbar: function(kind) {
+		switch (kind) {
+			case 'window':
+				this.showWindowBar();
+				break;
+			case 'video':
+				this.showVideoBar();
+				break;
+			case 'status':
+				this.showStatusBar();
+				break;
+		}
+	},
+
+	showWindowBar: function() {
+		this.showChildView('window', this.getWindowBarView());
+	},
+
+	showVideoBar: function() {
+		this.showChildView('video', this.getVideoBarView());
+		this.getChildView('video').$el.addClass('windowed-app-only');
+	},
+
+	showStatusBar: function() {
+		this.showChildView('status', this.getStatusBarView());
 	}
 });

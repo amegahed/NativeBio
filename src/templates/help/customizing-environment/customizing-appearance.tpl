@@ -68,7 +68,7 @@
 
 		<li>
 			<h2><i class="fa fa-cube"></i>Material</h2>
-			<p><%= application.name %> offers the ability to choose between seeral different materials.  Materials are used when rendering control elements such as window header bars, menus, buttons, tabs, and sliders. </p>
+			<p><%= application.name %> offers the ability to choose between several different materials.  Materials are used when rendering control elements such as window header bars, menus, buttons, tabs, and sliders. </p>
 
 			<ul>
 				<li><label>None</label> - constant color, flat shading</li>

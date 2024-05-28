@@ -15,7 +15,7 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import Volume from '../../../../../models/files/volume.js';
+import Volume from '../../../../../models/storage/directories/volume.js';
 import FormDialogView from '../../../../../views/forms/dialogs/form-dialog-view.js';
 import VolumeFormView from '../../../../../views/apps/file-browser/forms/volumes/volume-form-view.js';
 

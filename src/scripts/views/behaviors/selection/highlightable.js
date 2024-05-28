@@ -41,9 +41,13 @@ export default {
 		}
 	},
 
-	unhighlight: function() {
+	unhighlight: function(recursive) {
 		if (this.highlightable) {
 			this.$el.removeClass('highlighted');
+
+			if (recursive) {
+				this.$el.find('.highlighted').removeClass('highlighted');
+			}
 		}
 	},
 

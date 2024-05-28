@@ -92,11 +92,6 @@ export default TileView.extend({
 			canvas.width = size * this.constructor.pixelRatio;
 		}
 
-		$(canvas).css({
-			width: canvas.width / this.constructor.pixelRatio,
-			height: canvas.height / this.constructor.pixelRatio
-		});
-
 		// render canvas
 		//
 		page.render({

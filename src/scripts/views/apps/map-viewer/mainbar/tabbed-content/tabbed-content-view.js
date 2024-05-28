@@ -15,7 +15,7 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import MapFile from '../../../../../models/files/map-file.js';
+import MapFile from '../../../../../models/storage/files/map-file.js';
 import TabbedContentView from '../../../../../views/apps/common/mainbar/tabbed-content/tabbed-content-view.js';
 import DroppableUploadable from '../../../../../views/apps/file-browser/mainbar/behaviors/droppable-uploadable.js';
 import TabsView from '../../../../../views/apps/map-viewer/mainbar/tabbed-content/tabs/tabs-view.js';

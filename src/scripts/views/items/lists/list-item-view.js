@@ -60,7 +60,7 @@ export default ItemView.extend(_.extend({}, MultiDraggable, {
 	},
 
 	getBoundingElement: function() {
-		return this.$el.find(this.nameSelector)[0];
+		return this.$el.find('.info')[0];
 	},
 
 	//

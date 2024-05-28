@@ -91,6 +91,10 @@ $map-icon-shadow: drop-shadow(2px 2px 2px rgba(black, 25%));
 		.geoorientation.marker {
 			display: inline-block;
 		}
+
+		&.selected {
+			z-index: 1;
+		}
 	}
 
 	.icon-grid {
@@ -98,8 +102,15 @@ $map-icon-shadow: drop-shadow(2px 2px 2px rgba(black, 25%));
 			margin-left: -50px;
 			margin-top: -50px;
 
+			> .row:first-child {
+				.icon {
+					> i:not(.fa-info-circle) {
+						font-size: 35px;
+					}
+				}
+			}
+
 			> .row:nth-child(2) {
-				// margin-top: -10px;
 				position: relative;
 
 				.name {
@@ -125,8 +136,8 @@ $map-icon-shadow: drop-shadow(2px 2px 2px rgba(black, 25%));
 
 	.item-list {
 		.item {
-			margin-left: -15px;
-			margin-top: -15px;
+			margin-left: -22px;
+			margin-top: -25px;
 
 			&:not(.selected):not(.highlighted) > div.info {
 				background: none !important;
@@ -175,6 +186,25 @@ $map-icon-shadow: drop-shadow(2px 2px 2px rgba(black, 25%));
 
 			.card {
 				width: 200px;
+
+				.icon {
+
+					//
+					// icons
+					//
+
+					> i {
+
+						&.fa-map-marker + .fa-info-circle {
+							margin-top: -7px;
+						}
+
+						&.fa-map-pin + .fa-info-circle {
+							margin-left: 2px;
+							margin-top: -15px
+						}
+					}
+				}
 			}
 		}
 	}
@@ -183,6 +213,23 @@ $map-icon-shadow: drop-shadow(2px 2px 2px rgba(black, 25%));
 		.item {
 			margin-left: -48px;
 			margin-top: -65px;
+
+			> .tile {
+				>.icon {
+					> i, > .thumbnail i {
+
+						&.fa-map-marker + .fa-info-circle {
+							left: 28px;
+							top: 3px;
+						}
+
+						&.fa-map-pin + .fa-info-circle {
+							left: 29px;
+							top: 0px;
+						}
+					}
+				}
+			}
 		}
 
 		&.little {

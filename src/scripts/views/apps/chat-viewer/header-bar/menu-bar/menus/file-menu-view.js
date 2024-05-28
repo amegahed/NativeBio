@@ -15,7 +15,7 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import Item from '../../../../../../models/files/item.js';
+import Item from '../../../../../../models/storage/item.js';
 import FileMenuView from '../../../../../../views/apps/common/header-bar/menu-bar/menus/file-menu-view.js';
 
 export default FileMenuView.extend({
@@ -83,12 +83,12 @@ export default FileMenuView.extend({
 
 	enabled: function() {
 		let isSignedIn = application.isSignedIn();
+		let hasTabs = this.parent.app.hasTabs();
 		let hasOpenChat = this.parent.app.hasOpenChat();
 		let hasSelected = this.parent.app.selected != undefined;
 		let hasSelectedChat = this.parent.app.hasSelectedChat();
 		let hasSelectedMessage = this.parent.app.hasSelectedMessage();
 		let hasSelectedItem = hasSelected && this.parent.app.selected.model instanceof Item;
-		let hasMultiple = this.parent.app.hasOpenChats();
 		let isDesktop = this.parent.app.isDesktop();
 
 		return {
@@ -98,7 +98,7 @@ export default FileMenuView.extend({
 			'show-info': hasOpenChat || hasSelectedChat,
 			'download-item': hasSelectedItem,
 			'end-chat': isSignedIn && hasSelectedChat && !hasSelectedMessage,
-			'close-tab': hasMultiple,
+			'close-tab': hasTabs,
 			'close-window': !isDesktop
 		};
 	},

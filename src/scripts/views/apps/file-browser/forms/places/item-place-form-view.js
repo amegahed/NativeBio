@@ -15,9 +15,9 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import File from '../../../../../models/files/file.js';
-import Directory from '../../../../../models/files/directory.js';
-import Volume from '../../../../../models/files/volume.js';
+import File from '../../../../../models/storage/files/file.js';
+import Directory from '../../../../../models/storage/directories/directory.js';
+import Volume from '../../../../../models/storage/directories/volume.js';
 import FormView from '../../../../../views/forms/form-view.js';
 import FileIconView from '../../../../../views/apps/file-browser/mainbar/files/icons/file-icon-view.js';
 import DirectoryIconView from '../../../../../views/apps/file-browser/mainbar/files/icons/directory-icon-view.js';
@@ -32,6 +32,17 @@ export default FormView.extend({
 	template: template(`
 		<div class="items">
 			<div class="icon-grid"></div>
+		</div>
+
+		<div class="set-location form-group">
+			<label class="control-label"><i class="fa fa-map-marker"></i>Location</label>
+			<div class="inline controls">
+				<div class="buttons">
+					<button class="select-place btn">
+						<i class="fa fa-crosshairs"></i>Select Place
+					</button>
+				</div>
+			</div>
 		</div>
 
 		<div class="name form-group">
@@ -50,7 +61,7 @@ export default FormView.extend({
 			<label class="control-label"><i class="fa fa-quote-left"></i>Description</label>
 			<div class="controls">
 				<div class="input-group">
-					<textarea class="form-control" rows="3" maxlength="1000"><%= description %></textarea>
+					<textarea class="form-control" rows="2" maxlength="1000"><%= description %></textarea>
 					<div class="input-group-addon">
 						<i class="active fa fa-question-circle" data-toggle="popover" title="Description" data-content="This is a short description of this place."></i>
 					</div>
@@ -81,11 +92,6 @@ export default FormView.extend({
 					<div class="input-group-addon">
 						<i class="active fa fa-question-circle" data-toggle="popover" title="Zoom Level" data-content="This is the map zoom level to use for this place."></i>
 					</div>
-				</div>
-				<div class="buttons" style="margin-left:5px">
-					<button class="select-place btn">
-						<i class="fa fa-crosshairs"></i>Select Place
-					</button>
 				</div>
 			</div>
 		</div>

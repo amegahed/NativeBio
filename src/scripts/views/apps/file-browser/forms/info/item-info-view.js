@@ -210,7 +210,9 @@ export default InfoFormView.extend({
 			// callbacks
 			//
 			success: (collection) => {
-				this.showShareRequestsList(collection);
+				if (!this.isDestroyed()) {
+					this.showShareRequestsList(collection);
+				}
 			}
 		});
 	},
@@ -221,7 +223,9 @@ export default InfoFormView.extend({
 			// callbacks
 			//
 			success: (collection) => {
-				this.showLinksList(collection);
+				if (!this.isDestroyed()) {
+					this.showLinksList(collection);
+				}
 			}
 		});
 	},

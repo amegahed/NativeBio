@@ -26,7 +26,6 @@
 		"icon_tilt": "none",
 		"icon_tint": "none",
 		"icon_background": true,
-		"icon_spinning": false,
 
 		"icon_select_effect": "none",
 		"icon_deselect_effect": "none",

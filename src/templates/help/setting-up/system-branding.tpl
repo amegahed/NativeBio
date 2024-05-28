@@ -35,7 +35,7 @@
 
 			<div class="code well">
 	"logo": {
-		"src": "images/svg/logos/zigzag.svg",
+		"src": "images/logos/zigzag.svg",
 		"href": "#users/amegahed",
 		"tooltip": "Click for more info"
 	}
@@ -114,7 +114,7 @@
 	"header": {
 		"background": "",
 		"color": "",
-		"logo": "images/svg/logos/zigzag.svg",
+		"logo": "images/logos/zigzag.svg",
 
 		"signin": {
 			"background": "",

@@ -15,7 +15,7 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import Link from '../../../../../../models/files/sharing/link.js';
+import Link from '../../../../../../models/storage/sharing/link.js';
 import FormDialogView from '../../../../../../views/forms/dialogs/form-dialog-view.js';
 import LinkInfoFormView from '../../../../../../views/apps/file-browser/sharing/links/forms/link-info-form-view.js';
 
@@ -59,6 +59,12 @@ export default FormDialogView.extend({
 	events: _.extend({}, FormDialogView.prototype.events, {
 		'click .save': 'onClickSave'
 	}),
+
+	//
+	// dialog attributes
+	//
+
+	size: config.defaults.dialogs.sizes.tiny,
 
 	//
 	// constructor

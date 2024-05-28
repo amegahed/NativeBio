@@ -100,17 +100,8 @@ $little-tile-size: 90px;
 
 .little.tile-grid {
 	.item {
-
-		> .tile {
-			.icon svg {
-				width: $little-tile-size;
-				height: $little-tile-size;
-				margin-top: -10px;
-			}
-		}
-
 		&.directory {
-			> .tile {
+			.tile {
 			
 				// owner profile photos
 				//

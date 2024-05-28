@@ -15,7 +15,7 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import File from '../../../../../models/files/file.js';
+import File from '../../../../../models/storage/files/file.js';
 import Browser from '../../../../../utilities/web/browser.js';
 
 export default {
@@ -34,64 +34,80 @@ export default {
 
 		// check file permissions
 		//
-		if (item.isReadableBy(application.session.user)) {
+		if (!item.isReadableBy(application.session.user)) {
 
-			// download item
-			//
-			item.download();
-		} else {
-
-			// show error message
+			// show alert message
 			//
 			application.alert({
 				icon: '<i class="fa fa-lock"></i>',
 				title: "Permissions Error",
 				message: "You do not have permission to download this item!"
 			});
+
+			return;
 		}
+
+		// download item
+		//
+		item.download();
 	},
 
 	downloadItems: function(items) {
 		let urls = [];
 		for (let i = 0; i < items.length; i++) {
 			let item = items[i];
-			if (item.isReadableBy(application.session.user)) {
-				urls.push(item.getDownloadUrl());
-			} else {
 
-				// show error message
+			// check file permissions
+			//
+			if (!item.isReadableBy(application.session.user)) {
+
+				// show alert message
 				//
 				application.alert({
 					icon: '<i class="fa fa-lock"></i>',
 					title: "Permissions Error",
 					message: "You do not have permission to download this item!"
 				});
+
+				return;
 			}
+
+			urls.push(item.getDownloadUrl());
 		}
 
 		Browser.downloadAll(urls);
 	},
 
-	download: function(items) {			
+	download: function(items) {
+
+		// check if only one item
+		//
 		if (!Array.isArray(items)) {
 
 			// download single item
 			//
 			this.downloadItem(items);
-		} else if (items.length > 0) {
 
-			// download multiple items
-			//
-			this.downloadItems(items);
-		} else {
+			return;
+		}
 
-			// show alert dialog
+		// check if no items
+		//
+		if (items.length == 0) {
+
+			// show alert message
 			//
 			application.alert({
 				icon: '<i class="fa fa-mouse-pointer"></i>',
 				title: "Select",
 				message: "No items selected."
 			});
+
+			return;
 		}
+
+		// download multiple items
+		//
+		this.downloadItems(items);
 	}
 };

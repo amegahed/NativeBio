@@ -18,7 +18,7 @@
 import Connection from '../../../../../models/users/connections/connection.js';
 import Topic from '../../../../../models/topics/topic.js';
 import UserPreferences from '../../../../../models/preferences/user-preferences.js';
-import Items from '../../../../../collections/files/items.js';
+import Items from '../../../../../collections/storage/items.js';
 import ModelView from '../../../../../views/items/model-view.js';
 import Collapsable from '../../../../../views/behaviors/expanders/collapsable.js';
 import Selectable from '../../../../../views/behaviors/selection/selectable.js';
@@ -76,10 +76,10 @@ export default ModelView.extend(_.extend({}, Collapsable, Selectable, FileDownlo
 				<div class="optional options buttons">
 					<% if (collapsable) { %>
 					<span class="expander">
-						<button type="button" class="expand btn btn-sm" data-toggle="tooltip" title="Expand">
+						<button type="button" class="expand btn-sm" data-toggle="tooltip" title="Expand">
 							<i class="fa fa-caret-down"></i>	
 						</button>
-						<button type="button" class="collapse btn btn-sm" data-toggle="tooltip" title="Collapse">
+						<button type="button" class="collapse btn-sm" data-toggle="tooltip" title="Collapse">
 							<i class="fa fa-caret-up"></i>
 						</button>
 					</span>
@@ -188,7 +188,9 @@ export default ModelView.extend(_.extend({}, Collapsable, Selectable, FileDownlo
 		<div class="file-attachments"></div>
 		
 		<div class="image-attachments">
-			<div class="gallery"></div>
+			<div class="gallery">
+				<div class="images"></div>
+			</div>
 		</div>
 				
 		<div class="comments panel"<% if (comments.length == 0) { %> style="display:none"<% } %>></div>
@@ -227,7 +229,7 @@ export default ModelView.extend(_.extend({}, Collapsable, Selectable, FileDownlo
 		'click > .info .buttons .comment': 'onClickComment',
 		'click > .info .buttons .delete': 'onClickDelete',
 		'click > .info .comment-bubble a': 'onClickLink',
-		'click > .image-attachments > .gallery > img': 'onClickGalleryImage',
+		'click > .image-attachments > .gallery > .images > img': 'onClickGalleryImage',
 
 		'dblclick > .info': 'onDoubleClick',
 		'dblclick > .info .comment-bubble': 'onDoubleClickComment',
@@ -240,7 +242,7 @@ export default ModelView.extend(_.extend({}, Collapsable, Selectable, FileDownlo
 	// image attributes
 	//
 	thumbnailSize: 50,
-	maxImageSize: 600,
+	maxImageSize: 512,
 	maxImages: 6,
 
 	//
@@ -283,7 +285,7 @@ export default ModelView.extend(_.extend({}, Collapsable, Selectable, FileDownlo
 		//
 		this.listenTo(this.model, 'change', this.render, this);
 	},
-	
+
 	//
 	// iterator
 	//
@@ -356,7 +358,7 @@ export default ModelView.extend(_.extend({}, Collapsable, Selectable, FileDownlo
 		//
 		this.$el.removeAttr('draggable');
 	},
-	
+
 	deselectAll: function() {
 
 		// deselect post
@@ -382,13 +384,13 @@ export default ModelView.extend(_.extend({}, Collapsable, Selectable, FileDownlo
 			collection: new Items([imageFile]),
 			defaults: {
 				show_sidebar: false
-			}	
+			}
 		});
 	},
 
 	openDirectory: function(directory) {
 		application.launch('file_browser', {
-			model: directory	
+			model: directory
 		});
 	},
 
@@ -429,7 +431,7 @@ export default ModelView.extend(_.extend({}, Collapsable, Selectable, FileDownlo
 	},
 
 	delete: function(options) {
-		
+
 		// check if we need to confirm
 		//
 		if (!options || options.confirm != false) {
@@ -509,7 +511,7 @@ export default ModelView.extend(_.extend({}, Collapsable, Selectable, FileDownlo
 
 	onRender: function() {
 		this.app = this.getParentView('app') || application;
-		
+
 		// show attachments
 		//
 		if (this.has('attachments')) {
@@ -547,7 +549,7 @@ export default ModelView.extend(_.extend({}, Collapsable, Selectable, FileDownlo
 	show: function(view) {
 		application.show(view);
 	},
-	
+
 	showWhat: function() {
 		new Topic({
 			id: this.model.get('topic_id')
@@ -571,10 +573,14 @@ export default ModelView.extend(_.extend({}, Collapsable, Selectable, FileDownlo
 		});
 	},
 
+	//
+	// attachment rendering methods
+	//
+
 	showAttachments: function() {
 		this.showChildView('attachments', new FilesView({
 			collection: new Items(this.get('attachments').getItems('non_visual')),
-			
+
 			// options
 			//
 			preferences: UserPreferences.create('file_browser', {
@@ -600,13 +606,27 @@ export default ModelView.extend(_.extend({}, Collapsable, Selectable, FileDownlo
 		}));
 	},
 
+	//
+	// image gallery rendering methods
+	//
+
+	addGalleryImage: function(attributes) {
+		let image = $('<img>').attr(attributes);
+		this.$el.find('.gallery .images').append(image);
+	},
+
+	addGalleryVideoControls: function(attributes) {
+		let video = $('<video controls>').attr(attributes);
+		this.$el.find('.gallery .images').append(video);
+	},
+
 	showInlineImage: function(attachment) {
 		let url = attachment.getUrl({
 			max_size: this.maxImageSize
 		});
 		let resolution = attachment.get('resolution');
 		if (resolution) {
-			this.$el.find('.gallery').append($('<img>').attr({
+			this.addGalleryImage({
 				src: url,
 				class: resolution[0] >= resolution[1]? 'horizontal' : 'vertical',
 				title: attachment.get('path'),
@@ -614,14 +634,14 @@ export default ModelView.extend(_.extend({}, Collapsable, Selectable, FileDownlo
 				height: resolution[1],
 				'data-toggle': 'tooltip',
 				'data-placement': 'bottom'
-			}));
+			});
 		} else {
-			this.$el.find('.gallery').append($('<img>').attr({
+			this.addGalleryImage({
 				src: url,
 				title: attachment.get('path'),
 				'data-toggle': 'tooltip',
 				'data-placement': 'bottom'
-			}));		
+			});
 		}
 	},
 
@@ -631,26 +651,26 @@ export default ModelView.extend(_.extend({}, Collapsable, Selectable, FileDownlo
 		});
 		let resolution = attachment.get('resolution');
 		if (resolution) {
-			this.$el.find('.gallery').append($('<video controls>').attr({
+			this.addGalleryVideoControls({
 				src: url,
 				class: resolution[0] > resolution[1]? 'horizontal' : 'vertical',
 				title: attachment.get('path'),
 				'data-toggle': 'tooltip',
 				'data-placement': 'bottom'
-			}));
+			});
 		} else {
-			this.$el.find('.gallery').append($('<video controls>').attr({
+			this.addGalleryVideoControls({
 				src: url,
 				title: attachment.get('path'),
 				'data-toggle': 'tooltip',
 				'data-placement': 'bottom'
-			}));				
+			});
 		}
 	},
 
 	showGallery: function() {
 		let attachments = this.get('attachments');
-		
+
 		if (attachments.numItems('visual') == 1) {
 
 			// show visual attachment inline
@@ -668,8 +688,16 @@ export default ModelView.extend(_.extend({}, Collapsable, Selectable, FileDownlo
 			if (photos.length > 0) {
 				this.showChildView('gallery', new ImageGalleryView({
 					collection: new Items(photos),
+
+					// options
+					//
 					max_size: this.maxImageSize,
-					max_images: this.maxImages
+					max_images: this.maxImages,
+
+					// callbacks
+					//
+					onselect: this.options.onselect,
+					onopen: this.options.onopen
 				}));
 			}
 
@@ -698,6 +726,7 @@ export default ModelView.extend(_.extend({}, Collapsable, Selectable, FileDownlo
 
 			// options
 			//
+			features: this.options.features,
 			preferences: this.options.preferences,
 			collapsed: this.options.collapsed,
 			selected: this.options.selected,
@@ -761,6 +790,7 @@ export default ModelView.extend(_.extend({}, Collapsable, Selectable, FileDownlo
 				// options
 				//
 				post: this.model,
+				features: this.options.features,
 				preferences: this.options.preferences,
 
 				// callbacks
@@ -909,6 +939,7 @@ export default ModelView.extend(_.extend({}, Collapsable, Selectable, FileDownlo
 				// options
 				//
 				topic: this.options.topic,
+				features: this.options.features,
 				preferences: this.options.preferences,
 
 				// callbacks

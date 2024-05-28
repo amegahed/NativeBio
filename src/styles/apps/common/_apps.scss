@@ -15,13 +15,15 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
+@use "../../bootstrap/variables";
 @use "../../navs/icons";
 
 //
 // variables
 //
 
-$toolbar-height: 30px;
+$round-message-border-radius: 20px;
+$rounded-message-border-radius: 10px;
 
 //
 // styles
@@ -45,24 +47,38 @@ $toolbar-height: 30px;
 		width: 100%;
 		max-width: 100%;
 
-		> div:not(:empty) {
-			max-width: 100%;
-		}
+		> div {
+			display: inline-block;
 
-		> div:empty {
-			display: none;
+			&:not(:empty) {
+				max-width: 100%;
+
+				// separators
+				//
+				& + div:not(:empty) {
+					border-left-style: dashed;
+					border-left-width: 1px;
+				}
+			}
+
+			&:empty {
+				display: none;
+
+				& + div {
+					border-left: none !important;
+				}
+			}
 		}
 
 		.toolbar {
 			display: inline-flex;
 			max-width: 100%;
-			height: $toolbar-height;
 			background: none !important;
 			border: none;
 		}
 
 		//
-		// text / number inputs
+		// text inputs
 		//
 
 		.address-bar, .search-bar {
@@ -91,34 +107,11 @@ $toolbar-height: 30px;
 		width: 100%;
 
 		//
-		// all header bars
+		// toolbars
 		//
 
-		> div:not(:empty) {
-			display: inline-block;
-		}
-
-		> div:not(.menu-bar) {
-			max-height: 30px;
-		}
-
-		> div:not(:empty) {
-
-			// header separators
-			//
-			& + div:not(:empty),
-			& + div:empty + div:not(:empty) {
-				border-left-style: dashed;
-				border-left-width: 1px;
-			}
-		}
-
-		> div:empty {
-			display: none;
-
-			& + div {
-				border-left: none !important;
-			}
+		.toolbar {
+			justify-content: center;
 		}
 
 		//
@@ -176,6 +169,11 @@ $toolbar-height: 30px;
 				width: 100%;
 				height: 100%;
 
+				> form {
+					height: 100%;
+					overflow: auto;
+				}
+
 				> .items {
 
 					&:not(.overlay) {
@@ -207,6 +205,7 @@ $toolbar-height: 30px;
 					width: 100%;
 					height: 100%;
 					overflow: auto;
+					border-radius: 0;
 				}
 			}
 		}
@@ -216,34 +215,43 @@ $toolbar-height: 30px;
 		//
 
 		.clickable {
-			pointer-events: auto;
-			cursor: pointer;
+			pointer-events: auto !important;
+			cursor: pointer !important;
 		}
 
 		.message.overlay {
-			&:not(.clickable) {
-				pointer-events: none;
-			}
-		}
-
-		.help.message {
-			position: absolute;
-			width: 100%;
-			height: auto;
-			padding: 10px;
-			text-align: center;
-			border: none;
-			top: 50%;
-			transform: translateY(-50%);
-			font-size: 200%;
-			line-height: 1em;
+			display: flex;
+			justify-content: center;
 			pointer-events: none;
-			overflow: hidden;
 
-			i {
-				display: block;
+			.help.message {
+				position: absolute;
+				width: 75%;
+				min-height: 50%;
+				height: auto;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				padding: 50px;
+				text-align: center;
+				border: none;
+				top: 50%;
+				left: 10%;
+				transform: translateY(-50%);
 				font-size: 200%;
-				margin-bottom: 10px;
+				line-height: 1em;
+				pointer-events: none;
+				overflow: hidden;
+
+				.icon {
+					pointer-events: none;
+
+					i {
+						display: block;
+						font-size: 200%;
+						margin-bottom: 10px;
+					}
+				}
 			}
 		}
 	}
@@ -265,15 +273,8 @@ $toolbar-height: 30px;
 		// spacing
 		//
 
-		> div:first-child:not(:last-child) {
-			float: left;
-			text-align: left;
-			margin-right: auto;
-		}
-
 		> div:last-child:not(.nav-bar) {
 			justify-content: flex-end;
-			// margin-left: auto;
 			
 			.info-bar {
 				text-align: right;
@@ -337,6 +338,10 @@ $toolbar-height: 30px;
 
 		.status-bar {
 			flex-shrink: 0;
+
+			> div {
+				display: flex;
+			}
 		}
 
 		.toolbar {
@@ -435,7 +440,7 @@ $toolbar-height: 30px;
 	.app {
 	
 		.header-bar {
-			> div:not(.menu-bar) {
+			> div {
 				max-height: 25px;
 			}
 		}
@@ -444,6 +449,34 @@ $toolbar-height: 30px;
 			.input {
 				margin: 0;
 			}
+		}
+	}
+}
+
+//
+// help message borders
+//
+
+body.round {
+	.message.overlay {
+		.help.message {
+			border-radius: $round-message-border-radius;
+		}
+	}
+}
+
+body.rounded {
+	.message.overlay {
+		.help.message {
+			border-radius: $rounded-message-border-radius;
+		}
+	}
+}
+
+body.square {
+	.message.overlay {
+		.help.message {
+			border-radius: 0;
 		}
 	}
 }
@@ -462,6 +495,7 @@ body[device="desktop"] {
 		.header-bar {
 			> div {
 				display: inline-block;
+				height: 30px;
 				float: left;
 
 				&:empty {
@@ -472,7 +506,7 @@ body[device="desktop"] {
 
 			.address-bar, .search-bar {
 				width: 25%;
-				min-width: 300px;
+				min-width: 350px;
 			}
 
 			.status-bar {
@@ -481,6 +515,22 @@ body[device="desktop"] {
 				.status {
 					display: flex;
 				}
+			}
+		}
+
+		//
+		// desktop app footer bars
+		//
+
+		.footer-bar {
+
+			//
+			// sizing
+			//
+
+			> div:first-child,
+			> div:last-child {
+				min-width: 125px;
 			}
 		}
 	}

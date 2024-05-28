@@ -141,7 +141,10 @@ export default Timestamped.extend({
 			disk_quota = this.toBytes(disk_quota);
 		}
 
-		return this.bytesToString(disk_quota - disk_usage, precision);
+		let bytes_free = disk_quota - disk_usage;
+		let disk_free = this.bytesToString(Math.abs(bytes_free), precision);
+
+		return (bytes_free < 0? '-' : '') + disk_free;
 	},
 
 	getPercentDiskUsed: function() {
@@ -195,7 +198,7 @@ export default Timestamped.extend({
 		// set optional parameter defaults
 		//
 		if (precision == undefined) {
-			precision = 2;
+			precision = 3;
 		}
 
 		if (bytes > 1024 * 1024 * 1024) {

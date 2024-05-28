@@ -24,6 +24,10 @@ export default class Vector2 {
 	// querying methods
 	//
 
+	clone() {
+		return new Vector2(this.x, this.y);
+	}
+
 	equals(vector) {
 		return (vector && (this.x == vector.x) && (this.y == vector.y));
 	}
@@ -48,24 +52,32 @@ export default class Vector2 {
 	// converting methods
 	//
 
-	clone() {
-		return new Vector2(this.x, this.y);
+	toArray() {
+		return [this.x, this.y];
+	}
+
+	toStrings(precision) {
+
+		// set optional parameter defaults
+		//
+		if (!precision) {
+			precision = Vector2.precision;
+		}
+
+		return [this.x.toPrecision(precision), this.y.toPrecision(precision)];
 	}
 
 	toString(separator, precision) {
-		
+
 		// set optional parameter defaults
 		//
 		if (!separator) {
 			separator = Vector2.separator;
 		}
-		if (!precision) {
-			precision = Vector2.precision;
-		}
 
 		// convert to string
 		//
-		return this.x.toPrecision(precision) + separator + this.y.toPrecision(precision);
+		return this.toStrings(precision).join(separator);
 	}
 
 	//
@@ -149,13 +161,9 @@ export default class Vector2 {
 
 	scaledTo(scalar) {
 		let length = this.length();
-		let x = this.x * scalar;
-		let y = this.y * scalar;
-		if (length > 0) {
-			x /= length;
-			y /= length;
+		if (length != 0) {
+			return this.scaledBy(scalar / length);
 		}
-		return new Vector2(x, y);
 	}
 
 	reversed() {
@@ -163,7 +171,10 @@ export default class Vector2 {
 	}
 
 	normalized() {
-		return this.scaledBy(1 / this.length());
+		let length = this.length();
+		if (length) {
+			return this.scaledBy(1 / length);
+		}
 	}
 
 	parallel(vector) {
@@ -210,11 +221,19 @@ export default class Vector2 {
 		return this.minus(vector).length();
 	}
 
-	angleTo(vector, options) {
-		let angle1 = Math.atan2(this.y, this.x);
-		let angle2 = Math.atan2(vector.y, vector.x);
-		let angle = angle2 - angle1;
+	length() {
+		return Math.sqrt(this.dot(this));
+	}
 
+	//
+	// trigonometric methods
+	//
+
+	angleTo(vector, options) {
+		let angle = Math.atan2(vector.y, vector.x) - Math.atan2(this.y, this.x);
+
+		// convert to -180 to 180
+		//
 		if (angle < -Math.PI) {
 			angle += (2 * Math.PI);
 		}
@@ -232,10 +251,6 @@ export default class Vector2 {
 		}
 
 		return angle;
-	}
-
-	length() {
-		return Math.sqrt(this.dot(this));
 	}
 
 	//
@@ -256,14 +271,6 @@ export default class Vector2 {
 	}
 
 	//
-	// converting methods
-	//
-
-	toArray() {
-		return [this.x, this.y];
-	}
-
-	//
 	// static attributes
 	//
 
@@ -274,97 +281,58 @@ export default class Vector2 {
 	// static methods
 	//
 
-	static random(x, y) {
-		x = Math.random() * x;
-		y = Math.random() * y;
+	static random() {
+		let x = Math.random();
+		let y = Math.random();
 		return new Vector2(x, y);
 	}
 
-	static srandom(x, y) {
-		x = (Math.random() * 2 - 1) * x;
-		y = (Math.random() * 2 - 1) * y;
+	static srandom() {
+		let x = Math.random() * 2 - 1;
+		let y = Math.random() * 2 - 1;
 		return new Vector2(x, y);
 	}
 
-	static averageOf(vertices) {
-		if (!vertices || vertices.length == 0) {
+	static averageOf(vectors) {
+		if (!vectors || vectors.length == 0) {
 			return;
 		}
 
-		let sum = vertices[0];
-		for (let i = 1; i < vertices.length; i++) {
-			sum = sum.plus(vertices[i]);
+		let sum = vectors[0];
+		for (let i = 1; i < vectors.length; i++) {
+			sum = sum.plus(vectors[i]);
 		}
-		return sum.scaledBy(1 / vertices.length);
+		return sum.scaledBy(1 / vectors.length);
 	}
 
-	static centerOf(vertices) {
-		if (!vertices || vertices.length == 0) {
+	static centerOf(vectors) {
+		if (!vectors || vectors.length == 0) {
 			return;
 		}
 
-		let xmin = vertices[0].x;
-		let xmax = vertices[0].x;
-		let ymin = vertices[0].y;
-		let ymax = vertices[0].y;
+		let min = vectors[0].clone();
+		let max = vectors[0].clone();
 
-		for (let i = 1; i < vertices.length; i++) {
-			if (vertices[i].x < xmin) {
-				xmin = vertices[i].x;
-			}
-			if (vertices[i].x > xmax) {
-				xmax = vertices[i].x;
-			}
-			if (vertices[i].y < ymin) {
-				ymin = vertices[i].y;
-			}
-			if (vertices[i].y > ymax) {
-				ymax = vertices[i].y;
-			}
-		}
-		let xmean = (xmin + xmax) / 2;
-		let ymean = (ymin + ymax) / 2;
+		for (let i = 1; i < vectors.length; i++) {
+			let vector = vectors[i];
 
-		return new Vector2(xmean, ymean);
-	}
-
-	static widthOf(vertices) {
-		if (!vertices || vertices.length == 0) {
-			return;
-		}
-
-		let xmin = vertices[0].x;
-		let xmax = vertices[0].x;
-
-		for (let i = 1; i < vertices.length; i++) {
-			if (vertices[i].x < xmin) {
-				xmin = vertices[i].x;
+			if (vector.x < min.x) {
+				min.x = vector.x;
 			}
-			if (vertices[i].x > xmax) {
-				xmax = vertices[i].x;
+			if (vector.x > max.x) {
+				max.x = vector.x;
+			}
+			if (vector.y < min.y) {
+				min.y = vector.y;
+			}
+			if (vector.y > max.y) {
+				max.y = vector.y;
 			}
 		}
 
-		return xmax - xmin;
-	}
+		let x = (min.x + max.x) / 2;
+		let y = (min.y + max.y) / 2;
 
-	static heightOf(vertices) {
-		if (!vertices || vertices.length == 0) {
-			return;
-		}
-
-		let ymin = vertices[0].y;
-		let ymax = vertices[0].y;
-
-		for (let i = 1; i < vertices.length; i++) {
-			if (vertices[i].y < ymin) {
-				ymin = vertices[i].y;
-			}
-			if (vertices[i].y > ymax) {
-				ymax = vertices[i].y;
-			}
-		}
-
-		return ymax - ymin;
+		return new Vector2(x, y);
 	}
 }

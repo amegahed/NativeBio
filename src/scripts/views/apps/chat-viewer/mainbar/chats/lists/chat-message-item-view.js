@@ -17,7 +17,7 @@
 
 import UserPreferences from '../../../../../../models/preferences/user-preferences.js';
 import Connection from '../../../../../../models/users/connections/connection.js';
-import Items from '../../../../../../collections/files/items.js';
+import Items from '../../../../../../collections/storage/items.js';
 import Selectable from '../../../../../../views/behaviors/selection/selectable.js';
 import ModelView from '../../../../../../views/items/model-view.js';
 import FilesView from '../../../../../../views/apps/file-browser/mainbar/files/files-view.js';
@@ -236,7 +236,7 @@ export default ModelView.extend(_.extend({}, Selectable, {
 	templateContext: function() {
 		let when = this.model.when();
 		let repeatWhen = (when == this.parent.prevWhen);
-		let showElapsedTime = this.options.showElapsedTime && !repeatWhen;
+		let showElapsedTime = this.options.show_elapsed_time && !repeatWhen;
 
 		if (showElapsedTime) {
 			this.parent.prevWhen = when;
@@ -402,6 +402,7 @@ export default ModelView.extend(_.extend({}, Selectable, {
 
 				// options
 				//
+				features: this.options.features,
 				preferences: this.options.preferences,
 
 				// callbacks

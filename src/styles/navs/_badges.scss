@@ -49,6 +49,13 @@ $rounded-border-radius: 5px;
 		margin: 1px;
 	}
 
+	img, svg {
+		height: 14px;
+		width: auto;
+		fill: white;
+		margin: -1px;
+	}
+
 	&.active {
 		cursor: pointer;
 	}
@@ -56,16 +63,16 @@ $rounded-border-radius: 5px;
 	&::empty {
 		display: none;
 	}
-}
 
-.group {
-	.icon {
-		margin: 0;
-		padding: 0;
-		height: 15px;
+	.group {
+		.icon {
+			margin: 0;
+			padding: 0;
+			height: 15px;
+		}
+
+		white-space: nowrap;
 	}
-
-	white-space: nowrap;
 }
 
 .badges {
@@ -75,10 +82,6 @@ $rounded-border-radius: 5px;
 	&:empty {
 		display: none;
 	}
-}
-
-.badges:empty {
-	display: none;
 }
 
 //
@@ -95,17 +98,4 @@ $rounded-border-radius: 5px;
 
 .square .badge {
 	border-radius: 0;
-}
-
-//
-// item badges
-//
-
-.item {
-
-	// item minimum badge width
-	//
-	.badges .badge {
-		min-width: 30px;
-	}
 }

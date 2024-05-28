@@ -25,13 +25,13 @@ export default FileMenuView.extend({
 
 	template: template(`
 		<li role="presentation">
-			<a class="new-window"><i class="far fa-window-maximize"></i>New Window<span class="command shortcut">enter</span></a>
+			<a class="new-file"><i class="fa fa-file-alt"></i>New File<span class="command shortcut">F</span></a>
 		</li>
 
 		<li role="presentation">
-			<a class="new-file"><i class="fa fa-file-alt"></i>New File<span class="command shortcut">F</span></a>
+			<a class="new-window"><i class="far fa-window-maximize"></i>New Window<span class="command shortcut">enter</span></a>
 		</li>
-		
+
 		<li role="presentation">
 			<a class="open-file"><i class="fa fa-folder-open"></i>Open<span class="command shortcut">O</span></a>
 		</li>
@@ -66,8 +66,8 @@ export default FileMenuView.extend({
 	`),
 
 	events: {
-		'click .new-window': 'onClickNewWindow',
 		'click .new-file': 'onClickNewFile',
+		'click .new-window': 'onClickNewWindow',
 		'click .open-file': 'onClickOpenFile',
 		'click .show-info': 'onClickShowInfo',
 		'click .save-file': 'onClickSaveFile',
@@ -81,23 +81,23 @@ export default FileMenuView.extend({
 	//
 
 	enabled: function() {
+		let isSignedIn = application.isSignedIn();
+		let hasTabs = this.parent.app.hasTabs();
 		let file = this.parent.app.model;
 		let directory = file? file.parent : undefined;
 		let isOpen = file != undefined;
-		let isSignedIn = application.isSignedIn();
 		let isDirectoryReadable = directory? directory.isReadableBy(application.session.user) : isSignedIn;
 		let isDirectoryWritable = directory? directory.isWritableBy(application.session.user) : isSignedIn;
 		let isDesktop = this.parent.app.isDesktop();
-		let hasMultiple = this.parent.app.hasOpenTunes();
 		
 		return {
-			'new-window': true,
 			'new-file': true,
+			'new-window': true,
 			'open-file': isDirectoryReadable,
 			'show-info': isOpen && !file.isNew(),
 			'save-file': false,
-			'save-as': isDirectoryWritable,
-			'close-tab': hasMultiple,
+			'save-as': hasTabs && isDirectoryWritable,
+			'close-tab': hasTabs,
 			'close-window': !isDesktop
 		};
 	},

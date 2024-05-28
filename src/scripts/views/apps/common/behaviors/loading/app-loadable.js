@@ -88,6 +88,14 @@ export default {
 				});
 				break;
 
+			case 'communicator':
+				import(
+					'../../../communicator/communicator-view.js'
+				).then((AppView) => {
+					done(AppView.default);
+				});
+				break;
+
 			case 'connection_manager':
 				import(
 					'../../../connection-manager/connection-manager-view.js'
@@ -99,6 +107,14 @@ export default {
 			case 'contact_editor':
 				import(
 					'../../../contact-editor/contact-editor-view.js'
+				).then((AppView) => {
+					done(AppView.default);
+				});
+				break;
+
+			case 'decibel_meter':
+				import(
+					'../../../decibel-meter/decibel-meter-view.js'
 				).then((AppView) => {
 					done(AppView.default);
 				});
@@ -139,14 +155,6 @@ export default {
 			case 'map_viewer':
 				import(
 					'../../../map-viewer/map-viewer-view.js'
-				).then((AppView) => {
-					done(AppView.default);
-				});
-				break;
-
-			case 'messenger':
-				import(
-					'../../../messenger/messenger-view.js'
 				).then((AppView) => {
 					done(AppView.default);
 				});
@@ -203,6 +211,14 @@ export default {
 			case 'project_viewer':
 				import(
 					'../../../project-viewer/project-viewer-view.js'
+				).then((AppView) => {
+					done(AppView.default);
+				});
+				break;
+
+			case 'search_viewer':
+				import(
+					'../../../search-viewer/search-viewer-view.js'
 				).then((AppView) => {
 					done(AppView.default);
 				});

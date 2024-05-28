@@ -33,7 +33,11 @@ $header-bar-background-color: colors.$very-dark-grey;
 $header-bar-border-color: dark-apps.$border-color;
 $sidebar-panel-color: dark-panels.$background-color;
 $sidebar-panels-color: colors.faded(dark-panels.$background-color, 50%);
-$mainbar-background-color: colors.$very-very-dark-grey;
+$mainbar-background-color: colors.$very-very-very-dark-grey;
+
+$message-color: colors.$very-light-grey;
+$message-background-color: colors.faded(colors.$medium-grey, 25%);
+
 $transparent-sidebar-color: colors.faded(dark-apps.$sidebar-color, 50%);
 $transparent-sidebar-label-color: white;
 $transparent-sidebar-panel-color: colors.faded(colors.$dark-grey, 25%);
@@ -45,6 +49,11 @@ $transparent-sidebar-panel-color: colors.faded(colors.$dark-grey, 25%);
 body:not(.binary).dark {
 	.desktop.app {
 		> .body {
+
+			//
+			// dark desktop apps
+			//
+
 			> .app {
 
 				//
@@ -91,6 +100,22 @@ body:not(.binary).dark {
 							> i {
 								color: $header-bar-icon-color;
 							}		
+						}
+					}
+				}
+
+				.mainbar {
+
+					//
+					// desktop app help messages
+					//
+
+					.help.message {
+						color: $message-color;
+						background: $message-background-color;
+
+						i {
+							color: $message-color;
 						}
 					}
 				}

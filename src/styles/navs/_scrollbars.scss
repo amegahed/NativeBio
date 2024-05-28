@@ -86,22 +86,4 @@ $border-radius: 5px;
 			border-width: $thick-thumb-border-width;
 		}
 	}
-
-	//
-	// scrollbar track
-	//
-
-	::-webkit-track {
-		background: white;
-	}
-
-	::-webkit-track:vertical {
-		-webkit-border-radius: 0;
-		margin: 0;
-	}
-
-	::-webkit-track:horizontal {
-		-webkit-border-radius: 0;
-		margin: 0;
-	}
 }

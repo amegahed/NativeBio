@@ -15,7 +15,7 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import Links from '../../../../../../collections/files/sharing/links.js';
+import Links from '../../../../../../collections/storage/sharing/links.js';
 import BaseView from '../../../../../../views/base-view.js';
 import LinksListView from '../../../../../../views/apps/file-browser/sharing/links/list/links-list-view.js';
 

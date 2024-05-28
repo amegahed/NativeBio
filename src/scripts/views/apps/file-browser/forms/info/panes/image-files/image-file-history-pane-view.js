@@ -28,7 +28,7 @@ export default FormView.extend({
 			<label class="control-label"><i class="fa fa-calendar-alt"></i>Captured</label>
 			<div class="controls">
 				<p class="form-control-static">
-					<%= captured_at? captured_at.format() : 'unknown' %>
+					<%= captured_at %>
 				</p>
 			</div>
 		</div>
@@ -37,7 +37,7 @@ export default FormView.extend({
 			<label class="control-label"><i class="fa fa-magic"></i>Created</label>
 			<div class="controls">
 				<p class="form-control-static">
-					<%= created_at && created_at.format? created_at.format() : created_at %>
+					<%= created_at %>
 				</p>
 			</div>
 		</div>
@@ -46,7 +46,7 @@ export default FormView.extend({
 			<label class="control-label"><i class="fa fa-pencil-alt"></i>Modified</label>
 			<div class="controls">
 				<p class="form-control-static">
-					<%= modified_at && modified_at.format? modified_at.format() : modified_at %>
+					<%= modified_at %>
 				</p>
 			</div>
 		</div>
@@ -55,7 +55,7 @@ export default FormView.extend({
 			<label class="control-label"><i class="fa fa-eye"></i>Accessed</label>
 			<div class="controls">
 				<p class="form-control-static">
-					<%= accessed_at && accessed_at.format? accessed_at.format() : accessed_at %>
+					<%= accessed_at %>
 				</p>
 			</div>
 		</div>
@@ -67,7 +67,10 @@ export default FormView.extend({
 
 	templateContext: function() {
 		return {
-			captured_at: this.model.hasCaptureDate()? this.model.getCaptureDate() : null
+			captured_at: this.formatDate(this.model.getCaptureDate()),
+			created_at: this.formatDate(this.model.getCreateDate()),
+			modified_at: this.formatDate(this.model.getModifyDate()),
+			accessed_at: this.formatDate(this.model.getAccessDate()),
 		};
-	},
+	}
 });

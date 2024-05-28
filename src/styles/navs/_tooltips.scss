@@ -31,40 +31,34 @@ $rounded-border-radius: 3px;
 	font-size: $font-size;
 	pointer-events: none;
 
+	//
 	// counter Bootstrap
 	//
-	// font-family: unset;
 
 	&.in {
 		opacity: 1;
 	}
 
-	// override default tooltip spacing
-	//
-	/*
-	&.top {
-		margin-top: 0;
-	}
-	&.bottom {
-		margin-top: 0;
-	}
-	&.right {
-		margin-left: 0;
-	}
-	&.left {
-		margin-right: 0;
-	}
-	*/
-
 	.tooltip-inner {
-		// white-space: nowrap;
 
 		// display text ellipsis
 		//
 		overflow: hidden;
 		text-overflow: ellipsis;
 	}
+
+	//
+	// tooltip layering
+	//
+
+	&.permanant {
+		z-index: 0;
+	}
 }
+
+//
+// tooltip corners
+//
 
 .round .tooltip {
 	.tooltip-inner {

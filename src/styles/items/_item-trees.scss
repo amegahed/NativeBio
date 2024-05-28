@@ -19,35 +19,12 @@
 // variables
 //
 
-$nesting-width: 25px;
+$nesting-width: 30px;
+$panel-nesting-width: 25px;
 
 //
 // styles
 //
-
-.top.item-tree {
-
-	// hide top folder
-	//
-	> .info {
-		display: none;
-	}
-	
-	& > .item-list {
-		padding: 0;
-		margin: 0;
-	}
-
-	//
-	// nested items
-	//
-
-	.item:not(.item-tree) {
-		> .info {
-			margin-left: $nesting-width;
-		}
-	}
-}
 
 //
 // directories
@@ -77,13 +54,90 @@ $nesting-width: 25px;
 	}
 
 	.item-list {
-		margin-left: 25px;
+		margin-left: $nesting-width;
 		margin-bottom: 0;
 		padding: 0;
 	}
 
 	.empty {
-		margin-left: 25px;
+		margin-left: $nesting-width;
+	}
+
+	//
+	// outlines
+	//
+
+	/*
+	&.selected, &.highlighted {
+		outline-width: 2px;
+		outline-style: solid;
+		outline-offset: -2px;
+	}
+	*/
+
+	//
+	// top level trees
+	//
+
+	&.top {
+
+		.expander {
+			width: $nesting-width;
+		}
+
+		//
+		// hide top folder
+		//
+
+		&:not(.show-root) {
+			> .info {
+				display: none;
+			}
+		}
+		
+		& > .item-list {
+			padding: 0;
+			margin: 0;
+		}
+
+		//
+		// nested items
+		//
+
+		.item:not(.item-tree) {
+			> .info {
+				margin-left: $nesting-width;
+			}
+		}
+	}
+}
+
+//
+// panel trees
+//
+
+.panel {
+	.top.item-tree {
+
+		.info {
+			padding: 0;
+		}
+
+		.expander {
+			width: $panel-nesting-width;
+		}
+
+		.item:not(.item-tree) {
+			> .info {
+				margin-left: $panel-nesting-width;
+			}
+		}
+	}
+
+	.item-tree:not(.top) {
+		.item-list {
+			margin-left: $panel-nesting-width;
+		}
 	}
 }
 
@@ -94,11 +148,13 @@ $nesting-width: 25px;
 .round, .rounded {
 	.item-tree.top:not(.collapsed) {
 		.item-tree {
+
 			&:not(.collapsed) {
 				.info {
 					border-radius: 0 !important;
 				}			
 			}
+
 			.item-list {
 				.info {
 					border-radius: 0 !important;

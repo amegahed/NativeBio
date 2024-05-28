@@ -50,11 +50,11 @@
 	
 	<h2><i class="fa fa-desktop"></i>Screen Shots</h2>
 	<div class="figure desktop-only">
-		<a href="images/info/apps/profile-viewer/profile-viewer.png" target="_blank" class="lightbox" title="Profile"><img class="dialog" src="images/info/apps/profile-viewer/profile-viewer.png" /></a>
-		<div class="caption">Profile</div>
+		<a href="images/info/apps/profile-viewer/profile-viewer.png" target="_blank" class="lightbox" title="<%= config.apps['profile_viewer'].name %>"><img class="dialog" src="images/info/apps/profile-viewer/profile-viewer.png" /></a>
+		<div class="caption"><%= config.apps['profile_viewer'].name %></div>
 	</div>
 	<div class="figure mobile-only">
-		<a href="images/info/apps/profile-viewer/mobile/mobile-profile-viewer.png" target="_blank" class="lightbox" title="Profile"><img src="images/info/apps/profile-viewer/mobile/mobile-profile-viewer.png" /></a>
-		<div class="caption">Profile</div>
+		<a href="images/info/apps/profile-viewer/mobile/mobile-profile-viewer.png" target="_blank" class="lightbox" title="<%= config.apps['profile_viewer'].name %>"><img src="images/info/apps/profile-viewer/mobile/mobile-profile-viewer.png" /></a>
+		<div class="caption"><%= config.apps['profile_viewer'].name %></div>
 	</div>
 </div>

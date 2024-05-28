@@ -92,9 +92,9 @@ export default FileMenuView.extend({
 
 	enabled: function() {
 		let isSignedIn = application.isSignedIn();
+		let hasTabs = this.parent.app.hasTabs();
 		let hasOpenProject = this.parent.app.hasOpenProject();
 		let hasSelected = this.parent.app.hasSelected();
-		let hasMultiple = this.parent.app.hasOpenProjects();
 
 		return {
 			'new-window': true,
@@ -105,7 +105,7 @@ export default FileMenuView.extend({
 			'remove-project': false,
 			'show-info': hasSelected || hasOpenProject,
 			'download-item': false,
-			'close-tab': hasMultiple,
+			'close-tab': hasTabs,
 			'close-window': true
 		};
 	},

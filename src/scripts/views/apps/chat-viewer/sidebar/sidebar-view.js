@@ -94,11 +94,7 @@ export default SideBarView.extend({
 
 	showChatInfoPanel: function() {
 		this.showChildView('info', new ChatInfoPanelView({
-			model: this.model,
-
-			// options
-			//
-			view_kind: this.options.view_kind
+			model: this.model
 		}));		
 	},
 

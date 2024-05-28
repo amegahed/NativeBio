@@ -16,7 +16,7 @@
 \******************************************************************************/
 
 import FooterBarView from '../../../../views/apps/common/footer-bar/footer-bar-view.js';
-import NavBarView from '../../../../views/apps/image-viewer/footer-bar/nav-bar/nav-bar-view.js';
+import ImageBarView from '../../../../views/apps/image-viewer/footer-bar/image-bar/image-bar-view.js';
 import StatusBarView from '../../../../views/apps/image-viewer/footer-bar/status-bar/status-bar-view.js';
 
 export default FooterBarView.extend({
@@ -25,14 +25,14 @@ export default FooterBarView.extend({
 	// attributes
 	//
 
-	toolbars: ['window', 'nav', 'status'],
+	toolbars: ['window', 'image', 'status'],
 
 	//
 	// getting methods
 	//
 
-	getNavBarView: function() {
-		return new NavBarView({
+	getImageBarView: function() {
+		return new ImageBarView({
 			imageNumber: this.collection? this.collection.indexOf(this.model) + 1 : undefined,
 			numImages: 	this.collection? this.collection.length : undefined
 		});
@@ -40,5 +40,36 @@ export default FooterBarView.extend({
 
 	getStatusBarView: function() {
 		return new StatusBarView();
+	},
+
+	//
+	// rendering methods
+	//
+
+	showToolbar: function(kind) {
+		switch (kind) {
+			case 'window':
+				this.showWindowBar();
+				break;
+			case 'image':
+				this.showImageBar();
+				break;
+			case 'status':
+				this.showStatusBar();
+				break;
+		}
+	},
+
+	showWindowBar: function() {
+		this.showChildView('window', this.getWindowBarView());
+	},
+
+	showImageBar: function() {
+		this.showChildView('image', this.getImageBarView());
+		this.getChildView('image').$el.addClass('windowed-app-only');
+	},
+
+	showStatusBar: function() {
+		this.showChildView('status', this.getStatusBarView());
 	}
 });

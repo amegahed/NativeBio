@@ -27,8 +27,9 @@ $icon-size: icons.$font-size;
 $shadow: 3px 3px 7px rgba(black, 33%);
 $close-button-size: 13px;
 $close-button-font-size: 11px;
-$min-width: 20%;
+$min-width: 10%;
 $max-width: 33.33%;
+$height: 27px;
 $mobile-max-width: 50%;
 $round-border-radius: 10px;
 $rounded-border-radius: 5px;
@@ -77,11 +78,13 @@ ul.nav-tabs {
 
 		> a {
 			display: flex;
-			padding: 3px 5px;
+			height: 100%;
+			padding: 0 5px;
 			margin-bottom: 0;
 			margin-right: 0;
 			white-space: nowrap;
 			justify-content: center;
+			line-height: $height;
 
 			// display text ellipsis
 			//
@@ -95,22 +98,26 @@ ul.nav-tabs {
 			i {
 				flex-shrink: 0;
 				font-size: $icon-size;
-				line-height: 20px;
-				margin-top: 0;
+				margin: auto 0;
 				margin-right: 5px;
 			}
 
-			img.icon {
-				width: 20px;
-				height: 20px;
+			.icon {
+				display: flex;
 				margin-right: 5px;
+
+				.thumbnail {
+					width: 25px;
+					height: 25px;
+					margin: auto;
+					background-size: cover;
+				}
 			}
 
 			.name {
-				display: inline;
 				overflow: hidden;
-				line-height: 20px;
 				text-overflow: ellipsis;
+				margin: auto 0;
 			}
 
 			i.fa-times, i.fa-xmark {
@@ -123,8 +130,8 @@ ul.nav-tabs {
 				border-color: transparent;
 				vertical-align: top;
 				text-align: center;
+				margin: auto 0;
 				margin-left: 5px;
-				margin-top: 4px;
 				margin-right: 0;
 				display: none;
 			}
@@ -140,6 +147,10 @@ ul.nav-tabs {
 				//
 				overflow: hidden;
 				text-overflow: ellipsis;
+			}
+
+			.badges {
+				margin: auto 5px;
 			}
 		}
 
@@ -223,7 +234,7 @@ ul.nav-tabs {
 	&.compact {
 		> li {
 			> a {
-				padding: 5px 5px;
+				padding: 5px 0;
 				margin-right: 0;
 			}
 		}
@@ -244,6 +255,12 @@ ul.nav-tabs {
 				i {
 					border-radius: calc($close-button-size / 2);
 				}
+
+				.icon {
+					.thumbnail {
+						border-radius: 7px;
+					}
+				}
 			}
 		}
 	}
@@ -259,6 +276,12 @@ ul.nav-tabs {
 				i {
 					border-radius: 3px;
 				}
+
+				.icon {
+					.thumbnail {
+						border-radius: 3px;
+					}
+				}
 			}
 		}
 	}
@@ -273,6 +296,12 @@ ul.nav-tabs {
 
 				i {
 					border-radius: 0;
+				}
+
+				.icon {
+					.thumbnail {
+						border-radius: 0;
+					}
 				}
 			}
 		}
@@ -337,23 +366,14 @@ body.tabs-attached {
 }
 
 //
-// tab width
-//
-
-:not(.vertical) > ul.nav-tabs {
-	> li {
-		min-width: $min-width;
-		max-width: $max-width;
-	}
-}
-
-//
 // tab expansion
 //
 
 body.tabs-expandable {
 	:not(.vertical) > ul.nav-tabs {
 		> li {
+			min-width: $min-width;
+			max-width: $max-width;
 			flex-grow: 1;
 			text-align: center;
 		}
@@ -364,6 +384,19 @@ body.tabs-expandable {
 			> li {
 				margin: auto;
 			}
+		}
+	}
+}
+
+//
+// tab width
+//
+
+body.tabs-expandable {
+	:not(.vertical) > ul.nav-tabs.auto-width {
+		> li {
+			min-width: none !important;
+			max-width: none !important;
 		}
 	}
 }
@@ -435,6 +468,7 @@ body:not(.binary):not(.flat-tabs):not(.flat.auto-tabs) {
 //
 
 :not(.menu-bar):not(.button-bar) > .nav-tabs.flush {
+	min-height: calc($height + 2px);
 	margin-bottom: 0;
 	border-bottom-width: 1px;
 }
@@ -481,6 +515,7 @@ body:not(.binary):not(.flat-tabs):not(.flat.auto-tabs) {
 			left: 0;
 			right: 0;
 			bottom: 0;
+			z-index: 0;
 
 			.tab-pane {
 				position: relative;
@@ -565,10 +600,6 @@ body[device="phone"], body[device="tablet"] {
 		> li {
 			> a {
 				padding: 5px;
-
-				i {
-					display: none;
-				}
 			}
 		}
 	}

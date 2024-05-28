@@ -30,7 +30,7 @@ export default BaseView.extend({
 			<i class="fa fa-file"></i><span>No image</span>
 		</div>
 		
-		<div class="image-size info-bar hidden-xs" style="display:none">
+		<div class="image-size info-bar" style="display:none">
 			<i class="fa fa-arrows-alt"></i><span class="info"></span>
 		</div>
 	`),

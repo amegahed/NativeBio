@@ -59,11 +59,11 @@ export default MenuView.extend({
 		<li role="separator" class="divider post-option"></li>
 		
 		<li role="presentation" class="post-option">
-			<a class="share-by-post"><i class="fa fa-newspaper"></i>By Post</a>
+			<a class="share-by-topic"><i class="fa fa-newspaper"></i>By Discussion Topic</a>
 		</li>
 		
 		<li role="presentation" class="post-option">
-			<a class="share-by-message"><i class="fa fa-comments"></i>By Messsage</a>
+			<a class="share-by-message"><i class="fa fa-comments"></i>By Chat Messsage</a>
 		</li>
 		
 		<li role="separator" class="divider post-option"></li>
@@ -74,35 +74,49 @@ export default MenuView.extend({
 		
 		<li role="separator" class="divider topic-option"></li>
 		
+		<% if (features && features.files) { %>
 		<li role="presentation" class="topic-option">
 			<a class="share-files"><i class="fa fa-file"></i>Files</a>
 		</li>
+		<% } %>
 		
+		<% if (features && features.audio) { %>
 		<li role="presentation" class="topic-option">
 			<a class="share-audio"><i class="fa fa-volume-up"></i>Audio</a>
 		</li>
+		<% } %>
 		
+		<% if (features && features.music) { %>
 		<li role="presentation" class="topic-option">
 			<a class="share-music"><i class="fa fa-music"></i>Music</a>
 		</li>
-		
+		<% } %>
+
+		<% if (features && features.pictures) { %>
 		<li role="presentation" class="topic-option">
 			<a class="share-pictures"><i class="fa fa-image"></i>Pictures</a>
 		</li>
+		<% } %>
 		
+		<% if (features && features.video) { %>
 		<li role="presentation" class="topic-option">
 			<a class="share-videos"><i class="fa fa-video"></i>Videos</a>
 		</li>
+		<% } %>
 		
+		<% if (features && features.maps) { %>
 		<li role="presentation" class="topic-option">
 			<a class="share-maps"><i class="fa fa-map"></i>Maps</a>
 		</li>
+		<% } %>
 		
+		<% if (features && features.locations) { %>
 		<li role="separator" class="divider topic-option"></li>
 		
 		<li role="presentation" class="topic-option">
 			<a class="share-location"><i class="fa fa-map-marker-alt"></i>Location</a>
 		</li>
+		<% } %>
 	`),
 
 	events: {
@@ -113,7 +127,7 @@ export default MenuView.extend({
 
 		// share post
 		//
-		'click .share-by-post': 'onClickShareByPost',
+		'click .share-by-topic': 'onClickShareByTopic',
 		'click .share-by-message': 'onClickShareByMessage',
 		'click .share-by-link': 'onClickShareByLink',
 
@@ -206,6 +220,12 @@ export default MenuView.extend({
 	// rendering methods
 	//
 
+	templateContext: function() {
+		return {
+			features: config.apps.topic_viewer.features
+		}
+	},
+
 	onRender: function() {
 
 		// hide items not pertaining to topic
@@ -289,8 +309,8 @@ export default MenuView.extend({
 		this.parent.app.shareSelectedByEmail();
 	},
 
-	onClickShareByPost: function() {
-		this.parent.app.shareSelectedByPost();
+	onClickShareByTopic: function() {
+		this.parent.app.shareSelectedByTopic();
 	},
 
 	onClickShareFiles: function() {

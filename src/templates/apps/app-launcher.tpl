@@ -43,11 +43,11 @@
 
 	<h2><i class="fa fa-desktop"></i>Screen Shots</h2>
 	<div class="figure desktop-only">
-		<a href="images/info/apps/app-launcher/app-launcher.png" target="_blank" class="lightbox" title="Apps"><img class="dialog" src="images/info/apps/app-launcher/app-launcher.png" /></a>
-		<div class="caption">Apps</div>
+		<a href="images/info/apps/app-launcher/app-launcher.png" target="_blank" class="lightbox" title="<%= config.apps['app_launcher'].name %>"><img class="dialog" src="images/info/apps/app-launcher/app-launcher.png" /></a>
+		<div class="caption"><%= config.apps['app_launcher'].name %></div>
 	</div>
 	<div class="figure mobile-only">
-		<a href="images/info/apps/app-launcher/mobile/mobile-app-launcher.png" target="_blank" class="lightbox" title="Apps"><img src="images/info/apps/app-launcher/mobile/mobile-app-launcher.png" /></a>
-		<div class="caption">Apps</div>
+		<a href="images/info/apps/app-launcher/mobile/mobile-app-launcher.png" target="_blank" class="lightbox" title="<%= config.apps['app_launcher'].name %>"><img src="images/info/apps/app-launcher/mobile/mobile-app-launcher.png" /></a>
+		<div class="caption"><%= config.apps['app_launcher'].name %></div>
 	</div>
 </div>

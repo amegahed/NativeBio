@@ -15,12 +15,13 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import AppView from '../../../views/apps/common/app-view.js';
+import AppSplitView from '../../../views/apps/common/app-split-view.js';
 import HeaderBarView from '../../../views/apps/settings-browser/header-bar/header-bar-view.js';
+import SideBarView from '../../../views/apps/settings-browser/sidebar/sidebar-view.js';
 import MainBarView from '../../../views/apps/settings-browser/mainbar/mainbar-view.js';
 import FooterBarView from '../../../views/apps/settings-browser/footer-bar/footer-bar-view.js';
 
-export default AppView.extend({
+export default AppSplitView.extend({
 
 	//
 	// attributes
@@ -42,7 +43,7 @@ export default AppView.extend({
 
 		// call superclass constructor
 		//
-		AppView.prototype.initialize.call(this);
+		AppSplitView.prototype.initialize.call(this);
 
 		// set static attributes
 		//
@@ -50,35 +51,11 @@ export default AppView.extend({
 	},
 
 	//
-	// querying methods
-	//
-
-	hasSelected: function() {
-		return this.getChildView('content').hasSelected();
-	},
-
-	//
 	// getting methods
 	//
 
-	getSelected: function() {
-		return this.getChildView('content').getSelected();
-	},
-
 	getStatusBarView: function() {
 		return FooterBarView.prototype.getStatusBarView();
-	},
-
-	getSelectedChildView: function(which) {
-		return this.getChildView('content').getSelectedChildView(which);
-	},
-
-	//
-	// setting methods
-	//
-
-	setSelectedItem: function(item) {
-		this.setSelected(item.model.get('name'), this.category);
 	},
 
 	//
@@ -89,7 +66,7 @@ export default AppView.extend({
 
 		// call superclass method
 		//
-		AppView.prototype.onRender.call(this);
+		AppSplitView.prototype.onRender.call(this);
 
 		// update
 		//
@@ -108,8 +85,29 @@ export default AppView.extend({
 	// contents rendering methods
 	//
 
-	getContentsView: function() {
+	getSideBarView: function() {
+		return new SideBarView({
+
+			// options
+			//
+			panels: this.preferences.get('sidebar_panels'),
+			view_kind: this.options.view_kind,
+
+			// callbacks
+			//
+			onselect: (item) =>this.onSelect(item)
+		});
+	},
+
+	getContentView: function() {
 		return new MainBarView({
+
+			// options
+			//
+			view_kind: this.options.view_kind,
+
+			// callbacks
+			//
 			onselect: (item) =>this.onSelect(item)
 		});
 	},

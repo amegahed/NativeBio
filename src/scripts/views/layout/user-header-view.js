@@ -45,16 +45,10 @@ export default HeaderView.extend({
 		
 						<% if (branding.header.brand.logotype) { %>
 						<div class="logotype">
-							<% if (branding.header.brand.logotype.prefix && branding.header.brand.logotype.prefix.text) { %>
-							<span class="prefix"><%= branding.header.brand.logotype.prefix.text.replace(' ', '&nbsp') %></span><% } %>
-							<% if (branding.header.brand.logotype.first && branding.header.brand.logotype.first.text) { %>
-							<span class="first"><%= branding.header.brand.logotype.first.text.replace(' ', '&nbsp') %></span><% } %>
-							<% if (branding.header.brand.logotype.middle && branding.header.brand.logotype.middle.text) { %>
-							<span class="middle"><%= branding.header.brand.logotype.middle.text.replace(' ', '&nbsp') %></span><% } %>
-							<% if (branding.header.brand.logotype.last && branding.header.brand.logotype.last.text) { %>
-							<span class="last"><%= branding.header.brand.logotype.last.text.replace(' ', '&nbsp') %></span><% } %>
-							<% if (branding.header.brand.logotype.suffix && branding.header.brand.logotype.suffix.text) { %>
-							<span class="suffix"><%= branding.header.brand.logotype.suffix.text.replace(' ', '&nbsp') %></span><% } %>
+							<% if (branding.header.brand.logotype.names) { %>
+							<% let names = branding.header.brand.logotype.names; %>
+							<% for (let i = 0; i < names.length; i++) { %><% let name = names[i]; %><% if (name.text) { %><span><%= name.text.replace(' ', '&nbsp') %></span><% } %><% } %>
+							<% } %>
 						</div>
 						<% } %>
 					</div>
@@ -75,7 +69,7 @@ export default HeaderView.extend({
 								</div>
 		
 								<span class="name">
-									<%= user.get('preferred_name') || user.get('first_name') %>
+									<%= user.getName('single') %>
 								</span>
 							</div>
 						</a>
@@ -97,6 +91,8 @@ export default HeaderView.extend({
 				<ul class="apps-bar nav navbar-nav navbar-right"></ul>
 		
 				<ul class="nav navbar-nav navbar-right">
+
+					<% if (config.apps.connection_manager && !config.apps.connection_manager.hidden) { %>
 					<li class="hidden-xxs">
 						<a class="find-connections">
 							<span data-toggle="tooltip" title="Find Connections" data-placement="bottom" data-container="body">
@@ -104,6 +100,7 @@ export default HeaderView.extend({
 							</span>
 						</a>
 					</li>
+					<% } %>
 		
 					<li class="connection-requests-dropdown hidden-xxs"></li>
 					<li class="notifications-dropdown hidden-xxs"></li>
@@ -346,6 +343,10 @@ export default HeaderView.extend({
 			model: this.model
 		}));
 	},
+
+	//
+	// dialog rendering methods
+	//
 
 	showAboutDialog: function() {
 		import(

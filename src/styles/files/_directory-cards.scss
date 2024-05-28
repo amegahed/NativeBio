@@ -41,7 +41,7 @@ $directory-icon-height: 50px;
 			&.file,
 			&.directory {
 				> .card {
-					.icon {
+					> .icon {
 						svg + .owner {
 
 							// centered owner profile photos
@@ -68,7 +68,7 @@ $directory-icon-height: 50px;
 
 			&.file {
 				> .card {
-					.icon {
+					> .icon {
 						width: $file-icon-width;
 						height: $file-icon-height;
 
@@ -101,7 +101,7 @@ $directory-icon-height: 50px;
 
 				&:not(.svg):not(.png) {
 					> .card {
-						.icon {
+						> .icon {
 
 							//
 							// photo thumbnails
@@ -123,7 +123,7 @@ $directory-icon-height: 50px;
 
 			&.preview.file {
 				> .card {
-					.icon {
+					> .icon {
 						.owner {
 
 							// upper left owner profile images
@@ -143,7 +143,7 @@ $directory-icon-height: 50px;
 
 			&.directory {
 				> .card {
-					.icon {
+					> .icon {
 						width: $directory-icon-width;
 						height: $directory-icon-height;
 
@@ -188,8 +188,8 @@ $directory-icon-height: 50px;
 			&.pdf.file,
 			&.svg.file {
 				> .card {
-					.icon {
-						.thumbnail {
+					> .icon {
+						> .thumbnail {
 							outline: none;
 							background: none;
 						}
@@ -204,7 +204,7 @@ $directory-icon-height: 50px;
 			&.clipboard.directory, 
 			&.trash.directory {
 				> .card {
-					.icon {
+					> .icon {
 						> img, > svg {
 							height: 60px;
 							width: 60px;
@@ -225,7 +225,7 @@ $directory-icon-height: 50px;
 	.item {
 		&.file {
 			> .card {
-				.icon {
+				> .icon {
 
 					//
 					// thumbnails

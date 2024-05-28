@@ -15,9 +15,9 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import File from '../../../../models/files/file.js';
-import ImageFile from '../../../../models/files/image-file.js';
-import Directory from '../../../../models/files/directory.js';
+import File from '../../../../models/storage/files/file.js';
+import ImageFile from '../../../../models/storage/media/image-file.js';
+import Directory from '../../../../models/storage/directories/directory.js';
 import ContextMenuView from '../../../../views/apps/common/context-menus/context-menu-view.js';
 import FileDisposable from '../../../../views/apps/file-browser/mainbar/behaviors/file-disposable.js';
 
@@ -69,17 +69,17 @@ export default ContextMenuView.extend({
 		
 			<ul class="dropdown-menu" data-toggle="dropdown">
 				<li role="presentation">
-					<a class="share-with-connections"><i class="fa fa-user-friends"></i>With Connections</a>
+					<a class="share-by-invitation"><i class="fa fa-user-friends"></i>By Invitation</a>
 				</li>
 		
 				<li role="separator" class="divider"></li>
 		
 				<li role="presentation">
-					<a class="share-by-post"><i class="fa fa-newspaper"></i>By Post</a>
+					<a class="share-by-topic"><i class="fa fa-newspaper"></i>By Discussion Topic</a>
 				</li>
 		
 				<li role="presentation">
-					<a class="share-by-message"><i class="fa fa-comments"></i>By Messsage</a>
+					<a class="share-by-message"><i class="fa fa-comments"></i>By Chat Messsage</a>
 				</li>
 		
 				<li role="separator" class="divider"></li>
@@ -149,8 +149,8 @@ export default ContextMenuView.extend({
 
 		// share with connections
 		//
-		'click .share-with-connections': 'onClickShareWithConnections',
-		'click .share-by-post': 'onClickShareByPost',
+		'click .share-by-invitation': 'onClickShareByInvitation',
+		'click .share-by-topic': 'onClickShareByTopic',
 		'click .share-by-message': 'onClickShareByMessage',
 
 		// share with anyone
@@ -234,8 +234,8 @@ export default ContextMenuView.extend({
 
 			// share with connections
 			//
-			'share-with-connections': hasSelected,
-			'share-by-post': hasSelected,
+			'share-by-invitation': hasSelected,
+			'share-by-topic': hasSelected,
 			'share-by-message': hasSelected,
 
 			// share with anyone
@@ -315,12 +315,12 @@ export default ContextMenuView.extend({
 		});
 	},
 
-	onClickShareWithConnections: function() {
+	onClickShareByInvitation: function() {
 		this.parent.shareSelectedWithConnections();
 	},
 
-	onClickShareByPost: function() {
-		this.parent.shareSelectedByPost();
+	onClickShareByTopic: function() {
+		this.parent.shareSelectedByTopic();
 	},
 
 	onClickShareByMessage: function() {

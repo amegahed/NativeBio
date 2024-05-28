@@ -1,6 +1,6 @@
 /******************************************************************************\
 |                                                                              |
-|                               image-viewer-view.js                           |
+|                             image-viewer-view.js                             |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -15,18 +15,18 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import ImageFile from '../../../models/files/image-file.js';
-import Directory from '../../../models/files/directory.js';
-import Items from '../../../collections/files/items.js';
+import ImageFile from '../../../models/storage/media/image-file.js';
+import Directory from '../../../models/storage/directories/directory.js';
+import Items from '../../../collections/storage/items.js';
 import AppSplitView from '../../../views/apps/common/app-split-view.js';
-import ModelShareable from '../../../views/apps/common/behaviors/sharing/model-shareable.js';
+import ItemShareable from '../../../views/apps/common/behaviors/sharing/item-shareable.js';
 import HeaderBarView from '../../../views/apps/image-viewer/header-bar/header-bar-view.js';
 import SideBarView from '../../../views/apps/image-viewer/sidebar/sidebar-view.js';
 import ImageSplitView from '../../../views/apps/image-viewer/mainbar/image-split-view.js';
 import FooterBarView from '../../../views/apps/image-viewer/footer-bar/footer-bar-view.js';
 import Browser from '../../../utilities/web/browser.js';
 
-export default AppSplitView.extend(_.extend({}, ModelShareable, {
+export default AppSplitView.extend(_.extend({}, ItemShareable, {
 
 	//
 	// attributes
@@ -160,6 +160,10 @@ export default AppSplitView.extend(_.extend({}, ModelShareable, {
 		return this.getImageView().getZoom(zoomMode);
 	},
 
+	getZoomMode: function() {
+		return this.getChildView('header zoom_mode').getValue();
+	},
+
 	getRotation: function() {
 		return this.getChildView('header rotate').rotation;
 	},
@@ -282,7 +286,7 @@ export default AppSplitView.extend(_.extend({}, ModelShareable, {
 	//
 
 	select: function(which) {
-		this.setImageNumber(this.parent.app.getImageNumber(which, {
+		this.setImageNumber(this.getImageNumber(which, {
 			wraparound: true
 		}));
 	},
@@ -291,16 +295,18 @@ export default AppSplitView.extend(_.extend({}, ModelShareable, {
 	// file methods
 	//
 
-	openFile: function(file) {
+	openFile: function(file, options) {
 
 		// set attributes
 		//
-		this.collection = new Items([file]);
+		this.collection = options && options.collection? options.collection : new Items([file]);
 
 		// update sidebar
 		//
-		this.getChildView('sidebar').collection = this.collection;
-		this.getChildView('sidebar').render();
+		if (this.hasChildView('sidebar')) {
+			this.getChildView('sidebar').collection = this.collection;
+			this.getChildView('sidebar').update();
+		}
 
 		// load item
 		//
@@ -315,8 +321,10 @@ export default AppSplitView.extend(_.extend({}, ModelShareable, {
 
 		// update sidebar
 		//
-		this.getChildView('sidebar').collection = this.collection;
-		this.getChildView('sidebar').render();
+		if (this.hasChildView('sidebar')) {
+			this.getChildView('sidebar').collection = this.collection;
+			this.getChildView('sidebar').render();
+		}
 
 		// load first item
 		//
@@ -351,6 +359,13 @@ export default AppSplitView.extend(_.extend({}, ModelShareable, {
 	},
 
 	openItem: function(item, options) {
+
+		// clear current item
+		//
+		this.model = null;
+
+		// open directory or file
+		//
 		if (item instanceof Directory) {
 			this.openDirectory(item, options);
 		} else if (item instanceof ImageFile) {
@@ -422,29 +437,98 @@ export default AppSplitView.extend(_.extend({}, ModelShareable, {
 	},
 
 	//
-	// playing methods
+	// slide show methods
 	//
 
 	play: function() {
+		this.is_playing = true;
+
+		// check if already playing
+		//
+		if (this.timeout) {
+			return;
+		}
+
+		// update header bar
+		//
 		this.getChildView('header menu view').setItemSelected('view-slide-show', true);
-		this.getChildView('footer nav').play();
+
+		// update footer bar
+		//
+		if (this.hasChildView('footer-bar')) {
+			this.getChildView('footer-bar nav-bar play').select({
+				silent: true
+			});
+		}
+
+		// start slide show
+		//
+		this.scheduleNext();
+	},
+
+	nextSlide: function() {
+		let imageNumber = this.getImageNumber();
+		let numImages = this.numImages();
+		let next = (imageNumber % numImages) + 1;
+
+		this.setImageNumber(next, {
+
+			// callbacks
+			//
+			success: () => {
+				let wraparound = (imageNumber == numImages);
+
+				// check for wraparound
+				//
+				if (wraparound && !this.preferences.get('slide_looping')) {
+					this.pause();
+				} else if (this.is_playing) {
+					this.scheduleNext();
+				}
+			}
+		});
+	},
+
+	scheduleNext: function() {
+		let duration = this.preferences.get('slide_duration');
+
+		// advance after a short delay
+		//
+		this.setTimeout(() => {
+			this.nextSlide();
+		}, duration * 1000);
 	},
 
 	pause: function() {
+		this.is_playing = false;
+
+		// stop slide animation
+		//
+		this.stopSlideShow();
+
+		// update header bar
+		//
 		this.getChildView('header menu view').setItemSelected('view-slide-show', false);
-		this.getChildView('footer nav').pause();
+
+		// update footer bar
+		//
+		if (this.hasChildView('footer-bar')) {
+			this.getChildView('footer-bar nav-bar play').deselect({
+				silent: true
+			});
+		}
 	},
 
 	toggleSlideShow: function() {
-		this.getChildView('footer nav').toggleSlideShow();
+		if (this.is_playing) {
+			this.pause();
+		} else {
+			this.play();
+		}
 	},
 
-	isPlaying: function() {
-		if (this.hasChildView('footer nav')) {
-			return this.getChildView('footer nav').isPlaying();
-		} else {
-			return false;
-		}
+	stopSlideShow: function() {
+		this.clearTimeout();
 	},
 
 	//
@@ -502,13 +586,7 @@ export default AppSplitView.extend(_.extend({}, ModelShareable, {
 		// show initial help message
 		//
 		if (!this.model) {
-			this.showMessage("Click to open an image file to view.", {
-				icon: '<i class="far fa-file-image"></i>',
-
-				// callbacks
-				//
-				onclick: () => this.showOpenDialog()
-			});
+			this.showHelpMessage();
 
 			// activate menus
 			//
@@ -550,7 +628,8 @@ export default AppSplitView.extend(_.extend({}, ModelShareable, {
 			// options
 			//
 			panels: this.preferences.get('sidebar_panels'),
-			view_kind: this.preferences.get('sidebar_view_kind')
+			view_kind: this.preferences.get('sidebar_view_kind'),
+			tile_size: this.preferences.get('sidebar_tile_size')
 		});
 	},
 
@@ -572,13 +651,27 @@ export default AppSplitView.extend(_.extend({}, ModelShareable, {
 			})
 		});
 	},
-	
+
 	//
 	// footer bar rendering methods
 	//
 
 	getFooterBarView: function() {
 		return new FooterBarView();
+	},
+
+	//
+	// message rendering methods
+	//
+
+	showHelpMessage: function() {
+		this.showMessage("No images.", {
+			icon: '<i class="far fa-file-image"></i>',
+
+			// callbacks
+			//
+			onclick: () => this.showOpenDialog()
+		});
 	},
 
 	//
@@ -646,7 +739,9 @@ export default AppSplitView.extend(_.extend({}, ModelShareable, {
 	onLoad: function(image) {
 		let width = image.naturalWidth;
 		let height = image.naturalHeight;
-		this.model.set('dimensions', [width, height]);
+		this.model.set('dimensions', [width, height], {
+			silent: true
+		});
 
 		// check if view still exists
 		//
@@ -728,7 +823,7 @@ export default AppSplitView.extend(_.extend({}, ModelShareable, {
 		// update header
 		//
 		if (this.hasChildView('header zoom')) {
-			let zoomMode = this.getChildView('header zoom').getZoomMode();
+			let zoomMode = this.getZoomMode();
 			if (zoomMode && zoomMode != 'actual_size') {
 
 				// update current zoom

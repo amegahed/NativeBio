@@ -13,7 +13,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|            Copyright (C) 2016-2020, Sharedigm, www.sharedigm.com             |
+|            Copyright (C) 2016-2024, Sharedigm, www.sharedigm.com             |
 \******************************************************************************/
 
 namespace App\Http\Controllers\Topics;
@@ -27,7 +27,7 @@ use App\Models\Topics\Topic;
 use App\Models\Topics\UserTopic;
 use App\Models\Topics\Sharing\TopicInvitation;
 use App\Models\Users\Accounts\UserAccount;
-use App\Models\Files\Directory;
+use App\Models\Storage\Directory;
 use App\Notifications\TopicInvitationNotification;
 use App\Http\Controllers\Controller;
 use App\Utilities\Uuids\Guid;
@@ -130,7 +130,7 @@ class TopicController extends Controller
 		// check if file exists
 		//
 		if (!$file->exists()) {
-			return response("File '" . $path . "' not found.", 404);
+			return response("File '" . $file->getPath() . "' not found.", 404);
 		}
 
 		// return / resize image

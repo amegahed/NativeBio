@@ -16,7 +16,7 @@
 \******************************************************************************/
 
 import Connection from '../../../../models/users/connections/connection.js';
-import Items from '../../../../collections/files/items.js';
+import Items from '../../../../collections/storage/items.js';
 import NotificationsListItemView from '../../../../views/apps/common/notifications/lists/notifications-list-item-view.js';
 import FileUtils from '../../../../utilities/files/file-utils.js';
 
@@ -78,10 +78,10 @@ export default NotificationsListItemView.extend({
 					</a>
 		
 					<div class="expander">
-						<button type="button" class="collapse btn btn-sm">
+						<button type="button" class="collapse btn-sm">
 							<i class="fa fa-caret-up"></i>
 						</button>
-						<button type="button" class="expand btn btn-sm">
+						<button type="button" class="expand btn-sm">
 							<i class="fa fa-caret-down"></i>	
 						</button>
 					</div>

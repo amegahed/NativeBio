@@ -16,7 +16,7 @@
 \******************************************************************************/
 
 import ChatMessage from '../../../../../models/chats/chat-message.js';
-import Items from '../../../../../collections/files/items.js';
+import Items from '../../../../../collections/storage/items.js';
 import ChatMessages from '../../../../../collections/chats/chat-messages.js';
 import BaseView from '../../../../../views/base-view.js';
 import SelectableContainable from '../../../../../views/behaviors/containers/selectable-containable.js';
@@ -59,7 +59,7 @@ export default BaseView.extend(_.extend({}, SelectableContainable, Timeable, {
 
 		// set options
 		//
-		this.options.showElapsedTime = this.options.preferences.get('show_elapsed_time');
+		this.options.show_elapsed_time = this.options.preferences.get('show_elapsed_time');
 
 		// listen for changes in collection
 		//
@@ -160,7 +160,7 @@ export default BaseView.extend(_.extend({}, SelectableContainable, Timeable, {
 	setOption: function(key, value) {
 		switch (key) {
 			case 'messages_per_page':
-				this.options.messagesPerPage = value;
+				this.options.messages_per_page = value;
 
 				// update message list
 				//
@@ -168,7 +168,7 @@ export default BaseView.extend(_.extend({}, SelectableContainable, Timeable, {
 				break;
 
 			case 'show_elapsed_time':
-				this.options.showElapsedTime = value;
+				this.options.show_elapsed_time = value;
 
 				// update view
 				//
@@ -325,7 +325,7 @@ export default BaseView.extend(_.extend({}, SelectableContainable, Timeable, {
 
 			// update elapsed times
 			//
-			if (this.options.showElapsedTime) {
+			if (this.options.show_elapsed_time) {
 				this.setInterval(() => {
 					this.getChildView('messages').update();
 				}, this.redrawInterval);
@@ -357,6 +357,10 @@ export default BaseView.extend(_.extend({}, SelectableContainable, Timeable, {
 
 			// options
 			//
+			features: this.options.features,
+
+			// callbacks
+			//
 			onchange: () => this.scrollToBottom(),
 		})));
 	},
@@ -373,6 +377,9 @@ export default BaseView.extend(_.extend({}, SelectableContainable, Timeable, {
 
 			// options
 			//
+			submitable: true,
+			cancelable: false,
+			features: this.options.features,
 			preferences: this.options.preferences,
 			position: 'bottom',
 

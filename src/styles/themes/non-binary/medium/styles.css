@@ -32,6 +32,54 @@
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
+|                                 _lighting.scss                               |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                               _flat-glass.scss                               |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                             _frosted-glass.scss                              |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
 |                            _medium-branding.scss                             |
 |                                                                              |
 |******************************************************************************|
@@ -77,6 +125,9 @@ body:not(.binary) .app .header-bar .app-bar .button.selected i, body:not(.binary
 body:not(.binary) .app .header-bar .app-bar .button:hover i, body:not(.binary) .app .header-bar .info-bar .button:hover i, body:not(.binary) .app .header-bar .address-bar .button:hover i, body:not(.binary) .app .header-bar .toolbar .button:hover i, body:not(.binary) .app .footer-bar .app-bar .button:hover i, body:not(.binary) .app .footer-bar .info-bar .button:hover i, body:not(.binary) .app .footer-bar .address-bar .button:hover i, body:not(.binary) .app .footer-bar .toolbar .button:hover i {
   color: inherit;
 }
+body:not(.binary) .app .header-bar .app-bar .btn-primary i, body:not(.binary) .app .header-bar .info-bar .btn-primary i, body:not(.binary) .app .header-bar .address-bar .btn-primary i, body:not(.binary) .app .header-bar .toolbar .btn-primary i, body:not(.binary) .app .footer-bar .app-bar .btn-primary i, body:not(.binary) .app .footer-bar .info-bar .btn-primary i, body:not(.binary) .app .footer-bar .address-bar .btn-primary i, body:not(.binary) .app .footer-bar .toolbar .btn-primary i {
+  color: white;
+}
 body:not(.binary) .app .header-bar .address-bar .breadcrumb a, body:not(.binary) .app .footer-bar .address-bar .breadcrumb a {
   color: #272740;
 }
@@ -100,6 +151,9 @@ body:not(.binary) .app .body > .contents > .split.sidebar .header, body:not(.bin
 }
 body:not(.binary) .app .body .help.message, body:not(.binary) .app .body-region .help.message {
   color: #8080b3;
+  background: rgba(160, 160, 198, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 body:not(.binary) .app .body .help.message i, body:not(.binary) .app .body-region .help.message i {
   color: #8080b3;
@@ -294,60 +348,6 @@ body:not(.binary) .full-screen .app-launcher.app .item:not(.selected):not(.highl
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                                 _lighting.scss                               |
-|                                                                              |
-|******************************************************************************|
-|                                                                              |
-|        This defines various CSS styles used in this application.             |
-|                                                                              |
-|        Author(s): Abe Megahed                                                |
-|                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.txt', which is part of this source code distribution.        |
-|                                                                              |
-|******************************************************************************|
-|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
-\******************************************************************************/
-:root {
-  --light-direction: to bottom;
-  --ambient-color: rgb(0, 0, 127);
-  --light-color: white;
-}
-
-/******************************************************************************\
-|                                                                              |
-|                               _flat-glass.scss                               |
-|                                                                              |
-|******************************************************************************|
-|                                                                              |
-|        This defines the dom and svg visual styles for this application.      |
-|                                                                              |
-|        Author(s): Abe Megahed                                                |
-|                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.txt', which is part of this source code distribution.        |
-|                                                                              |
-|******************************************************************************|
-|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
-\******************************************************************************/
-/******************************************************************************\
-|                                                                              |
-|                             _frosted-glass.scss                              |
-|                                                                              |
-|******************************************************************************|
-|                                                                              |
-|        This defines the dom and svg visual styles for this application.      |
-|                                                                              |
-|        Author(s): Abe Megahed                                                |
-|                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.txt', which is part of this source code distribution.        |
-|                                                                              |
-|******************************************************************************|
-|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
-\******************************************************************************/
-/******************************************************************************\
-|                                                                              |
 |                         _medium-desktop-apps.scss                            |
 |                                                                              |
 |******************************************************************************|
@@ -362,6 +362,9 @@ body:not(.binary) .full-screen .app-launcher.app .item:not(.selected):not(.highl
 |******************************************************************************|
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
+body:not(.binary) .desktop.app > .body > .app {
+  border: none;
+}
 body:not(.binary) .desktop.app > .body > .app .header-bar {
   color: #272740;
   background-color: #f0f0f6;
@@ -379,14 +382,14 @@ body:not(.binary) .desktop.app > .body > .app .header-bar .clock .icon > i {
 body:not(.binary) .desktop.app > .body > .app .mainbar {
   background-color: white;
 }
-body:not(.binary) .desktop.app > .body > .app-launcher,
-body:not(.binary) .desktop.app > .body > .app .mainbar,
-body:not(.binary) .desktop.app > .body > .app .sidebar .panel {
-  /*
-  > .tabbed-content {
-  	background-color: white
-  }
-  */
+body:not(.binary) .desktop.app > .body > .app .mainbar .items + .dropzone {
+  color: white;
+}
+body:not(.binary) .desktop.app > .body > .file-browser .mainbar .help.message {
+  color: #c0c0d9 !important;
+}
+body:not(.binary) .desktop.app > .body > .file-browser .mainbar .help.message i {
+  color: #c0c0d9 !important;
 }
 body:not(.binary) .desktop.app > .body > .app-launcher > .body > .contents::after,
 body:not(.binary) .desktop.app > .body > .app .mainbar > .body > .contents::after,
@@ -398,38 +401,8 @@ body:not(.binary) .desktop.app > .body > .app .mainbar .heading h1,
 body:not(.binary) .desktop.app > .body > .app .sidebar .panel .heading h1 {
   color: white;
 }
-body:not(.binary) .desktop.app > .body > .app {
-  border: none;
-}
-body:not(.binary) .desktop.app > .body > .app .mainbar .items + .dropzone {
-  color: white;
-}
-body:not(.binary) .desktop.app > .body > .app .mainbar .help.message {
-  color: #e0e0ec;
-  background: rgba(160, 160, 198, 0.25);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-body:not(.binary) .desktop.app > .body > .app .mainbar .help.message i {
-  color: #e0e0ec;
-}
 body:not(.binary).transparent .desktop.app > .body > .app > .header-bar, body:not(.binary).translucent .desktop.app > .body > .app > .header-bar {
-  background: linear-gradient(to bottom, rgba(240, 240, 246, 0.9) 0%, transparent 100%) no-repeat, rgba(240, 240, 246, 0.8);
-}
-body:not(.binary).transparent .desktop.app > .body > .app > .header-bar .app-bar, body:not(.binary).translucent .desktop.app > .body > .app > .header-bar .app-bar {
-  color: #272740;
-}
-body:not(.binary).transparent .desktop.app > .body > .app > .header-bar .app-bar > i, body:not(.binary).translucent .desktop.app > .body > .app > .header-bar .app-bar > i {
-  color: #6060a0;
-}
-body:not(.binary).transparent .desktop.app > .body > .app > .header-bar .toolbar .icon i, body:not(.binary).translucent .desktop.app > .body > .app > .header-bar .toolbar .icon i {
-  color: #6060a0;
-}
-body:not(.binary).transparent .desktop.app > .body > .app > .header-bar .toolbar .button:not(.selected):not(:hover) > i, body:not(.binary).translucent .desktop.app > .body > .app > .header-bar .toolbar .button:not(.selected):not(:hover) > i {
-  color: #6060a0;
-}
-body:not(.binary).transparent .desktop.app > .body > .app > .header-bar .clock .icon > i, body:not(.binary).translucent .desktop.app > .body > .app > .header-bar .clock .icon > i {
-  color: #6060a0;
+  background: linear-gradient(to bottom, rgba(240, 240, 246, 0.75) 0%, transparent 100%) no-repeat, rgba(240, 240, 246, 0.75);
 }
 body:not(.binary).opaque #desktop.auto-sidebars .desktop.app > .body .contents > .sidebar, body:not(.binary).opaque #desktop.auto-sidebars .desktop.app > .body-region .contents > .sidebar,
 body:not(.binary) #desktop.opaque-sidebars .desktop.app > .body .contents > .sidebar,
@@ -600,7 +573,7 @@ body:not(.binary) .modals .modal:not(.focused) .modal-dialog .app .header-bar, b
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 body:not(.binary) #desktop, body:not(.binary) .desktop.preview {
-  background-color: #6060a0;
+  background-color: #8080b3;
 }
 body:not(.binary) #desktop .desktop.app > .footer-bar,
 body:not(.binary) #desktop.auto .desktop.app > .footer-bar,
@@ -790,8 +763,8 @@ button {
 }
 button > svg, button > img {
   display: inline-block;
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   margin: 0 auto;
 }
 button i {
@@ -801,6 +774,11 @@ button i {
 }
 button:disabled:hover {
   cursor: not-allowed;
+}
+
+.expander button {
+  border: none;
+  background: none;
 }
 
 .round-buttons button,
@@ -891,78 +869,78 @@ body:not(.binary).colored .colored.btn:active svg, body:not(.binary).colored .co
 }
 body:not(.binary).colored .colored.btn.red, body:not(.binary).colored .colored.btn:focus.red,
 body:not(.binary).colored .colored.btn:active.red, body:not(.binary).colored .colored.btn:active:focus.red {
-  background: hsl(0, 66%, 50%);
-  border-color: hsl(0, 66%, 50%);
+  background: hsl(0, 80%, 60%);
+  border-color: hsl(0, 80%, 60%);
 }
 body:not(.binary).colored .colored.btn.red:hover, body:not(.binary).colored .colored.btn:focus.red:hover,
 body:not(.binary).colored .colored.btn:active.red:hover, body:not(.binary).colored .colored.btn:active:focus.red:hover {
-  background: color-mix(in srgb, rgb(0, 0, 127) 10%, hsl(0, 66%, 50%));
-  border-color: color-mix(in srgb, rgb(0, 0, 127) 10%, hsl(0, 66%, 50%));
+  background: color-mix(in srgb, rgb(0, 0, 127) 10%, hsl(0, 80%, 60%));
+  border-color: color-mix(in srgb, rgb(0, 0, 127) 10%, hsl(0, 80%, 60%));
 }
 body:not(.binary).colored .colored.btn.red:active, body:not(.binary).colored .colored.btn:focus.red:active,
 body:not(.binary).colored .colored.btn:active.red:active, body:not(.binary).colored .colored.btn:active:focus.red:active {
-  background: color-mix(in srgb, rgb(0, 0, 127) 20%, hsl(0, 66%, 50%));
-  border-color: color-mix(in srgb, rgb(0, 0, 127) 20%, hsl(0, 66%, 50%));
+  background: color-mix(in srgb, rgb(0, 0, 127) 20%, hsl(0, 80%, 60%));
+  border-color: color-mix(in srgb, rgb(0, 0, 127) 20%, hsl(0, 80%, 60%));
 }
 body:not(.binary).colored .colored.btn.raspberry, body:not(.binary).colored .colored.btn:focus.raspberry,
 body:not(.binary).colored .colored.btn:active.raspberry, body:not(.binary).colored .colored.btn:active:focus.raspberry {
-  background: hsl(330, 75%, 50%);
-  border-color: hsl(330, 75%, 50%);
+  background: hsl(330, 80%, 60%);
+  border-color: hsl(330, 80%, 60%);
 }
 body:not(.binary).colored .colored.btn.raspberry:hover, body:not(.binary).colored .colored.btn:focus.raspberry:hover,
 body:not(.binary).colored .colored.btn:active.raspberry:hover, body:not(.binary).colored .colored.btn:active:focus.raspberry:hover {
-  background: color-mix(in srgb, rgb(0, 0, 127) 10%, hsl(330, 75%, 50%));
-  border-color: color-mix(in srgb, rgb(0, 0, 127) 10%, hsl(330, 75%, 50%));
+  background: color-mix(in srgb, rgb(0, 0, 127) 10%, hsl(330, 80%, 60%));
+  border-color: color-mix(in srgb, rgb(0, 0, 127) 10%, hsl(330, 80%, 60%));
 }
 body:not(.binary).colored .colored.btn.raspberry:active, body:not(.binary).colored .colored.btn:focus.raspberry:active,
 body:not(.binary).colored .colored.btn:active.raspberry:active, body:not(.binary).colored .colored.btn:active:focus.raspberry:active {
-  background: color-mix(in srgb, rgb(0, 0, 127) 20%, hsl(330, 75%, 50%));
-  border-color: color-mix(in srgb, rgb(0, 0, 127) 20%, hsl(330, 75%, 50%));
+  background: color-mix(in srgb, rgb(0, 0, 127) 20%, hsl(330, 80%, 60%));
+  border-color: color-mix(in srgb, rgb(0, 0, 127) 20%, hsl(330, 80%, 60%));
 }
 body:not(.binary).colored .colored.btn.red-orange, body:not(.binary).colored .colored.btn:focus.red-orange,
 body:not(.binary).colored .colored.btn:active.red-orange, body:not(.binary).colored .colored.btn:active:focus.red-orange {
-  background: hsl(15, 75%, 50%);
-  border-color: hsl(15, 75%, 50%);
+  background: hsl(15, 80%, 60%);
+  border-color: hsl(15, 80%, 60%);
 }
 body:not(.binary).colored .colored.btn.red-orange:hover, body:not(.binary).colored .colored.btn:focus.red-orange:hover,
 body:not(.binary).colored .colored.btn:active.red-orange:hover, body:not(.binary).colored .colored.btn:active:focus.red-orange:hover {
-  background: color-mix(in srgb, rgb(0, 0, 127) 10%, hsl(15, 75%, 50%));
-  border-color: color-mix(in srgb, rgb(0, 0, 127) 10%, hsl(15, 75%, 50%));
+  background: color-mix(in srgb, rgb(0, 0, 127) 10%, hsl(15, 80%, 60%));
+  border-color: color-mix(in srgb, rgb(0, 0, 127) 10%, hsl(15, 80%, 60%));
 }
 body:not(.binary).colored .colored.btn.red-orange:active, body:not(.binary).colored .colored.btn:focus.red-orange:active,
 body:not(.binary).colored .colored.btn:active.red-orange:active, body:not(.binary).colored .colored.btn:active:focus.red-orange:active {
-  background: color-mix(in srgb, rgb(0, 0, 127) 20%, hsl(15, 75%, 50%));
-  border-color: color-mix(in srgb, rgb(0, 0, 127) 20%, hsl(15, 75%, 50%));
+  background: color-mix(in srgb, rgb(0, 0, 127) 20%, hsl(15, 80%, 60%));
+  border-color: color-mix(in srgb, rgb(0, 0, 127) 20%, hsl(15, 80%, 60%));
 }
 body:not(.binary).colored .colored.btn.orange, body:not(.binary).colored .colored.btn:focus.orange,
 body:not(.binary).colored .colored.btn:active.orange, body:not(.binary).colored .colored.btn:active:focus.orange {
-  background: hsl(30, 75%, 50%);
-  border-color: hsl(30, 75%, 50%);
+  background: hsl(30, 80%, 60%);
+  border-color: hsl(30, 80%, 60%);
 }
 body:not(.binary).colored .colored.btn.orange:hover, body:not(.binary).colored .colored.btn:focus.orange:hover,
 body:not(.binary).colored .colored.btn:active.orange:hover, body:not(.binary).colored .colored.btn:active:focus.orange:hover {
-  background: color-mix(in srgb, rgb(0, 0, 127) 10%, hsl(30, 75%, 50%));
-  border-color: color-mix(in srgb, rgb(0, 0, 127) 10%, hsl(30, 75%, 50%));
+  background: color-mix(in srgb, rgb(0, 0, 127) 10%, hsl(30, 80%, 60%));
+  border-color: color-mix(in srgb, rgb(0, 0, 127) 10%, hsl(30, 80%, 60%));
 }
 body:not(.binary).colored .colored.btn.orange:active, body:not(.binary).colored .colored.btn:focus.orange:active,
 body:not(.binary).colored .colored.btn:active.orange:active, body:not(.binary).colored .colored.btn:active:focus.orange:active {
-  background: color-mix(in srgb, rgb(0, 0, 127) 20%, hsl(30, 75%, 50%));
-  border-color: color-mix(in srgb, rgb(0, 0, 127) 20%, hsl(30, 75%, 50%));
+  background: color-mix(in srgb, rgb(0, 0, 127) 20%, hsl(30, 80%, 60%));
+  border-color: color-mix(in srgb, rgb(0, 0, 127) 20%, hsl(30, 80%, 60%));
 }
 body:not(.binary).colored .colored.btn.yellow, body:not(.binary).colored .colored.btn:focus.yellow,
 body:not(.binary).colored .colored.btn:active.yellow, body:not(.binary).colored .colored.btn:active:focus.yellow {
-  background: hsl(60, 50%, 50%);
-  border-color: hsl(60, 50%, 50%);
+  background: hsl(60, 50%, 60%);
+  border-color: hsl(60, 50%, 60%);
 }
 body:not(.binary).colored .colored.btn.yellow:hover, body:not(.binary).colored .colored.btn:focus.yellow:hover,
 body:not(.binary).colored .colored.btn:active.yellow:hover, body:not(.binary).colored .colored.btn:active:focus.yellow:hover {
-  background: color-mix(in srgb, rgb(0, 0, 127) 10%, hsl(60, 50%, 50%));
-  border-color: color-mix(in srgb, rgb(0, 0, 127) 10%, hsl(60, 50%, 50%));
+  background: color-mix(in srgb, rgb(0, 0, 127) 10%, hsl(60, 50%, 60%));
+  border-color: color-mix(in srgb, rgb(0, 0, 127) 10%, hsl(60, 50%, 60%));
 }
 body:not(.binary).colored .colored.btn.yellow:active, body:not(.binary).colored .colored.btn:focus.yellow:active,
 body:not(.binary).colored .colored.btn:active.yellow:active, body:not(.binary).colored .colored.btn:active:focus.yellow:active {
-  background: color-mix(in srgb, rgb(0, 0, 127) 20%, hsl(60, 50%, 50%));
-  border-color: color-mix(in srgb, rgb(0, 0, 127) 20%, hsl(60, 50%, 50%));
+  background: color-mix(in srgb, rgb(0, 0, 127) 20%, hsl(60, 50%, 60%));
+  border-color: color-mix(in srgb, rgb(0, 0, 127) 20%, hsl(60, 50%, 60%));
 }
 body:not(.binary).colored .colored.btn.lime, body:not(.binary).colored .colored.btn:focus.lime,
 body:not(.binary).colored .colored.btn:active.lime, body:not(.binary).colored .colored.btn:active:focus.lime {
@@ -1041,18 +1019,18 @@ body:not(.binary).colored .colored.btn:active.cyan:active, body:not(.binary).col
 }
 body:not(.binary).colored .colored.btn.blue, body:not(.binary).colored .colored.btn:focus.blue,
 body:not(.binary).colored .colored.btn:active.blue, body:not(.binary).colored .colored.btn:active:focus.blue {
-  background: hsl(220, 75%, 50%);
-  border-color: hsl(220, 75%, 50%);
+  background: hsl(220, 100%, 66%);
+  border-color: hsl(220, 100%, 66%);
 }
 body:not(.binary).colored .colored.btn.blue:hover, body:not(.binary).colored .colored.btn:focus.blue:hover,
 body:not(.binary).colored .colored.btn:active.blue:hover, body:not(.binary).colored .colored.btn:active:focus.blue:hover {
-  background: color-mix(in srgb, rgb(0, 0, 127) 10%, hsl(220, 75%, 50%));
-  border-color: color-mix(in srgb, rgb(0, 0, 127) 10%, hsl(220, 75%, 50%));
+  background: color-mix(in srgb, rgb(0, 0, 127) 10%, hsl(220, 100%, 66%));
+  border-color: color-mix(in srgb, rgb(0, 0, 127) 10%, hsl(220, 100%, 66%));
 }
 body:not(.binary).colored .colored.btn.blue:active, body:not(.binary).colored .colored.btn:focus.blue:active,
 body:not(.binary).colored .colored.btn:active.blue:active, body:not(.binary).colored .colored.btn:active:focus.blue:active {
-  background: color-mix(in srgb, rgb(0, 0, 127) 20%, hsl(220, 75%, 50%));
-  border-color: color-mix(in srgb, rgb(0, 0, 127) 20%, hsl(220, 75%, 50%));
+  background: color-mix(in srgb, rgb(0, 0, 127) 20%, hsl(220, 100%, 66%));
+  border-color: color-mix(in srgb, rgb(0, 0, 127) 20%, hsl(220, 100%, 66%));
 }
 body:not(.binary).colored .colored.btn.indigo, body:not(.binary).colored .colored.btn:focus.indigo,
 body:not(.binary).colored .colored.btn:active.indigo, body:not(.binary).colored .colored.btn:active:focus.indigo {
@@ -1265,11 +1243,11 @@ body:not(.binary) .modals .modal.focused .modal-dialog .modal-header .title h1 {
 }
 body:not(.binary) .modals .modal.focused .modal-dialog .modal-content {
   background-color: white;
-  border-color: white;
+  border-color: #d0d0e3;
 }
 body:not(.binary) .modals .modal.focused .modal-dialog .modal-content .modal-footer {
   background-color: #f0f0f6;
-  border-color: #f0f0f6;
+  border-color: #d0d0e3;
 }
 body:not(.binary) .modals .modal:not(.focused) .modal-dialog {
   border-color: #b0b0d0;
@@ -1292,20 +1270,20 @@ body:not(.binary) .modals .modal:not(.focused) .modal-dialog .modal-header .titl
 }
 body:not(.binary) .modals .modal:not(.focused) .modal-dialog .modal-content {
   background-color: #e6e6e6;
-  border-color: #e6e6e6;
+  border-color: #b0b0d0;
 }
 body:not(.binary) .modals .modal:not(.focused) .modal-dialog .modal-content .modal-footer {
   background-color: #d0d0e3;
-  border-color: #d0d0e3;
+  border-color: #b0b0d0;
 }
 body:not(.binary).transparent .modals .modal:not(.full-screen) .modal-dialog:not(.maximized) {
   background: transparent !important;
 }
 body:not(.binary).transparent .modals .modal:not(.full-screen).focused .modal-dialog .modal-content {
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9) 0%, transparent 100%) no-repeat, rgba(255, 255, 255, 0.8);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.75) 0%, transparent 100%) no-repeat, rgba(255, 255, 255, 0.75);
 }
 body:not(.binary).transparent .modals .modal:not(.full-screen):not(.focused) .modal-dialog .modal-content {
-  background: linear-gradient(to bottom, rgba(230, 230, 230, 0.9) 0%, transparent 100%) no-repeat, rgba(230, 230, 230, 0.8);
+  background: linear-gradient(to bottom, rgba(230, 230, 230, 0.75) 0%, transparent 100%) no-repeat, rgba(230, 230, 230, 0.75);
 }
 body:not(.binary).translucent .modals .modal:not(.full-screen) .modal-dialog.maximized {
   background: white;
@@ -1314,16 +1292,20 @@ body:not(.binary).translucent .modals .modal:not(.full-screen) .modal-dialog:not
   background: transparent;
 }
 body:not(.binary).translucent .modals .modal:not(.full-screen).focused .modal-dialog .modal-content {
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, transparent 100%) no-repeat, rgba(255, 255, 255, 0.6);
+  background: transparent;
+}
+body:not(.binary).translucent .modals .modal:not(.full-screen).focused .modal-dialog .modal-content > .modal-body, body:not(.binary).translucent .modals .modal:not(.full-screen).focused .modal-dialog .modal-content .app .body {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.75) 0%, transparent 100%) no-repeat, rgba(255, 255, 255, 0.66);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  overflow: visible;
 }
 body:not(.binary).translucent .modals .modal:not(.full-screen):not(.focused) .modal-dialog .modal-content {
-  background: linear-gradient(to bottom, rgba(230, 230, 230, 0.7) 0%, transparent 100%) no-repeat, rgba(230, 230, 230, 0.6);
+  background: transparent;
+}
+body:not(.binary).translucent .modals .modal:not(.full-screen):not(.focused) .modal-dialog .modal-content > .modal-body, body:not(.binary).translucent .modals .modal:not(.full-screen):not(.focused) .modal-dialog .modal-content .app .body {
+  background: linear-gradient(to bottom, rgba(230, 230, 230, 0.75) 0%, transparent 100%) no-repeat, rgba(230, 230, 230, 0.66);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  overflow: visible;
 }
 
 /******************************************************************************\
@@ -1439,9 +1421,6 @@ body:not(.binary) .modals .modal.focused .modal-dialog:not(.maximized) .modal-he
 .smooth img {
   image-rendering: auto !important;
 }
-.smooth img .fancybox-image img {
-  image-rendering: auto !important;
-}
 
 .thumbnail {
   margin: 0;
@@ -1545,7 +1524,7 @@ body:not(.binary) .modals .modal.focused .modal-dialog:not(.maximized) .modal-he
 
 .thumbnail.photo {
   border-radius: 0;
-  background-size: cover !important;
+  background-size: cover;
 }
 .thumbnail.photo:after {
   border-radius: 0;
@@ -1592,57 +1571,18 @@ outlined.photo {
   mix-blend-mode: normal;
 }
 
-.inline.gallery > .images .item {
-  display: block;
-  max-width: 100%;
-  margin: 50px;
-  /*
-  &:first-child,
-  & + .item {
-  	margin-top: 50px;
-  }
-  &:last-child {
-  	margin-bottom: 50px;
-  }
-  */
-}
-.inline.gallery > .images .item img {
-  max-width: 100%;
-}
-
-.fancybox-skin {
-  box-shadow: none !important;
-  -webkit-box-shadow: none !important;
-  background: none !important;
-  filter: drop-shadow(5px 5px 20px black);
-}
-.fancybox-skin .fancybox-outer {
-  background: none;
-}
-.fancybox-skin .fancybox-outer .fancybox-inner {
-  background: none;
-}
-.fancybox-skin .fancybox-outer .fancybox-inner .fancybox-image {
-  background: none;
-}
-.fancybox-skin .fancybox-title {
-  font: unset;
-}
-
-.round .fancybox-skin .fancybox-image {
-  border-radius: 15px;
-}
-
-.rounded .fancybox-skin .fancybox-image {
-  border-radius: 7px;
-}
-
 body[browser=firefox] img.pixelated {
   image-rendering: -moz-crisp-edges;
 }
 
 [browser=safari] .icon > svg, [browser=safari] .icon .thumbnail, [browser=safari] .tile > svg, [browser=safari] .tile .thumbnail {
   transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  perspective: 1000;
 }
 [browser=safari].tilted.left .icon > svg, [browser=safari].tilted.left .icon .thumbnail, [browser=safari].tilted.left .tile > svg, [browser=safari].tilted.left .tile .thumbnail, [browser=safari].tilted .left .icon > svg, [browser=safari].tilted .left .icon .thumbnail, [browser=safari].tilted .left .tile > svg, [browser=safari].tilted .left .tile .thumbnail {
   transform: skewX(7.5deg) translateZ(0);
@@ -1842,6 +1782,27 @@ body:not(.binary) .item .marker {
   color: white;
   background: #4d4d80;
   border-color: white;
+}
+body:not(.binary) .item .rating i:not(.active) {
+  color: #a0a0c6 !important;
+}
+body:not(.binary) .item .meter i {
+  color: #a0a0c6 !important;
+}
+body:not(.binary) .item .meter i:nth-child(1).active {
+  color: cornflowerblue !important;
+}
+body:not(.binary) .item .meter i:nth-child(2).active {
+  color: darkturquoise !important;
+}
+body:not(.binary) .item .meter i:nth-child(3).active {
+  color: limegreen !important;
+}
+body:not(.binary) .item .meter i:nth-child(4).active {
+  color: orange !important;
+}
+body:not(.binary) .item .meter i:nth-child(5).active {
+  color: red !important;
 }
 body:not(.binary) .icon-grid .icon > img + i {
   display: none;
@@ -2146,7 +2107,10 @@ body:not(.binary) .desktop.app:not(.focused) > .body .item-list .item.selected >
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 body:not(.binary) .item-tree:not(.selected):not(.highlighted) > .info .expander button i {
-  color: #272740;
+  color: inherit;
+}
+body:not(.binary) .item-tree.selected, body:not(.binary) .item-tree.highlighted {
+  outline-color: #8080b3;
 }
 body:not(.binary) .item-tree.selected > .info .expander button i, body:not(.binary) .item-tree.highlighted > .info .expander button i {
   color: white;
@@ -2276,11 +2240,12 @@ body:not(.binary) .tile-grid .item > .tile {
 body:not(.binary) .tile-grid .item > .tile > .icon > canvas {
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.25);
 }
+body:not(.binary) .tile-grid .item > .tile > .icon > .thumbnail {
+  border-color: rgba(160, 160, 198, 0.25);
+}
 body:not(.binary) .tile-grid .item > .tile .name {
   color: #272740;
-  background-color: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  background-color: rgba(192, 192, 217, 0.5);
 }
 body:not(.binary) .tile-grid .item > .tile .name[contenteditable=true] {
   color: #272740;
@@ -2296,6 +2261,10 @@ body:not(.binary) .tile-grid .item.highlighted .tile {
 body:not(.binary) .tile-grid .item.highlighted .tile .icon::after {
   border-color: #a0a0c6;
 }
+body:not(.binary) .tile-grid .item.highlighted .tile .name {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
 body:not(.binary) .tile-grid .item.highlighted .tile .name:not([contenteditable=true]) {
   color: white;
   background-color: #8080b3;
@@ -2308,6 +2277,10 @@ body:not(.binary) .tile-grid .item.selected .tile {
 }
 body:not(.binary) .tile-grid .item.selected .tile .icon::after {
   border-color: #a0a0c6;
+}
+body:not(.binary) .tile-grid .item.selected .tile .name {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 body:not(.binary) .tile-grid .item.selected .tile .name:not([contenteditable=true]) {
   color: white;
@@ -2378,6 +2351,10 @@ body:not(.binary) .card-grid .cards .item .card .info .name[contenteditable=true
 }
 body:not(.binary) .card-grid .cards .item .card .info .details {
   background-color: rgba(160, 160, 198, 0.5);
+}
+body:not(.binary) .card-grid .cards .empty {
+  background-color: rgba(160, 160, 198, 0.25);
+  border-color: transparent;
 }
 body:not(.binary) .card-grid .cards .item.highlighted .card {
   color: white;
@@ -2627,8 +2604,8 @@ body:not(.binary) input:not([type=range]):not([type=radio]) {
   outline: none;
 }
 body:not(.binary) input:not([type=range]):not([type=radio]):focus {
-  border-color: #c0c0d9;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #c0c0d9;
+  border-color: var(--primary-color);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px var(--primary-color);
 }
 body:not(.binary) input:not([type=range]):not([type=radio])::placeholder {
   opacity: 0.75;
@@ -2641,6 +2618,10 @@ body:not(.binary) form i.fa-question-circle {
 }
 body:not(.binary) span.secondary {
   color: #6060a0;
+}
+body:not(.binary) .search-bar .input:focus-within {
+  border-color: color-mix(in srgb, var(--primary-color) 75%, transparent) !important;
+  box-shadow: 1px 1px 10px 0 color-mix(in srgb, var(--primary-color) 50%, transparent) !important;
 }
 
 /******************************************************************************\
@@ -2674,8 +2655,8 @@ body:not(.binary) form .form-control {
   border-color: #c0c0d9;
 }
 body:not(.binary) form .form-control:focus {
-  border-color: rgba(192, 192, 217, 0.75) !important;
-  box-shadow: 1px 1px 10px 0 rgba(192, 192, 217, 0.5) !important;
+  border-color: color-mix(in srgb, var(--primary-color) 75%, transparent) !important;
+  box-shadow: 1px 1px 10px 0 color-mix(in srgb, var(--primary-color) 50%, transparent) !important;
 }
 
 /******************************************************************************\
@@ -2926,13 +2907,20 @@ body:not(.binary) .content {
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 body:not(.binary) .led {
-  color: #ff6666;
+  color: red;
+  text-shadow: 0 0 10px red, 0 0 20px red;
+}
+body:not(.binary) .led.dot {
   text-shadow: 0 0 3px #ff6666;
 }
-body:not(.binary).dark .led,
-body:not(.binary) .dark .led {
-  color: #ff6666;
-  text-shadow: 0 0 3px red, 0 0 5px red, 0 0 10px red, 0 0 20px red;
+body:not(.binary) .led.pie .slice.empty {
+  background: #8080b3;
+}
+body:not(.binary) .led.pie .slice.full {
+  background: black;
+}
+body:not(.binary) .led.pie .slice.half-full {
+  background-image: linear-gradient(to right, transparent 50%, red 0%) !important;
 }
 body:not(.binary) .lcd.display {
   background: #c0c0d9;
@@ -2947,7 +2935,7 @@ body:not(.binary):not(.flat) .lcd.display {
   background: linear-gradient(to bottom, #e0e0ec 0, #8080b3 100%);
 }
 body:not(.binary) .lcd.pie .slice.empty {
-  background: #a0a0c6;
+  background: #8080b3;
 }
 body:not(.binary) .lcd.pie .slice.full {
   background: black;
@@ -2956,7 +2944,7 @@ body:not(.binary) .lcd.pie .slice.half-full {
   background-image: linear-gradient(to right, transparent 50%, black 0%);
 }
 body:not(.binary) .lcd.pie .slice.half-empty {
-  background-image: linear-gradient(to right, transparent 50%, #a0a0c6 0%);
+  background-image: linear-gradient(to right, transparent 50%, #8080b3 0%);
 }
 
 /******************************************************************************\
@@ -3013,7 +3001,7 @@ body:not(.binary) .page .contents .attention:not(.icon) {
   background: #a0a0c6;
 }
 body:not(.binary) .page .contents .section:not(.colored):nth-child(odd) {
-  background: #e0e0ec;
+  background: #f0f0f6;
 }
 body:not(.binary) .page .contents .section:not(.colored):nth-child(odd) .well {
   background: white;
@@ -3021,13 +3009,16 @@ body:not(.binary) .page .contents .section:not(.colored):nth-child(odd) .well {
 body:not(.binary) .page .contents iframe {
   border-color: #8080b3;
 }
+body:not(.binary) .page .contents .items {
+  border-color: #e0e0ec;
+}
 body:not(.binary) .page .footer .info.content {
   color: #272740;
-  background-color: #e0e0ec;
+  background-color: #f0f0f6;
 }
 body:not(.binary) .page .footer .branding.content {
   color: white;
-  background-color: #c0c0d9;
+  background-color: #a0a0c6;
 }
 body:not(.binary) .page .footer .branding.content a {
   color: white;
@@ -3063,6 +3054,11 @@ body:not(.binary):not(.icon-backgrounds) .page .attention.icon img {
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 body:not(.binary) .panel, body:not(.binary) ul.panels > li {
+  color: #272740;
+  background-color: #f0f0f6;
+  border-color: #f0f0f6;
+}
+body:not(.binary) .panel.panel, body:not(.binary) ul.panels > li.panel {
   color: #272740;
   background-color: #f0f0f6;
   border-color: #f0f0f6;
@@ -3317,8 +3313,16 @@ body > svg {
   transform: translate(-50%, -50%);
 }
 
+.left.aligned {
+  text-align: left;
+}
+
 .center.aligned {
   text-align: center;
+}
+
+.right.aligned {
+  text-align: right;
 }
 
 .middle.aligned {
@@ -3457,12 +3461,12 @@ body:not(.icon-spinning) .user-profile-header .alternate.buttons {
 }
 
 .well {
-  padding: 10px 20px;
-  margin: 20px 0;
+  padding: 10px;
   border-width: 1px;
   border-style: solid;
   box-shadow: none;
   -webkit-box-shadow: none;
+  margin-bottom: 10px;
 }
 .well.emphasis {
   width: 75%;
@@ -3591,6 +3595,7 @@ table tbody tr:not(:last-child) th {
 table tbody > .empty {
   padding: 5px 10px;
   pointer-events: none;
+  white-space: nowrap;
 }
 table tbody tr.selected {
   background: black;
@@ -3612,8 +3617,8 @@ table tbody tr td:not(:last-child) {
   border-right-width: 0;
 }
 table tbody tr td.error {
-  color: hsl(0, 66%, 50%);
-  outline: 2px solid hsl(0, 66%, 50%);
+  color: hsl(0, 80%, 60%);
+  outline: 2px solid hsl(0, 80%, 60%);
   outline-offset: -2px;
   background: white;
 }
@@ -3728,7 +3733,7 @@ table.numbered {
   counter-reset: row-number;
 }
 table.numbered tr:not(.ui-sorplaceholder):not(.unnumbered) td:first-child::before {
-  content: counter(row-number).;
+  content: counter(row-number) ".";
   counter-increment: row-number;
   display: inline-block;
   min-width: 25px;
@@ -3935,6 +3940,12 @@ body:not(.binary) table tbody tr:nth-of-type(even), body:not(.binary) table tbod
   border-color: #f0f0f6;
   background-color: #f0f0f6;
 }
+body:not(.binary) table tbody i {
+  color: #8080b3;
+}
+body:not(.binary) table tbody .icon svg {
+  fill: #8080b3;
+}
 body:not(.binary) table tbody tr.selected {
   color: unset;
   background-color: unset;
@@ -4004,6 +4015,12 @@ body:not(.binary) .toolbar .controls i, body:not(.binary) .toolbar .tools i, bod
 body:not(.binary) .toolbar .controls svg, body:not(.binary) .toolbar .tools svg, body:not(.binary) .toolbar .button svg {
   fill: #6060a0;
 }
+body:not(.binary) .toolbar .btn.btn-primary {
+  color: white !important;
+}
+body:not(.binary) .toolbar .btn.btn-primary i {
+  color: white !important;
+}
 body:not(.binary) .toolbar .tile {
   border-color: #d0d0e3;
 }
@@ -4062,8 +4079,11 @@ body:not(.binary) .welcome.page .splash {
 \******************************************************************************/
 body:not(.binary) .well {
   color: #272740;
-  background-color: #e0e0ec;
-  border-color: #d0d0e3;
+  background-color: #f0f0f6;
+  border-color: #e0e0ec;
+}
+body:not(.binary) .well i {
+  color: #8080b3;
 }
 
 /******************************************************************************\
@@ -4441,10 +4461,10 @@ body:not(.binary) .expander .btn {
   box-shadow: none !important;
 }
 body:not(.binary) .expander .btn i {
-  color: #272740 !important;
+  color: #272740;
 }
 body:not(.binary) .selected > .info .expander .btn i, body:not(.binary) .highighted > .info .expander .btn i {
-  color: white !important;
+  color: white;
 }
 
 /******************************************************************************\
@@ -5573,17 +5593,6 @@ body:not(.binary).chalk .progress .bar {
   .thick-scrollbars ::-webkit-scrollbar-thumb {
     border-width: 0;
   }
-  ::-webkit-track {
-    background: white;
-  }
-  ::-webkit-track:vertical {
-    -webkit-border-radius: 0;
-    margin: 0;
-  }
-  ::-webkit-track:horizontal {
-    -webkit-border-radius: 0;
-    margin: 0;
-  }
 }
 /******************************************************************************\
 |                                                                              |
@@ -5657,6 +5666,7 @@ body:not(.binary).chalk-scrollbars ::-webkit-scrollbar-thumb:active:vertical, bo
 \******************************************************************************/
 .input {
   display: flex;
+  height: 100%;
 }
 .input .input-group {
   display: flex;
@@ -7866,11 +7876,17 @@ body:not(.binary) .address-bar .breadcrumb > li + li:before {
   border-width: 1px;
   border-style: solid;
   transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  perspective: 1000;
 }
 
 .image .selection {
-  border-color: white !important;
-  background: white !important;
+  border-color: white;
+  background: white;
 }
 
 /******************************************************************************\
@@ -7966,7 +7982,7 @@ body:not(.binary) .address-bar .breadcrumb > li + li:before {
   transform: scale(1.5);
 }
 #dock-bar .dock .items .apps:not(:empty) + .tasks .icons:not(:empty) {
-  border-left-width: 1px;
+  border-left-width: 2px;
   border-left-style: solid;
   margin-left: 5px;
   padding-left: 5px;
@@ -8317,7 +8333,7 @@ body:not(.binary) #dock-bar .dock .tasks .item .icon i {
   filter: 2px 2px 5px rgba(0, 0, 0, 0.25);
 }
 body:not(.binary) #dock-bar .dock .tasks .icons:not(:empty) {
-  border-left-color: rgba(0, 0, 0, 0.5);
+  border-left-color: rgba(96, 96, 160, 0.5);
 }
 body:not(.binary).transparent #dock-bar .shelf {
   background: linear-gradient(to bottom, rgba(192, 192, 217, 0.5) 0%, transparent 100%) no-repeat, rgba(192, 192, 217, 0.5);
@@ -8381,10 +8397,10 @@ body:not(.binary) i.normal, body:not(.binary) .btn i.normal {
   color: #4d4d80;
 }
 body:not(.binary) i.warning, body:not(.binary) .btn i.warning {
-  color: hsl(0, 66%, 50%);
+  color: hsl(0, 80%, 60%);
 }
 body:not(.binary) i.error, body:not(.binary) .btn i.error {
-  color: hsl(30, 75%, 50%);
+  color: hsl(30, 80%, 60%);
 }
 body:not(.binary) i.success, body:not(.binary) .btn i.success {
   color: hsl(135, 33%, 50%);
@@ -8440,7 +8456,7 @@ body:not(.binary) ul.panels li {
   border-color: #d0d0e3;
 }
 body:not(.binary).transparent .dropdown-menu, body:not(.binary).transparent .menu-content {
-  background: linear-gradient(to bottom, rgba(240, 240, 246, 0.9) 0%, transparent 100%) no-repeat, rgba(240, 240, 246, 0.8);
+  background: linear-gradient(to bottom, rgba(240, 240, 246, 0.75) 0%, transparent 100%) no-repeat, rgba(240, 240, 246, 0.75);
 }
 body:not(.binary).transparent .dropdown-menu .panel, body:not(.binary).transparent .dropdown-menu ul.panels > li:not(:hover), body:not(.binary).transparent .menu-content .panel, body:not(.binary).transparent .menu-content ul.panels > li:not(:hover) {
   background: none;
@@ -8449,7 +8465,7 @@ body:not(.binary).transparent .dropdown-menu .dropdown-menu, body:not(.binary).t
   background-color: #f0f0f6;
 }
 body:not(.binary).translucent .dropdown-menu, body:not(.binary).translucent .menu-content {
-  background: linear-gradient(to bottom, rgba(240, 240, 246, 0.7) 0%, transparent 100%) no-repeat, rgba(240, 240, 246, 0.6);
+  background: linear-gradient(to bottom, rgba(240, 240, 246, 0.75) 0%, transparent 100%) no-repeat, rgba(240, 240, 246, 0.66);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
@@ -8536,8 +8552,8 @@ body:not(.binary) .menu-bar > ul.nav-menus > li.disabled a > i {
 }
 body:not(.binary).transparent.menu-margins #desktop .header-bar .menu-bar > ul.nav-menus > li.open > a, body:not(.binary).transparent.menu-margins #desktop .header-bar .menu-bar > ul.nav-menus > li.open > a:focus, body:not(.binary).transparent.menu-margins #desktop .header-bar .menu-bar > ul.nav-menus > li.open > a:hover, body:not(.binary).transparent.menu-margins #desktop .header-bar .menu-bar > ul.nav-menus > li.open > a:active, body:not(.binary).translucent.menu-margins #desktop .header-bar .menu-bar > ul.nav-menus > li.open > a, body:not(.binary).translucent.menu-margins #desktop .header-bar .menu-bar > ul.nav-menus > li.open > a:focus, body:not(.binary).translucent.menu-margins #desktop .header-bar .menu-bar > ul.nav-menus > li.open > a:hover, body:not(.binary).translucent.menu-margins #desktop .header-bar .menu-bar > ul.nav-menus > li.open > a:active {
   color: #272740;
-  background: rgba(255, 255, 255, 0.25);
-  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(96, 96, 160, 0.25);
+  border-color: transparent;
 }
 body:not(.binary).transparent.menu-margins #desktop .header-bar .menu-bar > ul.nav-menus > li.open > a i, body:not(.binary).transparent.menu-margins #desktop .header-bar .menu-bar > ul.nav-menus > li.open > a:focus i, body:not(.binary).transparent.menu-margins #desktop .header-bar .menu-bar > ul.nav-menus > li.open > a:hover i, body:not(.binary).transparent.menu-margins #desktop .header-bar .menu-bar > ul.nav-menus > li.open > a:active i, body:not(.binary).translucent.menu-margins #desktop .header-bar .menu-bar > ul.nav-menus > li.open > a i, body:not(.binary).translucent.menu-margins #desktop .header-bar .menu-bar > ul.nav-menus > li.open > a:focus i, body:not(.binary).translucent.menu-margins #desktop .header-bar .menu-bar > ul.nav-menus > li.open > a:hover i, body:not(.binary).translucent.menu-margins #desktop .header-bar .menu-bar > ul.nav-menus > li.open > a:active i {
   color: #4d4d80;
@@ -8571,10 +8587,10 @@ body:not(.binary) .navbar-inverse .navbar-nav {
 body:not(.binary) .navbar-inverse .navbar-nav > li:not(.active):not(.open) > a, body:not(.binary) .navbar-inverse .navbar-nav > li:not(.active):not(.open) > a:focus {
   color: inherit;
 }
-body:not(.binary) .navbar-inverse .navbar-nav > li:not(.active):not(.open) > a:not(.colored):hover, body:not(.binary) .navbar-inverse .navbar-nav > li:not(.active):not(.open) > a:focus:not(.colored):hover {
+body:not(.binary) .navbar-inverse .navbar-nav > li:not(.active):not(.open) > a:hover:not(.colored), body:not(.binary) .navbar-inverse .navbar-nav > li:not(.active):not(.open) > a:focus:hover:not(.colored) {
   color: white;
 }
-body:not(.binary) .navbar-inverse .navbar-nav > li:not(.active):not(.open) > a:not(.colored):hover i, body:not(.binary) .navbar-inverse .navbar-nav > li:not(.active):not(.open) > a:not(.colored):hover label, body:not(.binary) .navbar-inverse .navbar-nav > li:not(.active):not(.open) > a:focus:not(.colored):hover i, body:not(.binary) .navbar-inverse .navbar-nav > li:not(.active):not(.open) > a:focus:not(.colored):hover label {
+body:not(.binary) .navbar-inverse .navbar-nav > li:not(.active):not(.open) > a:hover:not(.colored) i, body:not(.binary) .navbar-inverse .navbar-nav > li:not(.active):not(.open) > a:hover:not(.colored) label, body:not(.binary) .navbar-inverse .navbar-nav > li:not(.active):not(.open) > a:focus:hover:not(.colored) i, body:not(.binary) .navbar-inverse .navbar-nav > li:not(.active):not(.open) > a:focus:hover:not(.colored) label {
   color: white;
 }
 body:not(.binary) .navbar-inverse .navbar-nav > li.active {
@@ -8587,13 +8603,13 @@ body:not(.binary) .navbar-inverse .navbar-nav > li.active > a, body:not(.binary)
 body:not(.binary) .navbar-inverse .navbar-nav > li.active > a i, body:not(.binary) .navbar-inverse .navbar-nav > li.active > a label, body:not(.binary) .navbar-inverse .navbar-nav > li.active > a:hover i, body:not(.binary) .navbar-inverse .navbar-nav > li.active > a:hover label, body:not(.binary) .navbar-inverse .navbar-nav > li.active > a:focus i, body:not(.binary) .navbar-inverse .navbar-nav > li.active > a:focus label {
   color: white;
 }
-body:not(.binary) .navbar-inverse .navbar-nav > li.open {
+body:not(.binary) .navbar-inverse .navbar-nav > li.open:not(.colored) {
   background-color: #4d4d80;
 }
-body:not(.binary) .navbar-inverse .navbar-nav > li.open > a, body:not(.binary) .navbar-inverse .navbar-nav > li.open > a:focus {
+body:not(.binary) .navbar-inverse .navbar-nav > li.open:not(.colored) > a, body:not(.binary) .navbar-inverse .navbar-nav > li.open:not(.colored) > a:focus {
   color: white;
 }
-body:not(.binary) .navbar-inverse .navbar-nav > li.open > a i, body:not(.binary) .navbar-inverse .navbar-nav > li.open > a label, body:not(.binary) .navbar-inverse .navbar-nav > li.open > a:focus i, body:not(.binary) .navbar-inverse .navbar-nav > li.open > a:focus label {
+body:not(.binary) .navbar-inverse .navbar-nav > li.open:not(.colored) > a i, body:not(.binary) .navbar-inverse .navbar-nav > li.open:not(.colored) > a label, body:not(.binary) .navbar-inverse .navbar-nav > li.open:not(.colored) > a:focus i, body:not(.binary) .navbar-inverse .navbar-nav > li.open:not(.colored) > a:focus label {
   color: white;
 }
 body:not(.binary) .navbar-inverse .navbar-nav .thumbnail.missing i {
@@ -8689,6 +8705,9 @@ body:not(.binary) .line, body:not(.binary) .arc, body:not(.binary) .arrow {
 }
 body:not(.binary) .viewport.dark .annotation, body:not(.binary).dark .viewport.auto .annotation {
   fill: white;
+}
+body:not(.binary) .viewport.dark .annotation .line, body:not(.binary) .viewport.dark .annotation .arc, body:not(.binary) .viewport.dark .annotation .arrow, body:not(.binary).dark .viewport.auto .annotation .line, body:not(.binary).dark .viewport.auto .annotation .arc, body:not(.binary).dark .viewport.auto .annotation .arrow {
+  stroke: #e0e0ec;
 }
 
 /******************************************************************************\

@@ -282,6 +282,5 @@ export default ModalView.extend(_.extend({}, Resizable, Minimizable, Maximizable
 	// static attributes
 	//
 
-	count: 0,
-	transitionDuration: 300
+	count: 0
 }));

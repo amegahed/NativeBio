@@ -90,14 +90,13 @@ export default MenuBarView.extend({
 		//
 		/*
 		if (!this.app.topic.isOwnedBy(application.session.user)) {
-			this.setDropdownHidden('edit');
+			this.setMenuHidden('edit');
 		}
 		if (this.app.topic.isRequired()) {
-			this.setDropdownHidden('share');
+			this.setMenuHidden('share');
 		}
 		*/
-
-		this.setDropdownHidden('search');
+		this.setMenuHidden('search');
 
 		// listen to model for changes
 		//

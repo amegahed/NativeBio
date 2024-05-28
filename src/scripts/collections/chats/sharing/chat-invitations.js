@@ -17,7 +17,7 @@
 \******************************************************************************/
 
 import ChatInvitation from '../../../models/chats/sharing/chat-invitation.js';
-import ShareRequest from '../../../models/files/sharing/share-request.js';
+import ShareRequest from '../../../models/storage/sharing/share-request.js';
 import BaseCollection from '../../../collections/base-collection.js';
 
 export default BaseCollection.extend({

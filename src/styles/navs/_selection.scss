@@ -40,8 +40,8 @@ $image-selection-border-color: white;
 }
 
 .image .selection {
-	border-color: $image-selection-border-color !important;
-	background: $image-selection-color !important;
+	border-color: $image-selection-border-color;
+	background: $image-selection-color;
 }
 
 //

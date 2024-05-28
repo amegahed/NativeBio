@@ -41,11 +41,11 @@
 	
 	<h2><i class="fa fa-desktop"></i>Screen Shots</h2>
 	<div class="figure desktop-only">
-		<a href="images/info/apps/settings-manager/settings-manager.png" target="_blank" class="lightbox" title="Settings"><img class="dialog" src="images/info/apps/settings-manager/settings-manager.png" /></a>
-		<div class="caption">Settings</div>
+		<a href="images/info/apps/settings-manager/settings-manager.png" target="_blank" class="lightbox" title="<%= config.apps['settings_manager'].name %>"><img class="dialog" src="images/info/apps/settings-manager/settings-manager.png" /></a>
+		<div class="caption"><%= config.apps['settings_manager'].name %></div>
 	</div>
 	<div class="figure mobile-only">
-		<a href="images/info/apps/settings-manager/mobile/mobile-settings-manager.png" target="_blank" class="lightbox" title="Settings"><img class="dialog" src="images/info/apps/settings-manager/mobile/mobile-settings-manager.png" /></a>
-		<div class="caption">Settings</div>
+		<a href="images/info/apps/settings-manager/mobile/mobile-settings-manager.png" target="_blank" class="lightbox" title="<%= config.apps['settings_manager'].name %>"><img class="dialog" src="images/info/apps/settings-manager/mobile/mobile-settings-manager.png" /></a>
+		<div class="caption"><%= config.apps['settings_manager'].name %></div>
 	</div>
 </div>

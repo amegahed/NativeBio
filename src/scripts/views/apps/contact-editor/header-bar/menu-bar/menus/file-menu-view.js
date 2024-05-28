@@ -109,13 +109,13 @@ export default FileMenuView.extend({
 	},
 
 	enabled: function() {
+		let hasTabs = this.parent.app.hasTabs();
 		let file = this.parent.app.getActiveModel();
 		let directory = file? file.parent : undefined;
-		let isDirty = this.parent.app.isDirty();
+		let isDirty = hasTabs && this.parent.app.isDirty();
 		let isSaved = file && file.isSaved();
 		let isWritable = directory? directory.isWritableBy(application.session.user) : undefined;
 		let isDesktop = this.parent.app.isDesktop();
-		let hasMultiple = this.parent.app.hasOpenContacts();
 		let hasSelected = this.parent.app.hasSelected();
 
 		return {
@@ -126,7 +126,7 @@ export default FileMenuView.extend({
 			'show-info': isSaved || hasSelected,
 			'save-contact': isDirty && isWritable,
 			'save-as': isWritable,
-			'close-tab': hasMultiple,
+			'close-tab': hasTabs,
 			'close-window': !isDesktop
 		};
 	},

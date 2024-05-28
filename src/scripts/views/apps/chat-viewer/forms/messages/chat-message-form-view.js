@@ -16,9 +16,9 @@
 \******************************************************************************/
 
 import ChatMessage from '../../../../../models/chats/chat-message.js';
-import Directory from '../../../../../models/files/directory.js';
+import Directory from '../../../../../models/storage/directories/directory.js';
 import UserPreferences from '../../../../../models/preferences/user-preferences.js';
-import Items from '../../../../../collections/files/items.js';
+import Items from '../../../../../collections/storage/items.js';
 import FormView from '../../../../../views/forms/form-view.js';
 import Emotable from '../../../../../views/emoji/behaviors/emotable.js';
 import FileMovable from '../../../../../views/apps/file-browser/mainbar/behaviors/file-movable.js';
@@ -64,28 +64,31 @@ export default FormView.extend(_.extend({}, Emotable, FileMovable, FileCopyable,
 		<div class="options">
 			<div class="buttons">
 		
-				<% if (show_emoji) { %>
+				<% if (features && features.emoji) { %>
 				<button class="add-emoji btn btn-sm" data-toggle="tooltip" title="Add Emoji">
 					<i class="fa fa-grin"></i>
 				</button>
 				<% } %>
 		
-				<% if (attachable) { %>
+				<% if (features && features.pictures) { %>
 				<button class="add-pictures btn btn-sm" data-toggle="tooltip" title="Add Pictures">
 					<i class="fa fa-image"></i>
 				</button>
+				<% } %>
+
+				<% if (features && features.files) { %>
 				<button class="add-files btn btn-sm" data-toggle="tooltip" title="Add Files">
 					<i class="fa fa-file"></i>
 				</button>
 				<% } %>
 		
-				<% if (uploadable) { %>
+				<% if (features && features.uploads) { %>
 				<button class="upload-file btn btn-sm" data-toggle="tooltip" title="Upload File">
 					<i class="fa fa-upload"></i>
 				</button>
 				<% } %>
 		
-				<% if (geolocatable) { %>
+				<% if (features && features.locations) { %>
 				<button class="check-in btn btn-sm" data-toggle="tooltip" title="Check In"<% if (typeof check_in != 'undefined' && check_in) { %> style="display:none"<% } %>>
 					<i class="fa fa-map-marker-alt"></i>
 				</button>
@@ -94,9 +97,9 @@ export default FormView.extend(_.extend({}, Emotable, FileMovable, FileCopyable,
 				</button>
 				<% } %>
 				
-				<% if (attachable || uploadable) { %>
+				<% if (features && (features.pictures || features.files || features.uploads)) { %>
 				<button class="remove warning btn btn-sm" data-toggle="tooltip" title="Remove Items" style="display:none">
-					<i class="active fa fa-trash-alt"></i>
+					<i class="active fa fa-file-circle-xmark"></i>
 				</button>
 				<% } %>
 			</div>
@@ -106,23 +109,24 @@ export default FormView.extend(_.extend({}, Emotable, FileMovable, FileCopyable,
 				<button class="submit btn btn-primary"<% if (!message) { %>disabled<% } %>>
 					<i class="fa fa-envelope"></i>Send
 				</button>
+				<% } %>
+
 				<button class="clear btn"<% if (!message) { %>disabled<% } %>>
 					<i class="fa fa-xmark"></i>Clear
 				</button>
-				<% } %>
-		
+
 				<% if (cancelable) { %>
 				<button class="cancel warning btn">
 					<i class="active fa fa-xmark"></i>Cancel
 				</button>
 				<% } %>
 			</div>
-		
+
 			<div class="where fineprint"<% if (typeof check_in == 'undefined' || !check_in) { %> style="display:none"<% } %>>
 				<a><i class="fa fa-map-marker-alt"></i><span class="name"><%= typeof check_in != 'undefined' && check_in? check_in.get('name') : '' %></span></a>
 			</div>
 		</div>
-		
+
 		<div class="attachments" class="focused"></div>
 	`),
 
@@ -180,24 +184,6 @@ export default FormView.extend(_.extend({}, Emotable, FileMovable, FileCopyable,
 		//
 		if (this.options.droppable == undefined) {
 			this.options.droppable = true;
-		}
-		if (this.options.show_emoji == undefined) {
-			this.options.show_emoji = true;
-		}
-		if (this.options.attachable == undefined) {
-			this.options.attachable = true;
-		}
-		if (this.options.uploadable == undefined) {
-			this.options.uploadable = true;
-		}
-		if (this.options.geolocatable == undefined) {
-			this.options.geolocatable = true;
-		}
-		if (this.options.cancelable == undefined) {
-			this.options.cancelable = false;
-		}
-		if (this.options.submitable == undefined) {
-			this.options.submitable = true;
 		}
 
 		this.directories = {
@@ -291,7 +277,7 @@ export default FormView.extend(_.extend({}, Emotable, FileMovable, FileCopyable,
 	//
 	// fetching methods
 	//
-	
+
 	fetchMessageDirectory: function(messagesDirectory, options) {
 
 		// create new messages directory
@@ -357,7 +343,7 @@ export default FormView.extend(_.extend({}, Emotable, FileMovable, FileCopyable,
 		// enable / disable buttons
 		//
 		this.updateButtons();
-		
+
 		// perform callback
 		//
 		if (this.options.onvalidate) {
@@ -498,7 +484,7 @@ export default FormView.extend(_.extend({}, Emotable, FileMovable, FileCopyable,
 				// update collection
 				//
 				this.collection.add(uploadedItems);
-		
+
 				// copy files from other directories to message directory
 				//
 				this.copyItems(copyableFiles, messageDirectory, {
@@ -526,7 +512,7 @@ export default FormView.extend(_.extend({}, Emotable, FileMovable, FileCopyable,
 						application.error({
 							message: "Could not copy attached items to chats directory.",
 							response: response
-						});				
+						});
 					}
 				});
 			},
@@ -538,7 +524,7 @@ export default FormView.extend(_.extend({}, Emotable, FileMovable, FileCopyable,
 				application.error({
 					message: "Could not relocate attached items to chats directory.",
 					response: response
-				});		
+				});
 			}
 		});
 	},
@@ -575,7 +561,7 @@ export default FormView.extend(_.extend({}, Emotable, FileMovable, FileCopyable,
 				application.error({
 					message: "Could not submit message.",
 					response: response
-				});			
+				});
 			}
 		});
 	},
@@ -626,7 +612,7 @@ export default FormView.extend(_.extend({}, Emotable, FileMovable, FileCopyable,
 										// create new message
 										//
 										this.submitMessage(options);
-									}, 
+									},
 
 									error: () => {
 
@@ -634,9 +620,9 @@ export default FormView.extend(_.extend({}, Emotable, FileMovable, FileCopyable,
 										//
 										application.error({
 											message: "Could not message items.",
-										});	
+										});
 									}
-								});	
+								});
 							}
 						});
 					},
@@ -648,7 +634,7 @@ export default FormView.extend(_.extend({}, Emotable, FileMovable, FileCopyable,
 						application.error({
 							message: "Could not create uploads directory.",
 							response: response
-						});	
+						});
 					}
 				});
 			} else {
@@ -669,12 +655,9 @@ export default FormView.extend(_.extend({}, Emotable, FileMovable, FileCopyable,
 			thumbnail_url: this.getThumbnailUrl(),
 			thumbnail_size: this.thumbnailSize + 'px',
 			message: HtmlUtils.textToHtml(this.model.get('message')),
-			show_emoji: this.options.show_emoji,
-			attachable: this.options.attachable,
-			uploadable: this.options.uploadable,
-			geolocatable: this.options.geolocatable,
-			cancelable: this.options.cancelable,
-			submitable: this.options.submitable
+			features: this.options.features,
+			submitable: this.options.submitable,
+			cancelable: this.options.cancelable
 		};
 	},
 

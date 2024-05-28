@@ -97,7 +97,12 @@ export default SideBarView.extend({
 	showPagesPanel: function() {
 		this.showChildView('pages', new PagesPanelView({
 			model: this.model,
-			collection: this.collection
+			collection: this.collection,
+
+			// options
+			//
+			view_kind: this.options.view_kind,
+			tile_size: this.options.tile_size
 		}));		
 	},
 	

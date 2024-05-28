@@ -24,7 +24,7 @@ export default GalleryItemView.extend({
 	// attributes
 	//
 
-	defaultResolution: [600, 600],
+	defaultResolution: [512, 512],
 
 	//
 	// getting methods
@@ -32,7 +32,7 @@ export default GalleryItemView.extend({
 
 	getUrl: function() {
 		return this.model.getUrl({
-			max_size: 600
+			max_size: 512
 		});
 	},
 

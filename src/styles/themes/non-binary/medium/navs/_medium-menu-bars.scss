@@ -23,7 +23,7 @@
 // colors
 //
 
-$transparent-menu-bar-item-color: colors.faded(white, 25%);
+$transparent-menu-bar-item-color: colors.faded(colors.$medium-grey, 25%);
 
 //
 // styles
@@ -75,7 +75,7 @@ body:not(.binary) {
 							> a, > a:focus, > a:hover, > a:active {
 								color: text-colors.$dark-color;
 								background: $transparent-menu-bar-item-color;
-								border-color: $transparent-menu-bar-item-color;
+								border-color: transparent;
 
 								i {
 									color: colors.$dark-grey;

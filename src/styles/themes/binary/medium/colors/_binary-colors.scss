@@ -136,6 +136,21 @@
 	background-color: white;
 }
 
+@mixin grey-alt {
+	@include darken-alt();
+	background-color: white;
+}
+
+@mixin light-grey-alt {
+	@include darken-less-alt();
+	background-color: white;
+}
+
+@mixin dark-grey-alt {
+	@include darken-more-alt();
+	background-color: white;
+}
+
 @mixin white {
 	@include clear();
 	background-color: white;
@@ -149,7 +164,6 @@
 @mixin clear {
 	background: none;
 	background-size: unset;
-	background-position: unset;
 	background-repeat: unset;
 	image-rendering: unset;	
 }

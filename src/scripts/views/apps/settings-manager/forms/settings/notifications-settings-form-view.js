@@ -15,10 +15,10 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import FormView from '../../../../../views/forms/form-view.js';
+import SettingsFormView from '../../../../../views/apps/common/forms/settings-form-view.js';
 import NotificationSettingsListView from '../../../../../views/apps/settings-manager/mainbar/notification-settings-list/notification-settings-list-view.js';
 
-export default FormView.extend({
+export default SettingsFormView.extend({
 
 	//
 	// attributes
@@ -38,33 +38,61 @@ export default FormView.extend({
 				</div>
 			</div>
 		</div>
-		
-		<div class="sms-notifications form-group">
-			<label class="control-label"><i class="fa fa-mobile"></i>SMS</label>
-			<div class="wide controls">
-				<div class="checkbox-inline" style="float:left">
-					<input type="checkbox"<% if (sms_notifications) { %> checked<% } %> />
+
+		<ul class="nav nav-tabs" role="tablist">
+
+			<li role="presentation" class="general-tab<% if (tab == 'general' || !tab) { %> active<% } %>">
+				<a role="tab" data-toggle="tab" href=".general-settings">
+					<i class="fa fa-check"></i>
+					<label>General</label>
+				</a>
+			</li>
+
+			<li role="presentation" class="events-tab<% if (tab == 'events') { %> active<% } %>">
+				<a role="tab" data-toggle="tab" href=".events-settings">
+					<i class="fa fa-exclamation-triangle"></i>
+					<label>Events</label>
+				</a>
+			</li>
+		</ul>
+
+		<div class="tab-content">
+
+			<div role="tabpanel" class="general-settings tab-pane<% if (tab == 'general' || !tab) { %> active<% } %>">
+				<div class="sms-notifications form-group">
+					<label class="control-label"><i class="fa fa-mobile"></i>SMS Enabled</label>
+					<div class="controls">
+						<div class="checkbox-inline" style="float:left">
+							<input type="checkbox"<% if (sms_notifications) { %> checked<% } %> />
+						</div>
+					</div>
 				</div>
-		
-				<div class="input-group" style="width:max-content<% if (!sms_notifications) { %>; display:none<% } %>">
-					<input type="text" class="country-code form-control" style="width:2em" value="<%= country_code %>">
-		
-					<span class="input-group-addon">(</span>
-					<input type="text" class="area-code form-control" style="width:3em" value="<%= area_code %>">
-					<span class="input-group-addon">)</span>
-		
-					<input type="text" class="first-digits form-control" style="width:3em" value="<%= phone_number? phone_number.split('-')[0] : '' %>">
-					<span class="input-group-addon">-</span>
-					<input type="text" class="last-digits form-control" style="width:4em" value="<%= phone_number? phone_number.split('-')[1] : '' %>">
-		
-					<div class="input-group-addon">
-						<i class="active fa fa-question-circle" data-toggle="popover" title="Number" data-content="This is your phone number (country code, area code, and phone number)."></i>
+
+				<div class="sms-number form-group"<% if (!sms_notifications) { %>style="display:none"<% } %>>
+					<label class="control-label"><i class="fa fa-hashtag"></i>SMS Number</label>
+					<div class="controls">
+						<div class="input-group" style="width:max-content">
+							<input type="text" class="country-code form-control" style="width:2em" value="<%= country_code %>">
+
+							<span class="input-group-addon">(</span>
+							<input type="text" class="area-code form-control" style="width:3em" value="<%= area_code %>">
+							<span class="input-group-addon">)</span>
+
+							<input type="text" class="first-digits form-control" style="width:3em" value="<%= phone_number? phone_number.split('-')[0] : '' %>">
+							<span class="input-group-addon">-</span>
+							<input type="text" class="last-digits form-control" style="width:4em" value="<%= phone_number? phone_number.split('-')[1] : '' %>">
+
+							<div class="input-group-addon">
+								<i class="active fa fa-question-circle" data-toggle="popover" title="Number" data-content="This is your phone number (country code, area code, and phone number)."></i>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		
-		<div class="list">
+
+			<div role="tabpanel" class="events-settings tab-pane<% if (tab == 'events') { %> active<% } %>">
+				<div class="list"></div>
+			</div>
 		</div>
 	`),
 
@@ -77,7 +105,7 @@ export default FormView.extend({
 
 	events: {
 		'click .sms-notifications input': 'onClickSmsNotifications',
-		'input .sms-notifications .input-group input': 'onInputSmsNumber'
+		'input .sms-number .input-group input': 'onInputSmsNumber'
 	},
 
 	//
@@ -137,6 +165,7 @@ export default FormView.extend({
 		}
 
 		return {
+			tab: this.options.tab,
 			sms_notifications: sms_notifications,
 			country_code: country_code,
 			area_code: area_code,
@@ -170,9 +199,9 @@ export default FormView.extend({
 		// hide / show sms number
 		//
 		if (smsNotifications) {
-			this.$el.find('.sms-notifications .input-group').show();
+			this.$el.find('.sms-number').show();
 		} else {
-			this.$el.find('.sms-notifications .input-group').hide();
+			this.$el.find('.sms-number').hide();
 		}
 	},
 

@@ -10,7 +10,6 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import BaseView from '../../../../../../views/base-view.js';
 import SortableTableListView from '../../../../../../views/collections/tables/sortable-table-list-view.js';
 import ShareRequestsListItemView from '../../../../../../views/apps/file-browser/sharing/share-requests/list/share-requests-list-item-view.js';
 
@@ -81,13 +80,13 @@ export default SortableTableListView.extend({
 		sortList: [[0, 0]]
 	},
 
+	empty: "No share requests.",
+
+	//
 	// views
 	//
+
 	childView: ShareRequestsListItemView,
-	emptyView: BaseView.extend({
-		className: 'empty',
-		template: template("No share requests.")
-	}),
 	
 	//
 	// constructor

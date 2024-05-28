@@ -20,7 +20,6 @@ import UserPreferences from '../../../../../models/preferences/user-preferences.
 import Connections from '../../../../../collections/users/connections/connections.js';
 import Groups from '../../../../../collections/users/connections/groups.js';
 import Members from '../../../../../collections/users/connections/members.js';
-import BaseView from '../../../../../views/base-view.js';
 import SideBarPanelView from '../../../../../views/apps/common/sidebar/panels/sidebar-panel-view.js';
 import GroupsView from '../../../../../views/apps/connection-manager/sidebar/groups/groups-view.js';
 
@@ -386,11 +385,8 @@ export default SideBarPanelView.extend({
 			preferences: new UserPreferences({
 				view_kind: this.options.view_kind
 			}),
-			emptyView: BaseView.extend({
-				className: 'empty',
-				template: template("No groups.")
-			}),
 			selected: this.app.hasSelectedGroup()? [this.app.getSelectedGroup()] : [],
+			empty: "No groups.",
 
 			// capabilities
 			//

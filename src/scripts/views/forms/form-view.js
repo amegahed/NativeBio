@@ -18,10 +18,11 @@
 import BaseView from '../../views/base-view.js';
 import PopoverShowable from '../../views/behaviors/tips/popover-showable.js';
 import Validatable from '../../views/forms/validation/validatable.js';
+import UnitSettable from '../../views/forms/behaviors/unit-settable.js';
 import Browser from '../../utilities/web/browser.js';
-import Units from '../../utilities/math/units.js';
+import '../../../vendor/bootstrap/js/tab.js';
 
-export default BaseView.extend(_.extend({}, PopoverShowable, Validatable, {
+export default BaseView.extend(_.extend({}, PopoverShowable, Validatable, UnitSettable, {
 
 	//
 	// attributes
@@ -38,9 +39,9 @@ export default BaseView.extend(_.extend({}, PopoverShowable, Validatable, {
 
 		// input events
 		//
-		'change input': 'onChange',
-		'change textarea': 'onChange',
-		'change select': 'onChange'
+		'input input': 'onChange',
+		'input textarea': 'onChange',
+		'change select': 'onChange',
 	},
 
 	focusable: 'input:visible, textarea:visible, select:visible',
@@ -75,6 +76,10 @@ export default BaseView.extend(_.extend({}, PopoverShowable, Validatable, {
 		return this.getValue(key) != null;
 	},
 
+	formatDate: function(date) {
+		return date && date.format? date.format() : date || 'unknown';
+	},
+
 	//
 	// getting methods
 	//
@@ -101,17 +106,6 @@ export default BaseView.extend(_.extend({}, PopoverShowable, Validatable, {
 		return $(elements);
 	},
 
-	getUnits: function(selector) {
-		let value = this.$el.find(selector + ' input').val();
-		let units = this.$el.find(selector + ' .units').val();
-		if (value != '') {
-			value = parseFloat(value);
-		} else {
-			value = 0;
-		}
-		return new Units(value, units);
-	},
-
 	//
 	// setting methods
 	//
@@ -124,13 +118,6 @@ export default BaseView.extend(_.extend({}, PopoverShowable, Validatable, {
 			let value = values[key];
 			this.setValue(key, value);
 		}
-	},
-
-	setUnits: function(selector, units, options) {
-		let value = units.toStr(options);
-		this.$el.find(selector + ' input').val(value);
-		this.$el.find(selector + ' span').text(value);
-		this.$el.find(selector + ' units').val(units.units);
 	},
 
 	//

@@ -17,7 +17,7 @@
 
 import Post from '../../../../../models/topics/post.js';
 import Posts from '../../../../../collections/topics/posts.js';
-import Items from '../../../../../collections/files/items.js';
+import Items from '../../../../../collections/storage/items.js';
 import BaseView from '../../../../../views/base-view.js';
 import SelectableContainable from '../../../../../views/behaviors/containers/selectable-containable.js';
 import Timeable from '../../../../../views/behaviors/effects/timeable.js';
@@ -78,7 +78,7 @@ export default BaseView.extend(_.extend({}, SelectableContainable, Timeable, {
 		this.post = new Post({
 			topic_id: this.model? this.model.get('id') : null,
 			message: this.options? this.options.message : null,
-			public: this.options.privacy == 'public',
+			public: this.options.preferences? this.options.preferences.get('default_privacy') == 'public' : 'protected',
 			attachments: new Items(this.options.items),
 			check_in: this.options.check_in
 		});
@@ -93,14 +93,14 @@ export default BaseView.extend(_.extend({}, SelectableContainable, Timeable, {
 			if (this.options.condensed == undefined) {
 				this.options.condensed = !this.options.preferences.get('show_options');
 			}
-			if (this.options.postsPerPage == undefined) {
-				this.options.postsPerPage = this.options.preferences.get('posts_per_page');
+			if (this.options.posts_per_page == undefined) {
+				this.options.posts_per_page = this.options.preferences.get('posts_per_page');
 			}
-			if (this.options.postsDirection == undefined) {
-				this.options.postsDirection = this.options.preferences.get('posts_direction');
+			if (this.options.posts_direction == undefined) {
+				this.options.posts_direction = this.options.preferences.get('posts_direction');
 			}
-			if (this.options.showElapsedTime == undefined) {
-				this.options.showElapsedTime = this.options.preferences.get('show_elapsed_time');
+			if (this.options.show_elapsed_time == undefined) {
+				this.options.show_elapsed_time = this.options.preferences.get('show_elapsed_time');
 			}
 		}
 
@@ -161,7 +161,7 @@ export default BaseView.extend(_.extend({}, SelectableContainable, Timeable, {
 	getPostsPerPage: function() {
 		return this.getChildView('pager').getItemsPerPage();
 	},
-	
+
 	//
 	// setting methods
 	//
@@ -172,7 +172,7 @@ export default BaseView.extend(_.extend({}, SelectableContainable, Timeable, {
 			// topic options
 			//
 			case 'posts_per_page':
-				this.options.postsPerPage = value;
+				this.options.posts_per_page = value;
 
 				// update posts list
 				//
@@ -182,7 +182,7 @@ export default BaseView.extend(_.extend({}, SelectableContainable, Timeable, {
 				break;
 
 			case 'posts_direction':
-				this.options.postsDirection = value;
+				this.options.posts_direction = value;
 
 				// update posts list
 				//
@@ -190,7 +190,7 @@ export default BaseView.extend(_.extend({}, SelectableContainable, Timeable, {
 				break;
 
 			case 'show_elapsed_time':
-				this.options.showElapsedTime = value;
+				this.options.show_elapsed_time = value;
 
 				// update view
 				//
@@ -254,7 +254,7 @@ export default BaseView.extend(_.extend({}, SelectableContainable, Timeable, {
 
 		// update pager
 		//
-		this.getChildView('pager').setNumItems(collection.length);
+		this.getChildView('pager').setNumPageItems(collection.length);
 	},
 
 	setCollapsed: function(collapsed) {
@@ -318,7 +318,7 @@ export default BaseView.extend(_.extend({}, SelectableContainable, Timeable, {
 
 		// clean up soft deleted posts
 		//
-		// this.collection.updateByTopic(this.model);	
+		// this.collection.updateByTopic(this.model);
 	},
 
 	//
@@ -330,7 +330,7 @@ export default BaseView.extend(_.extend({}, SelectableContainable, Timeable, {
 	},
 
 	shareLocation: function(options) {
-		this.getChildView('form').checkIn(options);	
+		this.getChildView('form').checkIn(options);
 	},
 
 	//
@@ -362,7 +362,7 @@ export default BaseView.extend(_.extend({}, SelectableContainable, Timeable, {
 			this.lastDate = post.get('created_at');
 		}
 	},
-	
+
 	updatePost: function(post) {
 
 		// update item
@@ -424,15 +424,18 @@ export default BaseView.extend(_.extend({}, SelectableContainable, Timeable, {
 
 			// options
 			//
+			submitable: true,
+			cancelable: false,
+			features: this.options.features,
 			preferences: this.options.preferences,
-			
+
 			// callbacks
 			//
 			onsubmit: (post) => this.addNewPost(post)
 		}));
 	},
 
-	fetchAndShowPosts: function(topic, options) {
+	fetchAndShowPosts: function(topic) {
 		let range = this.getRange();
 
 		// fetch selected posts
@@ -442,7 +445,6 @@ export default BaseView.extend(_.extend({}, SelectableContainable, Timeable, {
 			// parameters
 			//
 			data: _.extend(range, this.options.search, {
-				public: options && options.public == true,
 				language: this.options.preferences.get('translation')? this.options.preferences.get('language') : undefined
 			}),
 
@@ -485,7 +487,7 @@ export default BaseView.extend(_.extend({}, SelectableContainable, Timeable, {
 					response: response
 				});
 			}
-		});	
+		});
 	},
 
 	showPosts: function() {
@@ -497,8 +499,9 @@ export default BaseView.extend(_.extend({}, SelectableContainable, Timeable, {
 			collapsed: this.options.collapsed,
 			condensed: this.options.condensed,
 			multicolumn: false,
+			features: this.options.features,
 			preferences: this.options.preferences,
-			showElapsedTime: this.options.showElapsedTime,
+			show_elapsed_time: this.options.show_elapsed_time,
 
 			// capabilities
 			//
@@ -519,13 +522,13 @@ export default BaseView.extend(_.extend({}, SelectableContainable, Timeable, {
 
 			// options
 			//
-			itemType: 'posts',
-			itemsPerPage: this.options.postsPerPage,
+			item_type: 'posts',
+			items_per_page: this.options.posts_per_page,
 
 			// callbacks
 			//
 			onchange: (pageNumber) => {
-				
+
 				// hide / show new post form
 				//
 				let newPostView = this.getChildView('form');
@@ -569,7 +572,7 @@ export default BaseView.extend(_.extend({}, SelectableContainable, Timeable, {
 		this.setInterval(() => {
 			this.getChildView('posts').update();
 		}, this.redrawInterval);
-		
+
 		// save date of most recent change
 		//
 		if (this.collection.length > 0) {
@@ -609,7 +612,7 @@ export default BaseView.extend(_.extend({}, SelectableContainable, Timeable, {
 			//
 			data: _.extend({}, this.options.search, {
 				after: this.lastDate? this.lastDate.format('yyyy-mm-dd HH:MM:ss', false) : undefined,
-				public: options && options.public != undefined? options.public : undefined,
+				// public: options && options.public != undefined? options.public : undefined,
 				language: this.options.preferences.get('translation')? this.options.preferences.get('language') : undefined
 			}),
 			updates: true,
@@ -665,13 +668,15 @@ export default BaseView.extend(_.extend({}, SelectableContainable, Timeable, {
 
 		// clear previous message settings
 		//
-		this.resetMessages();
+		// this.resetMessages();
 
 		// update posts list
 		//
+		/*
 		this.fetchAndShowPosts(this.model, {
 			public: this.isPublic()
 		});
+		*/
 	},
 
 	//

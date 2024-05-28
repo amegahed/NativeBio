@@ -68,12 +68,12 @@ export default FileMenuView.extend({
 	enabled: function() {
 		let isSignedIn = application.isSignedIn();
 		let isOpen = this.parent.app.hasImage();
-		let hasMultiple = this.parent.app.hasImages();
+		let hasImages = this.parent.app.hasImages();
 
 		return {
 			'new-window': true,
 			'open-item': isSignedIn,
-			'open-file': hasMultiple,
+			'open-file': hasImages,
 			'show-info': isOpen,
 			'download-file': isOpen,
 			'close-window': true

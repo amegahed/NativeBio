@@ -43,6 +43,7 @@ body.binary {
 						border-color: black;
 
 						> i {
+							color: black;
 							@include binary-text.outline;
 						}
 
@@ -101,7 +102,7 @@ body.binary {
 				> .row:first-child {
 					.icon {
 						@include binary-colors.dark-grey;
-						background-position: 0 1px;
+						background-position: 1px 1px;
 
 						svg {
 							filter: invert(1);

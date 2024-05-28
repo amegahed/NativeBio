@@ -69,10 +69,10 @@ export default NotificationsListItemView.extend({
 					</a>
 		
 					<div class="expander">
-						<button type="button" class="collapse btn btn-sm">
+						<button type="button" class="collapse btn-sm">
 							<i class="fa fa-caret-up"></i>
 						</button>
-						<button type="button" class="expand btn btn-sm">
+						<button type="button" class="expand btn-sm">
 							<i class="fa fa-caret-down"></i>	
 						</button>
 					</div>
@@ -167,7 +167,7 @@ export default NotificationsListItemView.extend({
 			});
 		} else {
 
-			// show alert dialog
+			// show alert message
 			//
 			application.alert({
 				message: "Post not found."

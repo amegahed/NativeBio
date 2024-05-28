@@ -24,5 +24,11 @@ export default IconsView.extend({
 	// attributes
 	//
 
+	editable: false,
+
+	//
+	// views
+	//
+
 	childView: ChatIconView
 });

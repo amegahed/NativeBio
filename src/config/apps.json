@@ -61,16 +61,7 @@
 		"favorites": {
 			"#1": "Music/",
 			"#2": "Audio/"
-		},
-		"extensions": [
-			"flac",
-			"m4a",
-			"m4p",
-			"mid",
-			"midi",
-			"mp3",
-			"wav"
-		]
+		}
 	},
 
 	"calculator": {
@@ -81,7 +72,7 @@
 		"disabled": false,
 		"hidden": false,
 		"args": false,
-		"color": "lime",
+		"color": "green",
 		"preferences": {
 			"mode": "basic"
 		}
@@ -127,7 +118,7 @@
 		"disabled": false,
 		"hidden": false,
 		"args": false,
-		"color": "aqua",
+		"color": "blue",
 		"preferences": {
 			"view_kind": {
 				"phone": "cards",
@@ -158,14 +149,25 @@
 	},
 
 	"chat_viewer": {
-		"name": "Chat Messages",
-		"icon": "fa fa-comments",
+		"name": "Messages",
+		"icon": "fa fa-comment",
 		"platform": "all",
 		"category": "social",
-		"disabled": true,
+		"disabled": false,
 		"hidden": true,
 		"args": false,
-		"color": "aqua",
+		"color": "blue",
+		"features": {
+			"emoji": true,
+			"files": true,
+			"pictures": true,
+			"audio": true,
+			"music": true,
+			"video": true,
+			"maps": true,
+			"uploads": true,
+			"locations": true
+		},
 		"preferences": {
 			"messages_per_page": 50,
 			"window_size": "medium",
@@ -188,13 +190,13 @@
 				"chats"
 			],
 			"sidebar_view_kind": {
-				"phone": "cards",
-				"tablet": "icons",
+				"phone": "lists",
+				"tablet": "lists",
 				"desktop": "lists"
 			},
 			"uploads_directory": "Uploads/",
 			"copy_attachments": true,
-			"messages_directory": "Messages/"
+			"messages_directory": ".Messages/"
 		},
 		"new_chat_invitation_message": "Hi. Let's chat!",
 		"join_chat_invitation_message": "Hi. You're invited to join a chat!"
@@ -203,7 +205,7 @@
 	"clock": {
 		"name": "Clock",
 		"icon": "fa fa-clock",
-		"platform": "mobile",
+		"platform": "all",
 		"category": "utility",
 		"disabled": false,
 		"hidden": false,
@@ -258,11 +260,11 @@
 				"files"
 			],
 			"sidebar_view_kind": {
-				"phone": "cards",
-				"tablet": "icons",
+				"phone": "trees",
+				"tablet": "trees",
 				"desktop": "trees"
 			},
-			"show_console": true,
+			"show_console": false,
 			"console_size": {
 				"phone": 50,
 				"tablet": 25,
@@ -279,7 +281,7 @@
 		"disabled": false,
 		"hidden": false,
 		"args": false,
-		"color": "aqua",
+		"color": "blue",
 		"preferences": {
 			"view_kind": {
 				"phone": "cards",
@@ -295,6 +297,13 @@
 			"toolbars": [
 				"nav"
 			],
+			"map_mode": "hybrid",
+			"map_view_kind": {
+				"phone": "icons",
+				"tablet": "icons",
+				"desktop": "icons"
+			},
+			"show_item_names": true,
 			"show_sidebar": true,
 			"sidebar_size": {
 				"phone": 0,
@@ -355,6 +364,129 @@
 		}
 	},
 
+	"communicator": {
+		"name": "Conversations",
+		"icon": "fa fa-message",
+		"platform": "all",
+		"category": "social",
+		"disabled": false,
+		"hidden": false,
+		"args": false,
+		"color": "blue",
+		"defaults": {
+			"topic": {
+				"name": "What's New",
+				"description": "This is the default topic.",
+				"required": true
+			}
+		},
+		"features": {
+			"emoji": true,
+			"files": true,
+			"pictures": true,
+			"audio": true,
+			"music": true,
+			"video": true,
+			"maps": true,
+			"uploads": true,
+			"locations": true
+		},
+		"preferences": {
+			"default_topic": "What's New",
+			"posts_per_page": 10,
+			"posts_direction": "top_down",
+			"messages_per_page": 50,
+			"default_privacy": "connections",
+			"show_comments": false,
+			"show_options": true,
+			"show_elapsed_time": true,
+			"translation": false,
+			"language": "English",
+			"window_size": "medium",
+			"show_sidebar": true,
+			"sidebar_size": {
+				"phone": 0,
+				"tablet": 25,
+				"desktop": 25
+			},
+			"sidebar_min_size": {
+				"phone": 0,
+				"tablet": 200,
+				"desktop": 200
+			},
+			"sidebar_panels": [
+				"info",
+				"topics",
+				"chats"
+			],
+			"sidebar_info_kind": {
+				"phone": "cards",
+				"tablet": "icons",
+				"desktop": "icons"
+			},
+			"sidebar_view_kind": {
+				"phone": "lists",
+				"tablet": "lists",
+				"desktop": "lists"
+			},
+			"uploads_directory": "Uploads/",
+			"copy_attachments": true,
+			"storage_directory": ".News/",
+			"messages_directory": ".Messages/"
+		}
+	},
+
+	"decibel_meter": {
+		"name": "Decibels",
+		"icon": "fa fa-volume-up",
+		"platform": "all",
+		"category": "utility",
+		"disabled": false,
+		"hidden": false,
+		"args": false,
+		"color": "plum",
+		"preferences": {
+			"display": "led"
+		}
+	},
+
+	"post_viewer": {
+		"name": "Comments",
+		"icon": "fa fa-newspaper",
+		"platform": "all",
+		"category": "social",
+		"disabled": true,
+		"hidden": true,
+		"args": false,
+		"color": "blue",
+		"preferences": {
+			"show_comments": true,
+			"show_options": true,
+			"window_size": "medium",
+			"show_sidebar": true,
+			"sidebar_size": {
+				"phone": 0,
+				"tablet": 25,
+				"desktop": 25
+			},
+			"sidebar_min_size": {
+				"phone": 0,
+				"tablet": 175,
+				"desktop": 175
+			},
+			"sidebar_panels": [
+				"topics"
+			],
+			"sidebar_view_kind": {
+				"phone": "lists",
+				"tablet": "lists",
+				"desktop": "lists"
+			},
+			"uploads_directory": "Uploads/",
+			"storage_directory": ".News/"
+		}
+	},
+
 	"file_browser": {
 		"name": "Files",
 		"icon": "fa fa-folder",
@@ -380,6 +512,7 @@
 			"open_folders_in_new_window": false,
 			"show_hidden_files": false,
 			"show_thumbnails": true,
+			"show_image_names": true,
 			"show_file_extensions": false,
 			"show_clipboard_confirm": false,
 			"sort_kind": "name",
@@ -405,8 +538,8 @@
 				"shared"
 			],
 			"sidebar_view_kind": {
-				"phone": "cards",
-				"tablet": "icons",
+				"phone": "lists",
+				"tablet": "lists",
 				"desktop": "lists"
 			},
 			"map_mode": "hybrid",
@@ -452,13 +585,13 @@
 			"show_sidebar": true,
 			"sidebar_size": {
 				"phone": 0,
-				"tablet": 25,
-				"desktop": 25
+				"tablet": 30,
+				"desktop": 30
 			},
 			"sidebar_min_size": {
 				"phone": 0,
-				"tablet": 250,
-				"desktop": 250
+				"tablet": 200,
+				"desktop": 200
 			},
 			"sidebar_panels": [
 				"index"
@@ -485,13 +618,14 @@
 			"window_size": "medium",
 			"toolbars": [
 				"mouse_mode",
+				"zoom_mode",
 				"zoom"
 			],
 			"show_sidebar": true,
 			"sidebar_size": {
 				"phone": 0,
-				"tablet": 25,
-				"desktop": 25
+				"tablet": 30,
+				"desktop": 30
 			},
 			"sidebar_min_size": {
 				"phone": 0,
@@ -506,26 +640,18 @@
 				"tablet": "tiles",
 				"desktop": "tiles"
 			},
+			"sidebar_tile_size": {
+				"phone": "small",
+				"tablet": "medium",
+				"desktop": "large"
+			},
 			"show_image_info": false,
 			"info_bar_size": {
 				"phone": 50,
 				"tablet": 25,
 				"desktop": 25
 			}
-		},
-		"extensions": [
-			"bmp",
-			"dng",
-			"gif",
-			"jpg",
-			"jpeg",
-			"png",
-			"psd",
-			"svg",
-			"tga",
-			"tif",
-			"tiff"
-		]
+		}
 	},
 
 	"mail_reader": {
@@ -565,6 +691,7 @@
 				"crosshairs",
 				"photos",
 				"videos",
+				"overlays",
 				"people",
 				"places",
 				"favorites"
@@ -603,11 +730,14 @@
 				"maps",
 				"photos",
 				"videos",
-				"places"
+				"overlays",
+				"people",
+				"places",
+				"favorites"
 			],
 			"sidebar_view_kind": {
-				"phone": "cards",
-				"tablet": "icons",
+				"phone": "lists",
+				"tablet": "lists",
 				"desktop": "lists"
 			},
 			"pan_duration": 500,
@@ -632,77 +762,13 @@
 				"Church": "/Shared/Pictures/Twemoji/Travel/Buildings/26ea.svg"
 			}
 		},
-		"extensions": [
-			"kml"
-		],
 		"maps_directory": "/Shared/Documents/Maps/"
-	},
-
-	"messenger": {
-		"name": "Messages",
-		"icon": "fa fa-comment",
-		"platform": "all",
-		"category": "social",
-		"disabled": false,
-		"hidden": false,
-		"args": false,
-		"color": "aqua",
-		"defaults": {
-			"topic": {
-				"name": "What's New",
-				"description": "This is the default topic.",
-				"required": true
-			}
-		},
-		"preferences": {
-			"default_topic": "What's New",
-			"posts_per_page": 10,
-			"posts_direction": "top_down",
-			"messages_per_page": 50,
-			"default_privacy": "connections",
-			"show_comments": false,
-			"show_options": true,
-			"show_elapsed_time": true,
-			"translation": false,
-			"language": "English",
-			"window_size": "medium",
-			"show_sidebar": true,
-			"sidebar_size": {
-				"phone": 0,
-				"tablet": 25,
-				"desktop": 25
-			},
-			"sidebar_min_size": {
-				"phone": 0,
-				"tablet": 200,
-				"desktop": 200
-			},
-			"sidebar_panels": [
-				"info",
-				"topics",
-				"chats"
-			],
-			"sidebar_info_kind": {
-				"phone": "cards",
-				"tablet": "icons",
-				"desktop": "icons"
-			},
-			"sidebar_view_kind": {
-				"phone": "cards",
-				"tablet": "icons",
-				"desktop": "lists"
-			},
-			"uploads_directory": "Uploads/",
-			"copy_attachments": true,
-			"storage_directory": "News/",
-			"messages_directory": "Chats/"
-		}
 	},
 
 	"notification_center": {
 		"name": "Notifications",
 		"icon": "fa fa-exclamation-triangle",
-		"platform": "mobile",
+		"platform": "all",
 		"category": "system",
 		"disabled": false,
 		"hidden": false,
@@ -739,13 +805,14 @@
 			"zoom_duration": 100,
 			"window_size": "medium",
 			"toolbars": [
+				"zoom_mode",
 				"zoom"
 			],
 			"show_sidebar": true,
 			"sidebar_size": {
 				"phone": 0,
-				"tablet": 25,
-				"desktop": 25
+				"tablet": 30,
+				"desktop": 30
 			},
 			"sidebar_min_size": {
 				"phone": 0,
@@ -754,56 +821,24 @@
 			},
 			"sidebar_panels": [
 				"pages"
-			]
-		}
-	},
-
-	"post_viewer": {
-		"name": "Posts",
-		"icon": "fa fa-newspaper",
-		"platform": "all",
-		"category": "social",
-		"disabled": true,
-		"hidden": true,
-		"args": false,
-		"color": "aqua",
-		"preferences": {
-			"show_comments": true,
-			"show_options": true,
-			"window_size": "medium",
-			"show_sidebar": true,
-			"sidebar_size": {
-				"phone": 0,
-				"tablet": 25,
-				"desktop": 25
-			},
-			"sidebar_min_size": {
-				"phone": 0,
-				"tablet": 175,
-				"desktop": 175
-			},
-			"sidebar_panels": [
-				"topics"
 			],
-			"sidebar_view_kind": {
-				"phone": "cards",
-				"tablet": "icons",
-				"desktop": "lists"
-			},
-			"uploads_directory": "Uploads/",
-			"storage_directory": "News/"
+			"sidebar_tile_size": {
+				"phone": "small",
+				"tablet": "medium",
+				"desktop": "large"
+			}
 		}
 	},
 
 	"profile_browser": {
 		"name": "People",
 		"icon": "fa fa-users",
-		"platform": "all",
+		"platform": "mobile",
 		"category": "social",
 		"disabled": false,
 		"hidden": false,
 		"args": true,
-		"color": "aqua",
+		"color": "blue",
 		"preferences": {
 			"view_kind": {
 				"phone": "cards",
@@ -822,8 +857,8 @@
 			"show_sidebar": true,
 			"sidebar_size": {
 				"phone": 0,
-				"tablet": 30,
-				"desktop": 30
+				"tablet": 25,
+				"desktop": 25
 			},
 			"sidebar_min_size": {
 				"phone": 0,
@@ -845,7 +880,7 @@
 		"disabled": false,
 		"hidden": false,
 		"args": false,
-		"color": "aqua",
+		"color": "blue",
 		"preferences": {
 			"open_connections_in_new_window": false,
 			"window_size": "medium",
@@ -867,8 +902,8 @@
 				"mutual_connections"
 			],
 			"sidebar_view_kind": {
-				"phone": "cards",
-				"tablet": "icons",
+				"phone": "lists",
+				"tablet": "lists",
 				"desktop": "lists"
 			},
 			"photos_view_kind": {
@@ -978,8 +1013,8 @@
 		"icon": "fa fa-clipboard",
 		"platform": "all",
 		"category": "productivity",
-		"disabled": true,
-		"hidden": true,
+		"disabled": false,
+		"hidden": false,
 		"args": true,
 		"color": "brown",
 		"preferences": {
@@ -1019,8 +1054,8 @@
 		"icon": "fa fa-check",
 		"platform": "all",
 		"category": "productivity",
-		"disabled": true,
-		"hidden": true,
+		"disabled": false,
+		"hidden": false,
 		"args": false,
 		"color": "green",
 		"defaults": {
@@ -1071,8 +1106,8 @@
 				"desktop": "icons"
 			},
 			"sidebar_view_kind": {
-				"phone": "cards",
-				"tablet": "icons",
+				"phone": "lists",
+				"tablet": "lists",
 				"desktop": "lists"
 			},
 			"uploads_directory": "Uploads/",
@@ -1081,6 +1116,42 @@
 		},
 		"project_icon_selector_path": "/Shared/Pictures",
 		"project_invitation_message": "I thought you might be interested in this!"
+	},
+
+	"search_viewer": {
+		"name": "Search",
+		"icon": "fa fa-search",
+		"platform": "all",
+		"category": "utility",
+		"disabled": false,
+		"hidden": false,
+		"args": false,
+		"color": "cyan",
+		"preferences": {
+			"search": ["index", "files", "posts"],
+			"target": "text",
+			"min_score": 50,
+			"max_results": 100,
+			"view_kind": "lists",
+			"window_size": "medium",
+			"toolbars": [
+				"nav"
+			],
+			"show_sidebar": true,
+			"sidebar_size": {
+				"phone": 0,
+				"tablet": 35,
+				"desktop": 35
+			},
+			"sidebar_min_size": {
+				"phone": 0,
+				"tablet": 225,
+				"desktop": 225
+			},
+			"sidebar_panels": [
+				"params"
+			]
+		}
 	},
 
 	"settings_browser": {
@@ -1093,7 +1164,31 @@
 		"args": false,
 		"color": "grey",
 		"preferences": {
-			"window_size": "small"
+			"view_kind": {
+				"phone": "icons",
+				"tablet": "icons",
+				"desktop": "icons"
+			},
+			"window_size": "small",
+			"show_sidebar": true,
+			"sidebar_size": {
+				"phone": 0,
+				"tablet": 35,
+				"desktop": 35
+			},
+			"sidebar_min_size": {
+				"phone": 0,
+				"tablet": 175,
+				"desktop": 175
+			},
+			"sidebar_panels": [
+				"settings"
+			],
+			"sidebar_view_kind": {
+				"phone": "icons",
+				"tablet": "icons",
+				"desktop": "icons"
+			}
 		}
 	},
 
@@ -1137,11 +1232,12 @@
 		"icon": "fa fa-terminal",
 		"platform": "all",
 		"category": "system",
-		"disabled": true,
+		"disabled": false,
 		"hidden": true,
 		"args": false,
 		"color": "green",
 		"preferences": {
+			"font_size": 13,
 			"window_size": "medium"
 		}
 	},
@@ -1152,7 +1248,7 @@
 		"platform": "all",
 		"category": "productivity",
 		"disabled": false,
-		"hidden": true,
+		"hidden": false,
 		"args": true,
 		"color": "teal",
 		"preferences": {
@@ -1208,10 +1304,10 @@
 	"theme_picker": {
 		"name": "Theme Picker",
 		"icon": "fa fa-mouse-pointer",
-		"platform": "mobile",
+		"platform": "all",
 		"category": "system",
 		"disabled": false,
-		"hidden": true,
+		"hidden": false,
 		"args": false,
 		"color": "grey",
 		"preferences": {
@@ -1241,7 +1337,16 @@
 		"disabled": false,
 		"hidden": false,
 		"args": false,
-		"color": "cyan"
+		"color": "cyan",
+		"preferences": {
+			"display": "led",
+			"show_hours": true,
+			"show_hundredths": true,
+			"direction": "down",
+			"hours": 0,
+			"minutes": 5,
+			"seconds": 0
+		}
 	},
 
 	"topic_browser": {
@@ -1252,7 +1357,7 @@
 		"disabled": false,
 		"hidden": false,
 		"args": true,
-		"color": "aqua",
+		"color": "blue",
 		"preferences": {
 			"view_kind": {
 				"phone": "cards",
@@ -1286,20 +1391,31 @@
 	},
 
 	"topic_viewer": {
-		"name": "Posts",
+		"name": "Discussions",
 		"icon": "fa fa-hashtag",
 		"platform": "all",
 		"category": "social",
-		"disabled": true,
+		"disabled": false,
 		"hidden": true,
 		"args": false,
-		"color": "aqua",
+		"color": "blue",
 		"defaults": {
 			"topic": {
 				"name": "What's New",
 				"description": "This is the default topic.",
 				"required": true
 			}
+		},
+		"features": {
+			"emoji": true,
+			"files": true,
+			"pictures": true,
+			"audio": true,
+			"music": true,
+			"video": true,
+			"maps": true,
+			"uploads": true,
+			"locations": true
 		},
 		"preferences": {
 			"default_topic": "What's New",
@@ -1328,13 +1444,13 @@
 				"topics"
 			],
 			"sidebar_view_kind": {
-				"phone": "cards",
-				"tablet": "icons",
+				"phone": "lists",
+				"tablet": "lists",
 				"desktop": "lists"
 			},
 			"uploads_directory": "Uploads/",
 			"copy_attachments": true,
-			"storage_directory": "News/"
+			"storage_directory": ".News/"
 		},
 		"topic_icon_selector_path": "/Shared/Pictures",
 		"topic_invitation_message": "I thought you might be interested in this topic!"
@@ -1345,8 +1461,8 @@
 		"icon": "fa fa-music",
 		"platform": "all",
 		"category": "multimedia",
-		"disabled": true,
-		"hidden": true,
+		"disabled": false,
+		"hidden": false,
 		"args": true,
 		"color": "magenta",
 		"preferences": {
@@ -1405,8 +1521,8 @@
 			"show_sidebar": true,
 			"sidebar_size": {
 				"phone": 0,
-				"tablet": 25,
-				"desktop": 25
+				"tablet": 30,
+				"desktop": 30
 			},
 			"sidebar_min_size": {
 				"phone": 0,
@@ -1421,23 +1537,18 @@
 				"tablet": "tiles",
 				"desktop": "tiles"
 			},
+			"sidebar_tile_size": {
+				"phone": "small",
+				"tablet": "medium",
+				"desktop": "large"
+			},
 			"show_video_info": false,
 			"info_bar_size": {
 				"phone": 50,
 				"tablet": 25,
 				"desktop": 25
 			}
-		},
-		"extensions": [
-			"avi",
-			"mp4",
-			"mov",
-			"ogg",
-			"webm",
-			"mpeg",
-			"mpg",
-			"wmv"
-		]
+		}
 	},
 
 	"web_browser": {

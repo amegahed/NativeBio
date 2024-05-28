@@ -50,12 +50,13 @@ export default ToolbarView.extend({
 	},
 
 	visible: function() {
-		let hasSelected = this.parent.app.hasSelected();
+		let isDesktop = this.app.isDesktop();
+		let hasSelected = this.app.hasSelected();
 
 		return {
-			back: true,
-			forward: true,
-			up: true,
+			back: true && !isDesktop,
+			forward: true && !isDesktop,
+			up: true && !isDesktop,
 			new: !hasSelected,
 			delete: hasSelected
 		};
@@ -137,5 +138,18 @@ export default ToolbarView.extend({
 		// set initial state
 		//
 		this.getChildView('delete').$el.addClass('hidden');
+		this.update();
+	},
+
+	//
+	// selection event handling methods
+	//
+
+	onSelect: function() {
+		this.update();
+	},
+
+	onDeselect: function() {
+		this.update();
 	}
 });

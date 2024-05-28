@@ -98,6 +98,8 @@ body.binary {
 	//
 
 	ul.nav-tabs.flush {
+		@include binary-colors.light-grey;
+
 		> li:not(.active) {
 			a {
 				@include binary-colors.white;

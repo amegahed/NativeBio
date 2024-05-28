@@ -84,7 +84,6 @@ $modal-dialog-shadow: 10px 10px 50px 10px rgba(black, 25%);
 		//
 		width: auto;
 		margin: auto;
-		width: 600px;
 		min-width: 300px;
 		min-height: 80px;
 		max-width: 100%;
@@ -260,7 +259,6 @@ $modal-dialog-shadow: 10px 10px 50px 10px rgba(black, 25%);
 		.modal-dialog {
 			.modal-footer {
 				.buttons {
-					display: inline-flex;
 					margin-top: 5px;
 					margin-bottom: 0;
 
@@ -522,11 +520,9 @@ body[device="phone"], body[device="tablet"] {
 				}
 
 				.modal-footer {
-					/*
 					.notes {
 						display: none;
 					}
-					*/
 
 					.buttons {
 						margin-bottom: 10px;

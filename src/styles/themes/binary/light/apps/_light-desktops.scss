@@ -58,15 +58,16 @@ body.binary.light {
 					}
 				}
 			}
-		}
 
-		//
-		// selection boxes
-		//
+			//
+			// selection boxes
+			//
 
-		.selection {
-			color: black;
-			@include binary-colors.darken-less-alt;
+			.selection {
+				color: black;
+				border-color: black;
+				@include binary-colors.darken-less;
+			}
 		}
 	}
 

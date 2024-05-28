@@ -37,11 +37,11 @@
 
 	<h2><i class="fa fa-desktop"></i>Screen Shots</h2>
 	<div class="figure desktop-only">
-		<a href="images/info/apps/help-viewer/help-viewer.png" target="_blank" class="lightbox" title="Help"><img class="dialog" src="images/info/apps/help-viewer/help-viewer.png" /></a>
-		<div class="caption">Help</div>
+		<a href="images/info/apps/help-viewer/help-viewer.png" target="_blank" class="lightbox" title="<%= config.apps['help_viewer'].name %>"><img class="dialog" src="images/info/apps/help-viewer/help-viewer.png" /></a>
+		<div class="caption"><%= config.apps['help_viewer'].name %></div>
 	</div>
 	<div class="figure mobile-only">
-		<a href="images/info/apps/help-viewer/mobile/mobile-help-viewer.png" target="_blank" class="lightbox" title="Help"><img src="images/info/apps/help-viewer/mobile/mobile-help-viewer.png" /></a>
-		<div class="caption">Help</div>
+		<a href="images/info/apps/help-viewer/mobile/mobile-help-viewer.png" target="_blank" class="lightbox" title="<%= config.apps['help_viewer'].name %>"><img src="images/info/apps/help-viewer/mobile/mobile-help-viewer.png" /></a>
+		<div class="caption"><%= config.apps['help_viewer'].name %></div>
 	</div>
 </div>

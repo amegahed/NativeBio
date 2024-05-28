@@ -26,7 +26,6 @@
 	.header-bar {
 		.clip-bar {
 			.toolbar {
-				display: inline-flex;
 
 				.elapsed-time {
 					min-width: 50px;
@@ -103,13 +102,6 @@
 				input[type="range"] {
 					width: 75px;
 				}
-			}
-		}
-
-		.footer-bar {
-			> div:first-child,
-			> div:last-child {
-				width: 25%;
 			}
 		}
 	}

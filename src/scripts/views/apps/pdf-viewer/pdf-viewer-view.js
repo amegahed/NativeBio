@@ -15,16 +15,20 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
+import File from '../../../models/storage/files/file.js';
+import PdfFile from '../../../models/storage/files/pdf-file.js';
 import AppSplitView from '../../../views/apps/common/app-split-view.js';
 import Findable from '../../../views/apps/common/behaviors/finding/findable.js';
-import ModelShareable from '../../../views/apps/common/behaviors/sharing/model-shareable.js';
+import ItemShareable from '../../../views/apps/common/behaviors/sharing/item-shareable.js';
+import ItemInfoShowable from '../../../views/apps/file-browser/dialogs/info/behaviors/item-info-showable.js';
 import HeaderBarView from '../../../views/apps/pdf-viewer/header-bar/header-bar-view.js';
 import SideBarView from '../../../views/apps/pdf-viewer/sidebar/sidebar-view.js';
 import PdfView from '../../../views/apps/pdf-viewer/mainbar/pdf-view.js';
 import FooterBarView from '../../../views/apps/pdf-viewer/footer-bar/footer-bar-view.js';
+import FileUtils from '../../../utilities/files/file-utils.js';
 import Browser from '../../../utilities/web/browser.js';
 
-export default AppSplitView.extend(_.extend({}, Findable, ModelShareable, {
+export default AppSplitView.extend(_.extend({}, Findable, ItemShareable, ItemInfoShowable, {
 
 	//
 	// attributes
@@ -82,6 +86,25 @@ export default AppSplitView.extend(_.extend({}, Findable, ModelShareable, {
 	getPdf: function() {
 		if (this.hasChildView('content')) {
 			return this.getChildView('content').pdf;
+		}
+	},
+
+	getFileName: function() {
+		if (this.model.isNew()) {
+
+			// new file name
+			//
+			return File.defaultName + '.txt';
+		} else {
+
+			// get file name from path
+			//
+			let path = this.model.get('path');
+			if (FileUtils.isDirectoryPath(path)) {
+				path = FileUtils.getFilePath(path);
+			}
+
+			return FileUtils.getItemBaseName(path) + '.txt';
 		}
 	},
 
@@ -230,7 +253,8 @@ export default AppSplitView.extend(_.extend({}, Findable, ModelShareable, {
 		// set page number
 		//
 		this.getChildView('content').loadPage(pageNumber);
-		this.getChildView('footer nav').setPageNumber(pageNumber);
+		this.getChildView('header page').setPageNumber(pageNumber);
+		this.getChildView('footer page').setPageNumber(pageNumber);
 
 		// set selected item in sidebar
 		//
@@ -239,6 +263,13 @@ export default AppSplitView.extend(_.extend({}, Findable, ModelShareable, {
 		// update
 		//
 		this.onChange();
+	},
+
+	setStatus: function(message) {
+		if (this.hasChildView('footer')) {
+			this.getChildView('footer status').showFileSize(message);
+			this.getChildView('footer status').showDocumentSize('');
+		}
 	},
 
 	//
@@ -264,6 +295,7 @@ export default AppSplitView.extend(_.extend({}, Findable, ModelShareable, {
 	//
 
 	loadFile: function(model, options) {
+		this.setStatus('Loading...');
 
 		// close sidebar
 		//
@@ -288,6 +320,134 @@ export default AppSplitView.extend(_.extend({}, Findable, ModelShareable, {
 		// update pdf
 		//
 		this.getChildView('content').loadFile(model, options);
+	},
+
+	//
+	// saving methods
+	//
+
+	saveNew: function(directory, filename, options) {
+
+		// create new text file
+		//
+		directory.add(new File({
+			path: (directory.get('path') || '') + filename
+		}), {
+
+			// callbacks
+			//
+			success: (model) => {
+
+				// save file
+				//
+				new PdfFile(this.model.attributes).fetchText({
+					success: (text) => {
+						model.write(text, {
+
+							// callbacks
+							//
+							success: () => {
+								this.onSave(model);
+
+								// perform callback
+								//
+								if (options && options.success) {
+									options.success();
+								}
+							},
+
+							error: (model, response) => {
+
+								// show error message
+								//
+								application.error({
+									message: "Could not save text file.",
+									response: response
+								});
+							}
+						});
+					}
+				});
+			}
+		});
+	},
+
+	saveAs: function(options) {
+		import(
+			'../../../views/apps/file-browser/dialogs/files/save-as-dialog-view.js'
+		).then((SaveAsDialogView) => {
+
+			// show save as dialog
+			//
+			application.show(new SaveAsDialogView.default({
+				model: this.getHomeDirectory(),
+
+				// options
+				//
+				filename: this.getFileName(),
+
+				// callbacks
+				//
+				save: (directory, filename) => {
+
+					// check for exiting item with name
+					//
+					if (directory.hasItemNamed(filename)) {
+
+						// show confirm
+						//
+						application.confirm({
+							title: "Overwrite File",
+							message: "A file already exists with this name.  Would you like to overwrite it?",
+
+							// callbacks
+							//
+							accept: () => {
+								let item = directory.getItemNamed(filename);
+
+								// update existing file
+								//
+								new PdfFile(this.model.attributes).fetchText({
+
+									// callbacks
+									//
+									success: (text) => {
+										item.update(text, {
+
+											// callbacks
+											//
+											success: () => {
+												this.onSave(item);
+
+												// perform callback
+												//
+												if (options && options.success) {
+													options.success();
+												}
+											}
+										});
+									}
+								});
+							}
+						});
+					} else {
+						this.saveNew(directory, filename, {
+
+							// callbacks
+							//
+							success: () => {
+
+								// perform callback
+								//
+								if (options && options.success) {
+									options.success();
+								}
+							}
+						});
+					}
+				}
+			}));
+		});
 	},
 
 	//
@@ -338,14 +498,10 @@ export default AppSplitView.extend(_.extend({}, Findable, ModelShareable, {
 		// show initial help message
 		//
 		if (!this.model) {
-			this.showMessage("Click to open a PDF file to view.", {
-				icon: '<i class="far fa-file-pdf"></i>',
-
-				// callbacks
-				//
-				onclick: () => this.showOpenDialog()
-			});
+			this.showHelpMessage();
 			this.onLoad();
+		} else {
+			this.setStatus('Loading...');
 		}
 
 		// add tooltip triggers
@@ -373,7 +529,8 @@ export default AppSplitView.extend(_.extend({}, Findable, ModelShareable, {
 			// options
 			//
 			panels: this.preferences.get('sidebar_panels'),
-			view_kind: this.preferences.get('sidebar_view_kind')
+			view_kind: this.preferences.get('sidebar_view_kind'),
+			tile_size: this.preferences.get('sidebar_tile_size')
 		});
 	},
 
@@ -400,6 +557,20 @@ export default AppSplitView.extend(_.extend({}, Findable, ModelShareable, {
 
 	getFooterBarView: function() {
 		return new FooterBarView();
+	},
+
+	//
+	// message rendering methods
+	//
+
+	showHelpMessage: function() {
+		this.showMessage("No PDF files.", {
+			icon: '<i class="far fa-file-pdf"></i>',
+
+			// callbacks
+			//
+			onclick: () => this.showOpenDialog()
+		});
 	},
 
 	//
@@ -475,10 +646,16 @@ export default AppSplitView.extend(_.extend({}, Findable, ModelShareable, {
 	//
 
 	onLoad: function() {
-		
+
 		// call superclass method
 		//
 		AppSplitView.prototype.onLoad.call(this);
+
+		// check if view still exists
+		//
+		if (this.isDestroyed()) {
+			return;
+		}
 
 		// update child views
 		//
@@ -543,7 +720,7 @@ export default AppSplitView.extend(_.extend({}, Findable, ModelShareable, {
 		// update header
 		//
 		if (this.hasChildView('header zoom')) {
-			let zoomMode = this.getChildView('header zoom').getZoomMode();
+			let zoomMode = this.getChildView('header zoom_mode').getValue();
 			if (zoomMode && zoomMode != 'actual_size') {
 
 				// update current zoom

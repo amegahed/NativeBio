@@ -15,7 +15,7 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import Directory from '../../../../../models/files/directory.js';
+import Directory from '../../../../../models/storage/directories/directory.js';
 import DialogView from '../../../../../views/dialogs/dialog-view.js';
 import FileBrowserView from '../../../../../views/apps/file-browser/file-browser-view.js';
 import AddressBarView from '../../../../../views/apps/file-browser/footer-bar/address-bar/address-bar-view.js';
@@ -49,7 +49,7 @@ export default DialogView.extend({
 					<div class="address-bar"></div>
 					
 					<div class="buttons">
-						<button class="open btn btn-primary" data-dismiss="modal" disabled>
+						<button class="open btn btn-primary" data-dismiss="modal">
 							<i class="fa fa-check"></i>Open
 						</button>
 						<button class="cancel btn" data-dismiss="modal">

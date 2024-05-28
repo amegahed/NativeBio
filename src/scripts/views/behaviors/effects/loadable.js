@@ -17,6 +17,10 @@
 
 export default {
 
+	//
+	// rendering methods
+	//
+
 	showSpinner: function(options) {
 
 		// check if spinner is already shown
@@ -42,9 +46,13 @@ export default {
 				this.timeout = null;
 			}, options.delay);
 		} else {
-			this.spinner = $('<div class="loading spinner">');
-			this.$el.append(this.spinner);
+			this.addSpinner();
 		}
+	},
+
+	addSpinner: function() {
+		this.spinner = $('<div class="loading spinner">');
+		this.$el.append(this.spinner);
 	},
 
 	hideSpinner: function() {

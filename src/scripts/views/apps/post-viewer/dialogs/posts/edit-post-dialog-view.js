@@ -69,12 +69,16 @@ export default FormDialogView.extend({
 	}),
 
 	//
-	// rendering methods
+	// setting methods
 	//
 
 	setSubmitDisabled: function(disabled) {
 		this.$el.find('.submit').prop('disabled', disabled !== false);
 	},
+
+	//
+	// rendering methods
+	//
 
 	form: function() {
 		return new PostFormView({
@@ -82,9 +86,9 @@ export default FormDialogView.extend({
 
 			// options
 			//
-			attachable: true,
-			uploadable: true,
 			submitable: false,
+			cancelable: false,
+			features: this.options.features,
 			preferences: this.options.preferences,
 
 			// callbacks

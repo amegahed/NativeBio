@@ -46,7 +46,7 @@ export default ToolbarView.extend({
 	
 	setMouseMode: function(mouseMode) {
 
-		// enable / disble buttons
+		// enable / disable buttons
 		//
 		this.setItemsEnabled(mouseMode != undefined);
 

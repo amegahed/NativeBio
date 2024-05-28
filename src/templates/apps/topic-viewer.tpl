@@ -32,7 +32,7 @@
 				<h2><i class="fa fa-star"></i>Benefits</h2>
 				<ul>
 					<li>Allows you to keep up-to-date with events in the lives of your friends.</li>
-					<li>Enables open online discussions with your friends. </p>
+					<li>Enables private discussions. </p>
 				</ul>
 			</div>
 		</div>
@@ -45,11 +45,11 @@
 	
 	<h2><i class="fa fa-desktop"></i>Screen Shots</h2>
 	<div class="figure desktop-only">
-		<a href="images/info/apps/topic-viewer/topic-viewer.png" target="_blank" class="lightbox" title="Posts"><img class="dialog" src="images/info/apps/topic-viewer/topic-viewer.png" /></a>
-		<div class="caption">Posts</div>
+		<a href="images/info/apps/topic-viewer/topic-viewer.png" target="_blank" class="lightbox" title="<%= config.apps['topic_viewer'].name %>"><img class="dialog" src="images/info/apps/topic-viewer/topic-viewer.png" /></a>
+		<div class="caption"><%= config.apps['topic_viewer'].name %></div>
 	</div>
 	<div class="figure mobile-only">
-		<a href="images/info/apps/topic-viewer/mobile/mobile-topic-viewer.png" target="_blank" class="lightbox" title="Posts"><img src="images/info/apps/topic-viewer/mobile/mobile-topic-viewer.png" /></a>
-		<div class="caption">Posts</div>
+		<a href="images/info/apps/topic-viewer/mobile/mobile-topic-viewer.png" target="_blank" class="lightbox" title="<%= config.apps['topic_viewer'].name %>"><img src="images/info/apps/topic-viewer/mobile/mobile-topic-viewer.png" /></a>
+		<div class="caption"><%= config.apps['topic_viewer'].name %></div>
 	</div>
 </div>

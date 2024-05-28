@@ -16,8 +16,7 @@
 \******************************************************************************/
 
 import UserPreferences from '../../../../../models/preferences/user-preferences.js';
-import Items from '../../../../../collections/files/items.js';
-import BaseView from '../../../../../views/base-view.js';
+import Items from '../../../../../collections/storage/items.js';
 import SideBarPanelView from '../../../../../views/apps/common/sidebar/panels/sidebar-panel-view.js';
 import FilesView from '../../../../../views/apps/file-browser/mainbar/files/files-view.js';
 
@@ -96,14 +95,11 @@ export default SideBarPanelView.extend({
 			// options
 			//
 			preferences: UserPreferences.create('file_browser', {
-				view_kind: this.options.view_kind
-			}),
-			emptyView: BaseView.extend({
-				className: 'empty',
-				template: template("No videos.")
+				view_kind: this.options.view_kind,
+				tile_size: this.options.tile_size
 			}),
 			selected: new Items([this.model]),
-			// letterboxed: true,
+			empty: "No videos.",
 
 			// capabilities
 			//

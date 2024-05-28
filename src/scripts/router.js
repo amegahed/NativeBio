@@ -75,6 +75,7 @@ export default Backbone.Router.extend({
 		// post routes
 		//
 		'posts/:id': 'showPost',
+		'gallery': 'showGallery',
 		'search': 'showSearch',
 
 		// link access routes
@@ -174,11 +175,11 @@ export default Backbone.Router.extend({
 
 			// show welcome dialog to first time users
 			//
-			if (config.welcom && application.session.user.get('is_new')) {
+			if (config.welcome && application.session.user.get('is_new')) {
 				window.setTimeout(() => {
 					this.showWelcomeDialog();
 				}, config.welcome.delay);
-			}				
+			}
 		});
 	},
 
@@ -193,7 +194,7 @@ export default Backbone.Router.extend({
 			signUp: true
 		});
 	},
-	
+
 	showWelcomeDialog: function() {
 		import(
 			'./views/welcome/dialogs/welcome-dialog-view.js'
@@ -222,7 +223,7 @@ export default Backbone.Router.extend({
 
 	showRegisterByInvitation: function(userInvitationId) {
 		Promise.all([
-			import('./models/users/account/user-invitation.js'), 
+			import('./models/users/account/user-invitation.js'),
 			import('./views/users/registration/register-by-invitation-view.js')
 		]).then(([UserInvitation, RegisterByInvitationView]) => {
 
@@ -249,7 +250,7 @@ export default Backbone.Router.extend({
 					//
 					this.showNotFound({
 						message: "User invitation not found " + userInvitationId,
-						response: response				
+						response: response
 					});
 				}
 			});
@@ -258,7 +259,7 @@ export default Backbone.Router.extend({
 
 	showVerifyEmail: function(id) {
 		Promise.all([
-			import('./models/users/account/email-verification.js'), 
+			import('./models/users/account/email-verification.js'),
 			import('./views/users/registration/email/verify-email-view.js')
 		]).then(([EmailVerification, VerifyEmailView]) => {
 
@@ -285,7 +286,7 @@ export default Backbone.Router.extend({
 					//
 					this.showNotFound({
 						message: "Email verification not found.  We could not verify this user.",
-						response: response				
+						response: response
 					});
 				}
 			});
@@ -294,7 +295,7 @@ export default Backbone.Router.extend({
 
 	showVerifyEmailChange: function(id) {
 		Promise.all([
-			import('./models/users/account/email-verification.js'), 
+			import('./models/users/account/email-verification.js'),
 			import('./views/users/registration/email/verify-email-changed-view.js')
 		]).then(([EmailVerification, VerifyEmailChangedView]) => {
 
@@ -321,7 +322,7 @@ export default Backbone.Router.extend({
 					//
 					this.showNotFound({
 						message: "Email verification not found.  We could not verify this email change.",
-						response: response				
+						response: response
 					});
 				}
 			});
@@ -397,8 +398,8 @@ export default Backbone.Router.extend({
 
 	showResetPassword: function(id, passwordResetNonce) {
 		Promise.all([
-			import('./models/users/account/password-reset.js'), 
-			import('./views/users/authentication/reset-password/reset-password-view.js'), 
+			import('./models/users/account/password-reset.js'),
+			import('./views/users/authentication/reset-password/reset-password-view.js'),
 			import('./views/users/authentication/reset-password/invalid-reset-password-view.js')
 		]).then(([PasswordReset, ResetPasswordView, InvalidResetPasswordView]) => {
 
@@ -440,8 +441,8 @@ export default Backbone.Router.extend({
 		//
 		this.fetchUserByUsername(username, (user) => {
 			Promise.all([
-				import('./models/preferences/user-preferences.js'), 
-				import('./views/apps/profile-viewer/mainbar/user-info-view.js'), 
+				import('./models/preferences/user-preferences.js'),
+				import('./views/apps/profile-viewer/mainbar/user-info-view.js'),
 				import('./utilities/web/address-bar.js')
 			]).then(([UserPreferences, UserInfoView, AddressBar]) => {
 
@@ -456,7 +457,7 @@ export default Backbone.Router.extend({
 					tab: tab,
 					editable: false,
 					public: true,
-					preferences: UserPreferences.default.create('profile_viewer'), 
+					preferences: UserPreferences.default.create('profile_viewer'),
 
 					// callbacks
 					//
@@ -475,22 +476,6 @@ export default Backbone.Router.extend({
 				// load user's system settings
 				//
 				application.loadUserSettings(user);
-
-				// load user's desktop settings
-				//
-				/*
-				new DesktopSettings.default().fetchByUser(user, {
-
-					// callbacks
-					//
-					success: (settings) => {
-
-						// apply desktop settings to page view
-						//
-						settings.apply(application.getChildView('body').getChildView('main'));
-					}
-				});
-				*/
 			});
 		});
 	},
@@ -501,7 +486,7 @@ export default Backbone.Router.extend({
 
 	showPost: function(id) {
 		import(
-			'./views/apps/post-viewer/info/post-info-view.js'
+			'./views/apps/post-viewer/mainbar/post-info-view.js'
 		).then((PostInfoView) => {
 			this.fetchPost(id, (post) => {
 
@@ -514,17 +499,29 @@ export default Backbone.Router.extend({
 		});
 	},
 
+	showGallery: function() {
+		import(
+			'./views/apps/post-viewer/mainbar/post-gallery-view.js'
+		).then((PostGalleryView) => {
+
+			// show post gallery page
+			//
+			application.showPage(new PostGalleryView.default(), {
+				nav: 'gallery'
+			});
+		});
+	},
+
 	showSearch: function() {
 		Promise.all([
-			import('./views/layout/search-view.js'), 
-			import('./utilities/web/query-string.js')
-		]).then(([SearchView, QueryString]) => {
+			import('./views/apps/search-viewer/mainbar/results/search-page-view.js'),
+		]).then(([SearchPageView]) => {
 
 			// show search page
 			//
-			application.showPage(new SearchView.default({
-				search: QueryString.default.getParam('query')
-			}));
+			application.showPage(new SearchPageView.default(), {
+				nav: 'search'
+			});
 		});
 	},
 
@@ -535,7 +532,7 @@ export default Backbone.Router.extend({
 	showLink: function(id, queryString) {
 		let query = queryString;
 		Promise.all([
-			import('./models/files/sharing/link.js'),
+			import('./models/storage/sharing/link.js'),
 			import('./utilities/web/query-string.js')
 		]).then(([Link, QueryString]) => {
 
@@ -648,18 +645,18 @@ export default Backbone.Router.extend({
 		import(
 			'./utilities/web/query-string.js'
 		).then((QueryString) => {
-			if (QueryString.default.hasParam('file')) {
+			if (QueryString.default.has('file')) {
 
 				// show file downloaded page
 				//
-				this.showFileDownloaded(QueryString.default.getParam('file', {
+				this.showFileDownloaded(QueryString.default.value('file', {
 					queryString: queryString
 				}));
-			} else if (QueryString.default.hasParam('folder')) {
+			} else if (QueryString.default.has('folder')) {
 
 				// show folder downloaded page
 				//
-				this.showFolderDownloaded(QueryString.default.getParam('folder', {
+				this.showFolderDownloaded(QueryString.default.value('folder', {
 					queryString: queryString
 				}));
 			}
@@ -690,9 +687,9 @@ export default Backbone.Router.extend({
 
 	showLinkTarget: function(link, options) {
 		Promise.all([
-			import('./models/files/file.js'), 
-			import('./models/files/directory.js'), 
-			import('./models/files/volume.js'),
+			import('./models/storage/files/file.js'),
+			import('./models/storage/directories/directory.js'),
+			import('./models/storage/directories/volume.js'),
 		]).then(([File, Directory, Volume]) => {
 			let target = link.get('target');
 
@@ -775,6 +772,19 @@ export default Backbone.Router.extend({
 			// show gallery link page
 			//
 			application.showPage(new GalleryLinkView.default({
+				model: link
+			}), options);
+		});
+	},
+
+	showAlbumLink: function(link, options) {
+		import(
+			'./views/apps/file-browser/sharing/links/album-link-view.js'
+		).then((AlbumLinkView) => {
+
+			// show album link page
+			//
+			application.showPage(new AlbumLinkView.default({
 				model: link
 			}), options);
 		});

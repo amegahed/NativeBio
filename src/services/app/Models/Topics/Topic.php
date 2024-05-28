@@ -13,7 +13,7 @@
 |        'LICENSE.txt', which is part of this source code distribution.        |
 |                                                                              |
 |******************************************************************************|
-|            Copyright (C) 2016-2020, Sharedigm, www.sharedigm.com             |
+|            Copyright (C) 2016-2024, Sharedigm, www.sharedigm.com             |
 \******************************************************************************/
 
 namespace App\Models\Topics;
@@ -27,6 +27,10 @@ use App\Utilities\Uuids\Guid;
 
 class Topic extends TimeStamped
 {
+	/**
+	 * The traits that are inherited.
+	 *
+	 */
 	use UserOwned;
 
 	//

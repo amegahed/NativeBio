@@ -15,8 +15,8 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import Directory from '../../../../../models/files/directory.js';
-import VideoFile from '../../../../../models/files/video-file.js';
+import Directory from '../../../../../models/storage/directories/directory.js';
+import VideoFile from '../../../../../models/storage/media/video-file.js';
 import OpenItemsDialogView from '../../../../../views/apps/file-browser/dialogs/files/open-items-dialog-view.js';
 
 export default OpenItemsDialogView.extend({

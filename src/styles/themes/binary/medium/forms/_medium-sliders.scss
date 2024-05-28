@@ -85,7 +85,7 @@ body.binary {
 			margin-top: -6px;
 			
 			&:hover {
-				@include binary-colors.grey();
+				@include binary-colors.grey;
 			}
 
 			&:active {
@@ -107,7 +107,7 @@ body.binary {
 		&::-ms-thumb {
 			border-style: solid;
 			border-color: unset;
-			@include binary-colors.grey();
+			@include binary-colors.grey;
 
 			&:hover {
 				background-color: black;

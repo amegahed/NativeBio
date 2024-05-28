@@ -69,6 +69,16 @@ export default LinkView.extend({
 		return application.settings.associations.get(extension);
 	},
 
+	getTheme: function() {
+		if (this.parent.options && this.parent.options.theme) {
+			return this.parent.options.theme;
+		} else if ($('body').hasClass('dark')) {
+			return 'dark';
+		} else if ($('body').hasClass('light')) {
+			return 'light';
+		}
+	},
+
 	//
 	// downloading methods
 	//
@@ -120,11 +130,12 @@ export default LinkView.extend({
 
 		application.loadAppView(appName, (AppView) => {
 			let queryString = '';
+			let theme = this.getTheme();
 
 			// set theme of iframe
 			//
-			if (this.parent.options && this.parent.options.theme) {
-				queryString = '?theme=' + this.parent.options.theme;
+			if (theme) {
+				queryString = '?theme=' + theme;
 			}
 
 			// show app inline
